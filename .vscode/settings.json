@@ -1,0 +1,15 @@
+{
+    "Lua.diagnostics.globals": [
+        "edit_component",
+        "ACTION_TYPE_MODIFIER",
+        "draw_actions",
+        "c",
+        "actions",
+        "get_random_between_range",
+        "AddGunActionPermanent",
+        "AddGunAction",
+        "action_count",
+        "gun_action",
+        "edit_component2"
+    ]
+}

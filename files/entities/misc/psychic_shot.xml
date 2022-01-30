@@ -1,0 +1,36 @@
+<Entity >
+	
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/psychic_shot.lua"
+		execute_every_n_frame="1"
+        
+	></LuaComponent>
+
+	<ParticleEmitterComponent 
+		emitted_material_name="spark_player"
+		offset.x="0"
+		offset.y="0"
+		gravity.y="1.60"
+		x_pos_offset_min="0"
+		y_pos_offset_min="0"
+		x_pos_offset_max="0"
+		y_pos_offset_max="0"
+		x_vel_min="-5"
+		x_vel_max="5"
+		y_vel_min="-10"
+		y_vel_max="15"
+		count_min="15"
+		count_max="15"
+		is_trail="1"
+		lifetime_min="0.1"
+		lifetime_max="0.2"
+		create_real_particles="0"
+		emit_cosmetic_particles="1"
+		emission_interval_min_frames="2"
+		emission_interval_max_frames="3"
+		is_emitting="1"
+		fade_based_on_lifetime="1"
+		>
+	</ParticleEmitterComponent>
+
+</Entity>
