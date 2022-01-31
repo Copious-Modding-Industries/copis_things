@@ -17,7 +17,14 @@ end
 ]]--
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
 	GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
+	EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/tachamis/tachamis.xml", 60, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/frostburn/frostburn.xml", 80, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/hellfire/hellfire.xml", 100, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/energy_blaster/energy_blaster.xml", 120, 0)
 end
+
 
 
 --[[
@@ -34,25 +41,15 @@ end
 function OnWorldPostUpdate() -- This is called every time the game has finished updating the world
 	GamePrint( "Post-update hook " .. tostring(GameGetFrameNum()) )
 end
-]]--
 
 
 function OnMagicNumbersAndWorldSeedInitialized() -- this is the last point where the Mod* API is available. after this materials.xml will be loaded.
 	local x = ProceduralRandom(0,0)
 	print( "===================================== random " .. tostring(x) )
 
-
-	EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/tachamis/tachamis.xml", 60, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/frostburn/frostburn.xml", 80, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/hellfire/hellfire.xml", 100, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/energy_blaster/energy_blaster.xml", 120, 0)
-
-	
-
 end
 
+]]--
 
 -- This code runs when all mods' filesystems are registered
 
