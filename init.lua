@@ -18,10 +18,14 @@ end
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
 	GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
 end
+
+
 --[[
+
+
 function OnWorldInitialized() -- This is called once the game world is initialized. Doesn't ensure any world chunks actually exist. Use OnPlayerSpawned to ensure the chunks around player have been loaded or created.
-	GamePrint( "OnWorldInitialized() " .. tostring(GameGetFrameNum()) )
 end
+
 
 function OnWorldPreUpdate() -- This is called every time the game is about to start updating the world
 	GamePrint( "Pre-update hook " .. tostring(GameGetFrameNum()) )
@@ -36,6 +40,17 @@ end
 function OnMagicNumbersAndWorldSeedInitialized() -- this is the last point where the Mod* API is available. after this materials.xml will be loaded.
 	local x = ProceduralRandom(0,0)
 	print( "===================================== random " .. tostring(x) )
+
+
+	EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/tachamis/tachamis.xml", 60, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/frostburn/frostburn.xml", 80, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/hellfire/hellfire.xml", 100, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/energy_blaster/energy_blaster.xml", 120, 0)
+
+	
+
 end
 
 
@@ -53,13 +68,6 @@ ModLuaFileAppend( "data/scripts/items/potion.lua", "mods/example/files/potion_ap
 
 
 
-
-EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, 0)
-EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, 0)
-EntityLoad("mods/copis_things/files/entities/special_wands/tachamis/tachamis.xml", 60, 0)
-EntityLoad("mods/copis_things/files/entities/special_wands/frostburn/frostburn.xml", 80, 0)
-EntityLoad("mods/copis_things/files/entities/special_wands/hellfire/hellfire.xml", 100, 0)
-EntityLoad("mods/copis_things/files/entities/special_wands/energy_blaster/energy_blaster.xml", 120, 0)
 
 
 --print("Example mod init done")
