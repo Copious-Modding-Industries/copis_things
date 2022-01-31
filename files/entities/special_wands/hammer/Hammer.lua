@@ -43,8 +43,6 @@ ComponentSetValue( ability_comp, "mana", mana_max )
 
 AddGunActionPermanent( entity_id, "POWERDIGGER" )
 
-for i=1,action_count do
-	AddGunAction( entity_id, gun_action )
-end
+
 
 EntityRemoveComponent(entity_id, inherit_comp)
