@@ -12,6 +12,8 @@
         "gun_action",
         "edit_component2",
         "x",
-        "y"
+        "y",
+        "ACTION_TYPE_PROJECTILE",
+        "add_projectile"
     ]
 }
