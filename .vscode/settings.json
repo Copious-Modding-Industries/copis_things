@@ -10,6 +10,8 @@
         "AddGunAction",
         "action_count",
         "gun_action",
-        "edit_component2"
+        "edit_component2",
+        "x",
+        "y"
     ]
 }

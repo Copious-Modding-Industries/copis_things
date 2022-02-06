@@ -17,12 +17,13 @@ end
 ]]--
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
 	GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
-	EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/tachamis/tachamis.xml", 60, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/frostburn/frostburn.xml", 80, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/hellfire/hellfire.xml", 100, 0)
-	EntityLoad("mods/copis_things/files/entities/special_wands/energy_blaster/energy_blaster.xml", 120, 0)
+	EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, -40)
+	EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, -40)
+	EntityLoad("mods/copis_things/files/entities/special_wands/tachamis/tachamis.xml", 60, -40)
+	EntityLoad("mods/copis_things/files/entities/special_wands/frostburn/frostburn.xml", 80, -40)
+	EntityLoad("mods/copis_things/files/entities/special_wands/hellfire/hellfire.xml", 100, -40)
+	EntityLoad("mods/copis_things/files/entities/special_wands/energy_blaster/energy_blaster.xml", 120, -40)
+	EntityLoad("mods/copis_things/files/entities/special_wands/viper/viper.xml", 140, -40)
 end
 
 
