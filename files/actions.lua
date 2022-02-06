@@ -1,5 +1,5 @@
-table.insert(actions,
-  {
+	table.insert(actions,
+	{
 	id          		= "copis_things_PSYCHIC_SHOT",
 	name 				= "Psychic shot",
 	description 		= "Causes the projectile to be controlled telekinetically",
@@ -12,5 +12,5 @@ table.insert(actions,
     action 		= function()
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/psychic_shot.xml,"
 			draw_actions( 1, true )
-		end,
+		end
 	})

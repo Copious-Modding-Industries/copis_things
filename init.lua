@@ -1,5 +1,5 @@
 -- all functions below are optional and can be left out
-
+ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
 
 --[[
 
@@ -54,7 +54,7 @@ end
 -- This code runs when all mods' filesystems are registered
 
 
-ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
+
 
 
 ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "mods/example/files/actions.lua" ) -- Basically dofile("mods/example/files/actions.lua") will appear at the end of gun_actions.lua
