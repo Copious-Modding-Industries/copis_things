@@ -1,0 +1,19 @@
+<Sprite
+ filename="mods/copis_things/files/sprites/projectiles/twisted_throw.png"
+ offset_x="19"
+ offset_y="19"
+ default_animation="fireball" >
+
+ <!-- animation -->
+ <RectAnimation
+  name="fireball"
+  pos_x="0"
+  pos_y="0"
+  frame_count="16"
+  frame_width="38"
+  frame_height="38"
+  frame_wait="0.02"
+  frames_per_row="16"
+  loop="1"   >
+ </RectAnimation>
+</Sprite>

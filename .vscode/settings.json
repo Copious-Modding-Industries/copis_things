@@ -14,6 +14,8 @@
         "x",
         "y",
         "ACTION_TYPE_PROJECTILE",
-        "add_projectile"
+        "add_projectile",
+        "shot_effects",
+        "shoot_projectile"
     ]
 }
