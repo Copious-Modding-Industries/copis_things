@@ -31,6 +31,7 @@ function OnPlayerSpawned( player_entity ) -- This runs when player entity has be
 	EntityLoad("mods/copis_things/files/entities/special_wands/twisted/twisted.xml", 200, -80)
 	EntityLoad("mods/copis_things/files/entities/special_wands/tome_edgy/tome_edgy.xml", 220, -80)
 	EntityLoad("mods/copis_things/files/entities/special_wands/luminous_saber/luminous_saber.xml", 240, -80)
+	EntityLoad("mods/copis_things/files/entities/special_wands/dark_sunsaber/dark_sunsaber.xml", 260, -80)
 end
 
 

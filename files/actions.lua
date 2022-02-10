@@ -96,13 +96,12 @@
 
 
 	table.insert(actions,
-{
+	{
     id          = "BLOODTENTACLE",
     name 		= "$action_bloodtentacle",
     description = "$actiondesc_bloodtentacle",
     spawn_requires_flag = "card_unlocked_pyramid",
     sprite 		= "data/ui_gfx/gun_actions/bloodtentacle.png",
-    sprite_unidentified = "data/ui_gfx/gun_actions/tentacle_unidentified.png",
     related_projectiles	= {"data/entities/projectiles/deck/bloodtentacle.xml"},
     type 		= ACTION_TYPE_PROJECTILE,
     spawn_level                       = "3,4,5,6", -- TENTACLE
@@ -114,4 +113,25 @@
         add_projectile("data/entities/projectiles/deck/bloodtentacle.xml")
         c.fire_rate_wait = c.fire_rate_wait + 20
     end,
-})
+	})
+
+
+	table.insert(actions,
+	{
+	id          = "COPIS_THINGS_SUNSABER_DARK",
+	name 		= "Dark Sunsaber",
+	description = "A blade forged from the dark sun",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/sunsaber_dark.png",
+	related_projectiles	= {"mods/copis_things/files/entities/projectiles/sunsaber_dark.xml"},
+	type 		= ACTION_TYPE_PROJECTILE,
+	spawn_level                       = "0,0",
+	spawn_probability                 = "0,0",
+	price = 150,
+	mana = 10,
+	sound_loop_tag = "sound_digger",
+	action 		= function()
+		add_projectile("mods/copis_things/files/entities/projectiles/sunsaber_dark.xml")
+		c.fire_rate_wait = c.fire_rate_wait - 35
+		current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10
+	end,
+	})

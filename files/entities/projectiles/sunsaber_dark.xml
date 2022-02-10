@@ -1,0 +1,141 @@
+<Entity name="$projectile_default" tags="projectile_player" >
+
+	<Base file="data/entities/base_projectile.xml" >
+		<VelocityComponent
+			mass="1.65"
+			>
+		</VelocityComponent>
+	</Base>
+
+  <ProjectileComponent 
+    _enabled="1" 
+    lob_min="0.8"
+    lob_max="1.0"
+    speed_min="2800"
+    speed_max="2800"
+    friction="0.0"
+    direction_random_rad="0"
+    on_death_explode="0"
+    on_death_gfx_leave_sprite="0" 
+    on_lifetime_out_explode="0"
+    ground_collision_fx="1"
+    on_collision_die="1"
+    lifetime="2"
+    damage="0.5"
+    velocity_sets_scale="0"
+    lifetime_randomness="0"
+    ragdoll_force_multiplier="0.01"
+    hit_particle_force_multiplier="0.25"
+	ground_penetration_coeff="8"
+	ground_penetration_max_durability_to_destroy="28"
+    >
+  </ProjectileComponent>
+  
+  <ParticleEmitterComponent 
+    emitted_material_name="rainbow_gas"
+		gravity.y="0"
+    count_min="20"
+    count_max="20"
+    offset.x="0"
+    offset.y="0"
+    lifetime_min="0.04"
+    lifetime_max="0.04"
+		x_vel_min="-5"
+		x_vel_max="5"
+		y_vel_min="-10"
+		y_vel_max="15"
+    create_real_particles="0"
+    emit_cosmetic_particles="1"
+    emission_interval_min_frames="1"
+    emission_interval_max_frames="1"
+		count_min="1"
+		count_max="3"
+	is_trail="1"
+    is_emitting="1" >
+  </ParticleEmitterComponent>
+  
+  <ParticleEmitterComponent 
+    emitted_material_name="rainbow_gas"
+		gravity.y="0"
+    count_min="20"
+    count_max="20"
+    offset.x="16"
+    offset.y="0"
+    lifetime_min="0.04"
+    lifetime_max="0.04"
+		x_vel_min="-5"
+		x_vel_max="5"
+		y_vel_min="-10"
+		y_vel_max="15"
+    create_real_particles="0"
+    emit_cosmetic_particles="1"
+    emission_interval_min_frames="1"
+    emission_interval_max_frames="1"
+		count_min="1"
+		count_max="3"
+	is_trail="1"
+    is_emitting="1" >
+  </ParticleEmitterComponent>
+  
+  <ParticleEmitterComponent 
+    emitted_material_name="rainbow_gas"
+		gravity.y="0"
+    count_min="10"
+    count_max="20"
+    offset.x="0"
+    offset.y="0"
+    lifetime_min="0.30"
+    lifetime_max="0.64"
+		x_vel_min="-5"
+		x_vel_max="5"
+		y_vel_min="-10"
+		y_vel_max="15"
+    create_real_particles="0"
+    emit_cosmetic_particles="1"
+    emission_interval_min_frames="1"
+    emission_interval_max_frames="1"
+		count_min="1"
+		count_max="3"
+	fade_based_on_lifetime="1"
+	draw_as_long="1"
+	is_trail="1"
+    is_emitting="1" >
+  </ParticleEmitterComponent>
+  
+  <ParticleEmitterComponent 
+    emitted_material_name="rainbow_gas"
+		gravity.y="0"
+    count_min="10"
+    count_max="20"
+    offset.x="12"
+    offset.y="0"
+    lifetime_min="0.32"
+    lifetime_max="0.64"
+		x_vel_min="-5"
+		x_vel_max="5"
+		y_vel_min="-10"
+		y_vel_max="15"
+    create_real_particles="0"
+    emit_cosmetic_particles="1"
+    emission_interval_min_frames="1"
+    emission_interval_max_frames="1"
+		count_min="1"
+		count_max="3"
+	fade_based_on_lifetime="1"
+	draw_as_long="1"
+	is_trail="1"
+    is_emitting="1" >
+  </ParticleEmitterComponent>
+  
+  <AudioComponent
+      file="data/audio/Desktop/projectiles.bank"
+      event_root="player_projectiles/luminous_drill">
+  </AudioComponent>
+  
+    <VariableStorageComponent
+		name="projectile_file"
+		value_string="mods/copis_things/files/projectiles/sunsaber_dark.xml"
+		>
+	</VariableStorageComponent>
+</Entity>
+

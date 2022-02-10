@@ -6,6 +6,6 @@ local entity_id = GetUpdatedEntityID()
 
 local inherit_comp = EntityGetFirstComponent( entity_id, "InheritTransformComponent" )
 
-AddGunActionPermanent( entity_id, "LUMINOUS_DRILL" )
+AddGunActionPermanent( entity_id, "COPIS_THINGS_SUNSABER_DARK" )
 
 EntityRemoveComponent(entity_id, inherit_comp)
