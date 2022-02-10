@@ -19,19 +19,27 @@ end
 
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
 	GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
-	EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/tachamis/tachamis.xml", 60, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/frostburn/frostburn.xml", 80, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/hellfire/hellfire.xml", 100, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/energy_blaster/energy_blaster.xml", 120, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/viper/viper.xml", 140, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/twig/twig.xml", 160, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/lonk_sword/lonk_sword.xml", 180, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/twisted/twisted.xml", 200, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/tome_edgy/tome_edgy.xml", 220, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/luminous_saber/luminous_saber.xml", 240, -80)
-	EntityLoad("mods/copis_things/files/entities/special_wands/dark_sunsaber/dark_sunsaber.xml", 260, -80)
+	EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, -100)
+	EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, -100)
+	EntityLoad("mods/copis_things/files/entities/special_wands/tachamis/tachamis.xml", 60, -100)
+	EntityLoad("mods/copis_things/files/entities/special_wands/frostburn/frostburn.xml", 80, -100)
+	EntityLoad("mods/copis_things/files/entities/special_wands/hellfire/hellfire.xml", 100, -100)
+	EntityLoad("mods/copis_things/files/entities/special_wands/energy_blaster/energy_blaster.xml", 120, -100)
+	EntityLoad("mods/copis_things/files/entities/special_wands/viper/viper.xml", 140, -100)
+	EntityLoad("mods/copis_things/files/entities/special_wands/twig/twig.xml", 160, -100)
+	EntityLoad("mods/copis_things/files/entities/special_wands/lonk_sword/lonk_sword.xml", 180, -100)
+
+	EntityLoad("mods/copis_things/files/entities/special_wands/twisted/twisted.xml", 20, -120)
+	EntityLoad("mods/copis_things/files/entities/special_wands/tome_edgy/tome_edgy.xml", 40, -120)
+	EntityLoad("mods/copis_things/files/entities/special_wands/tome_decay/tome_decay.xml", 60, -120)
+	EntityLoad("mods/copis_things/files/entities/special_wands/tome_blank/tome_blank.xml", 80, -120)
+
+	EntityLoad("mods/copis_things/files/entities/special_wands/luminous_saber/luminous_saber.xml", 20, -140)
+	EntityLoad("mods/copis_things/files/entities/special_wands/dark_sunsaber/dark_sunsaber.xml", 40, -140)
+
+	EntityLoad("mods/copis_things/files/entities/special_wands/essence/Charybdis/Charybdis.xml", 20, -160)
+	EntityLoad("mods/copis_things/files/entities/special_wands/essence/Igneous/Igneous.xml", 40, -160)
+	EntityLoad("mods/copis_things/files/entities/special_wands/essence/Drunkard/Drunkard.xml", 60, -160)
 end
 
 
