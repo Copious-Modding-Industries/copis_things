@@ -16,6 +16,8 @@
         "ACTION_TYPE_PROJECTILE",
         "add_projectile",
         "shot_effects",
-        "shoot_projectile"
+        "shoot_projectile",
+        "ACTION_DRAW_RELOAD_TIME_INCREASE",
+        "current_reload_time"
     ]
 }

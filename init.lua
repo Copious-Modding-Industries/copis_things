@@ -40,9 +40,16 @@ function OnPlayerSpawned( player_entity ) -- This runs when player entity has be
 	EntityLoad("mods/copis_things/files/entities/special_wands/essence/Charybdis/Charybdis.xml", 20, -160)
 	EntityLoad("mods/copis_things/files/entities/special_wands/essence/Igneous/Igneous.xml", 40, -160)
 	EntityLoad("mods/copis_things/files/entities/special_wands/essence/Drunkard/Drunkard.xml", 60, -160)
+
+	EntityLoad("mods/copis_things/files/entities/items/books/book_hint_sword/book_hint_sword.xml", 20, -170)
+	EntityLoad("mods/copis_things/files/entities/items/books/book_hint_starter/book_hint_starter.xml", 40, -170)
 end
 
-
+local content = ModTextFileGetContent("data/translations/common.csv")
+ModTextFileSetContent("data/translations/common.csv", content .. [[
+book_hint_starter_description,A witch is one gifted with a power like no other. \nIt can be used for good, or evil, \nyet magic has no affiliation of it's own. \nWether you use it to bring \ncalamity to a world or restore peace, \nthat is up to you, gifted one.,,,,,,,,,,,,,
+forge_perk_FORGE_ALCHEMISTERY,Alechemistery,,,,,,,,,,,,,
+]])
 
 --[[
 

@@ -1,3 +1,5 @@
+
+	-- PSYCHIC SHOT
 	table.insert(actions,
 	{
 	id          		= "COPIS_THINGS_PSYCHIC_SHOT",
@@ -14,6 +16,8 @@
 			draw_actions( 1, true )
 		end
 	})
+
+	-- STAB
 	table.insert(actions,
 	{
 	id                 = "COPIS_THINGS_STAB",
@@ -35,6 +39,7 @@
 		end,
 	})
 
+	-- SWORD THROW
 	table.insert(actions,
 	{
 	id                 = "COPIS_THINGS_TWISTED_SWORD_THROW",
@@ -58,6 +63,7 @@
 		end,
 	})
 
+	-- LUNGE
 	table.insert(actions,
 	{
 		id          = "COPIS_THINGS_LUNGE",
@@ -76,6 +82,7 @@
 		end,
 	})
 
+	--[[
 	table.insert(actions,
 	{
 		id          = "COPIS_THINGS_SHADOWTENTACLE",
@@ -93,8 +100,10 @@
 			c.fire_rate_wait = c.fire_rate_wait + 5
 		end
 	})
+	]]--
 
 
+	-- BLOOD TENTACLE
 	table.insert(actions,
 	{
     id          = "BLOODTENTACLE",
