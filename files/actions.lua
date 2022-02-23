@@ -70,16 +70,17 @@
 		name 		= "Lunge",
 		description = "Launch yourself forwards with a burst of speed",
 		sprite 		= "mods/copis_things/files/sprites/spell_gui/lunge.png",
-		type 		= ACTION_TYPE_MODIFIER,
+		type 		= ACTION_TYPE_UTILITY,
 		spawn_level = "2,4",
 		spawn_probability = "0.6,0.6",
 		price = 100,
 		mana = 5,
 		action 		= function()
-			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 200.0
-			draw_actions( 1, true )
-		end,
+			local chardata = EntityGetFirstComponentIncludingDisabled( entity, "CharacterDataComponent")
+			local vel_x, vel_y = ComponentGetValue2(chardata, "mVelocity")
+		end
 	})
+
 
 	--[[
 	table.insert(actions,
