@@ -69,8 +69,7 @@
 		id          = "COPIS_THINGS_LUNGE",
 		name 		= "Lunge",
 		description = "Launch yourself forwards with a burst of speed",
-		sprite 		= "data/ui_gfx/gun_actions/recoil.png",
-		sprite_unidentified = "data/ui_gfx/gun_actions/recoil_unidentified.png",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/lunge.png",
 		type 		= ACTION_TYPE_MODIFIER,
 		spawn_level = "2,4",
 		spawn_probability = "0.6,0.6",
@@ -136,7 +135,7 @@
 	spawn_level                       = "0,0",
 	spawn_probability                 = "0,0",
 	price = 150,
-	mana = 10,
+	mana = 0,
 	sound_loop_tag = "sound_digger",
 	action 		= function()
 		add_projectile("mods/copis_things/files/entities/projectiles/sunsaber_dark.xml")
