@@ -20,7 +20,7 @@ end
 ]]--
 
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
-	if GameHasFlagRun("copis_items_spawned") then
+	if GameHasFlagRun("copis_items_spawned") == false then
 		GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
 		EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, -100)
 		EntityLoad("mods/copis_things/files/entities/special_wands/earthworm/earthworm.xml", 40, -100)
@@ -47,6 +47,7 @@ function OnPlayerSpawned( player_entity ) -- This runs when player entity has be
 	
 		EntityLoad("mods/copis_things/files/entities/items/books/book_hint_sword/book_hint_sword.xml", 20, -170)
 		EntityLoad("mods/copis_things/files/entities/items/books/book_hint_starter/book_hint_starter.xml", 40, -170)
+		
 		GameAddFlagRun("copis_items_spawned")
 	end
 end
