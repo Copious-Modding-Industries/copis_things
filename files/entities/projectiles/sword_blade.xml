@@ -25,7 +25,7 @@
 		aabb_min.y="-6" 
 		aabb_max.x="15" 
 		aabb_max.y="6" 
-		damage_per_frame="0.1"
+		damage_per_frame="0.05"
 		update_every_n_frame="1"
 		entities_with_tag="enemy"
 		damage_type="DAMAGE_SLICE"
