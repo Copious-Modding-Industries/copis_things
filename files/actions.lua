@@ -75,10 +75,14 @@
 		spawn_probability = "0.6,0.6",
 		price = 100,
 		mana = 5,
-		action 		= function()
-			local chardata = EntityGetFirstComponentIncludingDisabled( entity, "CharacterDataComponent")
-			local vel_x, vel_y = ComponentGetValue2(chardata, "mVelocity")
-		end
+		action = function()
+			local player = EntityGetWithTag( "player_unit" )[1]
+			local component = EntityGetFirstComponent(player, "CharacterDataComponent")
+			local pos_x, pos_y = EntityGetTransform( player )
+			local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(player, "ControlsComponent"), "mMousePosition")
+			EntitySetTransform(player, pos_x, pos_y - 3)
+			ComponentSetValue2( component, "mVelocity",  (mouse_x - pos_x) * 4, (mouse_y - pos_y) * 2)
+		end,
 	})
 
 
