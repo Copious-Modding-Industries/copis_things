@@ -31,6 +31,7 @@ function OnPlayerSpawned( player_entity ) -- This runs when player entity has be
 		EntityLoad("mods/copis_things/files/entities/special_wands/viper/viper.xml", 140, -100)
 		EntityLoad("mods/copis_things/files/entities/special_wands/twig/twig.xml", 160, -100)
 		EntityLoad("mods/copis_things/files/entities/special_wands/lonk_sword/lonk_sword.xml", 180, -100)
+		EntityLoad("mods/copis_things/files/entities/special_wands/rapier/rapier.xml", 200, -100)
 	
 		EntityLoad("mods/copis_things/files/entities/special_wands/twisted/twisted.xml", 20, -120)
 		EntityLoad("mods/copis_things/files/entities/special_wands/tome_edgy/tome_edgy.xml", 40, -120)
@@ -54,8 +55,7 @@ end
 
 local content = ModTextFileGetContent("data/translations/common.csv")
 ModTextFileSetContent("data/translations/common.csv", content .. [[
-book_hint_starter_description,A witch is one gifted with a power like no other. \nIt can be used for good, or evil, \nyet magic has no affiliation of it's own. \nWether you use it to bring \ncalamity to a world or restore peace, \nthat is up to you, gifted one.,,,,,,,,,,,,,
-forge_perk_FORGE_ALCHEMISTERY,Alechemistery,,,,,,,,,,,,,
+book_hint_starter_description,A witch is one gifted with a power like no other. \nIt can be used for good, or evil, \nyet magic has no affiliation of it's own. \nWether you use it to bring \ncalamity to a world or restore peace, \nthat is up to you, gifted one.,
 ]])
 
 --[[

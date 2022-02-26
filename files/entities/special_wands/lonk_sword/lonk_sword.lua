@@ -8,5 +8,6 @@ local inherit_comp = EntityGetFirstComponent( entity_id, "InheritTransformCompon
 
 AddGunActionPermanent( entity_id, "BULLET" )
 AddGunActionPermanent( entity_id, "COPIS_THINGS_STAB" )
+AddGunActionPermanent( entity_id, "COPIS_THINGS_SWORD_BLADE" )
 
 EntityRemoveComponent(entity_id, inherit_comp)

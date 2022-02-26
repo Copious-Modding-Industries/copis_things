@@ -144,3 +144,19 @@
 		current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10
 	end,
 	})
+
+	table.insert(actions,
+	{
+		id                 = "COPIS_THINGS_SWORD_BLADE",
+		name               = "Sword Blade",
+		description        = "Your sword's sharp edge deals damage as it hits foes!",
+		sprite      	   = "mods/copis_things/files/sprites/spell_gui/sword_blade.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level       = "0,0",
+		spawn_probability  = "0,0",
+		price              = 0,
+		mana               = 0,
+		custom_xml_file = "mods/copis_things/files/entities/projectiles/sword_blade.xml",
+		action = function()
+		end
+	})
