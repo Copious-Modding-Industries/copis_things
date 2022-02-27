@@ -80,8 +80,9 @@
 			local component = EntityGetFirstComponent(player, "CharacterDataComponent")
 			local pos_x, pos_y = EntityGetTransform( player )
 			local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(player, "ControlsComponent"), "mMousePosition")
+			local len = math.sqrt((mouse_x*mouse_x) + (mouse_y*mouse_y))
 			EntitySetTransform(player, pos_x, pos_y - 3)
-			ComponentSetValue2( component, "mVelocity",  (mouse_x - pos_x) * 4, (mouse_y - pos_y) * 2)
+			ComponentSetValue2( component, "mVelocity",  (mouse_x - pos_x)/len * 4, (mouse_y - pos_y)/len * 2)
 		end,
 	})
 
