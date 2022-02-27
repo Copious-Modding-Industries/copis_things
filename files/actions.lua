@@ -77,12 +77,16 @@
 		mana = 5,
 		action = function()
 			local player = EntityGetWithTag( "player_unit" )[1]
-			local component = EntityGetFirstComponent(player, "CharacterDataComponent")
 			local pos_x, pos_y = EntityGetTransform( player )
 			local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(player, "ControlsComponent"), "mMousePosition")
-			local len = math.sqrt((mouse_x*mouse_x) + (mouse_y*mouse_y))
-			EntitySetTransform(player, pos_x, pos_y - 3)
-			ComponentSetValue2( component, "mVelocity",  (mouse_x - pos_x)/len * 4, (mouse_y - pos_y)/len * 2)
+			if (mouse_x == nil or mouse_y == nil) then return end
+			local aim_x = mouse_x - pos_x
+			local aim_y = mouse_y - pos_y
+			local len = math.sqrt((aim_x^2) + (aim_y^2))
+			local force_x = 1000
+			local force_y = 1000
+			ComponentSetValue2( EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity",  
+			(aim_x/len*force_x), (aim_y/len*force_y))
 		end,
 	})
 
