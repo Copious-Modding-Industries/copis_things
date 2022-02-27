@@ -268,20 +268,39 @@
 	table.insert(actions,
 	{
 		id          = "COPIS_THINGS_ANCHORED_SHOT",
-		name 		= "Peaceful Shot",
-		description = "Sharply reduces the damage of a projectile",
-		sprite 		= "mods/copis_things/files/sprites/spell_gui/peaceful_shot.png",
+		name 		= "Anchored Shot",
+		description = "Anchors a projectile where it was fired",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/anchored_shot.png",
 		type 		= ACTION_TYPE_MODIFIER,
 		spawn_level                       = "1,2,3", -- SPEED
 		spawn_probability                 = "1,0.5,0.5", -- SPEED
 		price = 100,
-		mana = 20,
+		mana = 10,
 		action 		= function()
-			c.speed_multiplier = c.speed_multiplier * 0.8
-			c.gore_particles   = c.gore_particles - 5
-			c.fire_rate_wait   = c.fire_rate_wait - 5
-			c.damage_projectile_add = c.damage_projectile_add - 5
-			c.spread_degrees = c.spread_degrees - 5
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/stasis_shot.xml"
+			c.speed_multiplier = c.speed_multiplier * 0.05
+			c.spread_degrees = c.spread_degrees - 10
+			c.lifetime_add 		= c.lifetime_add + 250
+			c.fire_rate_wait = c.fire_rate_wait + 26
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_LEVITY_SHOT",
+		name 		= "Levity Shot",
+		description = "Nullifies a projectile's gravity",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/levity_shot.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3", -- SPEED
+		spawn_probability                 = "1,0.5,0.5", -- SPEED
+		price = 100,
+		mana = 5,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/levity_shot.xml"
+			c.speed_multiplier = c.speed_multiplier * 0.9
+			c.spread_degrees = c.spread_degrees - 10
 			draw_actions( 1, true )
 		end,
 	})
