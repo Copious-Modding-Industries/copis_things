@@ -18,6 +18,7 @@
         "shot_effects",
         "shoot_projectile",
         "ACTION_DRAW_RELOAD_TIME_INCREASE",
-        "current_reload_time"
+        "current_reload_time",
+        "ACTION_TYPE_UTILITY"
     ]
 }

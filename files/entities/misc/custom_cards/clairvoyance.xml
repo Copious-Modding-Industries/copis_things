@@ -1,0 +1,34 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/clairvoyance.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_CLAIRVOYANCE" >
+		</ItemActionComponent>
+	</Base>
+
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/clairvoyance.lua"
+		execute_every_n_frame="1"
+		>
+	</LuaComponent>
+
+	<LightComponent 
+        _enabled="1"
+        radius="250" >
+    </LightComponent>
+
+    <SpriteComponent 
+        alpha="1"
+		_tags="enabled_in_hand"
+        image_file="data/particles/fog_of_war_hole_128.xml"
+        smooth_filtering="1"
+        fog_of_war_hole="1" >
+    </SpriteComponent>
+	
+</Entity>

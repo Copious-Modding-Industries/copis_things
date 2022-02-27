@@ -189,3 +189,56 @@
 		end,
 	})
 
+	table.insert(actions,
+	{
+	id          = "COPIS_THINGS_PROJECTION_CAST",
+	name 		= "Projection cast",
+	description = "Projects your cast to where your mind focuses",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/projection_cast.png",
+	type 		= ACTION_TYPE_UTILITY,
+	spawn_level						  = "6,10",
+	spawn_probability				  = "0.2,1",
+	price = 250,
+	mana = 50,
+	action 		= function()
+		add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/projection_cast.xml", 1)
+		c.fire_rate_wait = c.fire_rate_wait + 10
+		c.spread_degrees = c.spread_degrees - 6
+	end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_SLOW",
+		name 		= "Speed Down",
+		description = "Decreases the speed at which a projectile flies through the air",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/slow.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3", -- SPEED
+		spawn_probability                 = "1,0.5,0.5", -- SPEED
+		price = 100,
+		mana = -3,
+		--max_uses = 100,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/slow.xml",
+		action 		= function()
+			c.speed_multiplier = c.speed_multiplier * 0.4
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_CLAIRVOYANCE",
+		name 		= "Clairvoyance",
+		description = "Allows you to project your vision",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/clairvoyance.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level                       = "1,2,3,4,5,6", -- TINY_GHOST
+		spawn_probability                 = "0.1,0.5,1,1,1,1", -- TINY_GHOST
+		price = 160,
+		mana = 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/clairvoyance.xml",
+		action 		= function()
+			draw_actions( 1, true )
+		end,
+	})

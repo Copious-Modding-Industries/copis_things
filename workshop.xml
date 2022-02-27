@@ -1,0 +1,40 @@
+<Mod
+name="Copi's things"
+description="
+Copi's things is a large scale expansion to many features of the game, with quality over quantity!
+From questing to spells to custom wands and more, this mod will expand most facets of gameplay.
+You can add quests of your own to my system similarly to spells if you add compat to my mod!
+
+Current Features:
+- 21 Unique wands and weapons around the world (ADD MORE)
+- 6 Books to point you around the world
+- 1 Tactical Hamis
+- 0 Perks (INCOMPLETE)
+- 5 Spells (INCOMPLETE)
+- 1 Upgradeable wand (ADD MORE)
+- Support for Mould's vast world generation
+- Complete quests for glory and loot! (INCOMPLETE)
+- Become a master swordsman with legendary melee weapons!
+
+Planned Features:
+- Anvil of destiny compat
+- More upgradeable wands
+- Quest board
+
+
+Github: https://github.com/Ramiels/copis_things
+Discord: https://discord.gg/mmMxjDBGnS 
+
+
+
+Special Thanks
+
+- SirMole
+- Noita modding community for repeated help and advice
+
+"
+tags="gameplay,items,loadouts,tweaks"
+dont_upload_folders=".assets" 
+dont_upload_files=""
+>
+</Mod>
