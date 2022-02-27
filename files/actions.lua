@@ -222,6 +222,7 @@
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/slow.xml",
 		action 		= function()
 			c.speed_multiplier = c.speed_multiplier * 0.4
+			c.spread_degrees = c.spread_degrees - 8
 			draw_actions( 1, true )
 		end,
 	})
@@ -239,6 +240,48 @@
 		mana = 0,
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/clairvoyance.xml",
 		action 		= function()
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_PEACEFUL_SHOT",
+		name 		= "Peaceful Shot",
+		description = "Sharply reduces the damage of a projectile",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/peaceful_shot.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3", -- SPEED
+		spawn_probability                 = "1,0.5,0.5", -- SPEED
+		price = 100,
+		mana = 20,
+		action 		= function()
+			c.speed_multiplier = c.speed_multiplier * 0.8
+			c.gore_particles   = c.gore_particles - 5
+			c.fire_rate_wait   = c.fire_rate_wait - 5
+			c.damage_projectile_add = c.damage_projectile_add - 5
+			c.spread_degrees = c.spread_degrees - 5
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_ANCHORED_SHOT",
+		name 		= "Peaceful Shot",
+		description = "Sharply reduces the damage of a projectile",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/peaceful_shot.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3", -- SPEED
+		spawn_probability                 = "1,0.5,0.5", -- SPEED
+		price = 100,
+		mana = 20,
+		action 		= function()
+			c.speed_multiplier = c.speed_multiplier * 0.8
+			c.gore_particles   = c.gore_particles - 5
+			c.fire_rate_wait   = c.fire_rate_wait - 5
+			c.damage_projectile_add = c.damage_projectile_add - 5
+			c.spread_degrees = c.spread_degrees - 5
 			draw_actions( 1, true )
 		end,
 	})
