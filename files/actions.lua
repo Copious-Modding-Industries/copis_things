@@ -304,3 +304,38 @@
 			draw_actions( 1, true )
 		end,
 	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_BOUNCE_100",
+		name 		= "Hundredfold Bounce",
+		description = "Causes a projectile to bounce many times",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/bounce_100.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,3,4,5,6", -- BOUNCE
+		spawn_probability                 = "1,1,0.4,0.2,0.2", -- BOUNCE
+		price = 100,
+		mana = 10,
+		action 		= function()
+			c.bounces = c.bounces + 100
+			c.speed_multiplier = c.speed_multiplier * 1.2
+			c.spread_degrees = c.spread_degrees - 10
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id          = "COPIS_THINGS_SEPARATOR_CAST",
+	name 		= "Separator cast",
+	description = "Casts a projectile independent of any modifiers before it, like in a multicast",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/separator_cast.png",
+	type 		= ACTION_TYPE_UTILITY,
+	spawn_level                       = "2,3,4,5,6", -- BOUNCE
+	spawn_probability                 = "1,1,0.4,0.2,0.2", -- BOUNCE
+	price = 100,
+	mana = 0,
+	action 		= function()
+		add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/separator_cast.xml", 1)
+	end,
+	})
