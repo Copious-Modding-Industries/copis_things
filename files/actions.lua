@@ -164,3 +164,23 @@
 		action = function()
 		end
 	})
+	
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_SUMMON_TABLET",
+		name 		= "Summon Emerald Tablet",
+		description = "Summon an emerald tablet",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/summon_tablet.png",
+		related_projectiles	= {"data/entities/projectiles/deck/rock.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "0,1,2,3,4,5,6", -- SUMMON_ROCK
+		spawn_probability                 = "0.8,0.8,0.8,0.8,0.8,0.8,0.8", -- SUMMON_ROCK
+		price = 160,
+		mana = 100, 
+		max_uses    = 3, 
+		custom_xml_file = "data/entities/misc/custom_cards/summon_rock.xml",
+		action 		= function()
+			add_projectile("data/entities/projectiles/deck/rock.xml")
+		end,
+	})
+
