@@ -259,7 +259,7 @@
 			c.speed_multiplier = c.speed_multiplier * 0.8
 			c.gore_particles   = c.gore_particles - 5
 			c.fire_rate_wait   = c.fire_rate_wait - 5
-			c.damage_projectile_add = c.damage_projectile_add - 5
+			c.damage_projectile_add = c.damage_projectile_add - 1
 			c.spread_degrees = c.spread_degrees - 5
 			draw_actions( 1, true )
 		end,
@@ -338,4 +338,41 @@
 	action 		= function()
 		add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/separator_cast.xml", 1)
 	end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_SPREAD",
+		name 		= "Spread",
+		description = "Adds spread to a projectile",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/spread.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5,6", -- SPREAD_REDUCE
+		spawn_probability                 = "0.8,0.8,0.8,0.8,0.8,0.8", -- SPREAD_REDUCE
+		price = 100,
+		mana = -5,
+		action 		= function()
+			c.spread_degrees = c.spread_degrees + 30.0
+			c.fire_rate_wait   = c.fire_rate_wait - 5
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_JSR_BLAST",
+	name               = "JSR Blast",
+	description        = "Fire a pulse of energy",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/jsr_blast.png",
+	related_projectiles	= {"data/entities/projectiles/laser_bouncy.xml"},
+	type               = ACTION_TYPE_PROJECTILE,
+	spawn_level        = "0,0,0,0",
+	spawn_probability  = "0,0,0,0",
+	price              = 0,
+	mana               = 0,
+	action 		= function()
+			add_projectile("data/entities/projectiles/laser_bouncy.xml")
+			c.spread_degrees = c.spread_degrees - 2.0
+			c.damage_projectile_add = c.damage_projectile_add - 0.25
+		end,
 	})
