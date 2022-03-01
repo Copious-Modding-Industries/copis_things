@@ -85,4 +85,6 @@ end
 
 -- This code runs when all mods' filesystems are registered
 
+ModMaterialsFileAdd( "mods/copis_things/files/materials_creepy_poly.xml" )
+
 GamePrint("Cope")

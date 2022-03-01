@@ -376,3 +376,21 @@
 			c.damage_projectile_add = c.damage_projectile_add - 0.25
 		end,
 	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_DART",
+	name               = "Dart",
+	description        = "An accelerating magical dart that pierces soft materials",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/dart.png",
+	related_projectiles	= {"mods/copis_things/files/entities/projectiles/dart.xml"},
+	type               = ACTION_TYPE_PROJECTILE,
+	spawn_level        = "0,1,2",
+	spawn_probability  = "2,1,0.5",
+	price              = 120,
+	mana               = 7,
+	action 		= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/dart.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 2;
+		end,
+	})
