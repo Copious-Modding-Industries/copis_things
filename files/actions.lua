@@ -254,7 +254,7 @@
 		spawn_level                       = "1,2,3", -- SPEED
 		spawn_probability                 = "1,0.5,0.5", -- SPEED
 		price = 100,
-		mana = 20,
+		mana = -15,
 		action 		= function()
 			c.speed_multiplier = c.speed_multiplier * 0.8
 			c.gore_particles   = c.gore_particles - 5
@@ -394,3 +394,160 @@
             c.fire_rate_wait = c.fire_rate_wait + 2;
 		end,
 	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_ENCHANTMENT_CURSE",
+		name 		= "Accursed Enchantment",
+		description = "Enchants a projectile with cursed magic",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/accursed_enchantment.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- FREEZE
+		spawn_probability                 = "1,1,1,1", -- FREEZE
+		price = 200,
+		mana = 50,
+		action 		= function()
+			c.damage_curse_add = c.damage_curse_add + 0.4
+			c.speed_multiplier = c.speed_multiplier * 0.8
+			c.spread_degrees = c.spread_degrees + 8
+			c.bounces = c.bounces + 4
+			c.friendly_fire = true
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_ENCHANTMENT_MELEE",
+		name 		= "Bladed Enchantment",
+		description = "Enchants a projectile with bladed magic",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/bladed_enchantment.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- FREEZE
+		spawn_probability                 = "1,1,1,1", -- FREEZE
+		price = 200,
+		mana = 50,
+		action 		= function()
+			c.damage_melee_add = c.damage_melee_add + 0.6
+			c.speed_multiplier = c.speed_multiplier * 0.6
+			c.spread_degrees = c.spread_degrees - 16
+			c.lifetime_add = c.lifetime_add * 0.4
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_ENCHANTMENT_FIRE",
+		name 		= "Blazing Enchantment",
+		description = "Enchants a projectile with flaming magic",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/blazing_enchantment.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- FREEZE
+		spawn_probability                 = "1,1,1,1", -- FREEZE
+		price = 200,
+		mana = 50,
+		action 		= function()
+			c.damage_fire_add = c.damage_fire_add + 0.6
+			c.speed_multiplier = c.speed_multiplier * 1.4
+			c.spread_degrees = c.spread_degrees + 12
+			c.lifetime_add = c.lifetime_add * 0.8
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_ENCHANTMENT_SPEED",
+		name 		= "Dashing Enchantment",
+		description = "Enchants a projectile with restless magic",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/dashing_enchantment.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- FREEZE
+		spawn_probability                 = "1,1,1,1", -- FREEZE
+		price = 200,
+		mana = 50,
+		action 		= function()
+			c.damage_projectile_add = c.damage_projectile_add + 0.2
+			c.speed_multiplier = c.speed_multiplier * 4
+			c.spread_degrees = c.spread_degrees + 32
+			c.lifetime_add = c.lifetime_add * 1.2
+			c.bounces = c.bounces + 50
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_ENCHANTMENT_SLICE",
+		name 		= "Spiked Enchantment",
+		description = "Enchants a projectile with sharp magic",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/spiked_enchantment.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- FREEZE
+		spawn_probability                 = "1,1,1,1", -- FREEZE
+		price = 200,
+		mana = 50,
+		action 		= function()
+			c.damage_slice_add = c.damage_slice_add + 0.6
+			c.speed_multiplier = c.speed_multiplier * 0.4
+			c.spread_degrees = c.spread_degrees - 12
+			c.lifetime_add = c.lifetime_add * 1.2
+			c.bounces = c.bounces + 50
+			draw_actions( 1, true )
+		end,
+	})
+
+--[[		Not functional YET
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_SORT_DECK",
+		name 		= "Unshuffle",
+		description = "Stablizes shuffled wands",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/sort_deck.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level                       = "1,3,4,5", -- FREEZE
+		spawn_probability                 = "1,1,1,1", -- FREEZE
+		price = 100,
+		mana = 5,
+		action 		= function()
+			if ( force_stop_draws == false ) then
+				table.sort( deck, function(a,b) 
+						local a_index = a.deck_index or 0 
+						local b_index = b.deck_index or 0
+						return a_index<b_index
+					end )
+			else
+				table.sort( deck, function(a,b) local a_ = a.deck_index or 0 local b_ = b.deck_index or 0 return a_<b_ end )
+			end
+	
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_SHUFFLE_DECK",
+		name 		= "Shuffle",
+		description = "Imbues a wand with unpredictable energy",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/shuffle_deck.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level                       = "1,3,4,5", -- FREEZE
+		spawn_probability                 = "1,1,1,1", -- FREEZE
+		price = 100,
+		mana = -20,
+		action 		= function()
+			if ( force_stop_draws == false ) then
+				table.sort( deck, function(a,b) 
+						local a_index = a.deck_index or 0 
+						local b_index = b.deck_index or 0
+						return a_index<b_index
+					end )
+			else
+				table.sort( deck, function(a,b) local a_ = a.deck_index or 0 local b_ = b.deck_index or 0 return a_<b_ end )
+			end
+			c.fire_rate_wait = c.fire_rate_wait - 40
+	
+		end,
+	})
+	]]-- 

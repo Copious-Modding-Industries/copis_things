@@ -20,6 +20,13 @@ end
 ]]--
 
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
+
+
+	EntitySetDamageFromMaterial(player_entity, "copis_things_creepy_acid", 0.1)
+
+
+
+
 	if GameHasFlagRun("copis_items_spawned") == false then
 		GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
 		EntityLoad("mods/copis_things/files/entities/special_wands/hammer/hammer.xml", 20, -100)
@@ -85,6 +92,6 @@ end
 
 -- This code runs when all mods' filesystems are registered
 
-ModMaterialsFileAdd( "mods/copis_things/files/materials_creepy_poly.xml" )
+ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
 
 GamePrint("Cope")

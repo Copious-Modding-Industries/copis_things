@@ -1,0 +1,83 @@
+<Materials>
+
+	<CellData
+		name="copis_things_creepy_poly"
+		ui_name="Creepy Polymorphine"
+		tags="[liquid],[magic_liquid],[magic_polymorph],[impure]"
+		burnable="0"
+		density="1"
+		lifetime="1350"
+		cell_type="liquid"
+		wang_color="8091448D"
+		generates_smoke="0"
+		liquid_stains="1"
+		liquid_gravity="0.5"
+		liquid_sand="0"
+		gfx_glow="90"
+		on_fire="0"
+		requires_oxygen="0"
+		temperature_of_fire="60"  
+		status_effects="POLYMORPH"
+		audio_materialaudio_type="MAGICAL" 
+		liquid_sprite_stains_check_offset="1"
+		>
+		<Graphics 
+		texture_file="mods/copis_things/files/materials_gfx/copis_things_creepy_poly.png" 
+		color="88E8BD5C" >
+		</Graphics>
+		<StatusEffects>
+			<Ingestion>
+				<StatusEffect type="POLYMORPH" amount="0.2" />
+			</Ingestion>
+		</StatusEffects>
+	</CellData>
+
+		<CellData
+		name="copis_things_creepy_acid"
+		ui_name="Creepy Acid"
+		tags="[liquid],[acid],[magic_liquid],[magic_polymorph],[impure]"
+		burnable="0"
+		density="1"
+		lifetime="1350"
+		cell_type="liquid"
+		wang_color="8091448D"
+		generates_smoke="0"
+		liquid_stains="1"
+		liquid_gravity="0.6"
+		liquid_sand="0"
+		gfx_glow="100"
+		on_fire="0"
+		temperature_of_fire="10"
+		cold_freezes_to_material="ice_acid_static"
+		>
+		<Graphics 
+		texture_file="mods/copis_things/files/materials_gfx/copis_things_creepy_acid.png" 
+		color="4B00ed32" >
+		</Graphics>
+		<StatusEffects>
+			<Ingestion>
+				<StatusEffect type="POISONED" amount="0.3" />
+			</Ingestion>
+		</StatusEffects>
+	</CellData>
+
+
+
+
+
+	<Reaction probability="90"
+		input_cell1="copis_things_creepy_poly" 	input_cell2="air"
+		output_cell1="copis_things_creepy_poly" 	output_cell2="copis_things_creepy_poly" >
+	</Reaction>
+	<Reaction probability="90"
+		input_cell1="copis_things_creepy_acid" 	input_cell2="air"
+		output_cell1="copis_things_creepy_acid" 	output_cell2="copis_things_creepy_acid" >
+	</Reaction>
+	<Reaction probability="90"
+		input_cell1="copis_things_creepy_acid" 	input_cell2="acid_gas"
+		output_cell1="copis_things_creepy_acid" 	output_cell2="copis_things_creepy_acid" >
+	</Reaction>
+  
+
+
+</Materials>
