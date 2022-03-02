@@ -1,1 +1,3 @@
 Adjust spell spawning rarities and tiers
+Haunted shot                                        -- Spawns ghosts where hit
+Card shot                                           -- Select random card projectile from deck, damage/effects based on card
