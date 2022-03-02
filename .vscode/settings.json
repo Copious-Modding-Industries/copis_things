@@ -20,6 +20,7 @@
         "ACTION_DRAW_RELOAD_TIME_INCREASE",
         "current_reload_time",
         "ACTION_TYPE_UTILITY",
-        "order_deck"
+        "order_deck",
+        "shoot_projectile_from_projectile"
     ]
 }

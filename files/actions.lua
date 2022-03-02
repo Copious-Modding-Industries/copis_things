@@ -512,16 +512,7 @@
 		price = 100,
 		mana = 5,
 		action 		= function()
-			if ( force_stop_draws == false ) then
-				table.sort( deck, function(a,b) 
-						local a_index = a.deck_index or 0 
-						local b_index = b.deck_index or 0
-						return a_index<b_index
-					end )
-			else
-				table.sort( deck, function(a,b) local a_ = a.deck_index or 0 local b_ = b.deck_index or 0 return a_<b_ end )
-			end
-	
+
 		end,
 	})
 
@@ -537,17 +528,67 @@
 		price = 100,
 		mana = -20,
 		action 		= function()
-			if ( force_stop_draws == false ) then
-				table.sort( deck, function(a,b) 
-						local a_index = a.deck_index or 0 
-						local b_index = b.deck_index or 0
-						return a_index<b_index
-					end )
-			else
-				table.sort( deck, function(a,b) local a_ = a.deck_index or 0 local b_ = b.deck_index or 0 return a_<b_ end )
-			end
-			c.fire_rate_wait = c.fire_rate_wait - 40
-	
+
 		end,
 	})
-	]]-- 
+	]]--
+
+
+table.insert(actions,
+{
+id          = "COPIS_THINGS_DIE",
+name 		= "Die",
+description = "Reverses the flow of mana in your body, giving you a quick and painless death.",
+sprite 		= "mods/copis_things/files/sprites/spell_gui/die.png",
+type 		= ACTION_TYPE_UTILITY,
+spawn_level						  = "6,10",
+spawn_probability				  = "0.2,1",
+price = 250,
+mana = 0,
+action 		= function()
+	local entity_id = GetUpdatedEntityID()
+	local damage_model_component = EntityGetFirstComponent(entity_id, "DamageModelComponent")
+	ComponentSetValue2(damage_model_component, "hp", 0)
+	ComponentSetValue2(damage_model_component, "air_needed", true)
+	ComponentSetValue2(damage_model_component, "air_in_lungs", 0)
+end,
+})
+
+table.insert(actions,
+{
+	id          = "COPIS_THINGS_TEMPORARY_CIRCLE",
+	name 		= "Summon Circle",
+	description = "Summons a shortlived hollow circle",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/temporary_circle.png",
+	related_projectiles	= {"mods/copis_things/files/entities/projectiles/deck/temporary_wall.xml"},
+	type 		= ACTION_TYPE_UTILITY,
+	spawn_level                       = "0,1,2,4,5,6", -- WALL_SQUARE
+	spawn_probability                 = "0.1,0.1,0.3,0.4,0.2,0.1", -- WALL_SQUARE
+	price = 100,
+	mana = 40,
+	max_uses = 20,
+	action 		= function()
+		add_projectile("mods/copis_things/files/entities/projectiles/temporary_circle.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 40
+	end,
+})
+
+table.insert(actions,
+{
+	id          = "COPIS_THINGS_LARPA_FORWARDS",
+	name 		= "Forwards Larpa",
+	description = "Makes a projectile cast copies of itself forwards",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/forwards_larpa.png",
+	related_extra_entities = { "mods/copis_things/files/entities/misc/forwards_larpa.xml" },
+	type 		= ACTION_TYPE_MODIFIER,
+	spawn_level                       = "2,3,4,5,10", -- FIREBALL_RAY
+	spawn_probability                 = "0.1,0.2,0.3,0.4,0.2", -- FIREBALL_RAY
+	price = 260,
+	mana = 100,
+	--max_uses = 20,
+	action 		= function()
+		c.fire_rate_wait = c.fire_rate_wait + 15
+		c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/forwards_larpa.xml,"
+		draw_actions( 1, true )
+	end,
+})
