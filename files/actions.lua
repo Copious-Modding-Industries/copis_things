@@ -169,7 +169,7 @@
 		action = function()
 		end
 	})
-	
+
 	table.insert(actions,
 	{
 		id          = "COPIS_THINGS_SUMMON_TABLET",
