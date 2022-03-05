@@ -1,0 +1,13 @@
+<Entity>
+	<LuaComponent 
+		_enabled="1" 
+		script_source_file="mods/copis_things/files/scripts/projectiles/gunner_shot.lua" 
+		execute_every_n_frame="10">
+    </LuaComponent>
+	
+	<LifetimeComponent
+		lifetime="300"
+		>
+	</LifetimeComponent>
+</Entity>
+

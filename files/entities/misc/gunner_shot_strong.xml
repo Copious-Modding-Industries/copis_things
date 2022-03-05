@@ -1,0 +1,40 @@
+<Entity>
+	<LuaComponent 
+		_enabled="1" 
+		script_source_file="mods/copis_things/files/scripts/projectiles/gunner_shot_strong.lua" 
+		execute_every_n_frame="60">
+    </LuaComponent>
+	
+	<ParticleEmitterComponent 
+		emitted_material_name="spark_purple"
+		offset.x="0"
+		offset.y="0"
+		gravity.y="1.60"
+		x_pos_offset_min="-2"
+		y_pos_offset_min="-2"
+		x_pos_offset_max="2"
+		y_pos_offset_max="2"
+		x_vel_min="-5"
+		x_vel_max="5"
+		y_vel_min="-10"
+		y_vel_max="15"
+		count_min="3"
+		count_max="3"
+		is_trail="1"
+		lifetime_min="0.3"
+		lifetime_max="0.6"
+		create_real_particles="0"
+		emit_cosmetic_particles="1"
+		emission_interval_min_frames="2"
+		emission_interval_max_frames="3"
+		is_emitting="1"
+		fade_based_on_lifetime="1"
+		>
+	</ParticleEmitterComponent>
+
+	<LifetimeComponent
+		lifetime="300"
+		>
+	</LifetimeComponent>
+</Entity>
+

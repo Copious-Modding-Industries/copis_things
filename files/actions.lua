@@ -628,3 +628,84 @@ table.insert(actions,
 			draw_actions( 1, true )
 		end
 	})
+
+	
+	-- WISPY SHOT
+	table.insert(actions,
+	{
+	id          		= "COPIS_THINGS_WISPY_SHOT",
+	name 				= "Wispy Shot",
+	description 		= "Imbues a projectile with a wispy spirit",
+	sprite 				= "mods/copis_things/files/sprites/spell_gui/wispy_shot.png",
+	type 				= ACTION_TYPE_MODIFIER,
+	spawn_level         = "2,3,4,5,6",
+	spawn_probability   = "0.3,0.4,0.5,0.6,0.6",
+	price 				= 150,
+	mana 				= 15,
+    action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/wispy_shot.xml,"
+			draw_actions( 1, true )
+			c.lifetime_add 		= c.lifetime_add + 1500
+			c.fire_rate_wait = c.fire_rate_wait + 20
+		end
+	})
+
+	table.insert(actions,
+	{
+	id          = "COPIS_THINGS_GUNNER_SHOT",
+	name 		= "Gunner Shot",
+	description = "Makes a projectile rapidly fire weak shots at nearby foes",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/gunner_shot.png",
+	related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot.xml" },
+	type 		= ACTION_TYPE_MODIFIER,
+	spawn_level                       = "2,3,4,5,10", -- FIREBALL_RAY
+	spawn_probability                 = "0.1,0.2,0.3,0.4,0.2", -- FIREBALL_RAY
+	price = 260,
+	mana = 100,
+	--max_uses = 20,
+	action 		= function()
+		c.fire_rate_wait = c.fire_rate_wait + 15
+		c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/gunner_shot.xml,"
+		draw_actions( 1, true )
+	end,
+	})
+
+	table.insert(actions,
+	{
+	id          = "COPIS_THINGS_GUNNER_SHOT_STRONG",
+	name 		= "Strong Gunner Shot",
+	description = "Makes a projectile occasionally shoot powerful shots at nearby foes",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/gunner_shot_strong.png",
+	related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_strong.xml" },
+	type 		= ACTION_TYPE_MODIFIER,
+	spawn_level                       = "2,3,4,5,10", -- FIREBALL_RAY
+	spawn_probability                 = "0.1,0.2,0.3,0.4,0.2", -- FIREBALL_RAY
+	price = 260,
+	mana = 100,
+	--max_uses = 20,
+	action 		= function()
+		c.fire_rate_wait = c.fire_rate_wait + 15
+		c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/gunner_shot_strong.xml,"
+		draw_actions( 1, true )
+	end,
+	})
+
+	table.insert(actions,
+	{
+	id          = "COPIS_THINGS_GUNNER_SHOT_CURSOR",
+	name 		= "Controlled Gunner Shot",
+	description = "Makes a projectile rapidly fire weak shots at the cursor while holding RMB",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/gunner_shot_cursor.png",
+	related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_cursor.xml" },
+	type 		= ACTION_TYPE_MODIFIER,
+	spawn_level                       = "2,3,4,5,10", -- FIREBALL_RAY
+	spawn_probability                 = "0.1,0.2,0.3,0.4,0.2", -- FIREBALL_RAY
+	price = 260,
+	mana = 100,
+	--max_uses = 20,
+	action 		= function()
+		c.fire_rate_wait = c.fire_rate_wait + 15
+		c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/gunner_shot_cursor.xml,"
+		draw_actions( 1, true )
+	end,
+	})

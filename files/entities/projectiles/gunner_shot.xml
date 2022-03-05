@@ -1,0 +1,67 @@
+<Entity 
+  name="$projectile_default" tags="projectile_player"
+   >
+
+	<Base file="data/entities/base_projectile.xml" >
+		<VelocityComponent
+			air_friction="-7"
+			gravity_y="0"
+			mass="0.08"
+		  >
+		</VelocityComponent>
+	</Base>
+
+  <ProjectileComponent 
+    _enabled="1" 
+    lob_min="0.5"
+    lob_max="0.7"
+    speed_min="6500"
+    speed_max="7500"
+    friction="1"
+    direction_random_rad="0.01"
+    on_death_explode="0"
+    on_death_gfx_leave_sprite="0" 
+    on_lifetime_out_explode="0"
+    explosion_dont_damage_shooter="1"
+    on_collision_die="0"
+    on_collision_remove_projectile="0"
+    lifetime="750"
+    damage="0.01"
+    lifetime_randomness="7"
+    ragdoll_force_multiplier="0"
+    hit_particle_force_multiplier="0.1"
+    create_shell_casing="0"
+    muzzle_flash_file="data/entities/particles/muzzle_flashes/muzzle_flash_medium.xml"
+    shoot_light_flash_r="255"
+    shoot_light_flash_g="210"
+    shoot_light_flash_b="70"
+    shoot_light_flash_radius="80"
+    knockback_force="0.4"
+    physics_impulse_coeff="1200"
+	  penetrate_world="1"
+    >
+  </ProjectileComponent>
+
+  
+  <ParticleEmitterComponent 
+    emitted_material_name="spark_purple"
+    count_min="1"
+    count_max="1"
+    offset.x="0"
+    offset.y="0"
+    gravity.y="0"
+    count_min="1"
+    count_max="1"
+    lifetime_min="0.1"
+    lifetime_max="0.3"
+    is_trail="1"
+    trail_gap="0.5"
+    emit_real_particles="0"
+    emit_cosmetic_particles="1"
+    emission_interval_min_frames="1"
+    emission_interval_max_frames="2"
+    is_emitting="1" >
+  </ParticleEmitterComponent>
+
+</Entity>
+
