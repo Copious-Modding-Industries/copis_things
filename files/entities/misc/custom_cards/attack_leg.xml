@@ -1,0 +1,65 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/sprites/spell_gui/attack_leg.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_ATTACK_LEG" >
+		</ItemActionComponent>
+	</Base>
+	
+	<InheritTransformComponent
+		_tags="enabled_in_world,enabled_in_hand" 
+		>
+	</InheritTransformComponent>
+
+	<Entity
+	_tags="enabled_in_world,enabled_in_hand" 
+	>
+
+		<InheritTransformComponent>
+		</InheritTransformComponent>
+
+		<IKLimbAttackerComponent
+			radius="50"
+			target_entities_with_tag="enemy"
+			>
+		</IKLimbAttackerComponent>
+
+		<IKLimbComponent
+			length="50" >
+		</IKLimbComponent>
+
+		<SpriteComponent 
+			image_file="data/entities/misc/perks/attack_foot/limb_a.png" 
+			z_index="1.1"
+			offset_x="0"
+			offset_y="4.5"
+			update_transform="0"
+			update_transform_rotation="0" >
+		</SpriteComponent>
+
+		<SpriteComponent 
+			image_file="data/entities/misc/perks/attack_foot/limb_B.png" 
+			z_index="1.1"
+			offset_x="0"
+			offset_y="4.5"
+			update_transform="0"
+			update_transform_rotation="0" >
+		</SpriteComponent>
+
+		<SpriteComponent 
+			image_file="data/entities/misc/perks/attack_foot/knee.png" 
+			z_index="1.1"
+			offset_x="4"
+			offset_y="4"
+			update_transform="0"
+			update_transform_rotation="0" >
+		</SpriteComponent>
+
+	</Entity>
+
+</Entity>

@@ -709,3 +709,55 @@ table.insert(actions,
 		draw_actions( 1, true )
 	end,
 	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_SOIL_TRAIL",
+		name 		= "Soil Trail",
+		description = "Gives a projectile a trail of soil",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/soil_trail.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,3,4", -- POISON_TRAIL
+		spawn_probability                 = "0.3,0.3,0.3", -- POISON_TRAIL
+		price = 160,
+		mana = 10,
+		action 		= function()
+			c.trail_material = c.trail_material .. "soil,"
+			c.trail_material_amount = c.trail_material_amount + 9
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_CONCRETEBALL",
+		name 		= "Chunk of concrete",
+		description = "The power of industry!",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/chunk_of_concrete.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml"},
+		type 		= ACTION_TYPE_MATERIAL,
+		spawn_level                       = "1,2,3,5", -- SOILBALL
+		spawn_probability                 = "1,1,1,1", -- SOILBALL
+		price = 10,
+		mana = 5,
+		action 		= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml")
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_ATTACK_LEG",
+		name 		= "Lukki Limb",
+		description = "Control a Lukki leg to kick nearby enemies automatically",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/attack_leg.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level                       = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability                 = "0.05,0.6,0.6,0.6,0.6,0.6", -- ENERGY_SHIELD_SECTOR
+		price = 160,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/attack_leg.xml",
+		action 		= function()
+			-- does nothing to the projectiles
+			draw_actions( 1, true )
+		end,
+	})
