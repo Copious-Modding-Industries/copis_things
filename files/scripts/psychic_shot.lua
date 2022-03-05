@@ -25,6 +25,7 @@ end)
 
 edit_component2( entity_id, "VelocityComponent", function(comp,vars)
     vars.gravity_y = 0
-    vars.air_friction= 4
+    vars.gravity_x = 0
+    vars.air_friction= 0
     vars.mass= 0
   end)

@@ -592,3 +592,39 @@ table.insert(actions,
 		draw_actions( 1, true )
 	end,
 })
+
+table.insert(actions,
+{
+	id          = "COPIS_THINGS_HOMING_LIGHT",
+	name 		= "Soft Homing",
+	description = "Guides a projectile weakly towards your foes",
+	sprite 		= "mods/copis_things/files/sprites/spell_gui/homing_light.png",
+	related_extra_entities = { "mods/copis_things/files/entities/misc/homing_light.xml,data/entities/particles/tinyspark_white_weak.xml" },
+	type 		= ACTION_TYPE_MODIFIER,
+	spawn_level                       = "1,2,3,4,5,6", -- HOMING
+	spawn_probability                 = "0.4,0.8,1,0.4,0.1,0.1", -- HOMING
+	price = 100,
+	mana = 25,
+	action 		= function()
+		c.extra_entities = c.extra_entities .. "mods/copis_things/entities/files/misc/homing_light.xml,data/entities/particles/tinyspark_white_weak.xml,"
+		draw_actions( 1, true )
+	end,
+})
+
+	-- PSYCHIC GRIP
+	table.insert(actions,
+	{
+	id          		= "COPIS_THINGS_PSYCHIC_GRIP",
+	name 				= "Psychic Grip",
+	description 		= "Locks a projectile in front of your wand",
+	sprite 				= "mods/copis_things/files/sprites/spell_gui/psychic_grip.png",
+	type 				= ACTION_TYPE_MODIFIER,
+	spawn_level         = "2,3,4,5,6",
+	spawn_probability   = "0.3,0.4,0.5,0.6,0.6",
+	price 				= 150,
+	mana 				= 15,
+    action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/psychic_grip.xml,"
+			draw_actions( 1, true )
+		end
+	})
