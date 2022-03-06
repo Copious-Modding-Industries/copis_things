@@ -17,7 +17,7 @@
   <PhysicsImageShapeComponent 
     body_id="1"
     centered="1"
-    image_file="data/projectiles_gfx/rock_projectile.png"
+    image_file="data/items_gfx/emerald_tablet.png"
     material="rock_box2d"
   ></PhysicsImageShapeComponent>
   
@@ -50,12 +50,12 @@
     _enabled="0"
     offset_x="3"
     offset_y="6"
-    image_file="data/items_gfx/in_hand/rock_in_hand.png"
+    image_file="data/items_gfx/in_hand/emerald_tablet_in_hand.png"
   ></SpriteComponent>
 
   <UIInfoComponent
     _tags="enabled_in_world"
-    name="$item_rock">
+    name="Emerald Tablet">
   </UIInfoComponent>
   
   <DamageModelComponent 
@@ -115,7 +115,7 @@
   
   <VariableStorageComponent
 		name="projectile_file"
-		value_string="data/entities/projectiles/deck/rock.xml"
+		value_string="mods/copis_things/files/entites/projectiles/tablet.xml"
 		>
 	</VariableStorageComponent>
 </Entity>
