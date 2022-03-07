@@ -14,7 +14,7 @@
         sprite_file="mods/copis_things/files/entities/special_wands/viper/viper.png"
         swim_propel_amount="0"
         throw_as_item="0"
-        ui_name="Tactical Hamis"
+        ui_name="Viper"
         use_gun_script="1"
 		item_recoil_max="10"
 		item_recoil_offset_coeff="-2"
