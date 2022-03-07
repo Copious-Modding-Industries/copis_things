@@ -2,64 +2,33 @@
 	
 	<Base file="data/entities/base_custom_card.xml" > 
 		<SpriteComponent 
-			image_file="mods/copis_things/files/sprites/spell_gui/attack_leg.png" >
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/clairvoyance.png" >
 		</SpriteComponent>
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_ATTACK_LEG" >
+			action_id="COPIS_THINGS_CLAIRVOYANCE" >
 		</ItemActionComponent>
 	</Base>
-	
-	<InheritTransformComponent
-		_tags="enabled_in_world,enabled_in_hand" 
+
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/clairvoyance.lua"
+		execute_every_n_frame="1"
 		>
-	</InheritTransformComponent>
+	</LuaComponent>
 
-	<Entity
-	_tags="enabled_in_world,enabled_in_hand" 
-	>
+	<LightComponent 
+        _enabled="1"
+        radius="250" >
+    </LightComponent>
 
-		<InheritTransformComponent>
-		</InheritTransformComponent>
-
-		<IKLimbAttackerComponent
-			radius="50"
-			target_entities_with_tag="enemy"
-			>
-		</IKLimbAttackerComponent>
-
-		<IKLimbComponent
-			length="50" >
-		</IKLimbComponent>
-
-		<SpriteComponent 
-			image_file="data/entities/misc/perks/attack_foot/limb_a.png" 
-			z_index="1.1"
-			offset_x="0"
-			offset_y="4.5"
-			update_transform="0"
-			update_transform_rotation="0" >
-		</SpriteComponent>
-
-		<SpriteComponent 
-			image_file="data/entities/misc/perks/attack_foot/limb_B.png" 
-			z_index="1.1"
-			offset_x="0"
-			offset_y="4.5"
-			update_transform="0"
-			update_transform_rotation="0" >
-		</SpriteComponent>
-
-		<SpriteComponent 
-			image_file="data/entities/misc/perks/attack_foot/knee.png" 
-			z_index="1.1"
-			offset_x="4"
-			offset_y="4"
-			update_transform="0"
-			update_transform_rotation="0" >
-		</SpriteComponent>
-
-	</Entity>
-
+    <SpriteComponent 
+        alpha="1"
+		_tags="enabled_in_hand"
+        image_file="data/particles/fog_of_war_hole_128.xml"
+        smooth_filtering="1"
+        fog_of_war_hole="1" >
+    </SpriteComponent>
+	
 </Entity>

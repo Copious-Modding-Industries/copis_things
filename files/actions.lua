@@ -761,3 +761,45 @@ table.insert(actions,
 			draw_actions( 1, true )
 		end,
 	})
+
+	table.insert(actions,
+	{
+		id                 = "COPIS_THINGS_SPECIAL_DATARANDAL",
+		name               = "Datarandal",
+		description        = "The personal weapon of choice of the great warrior mage Copisinpäällikkö.",
+		sprite      	   = "mods/copis_things/files/sprites/spell_gui/datarandal.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level       = "0,0",
+		spawn_probability  = "0,0",
+		price              = 0,
+		mana               = 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/datarandal.xml",
+		action = function()
+		end
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_DEV",
+	name               = "Dev",
+	description        = "Testing",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/dev.png",
+	type               = ACTION_TYPE_OTHER,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 9,
+	mana               = 0,
+	action 		= function()
+		c.spread_degrees = c.spread_degrees + 15.0
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		end,
+	})

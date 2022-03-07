@@ -1,0 +1,48 @@
+<Entity name="$projectile_default" tags="projectile_player" >
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/sprites/spell_gui/sword_blade.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_SWORD_BLADE" >
+		</ItemActionComponent>
+	</Base>
+	
+    <InheritTransformComponent
+		_tags="enabled_in_hand"
+		parent_hotspot_tag="shoot_pos" 
+		always_use_immediate_parent_rotation="1" >
+		<Transform 
+        position.x="6" 
+        position.y="0">
+		</Transform>
+	</InheritTransformComponent>
+	
+    <LaserEmitterComponent 
+		_tags="enabled_in_hand"
+        _enabled="1" 
+        emit_until_frame="-1" 
+        is_emitting="1" 
+        laser_angle_add_rad="0" >
+
+        <laser 
+            audio_enabled="1" 
+            audio_hit_always_enabled="0" 
+            beam_particle_chance="50" 
+            beam_particle_fade="1" 
+            beam_particle_fade_reverse="0" 
+            beam_particle_type="air" 
+            beam_radius="1" 
+            damage_to_cells="50000" 
+            damage_to_entities="0.5" 
+            hit_particle_chance="20" 
+            max_cell_durability_to_destroy="24" 
+            max_length="38" 
+            root_entity_is_responsible_for_damage="0" >
+        </laser>
+
+    </LaserEmitterComponent>
+
+</Entity>
