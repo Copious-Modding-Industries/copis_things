@@ -790,6 +790,23 @@ table.insert(actions,
 	price              = 9,
 	mana               = 0,
 	action 		= function()
+		c.spread_degrees = c.spread_degrees + 5.0
+		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_DEV",
+	name               = "Dev",
+	description        = "Testing",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/dev.png",
+	type               = ACTION_TYPE_OTHER,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 9,
+	mana               = 0,
+	action 		= function()
 		c.spread_degrees = c.spread_degrees + 15.0
 		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
 		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")

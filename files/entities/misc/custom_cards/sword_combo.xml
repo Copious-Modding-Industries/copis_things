@@ -1,0 +1,31 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/sprites/spell_gui/dev.png" 
+			>
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_SWORD_COMBO" >
+		</ItemActionComponent>
+	</Base>
+
+	<InheritTransformComponent
+		_tags="enabled_in_world,enabled_in_hand" 
+		parent_hotspot_tag="shoot_pos">
+	</InheritTransformComponent>
+	
+    <VariableStorageComponent
+        name="attack_index"
+        value_int="1"
+    ></VariableStorageComponent>
+
+
+
+
+
+
+
+</Entity>

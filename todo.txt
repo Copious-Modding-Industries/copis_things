@@ -8,3 +8,11 @@ regen (Max HP curse but regen)
 medkit (summons one use medkit)
 lootbox (loot box)
 heart of stone (high damage resistance and max HP but damage reduces max HP)
+
+
+giant sword can be used as shield -- blocks shots
+
+sword contact damage
+nerf regen (new effect?)
+fix the stupid wands and make them do stuff
+spell rarities
