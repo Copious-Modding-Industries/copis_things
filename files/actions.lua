@@ -91,7 +91,6 @@
 	})
 
 
-	--[[
 	table.insert(actions,
 	{
 		id          = "COPIS_THINGS_SHADOWTENTACLE",
@@ -105,11 +104,10 @@
 		price = 170,
 		mana = 30,
 		action 		= function()
-			add_projectile("mods/copis_things/files/projectiles/shadowtentacle.xml")
-			c.fire_rate_wait = c.fire_rate_wait + 5
+			add_projectile("mods/copis_things/files/entities/projectiles/shadow_lash.xml")
+			c.fire_rate_wait = c.fire_rate_wait - 5
 		end
 	})
-	]]--
 
 
 	-- BLOOD TENTACLE
@@ -780,8 +778,40 @@ table.insert(actions,
 
 	table.insert(actions,
 	{
-	id                 = "COPIS_THINGS_DEV",
+	id                 = "COPIS_THINGS_BUBBLEBOMB",
 	name               = "Dev",
+	description        = "Testing",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/bubblebomb.png",
+	type               = ACTION_TYPE_PROJECTILE,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 9,
+	mana               = 0,
+	action 		= function()
+		add_projectile("mods/copis_things/files/entities/projectiles/bubblebomb.xml")
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_BUBBLEBOMB_DEATH_TRIGGER",
+	name               = "Bubblebomb with death trigger",
+	description        = "Testing",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/bubblebomb_death_trigger.png",
+	type               = ACTION_TYPE_PROJECTILE,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 9,
+	mana               = 0,
+	action 		= function()
+		add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/bubblebomb.xml", 1)
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_DEV",
+	name               = "Bubblebomb",
 	description        = "Testing",
 	sprite             = "mods/copis_things/files/sprites/spell_gui/dev.png",
 	type               = ACTION_TYPE_OTHER,
@@ -797,26 +827,18 @@ table.insert(actions,
 
 	table.insert(actions,
 	{
-	id                 = "COPIS_THINGS_DEV",
-	name               = "Dev",
-	description        = "Testing",
-	sprite             = "mods/copis_things/files/sprites/spell_gui/dev.png",
+	id                 = "COPIS_THINGS_GOLD",
+	name               = "Gold",
+	description        = "Summons a nugget of gold",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/gold.png",
 	type               = ACTION_TYPE_OTHER,
 	spawn_level        = "0,0",
 	spawn_probability  = "0,0",
-	price              = 9,
-	mana               = 0,
+	price              = 111400000000000,
+	mana               = 150,
 	action 		= function()
-		c.spread_degrees = c.spread_degrees + 15.0
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		c.spread_degrees = c.spread_degrees + 5.0
+		add_projectile("mods/copis_things/files/entities/projectiles/gold_emitter.xml")
 		end,
 	})
+
