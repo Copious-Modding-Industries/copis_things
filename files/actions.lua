@@ -779,7 +779,7 @@ table.insert(actions,
 	table.insert(actions,
 	{
 	id                 = "COPIS_THINGS_BUBBLEBOMB",
-	name               = "Dev",
+	name               = "Bubblebomb",
 	description        = "Testing",
 	sprite             = "mods/copis_things/files/sprites/spell_gui/bubblebomb.png",
 	type               = ACTION_TYPE_PROJECTILE,
@@ -821,7 +821,7 @@ table.insert(actions,
 	mana               = 0,
 	action 		= function()
 		c.spread_degrees = c.spread_degrees + 5.0
-		add_projectile("mods/copis_things/files/entities/projectiles/gunner_shot.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/zenith_disc.xml")
 		end,
 	})
 
@@ -842,3 +842,36 @@ table.insert(actions,
 		end,
 	})
 
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_ZENITH_DISC",
+	name               = "Zenith disc",
+	description        = "Summons a no nonsense sawblade.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/zenith_disc.png",
+	type               = ACTION_TYPE_PROJECTILE,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 9,
+	mana               = 0,
+	action 		= function()
+		c.spread_degrees = c.spread_degrees + 5.0
+		add_projectile("mods/copis_things/files/entities/projectiles/zenith_disc.xml")
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_EVISCERATOR_DISC",
+	name               = "Eviscerator",
+	description        = "Please, don't cast this.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/eviscerator.png",
+	type               = ACTION_TYPE_PROJECTILE,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 9,
+	mana               = 0,
+	action 		= function()
+		c.spread_degrees = c.spread_degrees + 5.0
+		add_projectile("mods/copis_things/files/entities/projectiles/eviscerator.xml")
+		end,
+	})
