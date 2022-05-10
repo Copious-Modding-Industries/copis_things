@@ -61,7 +61,46 @@
 		</StatusEffects>
 	</CellData>
 
-
+	<CellData
+	name="longlegs_powder"
+	ui_name="Hamis Powder"
+	tags="[sand_other]"
+	burnable="0"
+	density="7"
+	durability="3"
+	cell_type="liquid"
+	wang_color="f34dffff"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="1"
+	on_fire="0"
+	requires_oxygen="0"
+	temperature_of_fire="10"
+	autoignition_temperature="0"
+	generates_flames="0"
+	on_fire_flame_material="swamp"
+	hp="1000" 
+	fire_hp="20"
+	audio_physics_material_event="sand"
+	audio_physics_material_wall="sand"
+	audio_physics_material_solid="sand"
+	show_in_creative_mode="0"
+	lifetime="4.0"
+	>
+	<Graphics
+		texture_file="data/materials_gfx/meat_rotten.png"
+		color="ff9effff" >
+	</Graphics>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="POISONED" amount="0.15" />
+			<StatusEffect type="FOOD_POISONING" amount="0.05" />
+		</Ingestion>
+		<Stains>
+			<StatusEffect type="WET" />
+		</Stains>
+	</StatusEffects>
+	</CellData>
 
 
 
@@ -77,7 +116,12 @@
 		input_cell1="copis_things_creepy_acid" 	input_cell2="acid_gas"
 		output_cell1="copis_things_creepy_acid" 	output_cell2="copis_things_creepy_acid" >
 	</Reaction>
-  
+	<Reaction probability="100"
+		input_cell1="longlegs_powder" input_cell2="air"
+		output_cell1="air" output_cell2="air"
+		entity="copis_things/files/entities/misc/longlegs_powder.xml"
+		>
+	</Reaction>
 
 
 </Materials>

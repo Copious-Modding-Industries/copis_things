@@ -70,5 +70,14 @@
     is_emitting="1" >
   </ParticleEmitterComponent>
 
+  <LuaComponent
+      script_source_file="mods/copis_things/files/scripts/projectiles/gold_emitter.lua"
+      execute_on_added="1"
+      remove_after_executed="1"
+      >
+  </LuaComponent>
+
+
+
 </Entity>
 
