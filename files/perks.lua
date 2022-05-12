@@ -7,12 +7,10 @@ table.insert(perk_list,{
     stackable = STACKABLE_NO,
     usable_by_enemies = true,
     func = function( entity_perk_item, entity_who_picked, item_name )
-    
         local x,y = EntityGetTransform( entity_who_picked )
         local child_id = EntityLoad( "mods/copis_things/files/entities/misc/perk/alchemy_aura.xml", x, y )
         EntityAddTag( child_id, "perk_entity" )
         EntityAddChild( entity_who_picked, child_id )
-        
     end,
 })
 
@@ -31,7 +29,6 @@ table.insert(perk_list,{
             for i,damagemodel in ipairs(damagemodels) do
                 local hp = tonumber( ComponentGetValue( damagemodel, "hp" ) )
                 local max_hp = 4
-                
                 --ComponentSetValue( damagemodel, "hp", math.min( hp, max_hp ) )
                 ComponentSetValue( damagemodel, "max_hp", max_hp )
                 ComponentSetValue( damagemodel, "max_hp_cap", max_hp )
@@ -45,7 +42,6 @@ table.insert(perk_list,{
             for i,damagemodel in ipairs(damagemodels) do
                 local max_hp = tonumber( ComponentGetValue( damagemodel, "max_hp" ))
                 ComponentSetValue( damagemodel, "max_hp_cap", 0.0 )
-                
                 if ( max_hp < 100 ) then
                     ComponentSetValue( damagemodel, "max_hp", 4 )
                     ComponentSetValue( damagemodel, "hp", 4 )

@@ -875,3 +875,207 @@ table.insert(actions,
 		add_projectile("mods/copis_things/files/entities/projectiles/eviscerator.xml")
 		end,
 	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_SUN",
+	name               = "Summon Sun",
+	description        = "Summons the sun.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_sun.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/items/pickup/sun/newsun.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_DARK_SUN",
+	name               = "Summon Dark Sun",
+	description        = "Summons the dark sun.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_dark_sun.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/items/pickup/sun/newsun_dark.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_BOSS_CENTIPEDE",
+	name               = "Summon Kolmisilmä",
+	description        = "Summons Kolmisilmä.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_boss_centipede.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/boss_centipede/boss_centipede.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_BOSS_WIZARD",
+	name               = "Summon Mestarien mestari",
+	description        = "Summons Mestarien mestari.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_boss_wizard.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/boss_wizard/boss_wizard.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_BOSS_ALCHEMIST",
+	name               = "Summon Ylialkemisti",
+	description        = "Summons Ylialkemisti.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_boss_alchemist.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/boss_alchemist/boss_alchemist.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_BOSS_DRAGON",
+	name               = "Summon Suomuhauki",
+	description        = "Summons Suomuhauki.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_boss_dragon.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/boss_dragon.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_BOSS_GHOST",
+	name               = "Summon Ylialkemisti",
+	description        = "Summons Ylialkemisti.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_boss_ghost.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/boss_ghost/boss_ghost.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_BOSS_PIT",
+	name               = "Summon Sauvojen Tuntija",
+	description        = "Summons Sauvojen Tuntija.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_boss_pit.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/boss_pit/boss_pit.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_BOSS_LIMBS",
+	name               = "Summon Kolmisilmän Koipi",
+	description        = "Summons Kolmisilmän Koipi.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_boss_limbs.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/boss_limbs/boss_limbs.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_BOSS_ROBOT",
+	name               = "Summon Kolmisilmän silmä",
+	description        = "Summons Kolmisilmän Koipi.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_boss_robot.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/boss_robot/boss_robot.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_MAGGOT_TINY",
+	name               = "Summon Limatoukka",
+	description        = "Summons Limatoukka.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_maggot_tiny.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 3000,
+	action 		= function()
+		add_projectile("data/entities/animals/maggot_tiny/maggot_tiny.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SUMMON_HAMIS",
+	name               = "Summon Hämis",
+	description        = "Praise Hämis.",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/summon_hamis.png",
+	type               = ACTION_TYPE_UTILITY,
+	spawn_level        = "0,0",
+	spawn_probability  = "0,0",
+	price              = 0,
+	mana               = 10,
+	action 		= function()
+		add_projectile("data/entities/animals/longleg.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 10
+		end,
+	})
