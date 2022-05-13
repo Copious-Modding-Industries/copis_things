@@ -1079,3 +1079,169 @@ table.insert(actions,
 		c.fire_rate_wait = c.fire_rate_wait + 10
 		end,
 	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_MANA_REDUCE_2",
+		name 		= "Add mana II",
+		description = "Adds 60 mana to the wand",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/mana_2.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5,6", -- MANA_REDUCE
+		spawn_probability                 = "0.5,0.5,0.5,0.5,0.5,0.5", -- MANA_REDUCE
+		price = 500,
+		mana = -60,
+		--max_uses = 75,
+		custom_xml_file = "data/entities/misc/custom_cards/mana_reduce.xml",
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 20
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_MANA_REDUCE_3",
+		name 		= "Add mana III",
+		description = "Adds 90 mana to the wand",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/mana_3.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5,6", -- MANA_REDUCE
+		spawn_probability                 = "0.33,0.33,0.33,0.33,0.33,0.33", -- MANA_REDUCE
+		price = 750,
+		mana = -90,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/mana_reduce.xml",
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 30
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_RECHARGE_2",
+		name 		= "Reduce recharge time II",
+		description = "Reduces the time between spellcasts heavily",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/recharge_2.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability                 = "0.5,0.5,0.5,0.5,0.5,0.5", -- RECHARGE
+		price = 400,
+		mana = 24,
+		--max_uses = 75,
+		action 		= function()
+			c.fire_rate_wait    = c.fire_rate_wait - 20
+			current_reload_time = current_reload_time - 40
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_RECHARGE_3",
+		name 		= "Reduce recharge time III",
+		description = "Reduces the time between spellcasts immensely",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/recharge_3.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability                 = "0.33,0.33,0.33,0.33,0.33,0.33", -- RECHARGE
+		price = 600,
+		mana = 48,
+		--max_uses = 50,
+		action 		= function()
+			c.fire_rate_wait    = c.fire_rate_wait - 30
+			current_reload_time = current_reload_time - 60
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_HITFX_CRITICAL_DRUNK",
+		name 		= "Critical on drunk enemies",
+		description = "Makes a projectile always do a critical on drunk enemies",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/crit_on_alcoholic.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- HITFX_CRITICAL_WATER
+		spawn_probability                 = "0.2,0.2,0.2,0.2", -- HITFX_CRITICAL_WATER
+		price = 70,
+		mana = 10,
+		--max_uses = 50,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_alcoholic.xml,"
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_HITFX_CRITICAL_CHARM",
+		name 		= "Critical on charmed enemies",
+		description = "Makes a projectile always do a critical on charmed enemies",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/crit_on_charm.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- HITFX_CRITICAL_WATER
+		spawn_probability                 = "0.2,0.2,0.2,0.2", -- HITFX_CRITICAL_WATER
+		price = 70,
+		mana = 10,
+		--max_uses = 50,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_charm.xml,"
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_HITFX_CRITICAL_CONFUSION",
+		name 		= "Critical on confused enemies",
+		description = "Makes a projectile always do a critical on confused enemies",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/crit_on_confusion.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- HITFX_CRITICAL_WATER
+		spawn_probability                 = "0.2,0.2,0.2,0.2", -- HITFX_CRITICAL_WATER
+		price = 70,
+		mana = 10,
+		--max_uses = 50,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_confusion.xml,"
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_HITFX_CRITICAL_ELECTROCUTED",
+		name 		= "Critical on electrocuted enemies",
+		description = "Makes a projectile always do a critical on electrocuted enemies",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/crit_on_electrocuted.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- HITFX_CRITICAL_WATER
+		spawn_probability                 = "0.2,0.2,0.2,0.2", -- HITFX_CRITICAL_WATER
+		price = 70,
+		mana = 10,
+		--max_uses = 50,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_electrocuted.xml,"
+			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+		id          = "COPIS_THINGS_HITFX_CRITICAL_FROZEN",
+		name 		= "Critical on frozen enemies",
+		description = "Makes a projectile always do a critical on frozen enemies",
+		sprite 		= "mods/copis_things/files/sprites/spell_gui/crit_on_frozen.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- HITFX_CRITICAL_WATER
+		spawn_probability                 = "0.2,0.2,0.2,0.2", -- HITFX_CRITICAL_WATER
+		price = 70,
+		mana = 10,
+		--max_uses = 50,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_frozen.xml,"
+			draw_actions( 1, true )
+		end,
+	})

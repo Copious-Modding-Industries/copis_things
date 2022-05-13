@@ -2,6 +2,7 @@
 
 
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
+ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/gun_append.lua")
 ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/perks.lua")
 
 -- ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions_removed.lua")
