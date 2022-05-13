@@ -831,14 +831,14 @@ table.insert(actions,
 	name               = "Gold",
 	description        = "Summons a nugget of gold",
 	sprite             = "mods/copis_things/files/sprites/spell_gui/gold.png",
-	type               = ACTION_TYPE_OTHER,
+	type               = ACTION_TYPE_UTILITY,
 	spawn_level        = "0,0",
 	spawn_probability  = "0,0",
 	price              = 111400000000000,
 	mana               = 150,
 	action 		= function()
 		c.spread_degrees = c.spread_degrees + 5.0
-		add_projectile("mods/copis_things/files/entities/projectiles/gold_emitter.xml")
+		add_projectile("data/entities/items/pickup/goldnugget_200.xml")
 		end,
 	})
 
@@ -1243,5 +1243,43 @@ table.insert(actions,
 		action 		= function()
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_frozen.xml,"
 			draw_actions( 1, true )
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SILVER_BULLET",
+	name               = "Silver bullet",
+	description        = "A small bullet created from arcane silver",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/silver_bullet.png",
+	related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
+	type               = ACTION_TYPE_PROJECTILE,
+	spawn_level        = "2,3,4",
+	spawn_probability  = "1,1,0.5",
+	price              = 220,
+	mana               = 20,
+	max_uses		   = 30,
+	action 		= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
+            c.fire_rate_wait = c.fire_rate_wait - 12;
+		end,
+	})
+
+	table.insert(actions,
+	{
+	id                 = "COPIS_THINGS_SILVER_MAGNUM",
+	name               = "Silver magnum",
+	description        = "A large bullet created from arcane silver",
+	sprite             = "mods/copis_things/files/sprites/spell_gui/silver_magnum.png",
+	related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
+	type               = ACTION_TYPE_PROJECTILE,
+	spawn_level        = "3,4",
+	spawn_probability  = "1,1,0.5",
+	price              = 330,
+	mana               = 35,
+	max_uses		   = 12,
+	action 		= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
+            c.fire_rate_wait = c.fire_rate_wait - 6;
 		end,
 	})
