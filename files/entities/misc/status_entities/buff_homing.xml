@@ -1,0 +1,20 @@
+<Entity>
+    <InheritTransformComponent>
+    </InheritTransformComponent>
+    
+    <GameEffectComponent 
+        effect="PROJECTILE_HOMING"
+        frames="1200"
+        exclusivity_group="2005"
+    >
+	</GameEffectComponent >
+	<UIIconComponent
+		name="Homing"
+		description="Reduces the time between spellcasts"
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
+</Entity>

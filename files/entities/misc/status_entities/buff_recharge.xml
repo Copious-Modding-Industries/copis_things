@@ -1,0 +1,25 @@
+<Entity tags="modifier_effect">
+    <InheritTransformComponent>
+    </InheritTransformComponent>
+
+    <GameEffectComponent 
+        effect="CUSTOM"
+        custom_effect_id="COPIS_THINGS_BUFF_RECHARGE"
+        frames="1200"
+        exclusivity_group="2011">
+    </GameEffectComponent> 
+
+    <ShotEffectComponent
+        extra_modifier="COPIS_THINGS_BUFF_RECHARGE">
+    </ShotEffectComponent>
+    
+	<UIIconComponent
+		name="Reduce recharge"
+		description="Reduces the time between spellcasts"
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
+</Entity>

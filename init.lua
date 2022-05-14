@@ -1,37 +1,17 @@
--- all functions below are optional and can be left out
-
 
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
-ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/gun_append.lua")
+ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/gun_append.lua")			-- experimental, may remove
 ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/perks.lua")
 
--- ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions_removed.lua")
+-- Thanks Evasia! Wouldn't have managed to do this without your help.
+ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/status/extra_modifiers.lua")
+ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
 
---mr copium is very cool
---thanks sirmole you are cool too
-
---[[
-
-function OnModPreInit()
-	print("Mod - OnModPreInit()") -- First this is called for all mods
-end
-
-function OnModInit()
-	print("Mod - OnModInit()") -- After that this is called for all mods
-end
-
-function OnModPostInit()
-	print("Mod - OnModPostInit()") -- Then this is called for all mods
-end
-]]--
 
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
 
 
 	EntitySetDamageFromMaterial(player_entity, "copis_things_creepy_acid", 0.1)
-
-
-
 
 	if GameHasFlagRun("copis_items_spawned") == false then
 		GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
@@ -72,32 +52,6 @@ function OnPlayerSpawned( player_entity ) -- This runs when player entity has be
 		GameAddFlagRun("copis_items_spawned")
 	end
 end
-
---[[
-
-
-function OnWorldInitialized() -- This is called once the game world is initialized. Doesn't ensure any world chunks actually exist. Use OnPlayerSpawned to ensure the chunks around player have been loaded or created.
-end
-
-
-function OnWorldPreUpdate() -- This is called every time the game is about to start updating the world
-	GamePrint( "Pre-update hook " .. tostring(GameGetFrameNum()) )
-end
-
-function OnWorldPostUpdate() -- This is called every time the game has finished updating the world
-	GamePrint( "Post-update hook " .. tostring(GameGetFrameNum()) )
-end
-
-
-function OnMagicNumbersAndWorldSeedInitialized() -- this is the last point where the Mod* API is available. after this materials.xml will be loaded.
-	local x = ProceduralRandom(0,0)
-	print( "===================================== random " .. tostring(x) )
-
-end
-
-]]--
-
--- This code runs when all mods' filesystems are registered
 
 ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
 

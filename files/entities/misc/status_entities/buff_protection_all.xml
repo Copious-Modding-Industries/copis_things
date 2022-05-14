@@ -1,0 +1,23 @@
+<Entity tags="effect_protection" >
+	
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent
+		_tags="effect_protection_all"
+        effect="PROTECTION_ALL"
+        frames="1200"
+        exclusivity_group="2010"
+    >
+	</GameEffectComponent >
+	<UIIconComponent
+		name="Immunity"
+		description="Reduces the time between spellcasts"
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
+
+</Entity>
