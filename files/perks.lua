@@ -13,6 +13,21 @@ table.insert(perk_list,{
         EntityAddChild( entity_who_picked, child_id )
     end,
 })
+table.insert(perk_list,{
+    id = "COPIS_THINGS_HALLOWED_STEP",
+    ui_name = "Hallowed Step",
+    ui_description = "Purifies stone within a short radius",
+    ui_icon = "mods/copis_things/files/sprites/perks/ui/hallowed_step.png",
+    perk_icon = "mods/copis_things/files/sprites/perks/hallowed_step.png",
+    stackable = STACKABLE_NO,
+    usable_by_enemies = true,
+    func = function( entity_perk_item, entity_who_picked, item_name )
+        local x,y = EntityGetTransform( entity_who_picked )
+        local child_id = EntityLoad( "mods/copis_things/files/entities/misc/perk/hallowed_step.xml", x, y )
+        EntityAddTag( child_id, "perk_entity" )
+        EntityAddChild( entity_who_picked, child_id )
+    end,
+})
 
 table.insert(perk_list,{
     id = "COPIS_THINGS_REGEN",
@@ -50,3 +65,88 @@ table.insert(perk_list,{
         end
     end,
 })
+
+    -- RESISTANCE AFFECTORS
+perks_protection =
+    {
+        {
+            id = "PROTECTION_FREEZE",
+            ui_name = "$perk_protection_freeze",
+            ui_description = "$perkdesc_protection_freeze",
+            ui_icon = "data/ui_gfx/perk_icons/protection_freeze.png",
+            perk_icon = "data/items_gfx/perks/protection_freeze.png",
+            game_effect = "PROTECTION_FREEZE",
+            usable_by_enemies = true,
+        },
+        {
+            id = "PROTECTION_POLYMORPH",
+            ui_name = "$perk_protection_freeze",
+            ui_description = "$perkdesc_protection_freeze",
+            ui_icon = "data/ui_gfx/perk_icons/protection_freeze.png",
+            perk_icon = "data/items_gfx/perks/protection_freeze.png",
+            game_effect = "PROTECTION_POLYMORPH",
+            usable_by_enemies = true,
+        },
+        {
+            id = "PROTECTION_CURSE",
+            ui_name = "$perk_protection_freeze",
+            ui_description = "$perkdesc_protection_freeze",
+            ui_icon = "data/ui_gfx/perk_icons/protection_freeze.png",
+            perk_icon = "data/items_gfx/perks/protection_freeze.png",
+            game_effect = "PROTECTION_FREEZE",
+            usable_by_enemies = true,
+        },
+        {
+            id = "PROTECTION_PROJECTILE",
+            ui_name = "$perk_protection_freeze",
+            ui_description = "$perkdesc_protection_freeze",
+            ui_icon = "data/ui_gfx/perk_icons/protection_freeze.png",
+            perk_icon = "data/items_gfx/perks/protection_freeze.png",
+            game_effect = "PROTECTION_FREEZE",
+            usable_by_enemies = true,
+        },
+        {
+            id = "PROTECTION_SLICE",
+            ui_name = "$perk_protection_freeze",
+            ui_description = "$perkdesc_protection_freeze",
+            ui_icon = "data/ui_gfx/perk_icons/protection_freeze.png",
+            perk_icon = "data/items_gfx/perks/protection_freeze.png",
+            game_effect = "PROTECTION_FREEZE",
+            usable_by_enemies = true,
+        },
+        {
+            id = "PROTECTION_MIDAS",
+            ui_name = "$perk_protection_freeze",
+            ui_description = "$perkdesc_protection_freeze",
+            ui_icon = "data/ui_gfx/perk_icons/protection_freeze.png",
+            perk_icon = "data/items_gfx/perks/protection_freeze.png",
+            game_effect = "PROTECTION_FREEZE",
+            usable_by_enemies = true,
+        },
+        {
+            id = "PROTECTION_MATERIAL",
+            ui_name = "$perk_protection_freeze",
+            ui_description = "$perkdesc_protection_freeze",
+            ui_icon = "data/ui_gfx/perk_icons/protection_freeze.png",
+            perk_icon = "data/items_gfx/perks/protection_freeze.png",
+            game_effect = "PROTECTION_FREEZE",
+            usable_by_enemies = true,
+        },
+        {
+            id = "PROTECTION_IMPACT",
+            ui_name = "$perk_protection_freeze",
+            ui_description = "$perkdesc_protection_freeze",
+            ui_icon = "data/ui_gfx/perk_icons/protection_freeze.png",
+            perk_icon = "data/items_gfx/perks/protection_freeze.png",
+            game_effect = "PROTECTION_FREEZE",
+            usable_by_enemies = true,
+        },
+
+    }
+
+
+if ModSettingGet("Copis_Things.perks_protection") then
+    for k, v in ipairs(perks_protection) do
+        table.insert(perk_list, v)
+    end
+end

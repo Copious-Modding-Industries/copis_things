@@ -759,34 +759,16 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_DEV",
 		name				= "Dev",
-		description			= "Testing",
+		description			= "Spell for testing ideas, comment out in final release",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
 		type				= ACTION_TYPE_OTHER,
 		spawn_level			= "0,0",
 		spawn_probability	= "0,0",
-		price				= 9,
+		price				= 0,
 		mana				= 0,
 		action				= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
-		local px, py = EntityGetTransform( entity_id )
-		local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/on_crit_recharge.xml", px, py )
-		EntityAddChild( entity_id, effect_id )
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_GOLD",
-		name				= "Gold",
-		description			= "Summons a nugget of gold",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/gold.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 111400000000000,
-		mana				= 150,
-		action				= function()
-		c.spread_degrees = c.spread_degrees + 5.0
-		add_projectile("data/entities/items/pickup/goldnugget_200.xml")
+			SetRandomSeed( GameGetFrameNum(), GameGetFrameNum() + 953 )
+			add_projectile( "mods/copis_things/files/entities/buildings/breach_".. tostring(Random(1,2)) .."_building.xml")
 		end,
 	},
 
@@ -822,181 +804,9 @@ local to_insert = {
 		end,
 	},
 
-	{
-		id					= "COPIS_THINGS_SUMMON_SUN",
-		name				= "Summon Sun",
-		description			= "Summons the sun.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_sun.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/items/pickup/sun/newsun.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
 
-	{
-		id					= "COPIS_THINGS_SUMMON_DARK_SUN",
-		name				= "Summon Dark Sun",
-		description			= "Summons the dark sun.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_dark_sun.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/items/pickup/sun/newsun_dark.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
 
-	{
-		id					= "COPIS_THINGS_SUMMON_BOSS_CENTIPEDE",
-		name				= "Summon Kolmisilmä",
-		description			= "Summons Kolmisilmä.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_centipede.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/animals/boss_centipede/boss_centipede.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
 
-	{
-		id					= "COPIS_THINGS_SUMMON_BOSS_WIZARD",
-		name				= "Summon Mestarien mestari",
-		description			= "Summons Mestarien mestari.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_wizard.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/animals/boss_wizard/boss_wizard.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_BOSS_ALCHEMIST",
-		name				= "Summon Ylialkemisti",
-		description			= "Summons Ylialkemisti.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_alchemist.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/animals/boss_alchemist/boss_alchemist.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_BOSS_DRAGON",
-		name				= "Summon Suomuhauki",
-		description			= "Summons Suomuhauki.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_dragon.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/animals/boss_dragon.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_BOSS_GHOST",
-		name				= "Summon Ylialkemisti",
-		description			= "Summons Ylialkemisti.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_ghost.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/animals/boss_ghost/boss_ghost.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_BOSS_PIT",
-		name				= "Summon Sauvojen Tuntija",
-		description			= "Summons Sauvojen Tuntija.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_pit.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-	action				= function()
-		add_projectile("data/entities/animals/boss_pit/boss_pit.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_BOSS_LIMBS",
-		name				= "Summon Kolmisilmän Koipi",
-		description			= "Summons Kolmisilmän Koipi.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_limbs.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/animals/boss_limbs/boss_limbs.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_BOSS_ROBOT",
-		name				= "Summon Kolmisilmän silmä",
-		description			= "Summons Kolmisilmän Koipi.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_robot.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/animals/boss_robot/boss_robot.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_MAGGOT_TINY",
-		name				= "Summon Limatoukka",
-		description			= "Summons Limatoukka.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_maggot_tiny.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 3000,
-		action				= function()
-		add_projectile("data/entities/animals/maggot_tiny/maggot_tiny.xml")
-		c.fire_rate_wait = c.fire_rate_wait + 150
-		end,
-	},
 
 	{
 		id					= "COPIS_THINGS_SUMMON_HAMIS",
@@ -1014,77 +824,51 @@ local to_insert = {
 		end,
 	},
 
+
+
 	{
-		id          = "COPIS_THINGS_MANA_REDUCE_2",
-		name 		= "Add mana II",
-		description = "Adds 60 mana to the wand",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mana_2.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,2,3,4,5,6", -- MANA_REDUCE
-		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5", -- MANA_REDUCE
-		price = 500,
-		mana = -60,
-		--max_uses = 75,
-		custom_xml_file = "data/entities/misc/custom_cards/mana_reduce.xml",
+		id					= "COPIS_THINGS_SILVER_BULLET",
+		name				= "Silver bullet",
+		description			= "A small bullet created from arcane silver",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "2,3,4",
+		spawn_probability	= "1,1,0.5",
+		price				= 220,
+		mana				= 20,
+		max_uses			= 30,
 		action				= function()
-			c.fire_rate_wait = c.fire_rate_wait + 20
-			draw_actions( 1, true )
+			add_projectile("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
+            c.fire_rate_wait = c.fire_rate_wait - 12;
 		end,
 	},
 
 	{
-		id          = "COPIS_THINGS_MANA_REDUCE_3",
-		name 		= "Add mana III",
-		description = "Adds 90 mana to the wand",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mana_3.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,2,3,4,5,6", -- MANA_REDUCE
-		spawn_probability	               = "0.33,0.33,0.33,0.33,0.33,0.33", -- MANA_REDUCE
-		price = 750,
-		mana = -90,
-		--max_uses = 50,
-		custom_xml_file = "data/entities/misc/custom_cards/mana_reduce.xml",
+		id					= "COPIS_THINGS_SILVER_MAGNUM",
+		name				= "Silver magnum",
+		description			= "A large bullet created from arcane silver",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "2,		3,		4",
+		spawn_probability	= "1.00,		1.00,	0.50",
+		price				= 330,
+		mana				= 35,
+		max_uses			= 12,
 		action				= function()
-			c.fire_rate_wait = c.fire_rate_wait + 30
-			draw_actions( 1, true )
-		end,
+				add_projectile("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
+				c.fire_rate_wait = c.fire_rate_wait - 6;
+			end,
 	},
 
-	{
-		id          = "COPIS_THINGS_RECHARGE_2",
-		name 		= "Reduce recharge time II",
-		description = "Reduces the time between spellcasts heavily",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_2.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
-		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5", -- RECHARGE
-		price = 400,
-		mana = 24,
-		--max_uses = 75,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait - 20
-			current_reload_time = current_reload_time - 40
-			draw_actions( 1, true )
-		end,
-	},
 
-	{
-		id          = "COPIS_THINGS_RECHARGE_3",
-		name 		= "Reduce recharge time III",
-		description = "Reduces the time between spellcasts immensely",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_3.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
-		spawn_probability	               = "0.33,0.33,0.33,0.33,0.33,0.33", -- RECHARGE
-		price = 600,
-		mana = 48,
-		--max_uses = 50,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait - 30
-			current_reload_time = current_reload_time - 60
-			draw_actions( 1, true )
-		end,
-	},
+
+
+
+}
+
+local spells_crit_on_x = {
 
 	{
 		id          = "COPIS_THINGS_HITFX_CRITICAL_DRUNK",
@@ -1169,44 +953,451 @@ local to_insert = {
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_frozen.xml,"
 			draw_actions( 1, true )
 		end,
-	},
+	}
+}
 
+local spells_recharge = {
 	{
-		id					= "COPIS_THINGS_SILVER_BULLET",
-		name				= "Silver bullet",
-		description			= "A small bullet created from arcane silver",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet.png",
-		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
-		type				= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "2,3,4",
-		spawn_probability	= "1,1,0.5",
-		price				= 220,
-		mana				= 20,
-		max_uses			= 30,
+		id          = "COPIS_THINGS_RECHARGE_2",
+		name 		= "Reduce recharge time II",
+		description = "Reduces the time between spellcasts heavily",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_2.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5", -- RECHARGE
+		price = 400,
+		mana = 24,
+		--max_uses = 75,
 		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
-            c.fire_rate_wait = c.fire_rate_wait - 12;
+			c.fire_rate_wait    = c.fire_rate_wait - 20
+			current_reload_time = current_reload_time - 40
+			draw_actions( 1, true )
 		end,
 	},
 
 	{
-		id					= "COPIS_THINGS_SILVER_MAGNUM",
-		name				= "Silver magnum",
-		description			= "A large bullet created from arcane silver",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum.png",
-		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
-		type				= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "2,		3,		4",
-		spawn_probability	= "1.00,		1.00,	0.50",
-		price				= 330,
-		mana				= 35,
-		max_uses			= 12,
+		id          = "COPIS_THINGS_RECHARGE_3",
+		name 		= "Reduce recharge time III",
+		description = "Reduces the time between spellcasts immensely",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_3.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability	               = "0.33,0.33,0.33,0.33,0.33,0.33", -- RECHARGE
+		price = 600,
+		mana = 48,
+		--max_uses = 50,
 		action				= function()
-				add_projectile("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
-				c.fire_rate_wait = c.fire_rate_wait - 6;
-			end,
+			c.fire_rate_wait    = c.fire_rate_wait - 30
+			current_reload_time = current_reload_time - 60
+			draw_actions( 1, true )
+		end,
 	},
 
+	{
+		id          = "COPIS_THINGS_RECHARGE_DELAY_UP",
+		name 		= "Delayed recharge",
+		description = "Sharply reduces wand recharge speed at the cost of cast delay",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_delay_up.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
+		price = 400,
+		mana = 24,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 60
+			current_reload_time = current_reload_time - 80
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_RECHARGE_DELAY_DOWN",
+		name 		= "Rushing recharge",
+		description = "Sharply reduces cast delay between spells at the cost of wand recharge speed",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_delay_down.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
+		price = 400,
+		mana = 24,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait - 80
+			current_reload_time = current_reload_time + 60
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_ARCANE_RECHARGE",
+		name 		= "Arcane Recharge",
+		description = "Slightly reduce the time between spellcasts, but gain mana when casting",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/arcane_recharge.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
+		price = 400,
+		mana = -12,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait - 5
+			current_reload_time = current_reload_time - 10
+			draw_actions( 1, true )
+		end,
+	}
+}
+
+local spells_mana = {
+	{
+		id          = "COPIS_THINGS_MANA_REDUCE_2",
+		name 		= "Add mana II",
+		description = "Adds 60 mana to the wand",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mana_2.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "1,2,3,4,5,6", -- MANA_REDUCE
+		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5", -- MANA_REDUCE
+		price = 500,
+		mana = -60,
+		--max_uses = 75,
+		custom_xml_file = "data/entities/misc/custom_cards/mana_reduce.xml",
+		action				= function()
+			c.fire_rate_wait = c.fire_rate_wait + 20
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_MANA_REDUCE_3",
+		name 		= "Add mana III",
+		description = "Adds 90 mana to the wand",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mana_3.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "1,2,3,4,5,6", -- MANA_REDUCE
+		spawn_probability	               = "0.33,0.33,0.33,0.33,0.33,0.33", -- MANA_REDUCE
+		price = 750,
+		mana = -90,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/mana_reduce.xml",
+		action				= function()
+			c.fire_rate_wait = c.fire_rate_wait + 30
+			draw_actions( 1, true )
+		end,
+	}
+}
+
+local spells_summon_boss = {
+	{
+		id					= "COPIS_THINGS_SUMMON_BOSS_CENTIPEDE",
+		name				= "Summon Kolmisilmä",
+		description			= "Summons Kolmisilmä.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_centipede.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+		action				= function()
+		add_projectile("data/entities/animals/boss_centipede/boss_centipede.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_BOSS_WIZARD",
+		name				= "Summon Mestarien mestari",
+		description			= "Summons Mestarien mestari.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_wizard.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+		action				= function()
+		add_projectile("data/entities/animals/boss_wizard/boss_wizard.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_BOSS_ALCHEMIST",
+		name				= "Summon Ylialkemisti",
+		description			= "Summons Ylialkemisti.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_alchemist.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+		action				= function()
+		add_projectile("data/entities/animals/boss_alchemist/boss_alchemist.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_BOSS_DRAGON",
+		name				= "Summon Suomuhauki",
+		description			= "Summons Suomuhauki.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_dragon.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+		action				= function()
+		add_projectile("data/entities/animals/boss_dragon.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_BOSS_GHOST",
+		name				= "Summon Ylialkemisti",
+		description			= "Summons Ylialkemisti.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_ghost.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+		action				= function()
+		add_projectile("data/entities/animals/boss_ghost/boss_ghost.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_BOSS_PIT",
+		name				= "Summon Sauvojen Tuntija",
+		description			= "Summons Sauvojen Tuntija.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_pit.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+	action				= function()
+		add_projectile("data/entities/animals/boss_pit/boss_pit.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_BOSS_LIMBS",
+		name				= "Summon Kolmisilmän Koipi",
+		description			= "Summons Kolmisilmän Koipi.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_limbs.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+		action				= function()
+		add_projectile("data/entities/animals/boss_limbs/boss_limbs.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_BOSS_ROBOT",
+		name				= "Summon Kolmisilmän silmä",
+		description			= "Summons Kolmisilmän Koipi.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_robot.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+		action				= function()
+		add_projectile("data/entities/animals/boss_robot/boss_robot.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_MAGGOT_TINY",
+		name				= "Summon Limatoukka",
+		description			= "Summons Limatoukka.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_maggot_tiny.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 1500,
+		max_uses			= 1,
+		action				= function()
+		add_projectile("data/entities/animals/maggot_tiny/maggot_tiny.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	}
+}
+
+local spells_summon_items = {
+	{
+		id					= "COPIS_THINGS_SUMMON_FLASK",
+		name				= "Summon flask",
+		description			= "Summons an empty flask",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,		3,		4,		5,		6",
+		spawn_probability	= "0.25,	0.33,	0.50,	0.33,	0.25",
+		price				= 200,
+		mana				= 90,
+		max_uses			= 1,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/potion_empty.xml")
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_FLASK_FULL",
+		name				= "Summon filled flask",
+		description			= "Summons a flask filled with a random material",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,		3,		4,		5,		6",
+		spawn_probability	= "0.125,	0.17,	0.25,	0.17,	0.125",
+		price				= 300,
+		mana				= 120,
+		max_uses			= 1,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/potion_random_material.xml")
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_JAR",
+		name				= "Summon jar",
+		description			= "Summons an empty jar",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_jar.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,		3,		4,		5,		6",
+		spawn_probability	= "0.050,	0.067,	0.100,	0.067,	0.050",
+		price				= 200,
+		mana				= 90,
+		max_uses			= 1,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/jar.xml")
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_JAR_URINE",
+		name				= "Jarate",
+		description			= "Jar-based Karate",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_jar_urine.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,		3,		4,		5,		6",
+		spawn_probability	= "0.025,	0.033,	0.050,	0.033,	0.025",
+		price				= 200,
+		mana				= 45,
+		max_uses			= 30,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 10
+			current_reload_time = current_reload_time + 20
+			add_projectile("data/entities/items/pickup/jar_of_urine.xml")
+		end,
+	},
+
+
+	--[[
+	{
+		id					= "COPIS_THINGS_SUMMON_POUCH",
+		name				= "Summon pouch",
+		description			= "Summons an empty pouch",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,		3,		4,		5,		6",
+		spawn_probability	= "0.25,	0.33,	0.50,	0.33,	0.25",
+		price				= 200,
+		mana				= 90,
+		max_uses			= 1,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_POUCH_FULL",
+		name				= "Summon filled pouch",
+		description			= "Summons a pouch filled with a random material",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,		3,		4,		5,		6",
+		spawn_probability	= "0.125,	0.17,	0.25,	0.17,	0.125",
+		price				= 300,
+		mana				= 120,
+		max_uses			= 1,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
+		end,
+	},
+	]]-- Not sure what the entity for pouch is or if there's a proper "empty" one, since I've only encountered full ones. Implement when found
+
+}
+
+local spells_cataclysm = {
+	{
+		id					= "COPIS_THINGS_SUMMON_SUN",
+		name				= "Summon Sun",
+		description			= "Summons the sun.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_sun.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 3000,
+		action				= function()
+		add_projectile("data/entities/items/pickup/sun/newsun.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_DARK_SUN",
+		name				= "Summon Dark Sun",
+		description			= "Summons the dark sun.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_dark_sun.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 3000,
+		action				= function()
+		add_projectile("data/entities/items/pickup/sun/newsun_dark.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 150
+		current_reload_time = current_reload_time + 40
+		end,
+	},
+}
+
+local spells_buffs = {
 	{
 		id					= "COPIS_THINGS_BUFF_BERSERK",
 		name				= "Status: Berserk",
@@ -1527,170 +1718,95 @@ local to_insert = {
 				EntityAddChild( entity_id, effect_id )
 				end
 			end,
-	},
+	}
+}
 
+local spells_overpowered = {
 	{
-		id					= "COPIS_THINGS_SUMMON_FLASK",
-		name				= "Summon flask",
-		description			= "Summons an empty flask",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
+		id					= "COPIS_THINGS_SPELL_REFRESH",
+		name				= "Spell refresh",
+		description			= "Refreshes the spells within your wands and inventory",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/spell_refresh.png",
 		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "2,		3,		4,		5,		6",
-		spawn_probability	= "0.25,	0.33,	0.50,	0.33,	0.25",
-		price				= 200,
-		mana				= 90,
-		max_uses			= 1,
+		spawn_level			= "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
+		spawn_probability	= "0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001",
+		price				= 600,
+		mana				= 240,
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			add_projectile("data/entities/items/pickup/potion_empty.xml")
-		end,
+			local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				GameRegenItemActionsInPlayer(entity_id)
+				end
+			end,
 	},
 
 	{
-		id					= "COPIS_THINGS_SUMMON_FLASK_FULL",
-		name				= "Summon filled flask",
-		description			= "Summons a flask filled with a random material",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
+		id					= "COPIS_THINGS_GOLD",
+		name				= "Gold",
+		description			= "Summons a nugget of gold",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/gold.png",
 		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "2,		3,		4,		5,		6",
-		spawn_probability	= "0.125,	0.17,	0.25,	0.17,	0.125",
-		price				= 300,
-		mana				= 120,
-		max_uses			= 1,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait + 20
-			current_reload_time = current_reload_time + 40
-			add_projectile("data/entities/items/pickup/potion_random_material.xml")
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_JAR",
-		name				= "Summon jar",
-		description			= "Summons an empty jar",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_jar.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "2,		3,		4,		5,		6",
-		spawn_probability	= "0.050,	0.067,	0.100,	0.067,	0.050",
-		price				= 200,
-		mana				= 90,
-		max_uses			= 1,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait + 20
-			current_reload_time = current_reload_time + 40
-			add_projectile("data/entities/items/pickup/jar.xml")
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_JAR_URINE",
-		name				= "Jarate",
-		description			= "Jar-based Karate",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_jar_urine.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "2,		3,		4,		5,		6",
-		spawn_probability	= "0.025,	0.033,	0.050,	0.033,	0.025",
-		price				= 200,
-		mana				= 45,
-		max_uses			= 30,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait + 10
-			current_reload_time = current_reload_time + 20
-			add_projectile("data/entities/items/pickup/jar_of_urine.xml")
-		end,
-	},
-
-	--[[
-	{
-		id					= "COPIS_THINGS_SUMMON_POUCH",
-		name				= "Summon pouch",
-		description			= "Summons an empty pouch",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "2,		3,		4,		5,		6",
-		spawn_probability	= "0.25,	0.33,	0.50,	0.33,	0.25",
-		price				= 200,
-		mana				= 90,
-		max_uses			= 1,
+		spawn_level			= "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
+		spawn_probability	= "0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001",
+		price				= 20000,
+		mana				= 150,
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
 			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_POUCH_FULL",
-		name				= "Summon filled pouch",
-		description			= "Summons a pouch filled with a random material",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "2,		3,		4,		5,		6",
-		spawn_probability	= "0.125,	0.17,	0.25,	0.17,	0.125",
-		price				= 300,
-		mana				= 120,
-		max_uses			= 1,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait + 20
-			current_reload_time = current_reload_time + 40
-			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
-		end,
-	},
-	]]-- Not sure what the entity for pouch is or if there's a proper "empty" one, since I've only encountered full ones. Implement when found
-
-	{
-		id          = "COPIS_THINGS_RECHARGE_DELAY_UP",
-		name 		= "Delayed recharge",
-		description = "Sharply reduces wand recharge speed at the cost of cast delay",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_delay_up.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
-		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
-		price = 400,
-		mana = 24,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait + 60
-			current_reload_time = current_reload_time - 80
-			draw_actions( 1, true )
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_RECHARGE_DELAY_DOWN",
-		name 		= "Rushing recharge",
-		description = "Sharply reduces cast delay between spells at the cost of wand recharge speed",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_delay_down.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
-		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
-		price = 400,
-		mana = 24,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait - 80
-			current_reload_time = current_reload_time + 60
-			draw_actions( 1, true )
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_ARCANE_RECHARGE",
-		name 		= "Arcane Recharge",
-		description = "Slightly reduce the time between spellcasts, but gain mana when casting",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/arcane_recharge.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
-		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
-		price = 400,
-		mana = -12,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait - 5
-			current_reload_time = current_reload_time - 10
-			draw_actions( 1, true )
 		end,
 	},
 }
 
 for k, v in ipairs(to_insert) do
     table.insert(actions, v)
+end
+
+local settings = {
+	"spells_crit_on_x",
+	"spells_recharge",
+	"spells_mana",
+	"spells_summon_boss",
+	"spells_summon_items",
+	"spells_cataclysm",
+	"spells_buffs",
+	"spells_overpowered"
+}
+
+if ModSettingGet("Copis_Things.spells_crit_on_x") then
+	for k, v in ipairs(spells_crit_on_x) do
+		table.insert(actions, v)
+	end
+end
+if ModSettingGet("Copis_Things.spells_recharge") then
+	for k, v in ipairs(spells_recharge) do
+		table.insert(actions, v)
+	end
+end
+if ModSettingGet("Copis_Things.spells_mana") then
+	for k, v in ipairs(spells_mana) do
+		table.insert(actions, v)
+	end
+end
+if ModSettingGet("Copis_Things.spells_summon_boss") then
+	for k, v in ipairs(spells_summon_boss) do
+		table.insert(actions, v)
+	end
+end
+if ModSettingGet("Copis_Things.spells_cataclysm") then
+	for k, v in ipairs(spells_cataclysm) do
+		table.insert(actions, v)
+	end
+end
+if ModSettingGet("Copis_Things.spells_buffs") then
+	for k, v in ipairs(spells_buffs) do
+		table.insert(actions, v)
+	end
+end
+if ModSettingGet("Copis_Things.spells_overpowered") then
+	for k, v in ipairs(spells_overpowered) do
+		table.insert(actions, v)
+	end
 end

@@ -4,7 +4,6 @@ Card shot                                           -- Select random card projec
 
 Perks
 
-regen (Max HP curse but regen)
 medkit (summons one use medkit)
 lootbox (loot box)
 heart of stone (high damage resistance and max HP but damage reduces max HP)

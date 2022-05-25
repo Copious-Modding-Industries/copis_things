@@ -7,6 +7,7 @@ ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/pe
 ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/status/extra_modifiers.lua")
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
 
+ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
 
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
 
@@ -53,6 +54,5 @@ function OnPlayerSpawned( player_entity ) -- This runs when player entity has be
 	end
 end
 
-ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
 
 GamePrint("Cope")
