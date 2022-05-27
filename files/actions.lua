@@ -694,7 +694,7 @@ local to_insert = {
 			add_projectile("mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml")
 		end,
 	},
-
+--[[
 	{
 		id          = "COPIS_THINGS_ATTACK_LEG",
 		name 		= "Lukki Limb",
@@ -710,7 +710,7 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
-
+]]
 	{
 		id					= "COPIS_THINGS_SPECIAL_DATARANDAL",
 		name				= "Datarandal",
@@ -968,6 +968,40 @@ local to_insert = {
 	},
 
 	{
+		id          = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD",
+		name 		= "Shuffle (One-Off)",
+		description = "Cast inside a wand to shuffle it, but greatly improve it's stats. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle_bad.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				if (wand.shuffle == false) then
+					wand.shuffle = true
+					wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
+					wand.manaMax = wand.manaMax * 1.5
+					wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
+					wand.castDelay = wand.castDelay * 0.55
+					wand.rechargeTime = wand.rechargeTime * 0.55
+
+
+					wand:UpdateSprite()
+					GameScreenshake(50, pos_x, pos_y)
+					GamePrintImportant("Wand shuffled!", "Stats improved.")
+				end
+			end
+		end,
+	},
+
+	{
 		id          = "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND",
 		name 		= "Upgrade Spells per Cast (One-Off)",
 		description = "Cast inside a wand to increase the amount of spells fired per cast. Spell is voided upon use!",
@@ -1073,12 +1107,13 @@ local to_insert = {
 				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 				local wand = EZWand.GetHeldWand()
 				wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
+				local castDelay_old = wand.castDelay
 				wand.castDelay = ((wand.castDelay + 0.2) * 0.8) - 0.2
 
 
 				wand:UpdateSprite()
 				GameScreenshake(50, pos_x, pos_y)
-				GamePrintImportant("Wand upgraded!", tostring(wand.castDelay) .. " cast delay.")
+				GamePrintImportant("Wand upgraded!", ("%.2fs"):format(castDelay_old/60) .. " -> " .. ("%.2fs"):format(wand.castDelay/60) .. " cast delay.")
 			end
 		end,
 	},
@@ -1101,12 +1136,13 @@ local to_insert = {
 				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 				local wand = EZWand.GetHeldWand()
 				wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
+				local rechargeTime_old = wand.rechargeTime
 				wand.rechargeTime = ((wand.rechargeTime + 0.2) * 0.8) - 0.2
 
 
 				wand:UpdateSprite()
 				GameScreenshake(50, pos_x, pos_y)
-				GamePrintImportant("Wand upgraded!", tostring(wand.rechargeTime) .. " recharge time.")
+				GamePrintImportant("Wand upgraded!", ("%.2fs"):format(rechargeTime_old/60) .. " -> " .. ("%.2fs"):format(wand.rechargeTime/60) .. " recharge time.")
 			end
 		end,
 	},
@@ -1129,40 +1165,13 @@ local to_insert = {
 				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 				local wand = EZWand.GetHeldWand()
 				wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
+				local spread_old = wand.rechargeTime
 				wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
 
 
 				wand:UpdateSprite()
 				GameScreenshake(50, pos_x, pos_y)
-				GamePrintImportant("Wand upgraded!", tostring(wand.spread ) .. " degrees spread.")
-			end
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_UPGRADE_MANA_MAX",
-		name 		= "Upgrade maximum mana (One-Off)",
-		description = "Cast inside a wand to increase it's mana capacity. Spell is voided upon use!",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_max.png",
-		type 		= ACTION_TYPE_UTILITY,
-		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
-		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
-		price = 840,
-		mana = 0,
-		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
-			if entity_id ~= nil and entity_id ~= 0 then
-				dofile("data/scripts/lib/utilities.lua")
-				local pos_x, pos_y = EntityGetTransform( entity_id )
-				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-				local wand = EZWand.GetHeldWand()
-				wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
-				wand.manaMax = wand.manaMax * 1.2 + 50
-
-
-				wand:UpdateSprite()
-				GameScreenshake(50, pos_x, pos_y)
-				GamePrintImportant("Wand upgraded!", tostring(wand.manaMax ) .. " mana capacity.")
+				GamePrintImportant("Wand upgraded!", tostring(rechargeTime_old) .. " -> " .. tostring(wand.spread ) .. " degrees spread.")
 			end
 		end,
 	},
@@ -1242,7 +1251,7 @@ local to_insert = {
 				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 				local wand = EZWand.GetHeldWand()
 				local spells, attached_spells = wand:GetSpells()
-				if (#spells > 0) then
+				if (#spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE") then
 					local action_to_attach = spells[1]
 					wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
 					wand:RemoveSpells(spells[1].action_id)
@@ -1250,6 +1259,38 @@ local to_insert = {
 					wand:UpdateSprite()
 					GameScreenshake(50, pos_x, pos_y)
 					GamePrintImportant("Spell attached!")
+				end
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE",
+		name 		= "Upgrade Remove Always Cast (One-Off)",
+		description = "Cast inside a wand to turn it's first always cast into a spell. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_action_permanent_actions_remove.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		draw_actions( 1, true )
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				local spells, attached_spells = wand:GetSpells()
+				if (#attached_spells > 0 and attached_spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and wand:GetFreeSlotsCount() > 0) then
+					local action_to_attach = attached_spells[1]
+					wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+					wand:DetachSpells(attached_spells[1].action_id)
+					wand:AddSpells(attached_spells[1].action_id)
+					wand:UpdateSprite()
+					GameScreenshake(50, pos_x, pos_y)
+					GamePrintImportant("Spell extracted!")
 				end
 			end
 		end,
