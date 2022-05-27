@@ -23,7 +23,7 @@
 		emission_interval_min_frames="1"
 		emission_interval_max_frames="1"
 		emit_cosmetic_particles="1"
-		image_animation_file="mods/copis_things/files/particles/image_emitters/safe_haven_emitter.png"
+		image_animation_file="mods/copis_things/files/particles/image_emitters/breach_1_emitter.png"
 		image_animation_speed="5"
 		image_animation_loop="1"
 		image_animation_raytrace_from_center="0"

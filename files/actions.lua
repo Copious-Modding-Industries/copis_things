@@ -767,8 +767,11 @@ local to_insert = {
 		price				= 0,
 		mana				= 0,
 		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
+			--[[ bore scene load
 			SetRandomSeed( GameGetFrameNum(), GameGetFrameNum() + 953 )
 			add_projectile( "mods/copis_things/files/entities/buildings/breach_".. tostring(Random(1,2)) .."_building.xml")
+			]]
 		end,
 	},
 
@@ -862,10 +865,426 @@ local to_insert = {
 			end,
 	},
 
+	{
+		id          = "COPIS_THINGS_PLANK_HORIZONTAL",
+		name 		= "Build Wooden Platform",
+		description = "Construct a horizontal wooden platform",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/plank_horizontal.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level			               = "0,1,2,4,5,6", -- WALL_SQUARE
+		spawn_probability	               = "0.1,0.1,0.3,0.4,0.2,0.1", -- WALL_SQUARE
+		price = 100,
+		mana = 40,
+		max_uses = 3,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/plank_horizontal.xml",
+		action				= function()
+			local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent"), "mMousePosition")
+				EntityLoad("mods/copis_things/files/entities/buildings/plank_horizontal_building.xml", mouse_x, mouse_y)
+				c.fire_rate_wait = c.fire_rate_wait + 5
+				current_reload_time = current_reload_time + 15
+			end
+
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_PLANK_VERTICAL",
+		name 		= "Build Wooden Wall",
+		description = "Construct a vertical wooden wall",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/plank_vertical.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level			               = "0,1,2,4,5,6", -- WALL_SQUARE
+		spawn_probability	               = "0.1,0.1,0.3,0.4,0.2,0.1", -- WALL_SQUARE
+		price = 100,
+		mana = 40,
+		max_uses = 3,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/plank_vertical.xml",
+		action				= function()
+			local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent"), "mMousePosition")
+				EntityLoad("mods/copis_things/files/entities/buildings/plank_vertical_building.xml", mouse_x, mouse_y)
+				c.fire_rate_wait = c.fire_rate_wait + 5
+				current_reload_time = current_reload_time + 15
+			end
+
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_SLOTS_TO_POWER",
+		name 		= "Slots To Power",
+		description = "Increases a projectile's damage based on the number of empty slots in the wand",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/slots_to_power.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/homing_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/slots_to_power.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "0.2,0.5,0.5,0.1", -- AREA_DAMAGE
+		price = 120,
+		mana = 110,
+		-- max_uses = 20,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/slots_to_power.xml,"
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE",
+		name 		= "Unshuffle (One-Off)",
+		description = "Cast inside a wand to unshuffle it at the cost of reduced stats. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				if (wand.shuffle == true) then
+					wand.shuffle = false
+					wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
+					wand.manaMax = wand.manaMax * 0.9
+					wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
+					wand.castDelay = wand.castDelay * 1.1
+					wand.rechargeTime = wand.rechargeTime * 1.1
 
 
+					wand:UpdateSprite()
+					GameScreenshake(50, pos_x, pos_y)
+					GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+				end
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND",
+		name 		= "Upgrade Spells per Cast (One-Off)",
+		description = "Cast inside a wand to increase the amount of spells fired per cast. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_actions_per_round.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.1", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
+				wand.spellsPerCast = wand.spellsPerCast + 1
 
 
+				wand:UpdateSprite()
+				GameScreenshake(50, pos_x, pos_y)
+				GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER",
+		name 		= "Upgrade spell speed multiplier (One-Off)",
+		description = "Cast inside a wand to increase the velocity of projectiles from it. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_speed_multiplier.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.1", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
+				SetRandomSeed( pos_x, pos_y + GameGetFrameNum() + 137 )
+				wand.speedMultiplier  = wand.speedMultiplier * Random(2,3)
+
+
+				wand:UpdateSprite()
+				GameScreenshake(50, pos_x, pos_y)
+				GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier ) .. " speed multiplier.")
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_GUN_CAPACITY",
+		name 		= "Upgrade wand capacity (One-Off)",
+		description = "Cast inside a wand to increase the wand's total spell capacity. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_capacity.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.1", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				if (wand.capacity < 26 ) then
+					wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_CAPACITY")
+					SetRandomSeed( pos_x, pos_y + GameGetFrameNum() + 137 )
+					wand.capacity = wand.capacity + Random(1,3)
+
+
+					wand:UpdateSprite()
+					GameScreenshake(50, pos_x, pos_y)
+					GamePrintImportant("Wand upgraded!", tostring(wand.capacity) .. " capacity.")
+				end
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT",
+		name 		= "Upgrade Cast Delay (One-Off)",
+		description = "Cast inside a wand to decrease the cast delay. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_fire_rate_wait.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
+				wand.castDelay = ((wand.castDelay + 0.2) * 0.8) - 0.2
+
+
+				wand:UpdateSprite()
+				GameScreenshake(50, pos_x, pos_y)
+				GamePrintImportant("Wand upgraded!", tostring(wand.castDelay) .. " cast delay.")
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_RELOAD_TIME",
+		name 		= "Upgrade Reload Time (One-Off)",
+		description = "Cast inside a wand to decrease the reload time. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_reload_time.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
+				wand.rechargeTime = ((wand.rechargeTime + 0.2) * 0.8) - 0.2
+
+
+				wand:UpdateSprite()
+				GameScreenshake(50, pos_x, pos_y)
+				GamePrintImportant("Wand upgraded!", tostring(wand.rechargeTime) .. " recharge time.")
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_SPREAD_DEGREES",
+		name 		= "Upgrade accuracy (One-Off)",
+		description = "Cast inside a wand to increase the accuracy. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_spread_degrees.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
+				wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
+
+
+				wand:UpdateSprite()
+				GameScreenshake(50, pos_x, pos_y)
+				GamePrintImportant("Wand upgraded!", tostring(wand.spread ) .. " degrees spread.")
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_MANA_MAX",
+		name 		= "Upgrade maximum mana (One-Off)",
+		description = "Cast inside a wand to increase it's mana capacity. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_max.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
+				wand.manaMax = wand.manaMax * 1.2 + 50
+
+
+				wand:UpdateSprite()
+				GameScreenshake(50, pos_x, pos_y)
+				GamePrintImportant("Wand upgraded!", tostring(wand.manaMax ) .. " mana capacity.")
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_MANA_MAX",
+		name 		= "Upgrade maximum mana (One-Off)",
+		description = "Cast inside a wand to increase it's mana capacity. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_max.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
+				wand.manaMax = wand.manaMax * 1.2 + 50
+
+
+				wand:UpdateSprite()
+				GameScreenshake(50, pos_x, pos_y)
+				GamePrintImportant("Wand upgraded!", tostring(wand.manaMax ) .. " mana capacity.")
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED",
+		name 		= "Upgrade mana charge speed (One-Off)",
+		description = "Cast inside a wand to increase it's mana charge speed. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_charge_speed.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
+				wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
+
+
+				wand:UpdateSprite()
+				GameScreenshake(50, pos_x, pos_y)
+				GamePrintImportant("Wand upgraded!", tostring(wand.manaChargeSpeed ) .. " mana charge speed.")
+			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT",
+		name 		= "Upgrade Always Cast (One-Off)",
+		description = "Cast inside a wand to turn it's first spell into an always cast. Spell is voided upon use!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_action_permanent_actions.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 840,
+		mana = 0,
+		action 		= function()
+		draw_actions( 1, true )
+		local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local pos_x, pos_y = EntityGetTransform( entity_id )
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				local wand = EZWand.GetHeldWand()
+				local spells, attached_spells = wand:GetSpells()
+				if (#spells > 0) then
+					local action_to_attach = spells[1]
+					wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
+					wand:RemoveSpells(spells[1].action_id)
+					wand:AttachSpells(spells[1].action_id)
+					wand:UpdateSprite()
+					GameScreenshake(50, pos_x, pos_y)
+					GamePrintImportant("Spell attached!")
+				end
+			end
+		end,
+	},
+
+--[[
+	{
+		id          = "COPIS_THINGS_HOMING_AREA_PLAYER",
+		name 		= "$action_homing_area",
+		description = "$actiondesc_homing_area",
+		sprite 		= "data/ui_gfx/gun_actions/homing_area_player.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/homing_unidentified.png",
+		related_extra_entities = { "data/entities/misc/homing_area.xml", "data/entities/particles/tinyspark_white.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,3,4,5,6", -- HOMING_ROTATE
+		spawn_probability                 = "0.1,0.2,0.3,0.45,0.2", -- HOMING_ROTATE
+		price = 175,
+		mana = 30,
+		--max_uses = 100,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "data/entities/misc/homing_area_player.xml,data/entities/particles/tinyspark_white.xml,"
+			c.fire_rate_wait    = c.fire_rate_wait + 8
+			c.spread_degrees = c.spread_degrees + 6
+			c.speed_multiplier	= c.speed_multiplier * 0.75
+
+			if ( c.speed_multiplier >= 20 ) then
+				c.speed_multiplier = math.min( c.speed_multiplier, 20 )
+			elseif ( c.speed_multiplier < 0 ) then
+				c.speed_multiplier = 0
+			end
+
+			draw_actions( 1, true )
+		end,
+	},
+]]
 }
 
 local spells_crit_on_x = {
@@ -1042,7 +1461,23 @@ local spells_recharge = {
 			current_reload_time = current_reload_time - 10
 			draw_actions( 1, true )
 		end,
-	}
+	},
+
+	{
+		id					= "COPIS_THINGS_PASSIVE_RECHARGE",
+		name				= "Passive Recharge",
+		description			= "Your wand ",
+		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/passive_recharge.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5", -- RECHARGE
+		price				= 200,
+		mana				= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/passive_recharge.xml",
+		action = function()
+			draw_actions( 1, true )
+		end
+	},
 }
 
 local spells_mana = {
@@ -1080,7 +1515,23 @@ local spells_mana = {
 			c.fire_rate_wait = c.fire_rate_wait + 30
 			draw_actions( 1, true )
 		end,
-	}
+	},
+
+	{
+		id					= "COPIS_THINGS_PASSIVE_MANA",
+		name				= "Passive Mana",
+		description			= "Your wand ",
+		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/passive_mana.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5", -- RECHARGE
+		price				= 200,
+		mana				= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/passive_mana.xml",
+		action = function()
+			draw_actions( 1, true )
+		end
+	},
 }
 
 local spells_summon_boss = {
@@ -1792,6 +2243,11 @@ if ModSettingGet("Copis_Things.spells_mana") then
 end
 if ModSettingGet("Copis_Things.spells_summon_boss") then
 	for k, v in ipairs(spells_summon_boss) do
+		table.insert(actions, v)
+	end
+end
+if ModSettingGet("Copis_Things.spells_summon_items") then
+	for k, v in ipairs(spells_summon_items) do
 		table.insert(actions, v)
 	end
 end

@@ -15,3 +15,6 @@ sword contact damage
 nerf regen (new effect?)
 fix the stupid wands and make them do stuff
 spell rarities
+
+credit horscht for EZWand
+credit evaisa for help with effects

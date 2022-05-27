@@ -2,21 +2,24 @@
 	
 	<Base file="data/entities/base_custom_card.xml" > 
 		<SpriteComponent 
-			image_file="mods/copis_things/files/ui_gfx/gun_actions/clairvoyance.png" >
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png" >
 		</SpriteComponent>
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_CLAIRVOYANCE" >
+			action_id="COPIS_THINGS_ATTACK_LEG" >
 		</ItemActionComponent>
 	</Base>
 
-	<LuaComponent 
+    <InheritTransformComponent
 		_tags="enabled_in_hand"
-		script_source_file="mods/copis_things/files/scripts/clairvoyance.lua"
-		execute_every_n_frame="1"
-		>
-	</LuaComponent>
+		parent_hotspot_tag="shoot_pos" 
+		always_use_immediate_parent_rotation="1" >
+		<Transform 
+        position.x="6" 
+        position.y="0">
+		</Transform>
+	</InheritTransformComponent>
 
 	<LightComponent 
         _enabled="1"
