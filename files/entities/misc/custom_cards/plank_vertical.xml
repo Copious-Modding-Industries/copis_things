@@ -22,8 +22,6 @@
 		_tags="enabled_in_hand"
 		emitted_material_name="spark_red_bright"
 		gravity.y="0.0"
-		offset_x="-2"
-		offset_y="-15"
 		lifetime_min="0.0"
 		lifetime_max="0.4"
 		count_min="1"

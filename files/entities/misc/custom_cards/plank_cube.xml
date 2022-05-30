@@ -1,18 +1,19 @@
 <Entity>
+	
 	<Base file="data/entities/base_custom_card.xml" > 
 		<SpriteComponent 
-			image_file="mods/copis_things/files/ui_gfx/gun_actions/plank_horizontal.png" >
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/plank_cube.png" >
 		</SpriteComponent>
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_PLANK_HORIZONTAL" >
+			action_id="COPIS_THINGS_PLANK_CUBE" >
 		</ItemActionComponent>
 	</Base>
 
 	<LuaComponent 
 		_tags="enabled_in_hand"
-		script_source_file="mods/copis_things/files/scripts/clairvoyance.lua"
+		script_source_file="mods/copis_things/files/scripts/grid_snap.lua"
 		execute_every_n_frame="1"
 		>
 	</LuaComponent>
@@ -38,11 +39,12 @@
 		emission_interval_min_frames="1"
 		emission_interval_max_frames="1"
 		emit_cosmetic_particles="1"
-		image_animation_file="mods/copis_things/files/particles/image_emitters/plank_horizontal_emitter.png"
+		image_animation_file="mods/copis_things/files/particles/image_emitters/plank_vertical_cube.png"
 		image_animation_speed="5"
 		image_animation_loop="1"
 		image_animation_raytrace_from_center="0"
 		emission_chance="40"
 		is_emitting="1" >
 	</ParticleEmitterComponent>
+	
 </Entity>

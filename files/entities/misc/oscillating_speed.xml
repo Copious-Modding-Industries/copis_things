@@ -1,0 +1,8 @@
+<Entity>
+	<LuaComponent 
+		_enabled="1" 
+		script_source_file="mods/copis_things/files/scripts/projectiles/oscillating_speed.lua" 
+		execute_every_n_frame="10">
+    </LuaComponent>
+</Entity>
+

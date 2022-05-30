@@ -1,7 +1,7 @@
 <Entity >
    
 	<LuaComponent
-		script_source_file="mods/copis_things/files/scripts/projectiles/slots_to_power.lua"
+		script_source_file="mods/copis_things/files/scripts/projectiles/remove_damage.lua"
 		execute_on_added="1"
 		remove_after_executed="1"
 		>

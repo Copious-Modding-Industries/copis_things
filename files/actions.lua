@@ -370,6 +370,7 @@ local to_insert = {
 		end,
 	},
 
+--[[	Scrapped in favour of individual damage plus spells, and damage convert spells. also the curse enchantment looked bad
 	{
 		id          = "COPIS_THINGS_ENCHANTMENT_CURSE",
 		name 		= "Accursed Enchantment",
@@ -467,7 +468,7 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
-
+]]
 --[[		Not functional YET
 	{
 		id          = "COPIS_THINGS_SORT_DECK",
@@ -767,8 +768,10 @@ local to_insert = {
 		price				= 0,
 		mana				= 0,
 		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
-			--[[ bore scene load
+
+			add_projectile_repeating_trigger_timer("data/entities/projectiles/deck/light_bullet.xml", 30, 1)
+			--[[add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
+			 bore scene load
 			SetRandomSeed( GameGetFrameNum(), GameGetFrameNum() + 953 )
 			add_projectile( "mods/copis_things/files/entities/buildings/breach_".. tostring(Random(1,2)) .."_building.xml")
 			]]
@@ -1293,6 +1296,251 @@ local to_insert = {
 					GamePrintImportant("Spell extracted!")
 				end
 			end
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_MELEE",
+		name 		= "$action_damage",
+		description = "$actiondesc_damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_melee.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+		price = 140,
+		mana = 5,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+		action 		= function()
+			c.damage_melee_add = c.damage_melee_add + 0.4
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+	id          = "COPIS_THINGS_DAMAGE_DRILL",
+	name 		= "$action_damage",
+	description = "$actiondesc_damage",
+	sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_drill.png",
+	sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+	related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+	type 		= ACTION_TYPE_MODIFIER,
+	spawn_level                       = "1,2,3,4,5", -- DAMAGE
+	spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+	price = 140,
+	mana = 5,
+	--max_uses = 50,
+	custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+	action 		= function()
+		c.damage_drill_add = c.damage_drill_add + 0.4
+		c.gore_particles    = c.gore_particles + 5
+		c.fire_rate_wait    = c.fire_rate_wait + 5
+		c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+		shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+		draw_actions( 1, true )
+	end,
+
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_EXPLOSION",
+		name 		= "$action_damage",
+		description = "$actiondesc_damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_explosion.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+		price = 140,
+		mana = 5,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+		action 		= function()
+			c.damage_explosion_add = c.damage_explosion_add + 0.4
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_SLICE",
+		name 		= "$action_damage",
+		description = "$actiondesc_damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_slice.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+		price = 140,
+		mana = 5,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+		action 		= function()
+			c.damage_slice_add = c.damage_slice_add + 0.4
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_ELECTRICITY",
+		name 		= "$action_damage",
+		description = "$actiondesc_damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_electricity.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+		price = 140,
+		mana = 5,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+		action 		= function()
+			c.damage_electricity_add = c.damage_electricity_add + 0.4
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_FREEZE",
+		name 		= "$action_damage",
+		description = "$actiondesc_damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_freeze.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+		price = 140,
+		mana = 5,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+		action 		= function()
+			c.damage_ice_add = c.damage_ice_add + 0.4
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_CURSE",
+		name 		= "$action_damage",
+		description = "$actiondesc_damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_curse.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+		price = 140,
+		mana = 5,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+		action 		= function()
+			c.damage_curse_add = c.damage_curse_add + 0.4
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_FIRE",
+		name 		= "$action_damage",
+		description = "$actiondesc_damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_fire.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+		price = 140,
+		mana = 5,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+		action 		= function()
+			c.damage_fire_add = c.damage_fire_add + 0.4
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_LIFETIME",
+		name 		= "Damage growth",
+		description = "$actiondesc_matter_eater",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_lifetime.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,4,5,10", -- MATTER_EATER
+		spawn_probability                 = "0.1,1,0.1,0.1,0.2", -- MATTER_EATER
+		price = 280,
+		mana = 30,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/damage_lifetime.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_INFINITE_LIFETIME",
+		name 		= "Infinite Lifetime",
+		description = "$actiondesc_matter_eater",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/lifetime_infinite.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,4,5,10", -- MATTER_EATER
+		spawn_probability                 = "0.1,1,0.1,0.1,0.2", -- MATTER_EATER
+		price = 280,
+		mana = 60,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/infinite_lifetime.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_OSCILLATING_SPEED",
+		name 		= "Oscillating Speed",
+		description = "Decreases the speed at which a projectile flies through the air",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/oscillating_speed.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "1,2,3", -- SPEED
+		spawn_probability	               = "1,0.5,0.5", -- SPEED
+		price = 80,
+		mana = 2,
+		--max_uses = 100,
+		action				= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/oscillating_speed.xml,"
+			c.spread_degrees = c.spread_degrees - 8
+			draw_actions( 1, true )
 		end,
 	},
 
