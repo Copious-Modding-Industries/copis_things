@@ -1329,8 +1329,8 @@ local to_insert = {
 
 	{
 		id          = "COPIS_THINGS_DAMAGE_MELEE",
-		name 		= "$action_damage",
-		description = "$actiondesc_damage",
+		name 		= "Melee damage plus",
+		description = "Increases melee the damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_melee.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
 		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
@@ -1353,8 +1353,8 @@ local to_insert = {
 
 	{
 	id          = "COPIS_THINGS_DAMAGE_DRILL",
-	name 		= "$action_damage",
-	description = "$actiondesc_damage",
+	name 		= "Drill damage plus",
+	description = "Increases the drill damage done by a projectile",
 	sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_drill.png",
 	sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
 	related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
@@ -1378,8 +1378,8 @@ local to_insert = {
 
 	{
 		id          = "COPIS_THINGS_DAMAGE_EXPLOSION",
-		name 		= "$action_damage",
-		description = "$actiondesc_damage",
+		name 		= "Explosive damage plus",
+		description = "Increases the explosion damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_explosion.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
 		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
@@ -1402,8 +1402,8 @@ local to_insert = {
 
 	{
 		id          = "COPIS_THINGS_DAMAGE_SLICE",
-		name 		= "$action_damage",
-		description = "$actiondesc_damage",
+		name 		= "Slice damage plus",
+		description = "Increases the slice damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_slice.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
 		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
@@ -1426,8 +1426,8 @@ local to_insert = {
 
 	{
 		id          = "COPIS_THINGS_DAMAGE_ELECTRICITY",
-		name 		= "$action_damage",
-		description = "$actiondesc_damage",
+		name 		= "Electric damage plus",
+		description = "Increases the electric damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_electricity.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
 		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
@@ -1450,8 +1450,8 @@ local to_insert = {
 
 	{
 		id          = "COPIS_THINGS_DAMAGE_FREEZE",
-		name 		= "$action_damage",
-		description = "$actiondesc_damage",
+		name 		= "Freeze damage plus",
+		description = "Increases the freeze damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_freeze.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
 		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
@@ -1474,8 +1474,8 @@ local to_insert = {
 
 	{
 		id          = "COPIS_THINGS_DAMAGE_CURSE",
-		name 		= "$action_damage",
-		description = "$actiondesc_damage",
+		name 		= "Curse damage plus",
+		description = "Increases the curse damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_curse.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
 		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
@@ -1498,8 +1498,8 @@ local to_insert = {
 
 	{
 		id          = "COPIS_THINGS_DAMAGE_FIRE",
-		name 		= "$action_damage",
-		description = "$actiondesc_damage",
+		name 		= "Fire damage plus",
+		description = "Increases the fire damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_fire.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
 		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
@@ -1512,38 +1512,6 @@ local to_insert = {
 		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
 		action 		= function()
 			c.damage_fire_add = c.damage_fire_add + 0.4
-			c.gore_particles    = c.gore_particles + 5
-			c.fire_rate_wait    = c.fire_rate_wait + 5
-			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
-			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-			draw_actions( 1, true )
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_DAMAGE_TEST",
-		name 		= "$action_damage",
-		description = "$actiondesc_damage",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_test.xml",
-		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
-		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level                       = "1,2,3,4,5", -- DAMAGE
-		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
-		price = 140,
-		mana = 5,
-		--max_uses = 50,
-		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
-		action 		= function()
-			c.damage_curse_add = c.damage_curse_add + 0.4
-			c.damage_ice_add = c.damage_ice_add + 0.4
-			c.damage_fire_add = c.damage_fire_add + 0.4
-			c.damage_projectile_add = c.damage_projectile_add + 0.4
-			c.damage_melee_add = c.damage_melee_add + 0.4
-			c.damage_drill_add = c.damage_drill_add + 0.4
-			c.damage_electricity_add = c.damage_electricity_add + 0.4
-			c.damage_slice_add = c.damage_slice_add + 0.4
-			c.damage_explosion_add = c.damage_explosion_add + 0.4
 			c.gore_particles    = c.gore_particles + 5
 			c.fire_rate_wait    = c.fire_rate_wait + 5
 			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
@@ -1572,7 +1540,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_LIFETIME",
 		name 		= "Damage growth",
-		description = "$actiondesc_matter_eater",
+		description = "Causes your projectile to gain damage the longer it's alive",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_lifetime.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1589,7 +1557,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_INFINITE_LIFETIME",
 		name 		= "Infinite Lifetime",
-		description = "$actiondesc_matter_eater",
+		description = "Causes your projectile to last forever, but drain your wand's mana. Projectile expires when you run out of mana.",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/lifetime_infinite.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1649,38 +1617,7 @@ local to_insert = {
 		action 		= function()
 			c.state_destroyed_action = true
 		end
-	},
-
---[[
-	{
-		id          = "COPIS_THINGS_HOMING_AREA_PLAYER",
-		name 		= "$action_homing_area",
-		description = "$actiondesc_homing_area",
-		sprite 		= "data/ui_gfx/gun_actions/homing_area_player.png",
-		sprite_unidentified = "data/ui_gfx/gun_actions/homing_unidentified.png",
-		related_extra_entities = { "data/entities/misc/homing_area.xml", "data/entities/particles/tinyspark_white.xml" },
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level                       = "2,3,4,5,6", -- HOMING_ROTATE
-		spawn_probability                 = "0.1,0.2,0.3,0.45,0.2", -- HOMING_ROTATE
-		price = 175,
-		mana = 30,
-		--max_uses = 100,
-		action 		= function()
-			c.extra_entities = c.extra_entities .. "data/entities/misc/homing_area_player.xml,data/entities/particles/tinyspark_white.xml,"
-			c.fire_rate_wait    = c.fire_rate_wait + 8
-			c.spread_degrees = c.spread_degrees + 6
-			c.speed_multiplier	= c.speed_multiplier * 0.75
-
-			if ( c.speed_multiplier >= 20 ) then
-				c.speed_multiplier = math.min( c.speed_multiplier, 20 )
-			elseif ( c.speed_multiplier < 0 ) then
-				c.speed_multiplier = 0
-			end
-
-			draw_actions( 1, true )
-		end,
-	},
-]]
+	}
 }
 
 local spells_crit_on_x = {
