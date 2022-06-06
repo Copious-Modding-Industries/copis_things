@@ -1,0 +1,13 @@
+<Entity>
+	<PixelSceneComponent
+		pixel_scene="mods/copis_things/files/biome_impl/plank_cube.png"
+		offset_x="-8"
+		offset_y="-8"
+		skip_biome_checks="1"
+		>
+	</PixelSceneComponent>
+	<LifetimeComponent
+		lifetime="2"
+		>
+	</LifetimeComponent>
+</Entity>

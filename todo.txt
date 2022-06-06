@@ -15,6 +15,12 @@ sword contact damage
 nerf regen (new effect?)
 fix the stupid wands and make them do stuff
 spell rarities
+static camera projectile, camera locks to it. deletes on alt fire, deletes on creating a new one
+
+
+
+
+
 
 credit horscht for EZWand
 credit evaisa for help with effects

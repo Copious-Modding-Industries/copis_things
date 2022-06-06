@@ -1,7 +1,7 @@
 <Entity name="$projectile_default" tags="projectile_player" >
 	<Base file="data/entities/base_custom_card.xml" > 
 		<SpriteComponent 
-			image_file="mods/copis_things/files/sprites/spell_gui/sword_blade.png" >
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/sword_blade.png" >
 		</SpriteComponent>
 		
 		<ItemActionComponent 

@@ -1,4 +1,26 @@
 local to_insert = {
+
+	{
+		id					= "COPIS_THINGS_DEV",
+		name				= "Dev",
+		description			= "Spell for testing ideas, comment out in final release",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
+		type				= ACTION_TYPE_OTHER,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 0,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/seeker_bolt.xml")
+			--add_projectile_repeating_trigger_timer("data/entities/projectiles/deck/light_bullet.xml", 30, 1)
+			--[[add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
+			 bore scene load
+			SetRandomSeed( GameGetFrameNum(), GameGetFrameNum() + 953 )
+			add_projectile( "mods/copis_things/files/entities/buildings/breach_".. tostring(Random(1,2)) .."_building.xml")
+			]]
+		end,
+	},
+
 	-- PSYCHIC SHOT
 	{
 		id          		= "COPIS_THINGS_PSYCHIC_SHOT",
@@ -258,7 +280,7 @@ local to_insert = {
 		price = 100,
 		mana = 10,
 		action				= function()
-			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/stasis_shot.xml"
+			--c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/stasis_shot.xml"
 			c.speed_multiplier = c.speed_multiplier * 0.05
 			c.spread_degrees = c.spread_degrees - 10
 			c.lifetime_add 		= c.lifetime_add + 250
@@ -566,7 +588,7 @@ local to_insert = {
 		price					= 100,
 		mana					= 25,
 		action					= function()
-			c.extra_entities = c.extra_entities .. "mods/copis_things/entities/files/misc/homing_light.xml,data/entities/particles/tinyspark_white_weak.xml,"
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_light.xml,data/entities/particles/tinyspark_white_weak.xml,"
 			draw_actions( 1, true )
 		end,
 	},
@@ -758,27 +780,6 @@ local to_insert = {
 	},
 
 	{
-		id					= "COPIS_THINGS_DEV",
-		name				= "Dev",
-		description			= "Spell for testing ideas, comment out in final release",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
-		type				= ACTION_TYPE_OTHER,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 0,
-		action				= function()
-
-			add_projectile_repeating_trigger_timer("data/entities/projectiles/deck/light_bullet.xml", 30, 1)
-			--[[add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
-			 bore scene load
-			SetRandomSeed( GameGetFrameNum(), GameGetFrameNum() + 953 )
-			add_projectile( "mods/copis_things/files/entities/buildings/breach_".. tostring(Random(1,2)) .."_building.xml")
-			]]
-		end,
-	},
-
-	{
 		id					= "COPIS_THINGS_ZENITH_DISC",
 		name				= "Zenith disc",
 		description			= "Summons a no nonsense sawblade.",
@@ -885,6 +886,33 @@ local to_insert = {
 			if entity_id ~= nil and entity_id ~= 0 then
 				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent"), "mMousePosition")
 				EntityLoad("mods/copis_things/files/entities/buildings/plank_horizontal_building.xml", mouse_x, mouse_y)
+				c.fire_rate_wait = c.fire_rate_wait + 5
+				current_reload_time = current_reload_time + 15
+			end
+
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_PLANK_CUBE",
+		name 		= "Build Wooden Cube",
+		description = "Construct a wooden cube",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/plank_cube.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level			               = "0,1,2,4,5,6", -- WALL_SQUARE
+		spawn_probability	               = "0.1,0.1,0.3,0.4,0.2,0.1", -- WALL_SQUARE
+		price = 100,
+		mana = 40,
+		max_uses = 12,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/plank_cube.xml",
+		action				= function()
+			local entity_id = EntityGetWithTag("player_unit")[1]
+			if entity_id ~= nil and entity_id ~= 0 then
+				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent"), "mMousePosition")
+				function round(n, to)
+					return math.floor(n/to + 0.5) * to
+				end
+				EntityLoad("mods/copis_things/files/entities/buildings/plank_cube_building.xml", round(mouse_x,16), round(mouse_y,16))
 				c.fire_rate_wait = c.fire_rate_wait + 5
 				current_reload_time = current_reload_time + 15
 			end
@@ -1493,6 +1521,55 @@ local to_insert = {
 	},
 
 	{
+		id          = "COPIS_THINGS_DAMAGE_TEST",
+		name 		= "$action_damage",
+		description = "$actiondesc_damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_test.xml",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
+		price = 140,
+		mana = 5,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/damage.xml",
+		action 		= function()
+			c.damage_curse_add = c.damage_curse_add + 0.4
+			c.damage_ice_add = c.damage_ice_add + 0.4
+			c.damage_fire_add = c.damage_fire_add + 0.4
+			c.damage_projectile_add = c.damage_projectile_add + 0.4
+			c.damage_melee_add = c.damage_melee_add + 0.4
+			c.damage_drill_add = c.damage_drill_add + 0.4
+			c.damage_electricity_add = c.damage_electricity_add + 0.4
+			c.damage_slice_add = c.damage_slice_add + 0.4
+			c.damage_explosion_add = c.damage_explosion_add + 0.4
+			c.gore_particles    = c.gore_particles + 5
+			c.fire_rate_wait    = c.fire_rate_wait + 5
+			c.extra_entities    = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DAMAGE_TO_CURSE",
+		name 		= "Damage to Curse",
+		description = "Converts 80% of projectile damage to curse damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_to_curse.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,4,5,10", -- MATTER_EATER
+		spawn_probability                 = "0.1,1,0.1,0.1,0.2", -- MATTER_EATER
+		price = 280,
+		mana = 30,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/damage_to_curse.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
 		id          = "COPIS_THINGS_DAMAGE_LIFETIME",
 		name 		= "Damage growth",
 		description = "$actiondesc_matter_eater",
@@ -1542,6 +1619,36 @@ local to_insert = {
 			c.spread_degrees = c.spread_degrees - 8
 			draw_actions( 1, true )
 		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DISCARD",
+		name 		= "Discard",
+		description = "Discards the current state",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 100,
+		mana = 20,
+		action 		= function()
+			c.state_discarded_action = true
+		end
+	},
+
+	{
+		id          = "COPIS_THINGS_DESTROY",
+		name 		= "Destroy",
+		description = "Destroys the current state",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
+		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
+		price = 100,
+		mana = 20,
+		action 		= function()
+			c.state_destroyed_action = true
+		end
 	},
 
 --[[

@@ -1,5 +1,4 @@
 <Entity>
-	
 	<Base file="data/entities/base_custom_card.xml" > 
 		<SpriteComponent 
 			image_file="mods/copis_things/files/ui_gfx/gun_actions/plank_cube.png" >
@@ -33,18 +32,17 @@
 		area_circle_radius.min="0"
 		area_circle_radius.max="0"
 		cosmetic_force_create="0"
-		airflow_force="0.251"
-		airflow_time="1.01"
-		airflow_scale="0.05"
+		airflow_force="0"
+		airflow_time="1"
+		airflow_scale="0"
 		emission_interval_min_frames="1"
 		emission_interval_max_frames="1"
 		emit_cosmetic_particles="1"
-		image_animation_file="mods/copis_things/files/particles/image_emitters/plank_vertical_cube.png"
+		image_animation_file="mods/copis_things/files/particles/image_emitters/plank_cube_emitter.png"
 		image_animation_speed="5"
 		image_animation_loop="1"
 		image_animation_raytrace_from_center="0"
 		emission_chance="40"
 		is_emitting="1" >
 	</ParticleEmitterComponent>
-	
 </Entity>

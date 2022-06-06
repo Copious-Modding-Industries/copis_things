@@ -15,8 +15,8 @@
     _enabled="1" 
     lob_min="0.5"
     lob_max="0.7"
-    speed_min="580"
-    speed_max="600"
+    speed_min="1580"
+    speed_max="1600"
     friction="1"
     direction_random_rad="0.00"
     on_death_explode="1"
@@ -26,21 +26,21 @@
     ground_penetration_coeff="1"
     on_collision_die="1"
     lifetime="60"
-    damage="0.5"
-    velocity_sets_scale="1"
+    damage="0.8"
+    velocity_sets_scale="0"
     lifetime_randomness="7"
     ragdoll_force_multiplier="0.015"
     hit_particle_force_multiplier="0.3"
-    muzzle_flash_file="data/entities/particles/muzzle_flashes/muzzle_flash_magic_small.xml"
+	muzzle_flash_file="data/entities/particles/muzzle_flashes/muzzle_flash_medium.xml"
     shoot_light_flash_r="255"
     shoot_light_flash_g="160"
     shoot_light_flash_b="160"
     shoot_light_flash_radius="64" 
 	knockback_force="0"
 	>
-		<damage_by_type
-			curse="0.2"
-			>
+	<damage_by_type
+		curse="1.1"
+	></damage_by_type>
     <config_explosion
       never_cache="1" 
       damage="0.0"
@@ -74,7 +74,7 @@
   <SpriteComponent 
     _enabled="1" 
     alpha="1" 
-    image_file="mods/copis_things/files/projectiles_gfx/silver_magnum.png" 
+    image_file="mods/copis_things/files/projectiles_gfx/silver_magnum.xml" 
     next_rect_animation="default"
     rect_animation="default"
 	additive="1"
@@ -83,11 +83,11 @@
   
   	<!-- dense emitter -->
 	<ParticleEmitterComponent 
-		emitted_material_name="SPARK_TEAL"
+		emitted_material_name="spark_teal"
 		offset.x="0"
 		offset.y="0"
-		x_pos_offset_min="0"
-		x_pos_offset_max="0"
+		x_pos_offset_min="-0.5"
+		x_pos_offset_max="0.5"
 		y_pos_offset_min="0"
 		y_pos_offset_max="0"
 		x_vel_min="0"
@@ -115,11 +115,11 @@
 	
   	<!-- sparse emitter -->
 	<ParticleEmitterComponent 
-		emitted_material_name="SPARK_TEAL"
+		emitted_material_name="spark_teal"
 		offset.x="0"
 		offset.y="0"
-		x_pos_offset_min="0"
-		x_pos_offset_max="0"
+		x_pos_offset_min="-0.5"
+		x_pos_offset_max="0.5"
 		y_pos_offset_min="0"
 		y_pos_offset_max="0"
 		x_vel_min="20"
@@ -147,11 +147,11 @@
 	
   	<!-- very sparse emitter -->
 	<ParticleEmitterComponent 
-		emitted_material_name="SPARK_TEAL"
+		emitted_material_name="spark_teal"
 		offset.x="0"
 		offset.y="0"
-		x_pos_offset_min="0"
-		x_pos_offset_max="0"
+		x_pos_offset_min="-0.5"
+		x_pos_offset_max="0.5"
 		y_pos_offset_min="0"
 		y_pos_offset_max="0"
 		x_vel_min="10"
@@ -187,12 +187,12 @@
 
   <AudioComponent
       file="data/audio/Desktop/projectiles.bank"
-      event_root="player_projectiles/bullet_light">
+      event_root="projectiles/minigun">
   </AudioComponent>
   
 	<VariableStorageComponent
 		name="projectile_file"
-		value_string="mods/copis_things/files/entities/projectiles/silver_bullet.xml"
+		value_string="mods/copis_things/files/entities/projectiles/silver_magnum.xml"
 		>
 	</VariableStorageComponent>
 

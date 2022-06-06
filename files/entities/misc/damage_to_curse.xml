@@ -1,0 +1,8 @@
+<Entity >
+	
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/damage_to_curse.lua"
+		execute_every_n_frame="30"
+	></LuaComponent>
+
+</Entity>

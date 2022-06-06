@@ -71,7 +71,7 @@
   <SpriteComponent 
     _enabled="1" 
     alpha="1" 
-    image_file="mods/copis_things/files/sprites/projectiles/dart.xml" 
+    image_file="mods/copis_things/files/projectiles_gfx/dart.xml" 
     next_rect_animation="default"
     rect_animation="default"
 	additive="1"
