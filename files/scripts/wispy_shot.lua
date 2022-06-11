@@ -11,6 +11,8 @@ local bob_speed_x = 0.01421
 local entity_id = GetUpdatedEntityID()
 local pos_x, pos_y = EntityGetTransform( entity_id )
 
+local pos_x_old, pos_y_old = pos_x, pos_y
+
 if pos_x == 0 and pos_y == 0 then
 	-- get position from wand when starting
 	pos_x, pos_y = EntityGetTransform(EntityGetParent(entity_id))
@@ -36,9 +38,14 @@ target_x = target_x + math.sin(time * bob_speed_x) * bob_w
 
 local dist_x = pos_x - target_x
 
+local deltaX = pos_x - pos_x_old;
+local deltaY = pos_y - pos_y_old;
+local rad = Math.atan2(deltaY, deltaX)
+
+
 -- move towards target
 pos_x,pos_y = vec_lerp(pos_x, pos_y, target_x, target_y, lerp_amount)
-EntitySetTransform( entity_id, pos_x, pos_y)
+EntitySetTransform( entity_id, pos_x, pos_y, rad)
 
 edit_component( target_id, "ProjectileComponent", function(comp,vars)
     vars.die_on_low_velocity = 0

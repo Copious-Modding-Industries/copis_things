@@ -49,62 +49,6 @@ mod_settings =
 		{
 		},
 	},
-	{
-		category_id = "spells",
-		ui_name = "Spells",
-		settings =
-		{
-			{
-				id = "spells_crit_on_x",
-				ui_name = "Critical on x enemies",
-				ui_description = "Toggle critical on x enemies spells",
-				value_default = true,
-				scope = MOD_SETTING_SCOPE_NEW_GAME,
-			},
-			{
-				id = "spells_recharge",
-				ui_name = "Enhanced reduce recharge",
-				ui_description = "Toggle enhanced reduce recharge spells",
-				value_default = true,
-				scope = MOD_SETTING_SCOPE_NEW_GAME,
-			},
-			{
-				id = "spells_mana",
-				ui_name = "Enhanced add mana",
-				ui_description = "Toggle enhanced add mana spells",
-				value_default = true,
-				scope = MOD_SETTING_SCOPE_NEW_GAME,
-			},
-			{
-				id = "spells_summon_boss",
-				ui_name = "Boss summoning",
-				ui_description = "Toggle boss summoning spells",
-				value_default = true,
-				scope = MOD_SETTING_SCOPE_NEW_GAME,
-			},
-			{
-				id = "spells_cataclysm",
-				ui_name = "Cataclysm",
-				ui_description = "Toggle cataclysmic spells",
-				value_default = true,
-				scope = MOD_SETTING_SCOPE_NEW_GAME,
-			},
-			{
-				id = "spells_buffs",
-				ui_name = "Buffs",
-				ui_description = "Toggle buff spells",
-				value_default = true,
-				scope = MOD_SETTING_SCOPE_NEW_GAME,
-			},
-			{
-				id = "spells_overpowered",
-				ui_name = "Overpowered",
-				ui_description = "Toggle overpowered spells",
-				value_default = true,
-				scope = MOD_SETTING_SCOPE_NEW_GAME,
-			},
-		},
-	},
 }
 
 

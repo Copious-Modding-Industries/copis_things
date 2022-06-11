@@ -392,135 +392,6 @@ local to_insert = {
 		end,
 	},
 
---[[	Scrapped in favour of individual damage plus spells, and damage convert spells. also the curse enchantment looked bad
-	{
-		id          = "COPIS_THINGS_ENCHANTMENT_CURSE",
-		name 		= "Accursed Enchantment",
-		description = "Enchants a projectile with cursed magic",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/accursed_enchantment.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,3,4,5", -- FREEZE
-		spawn_probability	               = "1,1,1,1", -- FREEZE
-		price = 200,
-		mana = 50,
-		action				= function()
-			c.damage_curse_add = c.damage_curse_add + 0.4
-			c.speed_multiplier = c.speed_multiplier * 0.8
-			c.spread_degrees = c.spread_degrees + 8
-			c.bounces = c.bounces + 4
-			c.friendly_fire = true
-			draw_actions( 1, true )
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_ENCHANTMENT_MELEE",
-		name 		= "Bladed Enchantment",
-		description = "Enchants a projectile with bladed magic",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/bladed_enchantment.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,3,4,5", -- FREEZE
-		spawn_probability	               = "1,1,1,1", -- FREEZE
-		price = 200,
-		mana = 50,
-		action				= function()
-			c.damage_melee_add = c.damage_melee_add + 0.6
-			c.speed_multiplier = c.speed_multiplier * 0.6
-			c.spread_degrees = c.spread_degrees - 16
-			c.lifetime_add = c.lifetime_add * 0.4
-			draw_actions( 1, true )
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_ENCHANTMENT_FIRE",
-		name 		= "Blazing Enchantment",
-		description = "Enchants a projectile with flaming magic",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/blazing_enchantment.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,3,4,5", -- FREEZE
-		spawn_probability	               = "1,1,1,1", -- FREEZE
-		price = 200,
-		mana = 50,
-		action				= function()
-			c.damage_fire_add = c.damage_fire_add + 0.6
-			c.speed_multiplier = c.speed_multiplier * 1.4
-			c.spread_degrees = c.spread_degrees + 12
-			c.lifetime_add = c.lifetime_add * 0.8
-			draw_actions( 1, true )
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_ENCHANTMENT_SPEED",
-		name 		= "Dashing Enchantment",
-		description = "Enchants a projectile with restless magic",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dashing_enchantment.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,3,4,5", -- FREEZE
-		spawn_probability	               = "1,1,1,1", -- FREEZE
-		price = 200,
-		mana = 50,
-		action				= function()
-			c.damage_projectile_add = c.damage_projectile_add + 0.2
-			c.speed_multiplier = c.speed_multiplier * 4
-			c.spread_degrees = c.spread_degrees + 32
-			c.lifetime_add = c.lifetime_add * 1.2
-			c.bounces = c.bounces + 50
-			draw_actions( 1, true )
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_ENCHANTMENT_SLICE",
-		name 		= "Spiked Enchantment",
-		description = "Enchants a projectile with sharp magic",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/spiked_enchantment.png",
-		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,3,4,5", -- FREEZE
-		spawn_probability	               = "1,1,1,1", -- FREEZE
-		price = 200,
-		mana = 50,
-		action				= function()
-			c.damage_slice_add = c.damage_slice_add + 0.6
-			c.speed_multiplier = c.speed_multiplier * 0.4
-			c.spread_degrees = c.spread_degrees - 12
-			c.lifetime_add = c.lifetime_add * 1.2
-			c.bounces = c.bounces + 50
-			draw_actions( 1, true )
-		end,
-	},
-]]
---[[		Not functional YET
-	{
-		id          = "COPIS_THINGS_SORT_DECK",
-		name 		= "Unshuffle",
-		description = "Stablizes shuffled wands",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sort_deck.png",
-		type 		= ACTION_TYPE_PASSIVE,
-		spawn_level			               = "1,3,4,5", -- FREEZE
-		spawn_probability	               = "1,1,1,1", -- FREEZE
-		price = 100,
-		mana = 5,
-		action				= function()
-		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_SHUFFLE_DECK",
-		name 		= "Shuffle",
-		description = "Imbues a wand with unpredictable energy",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/shuffle_deck.png",
-		type 		= ACTION_TYPE_PASSIVE,
-		spawn_level			               = "1,3,4,5", -- FREEZE
-		spawn_probability	               = "1,1,1,1", -- FREEZE
-		price = 100,
-		mana = -20,
-		action				= function()
-		end,
-	},
-
-	]]--
 	{
 		id          = "COPIS_THINGS_DIE",
 		name 		= "Die",
@@ -717,23 +588,7 @@ local to_insert = {
 			add_projectile("mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml")
 		end,
 	},
---[[
-	{
-		id          = "COPIS_THINGS_ATTACK_LEG",
-		name 		= "Lukki Limb",
-		description = "Control a Lukki leg to kick nearby enemies automatically",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png",
-		type 		= ACTION_TYPE_PASSIVE,
-		spawn_level			               = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
-		spawn_probability	               = "0.05,0.6,0.6,0.6,0.6,0.6", -- ENERGY_SHIELD_SECTOR
-		price = 160,
-		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/attack_leg.xml",
-		action				= function()
-			-- does nothing to the projectiles
-			draw_actions( 1, true )
-		end,
-	},
-]]
+
 	{
 		id					= "COPIS_THINGS_SPECIAL_DATARANDAL",
 		name				= "Datarandal",
@@ -1521,6 +1376,27 @@ local to_insert = {
 	},
 
 	{
+		id          = "COPIS_THINGS_DAMAGE_MINUS",
+		name 		= "Damage Minus",
+		description = "Decreases the damage done by a projectile",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_minus.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,3,4,5", -- DAMAGE
+		spawn_probability                 = "0.3,0.3,0.3,0.3", -- DAMAGE
+		price = 50,
+		mana = -20,
+		--max_uses = 50,
+		action 		= function()
+			c.damage_fire_add = c.damage_fire_add - 0.2
+			c.gore_particles    = c.gore_particles - 5
+			c.fire_rate_wait    = c.fire_rate_wait - 2.5
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback - 10.0
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
 		id          = "COPIS_THINGS_DAMAGE_TO_CURSE",
 		name 		= "Damage to Curse",
 		description = "Converts 80% of projectile damage to curse damage",
@@ -1588,39 +1464,6 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
-
-	{
-		id          = "COPIS_THINGS_DISCARD",
-		name 		= "Discard",
-		description = "Discards the current state",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
-		type 		= ACTION_TYPE_UTILITY,
-		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
-		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
-		price = 100,
-		mana = 20,
-		action 		= function()
-			c.state_discarded_action = true
-		end
-	},
-
-	{
-		id          = "COPIS_THINGS_DESTROY",
-		name 		= "Destroy",
-		description = "Destroys the current state",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
-		type 		= ACTION_TYPE_UTILITY,
-		spawn_level                       = "1,2,3,10", -- AREA_DAMAGE
-		spawn_probability                 = "1,1,0.5,0.2", -- AREA_DAMAGE
-		price = 100,
-		mana = 20,
-		action 		= function()
-			c.state_destroyed_action = true
-		end
-	}
-}
-
-local spells_crit_on_x = {
 
 	{
 		id          = "COPIS_THINGS_HITFX_CRITICAL_DRUNK",
@@ -1705,10 +1548,8 @@ local spells_crit_on_x = {
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_frozen.xml,"
 			draw_actions( 1, true )
 		end,
-	}
-}
+	},
 
-local spells_recharge = {
 	{
 		id          = "COPIS_THINGS_RECHARGE_2",
 		name 		= "Reduce recharge time II",
@@ -1811,9 +1652,7 @@ local spells_recharge = {
 			draw_actions( 1, true )
 		end
 	},
-}
 
-local spells_mana = {
 	{
 		id          = "COPIS_THINGS_MANA_REDUCE_2",
 		name 		= "Add mana II",
@@ -1865,9 +1704,7 @@ local spells_mana = {
 			draw_actions( 1, true )
 		end
 	},
-}
 
-local spells_summon_boss = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_CENTIPEDE",
 		name				= "Summon Kolmisilmä",
@@ -2028,10 +1865,8 @@ local spells_summon_boss = {
 		c.fire_rate_wait = c.fire_rate_wait + 150
 		current_reload_time = current_reload_time + 40
 		end,
-	}
-}
+	},
 
-local spells_summon_items = {
 	{
 		id					= "COPIS_THINGS_SUMMON_FLASK",
 		name				= "Summon flask",
@@ -2104,48 +1939,6 @@ local spells_summon_items = {
 		end,
 	},
 
-
-	--[[
-	{
-		id					= "COPIS_THINGS_SUMMON_POUCH",
-		name				= "Summon pouch",
-		description			= "Summons an empty pouch",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "2,		3,		4,		5,		6",
-		spawn_probability	= "0.25,	0.33,	0.50,	0.33,	0.25",
-		price				= 200,
-		mana				= 90,
-		max_uses			= 1,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait + 20
-			current_reload_time = current_reload_time + 40
-			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SUMMON_POUCH_FULL",
-		name				= "Summon filled pouch",
-		description			= "Summons a pouch filled with a random material",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
-		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "2,		3,		4,		5,		6",
-		spawn_probability	= "0.125,	0.17,	0.25,	0.17,	0.125",
-		price				= 300,
-		mana				= 120,
-		max_uses			= 1,
-		action				= function()
-			c.fire_rate_wait    = c.fire_rate_wait + 20
-			current_reload_time = current_reload_time + 40
-			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
-		end,
-	},
-	]]-- Not sure what the entity for pouch is or if there's a proper "empty" one, since I've only encountered full ones. Implement when found
-
-}
-
-local spells_cataclysm = {
 	{
 		id					= "COPIS_THINGS_SUMMON_SUN",
 		name				= "Summon Sun",
@@ -2179,9 +1972,7 @@ local spells_cataclysm = {
 		current_reload_time = current_reload_time + 40
 		end,
 	},
-}
 
-local spells_buffs = {
 	{
 		id					= "COPIS_THINGS_BUFF_BERSERK",
 		name				= "Status: Berserk",
@@ -2502,10 +2293,8 @@ local spells_buffs = {
 				EntityAddChild( entity_id, effect_id )
 				end
 			end,
-	}
-}
+	},
 
-local spells_overpowered = {
 	{
 		id					= "COPIS_THINGS_SPELL_REFRESH",
 		name				= "Spell refresh",
@@ -2534,12 +2323,155 @@ local spells_overpowered = {
 		type				= ACTION_TYPE_UTILITY,
 		spawn_level			= "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
 		spawn_probability	= "0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001",
-		price				= 20000,
+		price				= 200000,
 		mana				= 150,
+		max_uses			= 3,
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
 			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_FREEZING_VAPOUR_TRAIL",
+		name 		= "Freezing Vapour Trail",
+		description = "Gives a projectile a trail of stinging frost",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/freezing_vapour_trail.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5,0.5", -- FIREBALL_RAY
+		price = 300,
+		mana = 13,
+		action				= function()
+            c.trail_material = c.trail_material .. "blood_cold";
+            c.trail_material_amount = c.trail_material_amount + 5;
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_VOID_TRAIL",
+		name 		= "Void Liquid Trail",
+		description = "Gives a projectile a trail of pure darkness",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/void_trail.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5,0.5", -- FIREBALL_RAY
+		price = 200,
+		mana = 6,
+		action				= function()
+            c.trail_material = c.trail_material .. "void_liquid,";
+            c.trail_material_amount = c.trail_material_amount + 1;
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_DAMAGE_CRITICAL",
+		name 		= "Critical strike",
+		description = "Increases spell critical damage",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_critical.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.7,0.7,0.7,0.7,0.7,0.7,0.7", -- FIREBALL_RAY
+		price = 300,
+		mana = 20,
+		action				= function()
+            c.damage_critical_multiplier = math.max( 1, c.damage_critical_multiplier ) + 1;
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_DIMIGE",
+		name 		= "Dimige",
+		description = "Increases spell damage slightly for each projectile spell on the wand",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dimige.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3", -- FIREBALL_RAY
+		spawn_probability	               = "1.0,1.0,1.0,1.0", -- FIREBALL_RAY
+		price = 70,
+		mana = 5,
+		action				= function()
+            local projectile_type_sum = 0;
+            for k,v in ipairs( deck or {} ) do if v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or v.type == ACTION_TYPE_MATERIAL then projectile_type_sum = projectile_type_sum + 1; end end
+            for k,v in ipairs( hand or {} ) do if v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or v.type == ACTION_TYPE_MATERIAL then projectile_type_sum = projectile_type_sum + 1; end end
+            for k,v in ipairs( discarded or {} ) do if v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or v.type == ACTION_TYPE_MATERIAL then projectile_type_sum = projectile_type_sum + 1; end end
+            c.damage_projectile_add = c.damage_projectile_add + 0.04 + 0.04 * projectile_type_sum;
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_POWER_SHOT",
+		name 		= "Power Shot",
+		description = "Cast a spell with increased damage and material penetration",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/power_shot.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.7,0.7,0.7,0.7,0.7,0.7,0.7", -- FIREBALL_RAY
+		price = 300,
+		mana = 20,
+		action				= function()
+			c.damage_projectile_add = c.damage_projectile_add + 0.24;
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/power_shot.xml,";
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_STICKY_SHOT",
+		name 		= "Sticky Shot",
+		description = "Cast a spell which sticks to surfaces it hits",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sticky_shot.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.6,0.6,0.6,0.6,0.6,0.6,0.6", -- FIREBALL_RAY
+		price = 200,
+		mana = 9,
+		action				= function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sticky_shot.xml,";
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_LIGHT_REMOVER",
+		name 		= "Light Remover",
+		description = "Removes the light from a projectile",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/light_remover.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "2,3", -- FIREBALL_RAY
+		spawn_probability	               = "0.2,0.2", -- FIREBALL_RAY
+		price = 50,
+		mana = 0,
+		action				= function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/light_remover.xml,";
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_LOVELY_TRAIL",
+		name 		= "Lovely Trail",
+		description = "Show your enemies some love",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/lovely_trail.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", -- FIREBALL_RAY
+		price = 10,
+		mana = 0,
+		action				= function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/lovely_trail.xml,";
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_NULL_TRAIL",
+		name 		= "Lovely Trail",
+		description = "Remove all particle emitters from the projectile",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/null_trail.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", -- FIREBALL_RAY
+		price = 10,
+		mana = 0,
+		action				= function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/null_trail.xml,";
+            draw_actions( 1, true );
 		end,
 	},
 }
@@ -2548,54 +2480,86 @@ for k, v in ipairs(to_insert) do
     table.insert(actions, v)
 end
 
-local settings = {
-	"spells_crit_on_x",
-	"spells_recharge",
-	"spells_mana",
-	"spells_summon_boss",
-	"spells_summon_items",
-	"spells_cataclysm",
-	"spells_buffs",
-	"spells_overpowered"
-}
 
-if ModSettingGet("Copis_Things.spells_crit_on_x") then
-	for k, v in ipairs(spells_crit_on_x) do
-		table.insert(actions, v)
-	end
-end
-if ModSettingGet("Copis_Things.spells_recharge") then
-	for k, v in ipairs(spells_recharge) do
-		table.insert(actions, v)
-	end
-end
-if ModSettingGet("Copis_Things.spells_mana") then
-	for k, v in ipairs(spells_mana) do
-		table.insert(actions, v)
-	end
-end
-if ModSettingGet("Copis_Things.spells_summon_boss") then
-	for k, v in ipairs(spells_summon_boss) do
-		table.insert(actions, v)
-	end
-end
-if ModSettingGet("Copis_Things.spells_summon_items") then
-	for k, v in ipairs(spells_summon_items) do
-		table.insert(actions, v)
-	end
-end
-if ModSettingGet("Copis_Things.spells_cataclysm") then
-	for k, v in ipairs(spells_cataclysm) do
-		table.insert(actions, v)
-	end
-end
-if ModSettingGet("Copis_Things.spells_buffs") then
-	for k, v in ipairs(spells_buffs) do
-		table.insert(actions, v)
-	end
-end
-if ModSettingGet("Copis_Things.spells_overpowered") then
-	for k, v in ipairs(spells_overpowered) do
-		table.insert(actions, v)
-	end
-end
+
+	--[[
+	{
+		id					= "COPIS_THINGS_SUMMON_POUCH",
+		name				= "Summon pouch",
+		description			= "Summons an empty pouch",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,		3,		4,		5,		6",
+		spawn_probability	= "0.25,	0.33,	0.50,	0.33,	0.25",
+		price				= 200,
+		mana				= 90,
+		max_uses			= 1,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SUMMON_POUCH_FULL",
+		name				= "Summon filled pouch",
+		description			= "Summons a pouch filled with a random material",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,		3,		4,		5,		6",
+		spawn_probability	= "0.125,	0.17,	0.25,	0.17,	0.125",
+		price				= 300,
+		mana				= 120,
+		max_uses			= 1,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
+		end,
+	},
+	
+	{
+		id          = "COPIS_THINGS_SORT_DECK",
+		name 		= "Unshuffle",
+		description = "Stablizes shuffled wands",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sort_deck.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,3,4,5", -- FREEZE
+		spawn_probability	               = "1,1,1,1", -- FREEZE
+		price = 100,
+		mana = 5,
+		action				= function()
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_SHUFFLE_DECK",
+		name 		= "Shuffle",
+		description = "Imbues a wand with unpredictable energy",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/shuffle_deck.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,3,4,5", -- FREEZE
+		spawn_probability	               = "1,1,1,1", -- FREEZE
+		price = 100,
+		mana = -20,
+		action				= function()
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_ATTACK_LEG",
+		name 		= "Lukki Limb",
+		description = "Control a Lukki leg to kick nearby enemies automatically",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability	               = "0.05,0.6,0.6,0.6,0.6,0.6", -- ENERGY_SHIELD_SECTOR
+		price = 160,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/attack_leg.xml",
+		action				= function()
+			-- does nothing to the projectiles
+			draw_actions( 1, true )
+		end,
+	},
+
+	]]--
