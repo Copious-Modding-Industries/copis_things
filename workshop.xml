@@ -1,0 +1,19 @@
+<Mod
+name="Copi's Things"
+description="
+[i]Last updated in 2020, [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1975079109]Goki's Things[/url] used to be one of the most popular mods in all of noita's history. I'd say it was instrumental to lots of people's experiences in the game. But unfortunately nothing lasts forever. This mod is a recollection of things, a continuation of the mod. Thank you, gokiburikin for your mod, and letting me and every other modder adapt it's ideas and content.[/i]
+
+[b]Credits[/b]
+
+[i]libraries[/i]
+[list]
+    [*][url=https://steamcommunity.com/profiles/76561198165288511/myworkshopfiles/?appid=881100]Horscht[/url] for [url=https://github.com/TheHorscht/EZWand]EZWand[/url]
+    [*]Bulleted list
+    [*]Bulleted list
+[/list]
+"
+tags="gameplay,items,quality of life,loadouts,tweaks,bosses,biomes"
+dont_upload_folders=".assets" 
+dont_upload_files=""
+>
+</Mod>

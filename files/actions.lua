@@ -1388,7 +1388,7 @@ local to_insert = {
 		mana = -20,
 		--max_uses = 50,
 		action 		= function()
-			c.damage_fire_add = c.damage_fire_add - 0.2
+			c.damage_projectile_add = c.damage_projectile_add - 0.2
 			c.gore_particles    = c.gore_particles - 5
 			c.fire_rate_wait    = c.fire_rate_wait - 2.5
 			shot_effects.recoil_knockback = shot_effects.recoil_knockback - 10.0
@@ -1640,7 +1640,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_PASSIVE_RECHARGE",
 		name				= "Passive Recharge",
-		description			= "Your wand ",
+		description			= "Your wand recharges faster!",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/passive_recharge.png",
 		type        		= ACTION_TYPE_PASSIVE,
 		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
@@ -1692,7 +1692,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_PASSIVE_MANA",
 		name				= "Passive Mana",
-		description			= "Your wand ",
+		description			= "Your wand regenerates mana faster!",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/passive_mana.png",
 		type        		= ACTION_TYPE_PASSIVE,
 		spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
@@ -2473,6 +2473,232 @@ local to_insert = {
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/null_trail.xml,";
             draw_actions( 1, true );
 		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_RANDOM_CAST",
+		name 		= "Random cast",
+		description = "Casts a spell from a random position",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/random_cast.png",
+		type 		= ACTION_TYPE_UTILITY,
+		spawn_level			               = "2,3,4,5", -- FIREBALL_RAY
+		spawn_probability	               = "0.2,0.2,0.2,0.2", -- FIREBALL_RAY
+		price = 90,
+		mana = 0,
+		action				= function()
+			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/random_cast.xml", 1)
+			c.fire_rate_wait = c.fire_rate_wait - 10
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_ROOT_GROWER",
+		name 		= "Creeping Vines",
+		description = "Spawns a mass of rapidly growing nature",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/root_grower.png",
+		type 		= ACTION_TYPE_STATIC_PROJECTILE,
+		spawn_level			               = "0,1,2,3,4,5", -- FIREBALL_RAY
+		spawn_probability	               = "0.5,0.5,0.5,0.5,0.5,0.5", -- FIREBALL_RAY
+		price = 90,
+		mana = 40,
+		max_uses = 10,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/props/root_grower.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 12
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_HOMING_CURSOR",
+		name				= "Cursor Homing",
+		description			= "Homing projectiles will be able to target your cursor",
+		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/homing_cursor.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
+		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
+		price				= 100,
+		mana				= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/homing_cursor.xml",
+		action = function()
+			draw_actions( 1, true )
+		end
+	},
+
+	{
+		id						= "COPIS_THINGS_HOMING_ANTI",
+		name					= "Anti Homing",
+		description				= "Projectiles will be repelled by enemies",
+		sprite					= "mods/copis_things/files/ui_gfx/gun_actions/homing_anti.png",
+		related_extra_entities	= { "mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml" },
+		type					= ACTION_TYPE_MODIFIER,
+		spawn_level				= "1,2,3,4,5", -- HOMING
+		spawn_probability		= "0.1,0.1,0.1,0.1,0.1", -- HOMING
+		price					= 100,
+		mana					= 0,
+		action					= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_PROTECTION_FIRE",
+		name				= "Fire immunity",
+		description			= "Your wand grants you a magical aura of fire immunity!",
+		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_fire.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
+		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
+		price				= 1200,
+		mana				= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/protection_fire.xml",
+		action = function()
+			draw_actions( 1, true )
+		end
+	},
+
+	{
+		id					= "COPIS_THINGS_PROTECTION_EXPLOSION",
+		name				= "Explosion immunity",
+		description			= "Your wand grants you a magical aura of explosion immunity!",
+		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_explosion.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
+		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
+		price				= 1200,
+		mana				= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/protection_explosion.xml",
+		action = function()
+			draw_actions( 1, true )
+		end
+	},
+
+	{
+		id					= "COPIS_THINGS_PROTECTION_ELECTRICITY",
+		name				= "Electricity immunity",
+		description			= "Your wand grants you a magical aura of electricity immunity!",
+		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_electricity.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
+		spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
+		price				= 1200,
+		mana				= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/protection_electricity.xml",
+		action = function()
+			draw_actions( 1, true )
+		end
+	},
+
+	{
+			id					= "COPIS_THINGS_PROTECTION_ICE",
+			name				= "Freeze immunity",
+			description			= "Your wand grants you a magical aura of freeze immunity!",
+			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_ice.png",
+			type        		= ACTION_TYPE_PASSIVE,
+			spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
+			spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
+			price				= 1200,
+			mana				= 0,
+			custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/protection_ice.xml",
+			action = function()
+				draw_actions( 1, true )
+			end
+	},
+
+	{
+			id					= "COPIS_THINGS_PROTECTION_RADIOACTIVITY",
+			name				= "Toxic immunity",
+			description			= "Your wand grants you a magical aura of toxic immunity!",
+			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_radioactivity.png",
+			type        		= ACTION_TYPE_PASSIVE,
+			spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
+			spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
+			price				= 1200,
+			mana				= 0,
+			custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/protection_radioactivity.xml",
+			action = function()
+				draw_actions( 1, true )
+			end
+	},
+
+	{
+			id					= "COPIS_THINGS_PROTECTION_MELEE",
+			name				= "Melee immunity",
+			description			= "Your wand grants you a magical aura of melee immunity!",
+			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_melee.png",
+			type        		= ACTION_TYPE_PASSIVE,
+			spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
+			spawn_probability	               = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
+			price				= 1200,
+			mana				= 0,
+			custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/protection_melee.xml",
+			action = function()
+				draw_actions( 1, true )
+			end
+	},
+
+	{
+			id					= "COPIS_THINGS_PROTECTION_POLYMORPH",
+			name				= "Polymorph immunity",
+			description			= "Your wand grants you a magical aura of polymorph immunity!",
+			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_polymorph.png",
+			type        		= ACTION_TYPE_PASSIVE,
+			spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
+			spawn_probability	               = "0.05,0.05,0.05,0.05,0.05,0.05,0.1", -- RECHARGE
+			price				= 1200,
+			mana				= 0,
+			custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/protection_polymorph.xml",
+			action = function()
+				draw_actions( 1, true )
+			end
+	},
+
+	{
+			id					= "COPIS_THINGS_PROJECTILE_HOMING",
+			name				= "Passive Homing",
+			description			= "All projectiles fired while holding the wand slighty home in on enemies!",
+			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/projectile_homing.png",
+			type        		= ACTION_TYPE_PASSIVE,
+			spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+			spawn_probability	               = "0.3,0.3,0.3,0.3,0.3,0.3", -- RECHARGE
+			price				= 800,
+			mana				= 0,
+			custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/projectile_homing.xml",
+			action = function()
+				draw_actions( 1, true )
+			end
+	},
+
+	{
+			id					= "COPIS_THINGS_INVISIBILITY",
+			name				= "Invisibility",
+			description			= "Your wand grants you a magical aura of invisibility!",
+			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/invisibility.png",
+			type        		= ACTION_TYPE_PASSIVE,
+			spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+			spawn_probability	               = "0.3,0.3,0.3,0.3,0.3,0.3", -- RECHARGE
+			price				= 800,
+			mana				= 0,
+			custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/invisibility.xml",
+			action = function()
+				draw_actions( 1, true )
+			end
+	},
+
+	{
+			id					= "COPIS_THINGS_BREATH_UNDERWATER",
+			name				= "Breath Underwater",
+			description			= "Your wand grants you a magical aura of respiration!",
+			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/breath_underwater.png",
+			type        		= ACTION_TYPE_PASSIVE,
+			spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
+			spawn_probability	               = "0.3,0.3,0.3,0.3,0.3,0.3", -- RECHARGE
+			price				= 800,
+			mana				= 0,
+			custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/breath_underwater.xml",
+			action = function()
+				draw_actions( 1, true )
+			end
 	},
 }
 

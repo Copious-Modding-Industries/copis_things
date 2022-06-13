@@ -1,0 +1,11 @@
+<Entity name="perk_passive">
+	<InheritTransformComponent>
+    </InheritTransformComponent>	
+    
+    <GameEffectComponent 
+        effect="PROJECTILE_HOMING"
+    	frames="-1"
+    	exclusivity_group="1" >
+	</GameEffectComponent >
+
+</Entity>

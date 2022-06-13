@@ -1,0 +1,13 @@
+<Entity tags="effect_protection" name="perk_passive">
+
+	<InheritTransformComponent>
+    </InheritTransformComponent>
+    
+    <GameEffectComponent
+		_tags="effect_protection"
+    	effect="PROTECTION_EXPLOSION"
+    	frames="-1"
+    	exclusivity_group="1" >
+    </GameEffectComponent >
+
+</Entity>

@@ -1,0 +1,23 @@
+<Entity tags="homing_target,enabled_in_hand" >
+
+	<Base file="data/entities/base_custom_card.xml" > 
+
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/homing_cursor.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_HOMING_CURSOR" >
+		</ItemActionComponent>
+	</Base>
+
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/clairvoyance.lua"
+		execute_every_n_frame="1"
+		>
+	</LuaComponent>
+	
+
+</Entity>
