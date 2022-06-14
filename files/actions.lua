@@ -686,8 +686,6 @@ local to_insert = {
 		end,
 	},
 
-
-
 	{
 		id					= "COPIS_THINGS_SILVER_BULLET",
 		name				= "Silver bullet",
@@ -713,11 +711,45 @@ local to_insert = {
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
 		type				= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "2,		3,		4",
-		spawn_probability	= "1.00,		1.00,	0.50",
+		spawn_level			= "2,			3,			4",
+		spawn_probability	= "1.00,		0.66,		0.33",
 		price				= 330,
 		mana				= 35,
 		max_uses			= 12,
+		action				= function()
+				add_projectile("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
+				c.fire_rate_wait = c.fire_rate_wait - 6;
+			end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SILVER_BULLET_DEATH_TRIGGER",
+		name				= "Silver bullet with expiration trigger",
+		description			= "A small bullet created from arcane silver that casts another spell upon expiring",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_death_trigger.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "4,			5,			6",
+		spawn_probability	= "1.00,		0.50,		0.20",
+		price				= 220,
+		mana				= 25,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
+            c.fire_rate_wait = c.fire_rate_wait - 12;
+		end,
+	},
+
+	{
+		id					= "COPIS_THINGS_SILVER_MAGNUM_DEATH_TRIGGER",
+		name				= "Silver magnum with expiration trigger",
+		description			= "A large bullet created from arcane silver that casts another spell upon expiring",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum_death_trigger.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "2,			3,			4",
+		spawn_probability	= "1.00,		0.66,		0.33",
+		price				= 330,
+		mana				= 40,
 		action				= function()
 				add_projectile("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
 				c.fire_rate_wait = c.fire_rate_wait - 6;
@@ -2700,6 +2732,74 @@ local to_insert = {
 				draw_actions( 1, true )
 			end
 	},
+
+	{
+		id          = "COPIS_THINGS_ATTACK_LEG",
+		name 		= "Lukki Limb",
+		description = "Control a Lukki leg to kick nearby enemies automatically",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability	               = "0.1,0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+		price = 160,
+		mana	= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/attack_leg.xml",
+		action				= function()
+			-- does nothing to the projectiles
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_BAYONET",
+		name 		= "Bayonet",
+		description = "Attach a small knife to the tip of your wand --INDEV WRONG AREA DAMAGE--",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/bayonet.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability	               = "0.1,0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+		price = 160,
+		mana	= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/bayonet.xml",
+		action				= function()
+			-- does nothing to the projectiles
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_KICK_EXPLOSION",
+		name 		= "Explosive Kick",
+		description = "Create a devastating explosion when you kick. Use wisely! Consumes 60 mana when you kick.",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/kick_explosion.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability	               = "0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+		price = 280,
+		mana	= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/kick_explosion.xml",
+		action				= function()
+			-- does nothing to the projectiles
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_ALT_FIRE_FLAMETHROWER",
+		name 		= "Sidearm Flamethrower",
+		description = "Fires a deadly stream of flames while you hold alt fire. Consumes 20 mana per shot.",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_flamethrower.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability	               = "0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+		price = 280,
+		mana	= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_flamethrower.xml",
+		action				= function()
+			-- does nothing to the projectiles
+			draw_actions( 1, true )
+		end,
+	},
 }
 
 for k, v in ipairs(to_insert) do
@@ -2770,21 +2870,6 @@ end
 		price = 100,
 		mana = -20,
 		action				= function()
-		end,
-	},
-	{
-		id          = "COPIS_THINGS_ATTACK_LEG",
-		name 		= "Lukki Limb",
-		description = "Control a Lukki leg to kick nearby enemies automatically",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png",
-		type 		= ACTION_TYPE_PASSIVE,
-		spawn_level			               = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
-		spawn_probability	               = "0.05,0.6,0.6,0.6,0.6,0.6", -- ENERGY_SHIELD_SECTOR
-		price = 160,
-		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/attack_leg.xml",
-		action				= function()
-			-- does nothing to the projectiles
-			draw_actions( 1, true )
 		end,
 	},
 

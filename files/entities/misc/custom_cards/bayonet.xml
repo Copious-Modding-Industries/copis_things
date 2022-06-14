@@ -1,0 +1,44 @@
+<Entity name="$projectile_default" tags="projectile_player" >
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/bayonet.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_BAYONET" >
+		</ItemActionComponent>
+	</Base>
+	
+    <InheritTransformComponent
+		_tags="enabled_in_hand"
+		parent_hotspot_tag="shoot_pos" 
+		always_use_immediate_parent_rotation="1" >
+		<Transform 
+        position.x="-3" 
+        position.y="-0.5">
+		</Transform>
+	</InheritTransformComponent>
+
+	<AreaDamageComponent
+		_tags="enabled_in_hand"
+		aabb_min.x="6" 
+		aabb_min.y="-3" 
+		aabb_max.x="12" 
+		aabb_max.y="0" 
+		damage_per_frame="0.05"
+		update_every_n_frame="1"
+		entities_with_tag="enemy"
+		damage_type="DAMAGE_SLICE"
+		>
+	</AreaDamageComponent>
+
+    <SpriteComponent 
+        _tags="enabled_in_hand"
+        image_file="mods/copis_things/files/particles/bayonet.png" 
+        z_index="2"
+        offset_x="0"
+        offset_y="0">
+    </SpriteComponent>
+
+</Entity>

@@ -2,13 +2,13 @@
 	
 	<Base file="data/entities/base_custom_card.xml" > 
 		<SpriteComponent 
-			image_file="mods/copis_things/files/ui_gfx/gun_actions/breath_underwater.png" 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/kick_explosion.png" 
 			>
 		</SpriteComponent>
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_BREATH_UNDERWATER" >
+			action_id="COPIS_THINGS_KICK_EXPLOSION" >
 		</ItemActionComponent>
 	</Base>
 
@@ -18,7 +18,15 @@
 
 	<LuaComponent 
 		_tags="enabled_in_hand"
-		script_source_file="mods/copis_things/files/scripts/custom_cards/breath_underwater.lua"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/kick_explosion.lua"
 		execute_every_n_frame="1" >
 	</LuaComponent>
+
+	
+    <VariableStorageComponent
+		_tags="enabled_in_hand"
+        name="cooldown_frame"
+        value_int="0"
+        >
+    </VariableStorageComponent>
 </Entity>

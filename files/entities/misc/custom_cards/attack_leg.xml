@@ -16,22 +16,59 @@
 		parent_hotspot_tag="shoot_pos" 
 		always_use_immediate_parent_rotation="1" >
 		<Transform 
-        position.x="6" 
+        position.x="0" 
         position.y="0">
 		</Transform>
 	</InheritTransformComponent>
 
-	<LightComponent 
-        _enabled="1"
-        radius="250" >
-    </LightComponent>
+	<Entity _tags="enabled_in_hand">
 
-    <SpriteComponent 
-        alpha="1"
-		_tags="enabled_in_hand"
-        image_file="data/particles/fog_of_war_hole_128.xml"
-        smooth_filtering="1"
-        fog_of_war_hole="1" >
-    </SpriteComponent>
+		<InheritTransformComponent
+			_tags="enabled_in_hand" >
+		</InheritTransformComponent>
 	
+		<IKLimbAttackerComponent
+			_tags="enabled_in_hand" 
+			radius="50"
+			target_entities_with_tag="enemy"
+			 >
+		</IKLimbAttackerComponent>
+	
+		<IKLimbComponent
+			_tags="enabled_in_hand" 
+			length="50" >
+		</IKLimbComponent>
+	
+		<SpriteComponent 
+			_tags="enabled_in_hand"
+			image_file="data/entities/misc/perks/attack_foot/limb_a.png" 
+			z_index="1.1"
+			offset_x="0"
+			offset_y="4.5"
+			update_transform="0"
+			update_transform_rotation="0" >
+		</SpriteComponent>
+	
+		<SpriteComponent
+			_tags="enabled_in_hand" 
+			image_file="data/entities/misc/perks/attack_foot/limb_B.png" 
+			z_index="1.1"
+			offset_x="0"
+			offset_y="4.5"
+			update_transform="0"
+			update_transform_rotation="0" >
+		</SpriteComponent>
+	
+		<SpriteComponent 
+			_tags="enabled_in_hand"
+			image_file="data/entities/misc/perks/attack_foot/knee.png" 
+			z_index="1.1"
+			offset_x="4"
+			offset_y="4"
+			update_transform="0"
+			update_transform_rotation="0" >
+		</SpriteComponent>
+	
+	</Entity>
+
 </Entity>

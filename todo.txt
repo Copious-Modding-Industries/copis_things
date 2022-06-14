@@ -20,6 +20,7 @@ static camera projectile, camera locks to it. deletes on alt fire, deletes on cr
 magic 8 ball dice type item 
 high rolling time, physics damage and strong effects
 
+move sword blade card out of projectiles/
 
 
 
