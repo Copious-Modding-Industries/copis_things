@@ -734,7 +734,7 @@ local to_insert = {
 		price				= 220,
 		mana				= 25,
 		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
+			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
             c.fire_rate_wait = c.fire_rate_wait - 12;
 		end,
 	},
@@ -751,9 +751,9 @@ local to_insert = {
 		price				= 330,
 		mana				= 40,
 		action				= function()
-				add_projectile("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
-				c.fire_rate_wait = c.fire_rate_wait - 6;
-			end,
+			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
+			c.fire_rate_wait = c.fire_rate_wait - 6;
+		end,
 	},
 
 	{
@@ -2798,6 +2798,44 @@ local to_insert = {
 		action				= function()
 			-- does nothing to the projectiles
 			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_DECOY",
+		name 		= "$action_decoy",
+		description = "$actiondesc_decoy",
+		sprite 		= "data/ui_gfx/gun_actions/decoy.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/decoy_unidentified.png",
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability	= "0.1,0.3,0.2,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+		price = 130,
+		mana = 60,
+		max_uses    = 10,
+		custom_xml_file = "data/entities/misc/custom_cards/decoy.xml",
+		action 		= function()
+			add_projectile("data/entities/projectiles/deck/decoy.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 40
+		end,
+	},
+	
+	{
+		id          = "COPIS_THINGS_DECOY_TRIGGER",
+		name 		= "$action_decoy_trigger",
+		description = "$actiondesc_decoy_trigger",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/decoy_death_trigger.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/decoy_trigger_unidentified.png",
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability	= "0.1,0.3,0.2,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+		price = 150,
+		mana = 80,
+		max_uses    = 10,
+		custom_xml_file = "data/entities/misc/custom_cards/decoy_trigger.xml",
+		action 		= function()
+			add_projectile_trigger_death("data/entities/projectiles/deck/decoy_trigger.xml", 1)
+			c.fire_rate_wait = c.fire_rate_wait + 40
 		end,
 	},
 }

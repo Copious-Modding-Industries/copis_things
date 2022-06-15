@@ -5,7 +5,7 @@ local pos_x, pos_y = EntityGetTransform( entity_id )
 local controls = EntityGetFirstComponentIncludingDisabled(EntityGetWithTag("player_unit")[1], "ControlsComponent")
 
 if controls ~= nil then
-	if ComponentGetValue2( controls, "mButtonDownFire" ) == true then
+	if ComponentGetValue2( controls, "mButtonDownRightClick" ) == true then
 		local mouse_x, mouse_y = ComponentGetValue2(controls, "mMousePosition")
 		local aim_x = mouse_x - pos_x
 		local aim_y = mouse_y - pos_y

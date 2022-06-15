@@ -32,7 +32,32 @@
 		</StatusEffects>
 	</CellData>
 
-		<CellData
+	<CellData
+			name="copis_things_creepy_urine"
+			ui_name="Creepy Urine"
+			tags="[liquid],[corrodible],[soluble],[liquid_common]"
+		burnable="0"  
+		density="3"  
+		cell_type="liquid" 
+		wang_color="33FFEE10"  
+		generates_smoke="0"  
+		liquid_gravity="0.9"  
+		liquid_sand="0"  
+		liquid_stains="1"
+		on_fire="0"  
+		requires_oxygen="1"  
+		temperature_of_fire="10" >
+	<StatusEffects>
+		<Stains>
+			<StatusEffect type="JARATE" />
+		</Stains>
+		<Ingestion>
+			<StatusEffect type="FOOD_POISONING" amount="0.1" />
+		</Ingestion>
+	</StatusEffects>
+	</CellData>
+
+	<CellData
 		name="copis_things_creepy_acid"
 		ui_name="Creepy Acid"
 		tags="[liquid],[acid],[magic_liquid],[magic_polymorph],[impure]"
@@ -105,22 +130,29 @@
 
 
 	<Reaction probability="90"
-		input_cell1="copis_things_creepy_poly" 	input_cell2="air"
+		input_cell1="copis_things_creepy_poly" 		input_cell2="air"
 		output_cell1="copis_things_creepy_poly" 	output_cell2="copis_things_creepy_poly" >
 	</Reaction>
+	
 	<Reaction probability="90"
-		input_cell1="copis_things_creepy_acid" 	input_cell2="air"
+		input_cell1="copis_things_creepy_urine" 	input_cell2="air"
+		output_cell1="copis_things_creepy_urine" 	output_cell2="copis_things_creepy_urine" >
+	</Reaction>
+
+	<Reaction probability="90"
+		input_cell1="copis_things_creepy_acid" 		input_cell2="air"
 		output_cell1="copis_things_creepy_acid" 	output_cell2="copis_things_creepy_acid" >
 	</Reaction>
+
 	<Reaction probability="90"
-		input_cell1="copis_things_creepy_acid" 	input_cell2="acid_gas"
+		input_cell1="copis_things_creepy_acid" 		input_cell2="acid_gas"
 		output_cell1="copis_things_creepy_acid" 	output_cell2="copis_things_creepy_acid" >
 	</Reaction>
+
 	<Reaction probability="100"
-		input_cell1="longlegs_powder" input_cell2="air"
-		output_cell1="air" output_cell2="air"
-		entity="copis_things/files/entities/misc/longlegs_powder.xml"
-		>
+		input_cell1="longlegs_powder" 				input_cell2="air"
+		output_cell1="air" 							output_cell2="air"
+		entity="copis_things/files/entities/misc/longlegs_powder.xml"						>
 	</Reaction>
 
 
