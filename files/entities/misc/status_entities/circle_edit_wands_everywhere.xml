@@ -1,0 +1,20 @@
+<Entity>
+    <InheritTransformComponent>
+    </InheritTransformComponent>
+
+    <GameEffectComponent 
+        effect="EDIT_WANDS_EVERYWHERE"
+        frames="400"
+        disable_movement="0"
+    >
+	</GameEffectComponent >
+	<UIIconComponent
+		name="Tinker With Wands Everywhere"
+		description="A divine blessing allows you to tinker with wands everywhere."
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/edit_wands_everywhere.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
+</Entity>

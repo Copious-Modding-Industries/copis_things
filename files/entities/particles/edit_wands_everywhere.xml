@@ -32,8 +32,8 @@
   <LightComponent 
     _enabled="1" 
     radius="60" 
-	r="0"
-	g="40"
-	b="80">
+    r="0"
+    g="40"
+    b="80">
   </LightComponent>
 </Entity>

@@ -13,7 +13,7 @@
 
 	<LuaComponent 
 		_tags="enabled_in_hand"
-		script_source_file="mods/copis_things/files/scripts/passive_recharge.lua"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/passive_recharge.lua"
 		execute_every_n_frame="1"
 		>
 	</LuaComponent>

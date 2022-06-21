@@ -8,7 +8,7 @@ local controls = EntityGetFirstComponentIncludingDisabled(EntityGetWithTag("play
 local mouse_x, mouse_y = ComponentGetValue2(controls, "mMousePosition")
 local proj_x, proj_y = ComponentGetValueVector2(entity_id, "")
 
-local speed = 100
+local speed = 400
 
 edit_component( entity_id, "VelocityComponent", function(comp,vars)
     local vel_x, vel_y = ComponentGetValue2( comp, "mVelocity")
@@ -28,4 +28,4 @@ edit_component2( entity_id, "VelocityComponent", function(comp,vars)
     vars.gravity_x = 0
     vars.air_friction= 0
     vars.mass= 0
-  end)
+end)

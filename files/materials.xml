@@ -87,7 +87,7 @@
 	</CellData>
 
 	<CellData
-	name="longlegs_powder"
+	name="copis_things_longlegs_powder"
 	ui_name="Hamis Powder"
 	tags="[sand_other]"
 	burnable="0"
@@ -126,7 +126,41 @@
 		</Stains>
 	</StatusEffects>
 	</CellData>
-
+	<CellDataChild
+	_parent="rock_static"
+	_inherit_reactions="1"
+	tags="[static],[corrodible],[impure]"
+	name="copis_things_creepy_corruption_static" 
+	ui_name="$mat_copis_things_creepy_corruption_static"
+	wang_color="ff7D0167"
+	gfx_glow="64"
+	hp="20000"
+	audio_physics_material_wall="rock"
+	audio_physics_material_solid="rock"
+	>
+		<Graphics
+		texture_file="data/materials_gfx/corruption.png"
+		color="ff7D0067" >
+	</Graphics>
+	<ParticleEffect
+		vel.y="-17.14"
+		vel_random.min_x="-11.71"
+		vel_random.max_x="11.71"
+		vel_random.min_y="-17.18"
+		vel_random.max_y="-2.8"
+		lifetime.min="0.6"
+		lifetime.max="1.3"
+		gravity.y="42"
+		render_on_grid="1"
+		airflow_force="0.8314"
+		airflow_scale="0.1371"
+		friction="0.0001"
+		probability="0.003"
+		count.min="0"
+		count.max="1"
+	>
+	</ParticleEffect>
+	</CellDataChild>
 
 
 	<Reaction probability="90"
@@ -155,5 +189,14 @@
 		entity="copis_things/files/entities/misc/longlegs_powder.xml"						>
 	</Reaction>
 
+	<Reaction probability="100"
+	input_cell1="copis_things_creepy_corruption_static" 	input_cell2="[alchemy]"
+	output_cell1="copis_things_creepy_corruption_static"	output_cell2="copis_things_creepy_corruption_static" >
+	</Reaction>
+
+	<Reaction probability="100"
+	input_cell1="copis_things_creepy_corruption_static" 	input_cell2="air"
+	output_cell1="copis_things_creepy_corruption_static"	output_cell2="copis_things_creepy_corruption_static" >
+	</Reaction>
 
 </Materials>

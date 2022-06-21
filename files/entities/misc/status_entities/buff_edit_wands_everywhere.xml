@@ -1,9 +1,4 @@
 <Entity>
-	<Base file="mods/copis_things/files/entities/particles/edit_wands_everywhere.xml" >
-		<SpriteParticleEmitterComponent
-			randomize_position_inside_hitbox="1"  >
-		</SpriteParticleEmitterComponent>
-	</Base>
 	
 	<InheritTransformComponent>
     </InheritTransformComponent>	
@@ -15,9 +10,9 @@
     >
 	</GameEffectComponent >
 	<UIIconComponent
-		name="TWWE"
-		description="Reduces the time between spellcasts"
-		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png"
+		name="Tinker With Wands Everywhere"
+		description="A divine blessing allows you to tinker with wands everywhere."
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/edit_wands_everywhere.png"
 		is_perk="0"
 		display_above_head="0"
 		display_in_hud="1"

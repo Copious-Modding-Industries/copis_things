@@ -1,0 +1,45 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/alt_fire_return.png" 
+			>
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_ALT_FIRE_RETURN" >
+		</ItemActionComponent>
+	</Base>
+
+	<InheritTransformComponent
+		_tags="enabled_in_world,enabled_in_hand" >
+	</InheritTransformComponent>
+
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/alt_fire_return.lua"
+		execute_every_n_frame="1" >
+	</LuaComponent>
+
+    <VariableStorageComponent
+		_tags="enabled_in_hand"
+        name="cooldown_frame"
+        value_int="0"
+        >
+    </VariableStorageComponent>
+
+    <VariableStorageComponent
+		_tags="enabled_in_hand"
+        name="pos_x_stored"
+        value_int="0"
+        >
+    </VariableStorageComponent>
+
+    <VariableStorageComponent
+		_tags="enabled_in_hand"
+        name="pos_y_stored"
+        value_int="0"
+        >
+    </VariableStorageComponent>
+</Entity>

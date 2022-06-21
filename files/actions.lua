@@ -1,5 +1,4 @@
 local to_insert = {
-
 	{
 		id					= "COPIS_THINGS_DEV",
 		name				= "Dev",
@@ -11,7 +10,7 @@ local to_insert = {
 		price				= 0,
 		mana				= 0,
 		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/seeker_bolt.xml")
+			add_projectile("mods/copis_things/files/entities/projectiles/longleg_projectile.xml")
 			--add_projectile_repeating_trigger_timer("data/entities/projectiles/deck/light_bullet.xml", 30, 1)
 			--[[add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
 			 bore scene load
@@ -220,14 +219,14 @@ local to_insert = {
 		description = "Decreases the speed at which a projectile flies through the air",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/slow.png",
 		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level			               = "1,2,3", -- SPEED
-		spawn_probability	               = "1,0.5,0.5", -- SPEED
-		price = 100,
+		spawn_level			= "1,		2,		3,		4",
+		spawn_probability	= "0.8,		0.8,	0.8,	0.8",
+		price = 50,
 		mana = -3,
 		--max_uses = 100,
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/slow.xml",
 		action				= function()
-			c.speed_multiplier = c.speed_multiplier * 0.4
+			c.speed_multiplier = c.speed_multiplier * 0.6
 			c.spread_degrees = c.spread_degrees - 8
 			draw_actions( 1, true )
 		end,
@@ -331,12 +330,29 @@ local to_insert = {
 		description = "Casts a projectile independent of any modifiers before it, like in a multicast",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/separator_cast.png",
 		type 		= ACTION_TYPE_UTILITY,
-		spawn_level			               = "2,3,4,5,6", -- BOUNCE
-		spawn_probability	               = "1,1,0.4,0.2,0.2", -- BOUNCE
-		price = 100,
+		spawn_level			               = "2,		3,		4,		5", -- BOUNCE
+		spawn_probability	               = "0.3,		0.3,	0.3,	0.3",
+		price = 210,
 		mana = 0,
 		action				= function()
-			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/separator_cast.xml", 1)
+			if reflecting then return; end
+			add_projectile_trigger_death( "mods/copis_things/files/entities/projectiles/separator_cast.xml" , 1);
+			--[[
+            local old_c = c;
+			c = {};
+			reset_modifiers( c );
+            BeginProjectile( "mods/copis_things/files/entities/projectiles/separator_cast.xml" );
+                BeginTriggerDeath();
+                    for k,v in pairs(old_c) do
+                        c[k] = v;
+                    end
+                    draw_actions( 1, true );
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile();
+            c = old_c;
+			]]
 		end,
 	},
 
@@ -2487,7 +2503,37 @@ local to_insert = {
 		price = 10,
 		mana = 0,
 		action				= function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/lovely_trail.xml,";
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/particles/lovely_trail.xml,";
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_STARRY_TRAIL",
+		name 		= "Starry Trail",
+		description = "Only shooting stars",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/starry_trail.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", -- FIREBALL_RAY
+		price = 10,
+		mana = 0,
+		action				= function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/particles/starry_trail.xml,";
+            draw_actions( 1, true );
+		end,
+	},
+	{
+		id          = "COPIS_THINGS_SPARKLING_TRAIL",
+		name 		= "Sparkling Trail",
+		description = "Spread glitter across the world",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sparkling_trail.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
+		spawn_probability	               = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", -- FIREBALL_RAY
+		price = 10,
+		mana = 0,
+		action				= function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/particles/sparkling_trail.xml,";
             draw_actions( 1, true );
 		end,
 	},
@@ -2838,6 +2884,125 @@ local to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 40
 		end,
 	},
+
+	{
+		id          = "COPIS_THINGS_HITFX_EXPLOSION_FROZEN",
+		name 		= "Explosion on frozen enemies",
+		description = "Makes a projectile explode upon collision with frozen creatures",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/explode_on_frozen.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_explode_frozen.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- HITFX_EXPLOSION_ALCOHOL
+		spawn_probability                 = "0.2,0.2,0.2,0.2", -- HITFX_EXPLOSION_ALCOHOL
+		price = 140,
+		mana = 20,
+		--max_uses = 50,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_explode_frozen.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_HITFX_EXPLOSION_FROZEN_GIGA",
+		name 		= "Giant explosion on frozen enemies",
+		description = "Makes a projectile explode powerfully upon collision with frozen creatures",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/explode_on_frozen_giga.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_explode_frozen_giga.xml", "data/entities/particles/tinyspark_orange.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,3,4,5", -- HITFX_EXPLOSION_ALCOHOL_GIGA
+		spawn_probability                 = "0.1,0.1,0.1,0.1", -- HITFX_EXPLOSION_ALCOHOL_GIGA
+		price = 300,
+		mana = 200,
+		max_uses = 20,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_explode_frozen.xml,data/entities/particles/tinyspark_orange.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_CIRCLE_EDIT_WANDS_EVERYWHERE",
+		name 		= "Circle of Divine Blessing",
+		description = "A field of modification magic",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/circle_edit_wands_everywhere.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/projectiles/circle_edit_wands_everywhere.xml"},
+		type 		= ACTION_TYPE_STATIC_PROJECTILE,
+		spawn_level                       = "0,		1,		2,		3",
+		spawn_probability                 = "1,		1,		1,		1",
+		price = 200,
+		mana = 50,
+		max_uses = 3,
+		action 		= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/circle_edit_wands_everywhere.xml")
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_MINI_SHIELD",
+		name 		= "Projectile Bubble Shield",
+		description = "Encases a projectile in a deflective shield",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mini_shield.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/mini_shield.xml"},
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "0,1,2,3,4,5,6", -- HITFX_EXPLOSION_ALCOHOL_GIGA
+		spawn_probability                 = "1,1,1,1,1,1,1", -- HITFX_EXPLOSION_ALCOHOL_GIGA
+		price = 540,
+		mana = 20,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/mini_shield.xml"
+			draw_actions( 1, true )
+		end,
+	},
+
+--[[
+	{
+		id          = "COPIS_THINGS_NGON_SHAPE",
+		name 		= "Formation - N-gon",
+		description = "Cast all remaining spells in a circular pattern",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/ngon_shape.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "0,		1,		2,		3,		4,		5,		6",
+		spawn_probability                 = "0.33,	0.33,	0.33,	0.33,	0.33,	0.33,	0.33",
+		price = 120,
+		mana = 24,
+        function()
+            c.pattern_degrees = 180;
+            draw_actions( #deck, true );
+        end, true
+	},
+	{
+		id          = "COPIS_THINGS_SHUFFLE_DECK",
+		name 		= "Shuffle Deck",
+		description = "Randomize the order of all remaining spells",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/shuffle_deck.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/mini_shield.xml"},
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "0,		1,		2,		3,		4,		5,		6",
+		spawn_probability                 = "0.2,	0.2,	0.2,	0.2,	0.2,	0.2,	0.2",
+		price = 100,
+		mana = -20,
+		function()
+            local shuffle_deck = {};
+            for i=1, #deck do
+                local index = Random( 1, #deck );
+                local action = deck[ index ];
+                table.remove( deck, index );
+                table.insert( shuffle_deck, action );
+            end
+            for index,action in pairs(shuffle_deck) do
+                table.insert( deck, action );
+            end
+            draw_actions( 1, true );
+        end,
+	},]]
 }
 
 for k, v in ipairs(to_insert) do
