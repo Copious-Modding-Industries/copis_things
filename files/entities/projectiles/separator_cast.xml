@@ -43,7 +43,7 @@
     </ProjectileComponent>
 
 	<LuaComponent
-		script_source_file="mods/copis_things/files/scripts/projectiles/separator_cast.lua"
+		script_source_file="mods/copis_things/files/scripts/kill_entity.lua"
 		execute_on_added="1"
 		>
 	</LuaComponent>

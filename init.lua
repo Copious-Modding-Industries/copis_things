@@ -1,18 +1,19 @@
 
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
 ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/gun_append.lua")			-- experimental, may remove
-ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/perks.lua")
+--ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/perks.lua")
 
 -- Thanks Evasia! Wouldn't have managed to do this without your help.
 ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/status/extra_modifiers.lua")
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
 
-ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
+--ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
 
-function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
-
+function OnPlayerSpawned( player_entity ) --This runs when player entity has been created
 
 	EntitySetDamageFromMaterial(player_entity, "copis_things_creepy_acid", 0.1)
+
+	GameAddFlagRun("copis_items_spawned") --clean up spawn for now
 
 	if GameHasFlagRun("copis_items_spawned") == false then
 		GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
@@ -49,6 +50,5 @@ function OnPlayerSpawned( player_entity ) -- This runs when player entity has be
 		GameAddFlagRun("copis_items_spawned")
 	end
 end
-
 
 GamePrint("Cope")

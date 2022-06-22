@@ -2,6 +2,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_DEV",
 		name				= "Dev",
+		author		= "Copi",
 		description			= "Spell for testing ideas, comment out in final release",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
 		type				= ACTION_TYPE_OTHER,
@@ -24,6 +25,7 @@ local to_insert = {
 	{
 		id          		= "COPIS_THINGS_PSYCHIC_SHOT",
 		name 				= "Psychic shot",
+		author		= "Copi",
 		description 		= "Causes the projectile to be controlled telekinetically",
 		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/psychic_shot.png",
 		type 				= ACTION_TYPE_MODIFIER,
@@ -41,6 +43,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_STAB",
 		name				= "Stab",
+		author		= "Copi",
 		description			= "A short ranged melee thrust",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/stab.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/stab.xml"},
@@ -62,6 +65,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_TWISTED_SWORD_THROW",
 		name				= "Sword throw",
+		author		= "Copi",
 		description			= "Throw a rapidly spinning sword clone",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/twisted_throw.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/twisted_throw.xml"},
@@ -85,6 +89,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_LUNGE",
 		name 		= "Lunge",
+		author		= "Copi",
 		description = "Launch yourself forwards with a burst of speed",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/lunge.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -110,6 +115,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SHADOWTENTACLE",
 		name 		= "Shadow Apparition",
+		author		= "Copi",
 		description = "Release a lash of pure darkness which spreads from it's victims",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/shadowtentacle.png",
 		related_projectiles	= {"mods/copis_things/files/projectiles/shadowtentacle.xml"},
@@ -128,6 +134,7 @@ local to_insert = {
 	{
 		id          = "BLOODTENTACLE",
 		name 		= "$action_bloodtentacle",
+		author		= "Copi",
 		description = "$actiondesc_bloodtentacle",
 		spawn_requires_flag = "card_unlocked_pyramid",
 		sprite 		= "data/ui_gfx/gun_actions/bloodtentacle.png",
@@ -147,6 +154,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SUNSABER_DARK",
 		name 		= "Dark Sunsaber",
+		author		= "Copi",
 		description = "A blade forged from the dark sun",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sunsaber_dark.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/sunsaber_dark.xml"},
@@ -166,6 +174,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SWORD_BLADE",
 		name				= "Sword Blade",
+		author		= "Copi",
 		description			= "Your sword's sharp edge deals damage as it hits foes!",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/sword_blade.png",
 		type        		= ACTION_TYPE_PASSIVE,
@@ -181,6 +190,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SUMMON_TABLET",
 		name 		= "Summon Emerald Tablet",
+		author		= "Copi",
 		description = "Summon an emerald tablet",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/summon_tablet.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/tablet.xml"},
@@ -199,6 +209,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_PROJECTION_CAST",
 		name 		= "Projection cast",
+		author		= "Copi",
 		description = "Projects your cast to where your mind focuses",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/projection_cast.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -216,6 +227,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SLOW",
 		name 		= "Speed Down",
+		author		= "Copi",
 		description = "Decreases the speed at which a projectile flies through the air",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/slow.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -235,6 +247,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_CLAIRVOYANCE",
 		name 		= "Clairvoyance",
+		author		= "Copi",
 		description = "Allows you to project your vision",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/clairvoyance.png",
 		type 		= ACTION_TYPE_PASSIVE,
@@ -251,6 +264,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_PEACEFUL_SHOT",
 		name 		= "Peaceful Shot",
+		author		= "Copi",
 		description = "Sharply reduces the damage of a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/peaceful_shot.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -271,6 +285,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_ANCHORED_SHOT",
 		name 		= "Anchored Shot",
+		author		= "Copi",
 		description = "Anchors a projectile where it was fired",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/anchored_shot.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -291,6 +306,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_LEVITY_SHOT",
 		name 		= "Levity Shot",
+		author		= "Copi",
 		description = "Nullifies a projectile's gravity",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/levity_shot.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -299,7 +315,7 @@ local to_insert = {
 		price = 100,
 		mana = 5,
 		action				= function()
-			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/levity_shot.xml"
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/levity_shot.xml,"
 			c.speed_multiplier = c.speed_multiplier * 0.9
 			c.spread_degrees = c.spread_degrees - 10
 			draw_actions( 1, true )
@@ -309,6 +325,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_BOUNCE_100",
 		name 		= "Hundredfold Bounce",
+		author		= "Copi",
 		description = "Causes a projectile to bounce many times",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/bounce_100.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -327,6 +344,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SEPARATOR_CAST",
 		name 		= "Separator cast",
+		author		= "Copi",
 		description = "Casts a projectile independent of any modifiers before it, like in a multicast",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/separator_cast.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -359,6 +377,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SPREAD",
 		name 		= "Spread",
+		author		= "Copi",
 		description = "Adds spread to a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/spread.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -376,6 +395,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_JSR_BLAST",
 		name				= "JSR Blast",
+		author		= "Copi",
 		description			= "Fire a pulse of energy",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/jsr_blast.png",
 		related_projectiles	= {"data/entities/projectiles/laser_bouncy.xml"},
@@ -394,6 +414,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_DART",
 		name				= "Dart",
+		author		= "Copi",
 		description			= "An accelerating magical dart that pierces soft materials",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/dart.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/dart.xml"},
@@ -411,6 +432,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DIE",
 		name 		= "Die",
+		author		= "Copi",
 		description = "Reverses the flow of mana in your body, giving you a quick and painless death.",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/die.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -431,6 +453,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_TEMPORARY_CIRCLE",
 		name 		= "Summon Circle",
+		author		= "Copi",
 		description = "Summons a shortlived hollow circle",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/temporary_circle.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/deck/temporary_wall.xml"},
@@ -448,6 +471,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_LARPA_FORWARDS",
 		name 		= "Forwards Larpa",
+		author		= "Copi",
 		description = "Makes a projectile cast copies of itself forwards",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/forwards_larpa.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/forwards_larpa.xml" },
@@ -466,6 +490,7 @@ local to_insert = {
 	{
 		id						= "COPIS_THINGS_HOMING_LIGHT",
 		name					= "Soft Homing",
+		author		= "Copi",
 		description				= "Guides a projectile weakly towards your foes",
 		sprite					= "mods/copis_things/files/ui_gfx/gun_actions/homing_light.png",
 		related_extra_entities	= { "mods/copis_things/files/entities/misc/homing_light.xml,data/entities/particles/tinyspark_white_weak.xml" },
@@ -483,6 +508,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_PSYCHIC_GRIP",
 		name 				= "Psychic Grip",
+		author		= "Copi",
 		description 		= "Locks a projectile in front of your wand",
 		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/psychic_grip.png",
 		type 				= ACTION_TYPE_MODIFIER,
@@ -500,6 +526,7 @@ local to_insert = {
 	{
 		id          		= "COPIS_THINGS_WISPY_SHOT",
 		name 				= "Wispy Shot",
+		author		= "Copi",
 		description 		= "Imbues a projectile with a wispy spirit",
 		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/wispy_shot.png",
 		type 				= ACTION_TYPE_MODIFIER,
@@ -518,6 +545,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_GUNNER_SHOT",
 		name 		= "Gunner Shot",
+		author		= "Copi",
 		description = "Makes a projectile rapidly fire weak shots at nearby foes",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot.xml" },
@@ -537,6 +565,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_GUNNER_SHOT_STRONG",
 		name 		= "Strong Gunner Shot",
+		author		= "Copi",
 		description = "Makes a projectile occasionally shoot powerful shots at nearby foes",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot_strong.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_strong.xml" },
@@ -556,6 +585,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_GUNNER_SHOT_CURSOR",
 		name 		= "Controlled Gunner Shot",
+		author		= "Copi",
 		description = "Makes a projectile rapidly fire weak shots at the cursor while holding RMB",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot_cursor.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_cursor.xml" },
@@ -575,6 +605,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SOIL_TRAIL",
 		name 		= "Soil Trail",
+		author		= "Copi",
 		description = "Gives a projectile a trail of soil",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/soil_trail.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -592,6 +623,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_CONCRETEBALL",
 		name 		= "Chunk of concrete",
+		author		= "Copi",
 		description = "The power of industry!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_concrete.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml"},
@@ -608,6 +640,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SPECIAL_DATARANDAL",
 		name				= "Datarandal",
+		author		= "Copi",
 		description			= "The personal weapon of choice of the great warrior mage Copisinpäällikkö.",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/datarandal.png",
 		type        		= ACTION_TYPE_PASSIVE,
@@ -623,6 +656,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUBBLEBOMB",
 		name				= "Bubblebomb",
+		author		= "Copi",
 		description			= "Testing",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/bubblebomb.png",
 		type				= ACTION_TYPE_PROJECTILE,
@@ -638,6 +672,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUBBLEBOMB_DEATH_TRIGGER",
 		name				= "Bubblebomb with death trigger",
+		author		= "Copi",
 		description			= "Testing",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/bubblebomb_death_trigger.png",
 		type				= ACTION_TYPE_PROJECTILE,
@@ -653,6 +688,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_ZENITH_DISC",
 		name				= "Zenith disc",
+		author		= "Copi",
 		description			= "Summons a no nonsense sawblade.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/zenith_disc.png",
 		type				= ACTION_TYPE_PROJECTILE,
@@ -669,6 +705,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_EVISCERATOR_DISC",
 		name				= "Eviscerator",
+		author		= "Copi",
 		description			= "Please, don't cast this.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/eviscerator.png",
 		type				= ACTION_TYPE_PROJECTILE,
@@ -689,6 +726,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_HAMIS",
 		name				= "Summon Hämis",
+		author		= "Copi",
 		description			= "Praise Hämis.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_hamis.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -705,6 +743,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SILVER_BULLET",
 		name				= "Silver bullet",
+		author		= "Copi",
 		description			= "A small bullet created from arcane silver",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
@@ -723,6 +762,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SILVER_MAGNUM",
 		name				= "Silver magnum",
+		author		= "Copi",
 		description			= "A large bullet created from arcane silver",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
@@ -741,6 +781,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SILVER_BULLET_DEATH_TRIGGER",
 		name				= "Silver bullet with expiration trigger",
+		author		= "Copi",
 		description			= "A small bullet created from arcane silver that casts another spell upon expiring",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_death_trigger.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
@@ -758,6 +799,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SILVER_MAGNUM_DEATH_TRIGGER",
 		name				= "Silver magnum with expiration trigger",
+		author		= "Copi",
 		description			= "A large bullet created from arcane silver that casts another spell upon expiring",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum_death_trigger.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
@@ -775,6 +817,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_PLANK_HORIZONTAL",
 		name 		= "Build Wooden Platform",
+		author		= "Copi",
 		description = "Construct a horizontal wooden platform",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/plank_horizontal.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -799,6 +842,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_PLANK_CUBE",
 		name 		= "Build Wooden Cube",
+		author		= "Copi",
 		description = "Construct a wooden cube",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/plank_cube.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -826,6 +870,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_PLANK_VERTICAL",
 		name 		= "Build Wooden Wall",
+		author		= "Copi",
 		description = "Construct a vertical wooden wall",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/plank_vertical.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -850,6 +895,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SLOTS_TO_POWER",
 		name 		= "Slots To Power",
+		author		= "Copi",
 		description = "Increases a projectile's damage based on the number of empty slots in the wand",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/slots_to_power.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/homing_unidentified.png",
@@ -870,6 +916,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE",
 		name 		= "Unshuffle (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to unshuffle it at the cost of reduced stats. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -904,6 +951,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD",
 		name 		= "Shuffle (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to shuffle it, but greatly improve it's stats. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle_bad.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -938,6 +986,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND",
 		name 		= "Upgrade Spells per Cast (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to increase the amount of spells fired per cast. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_actions_per_round.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -966,6 +1015,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER",
 		name 		= "Upgrade spell speed multiplier (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to increase the velocity of projectiles from it. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_speed_multiplier.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -995,6 +1045,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_GUN_CAPACITY",
 		name 		= "Upgrade wand capacity (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to increase the wand's total spell capacity. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_capacity.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -1026,6 +1077,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT",
 		name 		= "Upgrade Cast Delay (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to decrease the cast delay. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_fire_rate_wait.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -1055,6 +1107,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_RELOAD_TIME",
 		name 		= "Upgrade Reload Time (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to decrease the reload time. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_reload_time.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -1084,6 +1137,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_SPREAD_DEGREES",
 		name 		= "Upgrade accuracy (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to increase the accuracy. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_spread_degrees.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -1113,6 +1167,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_MANA_MAX",
 		name 		= "Upgrade maximum mana (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to increase it's mana capacity. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_max.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -1141,6 +1196,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED",
 		name 		= "Upgrade mana charge speed (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to increase it's mana charge speed. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_charge_speed.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -1169,6 +1225,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT",
 		name 		= "Upgrade Always Cast (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to turn it's first spell into an always cast. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_action_permanent_actions.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -1201,6 +1258,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE",
 		name 		= "Upgrade Remove Always Cast (One-Off)",
+		author		= "Copi",
 		description = "Cast inside a wand to turn it's first always cast into a spell. Spell is voided upon use!",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_action_permanent_actions_remove.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -1233,6 +1291,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_MELEE",
 		name 		= "Melee damage plus",
+		author		= "Copi",
 		description = "Increases melee the damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_melee.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
@@ -1282,6 +1341,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_EXPLOSION",
 		name 		= "Explosive damage plus",
+		author		= "Copi",
 		description = "Increases the explosion damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_explosion.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
@@ -1306,6 +1366,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_SLICE",
 		name 		= "Slice damage plus",
+		author		= "Copi",
 		description = "Increases the slice damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_slice.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
@@ -1330,6 +1391,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_ELECTRICITY",
 		name 		= "Electric damage plus",
+		author		= "Copi",
 		description = "Increases the electric damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_electricity.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
@@ -1354,6 +1416,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_FREEZE",
 		name 		= "Freeze damage plus",
+		author		= "Copi",
 		description = "Increases the freeze damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_freeze.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
@@ -1378,6 +1441,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_CURSE",
 		name 		= "Curse damage plus",
+		author		= "Copi",
 		description = "Increases the curse damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_curse.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
@@ -1402,6 +1466,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_FIRE",
 		name 		= "Fire damage plus",
+		author		= "Copi",
 		description = "Increases the fire damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_fire.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
@@ -1426,6 +1491,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_MINUS",
 		name 		= "Damage Minus",
+		author		= "Copi",
 		description = "Decreases the damage done by a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_minus.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
@@ -1447,6 +1513,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_TO_CURSE",
 		name 		= "Damage to Curse",
+		author		= "Copi",
 		description = "Converts 80% of projectile damage to curse damage",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_to_curse.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -1464,6 +1531,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_LIFETIME",
 		name 		= "Damage growth",
+		author		= "Copi",
 		description = "Causes your projectile to gain damage the longer it's alive",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_lifetime.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -1481,6 +1549,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_INFINITE_LIFETIME",
 		name 		= "Infinite Lifetime",
+		author		= "Copi",
 		description = "Causes your projectile to last forever, but drain your wand's mana. Projectile expires when you run out of mana.",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/lifetime_infinite.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -1498,6 +1567,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_OSCILLATING_SPEED",
 		name 		= "Oscillating Speed",
+		author		= "Copi",
 		description = "Decreases the speed at which a projectile flies through the air",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/oscillating_speed.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1516,6 +1586,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_HITFX_CRITICAL_DRUNK",
 		name 		= "Critical on drunk enemies",
+		author		= "Copi",
 		description = "Makes a projectile always do a critical hit on drunk enemies",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/crit_on_alcoholic.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1533,6 +1604,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_HITFX_CRITICAL_CHARM",
 		name 		= "Critical on charmed enemies",
+		author		= "Copi",
 		description = "Makes a projectile always do a critical hit on charmed enemies",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/crit_on_charm.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1550,6 +1622,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_HITFX_CRITICAL_CONFUSION",
 		name 		= "Critical on confused enemies",
+		author		= "Copi",
 		description = "Makes a projectile always do a critical hit on confused enemies",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/crit_on_confusion.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1567,6 +1640,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_HITFX_CRITICAL_ELECTROCUTED",
 		name 		= "Critical on electrocuted enemies",
+		author		= "Copi",
 		description = "Makes a projectile always do a critical hit on electrocuted enemies",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/crit_on_electrocuted.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1584,6 +1658,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_HITFX_CRITICAL_FROZEN",
 		name 		= "Critical on frozen enemies",
+		author		= "Copi",
 		description = "Makes a projectile always do a critical hit on frozen enemies",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/crit_on_frozen.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1601,6 +1676,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_RECHARGE_2",
 		name 		= "Reduce recharge time II",
+		author		= "Copi",
 		description = "Reduces the time between spellcasts heavily",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_2.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1619,6 +1695,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_RECHARGE_3",
 		name 		= "Reduce recharge time III",
+		author		= "Copi",
 		description = "Reduces the time between spellcasts immensely",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_3.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1637,6 +1714,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_RECHARGE_DELAY_UP",
 		name 		= "Delayed recharge",
+		author		= "Copi",
 		description = "Sharply reduces wand recharge speed at the cost of cast delay",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_delay_up.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1654,6 +1732,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_RECHARGE_DELAY_DOWN",
 		name 		= "Rushing recharge",
+		author		= "Copi",
 		description = "Sharply reduces cast delay between spells at the cost of wand recharge speed",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/recharge_delay_down.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1671,6 +1750,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_ARCANE_RECHARGE",
 		name 		= "Arcane Recharge",
+		author		= "Copi",
 		description = "Slightly reduce the time between spellcasts, but gain mana when casting",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/arcane_recharge.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1688,6 +1768,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_PASSIVE_RECHARGE",
 		name				= "Passive Recharge",
+		author		= "Copi",
 		description			= "Your wand recharges faster!",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/passive_recharge.png",
 		type        		= ACTION_TYPE_PASSIVE,
@@ -1704,6 +1785,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_MANA_REDUCE_2",
 		name 		= "Add mana II",
+		author		= "Copi",
 		description = "Adds 60 mana to the wand",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mana_2.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1722,6 +1804,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_MANA_REDUCE_3",
 		name 		= "Add mana III",
+		author		= "Copi",
 		description = "Adds 90 mana to the wand",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mana_3.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -1740,6 +1823,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_PASSIVE_MANA",
 		name				= "Passive Mana",
+		author		= "Copi",
 		description			= "Your wand regenerates mana faster!",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/passive_mana.png",
 		type        		= ACTION_TYPE_PASSIVE,
@@ -1756,6 +1840,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_CENTIPEDE",
 		name				= "Summon Kolmisilmä",
+		author		= "Copi",
 		description			= "Summons Kolmisilmä.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_centipede.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1774,6 +1859,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_WIZARD",
 		name				= "Summon Mestarien mestari",
+		author		= "Copi",
 		description			= "Summons Mestarien mestari.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_wizard.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1792,6 +1878,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_ALCHEMIST",
 		name				= "Summon Ylialkemisti",
+		author		= "Copi",
 		description			= "Summons Ylialkemisti.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_alchemist.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1810,6 +1897,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_DRAGON",
 		name				= "Summon Suomuhauki",
+		author		= "Copi",
 		description			= "Summons Suomuhauki.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_dragon.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1828,6 +1916,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_GHOST",
 		name				= "Summon Ylialkemisti",
+		author		= "Copi",
 		description			= "Summons Ylialkemisti.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_ghost.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1846,6 +1935,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_PIT",
 		name				= "Summon Sauvojen Tuntija",
+		author		= "Copi",
 		description			= "Summons Sauvojen Tuntija.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_pit.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1864,6 +1954,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_LIMBS",
 		name				= "Summon Kolmisilmän Koipi",
+		author		= "Copi",
 		description			= "Summons Kolmisilmän Koipi.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_limbs.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1882,6 +1973,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_BOSS_ROBOT",
 		name				= "Summon Kolmisilmän silmä",
+		author		= "Copi",
 		description			= "Summons Kolmisilmän Koipi.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_robot.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1900,6 +1992,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_MAGGOT_TINY",
 		name				= "Summon Limatoukka",
+		author		= "Copi",
 		description			= "Summons Limatoukka.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_maggot_tiny.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1918,6 +2011,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_FLASK",
 		name				= "Summon flask",
+		author		= "Copi",
 		description			= "Summons an empty flask",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1936,6 +2030,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_FLASK_FULL",
 		name				= "Summon filled flask",
+		author		= "Copi",
 		description			= "Summons a flask filled with a random material",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1954,6 +2049,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_JAR",
 		name				= "Summon jar",
+		author		= "Copi",
 		description			= "Summons an empty jar",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_jar.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1972,6 +2068,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_JAR_URINE",
 		name				= "Jarate",
+		author		= "Copi",
 		description			= "Jar-based Karate",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_jar_urine.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -1990,6 +2087,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_SUN",
 		name				= "Summon Sun",
+		author		= "Copi",
 		description			= "Summons the sun.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_sun.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2007,6 +2105,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_DARK_SUN",
 		name				= "Summon Dark Sun",
+		author		= "Copi",
 		description			= "Summons the dark sun.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_dark_sun.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2024,6 +2123,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_BERSERK",
 		name				= "Status: Berserk",
+		author		= "Copi",
 		description			= "Applies the berserk status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_berserk.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2047,6 +2147,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_BOUNCE",
 		name				= "Status: Bouncing Shots",
+		author		= "Copi",
 		description			= "Applies the bouncing shots status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_bounce.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2070,6 +2171,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_DAMAGE_PLUS",
 		name				= "Status: Damage plus",
+		author		= "Copi",
 		description			= "Applies the damage plus status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_damage_plus.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2093,6 +2195,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_EDIT_WANDS_EVERYWHERE",
 		name				= "Status: Tinker with wands",
+		author		= "Copi",
 		description			= "Applies the tinker with wands status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_edit_wands_everywhere.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2116,6 +2219,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_FASTER_LEVITATION",
 		name				= "Status: Faster levitiation",
+		author		= "Copi",
 		description			= "Applies the faster levitation status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_faster_levitation.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2139,6 +2243,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_HOMING",
 		name				= "Status: Homing shots",
+		author		= "Copi",
 		description			= "Applies the homing shots status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_homing.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2162,6 +2267,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_HP_REGENERATION",
 		name				= "Status: Health regeneration",
+		author		= "Copi",
 		description			= "Applies the health regeneration status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_hp_regeneration.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2185,6 +2291,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_INVISIBILITY",
 		name				= "Status: Invisibility",
+		author		= "Copi",
 		description			= "Applies the invisibility status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_invisibility.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2208,6 +2315,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_MANA_REGENERATION",
 		name				= "Status: Mana regeneration",
+		author		= "Copi",
 		description			= "Applies the mana regeneration status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_mana_regeneration.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2231,6 +2339,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_MOVEMENT_FASTER",
 		name				= "Status: Greased lightning",
+		author		= "Copi",
 		description			= "Applies the greased lightning status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_movement_faster.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2254,6 +2363,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_NIGHTVISION",
 		name				= "Status: Wormy vision",
+		author		= "Copi",
 		description			= "Applies the wormy vision status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_nightvision.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2277,6 +2387,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_PROTECTION_ALL",
 		name				= "Status: Immunity",
+		author		= "Copi",
 		description			= "Applies the immunity status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_protection_all.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2300,6 +2411,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_RECHARGE",
 		name				= "Status: Reduced recharge",
+		author		= "Copi",
 		description			= "Applies the reduced recharge status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_recharge.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2323,6 +2435,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_SHIELD",
 		name				= "Status: Shielded",
+		author		= "Copi",
 		description			= "Applies the shielded status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_shield.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2346,6 +2459,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SPELL_REFRESH",
 		name				= "Spell refresh",
+		author		= "Copi",
 		description			= "Refreshes the spells within your wands and inventory",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/spell_refresh.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2366,6 +2480,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_GOLD",
 		name				= "Gold",
+		author		= "Copi",
 		description			= "Summons a nugget of gold",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/gold.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2383,6 +2498,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_FREEZING_VAPOUR_TRAIL",
 		name 		= "Freezing Vapour Trail",
+		author		= "Copi",
 		description = "Gives a projectile a trail of stinging frost",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/freezing_vapour_trail.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2399,6 +2515,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_VOID_TRAIL",
 		name 		= "Void Liquid Trail",
+		author		= "Copi",
 		description = "Gives a projectile a trail of pure darkness",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/void_trail.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2415,6 +2532,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DAMAGE_CRITICAL",
 		name 		= "Critical strike",
+		author		= "Copi",
 		description = "Increases spell critical damage",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/damage_critical.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2430,6 +2548,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DIMIGE",
 		name 		= "Dimige",
+		author		= "Copi",
 		description = "Increases spell damage slightly for each projectile spell on the wand",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dimige.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2449,6 +2568,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_POWER_SHOT",
 		name 		= "Power Shot",
+		author		= "Copi",
 		description = "Cast a spell with increased damage and material penetration",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/power_shot.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2465,6 +2585,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_STICKY_SHOT",
 		name 		= "Sticky Shot",
+		author		= "Copi",
 		description = "Cast a spell which sticks to surfaces it hits",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sticky_shot.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2480,6 +2601,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_LIGHT_REMOVER",
 		name 		= "Light Remover",
+		author		= "Copi",
 		description = "Removes the light from a projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/light_remover.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2495,6 +2617,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_LOVELY_TRAIL",
 		name 		= "Lovely Trail",
+		author		= "Copi",
 		description = "Show your enemies some love",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/lovely_trail.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2510,6 +2633,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_STARRY_TRAIL",
 		name 		= "Starry Trail",
+		author		= "Copi",
 		description = "Only shooting stars",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/starry_trail.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2525,6 +2649,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_SPARKLING_TRAIL",
 		name 		= "Sparkling Trail",
+		author		= "Copi",
 		description = "Spread glitter across the world",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sparkling_trail.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2540,6 +2665,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_NULL_TRAIL",
 		name 		= "Lovely Trail",
+		author		= "Copi",
 		description = "Remove all particle emitters from the projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/null_trail.png",
 		type 		= ACTION_TYPE_MODIFIER,
@@ -2556,6 +2682,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_RANDOM_CAST",
 		name 		= "Random cast",
+		author		= "Copi",
 		description = "Casts a spell from a random position",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/random_cast.png",
 		type 		= ACTION_TYPE_UTILITY,
@@ -2572,6 +2699,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_ROOT_GROWER",
 		name 		= "Creeping Vines",
+		author		= "Copi",
 		description = "Spawns a mass of rapidly growing nature",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/root_grower.png",
 		type 		= ACTION_TYPE_STATIC_PROJECTILE,
@@ -2589,6 +2717,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_HOMING_CURSOR",
 		name				= "Cursor Homing",
+		author		= "Copi",
 		description			= "Homing projectiles will be able to target your cursor",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/homing_cursor.png",
 		type        		= ACTION_TYPE_PASSIVE,
@@ -2605,6 +2734,7 @@ local to_insert = {
 	{
 		id						= "COPIS_THINGS_HOMING_ANTI",
 		name					= "Anti Homing",
+		author		= "Copi",
 		description				= "Projectiles will be repelled by enemies",
 		sprite					= "mods/copis_things/files/ui_gfx/gun_actions/homing_anti.png",
 		related_extra_entities	= { "mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml" },
@@ -2622,6 +2752,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_PROTECTION_FIRE",
 		name				= "Fire immunity",
+		author		= "Copi",
 		description			= "Your wand grants you a magical aura of fire immunity!",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_fire.png",
 		type        		= ACTION_TYPE_PASSIVE,
@@ -2638,6 +2769,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_PROTECTION_EXPLOSION",
 		name				= "Explosion immunity",
+		author		= "Copi",
 		description			= "Your wand grants you a magical aura of explosion immunity!",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_explosion.png",
 		type        		= ACTION_TYPE_PASSIVE,
@@ -2654,6 +2786,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_PROTECTION_ELECTRICITY",
 		name				= "Electricity immunity",
+		author		= "Copi",
 		description			= "Your wand grants you a magical aura of electricity immunity!",
 		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_electricity.png",
 		type        		= ACTION_TYPE_PASSIVE,
@@ -2670,7 +2803,8 @@ local to_insert = {
 	{
 			id					= "COPIS_THINGS_PROTECTION_ICE",
 			name				= "Freeze immunity",
-			description			= "Your wand grants you a magical aura of freeze immunity!",
+			author		= "Copi",
+		description			= "Your wand grants you a magical aura of freeze immunity!",
 			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_ice.png",
 			type        		= ACTION_TYPE_PASSIVE,
 			spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
@@ -2686,7 +2820,8 @@ local to_insert = {
 	{
 			id					= "COPIS_THINGS_PROTECTION_RADIOACTIVITY",
 			name				= "Toxic immunity",
-			description			= "Your wand grants you a magical aura of toxic immunity!",
+			author		= "Copi",
+		description			= "Your wand grants you a magical aura of toxic immunity!",
 			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_radioactivity.png",
 			type        		= ACTION_TYPE_PASSIVE,
 			spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
@@ -2702,7 +2837,8 @@ local to_insert = {
 	{
 			id					= "COPIS_THINGS_PROTECTION_MELEE",
 			name				= "Melee immunity",
-			description			= "Your wand grants you a magical aura of melee immunity!",
+			author		= "Copi",
+		description			= "Your wand grants you a magical aura of melee immunity!",
 			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_melee.png",
 			type        		= ACTION_TYPE_PASSIVE,
 			spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
@@ -2718,7 +2854,8 @@ local to_insert = {
 	{
 			id					= "COPIS_THINGS_PROTECTION_POLYMORPH",
 			name				= "Polymorph immunity",
-			description			= "Your wand grants you a magical aura of polymorph immunity!",
+			author		= "Copi",
+		description			= "Your wand grants you a magical aura of polymorph immunity!",
 			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/protection_polymorph.png",
 			type        		= ACTION_TYPE_PASSIVE,
 			spawn_level			               = "1,2,3,4,5,6,10", -- RECHARGE
@@ -2734,7 +2871,8 @@ local to_insert = {
 	{
 			id					= "COPIS_THINGS_PROJECTILE_HOMING",
 			name				= "Passive Homing",
-			description			= "All projectiles fired while holding the wand slighty home in on enemies!",
+			author		= "Copi",
+		description			= "All projectiles fired while holding the wand slighty home in on enemies!",
 			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/projectile_homing.png",
 			type        		= ACTION_TYPE_PASSIVE,
 			spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
@@ -2750,7 +2888,8 @@ local to_insert = {
 	{
 			id					= "COPIS_THINGS_INVISIBILITY",
 			name				= "Invisibility",
-			description			= "Your wand grants you a magical aura of invisibility!",
+			author		= "Copi",
+		description			= "Your wand grants you a magical aura of invisibility!",
 			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/invisibility.png",
 			type        		= ACTION_TYPE_PASSIVE,
 			spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
@@ -2766,7 +2905,8 @@ local to_insert = {
 	{
 			id					= "COPIS_THINGS_BREATH_UNDERWATER",
 			name				= "Breath Underwater",
-			description			= "Your wand grants you a magical aura of respiration!",
+			author		= "Copi",
+		description			= "Your wand grants you a magical aura of respiration!",
 			sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/breath_underwater.png",
 			type        		= ACTION_TYPE_PASSIVE,
 			spawn_level			               = "1,2,3,4,5,6", -- RECHARGE
@@ -2782,6 +2922,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_ATTACK_LEG",
 		name 		= "Lukki Limb",
+		author		= "Copi",
 		description = "Control a Lukki leg to kick nearby enemies automatically",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png",
 		type 		= ACTION_TYPE_PASSIVE,
@@ -2799,6 +2940,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_BAYONET",
 		name 		= "Bayonet",
+		author		= "Copi",
 		description = "Attach a small knife to the tip of your wand --INDEV WRONG AREA DAMAGE--",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/bayonet.png",
 		type 		= ACTION_TYPE_PASSIVE,
@@ -2816,6 +2958,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_KICK_EXPLOSION",
 		name 		= "Explosive Kick",
+		author		= "Copi",
 		description = "Create a devastating explosion when you kick. Use wisely! Consumes 60 mana when you kick.",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/kick_explosion.png",
 		type 		= ACTION_TYPE_PASSIVE,
@@ -2833,6 +2976,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_ALT_FIRE_FLAMETHROWER",
 		name 		= "Sidearm Flamethrower",
+		author		= "Copi",
 		description = "Fires a deadly stream of flames while you hold alt fire. Consumes 20 mana per shot.",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_flamethrower.png",
 		type 		= ACTION_TYPE_PASSIVE,
@@ -2850,6 +2994,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DECOY",
 		name 		= "$action_decoy",
+		author		= "Copi",
 		description = "$actiondesc_decoy",
 		sprite 		= "data/ui_gfx/gun_actions/decoy.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/decoy_unidentified.png",
@@ -2869,6 +3014,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_DECOY_TRIGGER",
 		name 		= "$action_decoy_trigger",
+		author		= "Copi",
 		description = "$actiondesc_decoy_trigger",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/decoy_death_trigger.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/decoy_trigger_unidentified.png",
@@ -2888,6 +3034,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_HITFX_EXPLOSION_FROZEN",
 		name 		= "Explosion on frozen enemies",
+		author		= "Copi",
 		description = "Makes a projectile explode upon collision with frozen creatures",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/explode_on_frozen.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -2907,6 +3054,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_HITFX_EXPLOSION_FROZEN_GIGA",
 		name 		= "Giant explosion on frozen enemies",
+		author		= "Copi",
 		description = "Makes a projectile explode powerfully upon collision with frozen creatures",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/explode_on_frozen_giga.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -2926,6 +3074,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_CIRCLE_EDIT_WANDS_EVERYWHERE",
 		name 		= "Circle of Divine Blessing",
+		author		= "Copi",
 		description = "A field of modification magic",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/circle_edit_wands_everywhere.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -2945,6 +3094,7 @@ local to_insert = {
 	{
 		id          = "COPIS_THINGS_MINI_SHIELD",
 		name 		= "Projectile Bubble Shield",
+		author		= "Copi",
 		description = "Encases a projectile in a deflective shield",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mini_shield.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -2960,36 +3110,38 @@ local to_insert = {
 		end,
 	},
 
---[[
 	{
 		id          = "COPIS_THINGS_NGON_SHAPE",
 		name 		= "Formation - N-gon",
+		author		= "Copi",
 		description = "Cast all remaining spells in a circular pattern",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/ngon_shape.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
-		type 		= ACTION_TYPE_MODIFIER,
+		type 		= ACTION_TYPE_DRAW_MANY,
 		spawn_level                       = "0,		1,		2,		3,		4,		5,		6",
 		spawn_probability                 = "0.33,	0.33,	0.33,	0.33,	0.33,	0.33,	0.33",
 		price = 120,
 		mana = 24,
-        function()
+        action		= function()
             c.pattern_degrees = 180;
             draw_actions( #deck, true );
-        end, true
+        end,
 	},
+
 	{
 		id          = "COPIS_THINGS_SHUFFLE_DECK",
 		name 		= "Shuffle Deck",
-		description = "Randomize the order of all remaining spells",
+		author		= "Copi",
+		description = "Randomize the order of all spells in the cast",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/shuffle_deck.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
-		related_extra_entities = { "mods/copis_things/files/entities/misc/mini_shield.xml"},
 		type 		= ACTION_TYPE_MODIFIER,
 		spawn_level                       = "0,		1,		2,		3,		4,		5,		6",
-		spawn_probability                 = "0.2,	0.2,	0.2,	0.2,	0.2,	0.2,	0.2",
+		spawn_probability                 = "0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4",
 		price = 100,
 		mana = -20,
-		function()
+		action = function()
+			SetRandomSeed( GameGetFrameNum(), 1284 );
             local shuffle_deck = {};
             for i=1, #deck do
                 local index = Random( 1, #deck );
@@ -3002,7 +3154,45 @@ local to_insert = {
             end
             draw_actions( 1, true );
         end,
+	},
+
+	--[[{
+		id          = "COPIS_THINGS_BARRIER_TRAIL",
+		name 		= "Barrier Trail",
+		author		= "Copi",
+		description = "Projectiles gain a trail of barriers",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/barrier_trail.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/barrier_trail.xml"},
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,		3,		4,		5",
+		spawn_probability                 = "0.7,	0.7,	0.7,	0.7",
+		price = 200,
+		mana = 20,
+		action = function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/barrier_trail.xml,"
+            draw_actions( 1, true );
+        end,
 	},]]
+
+	{
+		id          = "COPIS_THINGS_EXPIRE_NEARBY_ENEMIES",
+		name 		= "Projectile Area Expiration",
+		author		= "Copi",
+		description = "Projectiles will expire when enemies are nearby",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/expire_nearby_enemies.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/expire_nearby_enemies.xml"},
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,		4,		5,		6",
+		spawn_probability                 = "0.2,	0.2,	0.5,	0.1",
+		price = 50,
+		mana = 5,
+		action = function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/expire_nearby_enemies.xml,"
+            draw_actions( 1, true );
+        end,
+	},
 }
 
 for k, v in ipairs(to_insert) do
@@ -3015,6 +3205,7 @@ end
 	{
 		id					= "COPIS_THINGS_SUMMON_POUCH",
 		name				= "Summon pouch",
+		author		= "Copi",
 		description			= "Summons an empty pouch",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -3033,6 +3224,7 @@ end
 	{
 		id					= "COPIS_THINGS_SUMMON_POUCH_FULL",
 		name				= "Summon filled pouch",
+		author		= "Copi",
 		description			= "Summons a pouch filled with a random material",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -3051,6 +3243,7 @@ end
 	{
 		id          = "COPIS_THINGS_SORT_DECK",
 		name 		= "Unshuffle",
+		author		= "Copi",
 		description = "Stablizes shuffled wands",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sort_deck.png",
 		type 		= ACTION_TYPE_PASSIVE,
@@ -3065,6 +3258,7 @@ end
 	{
 		id          = "COPIS_THINGS_SHUFFLE_DECK",
 		name 		= "Shuffle",
+		author		= "Copi",
 		description = "Imbues a wand with unpredictable energy",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/shuffle_deck.png",
 		type 		= ACTION_TYPE_PASSIVE,

@@ -1,0 +1,22 @@
+<Entity>
+  
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/expire_nearby_enemies.lua"
+		execute_every_n_frame="1"
+		>
+	</LuaComponent>
+	
+	<SpriteComponent 
+		_enabled="1" 
+		alpha="1" 
+		image_file="mods/copis_things/files/particles/area_indicator_064_yellow.png" 
+		next_rect_animation="" 
+		offset_x="32" 
+		offset_y="32" 
+		rect_animation="spawn"
+		z_index="1.1"
+		never_ragdollify_on_death="1"
+		>
+	</SpriteComponent>
+
+</Entity>
