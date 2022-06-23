@@ -1,15 +1,15 @@
-<Entity >
+<Entity>
 	<InheritTransformComponent>
-    </InheritTransformComponent>
-	
+	</InheritTransformComponent>
+
 	<MagicConvertMaterialComponent
-        from_material_tag="[magic_polymorph]"
-        to_material="acid"
-        steps_per_frame="48"
-        loop="1"
+		from_material_tag="[magic_polymorph]"
+		to_material="acid"
+		steps_per_frame="20"
+		loop="1"
 		is_circle="1"
-        radius="48" >
-    </MagicConvertMaterialComponent>
+		radius="20" >
+	</MagicConvertMaterialComponent>
 
     <ParticleEmitterComponent
 		emitted_material_name="spark_player"
@@ -20,8 +20,8 @@
 		count_max="10"
 		render_on_grid="1"
 		fade_based_on_lifetime="1"
-		area_circle_radius.min="48"
-		area_circle_radius.max="48"
+		area_circle_radius.min="20"
+		area_circle_radius.max="20"
 		cosmetic_force_create="0"
 		airflow_force="0.5"
 		airflow_time="0.1"
@@ -30,7 +30,8 @@
 		emission_interval_max_frames="1"
 		emit_cosmetic_particles="1"
 		is_emitting="1" 
-		area_circle_sector_degrees="360" >
+		area_circle_sector_degrees="360"
+		>
 	</ParticleEmitterComponent>
     
     <ParticleEmitterComponent
@@ -43,7 +44,7 @@
 		render_on_grid="1"
 		fade_based_on_lifetime="1"
 		area_circle_radius.min="0"
-		area_circle_radius.max="48"
+		area_circle_radius.max="20"
 		cosmetic_force_create="0"
 		airflow_force="0.5"
 		airflow_time="0.1"
@@ -52,12 +53,7 @@
 		emission_interval_max_frames="1"
 		emit_cosmetic_particles="1"
 		is_emitting="1" 
-		area_circle_sector_degrees="360" >
+		area_circle_sector_degrees="360"
+		>
 	</ParticleEmitterComponent>
-
-	<GameEffectComponent 
-		effect="PROTECTION_POLYMORPH"
-		frames="150" >
-	</GameEffectComponent >
-  
 </Entity>

@@ -48,8 +48,6 @@
     emit_cosmetic_particles="1"
     emission_interval_min_frames="1"
     emission_interval_max_frames="1"
-		count_min="1"
-		count_max="3"
 	is_trail="1"
     is_emitting="1" >
   </ParticleEmitterComponent>
@@ -71,8 +69,6 @@
     emit_cosmetic_particles="1"
     emission_interval_min_frames="1"
     emission_interval_max_frames="1"
-		count_min="1"
-		count_max="3"
 	is_trail="1"
     is_emitting="1" >
   </ParticleEmitterComponent>
@@ -94,8 +90,6 @@
     emit_cosmetic_particles="1"
     emission_interval_min_frames="1"
     emission_interval_max_frames="1"
-		count_min="1"
-		count_max="3"
 	fade_based_on_lifetime="1"
 	draw_as_long="1"
 	is_trail="1"
@@ -119,8 +113,6 @@
     emit_cosmetic_particles="1"
     emission_interval_min_frames="1"
     emission_interval_max_frames="1"
-		count_min="1"
-		count_max="3"
 	fade_based_on_lifetime="1"
 	draw_as_long="1"
 	is_trail="1"
@@ -138,4 +130,3 @@
 		>
 	</VariableStorageComponent>
 </Entity>
-

@@ -16,7 +16,7 @@ if aim_x < 0 then
     angle = angle + 3.14159
 end
 
-edit_component( target_id, "ProjectileComponent", function(comp,vars)
+edit_component( entity_id, "ProjectileComponent", function(comp,vars)
     vars.die_on_low_velocity = 0
 end)
 --[[

@@ -1,7 +1,7 @@
 dofile_once("data/scripts/lib/utilities.lua")
 local entity_id    = GetUpdatedEntityID()
 local x, y = EntityGetTransform( entity_id )
-edit_component( target_id, "ProjectileComponent", function(comp,vars)
+edit_component( entity_id, "ProjectileComponent", function(comp,vars)
 	vars.die_on_low_velocity = 0
 end)
 

@@ -107,8 +107,7 @@ local to_insert = {
 			local len = math.sqrt((aim_x^2) + (aim_y^2))
 			local force_x = 1000
 			local force_y = 1000
-			ComponentSetValue2( EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity",
-			(aim_x/len*force_x), (aim_y/len*force_y))
+			ComponentSetValue2( EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity", (aim_x/len*force_x), (aim_y/len*force_y))
 		end,
 	},
 
@@ -441,7 +440,8 @@ local to_insert = {
 		price = 250,
 		mana = 0,
 		action				= function()
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local damage_model_component = EntityGetFirstComponent(entity_id, "DamageModelComponent")
 				ComponentSetValue2(damage_model_component, "hp", 0)
@@ -621,17 +621,17 @@ local to_insert = {
 	},
 
 	{
-		id          = "COPIS_THINGS_CONCRETEBALL",
-		name 		= "Chunk of concrete",
-		author		= "Copi",
-		description = "The power of industry!",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_concrete.png",
+		id					= "COPIS_THINGS_CONCRETEBALL",
+		name				= "Chunk of concrete",
+		author				= "Copi",
+		description			= "The power of industry!",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_concrete.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml"},
-		type 		= ACTION_TYPE_MATERIAL,
-		spawn_level			               = "1,2,3,5", -- SOILBALL
-		spawn_probability	               = "1,1,1,1", -- SOILBALL
-		price = 10,
-		mana = 5,
+		type				= ACTION_TYPE_MATERIAL,
+		spawn_level			= "1,2,3,5", -- SOILBALL
+		spawn_probability	= "1,1,1,1", -- SOILBALL
+		price				= 10,
+		mana				= 5,
 		action				= function()
 			add_projectile("mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml")
 		end,
@@ -640,23 +640,23 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SPECIAL_DATARANDAL",
 		name				= "Datarandal",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "The personal weapon of choice of the great warrior mage Copisinpäällikkö.",
-		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/datarandal.png",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/datarandal.png",
 		type        		= ACTION_TYPE_PASSIVE,
-		spawn_level       = "0,0",
+		spawn_level			= "0,0",
 		spawn_probability	= "0,0",
 		price				= 0,
 		mana				= 0,
-		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/datarandal.xml",
-		action = function()
+		custom_xml_file 	= "mods/copis_things/files/entities/misc/custom_cards/datarandal.xml",
+		action 				= function()
 		end
 	},
-
+--[[
 	{
 		id					= "COPIS_THINGS_BUBBLEBOMB",
 		name				= "Bubblebomb",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Testing",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/bubblebomb.png",
 		type				= ACTION_TYPE_PROJECTILE,
@@ -668,11 +668,11 @@ local to_insert = {
 		add_projectile("mods/copis_things/files/entities/projectiles/bubblebomb.xml")
 		end,
 	},
-
+]]
 	{
 		id					= "COPIS_THINGS_BUBBLEBOMB_DEATH_TRIGGER",
 		name				= "Bubblebomb with death trigger",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Testing",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/bubblebomb_death_trigger.png",
 		type				= ACTION_TYPE_PROJECTILE,
@@ -688,7 +688,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_ZENITH_DISC",
 		name				= "Zenith disc",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Summons a no nonsense sawblade.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/zenith_disc.png",
 		type				= ACTION_TYPE_PROJECTILE,
@@ -705,7 +705,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_EVISCERATOR_DISC",
 		name				= "Eviscerator",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Please, don't cast this.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/eviscerator.png",
 		type				= ACTION_TYPE_PROJECTILE,
@@ -720,22 +720,19 @@ local to_insert = {
 	},
 
 
-
-
-
 	{
 		id					= "COPIS_THINGS_SUMMON_HAMIS",
 		name				= "Summon Hämis",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Praise Hämis.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_hamis.png",
 		type				= ACTION_TYPE_UTILITY,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
+		spawn_level			= "0,		1,		2,		3,		4,		5,		6",
+		spawn_probability	= "0.2,		0.2,	0.2,	0.2,	0.2,	0.2,	0.2",
 		price				= 0,
 		mana				= 10,
 		action				= function()
-		add_projectile("data/entities/animals/longleg.xml")
+		add_projectile("mods/copis_things/files/entities/projectiles/longleg_projectile.xml")
 		c.fire_rate_wait = c.fire_rate_wait + 10
 		end,
 	},
@@ -743,7 +740,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SILVER_BULLET",
 		name				= "Silver bullet",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "A small bullet created from arcane silver",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
@@ -762,7 +759,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SILVER_MAGNUM",
 		name				= "Silver magnum",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "A large bullet created from arcane silver",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
@@ -781,7 +778,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SILVER_BULLET_DEATH_TRIGGER",
 		name				= "Silver bullet with expiration trigger",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "A small bullet created from arcane silver that casts another spell upon expiring",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_death_trigger.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
@@ -791,7 +788,7 @@ local to_insert = {
 		price				= 220,
 		mana				= 25,
 		action				= function()
-			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
+			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/silver_bullet.xml", 1)
             c.fire_rate_wait = c.fire_rate_wait - 12;
 		end,
 	},
@@ -799,7 +796,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SILVER_MAGNUM_DEATH_TRIGGER",
 		name				= "Silver magnum with expiration trigger",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "A large bullet created from arcane silver that casts another spell upon expiring",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum_death_trigger.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
@@ -809,26 +806,27 @@ local to_insert = {
 		price				= 330,
 		mana				= 40,
 		action				= function()
-			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
+			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/silver_magnum.xml", 1)
 			c.fire_rate_wait = c.fire_rate_wait - 6;
 		end,
 	},
 
 	{
-		id          = "COPIS_THINGS_PLANK_HORIZONTAL",
-		name 		= "Build Wooden Platform",
-		author		= "Copi",
-		description = "Construct a horizontal wooden platform",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/plank_horizontal.png",
-		type 		= ACTION_TYPE_UTILITY,
-		spawn_level			               = "0,1,2,4,5,6", -- WALL_SQUARE
-		spawn_probability	               = "0.1,0.1,0.3,0.4,0.2,0.1", -- WALL_SQUARE
-		price = 100,
-		mana = 40,
-		max_uses = 3,
-		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/plank_horizontal.xml",
+		id					= "COPIS_THINGS_PLANK_HORIZONTAL",
+		name				= "Build Wooden Platform",
+		author				= "Copi",
+		description			= "Construct a horizontal wooden platform",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/plank_horizontal.png",
+		type				= ACTION_TYPE_UTILITY,
+		spawn_level			= "0,1,2,4,5,6", -- WALL_SQUARE
+		spawn_probability	= "0.1,0.1,0.3,0.4,0.2,0.1", -- WALL_SQUARE
+		price				= 100,
+		mana				= 40,
+		max_uses			= 3,
+		custom_xml_file		= "mods/copis_things/files/entities/misc/custom_cards/plank_horizontal.xml",
 		action				= function()
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent"), "mMousePosition")
 				EntityLoad("mods/copis_things/files/entities/buildings/plank_horizontal_building.xml", mouse_x, mouse_y)
@@ -853,7 +851,8 @@ local to_insert = {
 		max_uses = 12,
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/plank_cube.xml",
 		action				= function()
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent"), "mMousePosition")
 				function round(n, to)
@@ -881,7 +880,8 @@ local to_insert = {
 		max_uses = 3,
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/plank_vertical.xml",
 		action				= function()
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent"), "mMousePosition")
 				EntityLoad("mods/copis_things/files/entities/buildings/plank_vertical_building.xml", mouse_x, mouse_y)
@@ -925,7 +925,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -940,7 +941,13 @@ local to_insert = {
 					wand.rechargeTime = wand.rechargeTime * 1.1
 
 
-					wand:UpdateSprite()
+					local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 					GameScreenshake(50, pos_x, pos_y)
 					GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
 				end
@@ -960,7 +967,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -975,7 +983,13 @@ local to_insert = {
 					wand.rechargeTime = wand.rechargeTime * 0.55
 
 
-					wand:UpdateSprite()
+					local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 					GameScreenshake(50, pos_x, pos_y)
 					GamePrintImportant("Wand shuffled!", "Stats improved.")
 				end
@@ -995,7 +1009,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1005,7 +1020,13 @@ local to_insert = {
 				wand.spellsPerCast = wand.spellsPerCast + 1
 
 
-				wand:UpdateSprite()
+				local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 				GameScreenshake(50, pos_x, pos_y)
 				GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
 			end
@@ -1024,7 +1045,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1035,7 +1057,13 @@ local to_insert = {
 				wand.speedMultiplier  = wand.speedMultiplier * Random(2,3)
 
 
-				wand:UpdateSprite()
+				local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 				GameScreenshake(50, pos_x, pos_y)
 				GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier ) .. " speed multiplier.")
 			end
@@ -1054,7 +1082,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1066,7 +1095,13 @@ local to_insert = {
 					wand.capacity = wand.capacity + Random(1,3)
 
 
-					wand:UpdateSprite()
+					local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 					GameScreenshake(50, pos_x, pos_y)
 					GamePrintImportant("Wand upgraded!", tostring(wand.capacity) .. " capacity.")
 				end
@@ -1086,7 +1121,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1097,7 +1133,13 @@ local to_insert = {
 				wand.castDelay = ((wand.castDelay + 0.2) * 0.8) - 0.2
 
 
-				wand:UpdateSprite()
+				local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 				GameScreenshake(50, pos_x, pos_y)
 				GamePrintImportant("Wand upgraded!", ("%.2fs"):format(castDelay_old/60) .. " -> " .. ("%.2fs"):format(wand.castDelay/60) .. " cast delay.")
 			end
@@ -1116,7 +1158,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1127,7 +1170,13 @@ local to_insert = {
 				wand.rechargeTime = ((wand.rechargeTime + 0.2) * 0.8) - 0.2
 
 
-				wand:UpdateSprite()
+				local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 				GameScreenshake(50, pos_x, pos_y)
 				GamePrintImportant("Wand upgraded!", ("%.2fs"):format(rechargeTime_old/60) .. " -> " .. ("%.2fs"):format(wand.rechargeTime/60) .. " recharge time.")
 			end
@@ -1146,18 +1195,25 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
 				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 				local wand = EZWand.GetHeldWand()
 				wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
-				local spread_old = wand.rechargeTime
+				local rechargeTime_old = wand.rechargeTime
 				wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
 
 
-				wand:UpdateSprite()
+				local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 				GameScreenshake(50, pos_x, pos_y)
 				GamePrintImportant("Wand upgraded!", tostring(rechargeTime_old) .. " -> " .. tostring(wand.spread ) .. " degrees spread.")
 			end
@@ -1176,7 +1232,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1186,7 +1243,13 @@ local to_insert = {
 				wand.manaMax = wand.manaMax * 1.2 + 50
 
 
-				wand:UpdateSprite()
+				local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 				GameScreenshake(50, pos_x, pos_y)
 				GamePrintImportant("Wand upgraded!", tostring(wand.manaMax ) .. " mana capacity.")
 			end
@@ -1205,7 +1268,8 @@ local to_insert = {
 		price = 840,
 		mana = 0,
 		action 		= function()
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1215,7 +1279,13 @@ local to_insert = {
 				wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
 
 
-				wand:UpdateSprite()
+				local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 				GameScreenshake(50, pos_x, pos_y)
 				GamePrintImportant("Wand upgraded!", tostring(wand.manaChargeSpeed ) .. " mana charge speed.")
 			end
@@ -1235,7 +1305,8 @@ local to_insert = {
 		mana = 0,
 		action 		= function()
 		draw_actions( 1, true )
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1247,7 +1318,13 @@ local to_insert = {
 					wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
 					wand:RemoveSpells(spells[1].action_id)
 					wand:AttachSpells(spells[1].action_id)
-					wand:UpdateSprite()
+					local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 					GameScreenshake(50, pos_x, pos_y)
 					GamePrintImportant("Spell attached!")
 				end
@@ -1268,7 +1345,8 @@ local to_insert = {
 		mana = 0,
 		action 		= function()
 		draw_actions( 1, true )
-		local entity_id = EntityGetWithTag("player_unit")[1]
+		local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				dofile("data/scripts/lib/utilities.lua")
 				local pos_x, pos_y = EntityGetTransform( entity_id )
@@ -1280,7 +1358,13 @@ local to_insert = {
 					wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
 					wand:DetachSpells(attached_spells[1].action_id)
 					wand:AddSpells(attached_spells[1].action_id)
-					wand:UpdateSprite()
+					local function has_custom_sprite(ez_wand)
+				  local sprite_file = ez_wand:GetSprite()
+				  return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+				end
+				if not has_custom_sprite(wand) then
+				  wand:UpdateSprite()
+				end
 					GameScreenshake(50, pos_x, pos_y)
 					GamePrintImportant("Spell extracted!")
 				end
@@ -2135,7 +2219,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_berserk.xml", px, py )
@@ -2159,7 +2244,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_bounce.xml", px, py )
@@ -2183,7 +2269,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_damage_plus.xml", px, py )
@@ -2207,7 +2294,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_edit_wands_everywhere.xml", px, py )
@@ -2231,7 +2319,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_faster_levitation.xml", px, py )
@@ -2255,7 +2344,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_homing.xml", px, py )
@@ -2279,7 +2369,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_hp_regeneration.xml", px, py )
@@ -2303,7 +2394,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_invisibility.xml", px, py )
@@ -2327,7 +2419,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_mana_regeneration.xml", px, py )
@@ -2351,7 +2444,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_movement_faster.xml", px, py )
@@ -2375,7 +2469,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_nightvision.xml", px, py )
@@ -2399,7 +2494,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_protection_all.xml", px, py )
@@ -2423,7 +2519,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml", px, py )
@@ -2447,7 +2544,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				local px, py = EntityGetTransform( entity_id )
 				local effect_id = EntityLoad( "mods/copis_things/files/entities/misc/status_entities/buff_shield.xml", px, py )
@@ -2470,7 +2568,8 @@ local to_insert = {
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
-			local entity_id = EntityGetWithTag("player_unit")[1]
+			local entity_id = GetUpdatedEntityID()
+
 			if entity_id ~= nil and entity_id ~= 0 then
 				GameRegenItemActionsInPlayer(entity_id)
 				end
@@ -3105,7 +3204,7 @@ local to_insert = {
 		price = 540,
 		mana = 20,
 		action 		= function()
-			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/mini_shield.xml"
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/mini_shield.xml,"
 			draw_actions( 1, true )
 		end,
 	},
@@ -3153,6 +3252,25 @@ local to_insert = {
                 table.insert( deck, action );
             end
             draw_actions( 1, true );
+        end,
+	},
+
+
+	{
+		id          = "COPIS_THINGS_STORED_SHOT",
+		name 		= "Stored cast",
+		author		= "Copi",
+		description = "Summon a magical phenomenon that casts a spell when you stop casting",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/stored_shot.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		type 		= ACTION_TYPE_STATIC_PROJECTILE,
+		spawn_level                       = "0,		1,		2,		3,		4,		5,		6",
+		spawn_probability                 = "0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4",
+		price = 160,
+		mana = 4,
+		action = function()
+			add_projectile_trigger_death( "mods/copis_things/files/entities/projectiles/stored_shot.xml", 1 );
+            current_reload_time = current_reload_time + 3;
         end,
 	},
 

@@ -1,6 +1,5 @@
 dofile_once("data/scripts/lib/utilities.lua")
 
-
 local player = EntityGetWithTag( "player_unit" )[1]
 local lerp_amount = 0.975
 local bob_h = 6
@@ -41,7 +40,7 @@ local dist_x = pos_x - target_x
 pos_x,pos_y = vec_lerp(pos_x, pos_y, target_x, target_y, lerp_amount)
 EntitySetTransform( entity_id, pos_x, pos_y)
 
-edit_component( target_id, "ProjectileComponent", function(comp,vars)
+edit_component( entity_id, "ProjectileComponent", function(comp,vars)
     vars.die_on_low_velocity = 0
     vars.on_collision_die = 0
 	vars.penetrate_entities = 1

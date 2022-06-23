@@ -1,4 +1,4 @@
-<Entity >
+<Entity>
 
 	<Base file="data/entities/base_custom_card.xml" > 
 
@@ -24,6 +24,9 @@
 			execute_every_n_frame="1"
 			>
 		</LuaComponent>
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/homing_cursor.png" >
+		</SpriteComponent>
 
 	</Entity>
 

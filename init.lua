@@ -1,10 +1,10 @@
 
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
-ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/gun_append.lua")			-- experimental, may remove
---ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/perks.lua")
+--ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/gun_append.lua")			-- experimental, may remove
+ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/scripts/perk/perk_list.lua")
 
 -- Thanks Evasia! Wouldn't have managed to do this without your help.
-ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/status/extra_modifiers.lua")
+ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/gun/gun_extra_modifiers.lua")
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
 
 --ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
@@ -51,4 +51,4 @@ function OnPlayerSpawned( player_entity ) --This runs when player entity has bee
 	end
 end
 
-GamePrint("Cope")
+GamePrint("Copi's things INDEV 0.01")
