@@ -112,8 +112,29 @@ to_insert =
                 script_damage_received="mods/copis_things/files/scripts/perk/damage_recieved/swapper.lua"
             })
         end,
+    },
+--[[
+        --  Duplicate Wand (One-Off)
+    {
+        id = "COPIS_THINGS_WAND_DUPLICATE",
+        ui_name = "Duplicate Wand (One-Off)",
+        ui_description = "Create a copy of your wand.",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/wand_duplicate.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/wand_duplicate.png",
+		stackable = STACKABLE_YES,
+		max_in_perk_pool = 3,
+		one_off_effect = true,
+        usable_by_enemies = false,
+        func = function( entity_perk_item, entity_who_picked, item_name )
+            local x, y = EntityGetTransform( entity_who_picked );
+            local wand = find_the_wand_held( entity_who_picked )
+            if wand ~= nil then
+                local cloned_wand = wand:Clone()
+                cloned_wand:PlaceAt(x, y)
+            end
+        end,
     }
-
+]]
 }
 
 

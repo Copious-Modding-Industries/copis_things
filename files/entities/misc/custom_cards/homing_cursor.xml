@@ -16,17 +16,14 @@
 		_tags="enabled_in_hand">
 	</InheritTransformComponent>
 
-	<Entity _tags="homing_target,enabled_in_hand">
-	
+	<Entity _tags="enabled_in_hand" tags="homing_target">
+
 		<LuaComponent 
 			_tags="enabled_in_hand"
 			script_source_file="mods/copis_things/files/scripts/clairvoyance.lua"
 			execute_every_n_frame="1"
 			>
 		</LuaComponent>
-		<SpriteComponent 
-			image_file="mods/copis_things/files/ui_gfx/gun_actions/homing_cursor.png" >
-		</SpriteComponent>
 
 	</Entity>
 

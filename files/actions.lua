@@ -668,7 +668,6 @@ local to_insert = {
 		add_projectile("mods/copis_things/files/entities/projectiles/bubblebomb.xml")
 		end,
 	},
-]]
 	{
 		id					= "COPIS_THINGS_BUBBLEBOMB_DEATH_TRIGGER",
 		name				= "Bubblebomb with death trigger",
@@ -684,6 +683,7 @@ local to_insert = {
 		add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/bubblebomb.xml", 1)
 		end,
 	},
+]]
 
 	{
 		id					= "COPIS_THINGS_ZENITH_DISC",
@@ -3319,7 +3319,7 @@ end
 
 
 
-	--[[
+--[[
 	{
 		id					= "COPIS_THINGS_SUMMON_POUCH",
 		name				= "Summon pouch",
@@ -3357,7 +3357,7 @@ end
 			add_projectile("data/entities/items/pickup/goldnugget_200.xml")
 		end,
 	},
-	
+
 	{
 		id          = "COPIS_THINGS_SORT_DECK",
 		name 		= "Unshuffle",
@@ -3388,4 +3388,4 @@ end
 		end,
 	},
 
-	]]--
+]]--
