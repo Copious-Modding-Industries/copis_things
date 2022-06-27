@@ -71,8 +71,8 @@ to_insert =
             --  Mana efficiency
     {
         id = "COPIS_THINGS_MANA_EFFICIENCY",
-        ui_name = "Mana efficiency",
-        ui_description = "Spells you cast will cost half as much mana",
+        ui_name = "$perk_name_copis_things_mana_efficiency",
+        ui_description = "$perk_desc_copis_things_mana_efficiency",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/mana_efficiency.png",
         perk_icon = "mods/copis_things/files/items_gfx/perks/mana_efficiency.png",
         stackable = STACKABLE_NO,
@@ -86,8 +86,8 @@ to_insert =
             --  Short temper
     {
         id = "COPIS_THINGS_SHORT_TEMPER",
-        ui_name = "Short temper",
-        ui_description = "Taking damage makes you enter a state of rage briefly",
+        ui_name = "$perk_name_copis_things_short_temper",
+        ui_description = "$perk_desc_copis_things_short_temper",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/short_temper.png",
         perk_icon = "mods/copis_things/files/items_gfx/perks/short_temper.png",
         stackable = STACKABLE_NO,
@@ -101,8 +101,8 @@ to_insert =
             --  Swapper
     {
         id = "COPIS_THINGS_SWAPPER",
-        ui_name = "Swapper",
-        ui_description = "Confuse your enemies by swapping places with your attacker.",
+        ui_name = "$perk_name_copis_things_swapper",
+        ui_description = "$perk_desc_copis_things_swapper",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/swapper.png",
         perk_icon = "mods/copis_things/files/items_gfx/perks/swapper.png",
         stackable = STACKABLE_NO,

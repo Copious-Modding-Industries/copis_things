@@ -87,27 +87,30 @@ local to_insert = {
 
 	-- LUNGE
 	{
-		id          = "COPIS_THINGS_LUNGE",
-		name 		= "Lunge",
-		author		= "Copi",
-		description = "Launch yourself forwards with a burst of speed",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/lunge.png",
-		type 		= ACTION_TYPE_UTILITY,
-		spawn_level = "2,4",
-		spawn_probability = "0.6,0.6",
-		price = 100,
-		mana = 5,
-		action = function()
+		id          		= "COPIS_THINGS_LUNGE",
+		name 				= "Lunge",
+		author				= "Copi",
+		description 		= "Launch yourself forwards with a burst of speed",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/lunge.png",
+		type 				= ACTION_TYPE_UTILITY,
+		spawn_level			= "2,4",
+		spawn_probability	= "0.6,0.6",
+		price				= 100,
+		mana				= 5,
+		action				= function()
+			local entity_id = GetUpdatedEntityID()
 			local player = EntityGetWithTag( "player_unit" )[1]
+			if (entity_id == player) then
 			local pos_x, pos_y = EntityGetTransform( player )
-			local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(player, "ControlsComponent"), "mMousePosition")
-			if (mouse_x == nil or mouse_y == nil) then return end
-			local aim_x = mouse_x - pos_x
-			local aim_y = mouse_y - pos_y
-			local len = math.sqrt((aim_x^2) + (aim_y^2))
-			local force_x = 1000
-			local force_y = 1000
-			ComponentSetValue2( EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity", (aim_x/len*force_x), (aim_y/len*force_y))
+				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(player, "ControlsComponent"), "mMousePosition")
+				if (mouse_x == nil or mouse_y == nil) then return end
+				local aim_x = mouse_x - pos_x
+				local aim_y = mouse_y - pos_y
+				local len = math.sqrt((aim_x^2) + (aim_y^2))
+				local force_x = 1000
+				local force_y = 1000
+				ComponentSetValue2( EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity", (aim_x/len*force_x), (aim_y/len*force_y))
+			end
 		end,
 	},
 
@@ -692,8 +695,8 @@ local to_insert = {
 		description			= "Summons a no nonsense sawblade.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/zenith_disc.png",
 		type				= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
+		spawn_level			= "6,10",
+		spawn_probability	= "0.1,0.1",
 		price				= 9,
 		mana				= 0,
 		action				= function()
@@ -709,8 +712,8 @@ local to_insert = {
 		description			= "Please, don't cast this.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/eviscerator.png",
 		type				= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
+		spawn_level			= "6,10",
+		spawn_probability	= "0.1,0.1",
 		price				= 9,
 		mana				= 0,
 		action				= function()
@@ -728,7 +731,7 @@ local to_insert = {
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_hamis.png",
 		type				= ACTION_TYPE_UTILITY,
 		spawn_level			= "0,		1,		2,		3,		4,		5,		6",
-		spawn_probability	= "0.2,		0.2,	0.2,	0.2,	0.2,	0.2,	0.2",
+		spawn_probability	= "0.3,		0.2,	0.2,	0.2,	0.2,	0.2,	0.2",
 		price				= 0,
 		mana				= 10,
 		action				= function()
@@ -1848,7 +1851,7 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
-
+--[[
 	{
 		id					= "COPIS_THINGS_PASSIVE_RECHARGE",
 		name				= "Passive Recharge",
@@ -1865,7 +1868,7 @@ local to_insert = {
 			draw_actions( 1, true )
 		end
 	},
-
+]]
 	{
 		id          = "COPIS_THINGS_MANA_REDUCE_2",
 		name 		= "Add mana II",
@@ -2095,7 +2098,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_FLASK",
 		name				= "Summon flask",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Summons an empty flask",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2114,7 +2117,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_FLASK_FULL",
 		name				= "Summon filled flask",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Summons a flask filled with a random material",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2133,7 +2136,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_JAR",
 		name				= "Summon jar",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Summons an empty jar",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_jar.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2171,7 +2174,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_SUMMON_SUN",
 		name				= "Summon Sun",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Summons the sun.",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/summon_sun.png",
 		type				= ACTION_TYPE_UTILITY,
@@ -2207,7 +2210,7 @@ local to_insert = {
 	{
 		id					= "COPIS_THINGS_BUFF_BERSERK",
 		name				= "Status: Berserk",
-		author		= "Copi",
+		author				= "Copi",
 		description			= "Applies the berserk status to you for a short time",
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/buff_berserk.png",
 		type				= ACTION_TYPE_UTILITY,

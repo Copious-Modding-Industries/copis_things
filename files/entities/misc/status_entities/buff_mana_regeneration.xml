@@ -35,8 +35,8 @@
 	</GameEffectComponent >
 	<UIIconComponent
 		name="Mana regeneration"
-		description="Reduces the time between spellcasts"
-		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png"
+		description="TODO"
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_mana_regeneration.png"
 		is_perk="0"
 		display_above_head="0"
 		display_in_hud="1"

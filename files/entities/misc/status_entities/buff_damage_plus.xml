@@ -18,4 +18,13 @@
         frames="720"
     >
 	</GameEffectComponent >
+	<UIIconComponent
+		name="Damage Plus"
+		description="Your projectiles deal additional damage."
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_damage_plus.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+		>
+	</UIIconComponent>
 </Entity>

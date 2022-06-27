@@ -1,6 +1,7 @@
 
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
 --ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/gun_append.lua")			-- experimental, may remove
+
 ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/scripts/perk/perk_list.lua")
 
 -- Thanks Evasia! Wouldn't have managed to do this without your help.
@@ -8,6 +9,16 @@ ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
 
 --ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
+
+local translations = ModTextFileGetContent( "data/translations/common.csv" );
+if translations ~= nil then
+	while translations:find("\r\n\r\n") do
+		translations = translations:gsub("\r\n\r\n","\r\n");
+	end
+	local new_translations = ModTextFileGetContent( "mods/copis_things/files/translations/common.csv" );
+	translations = translations .. new_translations;
+	ModTextFileSetContent( "data/translations/common.csv", translations );
+end
 
 function OnPlayerSpawned( player_entity ) --This runs when player entity has been created
 

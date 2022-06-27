@@ -14,8 +14,8 @@
 	</LifetimeComponent>
 	<UIIconComponent
 		name="Bounce"
-		description="Reduces the time between spellcasts"
-		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png"
+		description="Almost all your spells bounce around."
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/buff_bounce.png"
 		is_perk="0"
 		display_above_head="0"
 		display_in_hud="1"
