@@ -11,9 +11,33 @@ local to_insert = {
 		price				= 0,
 		mana				= 0,
 		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/longleg_projectile.xml")
+			if reflecting then return; end
+
+            local old_c = c;
+			c = {};
+			reset_modifiers( c );
+            BeginProjectile( "data/entities/projectiles/deck/light_bullet.xml" );
+                BeginTriggerDeath();
+                    for k,v in pairs(old_c) do
+                        c[k] = v;
+                    end
+                    draw_actions( 1, true );
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile();
+            c = old_c;
+
+
 			--add_projectile_repeating_trigger_timer("data/entities/projectiles/deck/light_bullet.xml", 30, 1)
 			--[[add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
+
+
+			if reflecting then return; end
+			add_projectile("mods/copis_things/files/entities/projectiles/death_ray.xml")
+
+
+
 			 bore scene load
 			SetRandomSeed( GameGetFrameNum(), GameGetFrameNum() + 953 )
 			add_projectile( "mods/copis_things/files/entities/buildings/breach_".. tostring(Random(1,2)) .."_building.xml")
@@ -752,7 +776,6 @@ local to_insert = {
 		spawn_probability	= "1,1,0.5",
 		price				= 220,
 		mana				= 20,
-		max_uses			= 30,
 		action				= function()
 			add_projectile("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
             c.fire_rate_wait = c.fire_rate_wait - 12;
@@ -771,7 +794,6 @@ local to_insert = {
 		spawn_probability	= "1.00,		0.66,		0.33",
 		price				= 330,
 		mana				= 35,
-		max_uses			= 12,
 		action				= function()
 				add_projectile("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
 				c.fire_rate_wait = c.fire_rate_wait - 6;
@@ -1424,7 +1446,7 @@ local to_insert = {
 	end,
 
 	},
-
+--[[
 	{
 		id          = "COPIS_THINGS_DAMAGE_EXPLOSION",
 		name 		= "Explosive damage plus",
@@ -1449,7 +1471,7 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
-
+]]
 	{
 		id          = "COPIS_THINGS_DAMAGE_SLICE",
 		name 		= "Slice damage plus",
@@ -2641,7 +2663,7 @@ local to_insert = {
 		spawn_level			               = "0,1,2,3,4,5,6", -- FIREBALL_RAY
 		spawn_probability	               = "0.7,0.7,0.7,0.7,0.7,0.7,0.7", -- FIREBALL_RAY
 		price = 300,
-		mana = 20,
+		mana = 10,
 		action				= function()
             c.damage_critical_multiplier = math.max( 1, c.damage_critical_multiplier ) + 1;
             draw_actions( 1, true );
@@ -3314,6 +3336,328 @@ local to_insert = {
             draw_actions( 1, true );
         end,
 	},
+
+	{
+		id					= "COPIS_THINGS_DEATH_RAY",
+		name				= "Deathray",
+		author				= "Copi",
+		description			= "A blast of crackling red energy",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/death_ray.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/death_ray.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "3,			4",
+		spawn_probability	= "1.00,		0.50",
+		price				= 220,
+		mana				= 25,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/death_ray.xml")
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_LIGHT_BULLET_DEATH_TRIGGER",
+		name 		= "Spark bolt with expiration trigger",
+		description = "A spark bolt that casts another spell upon expiring",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_death_trigger.png",
+		related_projectiles	= {"data/entities/projectiles/deck/light_bullet.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                         = "0,1,2,3", -- LIGHT_BULLET_TRIGGER
+		spawn_probability                   = "1,0.5,0.5,0.5", -- LIGHT_BULLET_TRIGGER
+		price = 140,
+		mana = 10,
+		--max_uses = 100,
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 3
+			c.screenshake = c.screenshake + 0.5
+			c.damage_critical_chance = c.damage_critical_chance + 5
+			add_projectile_trigger_death("data/entities/projectiles/deck/light_bullet.xml", 1)
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_LIGHT_BULLET_INHERIT_TRIGGER",
+		name 		= "Spark bolt with inheritance trigger",
+		description = "A spark bolt that casts another spell upon expiring, which inherits modifiers",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_inherit_trigger.png",
+		related_projectiles	= {"data/entities/projectiles/deck/light_bullet.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                         = "2,3,4", -- LIGHT_BULLET_TRIGGER
+		spawn_probability                   = "0.2,0.2,0.2", -- LIGHT_BULLET_TRIGGER
+		price = 280,
+		mana = 60,
+		--max_uses = 100,
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 3
+			c.screenshake = c.screenshake + 0.5
+			c.damage_critical_chance = c.damage_critical_chance + 5
+			if reflecting then return; end
+
+            BeginProjectile( "data/entities/projectiles/deck/light_bullet.xml" );
+                BeginTriggerDeath();
+                    draw_actions( 1, true );
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile();
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_IF_PLAYER",
+		name 		= "Requirement - Player",
+		description = "The next spell is skipped if the spell isn't cast by the player",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/if_player.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+		spawn_requires_flag = "card_unlocked_maths",
+		type 		= ACTION_TYPE_OTHER,
+		spawn_level                       = "10", -- MANA_REDUCE
+		spawn_probability                 = "1", -- MANA_REDUCE
+		price = 100,
+		mana = 0,
+		action 		= function( recursion_level, iteration )
+			local endpoint = -1
+			local elsepoint = -1
+			local entity_id = GetUpdatedEntityID()
+			local player_id = EntityGetWithTag( "player_unit" )[1]
+
+			local doskip = false
+			if ( entity_id ~= player_id ) then
+				doskip = true
+			end
+
+			if ( #deck > 0 ) then
+				for i,v in ipairs( deck ) do
+					if ( v ~= nil ) then
+						if ( string.sub( v.id, 1, 3 ) == "IF_" ) and ( v.id ~= "IF_END" ) and ( v.id ~= "IF_ELSE" ) then
+							endpoint = -1
+							break
+						end
+
+						if ( v.id == "IF_ELSE" ) then
+							endpoint = i
+							elsepoint = i
+						end
+
+						if ( v.id == "IF_END" ) then
+							endpoint = i
+							break
+						end
+					end
+				end
+
+				local envelope_min = 1
+				local envelope_max = 1
+
+				if doskip then
+					if ( elsepoint > 0 ) then
+						envelope_max = elsepoint
+					elseif ( endpoint > 0 ) then
+						envelope_max = endpoint
+					end
+
+					for i=envelope_min,envelope_max do
+						local v = deck[envelope_min]
+
+						if ( v ~= nil ) then
+							table.insert( discarded, v )
+							table.remove( deck, envelope_min )
+						end
+					end
+				else
+					if ( elsepoint > 0 ) then
+						envelope_min = elsepoint
+
+						if ( endpoint > 0 ) then
+							envelope_max = endpoint
+						else
+							envelope_max = #deck
+						end
+
+						for i=envelope_min,envelope_max do
+							local v = deck[envelope_min]
+
+							if ( v ~= nil ) then
+								table.insert( discarded, v )
+								table.remove( deck, envelope_min )
+							end
+						end
+					end
+				end
+			end
+
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_IF_ALT_FIRE",
+		name 		= "Requirement - Alt Fire",
+		description = "The next spell is skipped if the alt fire key isn't held down",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/if_alt_fire.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+		spawn_requires_flag = "card_unlocked_maths",
+		type 		= ACTION_TYPE_OTHER,
+		spawn_level                       = "10", -- MANA_REDUCE
+		spawn_probability                 = "1", -- MANA_REDUCE
+		price = 100,
+		mana = 0,
+		action 		= function( recursion_level, iteration )
+			local endpoint = -1
+			local elsepoint = -1
+			local entity_id = GetUpdatedEntityID()
+			local player_id = EntityGetWithTag( "player_unit" )[1]
+			local controlscomp = EntityGetFirstComponent(player_id, "ControlsComponent")
+
+			local doskip = false
+			if (ComponentGetValue2(controlscomp, "mButtonDownRightClick") ~= true ) then
+				doskip = true
+			end
+
+			if ( #deck > 0 ) then
+				for i,v in ipairs( deck ) do
+					if ( v ~= nil ) then
+						if ( string.sub( v.id, 1, 3 ) == "IF_" ) and ( v.id ~= "IF_END" ) and ( v.id ~= "IF_ELSE" ) then
+							endpoint = -1
+							break
+						end
+
+						if ( v.id == "IF_ELSE" ) then
+							endpoint = i
+							elsepoint = i
+						end
+
+						if ( v.id == "IF_END" ) then
+							endpoint = i
+							break
+						end
+					end
+				end
+
+				local envelope_min = 1
+				local envelope_max = 1
+
+				if doskip then
+					if ( elsepoint > 0 ) then
+						envelope_max = elsepoint
+					elseif ( endpoint > 0 ) then
+						envelope_max = endpoint
+					end
+
+					for i=envelope_min,envelope_max do
+						local v = deck[envelope_min]
+
+						if ( v ~= nil ) then
+							table.insert( discarded, v )
+							table.remove( deck, envelope_min )
+						end
+					end
+				else
+					if ( elsepoint > 0 ) then
+						envelope_min = elsepoint
+
+						if ( endpoint > 0 ) then
+							envelope_max = endpoint
+						else
+							envelope_max = #deck
+						end
+
+						for i=envelope_min,envelope_max do
+							local v = deck[envelope_min]
+
+							if ( v ~= nil ) then
+								table.insert( discarded, v )
+								table.remove( deck, envelope_min )
+							end
+						end
+					end
+				end
+			end
+
+			draw_actions( 1, true )
+		end,
+	},
+
+
+--[[
+	{
+		id          = "COPIS_THINGS_PSI",
+		name 		= "Psi",
+		description = "Casts a copy of a spell from the same slot in the next wand",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/psi.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+		spawn_requires_flag = "card_unlocked_duplicate",
+		type 		= ACTION_TYPE_OTHER,
+		spawn_manual_unlock = true,
+		recursive	= true,
+		spawn_level                       = "5,6,10", -- MANA_REDUCE
+		spawn_probability                 = "0.1,0.1,1", -- MANA_REDUCE
+		price = 200,
+		mana = 30,
+		action 		= function( recursion_level, iteration )
+			local entity_id = GetUpdatedEntityID()
+			local x, y = EntityGetTransform( entity_id )
+			local options = {}
+
+			local children = EntityGetAllChildren( entity_id )
+			local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+
+			if ( children ~= nil ) and ( inventory ~= nil ) then
+				local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+
+				for i,child_id in ipairs( children ) do
+					if ( EntityGetName( child_id ) == "inventory_quick" ) then
+						local wands = EntityGetAllChildren( child_id )
+
+						if ( wands ~= nil ) then
+							for k,wand_id in ipairs( wands ) do
+								if ( wand_id ~= active_wand ) and EntityHasTag( wand_id, "wand" ) then
+									local spells = EntityGetAllChildren( wand_id )
+
+									if ( spells ~= nil ) then
+										for j,spell_id in ipairs( spells ) do
+											local comp = EntityGetFirstComponentIncludingDisabled( spell_id, "ItemActionComponent" )
+
+											if ( comp ~= nil ) then
+												local action_id = ComponentGetValue2( comp, "action_id" )
+
+												table.insert( options, action_id )
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+
+			if ( #options > 0 ) then
+				SetRandomSeed( x + GameGetFrameNum(), y + 251 )
+
+				local rnd = Random( 1, #options )
+				local action_id = options[rnd]
+
+				for i,data in ipairs( actions ) do
+					if ( data.id == action_id ) then
+						local rec = check_recursion( data, recursion_level )
+						if ( rec > -1 ) then
+							dont_draw_actions = true
+							data.action( rec )
+							dont_draw_actions = false
+						end
+						break
+					end
+				end
+			end
+
+			draw_actions( 1, true )
+		end,
+	},
+	]]
+
+
+
+
 }
 
 for k, v in ipairs(to_insert) do
