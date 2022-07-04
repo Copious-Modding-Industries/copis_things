@@ -22,7 +22,7 @@ end
 
 function OnPlayerSpawned( player_entity ) --This runs when player entity has been created
 
-	EntitySetDamageFromMaterial(player_entity, "copis_things_creepy_acid", 0.1)
+	--EntitySetDamageFromMaterial(player_entity, "copis_things_creepy_acid", 0.1)
 
 	GameAddFlagRun("copis_items_spawned") --clean up spawn for now
 

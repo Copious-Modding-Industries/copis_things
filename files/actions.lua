@@ -320,11 +320,11 @@ local to_insert = {
 		price = 100,
 		mana = 10,
 		action				= function()
-			--c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/stasis_shot.xml"
-			c.speed_multiplier = c.speed_multiplier * 0.05
+			c.fire_rate_wait = c.fire_rate_wait + 26
+			if reflecting then return; end
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/anchored_shot.xml,"
 			c.spread_degrees = c.spread_degrees - 10
 			c.lifetime_add 		= c.lifetime_add + 250
-			c.fire_rate_wait = c.fire_rate_wait + 26
 			draw_actions( 1, true )
 		end,
 	},
@@ -1155,7 +1155,7 @@ local to_insert = {
 				local wand = EZWand.GetHeldWand()
 				wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
 				local castDelay_old = wand.castDelay
-				wand.castDelay = ((wand.castDelay + 0.2) * 0.8) - 0.2
+				wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
 
 
 				local function has_custom_sprite(ez_wand)
@@ -1192,7 +1192,7 @@ local to_insert = {
 				local wand = EZWand.GetHeldWand()
 				wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
 				local rechargeTime_old = wand.rechargeTime
-				wand.rechargeTime = ((wand.rechargeTime + 0.2) * 0.8) - 0.2
+				wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
 
 
 				local function has_custom_sprite(ez_wand)
