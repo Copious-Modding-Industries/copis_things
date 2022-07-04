@@ -244,9 +244,10 @@ local to_insert = {
 		price = 250,
 		mana = 50,
 		action				= function()
-			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/projection_cast.xml", 1)
 			c.fire_rate_wait = c.fire_rate_wait + 10
 			c.spread_degrees = c.spread_degrees - 6
+			if reflecting then return; end
+			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/projection_cast.xml", 1)
 		end,
 	},
 
@@ -2815,8 +2816,9 @@ local to_insert = {
 		price = 90,
 		mana = 0,
 		action				= function()
-			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/random_cast.xml", 1)
 			c.fire_rate_wait = c.fire_rate_wait - 10
+			if reflecting then return; end
+			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/random_cast.xml", 1)
 		end,
 	},
 
@@ -3294,8 +3296,9 @@ local to_insert = {
 		price = 160,
 		mana = 4,
 		action = function()
-			add_projectile_trigger_death( "mods/copis_things/files/entities/projectiles/stored_shot.xml", 1 );
             current_reload_time = current_reload_time + 3;
+			if reflecting then return; end
+			add_projectile_trigger_death( "mods/copis_things/files/entities/projectiles/stored_shot.xml", 1 );
         end,
 	},
 
