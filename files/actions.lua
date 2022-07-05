@@ -11,24 +11,7 @@ local to_insert = {
 		price				= 0,
 		mana				= 0,
 		action				= function()
-			if reflecting then return; end
-
-            local old_c = c;
-			c = {};
-			reset_modifiers( c );
-            BeginProjectile( "data/entities/projectiles/deck/light_bullet.xml" );
-                BeginTriggerDeath();
-                    for k,v in pairs(old_c) do
-                        c[k] = v;
-                    end
-                    draw_actions( 1, true );
-                    register_action( c );
-                    SetProjectileConfigs();
-                EndTrigger();
-            EndProjectile();
-            c = old_c;
-
-
+			add_projectile("mods/copis_things/files/entities/projectiles/shield_wall.xml")
 			--add_projectile_repeating_trigger_timer("data/entities/projectiles/deck/light_bullet.xml", 30, 1)
 			--[[add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
 
@@ -85,29 +68,6 @@ local to_insert = {
 		end,
 	},
 
-	-- SWORD THROW
-	{
-		id					= "COPIS_THINGS_TWISTED_SWORD_THROW",
-		name				= "Sword throw",
-		author		= "Copi",
-		description			= "Throw a rapidly spinning sword clone",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/twisted_throw.png",
-		related_projectiles	= {"mods/copis_things/files/entities/projectiles/twisted_throw.xml"},
-		type				= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "0,0,0,0",
-		spawn_probability	= "0,0,0,0",
-		price				= 0,
-		mana				= 0,
-	action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/twisted_throw.xml")
-			c.screenshake = c.screenshake + 0.7
-			c.spread_degrees = c.spread_degrees - 2.0
-			c.damage_critical_chance = c.damage_critical_chance + 15
-			c.fire_rate_wait = c.fire_rate_wait + 40
-			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 30.0
-			c.damage_projectile_add = c.damage_projectile_add + 0.2
-		end,
-	},
 
 	-- LUNGE
 	{
@@ -177,41 +137,6 @@ local to_insert = {
 		end,
 	},
 
-	{
-		id          = "COPIS_THINGS_SUNSABER_DARK",
-		name 		= "Dark Sunsaber",
-		author		= "Copi",
-		description = "A blade forged from the dark sun",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sunsaber_dark.png",
-		related_projectiles	= {"mods/copis_things/files/entities/projectiles/sunsaber_dark.xml"},
-		type 		= ACTION_TYPE_PROJECTILE,
-		spawn_level			               = "0,0",
-		spawn_probability	               = "0,0",
-		price = 150,
-		mana = 0,
-		sound_loop_tag = "sound_digger",
-		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/sunsaber_dark.xml")
-			c.fire_rate_wait = c.fire_rate_wait - 35
-			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SWORD_BLADE",
-		name				= "Sword Blade",
-		author		= "Copi",
-		description			= "Your sword's sharp edge deals damage as it hits foes!",
-		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/sword_blade.png",
-		type        		= ACTION_TYPE_PASSIVE,
-		spawn_level       = "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 0,
-		custom_xml_file = "mods/copis_things/files/entities/projectiles/sword_blade.xml",
-		action = function()
-		end
-	},
 
 	{
 		id          = "COPIS_THINGS_SUMMON_TABLET",
@@ -416,25 +341,6 @@ local to_insert = {
 			c.spread_degrees = c.spread_degrees + 30.0
 			c.fire_rate_wait   = c.fire_rate_wait - 5
 			draw_actions( 1, true )
-		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_JSR_BLAST",
-		name				= "JSR Blast",
-		author		= "Copi",
-		description			= "Fire a pulse of energy",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/jsr_blast.png",
-		related_projectiles	= {"data/entities/projectiles/laser_bouncy.xml"},
-		type				= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "0,0,0,0",
-		spawn_probability	= "0,0,0,0",
-		price				= 0,
-		mana				= 0,
-		action				= function()
-				add_projectile("data/entities/projectiles/laser_bouncy.xml")
-				c.spread_degrees = c.spread_degrees - 2.0
-				c.damage_projectile_add = c.damage_projectile_add - 0.25
 		end,
 	},
 
@@ -663,22 +569,6 @@ local to_insert = {
 		action				= function()
 			add_projectile("mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml")
 		end,
-	},
-
-	{
-		id					= "COPIS_THINGS_SPECIAL_DATARANDAL",
-		name				= "Datarandal",
-		author				= "Copi",
-		description			= "The personal weapon of choice of the great warrior mage Copisinpäällikkö.",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/datarandal.png",
-		type        		= ACTION_TYPE_PASSIVE,
-		spawn_level			= "0,0",
-		spawn_probability	= "0,0",
-		price				= 0,
-		mana				= 0,
-		custom_xml_file 	= "mods/copis_things/files/entities/misc/custom_cards/datarandal.xml",
-		action 				= function()
-		end
 	},
 --[[
 	{
@@ -2789,7 +2679,7 @@ local to_insert = {
 	},
 	{
 		id          = "COPIS_THINGS_NULL_TRAIL",
-		name 		= "Lovely Trail",
+		name 		= "Null Trail",
 		author		= "Copi",
 		description = "Remove all particle emitters from the projectile",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/null_trail.png",
@@ -3739,3 +3629,117 @@ end
 	},
 
 ]]--
+
+
+
+
+--[[
+
+
+	{
+		id          = "COPIS_THINGS_SUNSABER_DARK",
+		name 		= "Dark Sunsaber",
+		author		= "Copi",
+		description = "A blade forged from the dark sun",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/sunsaber_dark.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/sunsaber_dark.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level			               = "0,0",
+		spawn_probability	               = "0,0",
+		price = 150,
+		mana = 0,
+		sound_loop_tag = "sound_digger",
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/sunsaber_dark.xml")
+			c.fire_rate_wait = c.fire_rate_wait - 35
+			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10
+		end,
+	},
+
+
+
+	{
+		id					= "COPIS_THINGS_SWORD_BLADE",
+		name				= "Sword Blade",
+		author		= "Copi",
+		description			= "Your sword's sharp edge deals damage as it hits foes!",
+		sprite      	   = "mods/copis_things/files/ui_gfx/gun_actions/sword_blade.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level       = "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 0,
+		custom_xml_file = "mods/copis_things/files/entities/projectiles/sword_blade.xml",
+		action = function()
+		end
+	},
+
+
+	{
+		id					= "COPIS_THINGS_SPECIAL_DATARANDAL",
+		name				= "Datarandal",
+		author				= "Copi",
+		description			= "The personal weapon of choice of the great warrior mage Copisinpäällikkö.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/datarandal.png",
+		type        		= ACTION_TYPE_PASSIVE,
+		spawn_level			= "0,0",
+		spawn_probability	= "0,0",
+		price				= 0,
+		mana				= 0,
+		custom_xml_file 	= "mods/copis_things/files/entities/misc/custom_cards/datarandal.xml",
+		action 				= function()
+		end
+	},
+
+	
+
+	{
+		id					= "COPIS_THINGS_JSR_BLAST",
+		name				= "JSR Blast",
+		author		= "Copi",
+		description			= "Fire a pulse of energy",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/jsr_blast.png",
+		related_projectiles	= {"data/entities/projectiles/laser_bouncy.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "0,0,0,0",
+		spawn_probability	= "0,0,0,0",
+		price				= 0,
+		mana				= 0,
+		action				= function()
+				add_projectile("data/entities/projectiles/laser_bouncy.xml")
+				c.spread_degrees = c.spread_degrees - 2.0
+				c.damage_projectile_add = c.damage_projectile_add - 0.25
+		end,
+	},
+
+
+
+
+	-- SWORD THROW
+	{
+		id					= "COPIS_THINGS_TWISTED_SWORD_THROW",
+		name				= "Sword throw",
+		author		= "Copi",
+		description			= "Throw a rapidly spinning sword clone",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/twisted_throw.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/twisted_throw.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "0,0,0,0",
+		spawn_probability	= "0,0,0,0",
+		price				= 0,
+		mana				= 0,
+	action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/twisted_throw.xml")
+			c.screenshake = c.screenshake + 0.7
+			c.spread_degrees = c.spread_degrees - 2.0
+			c.damage_critical_chance = c.damage_critical_chance + 15
+			c.fire_rate_wait = c.fire_rate_wait + 40
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 30.0
+			c.damage_projectile_add = c.damage_projectile_add + 0.2
+		end,
+	},
+
+
+
+
+	]]
