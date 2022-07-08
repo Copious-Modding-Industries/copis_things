@@ -11,7 +11,7 @@ local to_insert = {
 		price				= 0,
 		mana				= 0,
 		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/shield_wall.xml")
+			add_projectile("mods/copis_things/files/entities/particles/muzzle_flashes/muzzle_flash_white_glow.xml")
 			--add_projectile_repeating_trigger_timer("data/entities/projectiles/deck/light_bullet.xml", 30, 1)
 			--[[add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
 

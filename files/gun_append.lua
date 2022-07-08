@@ -7,7 +7,6 @@ function add_projectile_repeating_trigger_timer( entity_filename, delay_frames, 
         local shot = create_shot( action_draw_count )
         BeginTriggerTimer( delay_frames )
             draw_shot( shot, true )
-            draw_shot( shot, true )
         EndTrigger()
     EndProjectile()
 end
@@ -182,3 +181,107 @@ function set_current_action( action )
 	current_action = action
 end
 ]]--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--[[
+
+
+function draw_shot( shot, instant_reload_if_empty )
+	local c_old = c
+
+	c = shot.state
+
+	shot_structure = {}
+
+	if ( dont_draw_actions == false ) then
+		c.action_draw_many_count = how_many
+		if playing_permanent_card and (how_many == 1) then
+			return -- SPECIAL RULE: modifiers that use draw_actions(1) to draw one more action don't result in two actions being drawn after them if the modifier is permanently attached and wand 'casts 1'
+		end
+
+		for i = 1, shot.num_of_cards_to_draw do
+			local ok = draw_action( instant_reload_if_empty )
+			if ok == false then
+				-- attempt to draw other actions
+				while #deck > 0 do
+					if draw_action( instant_reload_if_empty ) then
+						break
+					end
+				end
+			end
+
+			if reloading then
+				return
+			end
+		end
+	end
+
+
+	register_action( shot.state )
+	SetProjectileConfigs()
+
+	c = c_old
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]
