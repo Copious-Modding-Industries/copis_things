@@ -9,22 +9,22 @@
   </LightComponent>
 
   <ParticleEmitterComponent 
-    emitted_material_name="plasma_fading_green"
+    emitted_material_name="plasma_fading_pink"
     offset.x="0"
     offset.y="0"
-	gravity.y="0.0"
-	x_vel_min="0"
+    gravity.y="0.0"
+    x_vel_min="0"
     x_vel_max="0"
     y_vel_min="-2"
     y_vel_max="2"
     count_min="1"
     count_max="1"
-	is_trail="1"
-	trail_gap="1.0"
-    lifetime_min="0.05"
-    lifetime_max="0.1"
+    is_trail="1"
+    trail_gap="1.0"
+    lifetime_min="0.1"
+    lifetime_max="0.15"
     emit_real_particles="0"
-	render_on_grid="1"
+    render_on_grid="1"
     emit_cosmetic_particles="1"
     emission_interval_min_frames="1"
     emission_interval_max_frames="2"
@@ -32,9 +32,8 @@
   </ParticleEmitterComponent>
   
   <LuaComponent
-	script_source_file="mods/copis_things/files/scripts/projectiles/barrier_trail.lua"
-	execute_every_n_frame="1"
-	>
+    script_source_file="mods/copis_things/files/scripts/projectiles/zipping_arc.lua"
+    execute_every_n_frame="1" >
 	</LuaComponent>
 
 </Entity>

@@ -5,5 +5,5 @@ local x, y = EntityGetTransform(entity_id)
 
 if root ~= nil and root ~= 0 then
     local damage_model_component = EntityGetFirstComponent(root, "DamageModelComponent")
-    ComponentSetValue2(damage_model_component, "air_in_lungs", 1)
+    ComponentSetValue2(damage_model_component, "air_in_lungs", 7)
 end

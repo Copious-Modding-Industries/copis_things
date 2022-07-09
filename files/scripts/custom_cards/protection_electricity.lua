@@ -8,7 +8,7 @@ function enabled_changed( entity_id, is_enabled )
     else
         for i, child_id in ipairs(EntityGetAllChildren(root) or {}) do
             local game_effect_component = EntityGetFirstComponentIncludingDisabled(child_id, "GameEffectComponent")
-            if game_effect_component and EntityGetName(child_id) == "perk_passive" then
+            if game_effect_component and EntityGetName(child_id) == "PROTECTION_ELECTRICITY" then
                 EntityRemoveFromParent(child_id)
                 EntityKill(child_id)
             end

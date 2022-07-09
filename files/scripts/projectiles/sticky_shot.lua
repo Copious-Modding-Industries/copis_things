@@ -1,10 +1,13 @@
-local entity = GetUpdatedEntityID();
-local projectile = EntityGetFirstComponentIncludingDisabled( entity, "ProjectileComponent" );
-if projectile ~= nil then
-    --local bounce_energy = ComponentGetValue2( projectile, "bounce_energy" );
-    ComponentSetValue2( projectile, "bounce_energy", 0 );
-    ComponentSetValue2( projectile, "bounce_always", true );
-    ComponentSetValue2( projectile, "bounce_at_any_angle", true );
-    ComponentSetValue2( projectile, "on_collision_die", false );
-    ComponentSetValue2( projectile, "die_on_low_velocity", false );
+local entity_id = GetUpdatedEntityID()
+local pos_x, pos_y = EntityGetTransform( entity_id )
+
+-- set to closest surface
+local found_normal,nx,ny,dist = GetSurfaceNormal( pos_x, pos_y, 1, 8 )
+if found_normal then
+
+    pos_x = pos_x + nx
+    pos_y = pos_y + ny
+    EntitySetTransform(entity_id, pos_x, pos_y)
+
 end
+

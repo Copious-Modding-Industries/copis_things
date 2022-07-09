@@ -94,7 +94,7 @@ to_insert =
         usable_by_enemies = true,
         func = function( entity_perk_item, entity_who_picked, item_name )
             EntityAddComponent( entity_who_picked, "LuaComponent", {
-                script_damage_received="mods/copis_things/files/scripts/perk/damage_recieved/short_temper.lua"
+                script_damage_received="mods/copis_things/files/scripts/perk/damage_receieved/short_temper.lua"
             })
         end,
     },
@@ -109,7 +109,7 @@ to_insert =
         usable_by_enemies = true,
         func = function( entity_perk_item, entity_who_picked, item_name )
             EntityAddComponent( entity_who_picked, "LuaComponent", {
-                script_damage_received="mods/copis_things/files/scripts/perk/damage_recieved/swapper.lua"
+                script_damage_received="mods/copis_things/files/scripts/perk/damage_receieved/swapper.lua"
             })
         end,
     },

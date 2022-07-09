@@ -1,4 +1,4 @@
-<Entity tags="effect_protection" name="perk_passive">
+<Entity tags="effect_protection" name="PROTECTION_EXPLOSION">
 
 	<InheritTransformComponent>
     </InheritTransformComponent>

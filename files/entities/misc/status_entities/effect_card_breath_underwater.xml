@@ -1,4 +1,4 @@
-<Entity name="perk_passive">
+<Entity name="BREATH_UNDERWATER">
 
 	<InheritTransformComponent>
     </InheritTransformComponent>

@@ -44,6 +44,11 @@
         "clamp",
         "wands",
         "vy",
-        "vx"
+        "vx",
+        "enabled_changed",
+        "vec_normalize",
+        "is_in_camera_bounds",
+        "get_magnitude",
+        "register_action"
     ]
 }

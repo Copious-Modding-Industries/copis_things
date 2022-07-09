@@ -11,7 +11,25 @@ local to_insert = {
 		price				= 0,
 		mana				= 0,
 		action				= function()
-			add_projectile("mods/copis_things/files/entities/particles/muzzle_flashes/muzzle_flash_white_glow.xml")
+
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sticky_shot.xml,";
+            draw_actions( 1, true );
+
+
+			--[[
+			local old_c = c
+
+			--reset_modifiers( c );
+
+			draw_actions( 1, true )
+
+			add_projectile("mods/copis_things/files/entities/projectiles/stab.xml")
+
+			for k,v in pairs( old_c ) do
+				c[k] = v;
+				print(tostring(v))
+			end
+]]
 			--add_projectile_repeating_trigger_timer("data/entities/projectiles/deck/light_bullet.xml", 30, 1)
 			--[[add_projectile("mods/copis_things/files/entities/projectiles/boring_bomb.xml")
 
@@ -306,7 +324,11 @@ local to_insert = {
 		mana = 0,
 		action				= function()
 			if reflecting then return; end
+            local old_c = c;
+			c = {};
+			reset_modifiers( c );
 			add_projectile_trigger_death( "mods/copis_things/files/entities/projectiles/separator_cast.xml" , 1);
+            c = old_c;
 			--[[
             local old_c = c;
 			c = {};
@@ -611,7 +633,7 @@ local to_insert = {
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/zenith_disc.png",
 		type				= ACTION_TYPE_PROJECTILE,
 		spawn_level			= "6,10",
-		spawn_probability	= "0.1,0.1",
+		spawn_probability	= "0.2,0.2",
 		price				= 9,
 		mana				= 0,
 		action				= function()
@@ -2610,6 +2632,7 @@ local to_insert = {
 		mana = 9,
 		action				= function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sticky_shot.xml,";
+			c.gravity = c.gravity + 300.0
             draw_actions( 1, true );
 		end,
 	},
@@ -3192,7 +3215,7 @@ local to_insert = {
         end,
 	},
 
-	--[[{
+	{
 		id          = "COPIS_THINGS_BARRIER_TRAIL",
 		name 		= "Barrier Trail",
 		author		= "Copi",
@@ -3209,7 +3232,7 @@ local to_insert = {
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/barrier_trail.xml,"
             draw_actions( 1, true );
         end,
-	},]]
+	},
 
 	{
 		id          = "COPIS_THINGS_EXPIRE_NEARBY_ENEMIES",
@@ -3283,8 +3306,13 @@ local to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 3
 			c.screenshake = c.screenshake + 0.5
 			c.damage_critical_chance = c.damage_critical_chance + 5
-			if reflecting then return; end
 
+			if reflecting then
+				Reflection_RegisterProjectile("data/entities/projectiles/deck/light_bullet.xml")
+				return
+			end
+
+			local c_old = c
             BeginProjectile( "data/entities/projectiles/deck/light_bullet.xml" );
                 BeginTriggerDeath();
                     draw_actions( 1, true );
@@ -3292,9 +3320,44 @@ local to_insert = {
                     SetProjectileConfigs();
                 EndTrigger();
             EndProjectile();
+			c = c_old
 		end,
 	},
+--[[
+	{
+		id          = "COPIS_THINGS_LIGHT_DELAY_2",
+		name 		= "Double Burst",
+		description = "Casts 2 spells in a row",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/delay_2.png",
+		related_projectiles	= {"data/entities/projectiles/deck/light_bullet.xml"},
+		type 		= ACTION_TYPE_DRAW_MANY,
+		spawn_level                         = "2,3,4", -- LIGHT_BULLET_TRIGGER
+		spawn_probability                   = "0.2,0.2,0.2", -- LIGHT_BULLET_TRIGGER
+		price = 280,
+		mana = 5,
+		--max_uses = 100,
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 3
+			c.screenshake = c.screenshake + 0.5
+			c.damage_critical_chance = c.damage_critical_chance + 5
 
+			if reflecting then
+				Reflection_RegisterProjectile("data/entities/projectiles/deck/light_bullet.xml")
+				return
+			end
+
+			local c_old = c
+            BeginProjectile( "data/entities/projectiles/deck/light_bullet.xml" );
+                BeginTriggerDeath();
+                    draw_actions( 1, true );
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile();
+			c = c_old
+		end,
+	},
+]]
 	{
 		id          = "COPIS_THINGS_IF_PLAYER",
 		name 		= "Requirement - Player",
@@ -3470,6 +3533,25 @@ local to_insert = {
 		end,
 	},
 
+	{
+		id          = "COPIS_THINGS_ZIPPING_ARC",
+		name 		= "Zipping Arc",
+		description = "Causes a projectile to zip away from walls",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/zipping_arc.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/sinewave_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/zipping_arc.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,4,6",
+		spawn_probability                 = "0.3,0.5,0.4",
+		price = 50,
+		mana = 10,
+		--max_uses = 150,
+		action 		= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 10
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/zipping_arc.xml,"
+            draw_actions( 1, true );
+		end,
+	},
 
 --[[
 	{
