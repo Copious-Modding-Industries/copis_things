@@ -64,28 +64,6 @@ local to_insert = {
 		end
 	},
 
-	-- STAB
-	{
-		id					= "COPIS_THINGS_STAB",
-		name				= "Stab",
-		author		= "Copi",
-		description			= "A short ranged melee thrust",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/stab.png",
-		related_projectiles	= {"mods/copis_things/files/entities/projectiles/stab.xml"},
-		type				= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "0,0,0,0",
-		spawn_probability	= "0,0,0,0",
-		price				= 0,
-		mana				= 0,
-		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/stab.xml")
-			c.fire_rate_wait = c.fire_rate_wait + 7
-			c.screenshake = c.screenshake + 0.7
-			c.spread_degrees = c.spread_degrees - 2.0
-			c.damage_critical_chance = c.damage_critical_chance + 15
-		end,
-	},
-
 
 	-- LUNGE
 	{
@@ -114,24 +92,6 @@ local to_insert = {
 				ComponentSetValue2( EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity", (aim_x/len*force_x), (aim_y/len*force_y))
 			end
 		end,
-	},
-
-	{
-		id          = "COPIS_THINGS_SHADOWTENTACLE",
-		name 		= "Shadow Apparition",
-		author		= "Copi",
-		description = "Release a lash of pure darkness which spreads from it's victims",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/shadowtentacle.png",
-		related_projectiles	= {"mods/copis_things/files/projectiles/shadowtentacle.xml"},
-		type 		= ACTION_TYPE_PROJECTILE,
-		spawn_level			= "0,0,0,0",
-		spawn_probability	= "0,0,0,0",
-		price = 170,
-		mana = 30,
-		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/shadow_lash.xml")
-			c.fire_rate_wait = c.fire_rate_wait - 5
-		end
 	},
 
 	-- BLOOD TENTACLE
@@ -3821,6 +3781,24 @@ end
 		end,
 	},
 
+
+	{
+		id          = "COPIS_THINGS_SHADOWTENTACLE",
+		name 		= "Shadow Apparition",
+		author		= "Copi",
+		description = "Release a lash of pure darkness which spreads from it's victims",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/shadowtentacle.png",
+		related_projectiles	= {"mods/copis_things/files/projectiles/shadowtentacle.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "0,0,0,0",
+		spawn_probability	= "0,0,0,0",
+		price = 170,
+		mana = 30,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/shadow_lash.xml")
+			c.fire_rate_wait = c.fire_rate_wait - 5
+		end
+	},
 
 
 
