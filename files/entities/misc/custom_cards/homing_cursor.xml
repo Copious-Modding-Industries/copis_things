@@ -12,18 +12,18 @@
 		</ItemActionComponent>
 	</Base>	
 
-    <InheritTransformComponent
-		_tags="enabled_in_hand">
-	</InheritTransformComponent>
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/clairvoyance.lua"
+		execute_every_n_frame="1"
+		>
+	</LuaComponent>
 
 	<Entity _tags="enabled_in_hand" tags="homing_target">
 
-		<LuaComponent 
-			_tags="enabled_in_hand"
-			script_source_file="mods/copis_things/files/scripts/clairvoyance.lua"
-			execute_every_n_frame="1"
-			>
-		</LuaComponent>
+		<InheritTransformComponent
+			_tags="enabled_in_hand">
+		</InheritTransformComponent>
 
 	</Entity>
 

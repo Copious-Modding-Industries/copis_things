@@ -9,7 +9,7 @@ extra_modifiers["copis_things_spell_efficiency"] = function()
 end
 ]]
 extra_modifiers["copis_things_mana_efficiency"] = function()
-    mana = mana + c.action_mana_drain * 0.667
+    mana = math.ceil(mana + c.action_mana_drain * 0.667)
 end
 
 extra_modifiers["copis_things_no_recoil"] = function()

@@ -1,19 +1,177 @@
 local to_insert = {
+
+	-- BLOOD TENTACLE
+	{
+		id          = "BLOODTENTACLE",
+		name 		= "$action_bloodtentacle",
+		author		= "Copi",
+		description = "$actiondesc_bloodtentacle",
+		spawn_requires_flag = "card_unlocked_pyramid",
+		sprite 		= "data/ui_gfx/gun_actions/bloodtentacle.png",
+		related_projectiles	= {"data/entities/projectiles/deck/bloodtentacle.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level			               = "3,4,5,6", -- TENTACLE
+		spawn_probability	               = "0.2,0.5,1,1", -- TENTACLE
+		price = 170,
+		mana = 30,
+		--max_uses = 40,
+		action				= function()
+			add_projectile("data/entities/projectiles/deck/bloodtentacle.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 20
+		end,
+	},
+
 	{
 		id					= "COPIS_THINGS_DEV",
 		name				= "Dev",
-		author		= "Copi",
-		description			= "Spell for testing ideas, comment out in final release",
-		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/dev.png",
+		author				= "Copi",
+		description			= "Simulation backdoor -- remove before awakening subject",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/dev_meta.png",
 		type				= ACTION_TYPE_OTHER,
 		spawn_level			= "0,0",
 		spawn_probability	= "0,0",
 		price				= 0,
-		mana				= 0,
+		mana				= -255,
 		action				= function()
 
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sticky_shot.xml,";
-            draw_actions( 1, true );
+			if reflecting then return; end
+
+			local entity_id = GetUpdatedEntityID()
+			local player = EntityGetWithTag( "player_unit" )[1]
+			local x, y = EntityGetTransform(player)
+			if entity_id ~= nil and entity_id ~= 0 then
+				if (entity_id == player) then
+					if GameHasFlagRun("Detected") then
+						GamePrintImportant("The truth has been obscured", "ERASING ACTOR", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
+						EntityLoadToEntity("data/entities/misc/effect_weaken.xml", player)
+						local damage_model_component = EntityGetFirstComponent(player, "DamageModelComponent")
+						local damage = 10000000
+						GameScreenshake(100, x, y)							--shake
+						GameDropAllItems(player)							--drop junk
+						GamePrintImportant("Simulation actor terminated", "", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")		--flavour text
+						EntityConvertToMaterial(player, "trailer_text")		--player shape material
+						EntityKill(player)									--no way you're escaping this one buckaroo
+
+						--EntityInflictDamage(player, damage, "DAMAGE_PHYSICS_BODY_DAMAGED", "Simulation actor terminated", "DISINTEGRATED", 0, 0)		--crashes
+						--[[
+						ComponentSetValue2(damage_model_component, "max_hp", 0.04 )			--screw over the player
+						ComponentSetValue2(damage_model_component, "max_hp_cap", 0.04 )		--screw over the player
+						ComponentSetValue2(damage_model_component, "hp", 0 )				--kill the player
+						ComponentSetValue2(damage_model_component, "air_in_lungs", 0)		--kill the player
+						ComponentSetValue2(damage_model_component, "air_needed", true)		--kill the player
+						]]
+					else
+						GamePrintImportant("Backdoor accessed!", "self targetted", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
+						GamePrintImportant("Permissions level increased", "2/10", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
+						EntityAddComponent2( player, "UIIconComponent",{
+							name = "Developer " .. tostring(player),
+							description = "You feel empowered ",
+							icon_sprite_file = "mods/copis_things/files/ui_gfx/status_indicators/dev_meta.png",
+							display_above_head = false,
+							display_in_hud = true,
+							is_perk = true,
+						})
+
+						local text_id = EntityCreateNew( "text_above_head" )
+						EntityAddComponent2( text_id, "SpriteComponent",{
+							image_file="mods/copis_things/files/fonts/font_small_numbers_grey.xml",
+							is_text_sprite=true,
+							offset_x=-15,
+							offset_y=0,
+							text = tostring(player), 
+							update_transform=true,
+							update_transform_rotation=false,
+							has_special_scale=true,
+							special_scale_x=0.65,
+							special_scale_y=0.65,
+							alpha=1,
+							emissive=true,
+							z_index=10
+						})
+						EntityAddComponent2( text_id, "InheritTransformComponent",{})
+						EntityAddChild( player, text_id )
+
+						local text_id2 = EntityCreateNew( "text_above_head" )
+						EntityAddComponent2( text_id2, "SpriteComponent",{
+							image_file="mods/copis_things/files/fonts/font_small_numbers_damage.xml",
+							is_text_sprite=true,
+							offset_x=-15,
+							offset_y=9,
+							text = tostring(player), 
+							update_transform=true,
+							update_transform_rotation=false,
+							has_special_scale=true,
+							special_scale_x=0.65,
+							special_scale_y=0.65,
+							alpha=1,
+							emissive=true,
+							z_index=10
+						})
+						EntityAddComponent2( text_id2, "LuaComponent",{
+							script_source_file = "mods/copis_things/files/scripts/magic/health_amount.lua",
+							execute_every_n_frame = 1,
+						})
+						EntityAddComponent2( text_id2, "InheritTransformComponent",{})
+						EntityAddChild( player, text_id2 )
+
+						local text_id3 = EntityCreateNew( "text_above_head" )
+						EntityAddComponent2( text_id3, "SpriteComponent",{
+							image_file="mods/copis_things/files/fonts/font_small_numbers_gold.xml",
+							is_text_sprite=true,
+							offset_x=-15,
+							offset_y=18,
+							text = tostring(player), 
+							update_transform=true,
+							update_transform_rotation=false,
+							has_special_scale=true,
+							special_scale_x=0.65,
+							special_scale_y=0.65,
+							alpha=1,
+							emissive=true,
+							z_index=10
+						})
+						EntityAddComponent2( text_id3, "LuaComponent",{
+							script_source_file = "mods/copis_things/files/scripts/magic/gold_amount.lua",
+							execute_every_n_frame = 1,
+						})
+						EntityAddComponent2( text_id3, "InheritTransformComponent",{})
+						EntityAddChild( player, text_id3 )
+
+						local text_id4 = EntityCreateNew( "text_above_head" )
+						EntityAddComponent2( text_id4, "SpriteComponent",{
+							image_file="mods/copis_things/files/fonts/font_small_numbers_true_damage.xml",
+							is_text_sprite=true,
+							offset_x=-15,
+							offset_y=27,
+							text = tostring(player), 
+							update_transform=true,
+							update_transform_rotation=false,
+							has_special_scale=true,
+							special_scale_x=0.65,
+							special_scale_y=0.65,
+							alpha=1,
+							emissive=true,
+							z_index=10
+						})
+						EntityAddComponent2( text_id4, "LuaComponent",{
+							script_source_file = "mods/copis_things/files/scripts/magic/enemy_amount.lua",
+							execute_every_n_frame = 1,
+						})
+						EntityAddComponent2( text_id4, "InheritTransformComponent",{})
+						EntityAddChild( player, text_id4 )
+
+						local character_data_component = EntityGetFirstComponent(player, "CharacterDataComponent")
+						ComponentSetValue2(character_data_component, "flying_needs_recharge", false)		--fly
+
+						GamePrintImportant("You feel an uncomfortable presence watching you", "", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
+						GameScreenshake(50, x, y)
+						GameAddFlagRun("Detected")
+					end
+				end
+			end
+
+			c.fire_rate_wait = math.max(1000, c.fire_rate_wait*2)
+			current_reload_time = math.max(1000, current_reload_time*2)
 
 
 			--[[
@@ -81,7 +239,7 @@ local to_insert = {
 			local entity_id = GetUpdatedEntityID()
 			local player = EntityGetWithTag( "player_unit" )[1]
 			if (entity_id == player) then
-			local pos_x, pos_y = EntityGetTransform( player )
+				local pos_x, pos_y = EntityGetTransform( player )
 				local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(player, "ControlsComponent"), "mMousePosition")
 				if (mouse_x == nil or mouse_y == nil) then return end
 				local aim_x = mouse_x - pos_x
@@ -93,28 +251,6 @@ local to_insert = {
 			end
 		end,
 	},
-
-	-- BLOOD TENTACLE
-	{
-		id          = "BLOODTENTACLE",
-		name 		= "$action_bloodtentacle",
-		author		= "Copi",
-		description = "$actiondesc_bloodtentacle",
-		spawn_requires_flag = "card_unlocked_pyramid",
-		sprite 		= "data/ui_gfx/gun_actions/bloodtentacle.png",
-		related_projectiles	= {"data/entities/projectiles/deck/bloodtentacle.xml"},
-		type 		= ACTION_TYPE_PROJECTILE,
-		spawn_level			               = "3,4,5,6", -- TENTACLE
-		spawn_probability	               = "0.2,0.5,1,1", -- TENTACLE
-		price = 170,
-		mana = 30,
-		--max_uses = 40,
-		action				= function()
-			add_projectile("data/entities/projectiles/deck/bloodtentacle.xml")
-			c.fire_rate_wait = c.fire_rate_wait + 20
-		end,
-	},
-
 
 	{
 		id          = "COPIS_THINGS_SUMMON_TABLET",
@@ -1550,7 +1686,7 @@ local to_insert = {
 		id          = "COPIS_THINGS_OSCILLATING_SPEED",
 		name 		= "Oscillating Speed",
 		author		= "Copi",
-		description = "Decreases the speed at which a projectile flies through the air",
+		description = "Causes a projectile's speed to fluctuate",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/oscillating_speed.png",
 		type 		= ACTION_TYPE_MODIFIER,
 		spawn_level			               = "1,2,3", -- SPEED
@@ -3510,6 +3646,86 @@ local to_insert = {
 			c.fire_rate_wait    = c.fire_rate_wait + 10
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/zipping_arc.xml,"
             draw_actions( 1, true );
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_SLOW_BULLET_TIMER_2",
+		name 		= "Energy orb with two timers",
+		description = "A slow but powerful orb of energy that casts a spell after a timer runs out, then a second spell after a secondary timer runs out",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/slow_bullet_timer_2.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
+		related_projectiles	= {"data/entities/projectiles/deck/bullet_slow.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "1,2,3,4,5,6", -- SLOW_BULLET_TIMER
+		spawn_probability                 = "0.5,0.5,0.5,0.5,1,1", -- SLOW_BULLET_TIMER
+		price = 200,
+		mana = 50,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/bullet_slow.xml",
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 6
+			c.screenshake = c.screenshake + 2
+			c.spread_degrees = c.spread_degrees + 3.6
+
+			if reflecting then 
+				Reflection_RegisterProjectile( "data/entities/projectiles/deck/bullet_slow.xml" )
+				return
+			end
+
+			BeginProjectile( "data/entities/projectiles/deck/bullet_slow.xml" )
+				BeginTriggerTimer( 25 )
+					draw_shot( create_shot( 1 ), true )
+				EndTrigger()
+				BeginTriggerTimer( 50 )
+					draw_shot( create_shot( 1 ), true )
+				EndTrigger()
+			EndProjectile()
+
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 20.0
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_SLOW_BULLET_TIMER_N",
+		name 		= "Energy orb with n timers",
+		description = "A slow but powerful orb of energy that casts all remaining spells with a delay dependent on your cast delay",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/slow_bullet_timer_n.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
+		related_projectiles	= {"data/entities/projectiles/deck/bullet_slow.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "1,2,3,4,5,6", -- SLOW_BULLET_TIMER
+		spawn_probability                 = "0.3,0.3,0.3,0.3,0.5,0.5", -- SLOW_BULLET_TIMER
+		price = 200,
+		mana = 50,
+		--max_uses = 50,
+		custom_xml_file = "data/entities/misc/custom_cards/bullet_slow.xml",
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 6
+			c.screenshake = c.screenshake + 2
+			c.spread_degrees = c.spread_degrees + 3.6
+
+			if reflecting then
+				Reflection_RegisterProjectile( "data/entities/projectiles/deck/bullet_slow.xml" )
+				return
+			end
+
+			local firerate = c.fire_rate_wait
+			local n = 1
+
+			BeginProjectile( "data/entities/projectiles/deck/bullet_slow.xml" )
+			while (#deck > 0) do
+				n = n+1
+				BeginTriggerTimer( firerate*n )
+					c.speed_multiplier = math.max(c.speed_multiplier, 1)
+					draw_shot( create_shot( 1 ), true )
+				EndTrigger()
+			end
+			EndProjectile()
+
+			c.lifetime_add = c.lifetime_add + (n * firerate)
+
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 20.0
 		end,
 	},
 

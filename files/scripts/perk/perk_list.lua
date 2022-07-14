@@ -3,8 +3,8 @@ to_insert =
             --  Health multiplication
     {
         id = "COPIS_THINGS_MULTIPLY_HP",
-        ui_name = "Health multiplication",
-        ui_description = "Your max health is tripled, but you're unable to gain more health from hearts",
+        ui_name = "$perk_name_copis_things_multiply_hp",
+        ui_description = "$perk_desc_copis_things_multiply_hp",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/multiply_hp.png",
         perk_icon = "mods/copis_things/files/items_gfx/perks/multiply_hp.png",
         stackable = STACKABLE_YES,

@@ -1,15 +1,28 @@
-function add_projectile_repeating_trigger_timer( entity_filename, delay_frames, action_draw_count )
-    if reflecting then 
-        Reflection_RegisterProjectile( entity_filename )
-        return 
-    end
-    BeginProjectile( entity_filename )
-        local shot = create_shot( action_draw_count )
-        BeginTriggerTimer( delay_frames )
-            draw_shot( shot, true )
-        EndTrigger()
-    EndProjectile()
+function add_projectile_repeating_trigger_timer( entity_filename, delay_frames, times, action_draw_count )
+	if reflecting then
+		Reflection_RegisterProjectile( entity_filename )
+		return
+	end
+
+	local n = times
+	local firerate = delay_frames
+
+	GamePrint("Deck: " .. tostring(n))
+	GamePrint("CD: " .. tostring(firerate))
+
+	BeginProjectile( entity_filename )
+		if (n > 0) then
+			for i=1,n,1 do
+				BeginTriggerTimer( firerate*i )
+					c.speed_multiplier = math.max(c.speed_multiplier, 10)
+					draw_shot( create_shot( 1 ), true )
+				EndTrigger()
+			end
+		end
+	EndProjectile()
+	c.lifetime_add = c.lifetime_add + (n * firerate)
 end
+
 --[[
 function draw_shot( shot, instant_reload_if_empty )
 	local c_old = c
