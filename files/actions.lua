@@ -34,6 +34,8 @@ local to_insert = {
 		mana				= -255,
 		action				= function()
 
+
+
 			if reflecting then return; end
 
 			local entity_id = GetUpdatedEntityID()
@@ -41,8 +43,9 @@ local to_insert = {
 			local x, y = EntityGetTransform(player)
 			if entity_id ~= nil and entity_id ~= 0 then
 				if (entity_id == player) then
+
 					if GameHasFlagRun("Detected") then
-						GamePrintImportant("The truth has been obscured", "ERASING ACTOR", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
+						GamePrintImportant("Simulation administrators have detected you.", "ERASING ACTOR", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
 						EntityLoadToEntity("data/entities/misc/effect_weaken.xml", player)
 						local damage_model_component = EntityGetFirstComponent(player, "DamageModelComponent")
 						local damage = 10000000
@@ -53,13 +56,7 @@ local to_insert = {
 						EntityKill(player)									--no way you're escaping this one buckaroo
 
 						--EntityInflictDamage(player, damage, "DAMAGE_PHYSICS_BODY_DAMAGED", "Simulation actor terminated", "DISINTEGRATED", 0, 0)		--crashes
-						--[[
-						ComponentSetValue2(damage_model_component, "max_hp", 0.04 )			--screw over the player
-						ComponentSetValue2(damage_model_component, "max_hp_cap", 0.04 )		--screw over the player
-						ComponentSetValue2(damage_model_component, "hp", 0 )				--kill the player
-						ComponentSetValue2(damage_model_component, "air_in_lungs", 0)		--kill the player
-						ComponentSetValue2(damage_model_component, "air_needed", true)		--kill the player
-						]]
+
 					else
 						GamePrintImportant("Backdoor accessed!", "self targetted", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
 						GamePrintImportant("Permissions level increased", "2/10", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
@@ -730,8 +727,8 @@ local to_insert = {
 		type				= ACTION_TYPE_PROJECTILE,
 		spawn_level			= "6,10",
 		spawn_probability	= "0.2,0.2",
-		price				= 9,
-		mana				= 0,
+		price				= 100,
+		mana				= 140,
 		action				= function()
 		c.spread_degrees = c.spread_degrees + 5.0
 		add_projectile("mods/copis_things/files/entities/projectiles/zenith_disc.xml")
@@ -747,8 +744,8 @@ local to_insert = {
 		type				= ACTION_TYPE_PROJECTILE,
 		spawn_level			= "6,10",
 		spawn_probability	= "0.1,0.1",
-		price				= 9,
-		mana				= 0,
+		price				= 1000,
+		mana				= 280,
 		action				= function()
 		c.spread_degrees = c.spread_degrees + 5.0
 		add_projectile("mods/copis_things/files/entities/projectiles/eviscerator.xml")
@@ -3807,7 +3804,76 @@ local to_insert = {
 	]]
 
 
+	{
+		id					= "COPIS_THINGS_WAND_SET",
+		name				= "Ascension (One-Off)",
+		author				= "Copi",
+		description			= "Cast inside a wand to store it in the heavens.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/wand_set.png",
+		type				= ACTION_TYPE_OTHER,
+		spawn_level			= "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
+		spawn_probability	= "0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05",
+		price				= 2000,
+		mana				= 0,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 500
+			local entity_id = GetUpdatedEntityID()
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local x, y = EntityGetTransform(entity_id)
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				if not ModSettingGet("copis_things.wand0") then
+					local wand = EZWand.GetHeldWand()
+					wand:RemoveSpells("COPIS_THINGS_WAND_SET")
+					ModSettingSet("copis_things.wand0", wand:Serialize())
+					GameScreenshake(50, x, y)
+					EntityLoad("mods/copis_things/files/entities/particles/blast.xml", x, y)
+					GamePrintImportant("Your wand disintegrates into divine light!", "Wand stored!")
+					EntityKill(wand.entity_id)
+				else
+					GameScreenshake(10, x, y)
+					GamePrintImportant("You feel the heavens are full", "Wand already stored!")
+					GamePrint("Retrieve your stored wand before inserting a new one")
+				end
+			end
+		end
+	},
 
+	{
+		id					= "COPIS_THINGS_WAND_GET",
+		name				= "Deliverance (One-Off)",
+		author				= "Copi",
+		description			= "Cast inside a wand to retrieve what was once yours.",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/wand_get.png",
+		type				= ACTION_TYPE_OTHER,
+		spawn_level			= "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
+		spawn_probability	= "0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05",
+		price				= 2000,
+		mana				= 0,
+		action				= function()
+			c.fire_rate_wait    = c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 500
+			local entity_id = GetUpdatedEntityID()
+			if entity_id ~= nil and entity_id ~= 0 then
+				dofile("data/scripts/lib/utilities.lua")
+				local x, y = EntityGetTransform(entity_id)
+				local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+				if not ModSettingGet("copis_things.wand0") then
+					GamePrintImportant("You feel an emptiness in the heavens", "No wand stored!")
+					GamePrint("Store a wand to retrieve")
+				else
+					local wand = EZWand(ModSettingGet("copis_things.wand0"), x, y)
+					GamePrintImportant("The heavens deliver a gift!", "Wand retrieved!")
+					GameScreenshake(10, x, y)
+					EntityLoad("mods/copis_things/files/entities/particles/blast.xml", x, y)
+					ModSettingRemove("copis_things.wand0")
+					local wand2 = EZWand.GetHeldWand()
+					wand2:RemoveSpells("COPIS_THINGS_WAND_GET")
+				end
+			end
+		end
+	},
 
 }
 
