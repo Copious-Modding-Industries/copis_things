@@ -34,7 +34,7 @@ local to_insert = {
 		mana				= -255,
 		action				= function()
 
-
+			--add_projectile("mods/copis_things/files/entities/projectiles/slash_test.xml")
 
 			if reflecting then return; end
 
@@ -166,9 +166,9 @@ local to_insert = {
 					end
 				end
 			end
-
 			c.fire_rate_wait = math.max(1000, c.fire_rate_wait*2)
 			current_reload_time = math.max(1000, current_reload_time*2)
+
 
 
 			--[[
@@ -3875,6 +3875,56 @@ local to_insert = {
 		end
 	},
 
+	{
+		id          = "COPIS_THINGS_AUTO_FRAME",
+		name 		= "Automation - Constant",
+		author		= "Copi",
+		description = "Your held wand fires constantly",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/passive_auto_frame.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "3,4,5,6", -- TINY_GHOST
+		spawn_probability	               = "0.1,0.1,0.1,0.1", -- TINY_GHOST
+		price = 160,
+		mana = 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_frame.xml",
+		action				= function()
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_AUTO_HURT",
+		name 		= "Automation - Hurt",
+		author		= "Copi",
+		description = "Your held wand fires when you're hurt",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/passive_auto_hurt.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "3,4,5,6", -- TINY_GHOST
+		spawn_probability	               = "0.1,0.1,0.1,0.1", -- TINY_GHOST
+		price = 160,
+		mana = 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_hurt.xml",
+		action				= function()
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "COPIS_THINGS_AUTO_ALT_FIRE",
+		name 		= "Automation - Alt fire",
+		author		= "Copi",
+		description = "Your held wand fires when you hold alt fire",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/passive_auto_alt_fire.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level			               = "3,4,5,6", -- TINY_GHOST
+		spawn_probability	               = "0.1,0.1,0.1,0.1", -- TINY_GHOST
+		price = 160,
+		mana = 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_alt_fire.xml",
+		action				= function()
+			draw_actions( 1, true )
+		end,
+	},
 }
 
 for k, v in ipairs(to_insert) do

@@ -13,7 +13,5 @@
     pos_x="0" 
     pos_y="1" 
     shrink_by_one_pixel="0" >
-
   </RectAnimation>
-
 </Sprite>
