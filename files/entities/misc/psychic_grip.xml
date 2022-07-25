@@ -1,7 +1,7 @@
 <Entity >
 	
 	<LuaComponent
-		script_source_file="mods/copis_things/files/scripts/psychic_grip.lua"
+		script_source_file="mods/copis_things/files/scripts/projectiles/psychic_grip.lua"
 		execute_every_n_frame="1"
 	></LuaComponent>
 

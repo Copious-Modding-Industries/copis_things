@@ -53,8 +53,6 @@
   
   <ParticleEmitterComponent 
     emitted_material_name="spark_purple_bright"
-    count_min="1"
-    count_max="1"
     offset.x="0"
     offset.y="0"
 		x_pos_offset_min="-1"
@@ -76,4 +74,3 @@
   </ParticleEmitterComponent>
 
 </Entity>
-

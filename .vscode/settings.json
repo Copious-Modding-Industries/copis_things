@@ -49,6 +49,13 @@
         "vec_normalize",
         "is_in_camera_bounds",
         "get_magnitude",
-        "register_action"
+        "register_action",
+        "perk_is_stackable",
+        "perk_get_spawn_order",
+        "perk_list_cache",
+        "vec_rotate",
+        "for_comps",
+        "dont_draw_actions",
+        "check_recursion"
     ]
 }

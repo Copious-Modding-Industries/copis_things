@@ -6,8 +6,7 @@
 			air_friction="1"
 			gravity_y="0"
 			mass="0.08"
-			terminal_velocity="2000"
-			>
+			terminal_velocity="2000" >
 		</VelocityComponent> 
 	</Base>
 

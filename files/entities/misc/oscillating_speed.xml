@@ -5,4 +5,3 @@
 		execute_every_n_frame="10">
     </LuaComponent>
 </Entity>
-
