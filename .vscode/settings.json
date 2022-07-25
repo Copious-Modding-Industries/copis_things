@@ -56,6 +56,10 @@
         "vec_rotate",
         "for_comps",
         "dont_draw_actions",
-        "check_recursion"
+        "check_recursion",
+        "current_action"
+    ],
+    "Lua.diagnostics.disable": [
+        "deprecated"
     ]
 }

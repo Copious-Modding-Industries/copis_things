@@ -3997,9 +3997,166 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
+
+	{
+		id					= "ZAP",
+		name				= "Zap",
+		description			= "A short lived spark of electricity",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/zap.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/zap.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "1,3,4",
+		spawn_probability	= "1,1,1",
+		price				= 170,
+		mana				= 8,
+		custom_xml_file 	= "mods/copis_things/files/entities/misc/custom_cards/zap.xml",
+		action				= function()
+            c.fire_rate_wait = c.fire_rate_wait - 5;
+            current_reload_time = current_reload_time - 5;
+
+            if reflecting then
+                Reflection_RegisterProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
+                return;
+            end
+
+            local function zap(count)
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
+                    BeginTriggerDeath();
+                        for i = 1, count, 1 do
+                            BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" ); EndProjectile();
+                        end
+                        register_action( c );
+                        SetProjectileConfigs();
+                    EndTrigger();
+                EndProjectile();
+            end
+
+            if GameGetFrameNum() % 3 == 0 then
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
+                    BeginTriggerDeath();
+                        zap(2)
+                        zap(2)
+                        register_action( c );
+                        SetProjectileConfigs();
+                    EndTrigger();
+                EndProjectile();
+
+            elseif GameGetFrameNum() % 3 == 1 then
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
+                    BeginTriggerDeath();
+                        BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" ); EndProjectile();
+                        zap(1)
+                        register_action( c );
+                        SetProjectileConfigs();
+                    EndTrigger();
+                EndProjectile();
+
+            else
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
+                    BeginTriggerDeath();
+                        zap(1);
+                    EndTrigger();
+                EndProjectile();
+
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
+                    BeginTriggerDeath();
+                        zap(1)
+                    EndTrigger();
+                EndProjectile();
+            end
+		end,
+	},
+
+	{
+		id					= "MATRA_MAGIC",
+		name				= "Matra Magic",
+		description			= "Summon a seeking arcane missile",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/matra_magic.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/matra_magic.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "3,4,5,6",
+		spawn_probability	= "1,1,1,1",
+		price				= 180,
+		mana				= 52,
+		action				= function()
+            add_projectile( "mods/copis_things/files/entities/projectiles/matra_magic.xml" );
+			c.fire_rate_wait = c.fire_rate_wait + 33;
+			current_reload_time = current_reload_time + 33;
+		end,
+	},
+
+	{
+		id					= "VOMERE",
+		name				= "Vomeremancy",
+		description			= "Purge thy satiety, Allow oneself to feast again",
+		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/vomeremancy.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/vomere.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "3,4,5,6",
+		spawn_probability	= "1,1,1,1",
+		price				= 180,
+		mana				= 52,
+		max_uses            = 30,
+		custom_uses_logic   = true,
+		action				= function()
+
+			if reflecting then return; end
+            local valid1 = false
+            local valid2 = false
+            local spell_comp
+            local uses_left
+            local stomach
+			local entity_id = GetUpdatedEntityID()
+			local player = EntityGetWithTag( "player_unit" )[1]
+			if entity_id ~= nil and entity_id == player then
+                IngestionComps = EntityGetComponent(player, "IngestionComponent")
+
+                for _, value in pairs(IngestionComps)do
+                    stomach = value
+                    local fullness = ComponentGetValue2(value, "ingestion_size")
+                    if fullness >= 500 then
+                        valid1 = true
+                    else
+                        valid1 = false
+                        GamePrint("Not enough satiety!")
+                        return
+                    end
+
+                    local inventory_2_comp = EntityGetFirstComponentIncludingDisabled( player, "Inventory2Component")
+                    if inventory_2_comp == nil then return end
+                    local wand_id = ComponentGetValue2( inventory_2_comp, "mActiveItem" )
+                    for i, spell in ipairs(EntityGetAllChildren( wand_id )) do
+                        spell_comp = EntityGetFirstComponentIncludingDisabled( spell, "ItemComponent" )
+                        if spell_comp ~= nil and ComponentGetValue2( spell_comp, "mItemUid" ) == current_action.inventoryitem_id then
+                            uses_left = ComponentGetValue2( spell_comp, "uses_remaining")
+                            if uses_left ~= 0 then
+                                valid2 = true
+                            else
+                                valid2 = false
+                                GamePrint("Not enough charges!")
+                                return
+                            end
+                            break
+                        end
+                    end
+
+                    if valid1 == true and valid2 == true then
+                        ComponentSetValue2(stomach, "ingestion_size", fullness - 500) ---@diagnostic disable-next-line: param-type-mismatch
+                        ComponentSetValue2( spell_comp, "uses_remaining", uses_left - 1 )
+                        add_projectile( "mods/copis_things/files/entities/projectiles/vomere.xml" );
+                        c.fire_rate_wait = c.fire_rate_wait + 15;
+                        current_reload_time = current_reload_time + 33;
+                    end
+
+                end
+
+            end
+
+		end,
+	},
 }
 
-for index, value in ipairs(to_insert) do
+for _, value in ipairs(to_insert) do
 	if (value.author == nil) then
 		value.author = "Copi"
 	end

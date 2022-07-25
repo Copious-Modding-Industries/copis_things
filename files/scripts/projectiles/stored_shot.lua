@@ -1,3 +1,4 @@
+---@diagnostic disable: param-type-mismatch, redundant-parameter
 local entity = GetUpdatedEntityID();
 local projectile = EntityGetFirstComponentIncludingDisabled( entity, "ProjectileComponent" );
 if projectile ~= nil then
