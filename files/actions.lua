@@ -2496,7 +2496,7 @@ local to_insert = {
 				end
 			end,
 	},
-
+--[[
 	{
 		id					= "SPELL_REFRESH",
 		name				= "Spell refresh",
@@ -2504,20 +2504,61 @@ local to_insert = {
 		sprite				= "mods/copis_things/files/ui_gfx/gun_actions/spell_refresh.png",
 		type				= ACTION_TYPE_UTILITY,
 		spawn_level			= "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
-		spawn_probability	= "0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001",
+		spawn_probability	= "0.005,	0.005,	0.005,	0.005,	0.005,	0.005,	0.005,	0.005,	0.005,	0.005,	0.005",
 		price				= 600,
 		mana				= 240,
 		action				= function()
 			c.fire_rate_wait    = c.fire_rate_wait + 20
 			current_reload_time = current_reload_time + 40
+            if reflecting then return; end
 			local entity_id = GetUpdatedEntityID()
 
-			if entity_id ~= nil and entity_id ~= 0 then
-				GameRegenItemActionsInPlayer(entity_id)
-				end
-			end,
-	},
 
+            local valid1 = false
+            local valid2 = false
+            local spell_comp
+            local uses_left
+            local stomach
+			local player = EntityGetWithTag( "player_unit" )[1]
+			if entity_id ~= nil and entity_id == player then
+                IngestionComps = EntityGetComponent(player, "IngestionComponent")
+
+                for _, value in pairs(IngestionComps)do
+                    stomach = value
+                    local fullness = ComponentGetValue2(value, "ingestion_size")
+                    if fullness >= 500 then
+                        valid1 = true
+                    else
+                        valid1 = false
+                        GamePrint("Not enough satiety!")
+                        return
+                    end
+
+                    local inventory_2_comp = EntityGetFirstComponentIncludingDisabled( player, "Inventory2Component")
+                    if inventory_2_comp == nil then return end
+                    local wand_id = ComponentGetValue2( inventory_2_comp, "mActiveItem" )
+                    for i, spell in ipairs(EntityGetAllChildren( wand_id )) do
+                        spell_comp = EntityGetFirstComponentIncludingDisabled( spell, "ItemComponent" )
+                        if spell_comp ~= nil then
+                            ComponentSetValue2( spell_comp, "uses_remaining", uses_left - 1 )
+                        end
+                    end
+
+                    if valid1 == true and valid2 == true then
+                        ComponentSetValue2(stomach, "ingestion_size", fullness - 500) ---@diagnostic disable-next-line: param-type-mismatch
+                        ComponentSetValue2( spell_comp, "uses_remaining", uses_left - 1 )
+                        add_projectile( "mods/copis_things/files/entities/projectiles/vomere.xml" );
+                        c.fire_rate_wait = c.fire_rate_wait + 15;
+                        current_reload_time = current_reload_time + 33;
+                    end
+
+                end
+
+            end
+
+        end
+	},
+]]
 	{
 		id					= "GOLD",
 		name				= "Gold",
@@ -4154,7 +4195,120 @@ local to_insert = {
 
 		end,
 	},
+
+	{
+		id                  = "CIRCLE_RANDOM",
+		name                = "Circle of Chaos",
+		description         = "An expanding circle of a random material",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/circle_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/circle_random.xml"},
+		type                = ACTION_TYPE_MATERIAL,
+		spawn_level         = "1,2,3,4", -- CIRCLE_FIRE
+		spawn_probability   = "0.4,0.4,0.4,0.4", -- CIRCLE_FIRE
+		price               = 170,
+		mana                = 20,
+		max_uses            = 15,
+		action 		        = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/circle_random.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 20
+		end,
+	},
+
+	{
+		id                  = "CLOUD_RANDOM",
+		name                = "Chaos Cloud",
+		description         = "Creates a rain of a random material",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/cloud_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/cloud_random.xml"},
+		type                = ACTION_TYPE_STATIC_PROJECTILE,
+		spawn_level         = "0,1,2,3,4,5", -- CLOUD_WATER
+		spawn_probability   = "0.3,0.3,0.3,0.3,0.3,0.3", -- CLOUD_WATER
+		price               = 140,
+		mana                = 30,
+		max_uses            = 10,
+		action 		        = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/cloud_random.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 15
+		end,
+	},
+
+	{
+		id                  = "TOUCH_RANDOM",
+		name                = "Touch of Chaos",
+		description         = "Transmutes everything in a short radius into a random material, including walls, creatures... and you",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/touch_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/touch_random.xml"},
+		type                = ACTION_TYPE_MATERIAL,
+		spawn_level         = "1,2,3,4,5,6,7,10", -- TOUCH_WATER
+		spawn_probability   = "0,0,0,0,0.1,0.1,0.1,0.1", -- TOUCH_WATER
+		price               = 420,
+		mana                = 280,
+		max_uses            = 5, 
+		action 		        = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/touch_random.xml")
+		end,
+	},
+
+	{
+		id                  = "CHUNK_OF_RANDOM",
+		name                = "Chunk of Chaos",
+		description         = "A blast of random material",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/chunk_of_random.xml"},
+		type                = ACTION_TYPE_MATERIAL,
+		spawn_level         = "1,2,3,5", -- SOILBALL
+		spawn_probability   = "0.4,0.4,0.4,0.4", -- SOILBALL
+		price               = 50,
+		mana                = 50,
+		action 		        = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/chunk_of_random.xml")
+		end,
+	},
+
+	{
+		id                  = "MATERIAL_RANDOM",
+		name                = "Droplet of Chaos",
+		description         = "Transmute drops of a random material from nothing",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/material_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/material_random.xml"},
+		type                = ACTION_TYPE_MATERIAL,
+		spawn_level         = "1,2,3,4,5", -- MATERIAL_WATER
+		spawn_probability   = "0.4,0.4,0.4,0.4,0.4", -- MATERIAL_WATER
+		price               = 110,
+		mana                = 0,
+		sound_loop_tag      = "sound_spray",
+		action              = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/material_random.xml")
+			c.fire_rate_wait = c.fire_rate_wait - 15
+			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
+		end,
+	},
+
+	{
+		id                  = "SEA_RANDOM",
+		name                = "Sea of Chaos",
+		description         = "Summons a large body of a random material below the caster",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/sea_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/sea_random.xml"},
+		type                = ACTION_TYPE_MATERIAL,
+		spawn_level         = "0,4,5,6", -- SEA_LAVA
+		spawn_probability   = "0.2,0.2,0.2,0.2", -- SEA_LAVA
+		price               = 350,
+		mana                = 140,
+		max_uses            = 3,
+		action              = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/sea_random.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 15
+		end,
+	},
 }
+
 
 for _, value in ipairs(to_insert) do
 	if (value.author == nil) then

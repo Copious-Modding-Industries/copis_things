@@ -57,7 +57,9 @@
         "for_comps",
         "dont_draw_actions",
         "check_recursion",
-        "current_action"
+        "current_action",
+        "pick_random_from_table_weighted",
+        "random_create"
     ],
     "Lua.diagnostics.disable": [
         "deprecated"
