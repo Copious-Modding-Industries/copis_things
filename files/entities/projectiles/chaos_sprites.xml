@@ -60,7 +60,7 @@
   <SpriteComponent 
     _enabled="1" 
     alpha="1" 
-    image_file="mods/gkbrkn_noita/files/gkbrkn/actions/chaotic_burst/projectile_sprite.xml" 
+    image_file="mods/copis_things/files/projectiles_gfx/chaos_sprites.xml" 
     next_rect_animation="default"
     rect_animation="default" 
      >
@@ -103,15 +103,27 @@
 	</ParticleEmitterComponent>
 
     <LuaComponent
-		script_source_file="mods/gkbrkn_noita/files/gkbrkn/actions/chaotic_burst/projectile_update.lua"
+		script_source_file="mods/copis_things/files/scripts/projectiles/chaos_sprites.lua"
 		execute_every_n_frame="2"
 		>
 	</LuaComponent>
 
-  <VariableStorageComponent
-		name="projectile_file"
-		value_string="mods/gkbrkn_noita/files/gkbrkn/actions/chaotic_burst/projectile.xml"
-	/>
+    <LuaComponent
+        script_source_file="mods/copis_things/files/scripts/projectiles/chaos_sprites_init.lua"
+        remove_after_executed="1"
+        execute_on_added="1"
+		execute_every_n_frame="-1"
+		>
+	</LuaComponent>
+
+    <VariableStorageComponent
+          name="projectile_file"
+          value_string="mods/copis_things/files/entities/projectiles/chaos_sprites.xml"
+      />
+
+      <VariableStorageComponent
+            name="copi_chaotic_burst_frame"
+            value_int="mods/copis_things/files/entities/projectiles/chaos_sprites.xml"
+        />
 
 </Entity>
-

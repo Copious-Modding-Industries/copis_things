@@ -1,0 +1,10 @@
+<Entity>
+    <!-- Saves the initial larpa data -->
+    <LuaComponent script_source_file="mods/copis_things/files/scripts/projectiles/recursive_larpa_init.lua"
+        execute_on_added="1"
+        execute_every_n_frame="1" />
+    <LuaComponent script_source_file="mods/copis_things/files/scripts/projectiles/recursive_larpa_die.lua"
+        execute_on_removed="1"
+        execute_every_n_frame="-1" />
+
+</Entity>

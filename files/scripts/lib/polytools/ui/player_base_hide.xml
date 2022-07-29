@@ -1,0 +1,78 @@
+<Entity>
+
+    <PlatformShooterPlayerComponent center_camera_on_this_entity="1"
+        aiming_reticle_distance_from_character="60"
+        camera_max_distance_from_character="50"
+        move_camera_with_aim="1" />
+
+    <CharacterDataComponent platforming_type="2"
+        effect_hit_ground="0"
+        gravity="0"
+        buoyancy_check_offset_y="0" />
+
+    <CharacterPlatformingComponent animation_to_play=""
+        jump_keydown_buffer="2"
+        jump_velocity_y="-95"
+        jump_velocity_x="56"
+        fly_model_player="0"
+        fly_smooth_y="0"
+        fly_speed_max_up="95"
+        fly_speed_max_down="85"
+        fly_speed_mult="20"
+        fly_speed_change_spd="0.25"
+        mouse_look="1"
+        keyboard_look="1"
+        mouse_look_buffer="1"
+        pixel_gravity="350"
+        run_velocity="30"
+        fly_velocity_x="52"
+        accel_x="0.15"
+        turning_buffer="0.5"
+        velocity_min_x="-57"
+        velocity_max_x="57"
+        velocity_min_y="-200"
+        velocity_max_y="350" />
+
+    <ControlsComponent enabled="1"
+        gamepad_fire_on_thumbstick_extend="0"
+        gamepad_fire_on_thumbstick_extend_threshold="0.9"
+        gamepad_indirect_aiming_enabled="0" />
+
+    <MaterialSuckerComponent suck_gold="1"
+        suck_health="1" />
+
+    <Inventory2Component quick_inventory_slots="10"
+        full_inventory_slots_x="16"
+        full_inventory_slots_y="1" />
+    <InventoryGuiComponent />
+
+    <AudioListenerComponent z="-60" />
+    <SpriteAnimatorComponent />
+    <GunComponent />
+    <LiquidDisplacerComponent radius="1" />
+    <ItemPickUpperComponent drop_items_on_death="0" />
+    <GameLogComponent report_damage="0"
+        report_death="1" />
+    <DrugEffectComponent />
+    <WalletComponent />
+    <StreamingKeepAliveComponent />
+    <KickComponent />
+
+    <Entity name="inventory_quick" />
+    <Entity name="inventory_full" />
+
+    <HotspotComponent _tags="right_arm_root"
+        offset.x="0"
+        offset.y="0"
+        transform_with_scale="1" />
+
+    <Entity name="arm_r">
+        <InheritTransformComponent parent_hotspot_tag="right_arm_root"
+            only_position="1" />
+        <HotspotComponent _tags="hand"
+            offset.x="5"
+            offset.y="0"
+            transform_with_scale="1" />
+    </Entity>
+
+</Entity>

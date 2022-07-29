@@ -1,0 +1,159 @@
+<Entity name="turret"
+    tags="teleportable_NOT,hittable">
+
+    <VelocityComponent gravity_y="0" />
+
+    <HotspotComponent _tags="hand"
+        offset.x="0"
+        offset.y="0">
+    </HotspotComponent>
+
+    <ProjectileComponent _enabled="1"
+        lob_min="0.8"
+        lob_max="1.0"
+        speed_min="1"
+        speed_max="1"
+        direction_random_rad="0"
+        on_death_explode="0"
+        on_death_gfx_leave_sprite="0"
+        on_lifetime_out_explode="0"
+        explosion_dont_damage_shooter="1"
+        on_collision_die="0"
+        die_on_liquid_collision="0"
+        lifetime="3600"
+        damage="0"
+        ragdoll_force_multiplier="0.0"
+        hit_particle_force_multiplier="0.0"
+        camera_shake_when_shot="5.0"
+        bounces_left="0"
+        muzzle_flash_file=""
+        shoot_light_flash_radius="1"
+        knockback_force="0"
+        physics_impulse_coeff="0"
+        penetrate_entities="1"
+        velocity_sets_y_flip="1">
+        <config_explosion />
+    </ProjectileComponent>
+
+    <ControlsComponent enabled="0" />
+
+    <HitboxComponent aabb_min_x="-2"
+        aabb_max_x="2"
+        aabb_min_y="-2"
+        aabb_max_y="2">
+    </HitboxComponent>
+
+    <AnimalAIComponent preferred_job="JobDefault"
+        ai_state="0"
+        eye_offset_x="0"
+        eye_offset_y="0"
+        attack_melee_enabled="0"
+        attack_ranged_enabled="1"
+        attack_ranged_entity_file="data/entities/projectiles/deck/fizzle.xml"
+        attack_ranged_frames_between="0"
+        attack_ranged_offset_x="0"
+        attack_ranged_offset_y="0"
+        attack_ranged_action_frame="0"
+        attack_ranged_min_distance="0"
+        attack_ranged_max_distance="0"
+        creature_detection_range_x="50"
+        creature_detection_range_y="50"
+        creature_detection_check_every_x_frames="30"
+        needs_food="0"
+        can_fly="1"
+        sense_creatures="1"
+        aggressiveness_min="100"
+        aggressiveness_max="100">
+    </AnimalAIComponent>
+
+    <GenomeDataComponent herd_id="player"
+        food_chain_rank="0"
+        is_predator="1" />
+
+    <Inventory2Component _enabled="1"
+        full_inventory_slots_x="0"
+        full_inventory_slots_y="0"
+        mSavedActiveItemIndex="0"
+        quick_inventory_slots="10" />
+
+    <SpriteAnimatorComponent />
+
+    <GunComponent />
+
+    <Entity name="inventory_quick">
+        <Entity>
+            <Base file="mods/copis_things/files/entities/misc/spell_turret/turret_wand.xml" />
+        </Entity>
+    </Entity>
+
+    <LuaComponent execute_on_added="1"
+        execute_every_n_frame="-1"
+        script_source_file="mods/copis_things/files/scripts/projectiles/spell_turret/turret.lua" />
+    <LuaComponent script_shot="mods/copis_things/files/scripts/projectiles/spell_turret/turret_shot.lua" />
+
+    <ParticleEmitterComponent emitted_material_name="spark_purple_bright"
+        offset.x="0"
+        gravity.y="0.0"
+        lifetime_min="2"
+        lifetime_max="2"
+        count_min="1"
+        count_max="1"
+        render_on_grid="1"
+        fade_based_on_lifetime="1"
+        area_circle_radius.min="0"
+        area_circle_radius.max="0"
+        cosmetic_force_create="0"
+        airflow_force="0.051"
+        airflow_time="1.01"
+        airflow_scale="0.09"
+        emission_interval_min_frames="1"
+        emission_interval_max_frames="1"
+        direction_random_deg="90"
+        emit_cosmetic_particles="1"
+        image_animation_file="mods/copis_things/files/particles/image_emitters/turreta.png"
+        image_animation_speed="5"
+        image_animation_emission_probability="0.8"
+        image_animation_loop="1"
+        image_animation_use_entity_rotation="1"
+        is_emitting="1"
+        render_back="0">
+    </ParticleEmitterComponent>
+    <ParticleEmitterComponent emitted_material_name="spark_blue"
+        offset.x="0"
+        gravity.y="0.0"
+        lifetime_min="2"
+        lifetime_max="2"
+        count_min="1"
+        count_max="1"
+        render_on_grid="1"
+        fade_based_on_lifetime="1"
+        area_circle_radius.min="0"
+        area_circle_radius.max="0"
+        cosmetic_force_create="0"
+        airflow_force="0.051"
+        airflow_time="1.01"
+        airflow_scale="0.09"
+        emission_interval_min_frames="1"
+        emission_interval_max_frames="1"
+        direction_random_deg="90"
+        emit_cosmetic_particles="1"
+        image_animation_file="mods/copis_things/files/particles/image_emitters/turretb.png"
+        image_animation_speed="5"
+        image_animation_emission_probability="0.8"
+        image_animation_loop="1"
+        image_animation_use_entity_rotation="1"
+        is_emitting="1"
+        render_back="0">
+    </ParticleEmitterComponent>
+    <GameStatsComponent />
+
+    <Entity name="turret_target"
+        tags="mortal,hittable,teleportable_NOT">
+        <LuaComponent script_source_file="mods/copis_things/files/scripts/projectiles/spell_turret/target.lua"
+            execute_every_n_frame="12" />
+        <GenomeDataComponent herd_id="healer"
+            food_chain_rank="20"
+            is_predator="0" />
+        <GameStatsComponent />
+    </Entity>
+</Entity>

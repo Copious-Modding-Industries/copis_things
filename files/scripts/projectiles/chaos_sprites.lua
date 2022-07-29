@@ -1,17 +1,17 @@
-dofile_once( "mods/gkbrkn_noita/files/gkbrkn/lib/variables.lua" );
-local entity = GetUpdatedEntityID();
+dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
+local self = Entity.Current()
 
-local velocity = EntityGetFirstComponentIncludingDisabled( entity, "VelocityComponent" );
-if velocity ~= nil then
-    local vx,vy = ComponentGetValue2( velocity, "mVelocity", vx, vy );
+if self.VelocityComponent ~= nil then
+    local m_velocity = self.VelocityComponent.mVelocity
+    local vx = m_velocity.x
+    local vy = m_velocity.y
     local magnitude = math.sqrt( vx * vx + vy * vy );
-    local frames = GameGetFrameNum() - EntityGetVariableNumber( entity, "gkbrkn_chaotic_burst_frame", GameGetFrameNum() );
+    local frames = GameGetFrameNum() - self.var_int.copi_chaotic_burst_frame or GameGetFrameNum()
     local scale = math.random() * math.pow( magnitude, 0.6 ) / 60 * math.min( 1, frames * 0.20 );
     local angle = math.atan2( vy, vx ) + ( math.random() - 0.5 ) * math.pi * scale;
-
-    ComponentSetValue2( velocity, "mVelocity", math.cos( angle ) * magnitude, math.sin( angle ) * magnitude );
+    m_velocity.x = math.cos( angle ) * magnitude
+    m_velocity.y = math.sin( angle ) * magnitude
+    self.VelocityComponent.mVelocity = m_velocity
 end
 
-if EntityGetVariableNumber( entity, "gkbrkn_chaotic_burst_frame", nil ) == nil then
-    EntitySetVariableNumber( entity, "gkbrkn_chaotic_burst_frame", GameGetFrameNum() );
-end
+self.var_int.copi_chaotic_burst_frame = GameGetFrameNum()

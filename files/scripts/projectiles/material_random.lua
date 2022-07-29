@@ -1,30 +1,6 @@
 dofile_once("data/scripts/lib/utilities.lua")
+dofile_once("mods/copis_things/files/scripts/projectiles/material_random_materials.lua")
 local entity = GetUpdatedEntityID();
-local options =
-{
-	{ probability = 1.0000, "acid"},
-	{ probability = 1.0000, "blood"},
-	{ probability = 1.0000, "oil"},
-	{ probability = 1.0000, "water"},
-	{ probability = 1.0000, "blood"},
-	{ probability = 0.6000, "silver"},
-	{ probability = 0.4000, "magic_liquid_berserk"},
-	{ probability = 0.4000, "magic_liquid_unstable_teleportation"},
-	{ probability = 0.4000, "snow"},
-	{ probability = 0.3000, "magic_liquid_polymorph"},
-	{ probability = 0.3000, "magic_liquid_random_polymorph"},
-	{ probability = 0.2000, "gunpowder_unstable_big"},
-	{ probability = 0.2000, "purifying_powder"},
-	{ probability = 0.1000, "urine"},
-	{ probability = 0.1000, "pea_soup"},
-	{ probability = 0.1000, "void_liquid"},
-	{ probability = 0.1000, "magic_liquid_hp_regeneration"},
-	{ probability = 0.1000, "cement"},
-	{ probability = 0.0500, "gold"},
-	{ probability = 0.0500, "poo"},
-	{ probability = 0.0100, "midas_precursor"},
-	{ probability = 0.0100, "magic_liquid_hp_regeneration_unstable"},
-}
 
 local rnd = random_create(9123,58925+GameGetFrameNum() )
 local mat = tostring(pick_random_from_table_weighted( rnd, options )[1])

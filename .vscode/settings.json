@@ -59,9 +59,13 @@
         "check_recursion",
         "current_action",
         "pick_random_from_table_weighted",
-        "random_create"
+        "random_create",
+        "options",
+        "collision_trigger",
+        "throw_item"
     ],
     "Lua.diagnostics.disable": [
-        "deprecated"
+        "deprecated",
+        "undefined-field"
     ]
 }

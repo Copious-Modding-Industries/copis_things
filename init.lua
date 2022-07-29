@@ -1,5 +1,6 @@
 dofile_once( "mods/copis_things/files/scripts/lib/flags.lua");
-
+dofile_once( "mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
+dofile_once( "mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init( "mods/copis_things/files/scripts/lib/polytools/" )
 
 --[[
 function DoFileEnvironment( filepath, environment )
@@ -24,6 +25,8 @@ ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/
 ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
 ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/scripts/perk/perk_list.lua")
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
+
+--ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "mods/copis_things/files/scripts/gun/generate_random_spellbooks.lua" )
 
 local translations = ModTextFileGetContent( "data/translations/common.csv" );
 if translations ~= nil then
