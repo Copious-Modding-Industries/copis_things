@@ -453,13 +453,12 @@ local to_insert = {
         price             = 250,
         mana              = 0,
         action            = function()
+            if reflecting then return; end
             local entity_id = GetUpdatedEntityID()
-
             if entity_id ~= nil and entity_id ~= 0 then
-                local damage_model_component = EntityGetFirstComponent(entity_id, "DamageModelComponent")
-                ComponentSetValue2(damage_model_component, "hp", 0)
-                ComponentSetValue2(damage_model_component, "air_needed", true)
-                ComponentSetValue2(damage_model_component, "air_in_lungs", 0)
+                local x, y = EntityGetTransform(entity_id)
+                EntityLoad("data/entities/particles/image_emitters/player_disappear_effect_right.xml", x, y) -- gfx
+                EntityKill(entity_id)
             end
         end,
     },
@@ -787,7 +786,7 @@ local to_insert = {
             c.fire_rate_wait = c.fire_rate_wait - 6;
         end,
     },
-
+--[[
     {
         id                = "PLANK_HORIZONTAL",
         name              = "Build Wooden Platform",
@@ -870,7 +869,7 @@ local to_insert = {
 
         end,
     },
-
+]]
     {
         id                     = "SLOTS_TO_POWER",
         name                   = "Slots To Power",
@@ -1662,7 +1661,7 @@ local to_insert = {
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
         type                = ACTION_TYPE_MODIFIER,
         spawn_level         = "1,2,4,5,10", -- MATTER_EATER
-        spawn_probability   = "0.1,1,0.1,0.1,0.2", -- MATTER_EATER
+        spawn_probability   = "0.1,0.2,0.1,0.1,0.2", -- MATTER_EATER
         price               = 280,
         mana                = 60,
         action              = function()
@@ -1883,8 +1882,8 @@ local to_insert = {
         description       = "Adds 60 mana to the wand",
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/mana_2.png",
         type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,2,3,4,5,6", -- MANA_REDUCE
-        spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5", -- MANA_REDUCE
+        spawn_level       = "3,4,5,6", -- MANA_REDUCE
+        spawn_probability = "0.5,0.5,0.5,0.5", -- MANA_REDUCE
         price             = 500,
         mana              = -60,
         --max_uses = 75,
@@ -1901,8 +1900,8 @@ local to_insert = {
         description       = "Adds 90 mana to the wand",
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/mana_3.png",
         type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,2,3,4,5,6", -- MANA_REDUCE
-        spawn_probability = "0.33,0.33,0.33,0.33,0.33,0.33", -- MANA_REDUCE
+        spawn_level       = "5,6", -- MANA_REDUCE
+        spawn_probability = "0.33,0.33", -- MANA_REDUCE
         price             = 750,
         mana              = -90,
         --max_uses = 50,
