@@ -912,25 +912,26 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                if (wand.shuffle == true) then
-                    wand.shuffle = false
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                    wand.manaMax = wand.manaMax * 0.9
-                    wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                    wand.castDelay = wand.castDelay * 1.1
-                    wand.rechargeTime = wand.rechargeTime * 1.1
-
-
-                    local function has_custom_sprite(ez_wand)
-                        local sprite_file = ez_wand:GetSprite()
-                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                if wand ~= nil then
+                    if (wand.shuffle == true) then
+                        wand.shuffle = false
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
+                        wand.manaMax = wand.manaMax * 0.9
+                        wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
+                        wand.castDelay = wand.castDelay * 1.1
+                        wand.rechargeTime = wand.rechargeTime * 1.1
+    
+                        local function has_custom_sprite(ez_wand)
+                            local sprite_file = ez_wand:GetSprite()
+                            return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                        end
+    
+                        if not has_custom_sprite(wand) then
+                            wand:UpdateSprite()
+                        end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
                     end
-
-                    if not has_custom_sprite(wand) then
-                        wand:UpdateSprite()
-                    end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
                 end
             end
         end,
@@ -958,25 +959,27 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                if (wand.shuffle == false) then
-                    wand.shuffle = true
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
-                    wand.manaMax = wand.manaMax * 1.5
-                    wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
-                    wand.castDelay = wand.castDelay * 0.55
-                    wand.rechargeTime = wand.rechargeTime * 0.55
+                if wand ~= nil then
+                    if (wand.shuffle == false) then
+                        wand.shuffle = true
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
+                        wand.manaMax = wand.manaMax * 1.5
+                        wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
+                        wand.castDelay = wand.castDelay * 0.55
+                        wand.rechargeTime = wand.rechargeTime * 0.55
 
 
-                    local function has_custom_sprite(ez_wand)
-                        local sprite_file = ez_wand:GetSprite()
-                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                        local function has_custom_sprite(ez_wand)
+                            local sprite_file = ez_wand:GetSprite()
+                            return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                        end
+
+                        if not has_custom_sprite(wand) then
+                            wand:UpdateSprite()
+                        end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Wand shuffled!", "Stats improved.")
                     end
-
-                    if not has_custom_sprite(wand) then
-                        wand:UpdateSprite()
-                    end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Wand shuffled!", "Stats improved.")
                 end
             end
         end,
@@ -1004,20 +1007,22 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
-                wand.spellsPerCast = wand.spellsPerCast + 1
+                if wand ~= nil then
+                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
+                    wand.spellsPerCast = wand.spellsPerCast + 1
 
 
-                local function has_custom_sprite(ez_wand)
-                    local sprite_file = ez_wand:GetSprite()
-                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    local function has_custom_sprite(ez_wand)
+                        local sprite_file = ez_wand:GetSprite()
+                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    end
+
+                    if not has_custom_sprite(wand) then
+                        wand:UpdateSprite()
+                    end
+                    GameScreenshake(50, pos_x, pos_y)
+                    GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
                 end
-
-                if not has_custom_sprite(wand) then
-                    wand:UpdateSprite()
-                end
-                GameScreenshake(50, pos_x, pos_y)
-                GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
             end
         end,
     },
@@ -1043,22 +1048,23 @@ local to_insert = {
                 dofile("data/scripts/lib/utilities.lua")
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
-                SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
-                wand.speedMultiplier = wand.speedMultiplier * Random(2, 3)
+                local wand = EZWand.GetHeldWand() 
+                if wand ~= nil then
+                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
+                    SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
+                    wand.speedMultiplier = wand.speedMultiplier * Random(2, 3)
 
+                    local function has_custom_sprite(ez_wand)
+                        local sprite_file = ez_wand:GetSprite()
+                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    end
 
-                local function has_custom_sprite(ez_wand)
-                    local sprite_file = ez_wand:GetSprite()
-                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    if not has_custom_sprite(wand) then
+                        wand:UpdateSprite()
+                    end
+                    GameScreenshake(50, pos_x, pos_y)
+                    GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier) .. " speed multiplier.")
                 end
-
-                if not has_custom_sprite(wand) then
-                    wand:UpdateSprite()
-                end
-                GameScreenshake(50, pos_x, pos_y)
-                GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier) .. " speed multiplier.")
             end
         end,
     },
@@ -1085,20 +1091,22 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                if (wand.capacity < 26) then
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_CAPACITY")
-                    SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
-                    wand.capacity = wand.capacity + Random(1, 3)
-                    local function has_custom_sprite(ez_wand)
-                        local sprite_file = ez_wand:GetSprite()
-                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
-                    end
+                if wand ~= nil then
+                    if (wand.capacity < 26) then
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_CAPACITY")
+                        SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
+                        wand.capacity = wand.capacity + Random(1, 3)
+                        local function has_custom_sprite(ez_wand)
+                            local sprite_file = ez_wand:GetSprite()
+                            return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                        end
 
-                    if not has_custom_sprite(wand) then
-                        wand:UpdateSprite()
+                        if not has_custom_sprite(wand) then
+                            wand:UpdateSprite()
+                        end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Wand upgraded!", tostring(wand.capacity) .. " capacity.")
                     end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Wand upgraded!", tostring(wand.capacity) .. " capacity.")
                 end
             end
         end,
@@ -1126,23 +1134,25 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
-                local castDelay_old = wand.castDelay
-                wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
+                if wand ~= nil then
+                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
+                    local castDelay_old = wand.castDelay
+                    wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
 
 
-                local function has_custom_sprite(ez_wand)
-                    local sprite_file = ez_wand:GetSprite()
-                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    local function has_custom_sprite(ez_wand)
+                        local sprite_file = ez_wand:GetSprite()
+                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    end
+
+                    if not has_custom_sprite(wand) then
+                        wand:UpdateSprite()
+                    end
+                    GameScreenshake(50, pos_x, pos_y)
+                    GamePrintImportant("Wand upgraded!",
+                        ("%.2fs"):format(castDelay_old / 60) ..
+                        " -> " .. ("%.2fs"):format(wand.castDelay / 60) .. " cast delay.")
                 end
-
-                if not has_custom_sprite(wand) then
-                    wand:UpdateSprite()
-                end
-                GameScreenshake(50, pos_x, pos_y)
-                GamePrintImportant("Wand upgraded!",
-                    ("%.2fs"):format(castDelay_old / 60) ..
-                    " -> " .. ("%.2fs"):format(wand.castDelay / 60) .. " cast delay.")
             end
         end,
     },
@@ -1169,23 +1179,25 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
-                local rechargeTime_old = wand.rechargeTime
-                wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
+                if wand ~= nil then
+                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
+                    local rechargeTime_old = wand.rechargeTime
+                    wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
 
 
-                local function has_custom_sprite(ez_wand)
-                    local sprite_file = ez_wand:GetSprite()
-                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    local function has_custom_sprite(ez_wand)
+                        local sprite_file = ez_wand:GetSprite()
+                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    end
+
+                    if not has_custom_sprite(wand) then
+                        wand:UpdateSprite()
+                    end
+                    GameScreenshake(50, pos_x, pos_y)
+                    GamePrintImportant("Wand upgraded!",
+                        ("%.2fs"):format(rechargeTime_old / 60) ..
+                        " -> " .. ("%.2fs"):format(wand.rechargeTime / 60) .. " recharge time.")
                 end
-
-                if not has_custom_sprite(wand) then
-                    wand:UpdateSprite()
-                end
-                GameScreenshake(50, pos_x, pos_y)
-                GamePrintImportant("Wand upgraded!",
-                    ("%.2fs"):format(rechargeTime_old / 60) ..
-                    " -> " .. ("%.2fs"):format(wand.rechargeTime / 60) .. " recharge time.")
             end
         end,
     },
@@ -1212,22 +1224,24 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
-                local rechargeTime_old = wand.rechargeTime
-                wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
+                if wand ~= nil then
+                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
+                    local rechargeTime_old = wand.rechargeTime
+                    wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
 
 
-                local function has_custom_sprite(ez_wand)
-                    local sprite_file = ez_wand:GetSprite()
-                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    local function has_custom_sprite(ez_wand)
+                        local sprite_file = ez_wand:GetSprite()
+                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    end
+
+                    if not has_custom_sprite(wand) then
+                        wand:UpdateSprite()
+                    end
+                    GameScreenshake(50, pos_x, pos_y)
+                    GamePrintImportant("Wand upgraded!",
+                        tostring(rechargeTime_old) .. " -> " .. tostring(wand.spread) .. " degrees spread.")
                 end
-
-                if not has_custom_sprite(wand) then
-                    wand:UpdateSprite()
-                end
-                GameScreenshake(50, pos_x, pos_y)
-                GamePrintImportant("Wand upgraded!",
-                    tostring(rechargeTime_old) .. " -> " .. tostring(wand.spread) .. " degrees spread.")
             end
         end,
     },
@@ -1254,20 +1268,22 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
-                wand.manaMax = wand.manaMax * 1.2 + 50
+                if wand ~= nil then
+                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
+                    wand.manaMax = wand.manaMax * 1.2 + 50
 
 
-                local function has_custom_sprite(ez_wand)
-                    local sprite_file = ez_wand:GetSprite()
-                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    local function has_custom_sprite(ez_wand)
+                        local sprite_file = ez_wand:GetSprite()
+                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    end
+
+                    if not has_custom_sprite(wand) then
+                        wand:UpdateSprite()
+                    end
+                    GameScreenshake(50, pos_x, pos_y)
+                    GamePrintImportant("Wand upgraded!", tostring(wand.manaMax) .. " mana capacity.")
                 end
-
-                if not has_custom_sprite(wand) then
-                    wand:UpdateSprite()
-                end
-                GameScreenshake(50, pos_x, pos_y)
-                GamePrintImportant("Wand upgraded!", tostring(wand.manaMax) .. " mana capacity.")
             end
         end,
     },
@@ -1294,20 +1310,22 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
-                wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
+                if wand ~= nil then
+                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
+                    wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
 
 
-                local function has_custom_sprite(ez_wand)
-                    local sprite_file = ez_wand:GetSprite()
-                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    local function has_custom_sprite(ez_wand)
+                        local sprite_file = ez_wand:GetSprite()
+                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    end
+
+                    if not has_custom_sprite(wand) then
+                        wand:UpdateSprite()
+                    end
+                    GameScreenshake(50, pos_x, pos_y)
+                    GamePrintImportant("Wand upgraded!", tostring(wand.manaChargeSpeed) .. " mana charge speed.")
                 end
-
-                if not has_custom_sprite(wand) then
-                    wand:UpdateSprite()
-                end
-                GameScreenshake(50, pos_x, pos_y)
-                GamePrintImportant("Wand upgraded!", tostring(wand.manaChargeSpeed) .. " mana charge speed.")
             end
         end,
     },
@@ -1335,24 +1353,26 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                local spells, attached_spells = wand:GetSpells()
-                if (
-                    #spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
-                        spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE") then
-                    local action_to_attach = spells[1]
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
-                    wand:RemoveSpells(spells[1].action_id)
-                    wand:AttachSpells(spells[1].action_id)
-                    local function has_custom_sprite(ez_wand)
-                        local sprite_file = ez_wand:GetSprite()
-                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
-                    end
+                if wand ~= nil then
+                    local spells, attached_spells = wand:GetSpells()
+                    if (
+                        #spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
+                            spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE") then
+                        local action_to_attach = spells[1]
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
+                        wand:RemoveSpells(spells[1].action_id)
+                        wand:AttachSpells(spells[1].action_id)
+                        local function has_custom_sprite(ez_wand)
+                            local sprite_file = ez_wand:GetSprite()
+                            return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                        end
 
-                    if not has_custom_sprite(wand) then
-                        wand:UpdateSprite()
+                        if not has_custom_sprite(wand) then
+                            wand:UpdateSprite()
+                        end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Spell attached!")
                     end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Spell attached!")
                 end
             end
         end,
@@ -1382,24 +1402,26 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
                 local wand = EZWand.GetHeldWand()
-                local spells, attached_spells = wand:GetSpells()
-                if (
-                    #attached_spells > 0 and attached_spells[1].action_id ~= "UPGRADE_GUN_ACTIONS_PERMANENT" and
-                        wand:GetFreeSlotsCount() > 0) then
-                    local action_to_attach = attached_spells[1]
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
-                    wand:DetachSpells(attached_spells[1].action_id)
-                    wand:AddSpells(attached_spells[1].action_id)
-                    local function has_custom_sprite(ez_wand)
-                        local sprite_file = ez_wand:GetSprite()
-                        return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
-                    end
+                if wand ~= nil then
+                    local spells, attached_spells = wand:GetSpells()
+                    if (
+                        #attached_spells > 0 and attached_spells[1].action_id ~= "UPGRADE_GUN_ACTIONS_PERMANENT" and
+                            wand:GetFreeSlotsCount() > 0) then
+                        local action_to_attach = attached_spells[1]
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+                        wand:DetachSpells(attached_spells[1].action_id)
+                        wand:AddSpells(attached_spells[1].action_id)
+                        local function has_custom_sprite(ez_wand)
+                            local sprite_file = ez_wand:GetSprite()
+                            return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                        end
 
-                    if not has_custom_sprite(wand) then
-                        wand:UpdateSprite()
+                        if not has_custom_sprite(wand) then
+                            wand:UpdateSprite()
+                        end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Spell extracted!")
                     end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Spell extracted!")
                 end
             end
         end,
