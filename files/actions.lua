@@ -220,8 +220,7 @@ local to_insert = {
                 local len = math.sqrt((aim_x ^ 2) + (aim_y ^ 2))
                 local force_x = 1000
                 local force_y = 1000
-                ComponentSetValue2(EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity",
-                    (aim_x / len * force_x), (aim_y / len * force_y))
+                ComponentSetValue2(EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity", (aim_x / len * force_x), (aim_y / len * force_y))
             end
         end,
     },
@@ -4774,16 +4773,115 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
+
+	{
+		id                  = "VACUUM_CLAW",
+		name                = "Vacuum Claw",
+		description         = "A feral slash that sucks in your foes",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/vacuum_claw.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/vacuum_claw.xml"},
+		type                = ACTION_TYPE_PROJECTILE,
+		spawn_level         = "2,3,4,5",
+		spawn_probability   = "0.5,1,1,0.5",
+		price               = 120,
+		mana                = 35,
+		action              = function()
+			current_reload_time = current_reload_time - 12
+			c.fire_rate_wait = c.fire_rate_wait - 10
+            if reflecting then return; end
+			add_projectile("mods/copis_things/files/entities/projectiles/vacuum_claw.xml")
+		end,
+	},
+
+	{
+		id                  = "CAUSTIC_CLAW",
+		name                = "Caustic Claw",
+		description         = "An acidic claw that melts your foes",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/caustic_claw.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/caustic_claw.xml"},
+		type                = ACTION_TYPE_PROJECTILE,
+		spawn_level         = "1,2,3,4",
+		spawn_probability   = "0.5,1,1,0.5",
+		price               = 120,
+		mana                = 50,
+		action              = function()
+			current_reload_time = current_reload_time + 12
+			c.fire_rate_wait = c.fire_rate_wait + 10
+            if reflecting then return; end
+			add_projectile("mods/copis_things/files/entities/projectiles/caustic_claw.xml")
+		end,
+	},
+
+	{
+		id          = "LUMINOUS_BLADE",
+		name 		= "Luminous Blade",
+		description = "A sword of pure light, it slices through enemies with such grace it doesn't damage the environment",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/luminous_blade.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/luminous_blade.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "0,2,4,6",
+		spawn_probability                 = "0.1,0.2,0.6,0.3",
+		price = 150,
+		mana = 40,
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait - 20
+			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 5 -- this is a hack to get the digger reload time back to 0
+            if reflecting then return; end
+			add_projectile("mods/copis_things/files/entities/projectiles/luminous_blade.xml")
+		end,
+	},
+
+    {
+        id                = "INVERT",
+        name              = "Invert Speed",
+        description       = "Reverses the direction a spell goes",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/invert.png",
+        type              = ACTION_TYPE_MODIFIER,
+        spawn_level       = "2,		3,		4,		5",
+        spawn_probability = "0.2,		0.3,	0.4,	0.3",
+        price             = 75,
+        mana              = 1,
+        --max_uses = 100,
+        action            = function()
+            c.speed_multiplier = c.speed_multiplier * -1
+            draw_actions(1, true)
+        end,
+    },
+
+	{
+		id          = "TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
+		name 		= "Small Teleport Bolt with Expiration Trigger",
+		description = "A shortlived magical bolt that moves you and casts a spell wherever it ends up flying",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/teleport_projectile_short_trigger_death.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/teleport_projectile_unidentified.png",
+		related_projectiles	= {"data/entities/projectiles/deck/teleport_projectile_short.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "0,1,2,4,5,6", -- TELEPORT_PROJECTILE
+		spawn_probability                 = "0.4,0.6,0.7,0.4,0.3,0.2", -- TELEPORT_PROJECTILE
+		price = 150,
+		mana = 25,
+		--max_uses = 80,
+		custom_xml_file = "data/entities/misc/custom_cards/teleport_projectile_short.xml",
+		action 		= function()
+			add_projectile_trigger_death("data/entities/projectiles/deck/teleport_projectile_short.xml", 1)
+			c.spread_degrees = c.spread_degrees - 2.0
+		end,
+	},
 }
 
+local copi_count = 0
 for _, value in ipairs(to_insert) do
     if (value.author == nil) then
         value.author = "Copi"
     end
     value.id = "COPIS_THINGS_" .. value.id
     table.insert(actions, value)
+    copi_count = copi_count + 1
 end
-
+print("[COPIS_THINGS] Initialized " .. tostring(copi_count) .. " spells")
 
 
 --[[
