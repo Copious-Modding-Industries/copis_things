@@ -11,15 +11,6 @@
 		</VelocityComponent> 
 	</Base>
 
-	<HomingComponent
-        _tags="lance"
-        _enabled="0"
-		just_rotate_towards_target="1"
-		max_turn_rate="0.1"
-		detect_distance="170"
-	>
-	</HomingComponent>
-
 	<ProjectileComponent 
 		_enabled="1" 
 		lob_min="0.5"
