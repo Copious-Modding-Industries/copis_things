@@ -2233,6 +2233,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2259,6 +2260,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2285,6 +2287,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2311,6 +2314,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2337,6 +2341,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2363,6 +2368,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2389,6 +2395,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2415,6 +2422,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2441,6 +2449,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2467,6 +2476,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2493,6 +2503,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2519,6 +2530,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2545,6 +2557,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -2571,6 +2584,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
 
             if entity_id ~= nil and entity_id ~= 0 then
@@ -3934,6 +3948,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 500
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
             if entity_id ~= nil and entity_id ~= 0 then
                 dofile("data/scripts/lib/utilities.lua")
@@ -3969,6 +3984,7 @@ local to_insert = {
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 500
+            if reflecting then return; end
             local entity_id     = GetUpdatedEntityID()
             if entity_id ~= nil and entity_id ~= 0 then
                 dofile("data/scripts/lib/utilities.lua")
