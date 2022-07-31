@@ -897,11 +897,12 @@ local to_insert = {
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle.png",
         type              = ACTION_TYPE_UTILITY,
         spawn_level       = "1,2,3,10", -- AREA_DAMAGE
-        spawn_probability = "1,1,0.5,0.2", -- AREA_DAMAGE
+        spawn_probability = "1.2,1.2,0.3,0.4", -- AREA_DAMAGE
         price             = 840,
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -920,12 +921,12 @@ local to_insert = {
                         wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
                         wand.castDelay = wand.castDelay * 1.1
                         wand.rechargeTime = wand.rechargeTime * 1.1
-    
+
                         local function has_custom_sprite(ez_wand)
                             local sprite_file = ez_wand:GetSprite()
                             return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
                         end
-    
+
                         if not has_custom_sprite(wand) then
                             wand:UpdateSprite()
                         end
@@ -944,11 +945,12 @@ local to_insert = {
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle_bad.png",
         type              = ACTION_TYPE_UTILITY,
         spawn_level       = "1,2,3,10", -- AREA_DAMAGE
-        spawn_probability = "1,1,0.5,0.2", -- AREA_DAMAGE
+        spawn_probability = "0.6,0.7,0.5,0.2", -- AREA_DAMAGE
         price             = 840,
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -997,6 +999,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1039,6 +1042,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1048,7 +1052,7 @@ local to_insert = {
                 dofile("data/scripts/lib/utilities.lua")
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand() 
+                local wand = EZWand.GetHeldWand()
                 if wand ~= nil then
                     wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
                     SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
@@ -1081,6 +1085,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1124,6 +1129,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1169,6 +1175,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1214,6 +1221,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1258,6 +1266,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1300,6 +1309,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1342,6 +1352,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -1390,6 +1401,7 @@ local to_insert = {
         mana              = 0,
         recursive         = true,
         action            = function(recursion_level, iteration)
+            if reflecting then return; end
             if (recursion_level or iteration) ~= nil then
                 GamePrintImportant("You cannot cheat the gods!", "")
                 return
@@ -4871,6 +4883,25 @@ local to_insert = {
 		end,
 	},
 
+	{
+		id          = "CHAOS_BLADE",
+		name 		= "Chaos Blade",
+		description = "A slash of destructive energy, struck enemies will be left vulnerable",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/chaos_blade.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/chaos_blade.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "3,4,6",
+		spawn_probability                 = "0.1,0.4,0.5",
+		price = 150,
+		mana = 40,
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 10
+            if reflecting then return; end
+			add_projectile("mods/copis_things/files/entities/projectiles/chaos_blade.xml")
+		end,
+	},
+
     {
         id                = "INVERT",
         name              = "Invert Speed",
@@ -4905,6 +4936,25 @@ local to_insert = {
 		action 		= function()
 			add_projectile_trigger_death("data/entities/projectiles/deck/teleport_projectile_short.xml", 1)
 			c.spread_degrees = c.spread_degrees - 2.0
+		end,
+	},
+
+	{
+		id          = "DEATH_CROSS_TRAIL",
+		name 		= "Death Cross Trail",
+		description = "Projectiles leave a devastating trail of deathly crosses",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/death_cross_trail.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/death_cross_trail.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,4,5,6",
+		spawn_probability                 = "0.2,0.5,0.7,0.4",
+		price = 300,
+		mana = 90,
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 20
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/death_cross_trail.xml,"
+			draw_actions( 1, true )
 		end,
 	},
 }

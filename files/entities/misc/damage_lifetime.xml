@@ -2,7 +2,7 @@
 	
 	<LuaComponent
 		script_source_file="mods/copis_things/files/scripts/projectiles/damage_lifetime.lua"
-		execute_every_n_frame="30"
+		execute_every_n_frame="1"
 	></LuaComponent>
 
 </Entity>

@@ -41,7 +41,8 @@
         shoot_light_flash_g="240"
         shoot_light_flash_b="30"
         shoot_light_flash_radius="32"
-		damage_every_x_frames="10"
+        penetrate_entities="1"
+        damage_every_x_frames="10"
         >
         <damage_by_type melee="0.3"></damage_by_type>
         <config_explosion
@@ -76,7 +77,6 @@
             audio_enabled="0"
             ></config_explosion>
     </ProjectileComponent>
-
 
     <GameAreaEffectComponent
         radius="16"

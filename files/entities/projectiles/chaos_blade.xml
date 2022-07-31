@@ -2,6 +2,7 @@
     name="$projectile_default"
     tags="projectile_player,black_hole"
     >
+
     <Base file="data/entities/base_projectile.xml">
         <VelocityComponent
             gravity_y="0"
@@ -33,7 +34,7 @@
         ragdoll_force_multiplier="0.01"
         hit_particle_force_multiplier="0.25 "
         camera_shake_when_shot="2.0"
-        ragdoll_fx_on_collision="BLOOD_SPRAY"
+        ragdoll_fx_on_collision="BLOOD_EXPLOSION"
         collect_materials_to_shooter="1"
         collide_with_tag="hittable"
         on_death_item_pickable_radius="10"
@@ -44,7 +45,10 @@
         penetrate_entities="1"
         damage_every_x_frames="10"
         >
-        <damage_by_type melee="0.4"></damage_by_type>
+        <damage_by_type
+            melee="0.8"
+            curse="0.2"
+            ></damage_by_type>
         <config_explosion
             never_cache="1"
             camera_shake="1.5"
@@ -55,7 +59,7 @@
             hole_destroy_liquid="0"
             hole_enabled="1"
             damage="0"
-            ray_energy="100000"
+            ray_energy="200000"
             hole_image="data/temp/explosion_hole.png"
             particle_effect="0"
             damage_mortals="1"
@@ -78,23 +82,32 @@
             ></config_explosion>
     </ProjectileComponent>
 
-    <MagicConvertMaterialComponent
-        from_material_array="ice_static,ice_radioactive_static,ice_cold_static,ice_blood_static,ice_poison_static,ice_slime_static"
-        to_material_array="ice_acid_static,ice_acid_static,ice_acid_static,ice_acid_static,ice_acid_static,ice_acid_static"
-        steps_per_frame="20"
-        loop="1"
-        is_circle="1"
-        radius="20"
-        ></MagicConvertMaterialComponent>
-
-    <MagicConvertMaterialComponent
-        from_material_array="water,     radioactive_liquid,     poison,     slime,      blood"
-        to_material_array="acid,        acid,                   acid,       acid,       acid"
-        steps_per_frame="20"
-        loop="1"
-        is_circle="1"
-        radius="20"
-        ></MagicConvertMaterialComponent>
+    <ParticleEmitterComponent
+        emitted_material_name="corruption_static"
+        gravity.y="0.0"
+        lifetime_min="1"
+        lifetime_max="2"
+        x_vel_min="-60"
+        x_vel_max="60"
+        y_vel_min="-60"
+        y_vel_max="60"
+        count_min="0"
+        count_max="1"
+        render_on_grid="0"
+        fade_based_on_lifetime="1"
+        cosmetic_force_create="0"
+        airflow_force="6.0"
+        airflow_time="0.5"
+        airflow_scale="0.5"
+        attractor_force="10"
+        emission_interval_min_frames="1"
+        emission_interval_max_frames="1"
+        draw_as_long="1"
+        emit_cosmetic_particles="1"
+        area_circle_radius.min="0"
+        area_circle_radius.max="16"
+        is_emitting="1"
+        ></ParticleEmitterComponent>
 
     <GameAreaEffectComponent
         radius="16"
@@ -102,38 +115,15 @@
         frame_length="1"
         ></GameAreaEffectComponent>
 
-    <ParticleEmitterComponent
-        emitted_material_name="acid"
-        gravity.y="0.0"
-        lifetime_min="1"
-        area_circle_sector_degrees="45"
-        lifetime_max="2"
-        x_vel_min="-60"
-        x_vel_max="60"
-        y_vel_min="-60"
-        y_vel_max="60"
-        count_min="1"
-        count_max="2"
-        render_on_grid="0"
-        fade_based_on_lifetime="1"
-        cosmetic_force_create="0"
-        airflow_force="6.0"
-        airflow_time="0.5"
-        airflow_scale="0.5"
-        attractor_force="100"
-        emission_interval_min_frames="1"
-        emission_interval_max_frames="1"
-        emit_cosmetic_particles="0"
-        create_real_particles="1"
-        area_circle_radius.min="0"
-        area_circle_radius.max="16"
-        is_emitting="1"
-        ></ParticleEmitterComponent>
+    <HitEffectComponent
+        effect_hit="LOAD_UNIQUE_CHILD_ENTITY"
+        value_string="data/entities/misc/curse_wither_melee.xml"
+        ></HitEffectComponent>
 
     <SpriteComponent
         _enabled="1"
         alpha="1"
-        image_file="mods/copis_things/files/projectiles_gfx/caustic_claw.xml"
+        image_file="mods/copis_things/files/projectiles_gfx/chaos_blade.xml"
         next_rect_animation=""
         rect_animation=""
         ></SpriteComponent>
@@ -146,6 +136,6 @@
 
     <VariableStorageComponent
         name="projectile_file"
-        value_string="mods/copis_things/files/entities/projectiles/caustic_claw.xml"
+        value_string="mods/copis_things/files/entities/projectiles/chaos_blade.xml"
         ></VariableStorageComponent>
 </Entity>
