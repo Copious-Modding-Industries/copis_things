@@ -462,6 +462,7 @@ local to_insert = {
             end
         end,
     },
+
     {
         id                  = "TEMPORARY_CIRCLE",
         name                = "Summon Circle",
@@ -479,6 +480,7 @@ local to_insert = {
             c.fire_rate_wait = c.fire_rate_wait + 40
         end,
     },
+
     {
         id                     = "LARPA_FORWARDS",
         name                   = "Forwards Larpa",
@@ -497,6 +499,7 @@ local to_insert = {
             draw_actions(1, true)
         end,
     },
+
     {
         id                     = "HOMING_LIGHT",
         name                   = "Soft Homing",
@@ -4194,14 +4197,14 @@ local to_insert = {
 
             local function zap(count)
                 BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
-                BeginTriggerDeath();
-                for i = 1, count, 1 do
-                    BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
-                    EndProjectile();
-                end
-                register_action(c);
-                SetProjectileConfigs();
-                EndTrigger();
+                    BeginTriggerDeath();
+                        for i = 1, count, 1 do
+                            BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
+                            EndProjectile();
+                        end
+                        register_action(c);
+                        SetProjectileConfigs();
+                    EndTrigger();
                 EndProjectile();
             end
 
@@ -4228,15 +4231,15 @@ local to_insert = {
 
             else
                 BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
-                BeginTriggerDeath();
-                zap(1);
-                EndTrigger();
+                    BeginTriggerDeath();
+                        zap(1)
+                    EndTrigger();
                 EndProjectile();
 
                 BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
-                BeginTriggerDeath();
-                zap(1)
-                EndTrigger();
+                    BeginTriggerDeath();
+                        zap(1)
+                    EndTrigger();
                 EndProjectile();
             end
         end,
@@ -4621,7 +4624,7 @@ local to_insert = {
             deck = {}
         end
     },
-
+--[[        old method was jank and infinite
     {
         id = "RECURSIVE_LARPA",
         name = "Recursive Larpa",
@@ -4633,6 +4636,33 @@ local to_insert = {
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "10",
         spawn_probability = "0.1",
+        price = 300,
+        mana = 150,
+        ai_never_uses = true,
+        max_uses = -1,
+        action = function()
+            if reflecting then return end
+            c.fire_rate_wait = c.fire_rate_wait + 60
+            BeginProjectile("mods/copis_things/files/entities/projectiles/recursive_larpa_host.xml")
+                BeginTriggerHitWorld()
+                    local shot = create_shot(1)
+                    shot.state.extra_entities = shot.state.extra_entities .. "mods/copis_things/files/entities/misc/recursive_larpa.xml,"
+                    draw_shot(shot, true)
+                EndTrigger()
+            EndProjectile()
+        end
+    },
+]]
+    {
+        id = "RECURSIVE_LARPA",
+        name = "Recursive Larpa",
+        description = "Causes a spell to cast a perfect copy of itself on death 20 times",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/recursive_larpa.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
+        related_projectiles = {},
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "6, 10",
+        spawn_probability = "0.1, 0.2",
         price = 300,
         mana = 150,
         ai_never_uses = true,
@@ -4957,6 +4987,184 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
+
+	{
+		id          = "GLITTERING_TRAIL",
+		name 		= "Glittering Trail",
+		description = "Projectiles leave a devastating trail of deathly crosses",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/glittering_trail.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/glittering_trail.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,3,4,5,6",
+		spawn_probability                 = "0.7,0.7,0.5,0.4,0.2",
+		price = 120,
+		mana = 10,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/glittering_trail.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+    {
+        id                     = "SILVER_BULLET_RAY",
+        name                   = "Assault shot",
+        description            = "Makes a projectile rapidly fire silver bullets",
+        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
+        type                   = ACTION_TYPE_MODIFIER,
+        spawn_level            = "3,4,5,10", -- FIREBALL_RAY
+        spawn_probability      = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
+        price                  = 300,
+        mana                   = 130,
+        --max_uses = 20,
+        action                 = function()
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/silver_bullet_ray.xml,"
+            draw_actions(1, true)
+        end,
+    },
+
+    {
+        id                     = "SILVER_BULLET_RAY_6",
+        name                   = "Hexassault shot",
+        description            = "Makes a projectile fire silver bullets from it's sides",
+        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_6.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
+        type                   = ACTION_TYPE_MODIFIER,
+        spawn_level            = "3,4,5,10", -- FIREBALL_RAY
+        spawn_probability      = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
+        price                  = 300,
+        mana                   = 100,
+        --max_uses = 20,
+        action                 = function()
+            c.fire_rate_wait = c.fire_rate_wait + 40
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/silver_bullet_ray_6.xml,"
+            draw_actions(1, true)
+        end,
+    },
+    
+    {
+        id                     = "SILVER_BULLET_ON_DEATH",
+        name                   = "Silver Scatter",
+        description            = "Makes a projectile fire silver bullets when it dies",
+        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_on_death.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_on_death.xml" },
+        type                   = ACTION_TYPE_MODIFIER,
+        spawn_level            = "3,4,5,10", -- FIREBALL_RAY
+        spawn_probability      = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
+        price                  = 300,
+        mana                   = 120,
+        --max_uses = 20,
+        action                 = function()
+			c.fire_rate_wait = c.fire_rate_wait + 15
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/silver_bullet_on_death.xml,"
+            draw_actions(1, true)
+        end,
+    },
+
+	{
+		id          = "ICE_ORB",
+		name 		= "Frost Orb",
+		description = "A chilling orb which shatters on death",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/ice_orb.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/ice_orb.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "2,3,4,5", -- SLOW_BULLET
+		spawn_probability                 = "1,1,1,1", -- SLOW_BULLET
+		price = 160,
+		mana = 30,
+		action 		= function()
+            c.fire_rate_wait = c.fire_rate_wait + 12;
+            current_reload_time = current_reload_time + 5;
+
+            if reflecting then
+                Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/ice_orb.xml");
+                return;
+            end
+
+            BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb.xml");
+                BeginTriggerDeath();
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb_fragment.xml"); EndProjectile();
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb_fragment.xml"); EndProjectile();
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb_fragment.xml"); EndProjectile();
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile()
+        end
+	},
+
+	{
+		id          = "CHARM_FIELD",
+		name 		= "Circle of Persuasion",
+		description = "A field of charming magic",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/charm_field.png",
+		related_projectiles	= {"data/entities/projectiles/deck/charm_field.xml"},
+		type 		= ACTION_TYPE_STATIC_PROJECTILE,
+		spawn_level                       = "0,1,2,3,4,5", -- TELEPORTATION_FIELD
+		spawn_probability                 = "0.3,0.6,0.3,0.3,0.6,0.3", -- TELEPORTATION_FIELD
+		price = 150,
+		mana = 30,
+		max_uses = 15,
+		action 		= function()
+			add_projectile("data/entities/projectiles/deck/charm_field.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 15
+		end,
+	},
+--[[
+	{
+		id          = "ASTRAL_VORTEX",
+		name 		= "Astral Vortex",
+		description = "Summon a swirling phenomenon that fires 5 bursts at enemies",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/astral_vortex.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/astral_beam.xml", 6},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "2,4,5,6", -- SLOW_BULLET
+		spawn_probability                 = "0.5,1,1,0.5", -- SLOW_BULLET
+		price = 260,
+		mana = 60,
+		action 		= function()
+            c.fire_rate_wait = c.fire_rate_wait + 12;
+            current_reload_time = current_reload_time + 5;
+
+            if reflecting then
+                for i=1,6 do
+                    Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/astral_beam.xml");
+                end
+                return;
+            end
+
+            BeginProjectile("mods/copis_things/files/entities/projectiles/astral_vortex.xml");
+                BeginTriggerTimer( 10 );
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/astral_beam.xml"); EndProjectile();
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+                BeginTriggerTimer( 20 );
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/astral_beam.xml"); EndProjectile();
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+                BeginTriggerTimer( 30 );
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/astral_beam.xml"); EndProjectile();
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+                BeginTriggerTimer( 40 );
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/astral_beam.xml"); EndProjectile();
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+                BeginTriggerTimer( 50 );
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/astral_beam.xml"); EndProjectile();
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile()
+        end
+	},]]
 }
 
 local copi_count = 0

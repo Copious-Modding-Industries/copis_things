@@ -1,0 +1,18 @@
+<Sprite 
+  filename="mods/copis_things/files/projectiles_gfx/ice_orb.png" 
+  offset_x="4" 
+  offset_y="4" >
+
+  <RectAnimation 
+    frame_count="1" 
+    frame_height="8" 
+    frame_width="8" 
+    frame_wait="0.2" 
+    frames_per_row="1" 
+    name="default" 
+    pos_x="0" 
+    pos_y="0" 
+    shrink_by_one_pixel="0" >
+  </RectAnimation>
+
+</Sprite>
