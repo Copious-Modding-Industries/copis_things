@@ -1,0 +1,15 @@
+<Entity>
+    
+    <HitEffectComponent 
+        condition_status="WET"
+        effect_hit="LOAD_UNIQUE_GAME_EFFECT"
+        value_string="data/entities/misc/effect_frozen.xml" >
+	</HitEffectComponent >
+
+    <HitEffectComponent 
+        condition_status="WET"
+        effect_hit="DAMAGE_BOOST"
+        value="2" >
+	</HitEffectComponent >
+
+</Entity>

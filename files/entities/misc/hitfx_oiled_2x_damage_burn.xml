@@ -1,0 +1,15 @@
+<Entity>
+    
+    <HitEffectComponent 
+        condition_status="OILED"
+        effect_hit="LOAD_UNIQUE_GAME_EFFECT"
+        value_string="data/entities/misc/effect_on_fire.xml" >
+	</HitEffectComponent >
+
+    <HitEffectComponent 
+        condition_status="OILED"
+        effect_hit="DAMAGE_BOOST"
+        value="2" >
+	</HitEffectComponent >
+
+</Entity>

@@ -1,0 +1,15 @@
+<Entity>
+    
+    <HitEffectComponent 
+        condition_status="BLOODY"
+        effect_hit="LOAD_UNIQUE_GAME_EFFECT"
+        value_string="data/entities/misc/effect_poison.xml" >
+	</HitEffectComponent >
+
+    <HitEffectComponent 
+        condition_status="BLOODY"
+        effect_hit="DAMAGE_BOOST"
+        value="2" >
+	</HitEffectComponent >
+
+</Entity>

@@ -395,8 +395,8 @@ local to_insert = {
 			reset_modifiers( c );
             BeginProjectile( "mods/copis_things/files/entities/projectiles/separator_cast.xml" );
                 BeginTriggerDeath();
-                    for k,v in pairs(old_c) do
-                        c[k] = v;
+                    for index,value in pairs(old_c) do
+                        c[index] = value;
                     end
                     draw_actions( 1, true );
                     register_action( c );
@@ -548,7 +548,7 @@ local to_insert = {
         action            = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/wispy_shot.xml,"
             draw_actions(1, true)
-            c.lifetime_add   = c.lifetime_add + 1500
+            c.lifetime_add   = c.lifetime_add + 500
             c.fire_rate_wait = c.fire_rate_wait + 20
         end
     },
@@ -629,8 +629,8 @@ local to_insert = {
 
     {
         id                  = "CONCRETEBALL",
-        name                = "Chunk of concrete",
-        description         = "The power of industry!",
+        name                = "Chunk of Concrete",
+        description         = "He really cemented himself a household name",
         sprite              = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_concrete.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml" },
         type                = ACTION_TYPE_MATERIAL,
@@ -3810,18 +3810,20 @@ local to_insert = {
             c.damage_critical_chance = c.damage_critical_chance + 10
 
             if reflecting then
-                Reflection_RegisterProjectile("data/entities/projectiles/deck/light_bullet.xml")
-                return
+                Reflection_RegisterProjectile("data/entities/projectiles/deck/light_bullet.xml");
+                return;
             end
 
-            BeginProjectile("data/entities/projectiles/deck/light_bullet.xml")
-            BeginTriggerHitWorld()
-            BeginProjectile("data/entities/projectiles/deck/light_bullet.xml")
-            BeginTriggerHitWorld()
-            draw_shot(create_shot(1), true)
-            EndTrigger()
-            EndProjectile()
-            EndTrigger()
+            BeginProjectile("data/entities/projectiles/deck/light_bullet.xml");
+                BeginTriggerHitWorld();
+                    BeginProjectile("data/entities/projectiles/deck/light_bullet.xml");
+                        BeginTriggerHitWorld()
+                            draw_shot(create_shot(1), true)
+                        EndTrigger()
+                    EndProjectile();
+                    register_action( c );
+                    SetProjectileConfigs();
+                EndTrigger();
             EndProjectile()
         end,
     },
@@ -5043,7 +5045,7 @@ local to_insert = {
             draw_actions(1, true)
         end,
     },
-    
+
     {
         id                     = "SILVER_BULLET_ON_DEATH",
         name                   = "Silver Scatter",
@@ -5113,6 +5115,142 @@ local to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 15
 		end,
 	},
+
+	{
+		id          = "MANA_RANDOM",
+		name 		= "Random Mana",
+		description = "Adds or removes a random amount of mana to the wand",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/mana_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,3,4,5,6", -- MANA_REDUCE
+		spawn_probability                 = "0.8,0.8,0.8,0.8,0.8,0.8", -- MANA_REDUCE
+		price = 300,
+		mana = 0,
+		--max_uses = 150,
+		custom_xml_file = "data/entities/misc/custom_cards/mana_reduce.xml",
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 5
+            if reflecting then return; end
+            SetRandomSeed(GameGetFrameNum() + 978, GameGetFrameNum() + 663)
+            local new_mana = mana + Random(-20, 60)
+            mana = math.max(0, new_mana)
+            draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "HITFX_WET_2X_DAMAGE_FREEZE",
+		name 		= "Snap Freeze",
+		description = "Your projectile always deals 2x damage to wet enemies and freezes them",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/hitfx_wet_2x_damage_freeze.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "2,3,4,5",
+		spawn_probability                 = "0.6,0.8,0.6,0.6",
+		price = 160,
+		mana = 50,
+		action 		= function()
+            c.fire_rate_wait = c.fire_rate_wait + 12;
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_wet_2x_damage_freeze.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id                  = "HITFX_BLOODY_2X_DAMAGE_POISONED",
+		name                = "Viral Blood",
+		description         = "Your projectile always deals 2x damage to bloody enemies and poisons them",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_bloody_2x_damage_poisoned.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		type                = ACTION_TYPE_MODIFIER,
+		spawn_level         = "2,3,4,5",
+		spawn_probability   = "0.6,0.8,0.6,0.6",
+		price               = 160,
+		mana                = 50,
+		action 		= function()
+            c.fire_rate_wait = c.fire_rate_wait + 12;
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_bloody_2x_damage_poisoned.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id                  = "HITFX_OILED_2X_DAMAGE_BURN",
+		name                = "Oil Ignition",
+		description         = "Your projectile always deals 2x damage to oiled enemies and engulfs them in flames",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_oiled_2x_damage_burn.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/burn_trail_unidentified.png",
+		type                = ACTION_TYPE_MODIFIER,
+		spawn_level         = "2,3,4,5",
+		spawn_probability   = "0.6,0.8,0.6,0.6",
+		price               = 160,
+		mana                = 50,
+		action              = function()
+            c.fire_rate_wait = c.fire_rate_wait + 12;
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_oiled_2x_damage_burn.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id                  = "BLINDNESS",
+		name                = "Blinding Shot",
+		description         = "Your projectile blinds anyone it hits, including you",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/blindness.png",
+		type                = ACTION_TYPE_MODIFIER,
+		spawn_level         = "3,5,6",
+		spawn_probability   = "0.4,0.6,0.3",
+		price               = 100,
+		mana                = 100,
+		max_uses            = 50,
+		custom_xml_file     = "data/entities/misc/custom_cards/blindness.xml",
+		action              = function()
+            c.fire_rate_wait = c.fire_rate_wait + 12;
+			c.game_effect_entities = c.game_effect_entities .. "mods/copis_things/files/entities/misc/status_entities/effect_better_blindness.xml,"
+			c.extra_entities = c.extra_entities .. "data/entities/particles/blindness.xml,"
+			c.friendly_fire = true
+		end,
+	},
+
+	{
+		id          = "MATERIAL_LAVA",
+		name 		= "$action_material_lava",
+		description = "$actiondesc_material_lava",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/material_lava.png",
+		type 		= ACTION_TYPE_MATERIAL,
+		spawn_level                       = "1,2,3,4,5", -- MATERIAL_WATER
+		spawn_probability                 = "0.4,0.4,0.4,0.4,0.4", -- MATERIAL_WATER
+		price = 110,
+		mana = 0,
+		sound_loop_tag = "sound_spray",
+		action 		= function()
+			add_projectile("data/entities/projectiles/deck/material_lava.xml")
+			c.game_effect_entities = c.game_effect_entities .. "data/entities/misc/effect_apply_on_fire.xml,"
+			c.fire_rate_wait = c.fire_rate_wait - 15
+			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
+		end,
+	},
+
+	{
+		id          = "MATERIAL_MAGIC_LIQUID_POLYMORPH",
+		name 		= "Polymorphine",
+		description = "Transmute globs of polymorphine from nothing",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/material_magic_liquid_polymorph.png",
+		type 		= ACTION_TYPE_MATERIAL,
+		spawn_level                       = "1,2,3,4,5", -- MATERIAL_WATER
+		spawn_probability                 = "0.4,0.4,0.4,0.4,0.4", -- MATERIAL_WATER
+		price = 110,
+		mana = 0,
+		sound_loop_tag = "sound_spray",
+		action 		= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/material_magic_liquid_polymorph.xml")
+			c.game_effect_entities = c.game_effect_entities .. "data/entities/misc/effect_polymorph.xml,"
+			c.fire_rate_wait = c.fire_rate_wait - 15
+			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
+		end,
+	},
+
 --[[
 	{
 		id          = "ASTRAL_VORTEX",
