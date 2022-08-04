@@ -16,5 +16,5 @@ end
 
 EntitySetTransform(entity_id, x, y)
 edit_component2( entity_id, "VelocityComponent", function(comp,vars)
- 	ComponentSetValueVector2( comp, "mVelocity", 0, 0)
+ 	--ComponentSetValueVector2( comp, "mVelocity", 0, 0)
 end)

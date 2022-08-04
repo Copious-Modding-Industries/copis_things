@@ -1,0 +1,99 @@
+<Entity name="$projectile_default" tags="projectile_player" >
+
+	<Base file="data/entities/base_projectile.xml" >
+		<VelocityComponent
+			gravity_y="0"
+			air_friction="2.0"
+			mass="0.02"
+            terminal_velocity="200"
+			>
+		</VelocityComponent>
+	</Base>
+
+  <ProjectileComponent 
+    _enabled="1" 
+    lob_min="0.5"
+    lob_max="0.7"
+    speed_min="100"
+    speed_max="200"
+    friction="1"
+    direction_random_rad="0.40"
+    on_death_explode="1"
+    on_death_gfx_leave_sprite="0" 
+    on_lifetime_out_explode="1"
+    explosion_dont_damage_shooter="1"
+    on_collision_die="1"
+    lifetime="100"
+    damage="0.0"
+    bounce_always="1"
+    bounces_left="4"
+    bounce_energy="1"
+    velocity_sets_scale="0"
+    lifetime_randomness="7"
+    ragdoll_force_multiplier="0.01"
+    hit_particle_force_multiplier="0.1"
+    velocity_sets_rotation="1"
+    muzzle_flash_file="data/entities/particles/muzzle_flashes/muzzle_flash_magic_small.xml"
+    shoot_light_flash_r="70"
+    shoot_light_flash_g="190"
+    shoot_light_flash_b="255"
+    shoot_light_flash_radius="64" 
+    knockback_force="0.5"
+    physics_impulse_coeff="2000" >
+    <damage_by_type
+        curse="0.2">
+    </damage_by_type>
+    <config_explosion
+        damage="0"
+        explosion_radius="0"
+    ></config_explosion>
+  </ProjectileComponent>
+
+  <LightComponent 
+    _enabled="1" 
+    radius="60" 
+	fade_out_time="0.1"
+	r="10"
+	g="40"
+	b="80">
+  </LightComponent>
+  
+  <AudioComponent
+      file="data/audio/Desktop/projectiles.bank"
+      event_root="player_projectiles/chain_bolt">
+  </AudioComponent>
+
+	<VariableStorageComponent
+		name="projectile_file"
+		value_string="mods/copis_things/files/entities/projectiles/astral_vortex.xml"
+		>
+	</VariableStorageComponent>
+
+
+    <Entity>
+        <LuaComponent script_source_file="mods/copis_things/files/scripts/projectiles/astral_vortex_particle_angular.lua"
+            execute_every_n_frame="1" />
+
+        <ParticleEmitterComponent emitted_material_name="spark_teal"
+            x_pos_offset_min="5"
+            x_pos_offset_max="5"
+            y_vel_min="80"
+            y_vel_max="100"
+            gravity.y="0.0"
+            lifetime_min="1"
+            lifetime_max="6"
+            attractor_force="1"
+            friction="0"
+            draw_as_long="1"
+            count_min="1"
+            count_max="2"
+            render_on_grid="1"
+            collide_with_grid="0"
+            fade_based_on_lifetime="1"
+            cosmetic_force_create="0"
+            emission_interval_min_frames="1"
+            emission_interval_max_frames="1"
+            emit_cosmetic_particles="1" />
+    </Entity>
+
+</Entity>

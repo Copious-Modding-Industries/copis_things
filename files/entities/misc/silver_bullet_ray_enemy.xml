@@ -1,0 +1,15 @@
+<Entity>
+	<InheritTransformComponent />
+	
+	<LuaComponent 
+		_enabled="1" 
+		script_source_file="mods/copis_things/files/scripts/projectiles/silver_bullet_ray_enemy.lua" 
+        execute_times="8"
+		execute_every_n_frame="4">
+   </LuaComponent>
+	
+	<LifetimeComponent
+		lifetime="33"
+		>
+	</LifetimeComponent>
+</Entity>

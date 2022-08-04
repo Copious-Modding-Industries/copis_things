@@ -63,7 +63,8 @@
         "options",
         "collision_trigger",
         "throw_item",
-        "mana"
+        "mana",
+        "vec_mult"
     ],
     "Lua.diagnostics.disable": [
         "deprecated",

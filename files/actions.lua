@@ -22,161 +22,6 @@ local to_insert = {
         end,
     },
 
-    {
-        id                = "DEV",
-        name              = "Dev",
-        description       = "Simulation backdoor -- remove before awakening subject",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/dev_meta.png",
-        type              = ACTION_TYPE_OTHER,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = -255,
-        ai_never_uses     = true,
-        action            = function(recursion_level, iteration)
-
-
-            if reflecting then return; end
-
-            local entity_id = GetUpdatedEntityID()
-            local player = EntityGetWithTag("player_unit")[1]
-            local x, y = EntityGetTransform(player)
-            if entity_id ~= nil and entity_id ~= 0 then
-                if (entity_id == player) then
-
-                    if GameHasFlagRun("Detected") then
-                        GamePrintImportant("Simulation administrators have detected you.", "ERASING ACTOR",
-                            "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
-                        EntityLoadToEntity("data/entities/misc/effect_weaken.xml", player)
-                        local damage_model_component = EntityGetFirstComponent(player, "DamageModelComponent")
-                        local damage = 10000000
-                        GameScreenshake(100, x, y) --shake
-                        GameDropAllItems(player) --drop junk
-                        GamePrintImportant("Simulation actor terminated", "",
-                            "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png") --flavour text
-                        EntityLoad("data/entities/particles/image_emitters/player_disappear_effect_right.xml", x, y) -- gfx
-                        EntityKill(player) --no way you're escaping this one buckaroo
-
-                        --EntityInflictDamage(player, damage, "DAMAGE_PHYSICS_BODY_DAMAGED", "Simulation actor terminated", "DISINTEGRATED", 0, 0)		--crashes
-
-                    else
-                        GamePrintImportant("Backdoor accessed!", "self targetted",
-                            "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
-                        GamePrintImportant("Permissions level increased", "2/10",
-                            "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
-                        EntityAddComponent2(player, "UIIconComponent", {
-                            name = "Developer " .. tostring(player),
-                            description = "You feel empowered ",
-                            icon_sprite_file = "mods/copis_things/files/ui_gfx/status_indicators/dev_meta.png",
-                            display_above_head = false,
-                            display_in_hud = true,
-                            is_perk = true,
-                        })
-
-                        local text_id = EntityCreateNew("text_above_head")
-                        EntityAddComponent2(text_id, "SpriteComponent", {
-                            image_file = "mods/copis_things/files/fonts/font_small_numbers_grey.xml",
-                            is_text_sprite = true,
-                            offset_x = -15,
-                            offset_y = 0,
-                            text = tostring(player),
-                            update_transform = true,
-                            update_transform_rotation = false,
-                            has_special_scale = true,
-                            special_scale_x = 0.65,
-                            special_scale_y = 0.65,
-                            alpha = 1,
-                            emissive = true,
-                            z_index = 10
-                        })
-                        EntityAddComponent2(text_id, "InheritTransformComponent", {})
-                        EntityAddChild(player, text_id)
-
-                        local text_id2 = EntityCreateNew("text_above_head")
-                        EntityAddComponent2(text_id2, "SpriteComponent", {
-                            image_file = "mods/copis_things/files/fonts/font_small_numbers_damage.xml",
-                            is_text_sprite = true,
-                            offset_x = -15,
-                            offset_y = 9,
-                            text = tostring(player),
-                            update_transform = true,
-                            update_transform_rotation = false,
-                            has_special_scale = true,
-                            special_scale_x = 0.65,
-                            special_scale_y = 0.65,
-                            alpha = 1,
-                            emissive = true,
-                            z_index = 10
-                        })
-                        EntityAddComponent2(text_id2, "LuaComponent", {
-                            script_source_file = "mods/copis_things/files/scripts/magic/health_amount.lua",
-                            execute_every_n_frame = 1,
-                        })
-                        EntityAddComponent2(text_id2, "InheritTransformComponent", {})
-                        EntityAddChild(player, text_id2)
-
-                        local text_id3 = EntityCreateNew("text_above_head")
-                        EntityAddComponent2(text_id3, "SpriteComponent", {
-                            image_file = "mods/copis_things/files/fonts/font_small_numbers_gold.xml",
-                            is_text_sprite = true,
-                            offset_x = -15,
-                            offset_y = 18,
-                            text = tostring(player),
-                            update_transform = true,
-                            update_transform_rotation = false,
-                            has_special_scale = true,
-                            special_scale_x = 0.65,
-                            special_scale_y = 0.65,
-                            alpha = 1,
-                            emissive = true,
-                            z_index = 10
-                        })
-                        EntityAddComponent2(text_id3, "LuaComponent", {
-                            script_source_file = "mods/copis_things/files/scripts/magic/gold_amount.lua",
-                            execute_every_n_frame = 1,
-                        })
-                        EntityAddComponent2(text_id3, "InheritTransformComponent", {})
-                        EntityAddChild(player, text_id3)
-
-                        local text_id4 = EntityCreateNew("text_above_head")
-                        EntityAddComponent2(text_id4, "SpriteComponent", {
-                            image_file = "mods/copis_things/files/fonts/font_small_numbers_true_damage.xml",
-                            is_text_sprite = true,
-                            offset_x = -15,
-                            offset_y = 27,
-                            text = tostring(player),
-                            update_transform = true,
-                            update_transform_rotation = false,
-                            has_special_scale = true,
-                            special_scale_x = 0.65,
-                            special_scale_y = 0.65,
-                            alpha = 1,
-                            emissive = true,
-                            z_index = 10
-                        })
-                        EntityAddComponent2(text_id4, "LuaComponent", {
-                            script_source_file = "mods/copis_things/files/scripts/magic/enemy_amount.lua",
-                            execute_every_n_frame = 1,
-                        })
-                        EntityAddComponent2(text_id4, "InheritTransformComponent", {})
-                        EntityAddChild(player, text_id4)
-
-                        local character_data_component = EntityGetFirstComponent(player, "CharacterDataComponent")
-                        ComponentSetValue2(character_data_component, "flying_needs_recharge", false) --fly
-
-                        GamePrintImportant("You feel an uncomfortable presence watching you", "",
-                            "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
-                        GameScreenshake(50, x, y)
-                        GameAddFlagRun("Detected")
-                    end
-                end
-            end
-            c.fire_rate_wait = math.max(1000, c.fire_rate_wait * 2)
-            current_reload_time = math.max(1000, current_reload_time * 2)
-
-        end,
-    },
-
     -- PSYCHIC SHOT
     {
         id                = "PSYCHIC_SHOT",
@@ -2675,23 +2520,6 @@ local to_insert = {
 	},
 ]]
     {
-        id                = "GOLD",
-        name              = "Gold",
-        description       = "Summons a nugget of gold",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/gold.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
-        spawn_probability = "0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001,	0.001",
-        price             = 200000,
-        mana              = 150,
-        max_uses          = 3,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            add_projectile("data/entities/items/pickup/goldnugget_200.xml")
-        end,
-    },
-    {
         id                = "FREEZING_VAPOUR_TRAIL",
         name              = "Freezing Vapour Trail",
         description       = "Gives a projectile a trail of stinging frost",
@@ -5065,6 +4893,44 @@ local to_insert = {
         end,
     },
 
+    {
+        id                     = "SILVER_BULLET_RAY_SPIN",
+        name                   = "Silver Spread",
+        description            = "Makes a projectile fire silver bullets in a circle",
+        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_spin.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray_spin.xml" },
+        type                   = ACTION_TYPE_MODIFIER,
+        spawn_level            = "3,4,5,10", -- FIREBALL_RAY
+        spawn_probability      = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
+        price                  = 300,
+        mana                   = 80,
+		max_uses               = 50,
+        action                 = function()
+            c.fire_rate_wait = c.fire_rate_wait + 30
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/silver_bullet_ray_spin.xml,"
+            draw_actions(1, true)
+        end,
+    },
+
+    {
+        id                     = "SILVER_BULLET_RAY_ENEMY",
+        name                   = "Personal Silver Spread",
+        description            = "Causes hit enemies to spray out bullets",
+        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_enemy.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml" },
+        type                   = ACTION_TYPE_MODIFIER,
+        spawn_level            = "3,4,5,10", -- FIREBALL_RAY
+        spawn_probability      = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
+        price                  = 200,
+        mana                   = 40,
+        --max_uses = 20,
+        action                 = function()
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml,"
+            draw_actions(1, true)
+        end,
+    },
+
 	{
 		id          = "ICE_ORB",
 		name 		= "Frost Orb",
@@ -5251,23 +5117,68 @@ local to_insert = {
 		end,
 	},
 
---[[
+	{
+		id                  = "OPHIUCHUS",
+		name                = "Ophiuchus Arts",
+		description         = "All your damage is halved then converted to healing, and your projectile can hit you",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ophiuchus.png",
+		type                = ACTION_TYPE_MODIFIER,
+		spawn_level         = "1,2,3,4,5,6",
+		spawn_probability   = "0.1,0.1,0.1,0.1,0.6,0.1",
+		price               = 500,
+		mana                = 120,
+		max_uses            = 5,
+        never_unlimited   = true,
+		action              = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/particles/healing.xml,mods/copis_things/files/entities/misc/ophiuchus.xml,";
+			c.friendly_fire = true
+            c.fire_rate_wait = c.fire_rate_wait + 12;
+			current_reload_time = current_reload_time + 12
+		end,
+	},
+
+	{
+		id          = "NUGGET_SHOT",
+		name 		= "Nugget Shot",
+		description = "Hurl some of your hard earned gold at the enemy. Requires 10 gold",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/nugget_shot.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/nugget_shot.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "2,3,4,5",
+		spawn_probability                 = "0.6,0.6,0.6,0.6",
+		price = 1000,
+		mana = 30,
+		action 		= function()
+            local shooter = GetUpdatedEntityID();
+            local wallet = EntityGetFirstComponent( shooter, "WalletComponent" );
+            if wallet ~= nil then
+                local money = ComponentGetValue2( wallet, "money" );
+                local cost = 10;
+                if money >= cost then
+                    add_projectile("mods/copis_things/files/entities/projectiles/nugget_shot.xml");
+                    ComponentSetValue2( wallet, "money", money - cost );
+                end
+            end
+        end
+	},
+
 	{
 		id          = "ASTRAL_VORTEX",
 		name 		= "Astral Vortex",
-		description = "Summon a swirling phenomenon that fires 5 bursts at enemies",
+		description = "Summon a swirling phenomenon that fires 5 bursts of astral energy",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/astral_vortex.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/astral_beam.xml", 6},
 		type 		= ACTION_TYPE_PROJECTILE,
-		spawn_level                       = "2,4,5,6", -- SLOW_BULLET
-		spawn_probability                 = "0.5,1,1,0.5", -- SLOW_BULLET
+		spawn_level                       = "3,4,5,6",
+		spawn_probability                 = "0.5,1,1,0.5",
 		price = 260,
-		mana = 60,
+		mana = 75,
 		action 		= function()
             c.fire_rate_wait = c.fire_rate_wait + 12;
             current_reload_time = current_reload_time + 5;
 
             if reflecting then
+                Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/astral_vortex.xml")
                 for i=1,6 do
                     Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/astral_beam.xml");
                 end
@@ -5302,7 +5213,26 @@ local to_insert = {
                 EndTrigger();
             EndProjectile()
         end
-	},]]
+	},
+
+	{
+		id          = "LASER_EMITTER_SMALL",
+		name 		= "Plasma Shiv",
+		description = "A short beam of light",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/laser_small.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/laser_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/orb_laseremitter_small.xml"},
+		type 		= ACTION_TYPE_PROJECTILE,
+		spawn_level                       = "0,1,2,3", -- LASER
+		spawn_probability                 = "0.6,1,1,0.6", -- LASER
+		price = 180,
+		mana = 10,
+		action 		= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/orb_laseremitter_small.xml")
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
+			c.game_effect_entities = c.game_effect_entities .. "data/entities/misc/effect_disintegrated.xml,"
+		end,
+	},
 }
 
 local copi_count = 0

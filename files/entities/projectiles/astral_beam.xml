@@ -4,6 +4,7 @@
 		<VelocityComponent
 			mass="0.1"
 			limit_to_max_velocity="0"
+            gravity_y="0"
 			>
 		</VelocityComponent>
 	</Base>
@@ -22,17 +23,27 @@
 		ground_collision_fx="1"
 		on_collision_die="0"
 		lifetime="6"
-		damage="0.6"
+        bounce_always="0"
+        bounces_left="0"
+        bounce_energy="1"
+		damage="0.4"
 		velocity_sets_scale="0"
 		lifetime_randomness="0"
 		ragdoll_force_multiplier="0"
 		hit_particle_force_multiplier="0"
 		penetrate_entities="1"
 		penetrate_world="0" >
+        <damage_by_type
+            curse="0.2">
+        </damage_by_type>
+        <config_explosion
+            damage="0"
+            explosion_radius="0"
+        ></config_explosion>
 	</ProjectileComponent>
 
 	<ParticleEmitterComponent 
-		emitted_material_name="spark_teal_bright"
+		emitted_material_name="spark_teal"
 		offset.x="0"
 		offset.y="0"
 		x_pos_offset_min="-1"
@@ -63,7 +74,7 @@
 	</ParticleEmitterComponent>
 
 	<ParticleEmitterComponent 
-		emitted_material_name="spark_teal_bright"
+		emitted_material_name="spark_teal"
 		offset.x="0"
 		offset.y="0"
 		x_pos_offset_min="0"
@@ -124,9 +135,24 @@
 		is_emitting="1" >
 	</ParticleEmitterComponent>
 
+	<LuaComponent 
+		_enabled="1" 
+		script_source_file="data/scripts/projectiles/autoaim.lua"
+		execute_every_n_frame="2"
+        execute_times="2">
+    </LuaComponent>
+
+	<LuaComponent 
+		_enabled="1" 
+		script_source_file="data/scripts/projectiles/chaotic_arc.lua"
+        execute_on_added="1"
+        execute_times="4"
+		execute_every_n_frame="1">
+    </LuaComponent>
+
 	<AudioComponent
 	file="data/audio/Desktop/projectiles.bank"
-	event_root="player_projectiles/bullet_lightning">
+	event_root="projectiles/revive">
 	</AudioComponent>
 
 </Entity>

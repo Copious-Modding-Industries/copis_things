@@ -4,6 +4,7 @@ local x, y, r       = EntityGetTransform( entity_id )
 
 edit_component( entity_id, "ProjectileComponent", function(comp,vars)
 	vars.die_on_low_velocity = 0
+    vars.velocity_sets_scale = 0
 end)
 
 edit_component2( entity_id, "VelocityComponent", function(comp,vars)
@@ -11,7 +12,11 @@ edit_component2( entity_id, "VelocityComponent", function(comp,vars)
     vars.gravity_x = 0
     vars.air_friction= 0
     vars.mass= 0
- 	ComponentSetValueVector2( comp, "mVelocity", 0, 0)
+
+ 	local vel_x, vel_y = ComponentGetValueVector2( comp, "mVelocity")
+    vel_x, vel_y = vec_normalize(vel_x, vel_y)
+    vel_x, vel_y = vec_mult(vel_x, vel_y, 0.1)
+ 	ComponentSetValueVector2( comp, "mVelocity", vel_x, vel_y)
 end)
 
 local variablestorages = EntityGetComponent( entity_id, "VariableStorageComponent" )
