@@ -67,7 +67,11 @@
         "vec_mult",
         "material",
         "material_amount",
-        "reset_modifiers"
+        "reset_modifiers",
+        "copi_state",
+        "gun",
+        "state_shuffled",
+        "force_stop_draws"
     ],
     "Lua.diagnostics.disable": [
         "deprecated",

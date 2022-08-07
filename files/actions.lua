@@ -54,18 +54,39 @@ local to_insert = {
         ai_never_uses     = true,
         action            = function()
             local entity_id = GetUpdatedEntityID()
-            local player = EntityGetWithTag("player_unit")[1]
-            if (entity_id == player) then
-                local pos_x, pos_y = EntityGetTransform(player)
-                local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(player,
-                    "ControlsComponent"), "mMousePosition")
-                if (mouse_x == nil or mouse_y == nil) then return end
-                local aim_x = mouse_x - pos_x
-                local aim_y = mouse_y - pos_y
-                local len = math.sqrt((aim_x ^ 2) + (aim_y ^ 2))
-                local force_x = 1000
-                local force_y = 1000
-                ComponentSetValue2(EntityGetFirstComponent(player, "CharacterDataComponent"), "mVelocity", (aim_x / len * force_x), (aim_y / len * force_y))
+            local controls_comp = EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent")
+            if controls_comp ~= nil then
+
+                local character_data_comp = EntityGetFirstComponent(entity_id, "CharacterDataComponent")
+                if character_data_comp ~= nil then
+
+                    local caster = {
+                        velocity = {x = 0, y = 0},
+                        position = {x = 0, y = 0},
+                    }
+                    local mouse = {
+                        position = {x = 0, y = 0},
+                    }
+
+                    caster.position.x,  caster.position.y   = EntityGetTransform(entity_id)
+                    caster.velocity.x,  caster.velocity.y   = ComponentGetValueVector2(character_data_comp, "mVelocity")
+                    mouse.position.x,   mouse.position.y    = ComponentGetValueVector2(controls_comp, "mMousePosition")
+
+                    local offset = {
+                        x = mouse.position.x - caster.position.x,
+                        y = mouse.position.y - caster.position.y,
+                    }
+                    local force = {
+                        x = 650,
+                        y = 1000,
+                    }
+
+                    local len = math.sqrt((offset.x ^ 2) + (offset.y ^ 2))
+                    caster.velocity.x = caster.velocity.x + (offset.x / len * force.x)
+                    caster.velocity.y = caster.velocity.y + (offset.y / len * force.y)
+
+                    ComponentSetValue2(character_data_comp, "mVelocity", caster.velocity.x, caster.velocity.y)
+                end
             end
         end,
     },
@@ -152,11 +173,16 @@ local to_insert = {
         price             = 100,
         mana              = -15,
         action            = function()
-            c.speed_multiplier      = c.speed_multiplier * 0.8
-            c.gore_particles        = c.gore_particles - 5
-            c.fire_rate_wait        = c.fire_rate_wait - 5
-            c.damage_projectile_add = c.damage_projectile_add - 1
-            c.spread_degrees        = c.spread_degrees - 5
+            c.gore_particles                = c.gore_particles - 10
+            c.damage_projectile_add         = c.damage_projectile_add - 1.4
+
+            c.spread_degrees                = c.spread_degrees - 5
+            c.speed_multiplier              = c.speed_multiplier * 0.8
+            shot_effects.recoil_knockback   = shot_effects.recoil_knockback - 10.0
+
+            c.fire_rate_wait                = c.fire_rate_wait - 12
+            current_reload_time             = current_reload_time - 24
+
             draw_actions(1, true)
         end,
     },
@@ -1461,27 +1487,6 @@ local to_insert = {
             c.fire_rate_wait              = c.fire_rate_wait + 5
             c.extra_entities              = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
             shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                  = "DAMAGE_MINUS",
-        name                = "Damage Minus",
-        description         = "Decreases the damage done by a projectile",
-        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/damage_minus.png",
-        sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
-        type                = ACTION_TYPE_MODIFIER,
-        spawn_level         = "2,3,4,5", -- DAMAGE
-        spawn_probability   = "0.3,0.3,0.3,0.3", -- DAMAGE
-        price               = 50,
-        mana                = -20,
-        --max_uses = 50,
-        action              = function()
-            c.damage_projectile_add       = c.damage_projectile_add - 0.2
-            c.gore_particles              = c.gore_particles - 5
-            c.fire_rate_wait              = c.fire_rate_wait - 2.5
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback - 10.0
             draw_actions(1, true)
         end,
     },
@@ -5245,50 +5250,6 @@ local to_insert = {
 		end,
 	},
 
-
-    {
-        id                  = "MULTICAST_BUFFS",
-        name                = "Weighted Stack",
-        description         = "Fire all remaining spells with stat improvements proportional to spells drawn",
-        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ultimate_draw_many.png",
-        sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
-        type                = ACTION_TYPE_DRAW_MANY,
-        spawn_level         = "5,6,10",
-        spawn_probability   = "0.3,0.5,0.6",
-        price               = 500,
-        mana                = 25,
-        max_uses            = 10,
-        action              = function()
-
-            --if reflecting then; return; end;
-
-            local n = 1
-            while (#deck > 0) do
-                n = n + 1
-                draw_actions( 1, true )
-            end
-
-            c.spread_degrees            = c.spread_degrees          +           (n * 2.5)
-            c.fire_rate_wait            = c.fire_rate_wait          +           (n * 6)
-            c.screenshake               = c.screenshake             +           (n * 1)
-            c.damage_critical_chance    = c.damage_critical_chance  +           (n * 2)
-            c.lifetime_add              = c.lifetime_add            +           (n * 1)
-            c.damage_projectile_add     = c.damage_projectile_add   +           (n * 0.05)
-            c.speed_multiplier          = c.speed_multiplier        +           (n * 0.2)
-            c.gore_particles            = c.gore_particles          +           (n * 2)
-            c.bounces                   = c.bounces                 + math.floor(n * 0.25)
-            if n >= 20 then
-                c.extra_entities        = c.extra_entities          ..          "data/entities/particles/tinyspark_white.xml,"
-                c.ragdoll_fx            = 3
-            elseif n >= 10 then
-                c.extra_entities        = c.extra_entities          ..          "data/entities/particles/tinyspark_white_weak.xml,"
-                c.ragdoll_fx            = 4
-                c.explosion_radius      = c.explosion_radius        + math.floor(n * 0.25)
-            end
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback + (n * 1)
-        end,
-    },
-
     {
         id                  = "MULTICAST_SPREAD",
         name                = "Full Hand",
@@ -5463,6 +5424,103 @@ local to_insert = {
 			draw_actions( 1, true )
 		end,
 	},
+
+    {
+        id                = "ORDER_DECK",
+        name              = "Order Deck",
+        description       = "Your wand casts spells in order",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/order_deck.png",
+        type              = ACTION_TYPE_PASSIVE,
+        spawn_level       = "0,1,2,3,4", -- TINY_GHOST
+        spawn_probability = "1,1,1,1,1", -- TINY_GHOST
+        price             = 100,
+        mana              = 7,
+        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/order_deck.xml",
+        action            = function()
+            draw_actions(1, true)
+        end,
+    },
+
+	{
+		id                  = "MANA_EFFICENCY",
+		name                = "Mana Efficiency",
+		description         = "The next spell costs half as much mana",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/mana_efficiency.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		type                = ACTION_TYPE_MODIFIER,
+		spawn_level         = "3,4,5,6",
+		spawn_probability   = "0.2,0.2,0.2,0.2",
+		price               = 150,
+		mana                = 0,
+		action              = function()
+            copi_state.mana_multiplier = copi_state.mana_multiplier * 0.5;
+            draw_actions( 1, true );
+            copi_state.mana_multiplier = copi_state.mana_multiplier * 2;
+		end,
+	},
+
+	{
+		id                  = "ULT_DAMAGE",
+		name                = "Empower",
+		description         = "The next spell deals 5x more damage but costs 3x more mana",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ult_damage.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		type                = ACTION_TYPE_MODIFIER,
+		spawn_level         = "3,4,5,6",
+		spawn_probability   = "0.2,0.2,0.2,0.2",
+		price               = 150,
+		mana                = 0,
+		action              = function()
+            copi_state.mana_multiplier = copi_state.mana_multiplier * 3.0;
+			c.damage_projectile_add = c.damage_projectile_add + 0.08;
+            c.extra_entities = c.extra_entities.."mods/copis_things/files/entities/misc/ult_damage.xml,";
+            draw_actions( 1, true );
+            copi_state.mana_multiplier = copi_state.mana_multiplier / 3.0;
+		end,
+	},
+
+    {
+        id                  = "ULT_DRAW_MANY",
+        name                = "Weighted Stack",
+        description         = "Fire all remaining spells with stat improvements proportional to spells drawn",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ult_draw_many.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
+        type                = ACTION_TYPE_DRAW_MANY,
+        spawn_level         = "5,6,10",
+        spawn_probability   = "0.3,0.5,0.6",
+        price               = 500,
+        mana                = 25,
+        max_uses            = 10,
+        action              = function()
+
+            --if reflecting then; return; end;
+
+            local n = 1
+            while (#deck > 0) do
+                n = n + 1
+                draw_actions( 1, true )
+            end
+
+            c.spread_degrees            = c.spread_degrees          +           (n * 2.5)
+            c.fire_rate_wait            = c.fire_rate_wait          +           (n * 6)
+            c.screenshake               = c.screenshake             +           (n * 1)
+            c.damage_critical_chance    = c.damage_critical_chance  +           (n * 2)
+            c.lifetime_add              = c.lifetime_add            +           (n * 1)
+            c.damage_projectile_add     = c.damage_projectile_add   +           (n * 0.05)
+            c.speed_multiplier          = c.speed_multiplier        +           (n * 0.2)
+            c.gore_particles            = c.gore_particles          +           (n * 2)
+            c.bounces                   = c.bounces                 + math.floor(n * 0.25)
+            if n >= 20 then
+                c.extra_entities        = c.extra_entities          ..          "data/entities/particles/tinyspark_white.xml,"
+                c.ragdoll_fx            = 3
+            elseif n >= 10 then
+                c.extra_entities        = c.extra_entities          ..          "data/entities/particles/tinyspark_white_weak.xml,"
+                c.ragdoll_fx            = 4
+                c.explosion_radius      = c.explosion_radius        + math.floor(n * 0.25)
+            end
+            shot_effects.recoil_knockback = shot_effects.recoil_knockback + (n * 1)
+        end,
+    },
 }
 
 local copi_count = 0
@@ -5478,6 +5536,27 @@ print("[COPIS_THINGS] Initialized " .. tostring(copi_count) .. " spells")
 
 
 --[[
+    {
+        id                  = "DAMAGE_MINUS",
+        name                = "Damage Minus",
+        description         = "Decreases the damage done by a projectile",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/damage_minus.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/damage_unidentified.png",
+        type                = ACTION_TYPE_MODIFIER,
+        spawn_level         = "2,3,4,5", -- DAMAGE
+        spawn_probability   = "0.3,0.3,0.3,0.3", -- DAMAGE
+        price               = 50,
+        mana                = -20,
+        --max_uses = 50,
+        action              = function()
+            c.damage_projectile_add       = c.damage_projectile_add - 0.2
+            c.gore_particles              = c.gore_particles - 5
+            c.fire_rate_wait              = c.fire_rate_wait - 2.5
+            shot_effects.recoil_knockback = shot_effects.recoil_knockback - 10.0
+            draw_actions(1, true)
+        end,
+    },
+
 	{
 		id					= "SUMMON_POUCH",
 		name				= "Summon pouch",
