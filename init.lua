@@ -28,7 +28,6 @@ ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/ac
 ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/scripts/perk/perk_list.lua")
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
 
-
 --[[ Dev spell ]]
 if DebugGetIsDevBuild() then
     ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions_dev.lua")

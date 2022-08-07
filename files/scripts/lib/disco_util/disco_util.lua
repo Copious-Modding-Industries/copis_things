@@ -1,3 +1,4 @@
+dofile_once("data/scripts/lib/utilities.lua")
 ---@class List
 List = {}
 List.__mt = {__tostring = function(self) return "Class: List" end}

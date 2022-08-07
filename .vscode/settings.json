@@ -64,7 +64,10 @@
         "collision_trigger",
         "throw_item",
         "mana",
-        "vec_mult"
+        "vec_mult",
+        "material",
+        "material_amount",
+        "reset_modifiers"
     ],
     "Lua.diagnostics.disable": [
         "deprecated",

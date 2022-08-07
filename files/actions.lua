@@ -231,25 +231,10 @@ local to_insert = {
             if reflecting then return; end
             local old_c = c;
             c = {};
-            reset_modifiers(c);
+            shot_effects = {}
+            --reset_modifiers(c);
             add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/separator_cast.xml", 1);
             c = old_c;
-            --[[
-            local old_c = c;
-			c = {};
-			reset_modifiers( c );
-            BeginProjectile( "mods/copis_things/files/entities/projectiles/separator_cast.xml" );
-                BeginTriggerDeath();
-                    for index,value in pairs(old_c) do
-                        c[index] = value;
-                    end
-                    draw_actions( 1, true );
-                    register_action( c );
-                    SetProjectileConfigs();
-                EndTrigger();
-            EndProjectile();
-            c = old_c;
-			]]
         end,
     },
 
@@ -1513,6 +1498,7 @@ local to_insert = {
         price               = 280,
         mana                = 30,
         action              = function()
+			c.fire_rate_wait = c.fire_rate_wait + 14
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/damage_to_curse.xml,"
             draw_actions(1, true)
         end,
@@ -1530,6 +1516,7 @@ local to_insert = {
         price               = 280,
         mana                = 30,
         action              = function()
+			c.fire_rate_wait = c.fire_rate_wait + 12
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/damage_lifetime.xml,"
             draw_actions(1, true)
         end,
@@ -1547,7 +1534,8 @@ local to_insert = {
         price               = 280,
         mana                = 60,
         action              = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/infinite_lifetime.xml,"
+			c.fire_rate_wait = c.fire_rate_wait + 64
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/lifetime_infinite.xml,"
             draw_actions(1, true)
         end,
     },
@@ -1884,8 +1872,8 @@ local to_insert = {
 
     {
         id                = "SUMMON_BOSS_GHOST",
-        name              = "Summon Ylialkemisti",
-        description       = "Summons Ylialkemisti.",
+        name              = "Summon Unohdettu",
+        description       = "Summons Unohdettu.",
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_ghost.png",
         type              = ACTION_TYPE_UTILITY,
         spawn_level       = "0,0",
@@ -2620,6 +2608,7 @@ local to_insert = {
         action            = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sticky_shot.xml,";
             c.gravity = c.gravity + 300.0
+            c.fire_rate_wait = c.fire_rate_wait - 12
             draw_actions(1, true);
         end,
     },
@@ -2728,8 +2717,8 @@ local to_insert = {
         mana              = 40,
         max_uses          = 10,
         action            = function()
-            add_projectile("mods/copis_things/files/entities/props/root_grower.xml")
             c.fire_rate_wait = c.fire_rate_wait + 12
+            add_projectile("mods/copis_things/files/entities/props/root_grower.xml")
         end,
     },
 
@@ -2761,8 +2750,7 @@ local to_insert = {
         price                  = 100,
         mana                   = 0,
         action                 = function()
-            c.extra_entities = c.extra_entities ..
-                "mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml,"
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml,"
             draw_actions(1, true)
         end,
     },
@@ -3105,6 +3093,7 @@ local to_insert = {
         price                  = 540,
         mana                   = 20,
         action                 = function()
+            c.fire_rate_wait = c.fire_rate_wait + 6
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/mini_shield.xml,"
             draw_actions(1, true)
         end,
@@ -3122,6 +3111,7 @@ local to_insert = {
         price               = 120,
         mana                = 24,
         action              = function()
+            c.fire_rate_wait = c.fire_rate_wait + 16
             c.pattern_degrees = 180;
             draw_actions(#deck, true);
         end,
@@ -3139,6 +3129,7 @@ local to_insert = {
         price               = 100,
         mana                = -20,
         action              = function()
+            c.fire_rate_wait = c.fire_rate_wait - 32
             SetRandomSeed(GameGetFrameNum(), 1284);
             local shuffle_deck = {};
             for i = 1, #deck do
@@ -3163,7 +3154,7 @@ local to_insert = {
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
         type                = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level         = "0,		1,		2,		3,		4,		5,		6",
-        spawn_probability   = "0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4",
+        spawn_probability   = "0.4,     0.4,	0.4,	0.4,	0.4,	0.4,	0.4",
         price               = 160,
         mana                = 4,
         action              = function()
@@ -3182,7 +3173,7 @@ local to_insert = {
         related_extra_entities = { "mods/copis_things/files/entities/misc/barrier_trail.xml" },
         type                   = ACTION_TYPE_MODIFIER,
         spawn_level            = "2,		3,		4,		5",
-        spawn_probability      = "0.7,	0.7,	0.7,	0.7",
+        spawn_probability      = "0.7,      0.7,	0.7,	0.7",
         price                  = 200,
         mana                   = 20,
         action                 = function()
@@ -3278,41 +3269,7 @@ local to_insert = {
             c = c_old
         end,
     },
-    --[[
-	{
-		id          = "LIGHT_DELAY_2",
-		name 		= "Double Burst",
-		description = "Casts 2 spells in a row",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/delay_2.png",
-		related_projectiles	= {"data/entities/projectiles/deck/light_bullet.xml"},
-		type 		= ACTION_TYPE_DRAW_MANY,
-		spawn_level                         = "2,3,4", -- LIGHT_BULLET_TRIGGER
-		spawn_probability                   = "0.2,0.2,0.2", -- LIGHT_BULLET_TRIGGER
-		price = 280,
-		mana = 5,
-		--max_uses = 100,
-		action 		= function()
-			c.fire_rate_wait = c.fire_rate_wait + 3
-			c.screenshake = c.screenshake + 0.5
-			c.damage_critical_chance = c.damage_critical_chance + 5
 
-			if reflecting then
-				Reflection_RegisterProjectile("data/entities/projectiles/deck/light_bullet.xml")
-				return
-			end
-
-			local c_old = c
-            BeginProjectile( "data/entities/projectiles/deck/light_bullet.xml" );
-                BeginTriggerDeath();
-                    draw_actions( 1, true );
-                    register_action( c );
-                    SetProjectileConfigs();
-                EndTrigger();
-            EndProjectile();
-			c = c_old
-		end,
-	},
-]]
     {
         id                  = "IF_PLAYER",
         name                = "Requirement - Player",
@@ -4026,49 +3983,47 @@ local to_insert = {
             end
 
             local function zap(count)
-                BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
                     BeginTriggerDeath();
                         for i = 1, count, 1 do
-                            BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
-                            EndProjectile();
+                            BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" ); EndProjectile();
                         end
-                        register_action(c);
+                        register_action( c );
                         SetProjectileConfigs();
                     EndTrigger();
                 EndProjectile();
             end
 
             if GameGetFrameNum() % 3 == 0 then
-                BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
-                BeginTriggerDeath();
-                zap(2)
-                zap(2)
-                register_action(c);
-                SetProjectileConfigs();
-                EndTrigger();
-                EndProjectile();
-
-            elseif GameGetFrameNum() % 3 == 1 then
-                BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
-                BeginTriggerDeath();
-                BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
-                EndProjectile();
-                zap(1)
-                register_action(c);
-                SetProjectileConfigs();
-                EndTrigger();
-                EndProjectile();
-
-            else
-                BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
                     BeginTriggerDeath();
-                        zap(1)
+                        zap(2);
+                        zap(2);
+                        register_action( c );
+                        SetProjectileConfigs();
                     EndTrigger();
                 EndProjectile();
 
-                BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml");
+            elseif GameGetFrameNum() % 3 == 1 then
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
                     BeginTriggerDeath();
-                        zap(1)
+                        BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" ); EndProjectile();
+                        zap(1);
+                        register_action( c );
+                        SetProjectileConfigs();
+                    EndTrigger();
+                EndProjectile();
+
+            else
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
+                    BeginTriggerDeath();
+                        zap(1);
+                    EndTrigger();
+                EndProjectile();
+
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/zap.xml" );
+                    BeginTriggerDeath();
+                        zap(1);
                     EndTrigger();
                 EndProjectile();
             end
@@ -5134,6 +5089,7 @@ local to_insert = {
 			c.friendly_fire = true
             c.fire_rate_wait = c.fire_rate_wait + 12;
 			current_reload_time = current_reload_time + 12
+			draw_actions( 1, true )
 		end,
 	},
 
@@ -5231,6 +5187,280 @@ local to_insert = {
 			add_projectile("mods/copis_things/files/entities/projectiles/orb_laseremitter_small.xml")
 			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
 			c.game_effect_entities = c.game_effect_entities .. "data/entities/misc/effect_disintegrated.xml,"
+		end,
+	},
+
+	{
+		id          = "ACID",
+		name 		= "Acidic Shot",
+		description = "Projectiles explode into dangerous acid",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/acid.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                      = "2,3,4",
+		spawn_probability                = "0.3,0.3,0.3",
+		price = 120,
+		mana = 20,
+		action 		= function()
+			c.material = "acid"
+			c.material_amount = c.material_amount + 10
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id                  = "CEMENT",
+		name                = "Cementing shot",
+		description         = "Projectiles explode into construction materials",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/cement.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/unstable_gunpowder_unidentified.png",
+		type                = ACTION_TYPE_MODIFIER,
+		spawn_level         = "2,3,4",
+		spawn_probability   = "0.3,0.3,0.3",
+		price = 140,
+		mana = 15,
+		--max_uses    = 20, 
+		custom_xml_file = "data/entities/misc/custom_cards/unstable_gunpowder.xml",
+		action 		= function()
+			c.material = "cement"
+			c.material_amount = c.material_amount + 10
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id          = "LIFETIME_RANDOM",
+		name 		= "Randomize Lifetime",
+		description = "Randomizes the lifetime of a projectile",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/lifetime_random.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "3,4,5,6,10", -- LIFETIME_DOWN
+		spawn_probability                 = "0.5,0.5,0.5,0.5,0.1", -- LIFETIME_DOWN
+		price = 90,
+		mana = 10,
+		--max_uses = 150,
+		action 		= function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/lifetime_random.xml,"
+            draw_actions(1, true)
+		end,
+	},
+
+
+    {
+        id                  = "MULTICAST_BUFFS",
+        name                = "Weighted Stack",
+        description         = "Fire all remaining spells with stat improvements proportional to spells drawn",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ultimate_draw_many.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
+        type                = ACTION_TYPE_DRAW_MANY,
+        spawn_level         = "5,6,10",
+        spawn_probability   = "0.3,0.5,0.6",
+        price               = 500,
+        mana                = 25,
+        max_uses            = 10,
+        action              = function()
+
+            --if reflecting then; return; end;
+
+            local n = 1
+            while (#deck > 0) do
+                n = n + 1
+                draw_actions( 1, true )
+            end
+
+            c.spread_degrees            = c.spread_degrees          +           (n * 2.5)
+            c.fire_rate_wait            = c.fire_rate_wait          +           (n * 6)
+            c.screenshake               = c.screenshake             +           (n * 1)
+            c.damage_critical_chance    = c.damage_critical_chance  +           (n * 2)
+            c.lifetime_add              = c.lifetime_add            +           (n * 1)
+            c.damage_projectile_add     = c.damage_projectile_add   +           (n * 0.05)
+            c.speed_multiplier          = c.speed_multiplier        +           (n * 0.2)
+            c.gore_particles            = c.gore_particles          +           (n * 2)
+            c.bounces                   = c.bounces                 + math.floor(n * 0.25)
+            if n >= 20 then
+                c.extra_entities        = c.extra_entities          ..          "data/entities/particles/tinyspark_white.xml,"
+                c.ragdoll_fx            = 3
+            elseif n >= 10 then
+                c.extra_entities        = c.extra_entities          ..          "data/entities/particles/tinyspark_white_weak.xml,"
+                c.ragdoll_fx            = 4
+                c.explosion_radius      = c.explosion_radius        + math.floor(n * 0.25)
+            end
+            shot_effects.recoil_knockback = shot_effects.recoil_knockback + (n * 1)
+        end,
+    },
+
+    {
+        id                  = "MULTICAST_SPREAD",
+        name                = "Full Hand",
+        description         = "Fire all remaining spells with spread proportional to spells drawn",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/draw_many_spread.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
+        type                = ACTION_TYPE_DRAW_MANY,
+        spawn_level         = "4,5,6",
+        spawn_probability   = "0.1,0.2,0.3",
+        price               = 250,
+        mana                = 20,
+        action              = function()
+
+            local n = 1
+            while (#deck > 0) do
+                n = n + 1
+                draw_actions( 1, true )
+            end
+
+            c.pattern_degrees = c.pattern_degrees + (n * 0.5)
+        end,
+    },
+
+    {
+        id                  = "DELAY_2",
+        name                = "Double Delay Spell",
+        description         = "Casts 2 spells in sequence",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/delay_2.png",
+		type                = ACTION_TYPE_DRAW_MANY,
+		spawn_level         = "0,1,2,3,4,5,6",
+		spawn_probability   = "0.7,0.7,0.7,0.7,0.7,0.7,0.7",
+		price               = 150,
+		mana                = 0,
+		--max_uses = 100,
+        action            = function()
+            if reflecting then draw_actions( 2, true ) return end
+
+            local firerate = c.fire_rate_wait
+            local old_c = c;
+            c = {};
+            shot_effects = {}
+            --reset_modifiers(c);
+
+            BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml");
+                BeginTriggerDeath()
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/burst_fire.xml");
+                        BeginTriggerTimer(1);
+                            for index,value in pairs(old_c) do c[index] = value end;
+                            old_c = c
+                            draw_actions( 1, true ); register_action( c ); SetProjectileConfigs();
+                        EndTrigger()
+                        BeginTriggerTimer(firerate + 1);
+                            for index,value in pairs(old_c) do c[index] = value end;
+                            old_c = c
+                            draw_actions( 1, true ); register_action( c ); SetProjectileConfigs();
+                        EndTrigger()
+                    EndProjectile()
+                    c.lifetime_add = firerate + 1
+                    register_action( c ); SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile()
+
+            c = old_c;
+        end,
+    },
+
+    {
+        id                  = "DELAY_3",
+        name                = "Triple Delay Spell",
+        description         = "Casts 3 spells in sequence",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/delay_3.png",
+		type                = ACTION_TYPE_DRAW_MANY,
+		spawn_level         = "0,1,2,3,4,5,6",
+		spawn_probability   = "0.5,0.5,0.5,0.5,0.5,0.5,0.5",
+		price               = 150,
+		mana                = 0,
+		--max_uses = 100,
+        action            = function()
+            if reflecting then draw_actions( 3, true ) return end
+
+            local firerate = c.fire_rate_wait
+            local old_c = c;
+            c = {};
+            shot_effects = {}
+            --reset_modifiers(c);
+
+            BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml");
+                BeginTriggerDeath()
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/burst_fire.xml");
+                        BeginTriggerTimer(1);
+                            for index,value in pairs(old_c) do c[index] = value end;
+                            old_c = c
+                            draw_actions( 1, true ); register_action( c ); SetProjectileConfigs();
+                        EndTrigger()
+                        BeginTriggerTimer(firerate + 1);
+                            for index,value in pairs(old_c) do c[index] = value end;
+                            old_c = c
+                            draw_actions( 1, true ); register_action( c ); SetProjectileConfigs();
+                        EndTrigger()
+                        BeginTriggerTimer(firerate * 2 + 1);
+                            for index,value in pairs(old_c) do c[index] = value end;
+                            old_c = c
+                            draw_actions( 1, true ); register_action( c ); SetProjectileConfigs();
+                        EndTrigger()
+                    EndProjectile()
+                    c.lifetime_add = firerate * 2 + 1
+                    register_action( c ); SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile()
+
+            c = old_c;
+        end,
+    },
+
+    {
+        id                  = "DELAY_X",
+        name                = "Total Delay Spell",
+        description         = "Casts all remaining spells in sequence",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/delay_x.png",
+		type                = ACTION_TYPE_DRAW_MANY,
+		spawn_level         = "5,6,10",
+		spawn_probability   = "0.2,0.2,0.5",
+		price               = 500,
+		mana                = 50,
+		max_uses            = 30,
+        action            = function()
+            if reflecting then return end
+
+            local firerate = c.fire_rate_wait
+            local old_c = c;
+            c = {};
+            shot_effects = {}
+            --reset_modifiers(c);
+
+            BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml");
+                BeginTriggerDeath()
+                    local n = 0
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/burst_fire.xml");
+                        while (#deck > 0) do
+                            BeginTriggerTimer(firerate * n + 1);
+                                for index,value in pairs(old_c) do c[index] = value end;
+                                old_c = c
+                                draw_actions( 1, true ); register_action( c ); SetProjectileConfigs();
+                            EndTrigger()
+                            n = n + 1
+                        end
+                    EndProjectile()
+                    c.lifetime_add = firerate * n + 1
+                    register_action( c ); SetProjectileConfigs();
+                EndTrigger();
+            EndProjectile()
+
+            c = old_c;
+        end,
+    },
+
+	{
+		id          = "CHAOS_RAY",
+		name 		= "Pandora Shot",
+		description = "Your projectile fires out random projectiles",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/chaos_ray.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/chaos_ray.xml" },
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "3,4,5", -- FIREBALL_RAY
+		spawn_probability                 = "0.3,0.5,0.3", -- FIREBALL_RAY
+		price = 260,
+		mana = 140,
+		action 		= function()
+			c.fire_rate_wait = c.fire_rate_wait + 15
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/chaos_ray.xml,"
+			draw_actions( 1, true )
 		end,
 	},
 }

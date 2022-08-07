@@ -1,0 +1,45 @@
+<Entity>
+
+    <SpriteParticleEmitterComponent
+        sprite_file="mods/copis_things/files/projectiles_gfx/delay_card.png"
+        delay="0"
+        lifetime="2"
+        color.r="1"
+        color.g="1"
+        color.b="1"
+        color.a="1"
+        color_change.r="0"
+        color_change.g="0"
+        color_change.b="0"
+        color_change.a="-0.5"
+        velocity.x="0"
+        velocity.y="0"
+        gravity.x="0"
+        gravity.y="1"
+        velocity_slowdown="0.5"
+        rotation="0"
+        angular_velocity="0"
+        use_velocity_as_rotation="0"
+        scale.x="1"
+        scale.y="1"
+        scale_velocity.x="0"
+        scale_velocity.y="0"
+        emission_interval_min_frames="1"
+        emission_interval_max_frames="3"
+        count_min="1"
+        count_max="1"
+        randomize_rotation.min="0"
+        randomize_rotation.max="0"
+        randomize_position.min_x="1"
+        randomize_position.max_x="1"
+        randomize_position.min_y="0"
+        randomize_position.max_y="0"
+
+        randomize_velocity.min_x="-10"
+        randomize_velocity.max_x="10"
+        randomize_velocity.min_y="2"
+        randomize_velocity.max_y="5"
+        ></SpriteParticleEmitterComponent>
+    
+	<LifetimeComponent lifetime="1"/>
+</Entity>
