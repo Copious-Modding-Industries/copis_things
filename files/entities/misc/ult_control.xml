@@ -1,0 +1,3 @@
+<Entity>
+    <LuaComponent script_source_file="mods/copis_things/files/scripts/projectiles/ult_control.lua"></LuaComponent>
+</Entity>

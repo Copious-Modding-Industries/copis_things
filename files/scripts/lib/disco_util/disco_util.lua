@@ -340,6 +340,7 @@ local comp_getters_special = {AbilityComponent = {gun_config = MetaObject, gunac
                               ParticleEmitterComponent = {mExPosition = GetVec2, offset = GetVec2, gravity = GetVec2},
                               PhysicsBody2Component = {mLocalPosition = GetVec2},
                               ProjectileComponent = {config_explosion = MetaObject},
+                              LightningComponent = {config_explosion = MetaObject},
                               VelocityComponent = {mVelocity = GetVec2}}
 
 local comp_setters_special = {AnimalAIComponent = {mHomePosition = SetVec2},

@@ -14,7 +14,7 @@ if controls ~= nil then
     edit_component2( entity_id, "VelocityComponent", function(comp,vars)
         local vel_x, vel_y = ComponentGetValue2( comp, "mVelocity")
 
-        local len = math.pow((mouse_x*mouse_x) + (mouse_y*mouse_y), 0.3)
+        local len = math.pow((mouse_x*mouse_x) + (mouse_y*mouse_y), 0.45)
 
         local force_x = vel_x + (mouse_x-pos_x)/len * speed
         local force_y = vel_y + (mouse_y-pos_y)/len * speed

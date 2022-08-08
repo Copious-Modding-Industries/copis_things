@@ -71,7 +71,8 @@
         "copi_state",
         "gun",
         "state_shuffled",
-        "force_stop_draws"
+        "force_stop_draws",
+        "shot"
     ],
     "Lua.diagnostics.disable": [
         "deprecated",

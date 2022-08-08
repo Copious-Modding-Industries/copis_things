@@ -16,7 +16,7 @@ function calculate_force_at(body_x, body_y)
 	local direction = 0 - math.atan2( ( y - body_y ), ( x - body_x ) )
 
 	local gravity_percent = ( distance_full - distance ) / distance_full
-	local gravity_coeff = 256
+	local gravity_coeff = 200
 
 	local fx = math.cos( direction ) * ( gravity_coeff * gravity_percent )
 	local fy = -math.sin( direction ) * ( gravity_coeff * gravity_percent )
