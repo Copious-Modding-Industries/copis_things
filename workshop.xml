@@ -1,18 +1,48 @@
 <Mod
 name="Copi's Things"
 description="
+[img]https://i.imgur.com/5aDRWYk.png[/img]
 [i]Last updated in 2020, [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1975079109]Goki's Things[/url] used to be one of the most popular mods in all of noita's history. I'd say it was instrumental to lots of people's experiences in the game. But unfortunately nothing lasts forever. This mod is a recollection of things, a continuation of the mod. Thank you, gokiburikin for your mod, and letting me and every other modder adapt it's ideas and content.[/i]
 
-[b]Credits[/b]
-
-[i]libraries[/i]
+[i]Content[/i]
 [list]
-    [*][url=https://steamcommunity.com/profiles/76561198165288511/myworkshopfiles/?appid=881100]Horscht[/url] for [url=https://github.com/TheHorscht/EZWand]EZWand[/url]
-    [*]Bulleted list
-    [*]Bulleted list
+    [*]TBD new spells
+    [*]TBD new perks
+    [*]TBD new items
+    [*]TBD new difficulty and challenge modes
+    [*]Spell toggling system for greater control
+    [*]Perk toggling system for greater control
+    [*]Countless tweaks and reworks you can enable
 [/list]
+
+All features can be toggled in the menu located to the top right of your screen. I would advise you to pick and choose what content you want, as this mod was not made for everything to be enabled at once. Customize everything to your liking then enjoy!
+
+[b]special thanks[/b]
+[list]
+    [*][url=https://steamcommunity.com/id/goki_dev/myworkshopfiles/?appid=881100]Goki[/url] for creating the original mod which much of this mod's content is adapted from 
+    [*][url=https://steamcommunity.com/profiles/76561198165288511/myworkshopfiles/?appid=881100]Horscht[/url] for endless help and inspiration
+    [*][url=https://steamcommunity.com/profiles/76561198310605655/myworkshopfiles/?appid=881100]Squirrelly[/url] for being so helpful in testing and suggesting features 
+    [*][url=https://steamcommunity.com/id/hellagangnamstyle/myworkshopfiles/?appid=881100]Tanksy[/url] for testing the mod and giving feedback 
+    [*][url=https://steamcommunity.com/id/evaisa/myworkshopfiles/?appid=881100]Evaisa[/url] for inspiring me to mod noita and helping me along the way 
+    [*][url=https://steamcommunity.com/id/bruham/myworkshopfiles/?appid=881100]Bruham[/url] for being a huge inspiration with amazing mods
+    [*][url=https://steamcommunity.com/id/Feel_my_pain/myworkshopfiles/?appid=881100]YourDoom[/url] for inspiring me with extremely good art 
+    [*][url=https://steamcommunity.com/id/Device6/myworkshopfiles/?appid=881100]Extol[/url] for making inspringly good mods
+    [*][url=https://steamcommunity.com/profiles/76561198191227047/myworkshopfiles/?appid=881100]SpazProjects[/url] for inspiring me to create new spells 
+    [*][url=https://steamcommunity.com/profiles/76561198816777766/myworkshopfiles/?appid=881100]Nolla Games[/url] for creating the game that changed my life 
+    [*]Disco Witch for countless revolutionary discoveries in modding
+[/list]
+
+[i]libraries used[/i]
+[list]
+    [*][url=https://github.com/TheHorscht/EZWand]EZWand[/url]
+    [*]Disco Util (no link)
+    [*]Polytools (no link)
+    [*]Goki's libraries (no link)
+[/list]
+[url=https://discord.gg/mmMxjDBGnS][img]https://i.imgur.com/WeQePRb.png[/img][/url]
+[url=https://steamcommunity.com/id/Humerror/myworkshopfiles/?appid=881100][img]https://i.imgur.com/zVKMxSQ.png[/img][/url]
 "
-tags="gameplay,items,quality of life,loadouts,tweaks,bosses,biomes"
+tags="gameplay,items,quality of life,loadouts,tweaks"
 dont_upload_folders=".assets" 
 dont_upload_files=""
 >

@@ -1,8 +1,8 @@
 dofile_once( "data/scripts/gun/procedural/gun_procedural.lua" );
-dofile_once( "mods/gkbrkn_noita/files/gkbrkn/helper.lua" );
-dofile_once( "mods/gkbrkn_noita/files/gkbrkn/lib/variables.lua" );
-local MISC = dofile_once( "mods/gkbrkn_noita/files/gkbrkn/lib/options.lua" );
-dofile_once( "mods/gkbrkn_noita/files/gkbrkn/lib/mod_settings.lua" );
+dofile_once( "mods/copis_things/files/scripts/lib/helper.lua" );
+dofile_once( "mods/copis_things/files/scripts/lib/variables.lua" );
+local MISC = dofile_once( "mods/copis_things/files/scripts/lib/options.lua" );
+dofile_once( "mods/copis_things/files/scripts/lib/mod_settings.lua" );
 
 local WAND_STAT_SETTER = {
     Direct = 1,

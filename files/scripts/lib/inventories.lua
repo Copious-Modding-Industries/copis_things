@@ -1,4 +1,4 @@
-dofile_once( "mods/gkbrkn_noita/files/gkbrkn/lib/variables.lua" );
+dofile_once( "mods/copis_things/files/scripts/lib/variables.lua" );
 
 function get_active_item_inventory( player_entity )
     local inventory = nil;

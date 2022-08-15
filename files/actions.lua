@@ -92,24 +92,6 @@ local to_insert = {
     },
 
     {
-        id                  = "SUMMON_TABLET",
-        name                = "Summon Emerald Tablet",
-        description         = "Summon an emerald tablet",
-        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/summon_tablet.png",
-        related_projectiles = { "mods/copis_things/files/entities/projectiles/tablet.xml" },
-        type                = ACTION_TYPE_PROJECTILE,
-        spawn_level         = "0,1,2,3,4,5,6", -- SUMMON_ROCK
-        spawn_probability   = "0.8,0.8,0.8,0.8,0.8,0.8,0.8", -- SUMMON_ROCK
-        price               = 160,
-        mana                = 100,
-        max_uses            = 3,
-        --custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/summon_rock.xml",
-        action              = function()
-            add_projectile("mods/copis_things/files/entities/projectiles/tablet.xml")
-        end,
-    },
-
-    {
         id                = "PROJECTION_CAST",
         name              = "Projection cast",
         description       = "Projects your cast to where your mind focuses",
@@ -226,24 +208,6 @@ local to_insert = {
     },
 
     {
-        id                = "BOUNCE_100",
-        name              = "Hundredfold Bounce",
-        description       = "Causes a projectile to bounce many times",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/bounce_100.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "2,3,4,5,6", -- BOUNCE
-        spawn_probability = "1,1,0.4,0.2,0.2", -- BOUNCE
-        price             = 100,
-        mana              = 10,
-        action            = function()
-            c.bounces = c.bounces + 100
-            c.speed_multiplier = c.speed_multiplier * 1.2
-            c.spread_degrees = c.spread_degrees - 10
-            draw_actions(1, true)
-        end,
-    },
-
-    {
         id                = "SEPARATOR_CAST",
         name              = "Separator cast",
         description       = "Casts a projectile independent of any modifiers before it, like in a multicast",
@@ -299,27 +263,6 @@ local to_insert = {
     },
 
     {
-        id                = "DIE",
-        name              = "Die",
-        description       = "Reverses the flow of mana in your body, giving you a quick and painless death.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/die.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "6,10",
-        spawn_probability = "0.2,1",
-        price             = 250,
-        mana              = 0,
-        action            = function()
-            if reflecting then return; end
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                local x, y = EntityGetTransform(entity_id)
-                EntityLoad("data/entities/particles/image_emitters/player_disappear_effect_right.xml", x, y) -- gfx
-                EntityKill(entity_id)
-            end
-        end,
-    },
-
-    {
         id                  = "TEMPORARY_CIRCLE",
         name                = "Summon Circle",
         description         = "Summons a shortlived hollow circle",
@@ -352,24 +295,6 @@ local to_insert = {
         action                 = function()
             c.fire_rate_wait = c.fire_rate_wait + 15
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/forwards_larpa.xml,"
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                     = "HOMING_LIGHT",
-        name                   = "Soft Homing",
-        description            = "Guides a projectile weakly towards your foes",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/homing_light.png",
-        related_extra_entities = { "mods/copis_things/files/entities/misc/homing_light.xml,data/entities/particles/tinyspark_white_weak.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5,6", -- HOMING
-        spawn_probability      = "0.4,0.8,1,0.4,0.1,0.1", -- HOMING
-        price                  = 100,
-        mana                   = 25,
-        action                 = function()
-            c.extra_entities = c.extra_entities ..
-                "mods/copis_things/files/entities/misc/homing_light.xml,data/entities/particles/tinyspark_white_weak.xml,"
             draw_actions(1, true)
         end,
     },
@@ -446,26 +371,6 @@ local to_insert = {
             draw_actions(1, true)
         end,
     },
-
-    {
-        id                     = "GUNNER_SHOT_CURSOR",
-        name                   = "Controlled Gunner Shot",
-        description            = "Makes a projectile rapidly fire weak shots at the cursor while holding RMB",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot_cursor.png",
-        related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_cursor.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "2,3,4,5,10", -- FIREBALL_RAY
-        spawn_probability      = "0.1,0.2,0.3,0.4,0.2", -- FIREBALL_RAY
-        price                  = 260,
-        mana                   = 100,
-        --max_uses = 20,
-        action                 = function()
-            c.fire_rate_wait = c.fire_rate_wait + 15
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/gunner_shot_cursor.xml,"
-            draw_actions(1, true)
-        end,
-    },
-
     {
         id                = "SOIL_TRAIL",
         name              = "Soil Trail",
@@ -520,12 +425,14 @@ local to_insert = {
         name              = "Eviscerator",
         description       = "Please, don't cast this.",
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/eviscerator.png",
-        type              = ACTION_TYPE_PROJECTILE,
+        type              = ACTION_TYPE_OTHER,
         spawn_level       = "6,10",
         spawn_probability = "0.1,0.1",
         price             = 1000,
         mana              = 280,
+        recursive         = true,
         action            = function()
+            if reflecting then return; end
             c.spread_degrees = c.spread_degrees + 5.0
             add_projectile("mods/copis_things/files/entities/projectiles/eviscerator.xml")
         end,
@@ -1186,193 +1093,6 @@ local to_insert = {
     },
 
     {
-        id                     = "DAMAGE_MELEE",
-        name                   = "Melee damage plus",
-        description            = "Increases melee the damage done by a projectile",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/damage_melee.png",
-        sprite_unidentified    = "data/ui_gfx/gun_actions/damage_unidentified.png",
-        related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5", -- DAMAGE
-        spawn_probability      = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
-        price                  = 140,
-        mana                   = 5,
-        --max_uses = 50,
-        custom_xml_file        = "data/entities/misc/custom_cards/damage.xml",
-        action                 = function()
-            c.damage_melee_add            = c.damage_melee_add + 0.4
-            c.gore_particles              = c.gore_particles + 5
-            c.fire_rate_wait              = c.fire_rate_wait + 5
-            c.extra_entities              = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                     = "DAMAGE_DRILL",
-        name                   = "Drill damage plus",
-        description            = "Increases the drill damage done by a projectile",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/damage_drill.png",
-        sprite_unidentified    = "data/ui_gfx/gun_actions/damage_unidentified.png",
-        related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5", -- DAMAGE
-        spawn_probability      = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
-        price                  = 140,
-        mana                   = 5,
-        --max_uses = 50,
-        custom_xml_file        = "data/entities/misc/custom_cards/damage.xml",
-        action                 = function()
-            c.damage_drill_add            = c.damage_drill_add + 0.4
-            c.gore_particles              = c.gore_particles + 5
-            c.fire_rate_wait              = c.fire_rate_wait + 5
-            c.extra_entities              = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-            draw_actions(1, true)
-        end,
-
-    },
-
-    {
-        id                     = "DAMAGE_SLICE",
-        name                   = "Slice damage plus",
-        description            = "Increases the slice damage done by a projectile",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/damage_slice.png",
-        sprite_unidentified    = "data/ui_gfx/gun_actions/damage_unidentified.png",
-        related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5", -- DAMAGE
-        spawn_probability      = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
-        price                  = 140,
-        mana                   = 5,
-        --max_uses = 50,
-        custom_xml_file        = "data/entities/misc/custom_cards/damage.xml",
-        action                 = function()
-            c.damage_slice_add            = c.damage_slice_add + 0.4
-            c.gore_particles              = c.gore_particles + 5
-            c.fire_rate_wait              = c.fire_rate_wait + 5
-            c.extra_entities              = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                     = "DAMAGE_ELECTRICITY",
-        name                   = "Electric damage plus",
-        description            = "Increases the electric damage done by a projectile",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/damage_electricity.png",
-        sprite_unidentified    = "data/ui_gfx/gun_actions/damage_unidentified.png",
-        related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5", -- DAMAGE
-        spawn_probability      = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
-        price                  = 140,
-        mana                   = 5,
-        --max_uses = 50,
-        custom_xml_file        = "data/entities/misc/custom_cards/damage.xml",
-        action                 = function()
-            c.damage_electricity_add      = c.damage_electricity_add + 0.4
-            c.gore_particles              = c.gore_particles + 5
-            c.fire_rate_wait              = c.fire_rate_wait + 5
-            c.extra_entities              = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                     = "DAMAGE_FREEZE",
-        name                   = "Freeze damage plus",
-        description            = "Increases the freeze damage done by a projectile",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/damage_freeze.png",
-        sprite_unidentified    = "data/ui_gfx/gun_actions/damage_unidentified.png",
-        related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5", -- DAMAGE
-        spawn_probability      = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
-        price                  = 140,
-        mana                   = 5,
-        --max_uses = 50,
-        custom_xml_file        = "data/entities/misc/custom_cards/damage.xml",
-        action                 = function()
-            c.damage_ice_add              = c.damage_ice_add + 0.4
-            c.gore_particles              = c.gore_particles + 5
-            c.fire_rate_wait              = c.fire_rate_wait + 5
-            c.extra_entities              = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                     = "DAMAGE_CURSE",
-        name                   = "Curse damage plus",
-        description            = "Increases the curse damage done by a projectile",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/damage_curse.png",
-        sprite_unidentified    = "data/ui_gfx/gun_actions/damage_unidentified.png",
-        related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5", -- DAMAGE
-        spawn_probability      = "0.6,0.6,0.6,0.6,0.6", -- DAMAGE
-        price                  = 140,
-        mana                   = 5,
-        --max_uses = 50,
-        custom_xml_file        = "data/entities/misc/custom_cards/damage.xml",
-        action                 = function()
-            c.damage_curse_add            = c.damage_curse_add + 0.4
-            c.gore_particles              = c.gore_particles + 5
-            c.fire_rate_wait              = c.fire_rate_wait + 5
-            c.extra_entities              = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                     = "DAMAGE_FIRE",
-        name                   = "Fire damage plus",
-        description            = "Increases the fire damage done by a projectile",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/damage_fire.png",
-        sprite_unidentified    = "data/ui_gfx/gun_actions/damage_unidentified.png",
-        related_extra_entities = { "data/entities/particles/tinyspark_yellow.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5",
-        spawn_probability      = "0.6,0.6,0.6,0.6,0.6",
-        price                  = 140,
-        mana                   = 5,
-        --max_uses = 50,
-        custom_xml_file        = "data/entities/misc/custom_cards/damage.xml",
-        action                 = function()
-            c.damage_fire_add             = c.damage_fire_add + 0.4
-            c.gore_particles              = c.gore_particles + 5
-            c.fire_rate_wait              = c.fire_rate_wait + 5
-            c.extra_entities              = c.extra_entities .. "data/entities/particles/tinyspark_yellow.xml,"
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback + 10.0
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                  = "DAMAGE_TO_CURSE",
-        name                = "Damage to Curse",
-        description         = "Converts 80% of projectile damage to curse damage",
-        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/damage_to_curse.png",
-        sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
-        type                = ACTION_TYPE_MODIFIER,
-        spawn_level         = "1,2,4,5,10",
-        spawn_probability   = "0.1,1,0.1,0.1,0.2",
-        price               = 280,
-        mana                = 30,
-        action              = function()
-			c.fire_rate_wait = c.fire_rate_wait + 14
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/damage_to_curse.xml,"
-            draw_actions(1, true)
-        end,
-    },
-
-    {
         id                  = "DAMAGE_LIFETIME",
         name                = "Damage growth",
         description         = "Causes your projectile to gain damage the longer it's alive",
@@ -1391,41 +1111,6 @@ local to_insert = {
     },
 
     {
-        id                = "OSCILLATING_SPEED",
-        name              = "Oscillating Speed",
-        description       = "Causes a projectile's speed to fluctuate",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/oscillating_speed.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,2,3", -- SPEED
-        spawn_probability = "1,0.5,0.5", -- SPEED
-        price             = 80,
-        mana              = 2,
-        --max_uses = 100,
-        action            = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/oscillating_speed.xml,"
-            c.spread_degrees = c.spread_degrees - 8
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "HITFX_CRITICAL_DRUNK",
-        name              = "Critical on drunk enemies",
-        description       = "Makes a projectile always do a critical hit on drunk enemies",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/crit_on_alcoholic.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,3,4,5", -- HITFX_CRITICAL_WATER
-        spawn_probability = "0.2,0.2,0.2,0.2", -- HITFX_CRITICAL_WATER
-        price             = 70,
-        mana              = 10,
-        --max_uses = 50,
-        action            = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_alcoholic.xml,"
-            draw_actions(1, true)
-        end,
-    },
-
-    {
         id                = "HITFX_CRITICAL_CHARM",
         name              = "Critical on charmed enemies",
         description       = "Makes a projectile always do a critical hit on charmed enemies",
@@ -1438,23 +1123,6 @@ local to_insert = {
         --max_uses = 50,
         action            = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_charm.xml,"
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "HITFX_CRITICAL_CONFUSION",
-        name              = "Critical on confused enemies",
-        description       = "Makes a projectile always do a critical hit on confused enemies",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/crit_on_confusion.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,3,4,5", -- HITFX_CRITICAL_WATER
-        spawn_probability = "0.2,0.2,0.2,0.2", -- HITFX_CRITICAL_WATER
-        price             = 70,
-        mana              = 10,
-        --max_uses = 50,
-        action            = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_confusion.xml,"
             draw_actions(1, true)
         end,
     },
@@ -1494,129 +1162,6 @@ local to_insert = {
     },
 
     {
-        id                = "RECHARGE_2",
-        name              = "Reduce recharge time II",
-        description       = "Reduces the time between spellcasts heavily",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/recharge_2.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,2,3,4,5,6", -- RECHARGE
-        spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5", -- RECHARGE
-        price             = 400,
-        mana              = 24,
-        --max_uses = 75,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait - 20
-            current_reload_time = current_reload_time - 40
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "RECHARGE_3",
-        name              = "Reduce recharge time III",
-        description       = "Reduces the time between spellcasts immensely",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/recharge_3.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,2,3,4,5,6", -- RECHARGE
-        spawn_probability = "0.33,0.33,0.33,0.33,0.33,0.33", -- RECHARGE
-        price             = 600,
-        mana              = 48,
-        --max_uses = 50,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait - 30
-            current_reload_time = current_reload_time - 60
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "RECHARGE_DELAY_UP",
-        name              = "Delayed recharge",
-        description       = "Sharply reduces wand recharge speed at the cost of cast delay",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/recharge_delay_up.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,2,3,4,5,6", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
-        price             = 400,
-        mana              = 24,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 60
-            current_reload_time = current_reload_time - 80
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "RECHARGE_DELAY_DOWN",
-        name              = "Rushing recharge",
-        description       = "Sharply reduces cast delay between spells at the cost of wand recharge speed",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/recharge_delay_down.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,2,3,4,5,6", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
-        price             = 400,
-        mana              = 24,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait - 80
-            current_reload_time = current_reload_time + 60
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "ARCANE_RECHARGE",
-        name              = "Arcane Recharge",
-        description       = "Slightly reduce the time between spellcasts, but gain mana when casting",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcane_recharge.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "1,2,3,4,5,6", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1", -- RECHARGE
-        price             = 400,
-        mana              = -12,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait - 5
-            current_reload_time = current_reload_time - 10
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "MANA_REDUCE_2",
-        name              = "Add mana II",
-        description       = "Adds 60 mana to the wand",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/mana_2.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "3,4,5,6", -- MANA_REDUCE
-        spawn_probability = "0.5,0.5,0.5,0.5", -- MANA_REDUCE
-        price             = 500,
-        mana              = -60,
-        --max_uses = 75,
-        custom_xml_file   = "data/entities/misc/custom_cards/mana_reduce.xml",
-        action            = function()
-            c.fire_rate_wait = c.fire_rate_wait + 20
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "MANA_REDUCE_3",
-        name              = "Add mana III",
-        description       = "Adds 90 mana to the wand",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/mana_3.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "5,6", -- MANA_REDUCE
-        spawn_probability = "0.33,0.33", -- MANA_REDUCE
-        price             = 750,
-        mana              = -90,
-        --max_uses = 50,
-        custom_xml_file   = "data/entities/misc/custom_cards/mana_reduce.xml",
-        action            = function()
-            c.fire_rate_wait = c.fire_rate_wait + 30
-            draw_actions(1, true)
-        end,
-    },
-
-    {
         id                = "PASSIVE_MANA",
         name              = "Passive Mana",
         description       = "Your wand regenerates mana faster!",
@@ -1630,652 +1175,6 @@ local to_insert = {
         action            = function()
             draw_actions(1, true)
         end
-    },
-
-    {
-        id                = "SUMMON_BOSS_CENTIPEDE",
-        name              = "Summon Kolmisilmä",
-        description       = "Summons Kolmisilmä.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_centipede.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/boss_centipede/boss_centipede.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_BOSS_WIZARD",
-        name              = "Summon Mestarien mestari",
-        description       = "Summons Mestarien mestari.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_wizard.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/boss_wizard/boss_wizard.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_BOSS_ALCHEMIST",
-        name              = "Summon Ylialkemisti",
-        description       = "Summons Ylialkemisti.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_alchemist.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/boss_alchemist/boss_alchemist.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_BOSS_DRAGON",
-        name              = "Summon Suomuhauki",
-        description       = "Summons Suomuhauki.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_dragon.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/boss_dragon.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_BOSS_GHOST",
-        name              = "Summon Unohdettu",
-        description       = "Summons Unohdettu.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_ghost.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/boss_ghost/boss_ghost.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_BOSS_PIT",
-        name              = "Summon Sauvojen Tuntija",
-        description       = "Summons Sauvojen Tuntija.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_pit.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/boss_pit/boss_pit.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_BOSS_LIMBS",
-        name              = "Summon Kolmisilmän Koipi",
-        description       = "Summons Kolmisilmän Koipi.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_limbs.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/boss_limbs/boss_limbs.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_BOSS_ROBOT",
-        name              = "Summon Kolmisilmän silmä",
-        description       = "Summons Kolmisilmän Koipi.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_boss_robot.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/boss_robot/boss_robot.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_MAGGOT_TINY",
-        name              = "Summon Limatoukka",
-        description       = "Summons Limatoukka.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_maggot_tiny.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 1500,
-        max_uses          = 1,
-        action            = function()
-            add_projectile("data/entities/animals/maggot_tiny/maggot_tiny.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_FLASK",
-        name              = "Summon flask",
-        description       = "Summons an empty flask",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 90,
-        max_uses          = 1,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            add_projectile("data/entities/items/pickup/potion_empty.xml")
-        end,
-    },
-
-    {
-        id                = "SUMMON_FLASK_FULL",
-        name              = "Summon filled flask",
-        description       = "Summons a flask filled with a random material",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.125,	0.17,	0.25,	0.17,	0.125",
-        price             = 300,
-        mana              = 120,
-        max_uses          = 1,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            add_projectile("data/entities/items/pickup/potion_random_material.xml")
-        end,
-    },
-
-    {
-        id                = "SUMMON_JAR",
-        name              = "Summon jar",
-        description       = "Summons an empty jar",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_jar.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.050,	0.067,	0.100,	0.067,	0.050",
-        price             = 200,
-        mana              = 90,
-        max_uses          = 1,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            add_projectile("data/entities/items/pickup/jar.xml")
-        end,
-    },
-
-    {
-        id                = "SUMMON_JAR_URINE",
-        name              = "Jarate",
-        description       = "Jar-based Karate",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_jar_urine.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.025,	0.033,	0.050,	0.033,	0.025",
-        price             = 200,
-        mana              = 45,
-        max_uses          = 30,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 10
-            current_reload_time = current_reload_time + 20
-            add_projectile("data/entities/items/pickup/jar_of_urine.xml")
-        end,
-    },
-
-    {
-        id                = "SUMMON_SUN",
-        name              = "Summon Sun",
-        description       = "Summons the sun.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_sun.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 3000,
-        action            = function()
-            add_projectile("data/entities/items/pickup/sun/newsun.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "SUMMON_DARK_SUN",
-        name              = "Summon Dark Sun",
-        description       = "Summons the dark sun.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_dark_sun.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "0,0",
-        spawn_probability = "0,0",
-        price             = 0,
-        mana              = 3000,
-        action            = function()
-            add_projectile("data/entities/items/pickup/sun/newsun_dark.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 150
-            current_reload_time = current_reload_time + 40
-        end,
-    },
-
-    {
-        id                = "BUFF_BERSERK",
-        name              = "Status: Berserk",
-        description       = "Applies the berserk status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_berserk.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_berserk.xml", px
-                    , py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_BOUNCE",
-        name              = "Status: Bouncing Shots",
-        description       = "Applies the bouncing shots status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_bounce.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_bounce.xml", px
-                    , py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_DAMAGE_PLUS",
-        name              = "Status: Damage plus",
-        description       = "Applies the damage plus status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_damage_plus.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_damage_plus.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_EDIT_WANDS_EVERYWHERE",
-        name              = "Status: Tinker with wands",
-        description       = "Applies the tinker with wands status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_edit_wands_everywhere.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.125,	0.17,	0.25,	0.083,	0.125",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_edit_wands_everywhere.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_FASTER_LEVITATION",
-        name              = "Status: Faster levitiation",
-        description       = "Applies the faster levitation status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_faster_levitation.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_faster_levitation.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_HOMING",
-        name              = "Status: Homing shots",
-        description       = "Applies the homing shots status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_homing.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_homing.xml", px
-                    , py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_HP_REGENERATION",
-        name              = "Status: Health regeneration",
-        description       = "Applies the health regeneration status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_hp_regeneration.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.125,	0.17,	0.25,	0.17,	0.125",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_hp_regeneration.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_INVISIBILITY",
-        name              = "Status: Invisibility",
-        description       = "Applies the invisibility status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_invisibility.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_invisibility.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_MANA_REGENERATION",
-        name              = "Status: Mana regeneration",
-        description       = "Applies the mana regeneration status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_mana_regeneration.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_mana_regeneration.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_MOVEMENT_FASTER",
-        name              = "Status: Greased lightning",
-        description       = "Applies the greased lightning status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_movement_faster.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_movement_faster.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_NIGHTVISION",
-        name              = "Status: Wormy vision",
-        description       = "Applies the wormy vision status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_nightvision.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.125,	0.17,	0.25,	0.17,	0.125",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_nightvision.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_PROTECTION_ALL",
-        name              = "Status: Immunity",
-        description       = "Applies the immunity status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_protection_all.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.125,	0.17,	0.25,	0.17,	0.125",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_protection_all.xml"
-                    , px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_RECHARGE",
-        name              = "Status: Reduced recharge",
-        description       = "Applies the reduced recharge status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_recharge.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
-                    px, py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
-    },
-
-    {
-        id                = "BUFF_SHIELD",
-        name              = "Status: Shielded",
-        description       = "Applies the shielded status to you for a short time",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/buff_shield.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
-        price             = 200,
-        mana              = 120,
-        max_uses          = 10,
-        never_unlimited   = true,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 40
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-
-            if entity_id ~= nil and entity_id ~= 0 then
-                local px, py = EntityGetTransform(entity_id)
-                local effect_id = EntityLoad("mods/copis_things/files/entities/misc/status_entities/buff_shield.xml", px
-                    , py)
-                EntityAddChild(entity_id, effect_id)
-            end
-        end,
     },
 
     {
@@ -2294,6 +1193,7 @@ local to_insert = {
             draw_actions(1, true);
         end,
     },
+
     {
         id                = "VOID_TRAIL",
         name              = "Void Liquid Trail",
@@ -2310,6 +1210,7 @@ local to_insert = {
             draw_actions(1, true);
         end,
     },
+
     {
         id                = "DAMAGE_CRITICAL",
         name              = "Critical strike",
@@ -2325,6 +1226,7 @@ local to_insert = {
             draw_actions(1, true);
         end,
     },
+
     {
         id                = "DIMIGE",
         name              = "Dimige",
@@ -2350,6 +1252,7 @@ local to_insert = {
             draw_actions(1, true);
         end,
     },
+
     {
         id                = "POWER_SHOT",
         name              = "Power Shot",
@@ -2366,6 +1269,7 @@ local to_insert = {
             draw_actions(1, true);
         end,
     },
+
     {
         id                = "STICKY_SHOT",
         name              = "Sticky Shot",
@@ -2378,26 +1282,11 @@ local to_insert = {
         mana              = 9,
         action            = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sticky_shot.xml,";
-            c.gravity = c.gravity + 300.0
             c.fire_rate_wait = c.fire_rate_wait - 12
             draw_actions(1, true);
         end,
     },
-    {
-        id                = "LIGHT_REMOVER",
-        name              = "Light Remover",
-        description       = "Removes the light from a projectile",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/light_remover.png",
-        type              = ACTION_TYPE_MODIFIER,
-        spawn_level       = "2,3", -- FIREBALL_RAY
-        spawn_probability = "0.2,0.2", -- FIREBALL_RAY
-        price             = 50,
-        mana              = 0,
-        action            = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/light_remover.xml,";
-            draw_actions(1, true);
-        end,
-    },
+
     {
         id                = "LOVELY_TRAIL",
         name              = "Lovely Trail",
@@ -2413,6 +1302,7 @@ local to_insert = {
             draw_actions(1, true);
         end,
     },
+
     {
         id                = "STARRY_TRAIL",
         name              = "Starry Trail",
@@ -2456,23 +1346,6 @@ local to_insert = {
         action            = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/null_trail.xml,";
             draw_actions(1, true);
-        end,
-    },
-
-    {
-        id                = "RANDOM_CAST",
-        name              = "Random cast",
-        description       = "Casts a spell from a random position",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/random_cast.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,3,4,5", -- FIREBALL_RAY
-        spawn_probability = "0.2,0.2,0.2,0.2", -- FIREBALL_RAY
-        price             = 90,
-        mana              = 0,
-        action            = function()
-            c.fire_rate_wait = c.fire_rate_wait - 10
-            if reflecting then return; end
-            add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/random_cast.xml", 1)
         end,
     },
 
@@ -2527,118 +1400,6 @@ local to_insert = {
     },
 
     {
-        id                = "PROTECTION_FIRE",
-        name              = "Fire immunity",
-        description       = "Your wand grants you a magical aura of fire immunity!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/protection_fire.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6,10", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
-        price             = 1200,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/protection_fire.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
-        id                = "PROTECTION_EXPLOSION",
-        name              = "Explosion immunity",
-        description       = "Your wand grants you a magical aura of explosion immunity!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/protection_explosion.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6,10", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
-        price             = 1200,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/protection_explosion.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
-        id                = "PROTECTION_ELECTRICITY",
-        name              = "Electricity immunity",
-        description       = "Your wand grants you a magical aura of electricity immunity!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/protection_electricity.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6,10", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
-        price             = 1200,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/protection_electricity.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
-        id                = "PROTECTION_ICE",
-        name              = "Freeze immunity",
-        description       = "Your wand grants you a magical aura of freeze immunity!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/protection_ice.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6,10", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
-        price             = 1200,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/protection_ice.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
-        id                = "PROTECTION_RADIOACTIVITY",
-        name              = "Toxic immunity",
-        description       = "Your wand grants you a magical aura of toxic immunity!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/protection_radioactivity.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6,10", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
-        price             = 1200,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/protection_radioactivity.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
-        id                = "PROTECTION_MELEE",
-        name              = "Melee immunity",
-        description       = "Your wand grants you a magical aura of melee immunity!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/protection_melee.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6,10", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
-        price             = 1200,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/protection_melee.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
-        id                = "PROTECTION_POLYMORPH",
-        name              = "Polymorph immunity",
-        description       = "Your wand grants you a magical aura of polymorph immunity!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/protection_polymorph.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6,10", -- RECHARGE
-        spawn_probability = "0.05,0.05,0.05,0.05,0.05,0.05,0.1", -- RECHARGE
-        price             = 1200,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/protection_polymorph.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
         id                = "PROJECTILE_HOMING",
         name              = "Passive Homing",
         description       = "All projectiles fired while holding the wand slighty home in on enemies!",
@@ -2649,38 +1410,6 @@ local to_insert = {
         price             = 800,
         mana              = 0,
         custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/projectile_homing.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
-        id                = "INVISIBILITY",
-        name              = "Invisibility",
-        description       = "Your wand grants you a magical aura of invisibility!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/invisibility.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6", -- RECHARGE
-        spawn_probability = "0.3,0.3,0.3,0.3,0.3,0.3", -- RECHARGE
-        price             = 800,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/invisibility.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
-        id                = "BREATH_UNDERWATER",
-        name              = "Breath Underwater",
-        description       = "Your wand grants you a magical aura of respiration!",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/breath_underwater.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6", -- RECHARGE
-        spawn_probability = "0.3,0.3,0.3,0.3,0.3,0.3", -- RECHARGE
-        price             = 800,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/breath_underwater.xml",
         action            = function()
             draw_actions(1, true)
         end
@@ -2714,23 +1443,6 @@ local to_insert = {
         price             = 160,
         mana              = 0,
         custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/bayonet.xml",
-        action            = function()
-            -- does nothing to the projectiles
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "KICK_EXPLOSION",
-        name              = "Explosive Kick",
-        description       = "Create a devastating explosion when you kick. Use wisely! Consumes 60 mana when you kick.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/kick_explosion.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
-        spawn_probability = "0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
-        price             = 280,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/kick_explosion.xml",
         action            = function()
             -- does nothing to the projectiles
             draw_actions(1, true)
@@ -2889,35 +1601,6 @@ local to_insert = {
     },
 
     {
-        id                  = "SHUFFLE_DECK",
-        name                = "Shuffle Deck",
-        description         = "Randomize the order of all spells in the cast",
-        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/shuffle_deck.png",
-        sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
-        type                = ACTION_TYPE_MODIFIER,
-        spawn_level         = "0,		1,		2,		3,		4,		5,		6",
-        spawn_probability   = "0.4,	0.4,	0.4,	0.4,	0.4,	0.4,	0.4",
-        price               = 100,
-        mana                = -20,
-        action              = function()
-            c.fire_rate_wait = c.fire_rate_wait - 32
-            SetRandomSeed(GameGetFrameNum(), 1284);
-            local shuffle_deck = {};
-            for i = 1, #deck do
-                local index = Random(1, #deck);
-                local action = deck[index];
-                table.remove(deck, index);
-                table.insert(shuffle_deck, action);
-            end
-            for index, action in pairs(shuffle_deck) do
-                table.insert(deck, action);
-            end
-            draw_actions(1, true);
-        end,
-    },
-
-
-    {
         id                  = "STORED_SHOT",
         name                = "Stored cast",
         description         = "Summon a magical phenomenon that casts a spell when you stop casting",
@@ -2949,24 +1632,6 @@ local to_insert = {
         mana                   = 20,
         action                 = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/barrier_trail.xml,"
-            draw_actions(1, true);
-        end,
-    },
-
-    {
-        id                     = "EXPIRE_NEARBY_ENEMIES",
-        name                   = "Projectile Area Expiration",
-        description            = "Projectiles will expire when enemies are nearby",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/expire_nearby_enemies.png",
-        sprite_unidentified    = "data/ui_gfx/gun_actions/freeze_unidentified.png",
-        related_extra_entities = { "mods/copis_things/files/entities/misc/expire_nearby_enemies.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "2,		4,		5,		6",
-        spawn_probability      = "0.2,	0.2,	0.5,	0.1",
-        price                  = 50,
-        mana                   = 5,
-        action                 = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/expire_nearby_enemies.xml,"
             draw_actions(1, true);
         end,
     },
@@ -3004,40 +1669,6 @@ local to_insert = {
             c.screenshake = c.screenshake + 0.5
             c.damage_critical_chance = c.damage_critical_chance + 5
             add_projectile_trigger_death("data/entities/projectiles/deck/light_bullet.xml", 1)
-        end,
-    },
-
-    {
-        id                  = "LIGHT_BULLET_INHERIT_TRIGGER",
-        name                = "Spark bolt with inheritance trigger",
-        description         = "A spark bolt that casts another spell upon expiring, which inherits modifiers",
-        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_inherit_trigger.png",
-        related_projectiles = { "data/entities/projectiles/deck/light_bullet.xml" },
-        type                = ACTION_TYPE_PROJECTILE,
-        spawn_level         = "2,3,4", -- LIGHT_BULLET_TRIGGER
-        spawn_probability   = "0.2,0.2,0.2", -- LIGHT_BULLET_TRIGGER
-        price               = 280,
-        mana                = 60,
-        --max_uses = 100,
-        action              = function()
-            c.fire_rate_wait = c.fire_rate_wait + 3
-            c.screenshake = c.screenshake + 0.5
-            c.damage_critical_chance = c.damage_critical_chance + 5
-
-            if reflecting then
-                Reflection_RegisterProjectile("data/entities/projectiles/deck/light_bullet.xml")
-                return
-            end
-
-            local c_old = c
-            BeginProjectile("data/entities/projectiles/deck/light_bullet.xml");
-            BeginTriggerDeath();
-            draw_actions(1, true);
-            register_action(c);
-            SetProjectileConfigs();
-            EndTrigger();
-            EndProjectile();
-            c = c_old
         end,
     },
 
@@ -3317,42 +1948,6 @@ local to_insert = {
     },
 
     {
-        id                  = "LIGHT_BULLET_RECURSIVE_TRIGGER",
-        name                = "Spark bolt with Recursive Trigger",
-        description         = "A spark bolt which fires a copy which fires a spell upon collision",
-        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_recursive_trigger.png",
-        related_projectiles = { "data/entities/projectiles/deck/light_bullet.xml" },
-        type                = ACTION_TYPE_PROJECTILE,
-        spawn_level         = "0,1,2,3", -- LIGHT_BULLET_TRIGGER
-        spawn_probability   = "1,0.5,0.5,0.5", -- LIGHT_BULLET_TRIGGER
-        price               = 160,
-        mana                = 20,
-        --max_uses = 100,
-        action              = function()
-            c.fire_rate_wait = c.fire_rate_wait + 6
-            c.screenshake = c.screenshake + 1
-            c.damage_critical_chance = c.damage_critical_chance + 10
-
-            if reflecting then
-                Reflection_RegisterProjectile("data/entities/projectiles/deck/light_bullet.xml");
-                return;
-            end
-
-            BeginProjectile("data/entities/projectiles/deck/light_bullet.xml");
-                BeginTriggerHitWorld();
-                    BeginProjectile("data/entities/projectiles/deck/light_bullet.xml");
-                        BeginTriggerHitWorld()
-                            draw_shot(create_shot(1), true)
-                        EndTrigger()
-                    EndProjectile();
-                    register_action( c );
-                    SetProjectileConfigs();
-                EndTrigger();
-            EndProjectile()
-        end,
-    },
-
-    {
         id                  = "FALSE_SPELL",
         name                = "False Spell",
         description         = "A spell that quickly dissipates",
@@ -3438,77 +2033,6 @@ local to_insert = {
     },
 
     {
-        id                = "WAND_SET",
-        name              = "Ascension (One-Off)",
-        description       = "Cast inside a wand to store it in the heavens.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/wand_set.png",
-        type              = ACTION_TYPE_OTHER,
-        spawn_level       = "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
-        spawn_probability = "0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05",
-        price             = 2000,
-        mana              = 0,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 500
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local x, y = EntityGetTransform(entity_id)
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                if not ModSettingGet("copis_things.wand0") then
-                    local wand = EZWand.GetHeldWand()
-                    wand:RemoveSpells("COPIS_THINGS_WAND_SET")
-                    ModSettingSet("copis_things.wand0", wand:Serialize())
-                    GameScreenshake(50, x, y)
-                    EntityLoad("mods/copis_things/files/entities/particles/blast.xml", x, y)
-                    GamePrintImportant("Your wand disintegrates into divine light!", "Wand stored!")
-                    EntityKill(wand.entity_id)
-                else
-                    GameScreenshake(10, x, y)
-                    GamePrintImportant("You feel the heavens are full", "Wand already stored!")
-                    GamePrint("Retrieve your stored wand before inserting a new one")
-                end
-            end
-        end
-    },
-
-    {
-        id                = "WAND_GET",
-        name              = "Deliverance (One-Off)",
-        description       = "Cast inside a wand to retrieve what was once yours.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/wand_get.png",
-        type              = ACTION_TYPE_OTHER,
-        spawn_level       = "0,		1,		2,		3,		4,		5,		6,		7,		8,		9,		10",
-        spawn_probability = "0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05,	0.05",
-        price             = 2000,
-        mana              = 0,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 20
-            current_reload_time = current_reload_time + 500
-            if reflecting then return; end
-            local entity_id     = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local x, y = EntityGetTransform(entity_id)
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                if not ModSettingGet("copis_things.wand0") then
-                    GamePrintImportant("You feel an emptiness in the heavens", "No wand stored!")
-                    GamePrint("Store a wand to retrieve")
-                else
-                    local wand = EZWand(ModSettingGet("copis_things.wand0"), x, y)
-                    GamePrintImportant("The heavens deliver a gift!", "Wand retrieved!")
-                    GameScreenshake(10, x, y)
-                    EntityLoad("mods/copis_things/files/entities/particles/blast.xml", x, y)
-                    ModSettingRemove("copis_things.wand0")
-                    local wand2 = EZWand.GetHeldWand()
-                    wand2:RemoveSpells("COPIS_THINGS_WAND_GET")
-                end
-            end
-        end
-    },
-
-    {
         id                = "AUTO_FRAME",
         name              = "Automation - Constant",
         description       = "Your held wand fires constantly",
@@ -3535,22 +2059,6 @@ local to_insert = {
         price             = 160,
         mana              = 0,
         custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/auto_hurt.xml",
-        action            = function()
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "AUTO_ALT_FIRE",
-        name              = "Automation - Alt fire",
-        description       = "Your held wand fires when you hold alt fire",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/passive_auto_alt_fire.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "3,4,5,6", -- TINY_GHOST
-        spawn_probability = "0.1,0.1,0.1,0.1", -- TINY_GHOST
-        price             = 160,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/auto_alt_fire.xml",
         action            = function()
             draw_actions(1, true)
         end,
@@ -4033,7 +2541,7 @@ local to_insert = {
     {
         id = "RECURSIVE_LARPA",
         name = "Recursive Larpa",
-        description = "Causes a spell to cast a perfect copy of itself on death 20 times",
+        description = "Causes a spell to cast a perfect copy of itself on death",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/recursive_larpa.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
         related_projectiles = {},
@@ -4287,25 +2795,6 @@ local to_insert = {
 			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 5 -- this is a hack to get the digger reload time back to 0
             if reflecting then return; end
 			add_projectile("mods/copis_things/files/entities/projectiles/luminous_blade.xml")
-		end,
-	},
-
-	{
-		id          = "CHAOS_BLADE",
-		name 		= "Chaos Blade",
-		description = "A slash of destructive energy, struck enemies will be left vulnerable",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/chaos_blade.png",
-		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
-		related_projectiles	= {"mods/copis_things/files/entities/projectiles/chaos_blade.xml"},
-		type 		= ACTION_TYPE_PROJECTILE,
-		spawn_level                       = "3,4,6",
-		spawn_probability                 = "0.1,0.4,0.5",
-		price = 150,
-		mana = 40,
-		action 		= function()
-			c.fire_rate_wait = c.fire_rate_wait + 10
-            if reflecting then return; end
-			add_projectile("mods/copis_things/files/entities/projectiles/chaos_blade.xml")
 		end,
 	},
 
@@ -4668,7 +3157,7 @@ local to_insert = {
 	{
 		id                  = "OPHIUCHUS",
 		name                = "Ophiuchus Arts",
-		description         = "All your damage is halved then converted to healing, and your projectile can hit you",
+		description         = "All your damage is halved then converted to healing, and your projectile can hit you. The next spell costs twice as much mana.",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ophiuchus.png",
 		type                = ACTION_TYPE_MODIFIER,
 		spawn_level         = "1,2,3,4,5,6",
@@ -4678,11 +3167,13 @@ local to_insert = {
 		max_uses            = 5,
         never_unlimited   = true,
 		action              = function()
+            copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0;
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/particles/healing.xml,mods/copis_things/files/entities/misc/ophiuchus.xml,";
 			c.friendly_fire = true
             c.fire_rate_wait = c.fire_rate_wait + 12;
 			current_reload_time = current_reload_time + 12
 			draw_actions( 1, true )
+            copi_state.mana_multiplier = copi_state.mana_multiplier / 2.0;
 		end,
 	},
 
@@ -4837,29 +3328,6 @@ local to_insert = {
             draw_actions(1, true)
 		end,
 	},
-
-    {
-        id                  = "MULTICAST_SPREAD",
-        name                = "Full Hand",
-        description         = "Fire all remaining spells with spread proportional to spells drawn",
-        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/draw_many_spread.png",
-        sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
-        type                = ACTION_TYPE_DRAW_MANY,
-        spawn_level         = "4,5,6",
-        spawn_probability   = "0.1,0.2,0.3",
-        price               = 250,
-        mana                = 20,
-        action              = function()
-
-            local n = 1
-            while (#deck > 0) do
-                n = n + 1
-                draw_actions( 1, true )
-            end
-
-            c.pattern_degrees = c.pattern_degrees + (n * 0.5)
-        end,
-    },
 
     {
         id                  = "DELAY_2",
@@ -5058,6 +3526,7 @@ local to_insert = {
 		spawn_probability   = "0.12,0.12,0.12,0.24,0.24,0.36",
 		price               = 500,
 		mana                = 20,
+        custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/ult_damage.xml",
 		action              = function()
             copi_state.mana_multiplier = copi_state.mana_multiplier * 3.0;
 			c.damage_projectile_add = c.damage_projectile_add + 0.08;
@@ -5079,6 +3548,7 @@ local to_insert = {
         price               = 500,
         mana                = 25,
         max_uses            = 10,
+        custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/ult_draw_many.xml",
         action              = function()
 
             --if reflecting then; return; end;
@@ -5121,6 +3591,7 @@ local to_insert = {
         spawn_probability   = "0.12,0.12,0.12,0.24,0.24,0.36",
         price               = 150,
         mana                = 30,
+        custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/ult_lifetime.xml",
         action              = function()
 			c.fire_rate_wait = c.fire_rate_wait + 64
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/ult_lifetime.xml,"
@@ -5139,6 +3610,7 @@ local to_insert = {
         spawn_probability   = "0.12,0.12,0.12,0.24,0.24,0.36",
         price               = 80,
         mana                = 10,
+        custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/ult_control.xml",
         action              = function()
 			c.fire_rate_wait = c.fire_rate_wait + 32
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/ult_control.xml,"
@@ -5157,6 +3629,7 @@ local to_insert = {
         spawn_probability   = "0.12,0.12,0.12,0.24,0.24,0.36",
         price               = 140,
         mana                = 30,
+        custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/ult_recharge.xml",
         action              = function()
             if reflecting then
                 copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0;
@@ -5185,6 +3658,7 @@ local to_insert = {
         spawn_probability   = "1,1,1,1,1,1,1",
         price               = 200,
         mana                = 23,
+        custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/ult_protection.xml",
         action              = function()
             copi_state.mana_multiplier = copi_state.mana_multiplier * 3.0;
             c.fire_rate_wait = c.fire_rate_wait + 17;
@@ -5192,6 +3666,75 @@ local to_insert = {
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/ult_protection.xml,"
             draw_actions( 1, true );
             copi_state.mana_multiplier = copi_state.mana_multiplier / 3.0;
+        end,
+    },
+
+    {
+        id                  = "BALLOON",
+        name                = "Alchemia Balloon",
+        description         = "A balloon that's filled with a material from your potions",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/balloon.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/balloon.xml" },
+        type                = ACTION_TYPE_PROJECTILE,
+        spawn_level         = "0,1,2,3,4,5,6",
+        spawn_probability   = "1,1,1,1,1,1,1",
+        price               = 90,
+        mana                = 12,
+        action              = function()
+            c.fire_rate_wait = c.fire_rate_wait + 12;
+            current_reload_time = current_reload_time + 12
+            add_projectile("mods/copis_things/files/entities/projectiles/balloon.xml")
+        end,
+    },
+
+    {
+        id                  = "HOMING_SEEKER",
+        name                = "Seeker Shot",
+        description         = "Projectiles rotate and accelerate towards the nearest target in front of them",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/homing_seeker.png",
+        type                = ACTION_TYPE_MODIFIER,
+        spawn_level         = "0,1,2,3,4,5,6",
+        spawn_probability   = "0.1,0.2,0.3,0.4,0.5,0.4,0.3",
+        price               = 280,
+        mana                = 22,
+        action              = function()
+            c.bounces = c.bounces + 1
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_seeker.xml,"
+            c.speed_multiplier = c.speed_multiplier * 0.65;
+            draw_actions( 1, true );
+        end,
+    },
+
+    {
+        id                  = "PERSISTENT_SHOT",
+        name                = "Persistent Shot",
+        description         = "Cast 2 spells that keep moving in the direction they were cast",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/persistent_shot.png",
+        type                = ACTION_TYPE_DRAW_MANY,
+		spawn_level         = "0,1,2,3,4",
+		spawn_probability   = "0.4,0.4,0.4,0.4,0.4",
+        price               = 160,
+        mana                = 17,
+        action              = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/persistent_shot.xml,"
+            draw_actions( 2, true );
+        end,
+    },
+
+    {
+        id                = "HYPER_BOUNCE",
+        name              = "Hyper Bounce",
+        description       = "Cast a spell with unrivaled bouncing potential",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/hyper_bounce.png",
+        type              = ACTION_TYPE_MODIFIER,
+        spawn_level       = "2,3,4",
+        spawn_probability = "0.8,0.8,0.8",
+        price             = 300,
+        mana              = 15,
+        action            = function()
+            c.bounces = c.bounces + 100;
+            c.extra_entities = c.extra_entities.."mods/gkbrkn_noita/files/gkbrkn/actions/hyper_bounce/projectile_extra_entity.xml,";
+            draw_actions( 1, true );
         end,
     },
 }

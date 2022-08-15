@@ -103,7 +103,7 @@ return function( gui, gui_id, mod_settings_id, z_index )
 
     local function do_boolean( gui, id, setting_key, x, y, label, value, tooltip )
         GuiLayoutBeginHorizontal( gui, x, y );
-            local left_click, right_click = GuiImageButton( gui, id, 0, 1, "", "mods/gkbrkn_noita/files/gkbrkn/gui/checkbox" .. (value == true and "_fill" or "") .. ".png" );
+            local left_click, right_click = GuiImageButton( gui, id, 0, 1, "", "mods/copis_things/files/ui_gfx/gui/checkbox" .. (value == true and "_fill" or "") .. ".png" );
             if value == false then
                 GuiColorSetForNextWidget( gui, 0.60, 0.60, 0.60, 1.0 );
             end
@@ -151,7 +151,7 @@ return function( gui, gui_id, mod_settings_id, z_index )
         end,
         boolean = function( setting )
             local toggle = false;
-            if GuiImageButton( gui, next_id(), 0, 1, "", "mods/gkbrkn_noita/files/gkbrkn/gui/checkbox" .. (setting.current == true and "_fill" or "") .. ".png" ) then toggle = true; end
+            if GuiImageButton( gui, next_id(), 0, 1, "", "mods/copis_things/files/ui_gfx/gui/checkbox" .. (setting.current == true and "_fill" or "") .. ".png" ) then toggle = true; end
             if setting.current == false then GuiColorSetForNextWidget( gui, 0.60, 0.60, 0.60, 1.0 ); end
             if GuiButton( gui, next_id(), 0, 0, setting.label ) then toggle = true; end
             if setting.tooltip then GuiTooltip( gui, word_wrap( GameTextGetTranslatedOrNot( setting.tooltip ) ), ""); end
@@ -274,9 +274,9 @@ return function( gui, gui_id, mod_settings_id, z_index )
     end
 
     local function do_gui()
-        if GlobalsGetValue("gkbrkn_force_settings_refresh","0") == "1" then
+        if GlobalsGetValue("copis_things_force_settings_refresh","0") == "1" then
             refresh_settings();
-            GlobalsSetValue("gkbrkn_force_settings_refresh","0");
+            GlobalsSetValue("copis_things_force_settings_refresh","0");
         end
         local current_tab_index = 0;
         local scroll_container_ids = next_id( #mod_settings );
@@ -306,7 +306,7 @@ return function( gui, gui_id, mod_settings_id, z_index )
                         else
                             GuiZSetForNextWidget( gui, z_index + 10 );
                         end
-                    GuiEndAutoBoxNinePiece( gui, 0, nil, nil, nil, nil, "mods/gkbrkn_noita/files/gkbrkn/gui/9piece_tab.png", "mods/gkbrkn_noita/files/gkbrkn/gui/9piece_tab.png" );
+                    GuiEndAutoBoxNinePiece( gui, 0, nil, nil, nil, nil, "mods/copis_things/files/ui_gfx/gui/9piece_tab.png", "mods/copis_things/files/ui_gfx/gui/9piece_tab.png" );
                 end
             GuiLayoutEnd( gui );
 

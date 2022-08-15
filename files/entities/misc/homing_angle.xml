@@ -1,0 +1,9 @@
+<Entity>
+    <LuaComponent
+        _enabled="1"
+        script_source_file="mods/copis_things/files/scripts/projectiles/homing_angle.lua"
+        execute_on_added="0"
+        remove_after_executed="0"
+        execute_every_n_frame="1"
+        ></LuaComponent>
+</Entity>

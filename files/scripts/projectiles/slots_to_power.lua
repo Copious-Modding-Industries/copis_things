@@ -16,8 +16,8 @@ if ( who_shot ~= nil ) and ( comp ~= nil ) then
 	local expdamage = ComponentObjectGetValue( comp, "config_explosion", "damage" )
 	local exprad = ComponentObjectGetValue( comp, "config_explosion", "explosion_radius" )
 
-	damage = damage + math.min( 120, free_slots_count * 0.25 )
-	expdamage = expdamage + math.min( 120, free_slots_count * 0.25 )
+	damage = damage + math.min( 120, free_slots_count * 0.20 )
+	expdamage = expdamage + math.min( 120, free_slots_count * 0.20 )
 	exprad = math.max( exprad,  math.min( 120, math.floor( exprad + math.log( free_slots_count * 5.5 ) ) ) )
 
 	ComponentSetValue2( comp, "damage", damage )

@@ -72,10 +72,37 @@
         "gun",
         "state_shuffled",
         "force_stop_draws",
-        "shot"
+        "shot",
+        "is_action_unlocked",
+        "initialized",
+        "toggle_vanilla",
+        "toggle_default",
+        "disable_starting_perks",
+        "toggle_content_by_tag",
+        "filter_content",
+        "__loaded",
+        "get_screen_position",
+        "do_special_button",
+        "content_types",
+        "do_gui",
+        "is_panel_open",
+        "find_content_type",
+        "perk_spawn",
+        "perk_pickup",
+        "find_legendary_wand",
+        "get_content",
+        "find_loadout",
+        "handle_loadout",
+        "id",
+        "hidden",
+        "hide_menu_frame",
+        "get_distance",
+        "get_direction",
+        "NULL_ENTITY"
     ],
     "Lua.diagnostics.disable": [
         "deprecated",
-        "undefined-field"
+        "undefined-field",
+        "param-type-mismatch"
     ]
 }

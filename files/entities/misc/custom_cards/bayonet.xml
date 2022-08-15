@@ -22,13 +22,13 @@
 
 	<AreaDamageComponent
 		_tags="enabled_in_hand"
-		aabb_min.x="6" 
-		aabb_min.y="-3" 
-		aabb_max.x="12" 
-		aabb_max.y="0" 
+		aabb_min.x="-1" 
+		aabb_max.x="1" 
+		aabb_min.y="-1" 
+		aabb_max.y="1" 
 		damage_per_frame="0.05"
 		update_every_n_frame="1"
-		entities_with_tag="enemy"
+		entities_with_tag="hittable"
 		damage_type="DAMAGE_SLICE"
 		>
 	</AreaDamageComponent>

@@ -1,13 +1,11 @@
-local entity_id = GetUpdatedEntityID()
-local pos_x, pos_y = EntityGetTransform( entity_id )
+dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
+local self = Entity.Current()
+local pos_x, pos_y, angle, scale_x, scale_y = self:transform()
 
--- set to closest surface
-local found_normal,nx,ny,dist = GetSurfaceNormal( pos_x, pos_y, 1, 8 )
+local found_normal,nx,ny,dist = GetSurfaceNormal( pos_x, pos_y, 2, 8 )
 if found_normal then
-
     pos_x = pos_x + nx
     pos_y = pos_y + ny
-    EntitySetTransform(entity_id, pos_x, pos_y)
-
+    angle = math.atan2( pos_y + ny, pos_x + nx );
+    self:setTransform(pos_x, pos_y, angle, scale_x, scale_y)
 end
-

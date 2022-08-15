@@ -1,0 +1,59 @@
+<Entity tags="card_action">
+    <Base file="data/entities/base_custom_card.xml">
+        <SpriteComponent image_file="mods/copis_things/files/ui_gfx/gun_actions/ult_lifetime.png"></SpriteComponent>
+
+        <ItemActionComponent
+            _tags="enabled_in_world"
+            action_id="COPIS_THINGS_ULT_LIFETIME"
+            ></ItemActionComponent>
+    </Base>
+
+    <Base file="mods/copis_things/files/entities/misc/custom_cards/ult_base.xml">
+    </Base>
+        
+    <SpriteParticleEmitterComponent
+    _tags="enabled_in_world"
+    sprite_file="mods/copis_things/files/particles/clock_$[1-2].xml"
+    delay="0"
+    sprite_centered="1"
+    lifetime="1"
+    color.r="1"
+    color.g="1"
+    color.b="1"
+    color.a="0.8"
+    color_change.r="0"
+    color_change.g="0"
+    color_change.b="0"
+    color_change.a="-1"
+    velocity.x="0"
+    velocity.y="0"
+    gravity.x="0"
+    gravity.y="0"
+    velocity_slowdown="0.5"
+    rotation="0"
+    additive="1"
+    emissive="1"
+    angular_velocity="0"
+    use_velocity_as_rotation="0"
+    scale.x="1"
+    scale.y="1"
+    scale_velocity.x="0"
+    scale_velocity.y="0"
+    emission_interval_min_frames="30"
+    emission_interval_max_frames="60"
+    count_min="1"
+    count_max="2"
+    randomize_rotation.min="-0.3"
+    randomize_rotation.max="0.3"
+
+    randomize_position.min_x="-9"
+    randomize_position.max_x="9"
+    randomize_position.min_y="-18"
+    randomize_position.max_y="0"
+
+    randomize_velocity.min_x="-2"
+    randomize_velocity.max_x="2"
+    randomize_velocity.min_y="-2"
+    randomize_velocity.max_y="2"
+    ></SpriteParticleEmitterComponent>
+</Entity>

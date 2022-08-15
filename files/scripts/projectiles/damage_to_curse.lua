@@ -1,7 +1,6 @@
 dofile("data/scripts/lib/utilities.lua")
 local entity_id = GetUpdatedEntityID()
 local comp = EntityGetFirstComponent( entity_id, "ProjectileComponent")
-GamePrint("AAA")
 if ( comp ~= nil ) then
 	local damage = ComponentGetValue2( comp, "damage" )
 	local damage_converted

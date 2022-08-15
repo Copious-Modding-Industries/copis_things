@@ -1,4 +1,4 @@
-<Entity name="$projectile_default" tags="projectile_player,disc_bullet_big" >
+<Entity name="$projectile_default" tags="projectile_player,disc_bullet_big,disc_bullet" >
 
 	<Base file="data/entities/base_projectile.xml" >
 		<VelocityComponent
@@ -95,10 +95,28 @@
 		event_name="player_projectiles/bullet_disc/loop"
 		auto_play="1">
 	</AudioLoopComponent>
-	
+
 	<LuaComponent
-		script_source_file="data/scripts/projectiles/disc_bullet_bigger_trajectory.lua"
+		script_source_file="mods/copis_things/files/scripts/projectiles/zenith_disc_trajectory.lua"
 		execute_every_n_frame="3"
+		>
+	</LuaComponent>
+
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/eviscerator.lua"
+		execute_every_n_frame="5"
+		>
+	</LuaComponent>
+
+    <LuaComponent
+        script_source_file="data/scripts/items/runestones/runestone_disc.lua"
+        execute_every_n_frame="6"
+        >
+    </LuaComponent>
+
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/zenith_disc_teleport.lua"
+		execute_every_n_frame="120"
 		>
 	</LuaComponent>
 	
@@ -173,4 +191,3 @@
 	</VariableStorageComponent>
 
 </Entity>
-

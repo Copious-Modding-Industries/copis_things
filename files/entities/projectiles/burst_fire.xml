@@ -76,7 +76,7 @@
         emission_interval_max_frames="12"
         count_min="1"
         count_max="1"
-        randomize_rotation.min="0.1"
+        randomize_rotation.min="-0.1"
         randomize_rotation.max="0.1"
         randomize_position.min_x="1"
         randomize_position.max_x="1"

@@ -6,14 +6,8 @@ Perks
 
 medkit (summons one use medkit)
 lootbox (loot box)
-heart of stone (high damage resistance and max HP but damage reduces max HP)
 
-
-giant sword can be used as shield -- blocks shots
-
-sword contact damage
 nerf regen (new effect?)
-fix the stupid wands and make them do stuff
 spell rarities
 static camera projectile, camera locks to it. deletes on alt fire, deletes on creating a new one
 
@@ -21,8 +15,3 @@ magic 8 ball dice type item
 high rolling time, physics damage and strong effects
 
 move sword blade card out of projectiles/
-
-
-
-credit horscht for EZWand
-credit evaisa for help with effects

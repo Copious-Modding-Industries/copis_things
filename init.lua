@@ -1,7 +1,14 @@
-dofile_once( "mods/copis_things/files/scripts/lib/flags.lua");
 dofile_once( "mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
 dofile_once( "mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init( "mods/copis_things/files/scripts/lib/polytools/" )
 
+
+
+dofile_once( "mods/copis_things/files/scripts/lib/helper.lua" );
+dofile_once( "mods/copis_things/files/scripts/lib/flags.lua" );
+local MISC = dofile_once( "mods/copis_things/files/scripts/lib/options.lua" );
+dofile_once( "mods/copis_things/files/scripts/lib/variables.lua" );
+dofile_once( "mods/copis_things/files/scripts/lib/config.lua" );
+dofile("data/scripts/lib/utilities.lua")
 --[[
 function DoFileEnvironment( filepath, environment )
     if environment == nil then environment = {} end
@@ -59,6 +66,21 @@ function OnWorldInitialized()
     GlobalsSetValue( "copi_mod_button_reservation", tostring( mod_button_reservation ) );
     GlobalsSetValue( "mod_button_tr_width", tostring( mod_button_reservation + 15 ) );
 end
+--[[
+function OnModPostInit()
+
+    -- Run any enabled content's init functions
+    for content_id,content in pairs( COPI_CONFIG.CONTENT ) do
+        if content.init_function ~= nil then
+            if content.enabled() then
+                content.init_function();
+            end
+        end
+    end
+
+    COPI_CONFIG.disable_content();
+end
+]]
 
 function OnWorldPreUpdate()
 	if GlobalsGetValue( "copi_mod_button_tr_max", "0" ) == "0" then
@@ -66,6 +88,5 @@ function OnWorldPreUpdate()
 	end
 	--dofile( "mods/copis_things/files/scripts/gui/update.lua" );
 end
-
 
 GamePrint("Copi's things INDEV 0.01")
