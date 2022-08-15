@@ -3748,4 +3748,4 @@ for _, value in ipairs(to_insert) do
     table.insert(actions, value)
     copi_count = copi_count + 1
 end
-print("[COPIS_THINGS] Initialized " .. tostring(copi_count) .. " spells")
+--print("[COPIS_THINGS] Initialized " .. tostring(copi_count) .. " spells")
