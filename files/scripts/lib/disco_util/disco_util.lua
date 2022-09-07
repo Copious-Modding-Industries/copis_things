@@ -155,10 +155,10 @@ function Entity.CreateNew(name) return Entity(EntityCreateNew(name)) end
 ---@param radius number
 ---@return List
 function Entity.GetInRadius(x, y, tag, radius)
-    if tag ~= nil then
-        return List(EntityGetInRadiusWithTag(x, y, radius, tag), Entity)
-    else
+    if not tag then
         return List(EntityGetInRadius(x, y, radius), Entity)
+    else
+        return List(EntityGetInRadiusWithTag(x, y, radius, tag), Entity)
     end
 end
 -- Member functions

@@ -223,7 +223,14 @@ local to_insert = {
             c = {};
             shot_effects = {}
             --reset_modifiers(c);
-            add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/separator_cast.xml", 1);
+
+            BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml")
+                BeginTriggerDeath()
+                    local shot = create_shot(1)
+                    shot.state = {}
+                    draw_shot(shot, true)
+                EndTrigger()
+            EndProjectile()
             c = old_c;
         end,
     },
@@ -391,7 +398,7 @@ local to_insert = {
     {
         id                  = "CONCRETEBALL",
         name                = "Chunk of Concrete",
-        description         = "He really cemented himself a household name",
+        description         = "A spell with concrete results",
         sprite              = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_concrete.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml" },
         type                = ACTION_TYPE_MATERIAL,
@@ -1367,22 +1374,6 @@ local to_insert = {
     },
 
     {
-        id                = "HOMING_CURSOR",
-        name              = "Cursor Homing",
-        description       = "Homing projectiles will be able to target your cursor",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/homing_cursor.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,3,4,5,6,10", -- RECHARGE
-        spawn_probability = "0.1,0.1,0.1,0.1,0.1,0.1,0.2", -- RECHARGE
-        price             = 100,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/homing_cursor.xml",
-        action            = function()
-            draw_actions(1, true)
-        end
-    },
-
-    {
         id                     = "HOMING_ANTI",
         name                   = "Anti Homing",
         description            = "Projectiles will be repelled by enemies",
@@ -1416,43 +1407,9 @@ local to_insert = {
     },
 
     {
-        id                = "ATTACK_LEG",
-        name              = "Lukki Limb",
-        description       = "Control a Lukki leg to kick nearby enemies automatically",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
-        spawn_probability = "0.1,0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
-        price             = 160,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/attack_leg.xml",
-        action            = function()
-            -- does nothing to the projectiles
-            draw_actions(1, true)
-        end,
-    },
-
-    {
-        id                = "BAYONET",
-        name              = "Bayonet",
-        description       = "Attach a small knife to the tip of your wand --INDEV WRONG AREA DAMAGE--",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/bayonet.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
-        spawn_probability = "0.1,0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
-        price             = 160,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/bayonet.xml",
-        action            = function()
-            -- does nothing to the projectiles
-            draw_actions(1, true)
-        end,
-    },
-
-    {
         id                = "ALT_FIRE_FLAMETHROWER",
         name              = "Sidearm Flamethrower",
-        description       = "Fires a deadly stream of flames while you hold alt fire. Consumes 20 mana per shot.",
+        description       = "Fires a deadly stream of flames while you hold alt fire. Consumes 20 mana per shot",
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_flamethrower.png",
         type              = ACTION_TYPE_PASSIVE,
         spawn_level       = "1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
@@ -1892,12 +1849,12 @@ local to_insert = {
             end
 
             BeginProjectile("data/entities/projectiles/deck/bullet_slow.xml")
-            BeginTriggerTimer(25)
-            draw_shot(create_shot(1), true)
-            EndTrigger()
-            BeginTriggerTimer(50)
-            draw_shot(create_shot(1), true)
-            EndTrigger()
+                BeginTriggerTimer(25)
+                    draw_shot(create_shot(1), true)
+                EndTrigger()
+                BeginTriggerTimer(50)
+                    draw_shot(create_shot(1), true)
+                EndTrigger()
             EndProjectile()
 
             shot_effects.recoil_knockback = shot_effects.recoil_knockback + 20.0
@@ -2083,7 +2040,7 @@ local to_insert = {
 
     {
         id                     = "STATIC_TO_EXPLOSION",
-        name                   = "Terrain Detonator",
+        name                   = "Terrain Detonation",
         description            = "Makes any hard, solid materials within a projectile's range explode violently",
         sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/static_to_explosion.png",
         sprite_unidentified    = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
@@ -2614,7 +2571,7 @@ local to_insert = {
         spawn_level = "0,1,2,3,4",
         spawn_probability = "0.5,0.4,0.3,0.2,0.1",
         price = 20,
-        mana = -5,
+        mana = 5,
         action = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/paper_shot.xml,";
             c.damage_slice_add = c.damage_slice_add + 0.2
@@ -2688,7 +2645,7 @@ local to_insert = {
         related_projectiles = { "mods/copis_things/files/entities/projectiles/cloud_magic_liquid_hp_regeneration.xml" },
         type                = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level         = "0,1,2,3,4,5", -- CLOUD_WATER
-        spawn_probability   = "0.3,0.3,0.3,0.3,0.3,0.3", -- CLOUD_WATER
+        spawn_probability   = "0.2,0.2,0.2,0.2,0.2,0.2", -- CLOUD_WATER
         price               = 300,
         mana                = 120,
         max_uses            = 3,
@@ -3036,7 +2993,14 @@ local to_insert = {
             if reflecting then return; end
             SetRandomSeed(GameGetFrameNum() + 978, GameGetFrameNum() + 663)
             local new_mana = mana + Random(-20, 60)
+
+            if new_mana > mana then
+                --
+            else
+                mana = mana - new_mana
+            end
             mana = math.max(0, new_mana)
+
             draw_actions( 1, true )
 		end,
 	},
@@ -3294,7 +3258,7 @@ local to_insert = {
 	{
 		id                  = "CEMENT",
 		name                = "Cementing shot",
-		description         = "Projectiles explode into construction materials",
+		description         = "He really cemented himself a household name",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/cement.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/unstable_gunpowder_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3549,9 +3513,12 @@ local to_insert = {
         mana                = 25,
         max_uses            = 10,
         custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/ult_draw_many.xml",
-        action              = function()
-
-            --if reflecting then; return; end;
+        recursive         = true,
+        action            = function(recursion_level, iteration)
+            if reflecting then return; end
+            if (recursion_level or iteration) ~= nil then
+                return
+            end
 
             local n = 1
             while (#deck > 0) do
@@ -3733,10 +3700,132 @@ local to_insert = {
         mana              = 15,
         action            = function()
             c.bounces = c.bounces + 100;
-            c.extra_entities = c.extra_entities.."mods/gkbrkn_noita/files/gkbrkn/actions/hyper_bounce/projectile_extra_entity.xml,";
+            c.extra_entities = c.extra_entities.."mods/copis_things/files/entities/misc/hyper_bounce.xml,";
             draw_actions( 1, true );
         end,
     },
+
+    {
+        id                = "ULTRAKILL",
+        name              = "Steel Sole",
+        description       = "Kick nearby projectiles to launch them forwards. Costs 5 mana per projectile",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/ultrakill.png",
+        type              = ACTION_TYPE_PASSIVE,
+        spawn_level       = "1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+        spawn_probability = "0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+        price             = 280,
+        mana              = 0,
+        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/ultrakill.xml",
+        action            = function()
+            -- does nothing to the projectiles
+            draw_actions(1, true)
+        end,
+    },
+
+    {
+        id                = "WOOD_BRUSH",
+        name              = "Engineering Shot",
+        description       = "Cast a spell which leaves sturdy wood in it's wake",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/wood_brush.png",
+        type              = ACTION_TYPE_MODIFIER,
+        spawn_level       = "1,2,3,4",
+        spawn_probability = "0.3,0.3,0.3,0.3",
+        price             = 300,
+        mana              = 30,
+        action            = function()
+            c.speed_multiplier = c.speed_multiplier * 0.75
+            c.extra_entities = c.extra_entities.."mods/copis_things/files/entities/misc/wood_brush.xml,";
+            draw_actions( 1, true );
+        end,
+    },
+
+    {
+        id                = "ALT_FIRE_LUNGE",
+        name              = "Sidearm Lunge",
+        description       = "Launch yourself forwards with a burst of speed when you press alt fire. Consumes 5 mana when lunging",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_lunge.png",
+        type              = ACTION_TYPE_PASSIVE,
+        spawn_level       = "1,2,4",
+        spawn_probability = "0.4,0.4,0.4",
+        price             = 100,
+        mana              = 0,
+        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_lunge.xml",
+        action            = function()
+            -- does nothing to the projectiles
+            draw_actions(1, true)
+        end,
+    },
+
+    {
+        id                     = "HOMING_ANTI_SHOOTER",
+        name                   = "Repulsion Shot",
+        description            = "Projectiles will be repelled from the caster",
+        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/homing_anti_shooter.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml" },
+        type                   = ACTION_TYPE_MODIFIER,
+        spawn_level            = "1,2,3,4,5,6", -- HOMING
+        spawn_probability      = "0.1,0.1,0.1,0.1,0.1,6", -- HOMING
+        price                  = 100,
+        mana                   = 12,
+        action                 = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml,"
+            draw_actions(1, true)
+        end,
+    },
+
+    {
+        id                     = "HITFX_DRUNK",
+        name                   = "Inebriation",
+        description            = "Projectiles will be repelled from the caster",
+        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/homing_anti_shooter.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml" },
+        type                   = ACTION_TYPE_MODIFIER,
+        spawn_level            = "1,2,3,4,5,6", -- HOMING
+        spawn_probability      = "0.1,0.1,0.1,0.1,0.1,6", -- HOMING
+        price                  = 100,
+        mana                   = 12,
+        action                 = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml,"
+            draw_actions(1, true)
+        end,
+    },
+
+	{
+		id                      = "ALCOHOL_SHOT",
+		name                    = "Inebriation",
+		description             = "Makes a projectile get the enemies it hits drunk",
+		sprite                  = "mods/copis_things/files/ui_gfx/gun_actions/inebriation.png",
+		type                    = ACTION_TYPE_MODIFIER,
+		spawn_level             = "1,2,3,4,5",
+		spawn_probability       = "0.4,0.4,0.4,0.4,0.4",
+		price                   = 70,
+		mana                    = 10,
+		action                  = function()
+			c.game_effect_entities = c.game_effect_entities .. "data/entities/misc/effect_drunk.xml,"
+			draw_actions( 1, true )
+		end,
+	},
+
+	{
+		id                      = "SPREAD_DAMAGE",
+		name                    = "Area Damage",
+		description             = "Projectiles deal their damage in a radius around them, but cost 2x more mana to cast",
+		sprite                  = "mods/copis_things/files/ui_gfx/gun_actions/spread_damage.png",
+		type                    = ACTION_TYPE_MODIFIER,
+		spawn_level             = "2,3,4,5,6",
+		spawn_probability       = "0.5,0.5,0.5,0.5,0.5",
+		price                   = 150,
+		mana                    = 10,
+		action                  = function()
+            copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0;
+            if not c.extra_entities:find("mods/copis_things/files/entities/misc/spread_damage_unique.xml,") then
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/spread_damage_unique.xml,";
+            end
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/spread_damage.xml,";
+            draw_actions( 1, true );
+            copi_state.mana_multiplier = copi_state.mana_multiplier / 2.0;
+        end
+	},
 }
 
 local copi_count = 0

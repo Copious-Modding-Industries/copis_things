@@ -37,7 +37,7 @@
 		shake_vegetation="0" 
 		sparks_enabled="0"
 		stains_enabled="0" 
-		ray_energy="0">
+		ray_energy="810">
 	</config_explosion>
 	</ProjectileComponent>
 
@@ -53,4 +53,3 @@
 	</VariableStorageComponent>
 
 </Entity>
-

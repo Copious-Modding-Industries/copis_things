@@ -98,7 +98,8 @@
         "hide_menu_frame",
         "get_distance",
         "get_direction",
-        "NULL_ENTITY"
+        "NULL_ENTITY",
+        "vec_add"
     ],
     "Lua.diagnostics.disable": [
         "deprecated",

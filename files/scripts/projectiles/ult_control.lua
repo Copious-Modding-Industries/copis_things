@@ -1,6 +1,6 @@
 dofile("data/scripts/lib/utilities.lua")
 
-function ease_angle( angle, target_angle, easing )
+local function ease_angle( angle, target_angle, easing )
     local dir = ( angle - target_angle ) / (math.pi * 2);
     dir = dir - math.floor( dir + 0.5 );
     dir = dir * ( math.pi * 2 );

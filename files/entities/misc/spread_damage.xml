@@ -1,0 +1,6 @@
+<Entity >
+	<LuaComponent 
+		remove_after_executed="1"
+		script_source_file="mods/copis_things/files/scripts/projectiles/spread_damage.lua" >
+	</LuaComponent>
+</Entity>

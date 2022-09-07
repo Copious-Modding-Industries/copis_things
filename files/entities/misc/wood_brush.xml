@@ -1,0 +1,36 @@
+<Entity>
+	<LuaComponent 
+        execute_every_n_frame="-1"
+		script_source_file="mods/copis_things/files/scripts/projectiles/wood_brush_init.lua"
+		remove_after_executed="1"
+        execute_on_added="1"
+		>
+	</LuaComponent>
+
+	<ParticleEmitterComponent 
+		emitted_material_name="wood_player"
+		offset.x="0"
+		offset.y="0"
+		x_pos_offset_min="-2"
+		x_pos_offset_max="2"
+		y_pos_offset_min="-2"
+		y_pos_offset_max="2"
+		x_vel_min="-0"
+		x_vel_max="0"
+		y_vel_min="0"
+		y_vel_max="0"
+		count_min="16"
+		count_max="16"
+		lifetime_min="-1"
+		lifetime_max="-1"
+		create_real_particles="1"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		is_emitting="1"
+        is_trail="1"
+		friction="0"
+		render_on_grid="1"
+		attractor_force="0"
+		>
+	</ParticleEmitterComponent>
+</Entity>

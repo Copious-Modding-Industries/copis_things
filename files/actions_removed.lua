@@ -2119,6 +2119,56 @@ local to_insert = {
         end,
     },
 
+    {
+        id                = "ATTACK_LEG",
+        name              = "Lukki Limb",
+        description       = "Control a Lukki leg to kick nearby enemies automatically",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png",
+        type              = ACTION_TYPE_PASSIVE,
+        spawn_level       = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+        spawn_probability = "0.1,0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+        price             = 160,
+        mana              = 0,
+        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/attack_leg.xml",
+        action            = function()
+            -- does nothing to the projectiles
+            draw_actions(1, true)
+        end,
+    },
+
+    {
+        id                = "BAYONET",
+        name              = "Bayonet",
+        description       = "Attach a small knife to the tip of your wand --INDEV WRONG AREA DAMAGE--",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/bayonet.png",
+        type              = ACTION_TYPE_PASSIVE,
+        spawn_level       = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+        spawn_probability = "0.1,0.2,0.3,0.2,0.1,0.1", -- ENERGY_SHIELD_SECTOR
+        price             = 160,
+        mana              = 0,
+        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/bayonet.xml",
+        action            = function()
+            -- does nothing to the projectiles
+            draw_actions(1, true)
+        end,
+    },
+
+    {
+        id                = "ALT_FIRE_LUNGE",
+        name              = "Sidearm Lunge",
+        description       = "Launch yourself forwards with a burst of speed when you press alt fire. Consumes 5 mana when lunging",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_lunge.png",
+        type              = ACTION_TYPE_PASSIVE,
+        spawn_level       = "1,2,4",
+        spawn_probability = "0.4,0.4,0.4",
+        price             = 100,
+        mana              = 0,
+        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_lunge.xml",
+        action            = function()
+            -- does nothing to the projectiles
+            draw_actions(1, true)
+        end,
+    },
 
 }
 
