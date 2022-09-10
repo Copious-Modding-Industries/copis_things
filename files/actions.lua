@@ -39,7 +39,6 @@ local to_insert = {
         end
     },
 
-
     -- LUNGE
     {
         id                = "LUNGE",
@@ -3736,23 +3735,6 @@ local to_insert = {
             c.speed_multiplier = c.speed_multiplier * 0.75
             c.extra_entities = c.extra_entities.."mods/copis_things/files/entities/misc/wood_brush.xml,";
             draw_actions( 1, true );
-        end,
-    },
-
-    {
-        id                = "ALT_FIRE_LUNGE",
-        name              = "Sidearm Lunge",
-        description       = "Launch yourself forwards with a burst of speed when you press alt fire. Consumes 5 mana when lunging",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_lunge.png",
-        type              = ACTION_TYPE_PASSIVE,
-        spawn_level       = "1,2,4",
-        spawn_probability = "0.4,0.4,0.4",
-        price             = 100,
-        mana              = 0,
-        custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_lunge.xml",
-        action            = function()
-            -- does nothing to the projectiles
-            draw_actions(1, true)
         end,
     },
 

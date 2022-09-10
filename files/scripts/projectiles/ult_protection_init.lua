@@ -15,6 +15,12 @@ if self.ProjectileComponent then
             else
                 component.entities_with_tag = "player_unit"
             end
+        elseif component:type() == "DamageNearbyEntitiesComponent" then
+            if EntityHasTag( shooter, "player_unit" ) then
+                component.target_tag = "enemy"
+            else
+                component.target_tag = "player_unit"
+            end
         end
     end
     if self.LightningComponent then
@@ -22,6 +28,6 @@ if self.ProjectileComponent then
     end
 
     self:addComponent("LuaComponent", {
-        script_shot = "mods/copis_things/files/scripts/projectiles/ult_protection_init.lua",
+        script_shot = "mods/copis_things/files/scripts/projectiles/ult_protection_shot.lua",
     })
 end
