@@ -15,10 +15,11 @@
 	<InheritTransformComponent
 		_tags="enabled_in_world,enabled_in_hand" >
 	</InheritTransformComponent>
-
-	<LuaComponent 
-		_tags="enabled_in_hand"
-		script_enabled_changed="mods/copis_things/files/scripts/custom_cards/projectile_homing.lua"
-		execute_every_n_frame="-1" >
-	</LuaComponent>
+    
+    <GameEffectComponent 
+        _tags="enabled_in_hand"
+        effect="PROJECTILE_HOMING"
+    	frames="-1"
+    	exclusivity_group="1" >
+	</GameEffectComponent >
 </Entity>

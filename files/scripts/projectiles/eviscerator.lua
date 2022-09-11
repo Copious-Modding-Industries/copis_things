@@ -15,5 +15,5 @@ for _, entity in ipairs(entities) do
         end
     end
     EntityAddRandomStains(entity, CellFactory_GetType("poison"), 100)
-    EntityInflictDamage(entity, math.max(max_hp/20, 5), "DAMAGE_MATERIAL", "something dangerous", "BLOOD_EXPLOSION", 0, 0, shooter)
+    EntityInflictDamage(entity, math.max(max_hp/20, 5), "DAMAGE_MATERIAL", "terror", "BLOOD_EXPLOSION", 0, 0, shooter)
 end
