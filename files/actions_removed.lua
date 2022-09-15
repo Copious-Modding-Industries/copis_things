@@ -1232,24 +1232,6 @@ local to_insert = {
     },
 
     {
-        id                = "SUMMON_JAR_URINE",
-        name              = "Jarate",
-        description       = "Jar-based Karate",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_jar_urine.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "2,		3,		4,		5,		6",
-        spawn_probability = "0.025,	0.033,	0.050,	0.033,	0.025",
-        price             = 200,
-        mana              = 45,
-        max_uses          = 30,
-        action            = function()
-            c.fire_rate_wait    = c.fire_rate_wait + 10
-            current_reload_time = current_reload_time + 20
-            add_projectile("data/entities/items/pickup/jar_of_urine.xml")
-        end,
-    },
-
-    {
         id                = "SUMMON_SUN",
         name              = "Summon Sun",
         description       = "Summons the sun.",

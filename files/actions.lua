@@ -3755,23 +3755,6 @@ local to_insert = {
         end,
     },
 
-    {
-        id                     = "HITFX_DRUNK",
-        name                   = "Inebriation",
-        description            = "Projectiles will be repelled from the caster",
-        sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/homing_anti_shooter.png",
-        related_extra_entities = { "mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml" },
-        type                   = ACTION_TYPE_MODIFIER,
-        spawn_level            = "1,2,3,4,5,6", -- HOMING
-        spawn_probability      = "0.1,0.1,0.1,0.1,0.1,6", -- HOMING
-        price                  = 100,
-        mana                   = 12,
-        action                 = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml,"
-            draw_actions(1, true)
-        end,
-    },
-
 	{
 		id                      = "ALCOHOL_SHOT",
 		name                    = "Inebriation",
