@@ -8,5 +8,5 @@ GUI will be added in a later update
 # Install Instructions
 
  - Press the *[Download Zip](https://github.com/Ramiels/copis_things/archive/refs/heads/main.zip)* button
- - Extract into your noita mod folder
+ - Extract into your noita mod folder (`C:\Program Files (x86)/Steam/steamapps/common/Noita/mods/` for steam users)
  - Rename `copis_things-main` to `copis_things`
