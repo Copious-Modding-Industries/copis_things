@@ -3809,6 +3809,40 @@ local to_insert = {
             add_projectile("data/entities/items/pickup/jar_of_urine.xml")
         end,
     },
+
+    -- PSYCHIC SHOT
+    {
+        id                = "ORBIT_SHOOTER",
+        name              = "Orbital Shot",
+        description       = "Causes the projectile to orbit the shooter",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/orbit_shooter.png",
+        type              = ACTION_TYPE_MODIFIER,
+        spawn_level       = "2,3,4,5,6",
+        spawn_probability = "0.3,0.4,0.5,0.6,0.6",
+        price             = 150,
+        mana              = 15,
+        action            = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/orbit_shooter.xml,"
+            draw_actions(1, true)
+        end
+    },
+
+    -- PSYCHIC SHOT
+    {
+        id                = "TELEPORT_RAGDOLL",
+        name              = "Deathbound teleport bolt",
+        description       = "A magical bolt that curses a body to carry you postmortem",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/teleport_ragdoll.png",
+        type              = ACTION_TYPE_PROJECTILE,
+        spawn_level       = "2,3,4,5,6",
+        spawn_probability = "0.3,0.4,0.5,0.6,0.6",
+        price             = 150,
+        mana              = 15,
+        action            = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/teleport_ragdoll.xml,"
+            draw_actions(1, true)
+        end
+    },
 }
 
 local copi_count = 0

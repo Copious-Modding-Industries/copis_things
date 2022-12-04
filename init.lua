@@ -1,5 +1,5 @@
-dofile_once( "mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
-dofile_once( "mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init( "mods/copis_things/files/scripts/lib/polytools/" )
+dofile_once( "mods/copis_things/files/scripts/lib/Noitilities/NL_init.lua").init( "mods/copis_things/files/scripts/lib/Noitilities/" )
+dofile_once( "mods/copis_things/files/scripts/lib/Noitilities/ModuleLoader.lua" ).Load({"Translations", "GunPatch"})
 
 
 
@@ -10,38 +10,33 @@ dofile_once( "mods/copis_things/files/scripts/lib/variables.lua" );
 dofile_once( "mods/copis_things/files/scripts/lib/config.lua" );
 dofile("data/scripts/lib/utilities.lua")
 --[[
-function DoFileEnvironment( filepath, environment )
-    if environment == nil then environment = {} end
-    local f = loadfile( filepath );
-    local set_f = setfenv( f, setmetatable( environment, { __index = _G } ) );
-    local status,result = pcall( set_f );
-    if status == false then print_error( "do file environment for "..filepath..": "..result ); end
-    return environment;
-end
-]]
 
+Hello seeker of knowledge.
+
+I will speak many words to you through the past present and future.
+But for now, rid yourself of this domain, as it is unstable and incomplete.
+To base your future on the chaotic state of this project would only worsen them.
+Now flee, escape until this primordial slate of commands is in it's final state.
+
+]]
 
 ModMaterialsFileAdd( "mods/copis_things/files/materials_nugget.xml" );
 --ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
 
 
---[[ Gun System Extension ]]
-ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/gun/gun_extra_modifiers.lua")
-ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/scripts/gun/actions_sprite_replace.lua")
-ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/scripts/gun/gun_append.lua")
+--[[ Gun System Content ]]
+dofile_once("mods/copis_things/init/gun.lua")
 
 --[[ Content ]]
-ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions.lua")
 ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/scripts/perk/perk_list.lua")
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
 
---[[ Dev spell ]]
+--[[ Dev content ]]
 if DebugGetIsDevBuild() then
     ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions_dev.lua")
 else
-    ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions_dev_meta.lua")
+    --ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions_dev_meta.lua")
 end
-
 
 --ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "mods/copis_things/files/scripts/gun/generate_random_spellbooks.lua" )
 
@@ -65,28 +60,6 @@ function OnWorldInitialized()
     local mod_button_reservation = tonumber( GlobalsGetValue( "mod_button_tr_width", "0" ) );
     GlobalsSetValue( "copi_mod_button_reservation", tostring( mod_button_reservation ) );
     GlobalsSetValue( "mod_button_tr_width", tostring( mod_button_reservation + 15 ) );
-end
---[[
-function OnModPostInit()
-
-    -- Run any enabled content's init functions
-    for content_id,content in pairs( COPI_CONFIG.CONTENT ) do
-        if content.init_function ~= nil then
-            if content.enabled() then
-                content.init_function();
-            end
-        end
-    end
-
-    COPI_CONFIG.disable_content();
-end
-]]
-
-function OnWorldPreUpdate()
-	if GlobalsGetValue( "copi_mod_button_tr_max", "0" ) == "0" then
-		GlobalsSetValue( "copi_mod_button_tr_max", GlobalsGetValue( "mod_button_tr_width", "0" ) );
-	end
-	--dofile( "mods/copis_things/files/scripts/gui/update.lua" );
 end
 
 GamePrint("Copi's things INDEV 0.01")
