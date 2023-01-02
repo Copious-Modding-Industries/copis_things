@@ -1,0 +1,57 @@
+<Entity tags="energy_shield">
+    
+    <Base file="data/entities/misc/custom_cards/energy_shield.xml" > 
+
+        
+
+        <SpriteComponent 
+            image_file="mods/copis_things/files/ui_gfx/gun_actions/energy_shield_directional.png" >
+        </SpriteComponent>
+
+        <ItemActionComponent 
+            _tags="enabled_in_world"
+            action_id="COPIS_THINGS_ENERGY_SHIELD_DIRECTIONAL" >
+        </ItemActionComponent>
+
+        <InheritTransformComponent
+            _tags="enabled_in_hand"
+            only_position="1"
+            use_root_parent="1">
+            <Transform 
+                position.x="0" 
+                position.y="-4">
+            </Transform>
+        </InheritTransformComponent>
+
+        <EnergyShieldComponent 
+            sector_degrees="65"
+            max_energy="3"
+            recharge_speed="2" >
+        </EnergyShieldComponent>
+
+        <ParticleEmitterComponent
+            area_circle_sector_degrees="65"
+            area_circle_radius.max="17" >
+        </ParticleEmitterComponent>
+
+        <ParticleEmitterComponent
+            area_circle_sector_degrees="65"
+            area_circle_radius.min="16" 
+            area_circle_radius.max="17" >
+        </ParticleEmitterComponent>
+
+        <ParticleEmitterComponent
+            area_circle_sector_degrees="65"
+            area_circle_radius.min="16" 
+            area_circle_radius.max="17" >
+        </ParticleEmitterComponent>
+
+    </Base>
+
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/energy_shield_directional.lua"
+		execute_every_n_frame="1" >
+	</LuaComponent>
+    
+</Entity>

@@ -22,9 +22,9 @@ local to_insert = {
     },
 
     {
-        id                = "SWORD_MAGIC",
-        name              = "Mage's Razor of Cunning",
-        description       = "A series of techniques developed around magical adaptation",
+        id                = "TEST_NOITHEOGONY",
+        name              = "TEST_NOITHEOGONY",
+        description       = "A powerful attack where one spins with their blade, cleaving enemies around them.\n \n \n Type: [Blade]\n Stamina: [1]\n Melee damage: [6]\n Slice damage: [4]",
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/dev_meta.png",
         type              = ACTION_TYPE_OTHER,
         spawn_level       = "0,0",
@@ -34,31 +34,7 @@ local to_insert = {
         ai_never_uses     = true,
         action            = function(recursion_level, iteration)
             if not reflecting then
-                local entity_id = GetUpdatedEntityID()
-                local controls_comp = EntityGetFirstComponentIncludingDisabled(entity_id, "ControlsComponent")
-                if controls_comp ~= nil then
-                    local keys = {
-                        left   = ComponentGetValue2(controls_comp, "mButtonDownLeft"),
-                        right  = ComponentGetValue2(controls_comp, "mButtonDownRight"),
-                        up     = ComponentGetValue2(controls_comp, "mButtonDownUp"),
-                        down   = ComponentGetValue2(controls_comp, "mButtonDownDown"),
-                        kick   = ComponentGetValue2(controls_comp, "mButtonDownKick"),
-                        rmb    = ComponentGetValue2(controls_comp, "mButtonDownRightClick"),
-                    }
-
-                    local attack = nil
-
-                    if keys.up then
-                        attack = "upstab"
-                        if keys.left then
-                            attack = "upleftslash"
-                        elseif keys.right then
-                            attack = "uprightslash"
-                        end
-                    end
-                    if keys.down then attack = "downstab" end
-
-                end
+                GamePrint("Hello!")
             end
         end,
     },

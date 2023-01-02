@@ -13,7 +13,9 @@
 	</Base>
 
 	<InheritTransformComponent
-		_tags="enabled_in_world,enabled_in_hand" >
+		_tags="enabled_in_world,enabled_in_hand"
+		use_root_parent="1"
+		always_use_immediate_parent_rotation="1" >
 	</InheritTransformComponent>
 
 	<LuaComponent 
@@ -21,7 +23,6 @@
 		script_source_file="mods/copis_things/files/scripts/custom_cards/ultrakill.lua"
 		execute_every_n_frame="1" >
 	</LuaComponent>
-
 	
     <VariableStorageComponent
 		_tags="enabled_in_hand"

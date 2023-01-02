@@ -1,0 +1,27 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/cleaning_tool.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_CLEANING_TOOL" >
+		</ItemActionComponent>
+	</Base>
+
+	<LightComponent 
+        _enabled="1"
+        radius="250" >
+    </LightComponent>
+
+	<CellEaterComponent
+		_tags="enabled_in_hand"
+		radius="20"
+		eat_probability="10"
+		only_stain="1"
+		>
+	</CellEaterComponent>
+
+</Entity>

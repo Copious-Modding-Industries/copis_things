@@ -1,24 +1,30 @@
 <Entity>
-	
-	<Base file="data/entities/base_custom_card.xml" > 
-		<SpriteComponent 
-			image_file="mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png" >
+
+	<Base file="data/entities/base_custom_card.xml">
+		<SpriteComponent
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/attack_leg.png">
 		</SpriteComponent>
-		
-		<ItemActionComponent 
+
+		<ItemActionComponent
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_ATTACK_LEG" >
+			action_id="COPIS_THINGS_ATTACK_LEG">
 		</ItemActionComponent>
 	</Base>
 
-    <InheritTransformComponent
+	<InheritTransformComponent
 		_tags="enabled_in_hand"
-		parent_hotspot_tag="shoot_pos" 
-		always_use_immediate_parent_rotation="1" >
-		<Transform 
-        position.x="0" 
-        position.y="0">
+		parent_hotspot_tag="shoot_pos"
+		always_use_immediate_parent_rotation="1">
+		<Transform
+			position.x="0"
+			position.y="0">
 		</Transform>
 	</InheritTransformComponent>
 
+    <GameEffectComponent 
+        _tags="enabled_in_hand"
+        effect="PROJECTILE_HOMING"
+    	frames="-1"
+    	exclusivity_group="1" >
+	</GameEffectComponent >
 </Entity>

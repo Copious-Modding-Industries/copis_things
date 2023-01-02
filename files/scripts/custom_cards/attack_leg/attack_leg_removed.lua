@@ -13,4 +13,3 @@ function enabled_changed( entity_id, is_enabled )
         end
     end
 end
-

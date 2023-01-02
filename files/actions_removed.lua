@@ -615,27 +615,6 @@ local to_insert = {
     },
 
     {
-        id                = "DIE",
-        name              = "Die",
-        description       = "Reverses the flow of mana in your body, giving you a quick and painless death.",
-        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/die.png",
-        type              = ACTION_TYPE_UTILITY,
-        spawn_level       = "6,10",
-        spawn_probability = "0.2,1",
-        price             = 250,
-        mana              = 0,
-        action            = function()
-            if reflecting then return; end
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                local x, y = EntityGetTransform(entity_id)
-                EntityLoad("data/entities/particles/image_emitters/player_disappear_effect_right.xml", x, y) -- gfx
-                EntityKill(entity_id)
-            end
-        end,
-    },
-
-    {
         id                     = "HOMING_LIGHT",
         name                   = "Soft Homing",
         description            = "Guides a projectile weakly towards your foes",
@@ -2151,6 +2130,24 @@ local to_insert = {
             draw_actions(1, true)
         end,
     },
+
+	{
+		id          = "ENERGY_SHIELD_SPIN",
+		name 		= "Orbiting Energy Shields",
+		description = "4 small energy shields which orbit you!",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/energy_shield_spin.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/energy_shield_sector_unidentified.png",
+		type 		= ACTION_TYPE_PASSIVE,
+		spawn_level                       = "0,1,2,3,4,5", -- ENERGY_SHIELD_SECTOR
+		spawn_probability                 = "0.05,0.6,0.6,0.6,0.6,0.6", -- ENERGY_SHIELD_SECTOR
+		price = 160,
+        mana = 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/energy_shield_spin.xml",
+		action 		= function()
+			-- does nothing to the projectiles
+			draw_actions( 1, true )
+		end,
+	},
 
 }
 

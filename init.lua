@@ -1,8 +1,7 @@
-dofile_once( "mods/copis_things/files/scripts/lib/Noitilities/NL_init.lua").init( "mods/copis_things/files/scripts/lib/Noitilities/" )
+--[[
+    dofile_once( "mods/copis_things/files/scripts/lib/Noitilities/NL_init.lua").init( "mods/copis_things/files/scripts/lib/Noitilities/" )
 dofile_once( "mods/copis_things/files/scripts/lib/Noitilities/ModuleLoader.lua" ).Load({"Translations", "GunPatch"})
-
-
-
+]]
 dofile_once( "mods/copis_things/files/scripts/lib/helper.lua" );
 dofile_once( "mods/copis_things/files/scripts/lib/flags.lua" );
 local MISC = dofile_once( "mods/copis_things/files/scripts/lib/options.lua" );
@@ -50,16 +49,23 @@ if translations ~= nil then
 	ModTextFileSetContent( "data/translations/common.csv", translations );
 end
 
-function OnPlayerSpawned( player_entity ) --This runs when player entity has been created
-    GlobalsSetValue( "mod_button_tr_width", "0" );
-	GamePrint( "OnPlayerSpawned() - Player entity id: " .. tostring(player_entity) )
-    --DoFileEnvironment( "mods/copi_noita/files/gkbrkn/player_spawned.lua", { player_entity = player_entity } );
+--[[
+    Callbacks
+]]
+
+local player_id
+
+function OnPlayerSpawned( player_entity )
+    player_id = player_entity
 end
 
-function OnWorldInitialized()
-    local mod_button_reservation = tonumber( GlobalsGetValue( "mod_button_tr_width", "0" ) );
-    GlobalsSetValue( "copi_mod_button_reservation", tostring( mod_button_reservation ) );
-    GlobalsSetValue( "mod_button_tr_width", tostring( mod_button_reservation + 15 ) );
+local max_hp_last_frame = ComponentGetValue2( EntityGetFirstComponentIncludingDisabled( player_id, "DamageModelComponent" ), "max_hp" )
+
+function OnWorldPreUpdate()
+    -- Healthy Hearts
+    if tonumber(GlobalsGetValue( "HealthyHeartStacks", "0" )) > 0 then
+        max_hp_last_frame = dofile_once("mods/copis_things/init/HealthyHeartsHandler.lua")( player_id, max_hp_last_frame )
+    end
 end
 
 GamePrint("Copi's things INDEV 0.01")
