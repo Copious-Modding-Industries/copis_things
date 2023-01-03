@@ -3433,31 +3433,31 @@ local to_insert = {
             --reset_modifiers(c);
 
             BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml")
-            BeginTriggerDeath()
-            BeginProjectile("mods/copis_things/files/entities/projectiles/burst_fire.xml")
-            BeginTriggerTimer(1)
-            for index, value in pairs(old_c) do
-                c[index] = value
-            end
-            old_c = c
-            draw_actions(1, true)
-            register_action(c)
-            SetProjectileConfigs()
-            EndTrigger()
-            BeginTriggerTimer(firerate + 1)
-            for index, value in pairs(old_c) do
-                c[index] = value
-            end
-            old_c = c
-            draw_actions(1, true)
-            register_action(c)
-            SetProjectileConfigs()
-            EndTrigger()
-            EndProjectile()
-            c.lifetime_add = firerate + 1
-            register_action(c)
-            SetProjectileConfigs()
-            EndTrigger()
+                BeginTriggerDeath()
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/burst_fire.xml")
+                        BeginTriggerTimer(1)
+                            for index, value in pairs(old_c) do
+                                c[index] = value
+                            end
+                            old_c = c
+                            draw_actions(1, true)
+                            register_action(c)
+                            SetProjectileConfigs()
+                        EndTrigger()
+                        BeginTriggerTimer(firerate + 1)
+                            for index, value in pairs(old_c) do
+                                c[index] = value
+                            end
+                            old_c = c
+                            draw_actions(1, true)
+                            register_action(c)
+                            SetProjectileConfigs()
+                        EndTrigger()
+                    EndProjectile()
+                    c.lifetime_add = firerate + 1
+                    register_action(c)
+                    SetProjectileConfigs()
+                EndTrigger()
             EndProjectile()
 
             c = old_c
