@@ -1268,10 +1268,10 @@ local to_insert = {
         spawn_level = "0,1,2,3,4,5,6", -- FIREBALL_RAY
         spawn_probability = "0.7,0.7,0.7,0.7,0.7,0.7,0.7", -- FIREBALL_RAY
         price = 300,
-        mana = 10,
+        mana = 5,
         action = function()
             c.damage_critical_multiplier = math.max(1, c.damage_critical_multiplier) + 1
-            c.damage_critical_chance = math.max(c.damage_critical_chance, 1)
+            c.damage_critical_chance = math.max(c.damage_critical_chance, 5)
             draw_actions(1, true)
         end
     },
