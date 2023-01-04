@@ -1,7 +1,6 @@
-dofile_once("data/scripts/lib/utilities.lua")
+local x, y = EntityGetTransform(GetUpdatedEntityID())
+PhysicsApplyForceOnArea(
+function(entity, body_mass, body_x, body_y, body_vel_x, body_vel_y, body_vel_angular)
 
-local entity_id    = GetUpdatedEntityID()
-
-edit_component2( entity_id, "VelocityComponent", function(comp,vars)
-    vars.gravity_y = 0
-  end)
+return body_x, body_y, 0, -body_mass*9.8, 0 -- forcePosX,forcePosY,forceX,forceY,forceAngular
+end, 0, x, y, x, y)

@@ -8,7 +8,7 @@ local to_insert = {
         description = "$actiondesc_bloodtentacle",
         spawn_requires_flag = "card_unlocked_pyramid",
         sprite = "data/ui_gfx/gun_actions/bloodtentacle.png",
-        related_projectiles = {"data/entities/projectiles/deck/bloodtentacle.xml"},
+        related_projectiles = { "data/entities/projectiles/deck/bloodtentacle.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "3,4,5,6", -- TENTACLE
         spawn_probability = "0.2,0.5,1,1", -- TENTACLE
@@ -56,11 +56,11 @@ local to_insert = {
                 local character_data_comp = EntityGetFirstComponent(entity_id, "CharacterDataComponent")
                 if character_data_comp ~= nil then
                     local caster = {
-                        velocity = {x = 0, y = 0},
-                        position = {x = 0, y = 0}
+                        velocity = { x = 0, y = 0 },
+                        position = { x = 0, y = 0 }
                     }
                     local mouse = {
-                        position = {x = 0, y = 0}
+                        position = { x = 0, y = 0 }
                     }
 
                     caster.position.x, caster.position.y = EntityGetTransform(entity_id)
@@ -258,7 +258,7 @@ local to_insert = {
         name = "Dart",
         description = "An accelerating magical dart that pierces soft materials",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/dart.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/dart.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/dart.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,1,2",
         spawn_probability = "2,1,0.5",
@@ -275,7 +275,7 @@ local to_insert = {
         name = "Summon Circle",
         description = "Summons a shortlived hollow circle",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/temporary_circle.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/deck/temporary_wall.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/deck/temporary_wall.xml" },
         type = ACTION_TYPE_UTILITY,
         spawn_level = "0,1,2,4,5,6", -- WALL_SQUARE
         spawn_probability = "0.1,0.1,0.3,0.4,0.2,0.1", -- WALL_SQUARE
@@ -293,7 +293,7 @@ local to_insert = {
         name = "Forwards Larpa",
         description = "Makes a projectile cast copies of itself forwards",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/forwards_larpa.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/forwards_larpa.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/forwards_larpa.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,3,4,5,10", -- FIREBALL_RAY
         spawn_probability = "0.1,0.2,0.3,0.4,0.2", -- FIREBALL_RAY
@@ -348,7 +348,7 @@ local to_insert = {
         name = "Gunner Shot",
         description = "Makes a projectile rapidly fire weak shots at nearby foes",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/gunner_shot.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,3,4,5,10", -- FIREBALL_RAY
         spawn_probability = "0.1,0.2,0.3,0.4,0.2", -- FIREBALL_RAY
@@ -367,7 +367,7 @@ local to_insert = {
         name = "Strong Gunner Shot",
         description = "Makes a projectile occasionally shoot powerful shots at nearby foes",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot_strong.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/gunner_shot_strong.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_strong.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,3,4,5,10", -- FIREBALL_RAY
         spawn_probability = "0.1,0.2,0.3,0.4,0.2", -- FIREBALL_RAY
@@ -403,7 +403,7 @@ local to_insert = {
         name = "Chunk of Concrete",
         description = "A spell with concrete results",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_concrete.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml" },
         type = ACTION_TYPE_MATERIAL,
         spawn_level = "1,2,3,5", -- SOILBALL
         spawn_probability = "1,1,1,1", -- SOILBALL
@@ -471,7 +471,7 @@ local to_insert = {
         name = "Silver bullet",
         description = "A small bullet created from arcane silver",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_bullet.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "2,3,4",
         spawn_probability = "1,1,0.5",
@@ -488,7 +488,7 @@ local to_insert = {
         name = "Silver magnum",
         description = "A large bullet created from arcane silver",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_magnum.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "4,			5,			6",
         spawn_probability = "1.00,		0.66,		0.33",
@@ -505,7 +505,7 @@ local to_insert = {
         name = "Silver bullet with expiration trigger",
         description = "A small bullet created from arcane silver that casts another spell upon expiring",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_death_trigger.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/silver_bullet.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_bullet.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "4,			5,			6",
         spawn_probability = "1.00,		0.50,		0.20",
@@ -522,7 +522,7 @@ local to_insert = {
         name = "Silver magnum with expiration trigger",
         description = "A large bullet created from arcane silver that casts another spell upon expiring",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum_death_trigger.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/silver_magnum.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_magnum.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "2,			3,			4",
         spawn_probability = "1.00,		0.66,		0.33",
@@ -540,7 +540,7 @@ local to_insert = {
         description = "Increases a projectile's damage based on the number of empty slots in the wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/slots_to_power.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/homing_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/slots_to_power.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/slots_to_power.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "1,2,3,10",
         spawn_probability = "0.2,0.5,0.5,0.1",
@@ -837,7 +837,7 @@ local to_insert = {
                     GamePrintImportant(
                         "Wand upgraded!",
                         ("%.2fs"):format(castDelay_old / 60) ..
-                            " -> " .. ("%.2fs"):format(wand.castDelay / 60) .. " cast delay."
+                        " -> " .. ("%.2fs"):format(wand.castDelay / 60) .. " cast delay."
                     )
                 end
             end
@@ -887,7 +887,7 @@ local to_insert = {
                     GamePrintImportant(
                         "Wand upgraded!",
                         ("%.2fs"):format(rechargeTime_old / 60) ..
-                            " -> " .. ("%.2fs"):format(wand.rechargeTime / 60) .. " recharge time."
+                        " -> " .. ("%.2fs"):format(wand.rechargeTime / 60) .. " recharge time."
                     )
                 end
             end
@@ -1062,10 +1062,9 @@ local to_insert = {
                 local wand = EZWand.GetHeldWand()
                 if wand ~= nil then
                     local spells, attached_spells = wand:GetSpells()
-                    if
-                        (#spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
-                            spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
-                     then
+                    if (#spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
+                        spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+                    then
                         local action_to_attach = spells[1]
                         wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
                         wand:RemoveSpells(spells[1].action_id)
@@ -1116,10 +1115,9 @@ local to_insert = {
                 local wand = EZWand.GetHeldWand()
                 if wand ~= nil then
                     local spells, attached_spells = wand:GetSpells()
-                    if
-                        (#attached_spells > 0 and attached_spells[1].action_id ~= "UPGRADE_GUN_ACTIONS_PERMANENT" and
-                            wand:GetFreeSlotsCount() > 0)
-                     then
+                    if (#attached_spells > 0 and attached_spells[1].action_id ~= "UPGRADE_GUN_ACTIONS_PERMANENT" and
+                        wand:GetFreeSlotsCount() > 0)
+                    then
                         local action_to_attach = attached_spells[1]
                         wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
                         wand:DetachSpells(attached_spells[1].action_id)
@@ -1289,26 +1287,23 @@ local to_insert = {
         action = function()
             local projectile_type_sum = 0
             for k, v in ipairs(deck or {}) do
-                if
-                    v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or
-                        v.type == ACTION_TYPE_MATERIAL
-                 then
+                if v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or
+                    v.type == ACTION_TYPE_MATERIAL
+                then
                     projectile_type_sum = projectile_type_sum + 1
                 end
             end
             for k, v in ipairs(hand or {}) do
-                if
-                    v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or
-                        v.type == ACTION_TYPE_MATERIAL
-                 then
+                if v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or
+                    v.type == ACTION_TYPE_MATERIAL
+                then
                     projectile_type_sum = projectile_type_sum + 1
                 end
             end
             for k, v in ipairs(discarded or {}) do
-                if
-                    v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or
-                        v.type == ACTION_TYPE_MATERIAL
-                 then
+                if v.type == ACTION_TYPE_PROJECTILE or v.type == ACTION_TYPE_STATIC_PROJECTILE or
+                    v.type == ACTION_TYPE_MATERIAL
+                then
                     projectile_type_sum = projectile_type_sum + 1
                 end
             end
@@ -1447,7 +1442,7 @@ local to_insert = {
         mana = 0,
         action = function()
             c.extra_entities =
-                c.extra_entities ..
+            c.extra_entities ..
                 "mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml,"
             draw_actions(1, true)
         end
@@ -1530,7 +1525,7 @@ local to_insert = {
         description = "Makes a projectile explode upon collision with frozen creatures",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/explode_on_frozen.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/hitfx_explode_frozen.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_explode_frozen.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "1,3,4,5", -- HITFX_EXPLOSION_ALCOHOL
         spawn_probability = "0.2,0.2,0.2,0.2", -- HITFX_EXPLOSION_ALCOHOL
@@ -1561,7 +1556,7 @@ local to_insert = {
         max_uses = 20,
         action = function()
             c.extra_entities =
-                c.extra_entities ..
+            c.extra_entities ..
                 "mods/copis_things/files/entities/misc/hitfx_explode_frozen.xml,data/entities/particles/tinyspark_orange.xml,"
             draw_actions(1, true)
         end
@@ -1573,7 +1568,7 @@ local to_insert = {
         description = "A field of modification magic",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/circle_edit_wands_everywhere.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/projectiles/circle_edit_wands_everywhere.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/projectiles/circle_edit_wands_everywhere.xml" },
         type = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level = "0,		1,		2,		3",
         spawn_probability = "1,		1,		1,		1",
@@ -1592,7 +1587,7 @@ local to_insert = {
         description = "Encases a projectile in a deflective shield",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/mini_shield.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/mini_shield.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/mini_shield.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "0,1,2,3,4,5,6", -- HITFX_EXPLOSION_ALCOHOL_GIGA
         spawn_probability = "1,1,1,1,1,1,1", -- HITFX_EXPLOSION_ALCOHOL_GIGA
@@ -1649,7 +1644,7 @@ local to_insert = {
         description = "Projectiles gain a trail of barriers",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/barrier_trail.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/barrier_trail.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/barrier_trail.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,		3,		4,		5",
         spawn_probability = "0.7,      0.7,	0.7,	0.7",
@@ -1666,7 +1661,7 @@ local to_insert = {
         name = "Deathray",
         description = "A blast of crackling red energy",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/death_ray.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/death_ray.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/death_ray.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "3,			4",
         spawn_probability = "1.00,		0.50",
@@ -1682,7 +1677,7 @@ local to_insert = {
         name = "Spark bolt with expiration trigger",
         description = "A spark bolt that casts another spell upon expiring",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_death_trigger.png",
-        related_projectiles = {"data/entities/projectiles/deck/light_bullet.xml"},
+        related_projectiles = { "data/entities/projectiles/deck/light_bullet.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,1,2,3", -- LIGHT_BULLET_TRIGGER
         spawn_probability = "1,0.5,0.5,0.5", -- LIGHT_BULLET_TRIGGER
@@ -1880,7 +1875,7 @@ local to_insert = {
         description = "Causes a projectile to zip away from walls",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/zipping_arc.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/sinewave_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/zipping_arc.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/zipping_arc.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,4,6",
         spawn_probability = "0.3,0.5,0.4",
@@ -1900,7 +1895,7 @@ local to_insert = {
         description = "A slow but powerful orb of energy that casts a spell after a timer runs out, then a second spell after a secondary timer runs out",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/slow_bullet_timer_2.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
-        related_projectiles = {"data/entities/projectiles/deck/bullet_slow.xml"},
+        related_projectiles = { "data/entities/projectiles/deck/bullet_slow.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "1,2,3,4,5,6", -- SLOW_BULLET_TIMER
         spawn_probability = "0.5,0.5,0.5,0.5,1,1", -- SLOW_BULLET_TIMER
@@ -1937,7 +1932,7 @@ local to_insert = {
         description = "A slow but powerful orb of energy that casts all remaining spells with a delay dependent on your cast delay",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/slow_bullet_timer_n.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
-        related_projectiles = {"data/entities/projectiles/deck/bullet_slow.xml"},
+        related_projectiles = { "data/entities/projectiles/deck/bullet_slow.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "1,2,3,4,5,6", -- SLOW_BULLET_TIMER
         spawn_probability = "0.3,0.3,0.3,0.3,0.5,0.5", -- SLOW_BULLET_TIMER
@@ -1979,7 +1974,7 @@ local to_insert = {
         name = "False Spell",
         description = "A spell that quickly dissipates",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/false_spell.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/false_spell.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/false_spell.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,1",
         spawn_probability = "0.1,0.1",
@@ -2026,7 +2021,7 @@ local to_insert = {
                             if (spells ~= nil) then
                                 for _, spell_id in ipairs(spells) do
                                     local comp =
-                                        EntityGetFirstComponentIncludingDisabled(spell_id, "ItemActionComponent")
+                                    EntityGetFirstComponentIncludingDisabled(spell_id, "ItemActionComponent")
                                     if (comp ~= nil) then
                                         local action_id = ComponentGetValue2(comp, "action_id")
                                         table.insert(options, action_id)
@@ -2093,7 +2088,7 @@ local to_insert = {
         name = "Icicle Lance",
         description = "A rapidly accelerating icicle which impales itself into terrain",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/icicle_lance.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/icicle_lance.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/icicle_lance.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "1,2,3,4,5,6",
         spawn_probability = "1,1,1,1,1,1",
@@ -2123,7 +2118,7 @@ local to_insert = {
         max_uses = 8,
         action = function()
             c.extra_entities =
-                c.extra_entities ..
+            c.extra_entities ..
                 "mods/copis_things/files/entities/misc/static_to_explosion.xml,data/entities/particles/tinyspark_yellow.xml,"
             c.fire_rate_wait = c.fire_rate_wait + 60
             draw_actions(1, true)
@@ -2148,7 +2143,7 @@ local to_insert = {
         max_uses = 8,
         action = function()
             c.extra_entities =
-                c.extra_entities ..
+            c.extra_entities ..
                 "mods/copis_things/files/entities/misc/liquid_to_soil.xml,data/entities/particles/tinyspark_yellow.xml,"
             c.fire_rate_wait = c.fire_rate_wait + 60
             draw_actions(1, true)
@@ -2173,7 +2168,7 @@ local to_insert = {
         max_uses = 8,
         action = function()
             c.extra_entities =
-                c.extra_entities ..
+            c.extra_entities ..
                 "mods/copis_things/files/entities/misc/powder_to_water.xml,data/entities/particles/tinyspark_yellow.xml,"
             c.fire_rate_wait = c.fire_rate_wait + 60
             draw_actions(1, true)
@@ -2198,7 +2193,7 @@ local to_insert = {
         max_uses = 8,
         action = function()
             c.extra_entities =
-                c.extra_entities ..
+            c.extra_entities ..
                 "mods/copis_things/files/entities/misc/powder_to_steel.xml,data/entities/particles/tinyspark_yellow.xml,"
             c.fire_rate_wait = c.fire_rate_wait + 60
             draw_actions(1, true)
@@ -2210,7 +2205,7 @@ local to_insert = {
         name = "Zap",
         description = "A short lived spark of electricity",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/zap.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/zap.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/zap.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "1,3,4",
         spawn_probability = "1,1,1",
@@ -2279,7 +2274,7 @@ local to_insert = {
         name = "Matra Magic",
         description = "Summon a seeking arcane missile",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/matra_magic.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/matra_magic.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/matra_magic.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "3,4,5,6",
         spawn_probability = "1,1,1,1",
@@ -2297,7 +2292,7 @@ local to_insert = {
         name = "Vomeremancy",
         description = "Purge thy satiety, Allow oneself to feast again",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/vomeremancy.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/vomere.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/vomere.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "3,4,5,6",
         spawn_probability = "1,1,1,1",
@@ -2338,10 +2333,9 @@ local to_insert = {
                     local wand_id = ComponentGetValue2(inventory_2_comp, "mActiveItem")
                     for i, spell in ipairs(EntityGetAllChildren(wand_id)) do
                         spell_comp = EntityGetFirstComponentIncludingDisabled(spell, "ItemComponent")
-                        if
-                            spell_comp ~= nil and
-                                ComponentGetValue2(spell_comp, "mItemUid") == current_action.inventoryitem_id
-                         then
+                        if spell_comp ~= nil and
+                            ComponentGetValue2(spell_comp, "mItemUid") == current_action.inventoryitem_id
+                        then
                             uses_left = ComponentGetValue2(spell_comp, "uses_remaining")
                             if uses_left ~= 0 then
                                 valid2 = true
@@ -2372,7 +2366,7 @@ local to_insert = {
         description = "An expanding circle of a random material",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/circle_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/circle_random.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/circle_random.xml" },
         type = ACTION_TYPE_MATERIAL,
         spawn_level = "1,2,3,4", -- CIRCLE_FIRE
         spawn_probability = "0.4,0.4,0.4,0.4", -- CIRCLE_FIRE
@@ -2391,7 +2385,7 @@ local to_insert = {
         description = "Creates a rain of a random material",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/cloud_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/cloud_random.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/cloud_random.xml" },
         type = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level = "0,1,2,3,4,5", -- CLOUD_WATER
         spawn_probability = "0.3,0.3,0.3,0.3,0.3,0.3", -- CLOUD_WATER
@@ -2410,7 +2404,7 @@ local to_insert = {
         description = "Transmutes everything in a short radius into a random material, including walls, creatures... and you",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/touch_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/touch_random.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/touch_random.xml" },
         type = ACTION_TYPE_MATERIAL,
         spawn_level = "1,2,3,4,5,6,7,10", -- TOUCH_WATER
         spawn_probability = "0,0,0,0,0.1,0.1,0.1,0.1", -- TOUCH_WATER
@@ -2428,7 +2422,7 @@ local to_insert = {
         description = "A blast of random material",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/chunk_of_random.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/chunk_of_random.xml" },
         type = ACTION_TYPE_MATERIAL,
         spawn_level = "1,2,3,5", -- SOILBALL
         spawn_probability = "0.4,0.4,0.4,0.4", -- SOILBALL
@@ -2445,7 +2439,7 @@ local to_insert = {
         description = "Transmute drops of a random material from nothing",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/material_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/material_random.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/material_random.xml" },
         type = ACTION_TYPE_MATERIAL,
         spawn_level = "1,2,3,4,5", -- MATERIAL_WATER
         spawn_probability = "0.4,0.4,0.4,0.4,0.4", -- MATERIAL_WATER
@@ -2465,7 +2459,7 @@ local to_insert = {
         description = "Summons a large body of a random material below the caster",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sea_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/sea_random.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/sea_random.xml" },
         type = ACTION_TYPE_MATERIAL,
         spawn_level = "0,4,5,6", -- SEA_LAVA
         spawn_probability = "0.2,0.2,0.2,0.2", -- SEA_LAVA
@@ -2483,7 +2477,7 @@ local to_insert = {
         name = "Summon Anvil",
         description = "Summon a heavy anvil which can be kicked around and even moved by explosions",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/summon_anvil.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/anvil.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/anvil.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,1,2,3,4,5,6", -- SUMMON_ROCK
         spawn_probability = "0.1,0.1,0.2,0.3,0.1,0.1,0.1", -- SUMMON_ROCK
@@ -2502,7 +2496,7 @@ local to_insert = {
         author = "Disco Witch",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/spell_turret.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/spell_turret.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/spell_turret.xml" },
         type = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level = "0,1,2,3,4,5,6,10",
         spawn_probability = "0,0,0,0.1,0.1,0.1,0.2,0.3",
@@ -2547,7 +2541,7 @@ local to_insert = {
         author = "Disco Witch",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/spell_turret_patient.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/spell_turret_patient.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/spell_turret_patient.xml" },
         type = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level = "0,1,2,3,4,5,6,10",
         spawn_probability = "0,0,0,0.1,0.1,0.1,0.2,0.3",
@@ -2609,7 +2603,7 @@ local to_insert = {
             BeginTriggerHitWorld()
             local shot = create_shot(1)
             shot.state.extra_entities =
-                shot.state.extra_entities .. "mods/copis_things/files/entities/misc/recursive_larpa.xml,"
+            shot.state.extra_entities .. "mods/copis_things/files/entities/misc/recursive_larpa.xml,"
             draw_shot(shot, true)
             EndTrigger()
             EndProjectile()
@@ -2622,7 +2616,7 @@ local to_insert = {
         author = "Disco Witch",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/larpa_lens.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/larpa_lens.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/larpa_lens.xml" },
         type = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level = "0,1,2,3,4,5,6,10",
         spawn_probability = "0,0,0,0.1,0.1,0.1,0.2,0.3",
@@ -2659,7 +2653,7 @@ local to_insert = {
         description = "Projectiles are affected by a very low terminal velocity",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/paper_shot.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/misc/paper_shot.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/misc/paper_shot.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "0,1,2,3,4",
         spawn_probability = "0.5,0.4,0.3,0.2,0.1",
@@ -2678,7 +2672,7 @@ local to_insert = {
         description = "The projectile has reduced terminal velocity and added lifetime",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/feather_shot.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/misc/feather_shot.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/misc/feather_shot.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "1,3,5",
         spawn_probability = "0.3,0.3,0.3",
@@ -2734,7 +2728,7 @@ local to_insert = {
         description = "Creates a soothing rain that cures your wounds",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/cloud_magic_liquid_hp_regeneration.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/cloud_magic_liquid_hp_regeneration.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/cloud_magic_liquid_hp_regeneration.xml" },
         type = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level = "0,1,2,3,4,5", -- CLOUD_WATER
         spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2", -- CLOUD_WATER
@@ -2753,7 +2747,7 @@ local to_insert = {
         name = "Chaos Sprites",
         description = "Cast an uncontrolled burst of projectiles",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/chaos_sprites.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/chaos_sprites.xml", 5},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/chaos_sprites.xml", 5 },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "3,4,5,6",
         spawn_probability = "1,1,1,1",
@@ -2793,7 +2787,7 @@ local to_insert = {
         description = "A feral slash that sucks in your foes",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/vacuum_claw.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/vacuum_claw.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/vacuum_claw.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "2,3,4,5",
         spawn_probability = "0.5,1,1,0.5",
@@ -2815,7 +2809,7 @@ local to_insert = {
         description = "An acidic claw that melts your foes",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/caustic_claw.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/caustic_claw.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/caustic_claw.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "1,2,3,4",
         spawn_probability = "0.5,1,1,0.5",
@@ -2837,7 +2831,7 @@ local to_insert = {
         description = "A sword of pure light, it slices through enemies with such grace it doesn't damage the environment",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/luminous_blade.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/luminous_blade.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/luminous_blade.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,2,4,6",
         spawn_probability = "0.1,0.2,0.6,0.3",
@@ -2876,7 +2870,7 @@ local to_insert = {
         description = "A shortlived magical bolt that moves you and casts a spell wherever it ends up flying",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport_projectile_short_trigger_death.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/teleport_projectile_unidentified.png",
-        related_projectiles = {"data/entities/projectiles/deck/teleport_projectile_short.xml"},
+        related_projectiles = { "data/entities/projectiles/deck/teleport_projectile_short.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,1,2,4,5,6", -- TELEPORT_PROJECTILE
         spawn_probability = "0.4,0.6,0.7,0.4,0.3,0.2", -- TELEPORT_PROJECTILE
@@ -2896,7 +2890,7 @@ local to_insert = {
         description = "Projectiles leave a devastating trail of deathly crosses",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/death_cross_trail.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/death_cross_trail.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/death_cross_trail.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,4,5,6",
         spawn_probability = "0.2,0.5,0.7,0.4",
@@ -2915,7 +2909,7 @@ local to_insert = {
         description = "Projectiles leave a devastating trail of deathly crosses",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/glittering_trail.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/glittering_trail.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/glittering_trail.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,3,4,5,6",
         spawn_probability = "0.7,0.7,0.5,0.4,0.2",
@@ -2932,7 +2926,7 @@ local to_insert = {
         name = "Assault shot",
         description = "Makes a projectile rapidly fire silver bullets",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/silver_bullet_ray.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "3,4,5,10", -- FIREBALL_RAY
         spawn_probability = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
@@ -2951,7 +2945,7 @@ local to_insert = {
         name = "Hexassault shot",
         description = "Makes a projectile fire silver bullets from it's sides",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_6.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/silver_bullet_ray.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "3,4,5,10", -- FIREBALL_RAY
         spawn_probability = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
@@ -2970,7 +2964,7 @@ local to_insert = {
         name = "Silver Scatter",
         description = "Makes a projectile fire silver bullets when it dies",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_on_death.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/silver_bullet_on_death.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_on_death.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "3,4,5,10", -- FIREBALL_RAY
         spawn_probability = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
@@ -2989,7 +2983,7 @@ local to_insert = {
         name = "Silver Spread",
         description = "Makes a projectile fire silver bullets in a circle",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_spin.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/silver_bullet_ray_spin.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray_spin.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "3,4,5,10", -- FIREBALL_RAY
         spawn_probability = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
@@ -3008,7 +3002,7 @@ local to_insert = {
         name = "Personal Silver Spread",
         description = "Causes hit enemies to spray out bullets",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_enemy.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "3,4,5,10", -- FIREBALL_RAY
         spawn_probability = "0.5,0.7,0.5,0.4", -- FIREBALL_RAY
@@ -3018,7 +3012,7 @@ local to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 30
             c.extra_entities =
-                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml,"
+            c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml,"
             draw_actions(1, true)
         end
     },
@@ -3029,7 +3023,7 @@ local to_insert = {
         description = "A chilling orb which shatters on death",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ice_orb.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/ice_orb.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/ice_orb.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "2,3,4,5", -- SLOW_BULLET
         spawn_probability = "1,1,1,1", -- SLOW_BULLET
@@ -3064,7 +3058,7 @@ local to_insert = {
         name = "Circle of Persuasion",
         description = "A field of charming magic",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/charm_field.png",
-        related_projectiles = {"data/entities/projectiles/deck/charm_field.xml"},
+        related_projectiles = { "data/entities/projectiles/deck/charm_field.xml" },
         type = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level = "0,1,2,3,4,5", -- TELEPORTATION_FIELD
         spawn_probability = "0.3,0.6,0.3,0.3,0.6,0.3", -- TELEPORTATION_FIELD
@@ -3123,7 +3117,7 @@ local to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 12
             c.extra_entities =
-                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_wet_2x_damage_freeze.xml,"
+            c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_wet_2x_damage_freeze.xml,"
             draw_actions(1, true)
         end
     },
@@ -3142,7 +3136,7 @@ local to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 12
             c.extra_entities =
-                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_bloody_2x_damage_poisoned.xml,"
+            c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_bloody_2x_damage_poisoned.xml,"
             draw_actions(1, true)
         end
     },
@@ -3161,7 +3155,7 @@ local to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 12
             c.extra_entities =
-                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_oiled_2x_damage_burn.xml,"
+            c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_oiled_2x_damage_burn.xml,"
             draw_actions(1, true)
         end
     },
@@ -3181,7 +3175,7 @@ local to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 12
             c.game_effect_entities =
-                c.game_effect_entities ..
+            c.game_effect_entities ..
                 "mods/copis_things/files/entities/misc/status_entities/effect_better_blindness.xml,"
             c.extra_entities = c.extra_entities .. "data/entities/particles/blindness.xml,"
             c.friendly_fire = true
@@ -3242,7 +3236,7 @@ local to_insert = {
         action = function()
             copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
             c.extra_entities =
-                c.extra_entities ..
+            c.extra_entities ..
                 "mods/copis_things/files/entities/particles/healing.xml,mods/copis_things/files/entities/misc/ophiuchus.xml,"
             c.friendly_fire = true
             c.fire_rate_wait = c.fire_rate_wait + 12
@@ -3257,7 +3251,7 @@ local to_insert = {
         name = "Nugget Shot",
         description = "Hurl some of your hard earned gold at the enemy. Requires 10 gold",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/nugget_shot.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/nugget_shot.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/nugget_shot.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "2,3,4,5",
         spawn_probability = "0.6,0.6,0.6,0.6",
@@ -3282,7 +3276,7 @@ local to_insert = {
         name = "Astral Vortex",
         description = "Summon a swirling phenomenon that fires 5 bursts of astral energy",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/astral_vortex.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/astral_beam.xml", 6},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/astral_beam.xml", 6 },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "3,4,5,6",
         spawn_probability = "0.5,1,1,0.5",
@@ -3341,7 +3335,7 @@ local to_insert = {
         description = "A short beam of light",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/laser_small.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/laser_unidentified.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/orb_laseremitter_small.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/orb_laseremitter_small.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,1,2,3", -- LASER
         spawn_probability = "0.6,1,1,0.6", -- LASER
@@ -3433,31 +3427,31 @@ local to_insert = {
             --reset_modifiers(c);
 
             BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml")
-                BeginTriggerDeath()
-                    BeginProjectile("mods/copis_things/files/entities/projectiles/burst_fire.xml")
-                        BeginTriggerTimer(1)
-                            for index, value in pairs(old_c) do
-                                c[index] = value
-                            end
-                            old_c = c
-                            draw_actions(1, true)
-                            register_action(c)
-                            SetProjectileConfigs()
-                        EndTrigger()
-                        BeginTriggerTimer(firerate + 1)
-                            for index, value in pairs(old_c) do
-                                c[index] = value
-                            end
-                            old_c = c
-                            draw_actions(1, true)
-                            register_action(c)
-                            SetProjectileConfigs()
-                        EndTrigger()
-                    EndProjectile()
-                    c.lifetime_add = firerate + 1
-                    register_action(c)
-                    SetProjectileConfigs()
-                EndTrigger()
+            BeginTriggerDeath()
+            BeginProjectile("mods/copis_things/files/entities/projectiles/burst_fire.xml")
+            BeginTriggerTimer(1)
+            for index, value in pairs(old_c) do
+                c[index] = value
+            end
+            old_c = c
+            draw_actions(1, true)
+            register_action(c)
+            SetProjectileConfigs()
+            EndTrigger()
+            BeginTriggerTimer(firerate + 1)
+            for index, value in pairs(old_c) do
+                c[index] = value
+            end
+            old_c = c
+            draw_actions(1, true)
+            register_action(c)
+            SetProjectileConfigs()
+            EndTrigger()
+            EndProjectile()
+            c.lifetime_add = firerate + 1
+            register_action(c)
+            SetProjectileConfigs()
+            EndTrigger()
             EndProjectile()
 
             c = old_c
@@ -3583,7 +3577,7 @@ local to_insert = {
         description = "Your projectile fires out random projectiles",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/chaos_ray.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
-        related_extra_entities = {"mods/copis_things/files/entities/misc/chaos_ray.xml"},
+        related_extra_entities = { "mods/copis_things/files/entities/misc/chaos_ray.xml" },
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "3,4,5", -- FIREBALL_RAY
         spawn_probability = "0.3,0.5,0.3", -- FIREBALL_RAY
@@ -3654,7 +3648,7 @@ local to_insert = {
         id = "COPIS_THINGS_ULT_DRAW_MANY",
         author = "Copi",
         name = "Stack",
-        description = "Fire all remaining spells with stat improvements proportional to spells drawn",
+        description = "Fire all remaining spells with stat improvements proportional to spells drawn.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ult_draw_many.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
         type = ACTION_TYPE_DRAW_MANY,
@@ -3795,7 +3789,7 @@ local to_insert = {
         name = "Alchemia Balloon",
         description = "A balloon that's filled with a material from your potions",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/balloon.png",
-        related_projectiles = {"mods/copis_things/files/entities/projectiles/balloon.xml"},
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/balloon.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,1,2,3,4,5,6",
         spawn_probability = "1,1,1,1,1,1,1",
@@ -3908,7 +3902,7 @@ local to_insert = {
         mana = 12,
         action = function()
             c.extra_entities =
-                c.extra_entities ..
+            c.extra_entities ..
                 "mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml,"
             draw_actions(1, true)
         end
@@ -4037,11 +4031,9 @@ local to_insert = {
             if entity_id ~= nil and entity_id ~= 0 then
                 local x, y = EntityGetTransform(entity_id)
                 EntityLoad("data/entities/particles/image_emitters/player_disappear_effect_right.xml", x, y) -- gfx
+                EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999,
+                    "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTERGRATED", 0, 0, entity_id, x, y, 10)
                 EntityKill(entity_id)
-                if IsPlayer(entity_id) then
-                    GameDestroyInventoryItems(entity_id)
-                    GameTriggerGameOver()
-                end
             end
         end
     },
@@ -4138,11 +4130,180 @@ local to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_VERTICAL_ARC",
+        name = "Vertical Path",
+        description = "Forces a projectile on a vertical path, but increases its damage",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/vertical_arc.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/sinewave_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/vertical_arc.xml" },
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,3,5", -- HORIZONTAL_ARC
+        spawn_probability = "0.4,0.4,0.4", -- HORIZONTAL_ARC
+        price = 20,
+        mana = 0,
+        --max_uses = 150,
+        action = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/vertical_arc.xml,"
+            draw_actions(1, true)
+            c.damage_projectile_add = c.damage_projectile_add + 0.3
+            c.fire_rate_wait        = c.fire_rate_wait - 6
+        end,
+    },
+    {
+        id = "COPIS_THINGS_ARC_CONCRETE",
+        name = "Concrete Arc",
+        description = "Creates arcs of concrete between projectiles. Make sure not to get stuck! (requires 2 projectile spells)",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/arc_concrete.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/arc_fire_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/arc_concrete.xml" },
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5", -- ARC_POISON
+        spawn_probability = "0.4,0.4,0.4,0.4,0.4", -- ARC_POISON
+        price = 160,
+        --max_uses 	= 15,
+        mana = 15,
+        action = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/arc_concrete.xml,"
+            draw_actions(1, true)
+        end,
+    },
+    {
+        id = "COPIS_THINGS_MANA_ENGINE",
+        name = "Mana Engine",
+        description = "Adds additional mana when you fire consecutively.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/mana_engine.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
+        price = 220,
+        mana = 0,
+        action = function()
+            if reflecting then
+                return
+            end
+            local caster = GetUpdatedEntityID()
+            if IsPlayer(caster) then
+                local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
+                if controls_component ~= nil then
+
+                    LastShootingStart = LastShootingStart or 0
+                    Revs = Revs or 0
+                    local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
+                    local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
+
+                    if not shooting_now then
+                        Revs = 0
+                    else
+                        if LastShootingStart ~= shooting_start then
+                            Revs = 0
+                        else
+                            Revs = Revs + 1
+                            local mana_add = math.min(80, math.ceil((Revs/5)^1.5) * 5)
+                            local delay_add = math.min(40, math.ceil((Revs/4)^2) + 12)
+                            mana = mana + mana_add
+                            c.fire_rate_wait = c.fire_rate_wait + delay_add
+                        end
+                    end
+                    LastShootingStart = shooting_start
+                    draw_actions(1, true)
+                end
+            end
+        end,
+    },
+    {
+        id = "COPIS_THINGS_RECHARGE_ENGINE",
+        name = "Recharge Engine",
+        description = "Reduces time between spellcasts when you fire consecutively.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/recharge_engine.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
+        price = 220,
+        mana = 20,
+        action = function()
+            if reflecting then
+                return
+            end
+            local caster = GetUpdatedEntityID()
+            if IsPlayer(caster) then
+                local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
+                if controls_component ~= nil then
+
+                    LastShootingStart = LastShootingStart or 0
+                    Revs = Revs or 0
+                    local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
+                    local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
+
+                    if not shooting_now then
+                        Revs = 0
+                    else
+                        if LastShootingStart ~= shooting_start then
+                            Revs = 0
+                        else
+                            Revs = Revs + 1
+                            local reload_reduce = math.min(80, math.ceil((Revs/3)^1.5))
+                            current_reload_time = current_reload_time - reload_reduce
+                            c.fire_rate_wait = c.fire_rate_wait - reload_reduce
+                            c.spread_degrees = c.spread_degrees + math.min(Revs/3, 75)
+                        end
+                    end
+                    LastShootingStart = shooting_start
+                    draw_actions(1, true)
+                end
+            end
+        end,
+    },
+    {
+        id = "COPIS_THINGS_DAMAGE_ENGINE",
+        name = "Overheat Engine",
+        description = "Adds burning damage when you fire consecutively, but you may catch on fire!",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/damage_engine.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
+        price = 220,
+        mana = 10,
+        action = function()
+            if reflecting then
+                c.damage_fire_add = c.damage_fire_add + 0.08
+                return
+            end
+            local caster = GetUpdatedEntityID()
+            if IsPlayer(caster) then
+                local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
+                if controls_component ~= nil then
+
+                    LastShootingStart = LastShootingStart or 0
+                    Revs = Revs or 0
+                    local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
+                    local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
+
+                    if not shooting_now then
+                        Revs = 0
+                    else
+                        if LastShootingStart ~= shooting_start then
+                            Revs = 0
+                        else
+                            Revs = Revs + 1
+                            c.damage_fire_add = c.damage_fire_add + math.min(0.64, Revs/100)
+                            GamePrint(tostring(c.damage_fire_add) .. " REVS: " .. Revs)
+                            if math.random(0 , 100) < math.min(Revs, 200)/2 then
+                                GetGameEffectLoadTo(caster, "ON_FIRE", false)
+                            end
+                        end
+                    end
+                    LastShootingStart = shooting_start
+                    draw_actions(1, true)
+                end
+            end
+        end,
+    },
 }
 
-local copi_count = 0
+--local copi_count = 0
 for _, value in ipairs(to_insert) do
     table.insert(actions, value)
-    copi_count = copi_count + 1
+    --copi_count = copi_count + 1
 end
 --print("[COPIS_THINGS] Initialized " .. tostring(copi_count) .. " spells")
