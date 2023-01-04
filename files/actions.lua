@@ -4200,7 +4200,7 @@ local to_insert = {
                         else
                             Revs = Revs + 1
                             local mana_add = math.min(80, math.ceil((Revs/5)^1.5) * 5)
-                            local delay_add = math.min(40, math.ceil((Revs/4)^2) + 12)
+                            local delay_add = math.min(40, Revs^(1/3))
                             mana = mana + mana_add
                             c.fire_rate_wait = c.fire_rate_wait + delay_add
                         end
@@ -4242,10 +4242,10 @@ local to_insert = {
                             Revs = 0
                         else
                             Revs = Revs + 1
-                            local reload_reduce = math.min(80, math.ceil((Revs/3)^1.5))
+                            local reload_reduce = math.min(80, Revs^(1/2))
                             current_reload_time = current_reload_time - reload_reduce
                             c.fire_rate_wait = c.fire_rate_wait - reload_reduce
-                            c.spread_degrees = c.spread_degrees + math.min(Revs/3, 75)
+                            c.spread_degrees = c.spread_degrees + math.min(Revs^(1/4), 75)
                         end
                     end
                     LastShootingStart = shooting_start
@@ -4287,13 +4287,52 @@ local to_insert = {
                         else
                             Revs = Revs + 1
                             c.damage_fire_add = c.damage_fire_add + math.min(0.64, Revs/100)
-                            GamePrint(tostring(c.damage_fire_add) .. " REVS: " .. Revs)
                             if math.random(0 , 100) < math.min(Revs, 200)/2 then
                                 GetGameEffectLoadTo(caster, "ON_FIRE", false)
                             end
                         end
                     end
                     LastShootingStart = shooting_start
+                    draw_actions(1, true)
+                end
+            end
+        end,
+    },
+    {
+        id = "COPIS_THINGS_SHIELD_ENGINE",
+        name = "Shield Engine",
+        description = "Bolsters your defences while you fire consecutively",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/shield_engine.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
+        price = 220,
+        mana = 4,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/shield_engine.xml",
+        action = function()
+            if reflecting then
+                return
+            end
+            local caster = GetUpdatedEntityID()
+            if IsPlayer(caster) then
+                local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
+                if controls_component ~= nil then
+                    LastShootingStart = LastShootingStart or 0
+                    Revs = Revs or 0
+                    local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
+                    local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
+
+                    if not shooting_now then
+                        Revs = 0
+                    else
+                        if LastShootingStart ~= shooting_start then
+                            Revs = 0
+                        else
+                            Revs = Revs + 1
+                        end
+                    end
+                    LastShootingStart = shooting_start
+                    GlobalsSetValue("PLAYER_REVS", Revs)
                     draw_actions(1, true)
                 end
             end

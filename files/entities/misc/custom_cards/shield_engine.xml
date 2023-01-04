@@ -1,0 +1,43 @@
+<Entity>
+    
+    <Base file="data/entities/misc/custom_cards/energy_shield.xml" > 
+
+        <SpriteComponent 
+            image_file="mods/copis_things/files/ui_gfx/gun_actions/shield_engine.png" >
+        </SpriteComponent>
+
+        <ItemActionComponent 
+            _tags="enabled_in_world"
+            action_id="COPIS_THINGS_SHIELD_ENGINE" >
+        </ItemActionComponent>
+
+        <InheritTransformComponent
+            use_root_parent="1"
+            always_use_immediate_parent_rotation="1" >
+        </InheritTransformComponent>
+
+        <EnergyShieldComponent 
+            sector_degrees="170" >
+        </EnergyShieldComponent>
+
+        <ParticleEmitterComponent
+            area_circle_sector_degrees="170" >
+        </ParticleEmitterComponent>
+
+        <ParticleEmitterComponent
+            area_circle_sector_degrees="170" >
+        </ParticleEmitterComponent>
+
+        <ParticleEmitterComponent
+            area_circle_sector_degrees="170" >
+        </ParticleEmitterComponent>
+
+    </Base>
+
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/shield_engine.lua"
+		execute_every_n_frame="1" >
+	</LuaComponent>
+
+</Entity>

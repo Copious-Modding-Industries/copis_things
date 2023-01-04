@@ -2,8 +2,6 @@
     
     <Base file="data/entities/misc/custom_cards/energy_shield.xml" > 
 
-        
-
         <SpriteComponent 
             image_file="mods/copis_things/files/ui_gfx/gun_actions/energy_shield_directional.png" >
         </SpriteComponent>
