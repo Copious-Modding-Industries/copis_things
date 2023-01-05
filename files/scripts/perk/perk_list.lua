@@ -489,6 +489,36 @@ to_insert =
             end
         end,
     },
+    --  Invincibility Frames
+    {
+        id = "COPIS_THINGS_INVINCIBILITY_FRAMES",
+        ui_name = "$perk_name_copis_things_invincibility_frames",
+        ui_description = "$perk_desc_copis_things_invincibility_frames",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/invincibility_frames.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/invincibility_frames.png",
+        stackable = STACKABLE_YES,
+        stackable_is_rare = true,
+        usable_by_enemies = false,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "invincibility_frames")
+            if vsc then
+                ComponentSetValue2(vsc, "value_int", ComponentGetValue2(vsc, "value_int") + 10)
+            else
+                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                    _tags = "perk_component",
+                    script_source_file = "mods/copis_things/files/scripts/perk/source/Invincibility_flash.lua"
+                })
+                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                    _tags = "perk_component",
+                    script_damage_received = "mods/copis_things/files/scripts/perk/damage_received/Invincibility_frames.lua"
+                })
+                EntityAddComponent(entity_who_picked, "VariableStorageComponent", {
+                    _tags = "invincibility_frames,perk_component",
+                    value_int = 20
+                })
+            end
+        end,
+    },
 }
 
 for k, v in ipairs(to_insert) do
