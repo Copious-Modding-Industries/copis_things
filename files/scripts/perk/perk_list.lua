@@ -519,6 +519,32 @@ to_insert =
             end
         end,
     },
+    --  Protagonist
+    {
+        id = "COPIS_THINGS_DEMOLITIONIST",
+        ui_name = "$perk_name_copis_things_demolitionist",
+        ui_description = "$perk_desc_copis_things_demolitionist",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/demolitionist.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/demolitionist.png",
+        stackable = STACKABLE_YES,
+        stackable_is_rare = true,
+        usable_by_enemies = true,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "demolitionist_bonus")
+            if vsc then
+                ComponentSetValue2(vsc, "value_int", ComponentGetValue2(vsc, "value_int") + 1.0)
+            else
+                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                    _tags = "perk_component",
+                    script_shot = "mods/copis_things/files/scripts/perk/script_shot/demolitionist.lua"
+                })
+                EntityAddComponent(entity_who_picked, "VariableStorageComponent", {
+                    _tags = "demolitionist_bonus,perk_component",
+                    value_int = 1.0
+                })
+            end
+        end,
+    },
 }
 
 for k, v in ipairs(to_insert) do

@@ -4370,6 +4370,21 @@ local to_insert = {
             end
         end,
     },
+    {
+        id = "COPIS_THINGS_RAINBOW_TRAIL",
+        name = "Rainbow Trail",
+        description = "Show your colour",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/rainbow_trail.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2",
+        price = 10,
+        mana = 0,
+        action = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/rainbow_trail.xml,"
+            draw_actions( 1, true )
+        end,
+    },
 }
 
 --local copi_count = 0

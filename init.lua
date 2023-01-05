@@ -20,6 +20,7 @@ Now flee, escape until this primordial slate of commands is in it's final state.
 ]]
 
 ModMaterialsFileAdd( "mods/copis_things/files/materials_nugget.xml" );
+ModMaterialsFileAdd( "mods/copis_things/files/materials_rainbow.xml" );
 --ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
 
 
