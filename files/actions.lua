@@ -4338,6 +4338,38 @@ local to_insert = {
             end
         end,
     },
+    {
+        id = "COPIS_THINGS_RECHARGE_UNSTABLE",
+        name = "Unstable Recharge",
+        description = "Greatly reduces the time between spellcasts, with an increasing chance to malfunction.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/recharge_unstable.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
+        price = 220,
+        mana = 8,
+        action = function()
+            if reflecting then
+                c.fire_rate_wait = c.fire_rate_wait - 10
+                current_reload_time = current_reload_time - 20
+            else
+                RechargesUnstable = (RechargesUnstable or 0) + 1
+                local time_delta = -100
+                if math.random(0 , 100) < math.max(RechargesUnstable, 0)/3 - 5 then
+                    -- Reset Counter + Explode Player
+                    RechargesUnstable = 0
+                    local x, y = EntityGetTransform(GetUpdatedEntityID())
+                    EntityLoad("data/entities/projectiles/deck/explosion.xml", x, y)
+                    -- Increase Recharge
+                    time_delta = 60
+                end
+                -- Reduce Recharge
+                c.fire_rate_wait = c.fire_rate_wait + time_delta/2
+                current_reload_time = current_reload_time + time_delta
+                GamePrint(tostring(current_reload_time))
+            end
+        end,
+    },
 }
 
 --local copi_count = 0

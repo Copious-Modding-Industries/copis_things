@@ -125,10 +125,10 @@ to_insert =
                         drill = 0.25,
                         fire = 0.25,
                     }
-                    for damage_type,multiplier in pairs( multipliers ) do
-                        local resistance = ComponentObjectGetValue2( damagemodel, "damage_multipliers", damage_type );
+                    for damage_type, multiplier in pairs(multipliers) do
+                        local resistance = ComponentObjectGetValue2(damagemodel, "damage_multipliers", damage_type);
                         resistance = resistance * multiplier;
-                        ComponentObjectSetValue2( damagemodel, "damage_multipliers", damage_type, resistance );
+                        ComponentObjectSetValue2(damagemodel, "damage_multipliers", damage_type, resistance);
                     end
                 end
             end
@@ -155,8 +155,8 @@ to_insert =
                         "drill",
                         "fire",
                     }
-                    for _,damage_type in pairs(multipliers) do
-                        ComponentObjectSetValue2( damagemodel, "damage_multipliers", damage_type, 1 );
+                    for _, damage_type in pairs(multipliers) do
+                        ComponentObjectSetValue2(damagemodel, "damage_multipliers", damage_type, 1);
                     end
                 end
             end
@@ -181,12 +181,16 @@ to_insert =
                     ComponentSetValue2(damagemodel, "blood_material", "gold");
                     ComponentSetValue2(damagemodel, "blood_spray_material", "gold");
                     ComponentSetValue2(damagemodel, "blood_multiplier", 0.2);
-                    ComponentSetValue2(damagemodel, "blood_sprite_directional", "data/particles/bloodsplatters/bloodsplatter_directional_yellow_$[1-3].xml");
-                    ComponentSetValue2(damagemodel, "blood_sprite_large", "data/particles/bloodsplatters/bloodsplatter_yellow_$[1-3].xml");
+                    ComponentSetValue2(damagemodel, "blood_sprite_directional",
+                        "data/particles/bloodsplatters/bloodsplatter_directional_yellow_$[1-3].xml");
+                    ComponentSetValue2(damagemodel, "blood_sprite_large",
+                        "data/particles/bloodsplatters/bloodsplatter_yellow_$[1-3].xml");
 
-                    local projectile_resistance = tonumber(ComponentObjectGetValue(damagemodel, "damage_multipliers", "projectile"))
+                    local projectile_resistance = tonumber(ComponentObjectGetValue(damagemodel, "damage_multipliers",
+                        "projectile"))
                     projectile_resistance = projectile_resistance * 0.9
-                    ComponentObjectSetValue(damagemodel, "damage_multipliers", "projectile", tostring(projectile_resistance))
+                    ComponentObjectSetValue(damagemodel, "damage_multipliers", "projectile",
+                        tostring(projectile_resistance))
                 end
             end
 
@@ -211,22 +215,22 @@ to_insert =
         ui_description = "$perk_desc_copis_things_regression_scales",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/regression_scales.png",
         perk_icon = "mods/copis_things/files/items_gfx/perks/regression_scales.png",
-		stackable = STACKABLE_YES,
-		stackable_maximum = 2,
-		max_in_perk_pool = 2,
+        stackable = STACKABLE_YES,
+        stackable_maximum = 2,
+        max_in_perk_pool = 2,
         stackable_is_rare = true,
         usable_by_enemies = false,
-		func = function( entity_perk_item, entity_who_picked, item_name )
-			-- TODO - this should work - seems to work
-            GlobalsSetValue( "TEMPLE_PERK_REROLL_COUNT", tostring( 0 ) )
-			local perk_count = tonumber( GlobalsGetValue( "TEMPLE_PERK_COUNT", "3" ) )
-			perk_count = perk_count - 1
-			GlobalsSetValue( "TEMPLE_PERK_COUNT", tostring(perk_count) )
-		end,
-		func_remove = function( entity_who_picked )
-			-- TODO - this should work - seems to work
-			GlobalsSetValue( "TEMPLE_PERK_COUNT", "3" )
-		end,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            -- TODO - this should work - seems to work
+            GlobalsSetValue("TEMPLE_PERK_REROLL_COUNT", tostring(0))
+            local perk_count = tonumber(GlobalsGetValue("TEMPLE_PERK_COUNT", "3"))
+            perk_count = perk_count - 1
+            GlobalsSetValue("TEMPLE_PERK_COUNT", tostring(perk_count))
+        end,
+        func_remove = function(entity_who_picked)
+            -- TODO - this should work - seems to work
+            GlobalsSetValue("TEMPLE_PERK_COUNT", "3")
+        end,
     },
     --  Protection Lottery
     {
@@ -256,11 +260,11 @@ to_insert =
                         "fire",
                     }
                     local num = GameGetFrameNum() * 2
-                    for _,damage_type in pairs(multipliers) do
-                        local resistance = ComponentObjectGetValue2( damagemodel, "damage_multipliers", damage_type );
+                    for _, damage_type in pairs(multipliers) do
+                        local resistance = ComponentObjectGetValue2(damagemodel, "damage_multipliers", damage_type);
                         SetRandomSeed(num, 9 + num)
-                        resistance = math.max(0, resistance * (Random(50,125)/100));
-                        ComponentObjectSetValue2( damagemodel, "damage_multipliers", damage_type, resistance );
+                        resistance = math.max(0, resistance * (Random(50, 125) / 100));
+                        ComponentObjectSetValue2(damagemodel, "damage_multipliers", damage_type, resistance);
                         num = num + 1
                     end
                 end
@@ -284,8 +288,8 @@ to_insert =
                         "drill",
                         "fire",
                     }
-                    for _,damage_type in pairs( multipliers ) do
-                        ComponentObjectSetValue2( damagemodel, "damage_multipliers", damage_type, 1 );
+                    for _, damage_type in pairs(multipliers) do
+                        ComponentObjectSetValue2(damagemodel, "damage_multipliers", damage_type, 1);
                     end
                 end
             end
@@ -305,15 +309,15 @@ to_insert =
             if (damagemodels ~= nil) then
                 for _, damagemodel in ipairs(damagemodels) do
                     local multipliers = {
-                        fire=0.5,
-                        radioactive=0.5,
-                        poison=0.5,
-                        electricity=0.5,
+                        fire = 0.5,
+                        radioactive = 0.5,
+                        poison = 0.5,
+                        electricity = 0.5,
                     }
-                    for damage_type,multiplier in pairs( multipliers ) do
-                        local resistance = ComponentObjectGetValue2( damagemodel, "damage_multipliers", damage_type );
+                    for damage_type, multiplier in pairs(multipliers) do
+                        local resistance = ComponentObjectGetValue2(damagemodel, "damage_multipliers", damage_type);
                         resistance = resistance * multiplier;
-                        ComponentObjectSetValue2( damagemodel, "damage_multipliers", damage_type, resistance );
+                        ComponentObjectSetValue2(damagemodel, "damage_multipliers", damage_type, resistance);
                     end
                 end
             end
@@ -328,8 +332,8 @@ to_insert =
                         "poison",
                         "fire",
                     }
-                    for _,damage_type in pairs(multipliers) do
-                        ComponentObjectSetValue2( damagemodel, "damage_multipliers", damage_type, 1 );
+                    for _, damage_type in pairs(multipliers) do
+                        ComponentObjectSetValue2(damagemodel, "damage_multipliers", damage_type, 1);
                     end
                 end
             end
@@ -349,6 +353,140 @@ to_insert =
                 _tags = "perk_component",
                 extra_modifier = "copis_things_spell_efficiency"
             })
+        end,
+    },
+    --  Protagonist
+    {
+        id = "COPIS_THINGS_PROTAGONIST",
+        ui_name = "$perk_name_copis_things_protagonist",
+        ui_description = "$perk_desc_copis_things_protagonist",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/protagonist.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/protagonist.png",
+        stackable = STACKABLE_YES,
+        stackable_is_rare = true,
+        usable_by_enemies = true,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "protagonist_bonus")
+            if vsc then
+                ComponentSetValue2(vsc, "value_float", ComponentGetValue2(vsc, "value_float") + 2.0)
+            else
+                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                    _tags = "perk_component",
+                    script_shot = "mods/copis_things/files/scripts/perk/script_shot/protagonist.lua"
+                })
+                EntityAddComponent(entity_who_picked, "VariableStorageComponent", {
+                    _tags = "protagonist_bonus,perk_component",
+                    value_float = 2.0
+                })
+            end
+        end,
+    },
+    --  Spell Jam
+    {
+        id = "COPIS_THINGS_SPELL_JAM",
+        ui_name = "$perk_name_copis_things_spell_jam",
+        ui_description = "$perk_desc_copis_things_spell_jam",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/spell_jam.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/spell_jam.png",
+        stackable = STACKABLE_YES,
+        usable_by_enemies = false,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            local spells = {}
+
+            -- Get spells inventory
+            local inventory_full
+            for _, child in ipairs(EntityGetAllChildren(entity_who_picked) or {}) do
+                if (EntityGetName(child) == "inventory_full") then
+                    inventory_full = child
+                    break
+                end
+            end
+
+            -- Gather all spells in inventory
+            local inventory_items = EntityGetAllChildren(inventory_full) or {}
+            for _, item in ipairs(inventory_items) do
+                if EntityHasTag(item, "card_action") then
+                    table.insert(spells, item)
+                end
+            end
+
+            -- Kill inventory spells and drop new ones
+            if #spells > 0 then
+                local x, y = EntityGetTransform(entity_who_picked)
+                for index, spell in ipairs(spells) do
+                    local card = CreateItemActionEntity(GetRandomAction(x + math.random(-10000, 10000), y + math.random(-10001, 10000), 6, index), x, y)
+                    local velcomp = EntityGetFirstComponentIncludingDisabled(card, "VelocityComponent")
+                    ComponentSetValue2(velcomp, "mVelocity", math.random(-100, 100), math.random(-50, -100))
+                    EntityKill(spell)
+                end
+            end
+        end,
+    },
+    --  Lead Boots
+    {
+        id = "COPIS_THINGS_LEAD_BOOTS",
+        ui_name = "$perk_name_copis_things_lead_boots",
+        ui_description = "$perk_desc_copis_things_lead_boots",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/lead_boots.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/lead_boots.png",
+        stackable = STACKABLE_NO,
+        usable_by_enemies = true,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            EntityAddComponent(entity_who_picked, "ShotEffectComponent", {
+                _tags = "perk_component",
+                extra_modifier = "copis_things_lead_boots"
+            })
+        end,
+    },
+    --  Iron Feathers
+    {
+        id = "COPIS_THINGS_IRON_FEATHERS",
+        ui_name = "$perk_name_copis_things_iron_feathers",
+        ui_description = "$perk_desc_copis_things_iron_feathers",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/iron_feathers.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/iron_feathers.png",
+        stackable = STACKABLE_YES,
+        usable_by_enemies = true,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            do
+                local models = EntityGetComponent(entity_who_picked, "CharacterPlatformingComponent")
+                if (models ~= nil) then
+                    for i, model in ipairs(models) do
+                        local gravity = tonumber(ComponentGetValue(model, "pixel_gravity")) * 0.8
+                        ComponentSetValue(model, "pixel_gravity", gravity)
+                    end
+                end
+            end
+            EntityAddComponent(entity_who_picked, "LuaComponent", {
+                _tags = "perk_component",
+                script_damage_about_to_be_received = "mods/copis_things/files/scripts/perk/damage_about_to_be_received/iron_feathers.lua"
+            })
+        end,
+    },
+    --  Healthier Hearts
+    {
+        id = "COPIS_THINGS_HEALTHIER_HEARTS",
+        ui_name = "$perk_name_copis_things_healthier_hearts",
+        ui_description = "$perk_desc_copis_things_healthier_hearts",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/healthier_hearts.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/healthier_hearts.png",
+        stackable = STACKABLE_YES,
+        stackable_is_rare = true,
+        usable_by_enemies = false,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "healthier_hearts_count")
+            if vsc then
+                ComponentSetValue2(vsc, "value_float", ComponentGetValue2(vsc, "value_float") + 0.5)
+            else
+                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                    _tags = "perk_component",
+                    script_source_file = "mods/copis_things/files/scripts/perk/source/healthier_hearts.lua"
+                })
+                EntityAddComponent(entity_who_picked, "VariableStorageComponent", {
+                    _tags = "healthier_hearts_count,perk_component",
+                    value_float = 0.5
+                })
+            end
         end,
     },
 }
@@ -409,22 +547,6 @@ end
             local child_id = EntityLoad( "mods/copis_things/files/entities/misc/perk/hallowed_step.xml", x, y )
             EntityAddTag( child_id, "perk_entity" )
             EntityAddChild( entity_who_picked, child_id )
-        end,
-    },
-    --  Protagonist
-    {
-        id = "COPIS_THINGS_PROTAGONIST",
-        ui_name = "$perk_name_copis_things_protagonist",
-        ui_description = "$perk_desc_copis_things_fragile_ego",
-        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/protagonist.png",
-        perk_icon = "mods/copis_things/files/items_gfx/perks/protagonist.png",
-        stackable = STACKABLE_NO,
-        usable_by_enemies = true,
-        func = function(entity_perk_item, entity_who_picked, item_name)
-            EntityAddComponent(entity_who_picked, "LuaComponent", {
-                _tags = "perk_component",
-                script_damage_received = "mods/copis_things/files/scripts/perk/damage_received/swapper.lua"
-            })
         end,
     },
     -- Death Lottery

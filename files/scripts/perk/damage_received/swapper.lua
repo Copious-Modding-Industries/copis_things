@@ -1,20 +1,10 @@
-function damage_received( damage, message, entity_thats_responsible, is_fatal  )
-    local entity = GetUpdatedEntityID();
-    if entity_thats_responsible ~= entity and entity_thats_responsible ~= 0 and EntityGetIsAlive( entity_thats_responsible ) and EntityHasTag( entity_thats_responsible, "enemy" ) then
-        local x,y = EntityGetTransform( entity );
-        local ax,ay = EntityGetTransform( entity_thats_responsible );
-        EntitySetTransform( entity, ax, ay );
-        EntitySetTransform( entity_thats_responsible, x, y );
-        local velocity = EntityGetFirstComponent( entity, "VelocityComponent" );
-        local vx,vy = ComponentGetValue2( velocity, "mVelocity" );
-        local attacker_velocity = EntityGetFirstComponent( entity, "VelocityComponent" );
-        local avx,avy = ComponentGetValue2( attacker_velocity, "mVelocity" );
-        ComponentSetValue2( velocity, "mVelocity", avx, avy );
-        ComponentSetValue2( attacker_velocity, "mVelocity", vx, vy );
-        EntityLoad( "data/entities/particles/teleportation_target.xml", x, y );
-        EntityLoad( "data/entities/particles/teleportation_source.xml", ax, ay );
-        EntityLoad( "data/entities/misc/invisibility_last_known_player_position.xml", x, y );
-        EntityLoad( "data/entities/misc/invisibility_last_known_player_position.xml", x, y );
-        EntityLoad( "data/entities/misc/invisibility_last_known_player_position.xml", x, y );
+function damage_about_to_be_received( damage, x, y, entity_thats_responsible, critical_hit_chance )
+    print(tostring(entity_thats_responsible))
+    if entity_thats_responsible == nil then
+        local player_id = GetUpdatedEntityID()
+        local vsc_id = EntityGetFirstComponentIncludingDisabled( player_id, "VariableStorageComponent", "A_USEFUL_TAG_NO_ONE_ELSE_HAS_USED"  )
+        ComponentSetValue2( vsc_id, "value_float", damage )
+        return 0, critical_hit_chance
     end
+    return damage, critical_hit_chance
 end
