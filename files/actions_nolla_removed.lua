@@ -5,7 +5,7 @@ table.insert(actions,
 {
     id          = "TESTBULLET", -- REMOVE THIS ONCE PHYSICS_EXPLOSION_POWER IS ADJUSTED, JUST FOR TESTING
     name 		= "$action_testbullet",
-    description = "$actiondesc_testbullet",
+    description = "actiondesc_testbullet",
     sprite 		= "data/debug/icon_testbullet.png",
     type 		= ACTION_TYPE_PROJECTILE,
     spawn_level                       = "", -- TESTBULLET

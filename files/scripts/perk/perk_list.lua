@@ -519,7 +519,7 @@ to_insert =
             end
         end,
     },
-    --  Protagonist
+    --  Demolitionist
     {
         id = "COPIS_THINGS_DEMOLITIONIST",
         ui_name = "$perk_name_copis_things_demolitionist",

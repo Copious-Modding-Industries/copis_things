@@ -1269,7 +1269,9 @@ local to_insert = {
         mana = 5,
         action = function()
             c.damage_critical_multiplier = math.max(1, c.damage_critical_multiplier) + 1
-            c.damage_critical_chance = math.max(c.damage_critical_chance, 5)
+            if not reflecting then
+                c.damage_critical_chance = math.max(c.damage_critical_chance, 5)
+            end
             draw_actions(1, true)
         end
     },
@@ -2046,6 +2048,69 @@ local to_insert = {
                             end
                         end
                     end
+                end
+            end
+        end
+    },
+    {
+        id = "COPIS_THINGS_DELTA",
+        author = "Copi",
+        name = "Delta",
+        description = "Cycles through the wand, casting copies of spells.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_base.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+        spawn_requires_flag = "card_unlocked_duplicate",
+        type = ACTION_TYPE_OTHER,
+        spawn_manual_unlock = true,
+        recursive = true,
+        spawn_level = "5,6,10", -- MANA_REDUCE
+        spawn_probability = "0.1,0.1,1", -- MANA_REDUCE
+        price = 350,
+        mana = 50,
+        action = function(recursion_level, iteration)
+            if not reflecting then
+
+                local shooter = GetUpdatedEntityID()
+                DeltaIndex = DeltaIndex or 1
+                local inventory2comp = EntityGetFirstComponent(shooter, "Inventory2Component")
+                if inventory2comp then
+
+                    -- Go over all wand spells
+                    local active_wand = ComponentGetValue2(inventory2comp, "mActiveItem")
+                    for i, wand_action in ipairs(EntityGetAllChildren(active_wand) or {}) do
+                        if EntityHasTag(wand_action, "card_action") then
+                            local itemcomp = EntityGetFirstComponentIncludingDisabled(wand_action, "ItemComponent")
+
+                            -- If action's slot matches delta index then cast it
+                            if ComponentGetValue2(itemcomp, "inventory_slot") == DeltaIndex then
+                                local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action, "ItemActionComponent")
+                                local action_id = ComponentGetValue2(itemactioncomp, "action_id")
+                                if action_id ~= "COPIS_THINGS_DELTA" then
+                                    for _, data in ipairs( actions ) do
+                                        if ( data.id == action_id ) then
+                                            local rec = check_recursion( data, recursion_level )
+                                            if ( data ~= nil ) and ( rec > -1 ) then
+                                                data.action( rec )
+                                            end
+                                            break
+                                        end
+                                    end
+                                end
+                            end
+
+                            -- If action is this card then update sprite
+                            if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and current_action.id == "COPIS_THINGS_DELTA" then
+                                ComponentSetValue2(itemcomp, "ui_sprite", table.concat({ "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_", tostring(DeltaIndex + 1), ".png" }))
+                            end
+
+                        end
+                    end
+
+                    -- Update delta index
+                    local abilitycomp = EntityGetFirstComponentIncludingDisabled(active_wand, "AbilityComponent")
+                    local deck_capacity = ComponentObjectGetValue2(abilitycomp, "gun_config", "deck_capacity")
+                    DeltaIndex = (DeltaIndex + 1) % deck_capacity
+
                 end
             end
         end
@@ -4199,8 +4264,8 @@ local to_insert = {
                             Revs = 0
                         else
                             Revs = Revs + 1
-                            local mana_add = math.min(80, math.ceil((Revs/5)^1.5) * 5)
-                            local delay_add = math.min(40, Revs^(1/3))
+                            local mana_add = math.min(80, math.ceil((Revs / 5) ^ 1.5) * 5)
+                            local delay_add = math.min(40, Revs ^ (1 / 3))
                             mana = mana + mana_add
                             c.fire_rate_wait = c.fire_rate_wait + delay_add
                         end
@@ -4242,10 +4307,10 @@ local to_insert = {
                             Revs = 0
                         else
                             Revs = Revs + 1
-                            local reload_reduce = math.min(80, Revs^(1/2))
+                            local reload_reduce = math.min(80, Revs ^ (1 / 2))
                             current_reload_time = current_reload_time - reload_reduce
                             c.fire_rate_wait = c.fire_rate_wait - reload_reduce
-                            c.spread_degrees = c.spread_degrees + math.min(Revs^(1/4), 75)
+                            c.spread_degrees = c.spread_degrees + math.min(Revs ^ (1 / 4), 75)
                         end
                     end
                     LastShootingStart = shooting_start
@@ -4286,8 +4351,8 @@ local to_insert = {
                             Revs = 0
                         else
                             Revs = Revs + 1
-                            c.damage_fire_add = c.damage_fire_add + math.min(0.64, Revs/100)
-                            if math.random(0 , 100) < math.min(Revs, 200)/2 then
+                            c.damage_fire_add = c.damage_fire_add + math.min(0.64, Revs / 100)
+                            if math.random(0, 100) < math.min(Revs, 200) / 2 then
                                 GetGameEffectLoadTo(caster, "ON_FIRE", false)
                             end
                         end
@@ -4338,6 +4403,7 @@ local to_insert = {
             end
         end,
     },
+    --[[ WHY NO WORK??
     {
         id = "COPIS_THINGS_RECHARGE_UNSTABLE",
         name = "Unstable Recharge",
@@ -4369,7 +4435,7 @@ local to_insert = {
                 GamePrint(tostring(current_reload_time))
             end
         end,
-    },
+    },]]
     {
         id = "COPIS_THINGS_RAINBOW_TRAIL",
         name = "Rainbow Trail",
@@ -4382,7 +4448,7 @@ local to_insert = {
         mana = 0,
         action = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/rainbow_trail.xml,"
-            draw_actions( 1, true )
+            draw_actions(1, true)
         end,
     },
 }
