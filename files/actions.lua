@@ -1,5 +1,5 @@
 dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
-local to_insert = {
+local actions_to_insert = {
     -- BLOOD TENTACLE
     {
         id = "COPIS_THINGS_BLOODTENTACLE",
@@ -2083,14 +2083,15 @@ local to_insert = {
 
                             -- If action's slot matches delta index then cast it
                             if ComponentGetValue2(itemcomp, "inventory_slot") == DeltaIndex then
-                                local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action, "ItemActionComponent")
+                                local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action,
+                                    "ItemActionComponent")
                                 local action_id = ComponentGetValue2(itemactioncomp, "action_id")
                                 if action_id ~= "COPIS_THINGS_DELTA" then
-                                    for _, data in ipairs( actions ) do
-                                        if ( data.id == action_id ) then
-                                            local rec = check_recursion( data, recursion_level )
-                                            if ( data ~= nil ) and ( rec > -1 ) then
-                                                data.action( rec )
+                                    for _, data in ipairs(actions) do
+                                        if (data.id == action_id) then
+                                            local rec = check_recursion(data, recursion_level)
+                                            if (data ~= nil) and (rec > -1) then
+                                                data.action(rec)
                                             end
                                             break
                                         end
@@ -2099,8 +2100,11 @@ local to_insert = {
                             end
 
                             -- If action is this card then update sprite
-                            if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and current_action.id == "COPIS_THINGS_DELTA" then
-                                ComponentSetValue2(itemcomp, "ui_sprite", table.concat({ "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_", tostring(DeltaIndex + 1), ".png" }))
+                            if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and
+                                current_action.id == "COPIS_THINGS_DELTA" then
+                                ComponentSetValue2(itemcomp, "ui_sprite",
+                                    table.concat({ "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_",
+                                        tostring(DeltaIndex + 1), ".png" }))
                             end
 
                         end
@@ -4451,11 +4455,36 @@ local to_insert = {
             draw_actions(1, true)
         end,
     },
+    --[[
+    {
+        id = "COPIS_THINGS_TARGET_TRIGGER",
+        author = "Copi",
+        name = "Target with expiration trigger",
+        description = "A target which fires a projectile when it is destroyed.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/target_death_trigger.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/target.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "1,1,1,1,1,1,1",
+        price = 90,
+        mana = 2,
+        action = function()
+            c.fire_rate_wait = c.fire_rate_wait + 12
+            current_reload_time = current_reload_time + 12
+            if reflecting then
+                Reflection_RegisterProjectile( "mods/copis_things/files/entities/projectiles/target.xml" )
+                return
+            end
+
+            BeginProjectile( "mods/copis_things/files/entities/projectiles/target.xml" )
+                BeginTriggerDeath()
+                    draw_shot( create_shot( 1 ), true )
+                EndTrigger()
+            EndProjectile()
+        end
+    },]]
 }
 
---local copi_count = 0
-for _, value in ipairs(to_insert) do
-    table.insert(actions, value)
-    --copi_count = copi_count + 1
+for _, action_to_insert in ipairs(actions_to_insert) do
+    actions[#actions+1] = action_to_insert
 end
---print("[COPIS_THINGS] Initialized " .. tostring(copi_count) .. " spells")

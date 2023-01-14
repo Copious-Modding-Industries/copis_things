@@ -24,6 +24,8 @@ ModMaterialsFileAdd( "mods/copis_things/files/materials_rainbow.xml" );
 --ModMaterialsFileAdd( "mods/copis_things/files/materials.xml" )
 
 
+dofile_once("mods/copis_things/init/inject_greeks.lua")
+
 --[[ Gun System Content ]]
 dofile_once("mods/copis_things/init/gun.lua")
 
