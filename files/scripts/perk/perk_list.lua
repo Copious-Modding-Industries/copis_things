@@ -547,10 +547,9 @@ to_insert =
     },
 }
 
-for k, v in ipairs(to_insert) do
-    table.insert(perk_list, v)
+for _, perk in ipairs(to_insert) do
+    perk_list[#perk_list+1] = perk
 end
-
 
 --[[
         --  Duplicate Wand (One-Off)
