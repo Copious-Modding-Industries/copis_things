@@ -4455,6 +4455,24 @@ local actions_to_insert = {
             draw_actions(1, true)
         end,
     },
+    {
+        id = "COPIS_THINGS_ALT_FIRE_BOMB",
+        author = "Copi",
+        name = "Alt Fire Bomb",
+        description = "Summons a bomb that destroys ground very efficiently when you alt fire. Consumes 25 mana per shot.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_bomb.png",
+        type = ACTION_TYPE_PASSIVE,
+		spawn_level = "0,1,2,3,4,5,6", -- BOMB
+		spawn_probability = "1,1,1,1,1,1,1", -- BOMB
+        price = 250,
+        mana = 0,
+		max_uses = 3,
+        custom_uses_logic = true,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_bomb.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
     --[[
     {
         id = "COPIS_THINGS_TARGET_TRIGGER",
@@ -4485,6 +4503,7 @@ local actions_to_insert = {
     },]]
 }
 
-for _, action_to_insert in ipairs(actions_to_insert) do
-    actions[#actions+1] = action_to_insert
+-- SPEEDY loop
+for i = 1,#actions_to_insert do
+    actions[#actions+1] = actions_to_insert[i]
 end
