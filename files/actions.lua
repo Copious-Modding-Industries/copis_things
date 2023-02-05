@@ -567,13 +567,27 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-            if reflecting then
-                return
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+
+                    local abilitycomp = EntityGetFirstComponentIncludingDisabled(active_wand, "AbilityComponent")
+                    local deck_capacity = ComponentObjectGetValue2(abilitycomp, "gun_config", "deck_capacity")
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
             end
-            if (recursion_level or iteration) ~= nil then
-                GamePrintImportant("You cannot cheat the gods!", "")
-                return
-            end
+
             local entity_id = GetUpdatedEntityID()
             if entity_id ~= nil and entity_id ~= 0 then
                 dofile("data/scripts/lib/utilities.lua")
@@ -618,6 +632,24 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
             if reflecting then
                 return
             end
@@ -669,6 +701,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -714,6 +765,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -760,6 +830,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -807,6 +896,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -857,6 +965,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -907,6 +1034,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -956,6 +1102,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -1001,6 +1166,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -1046,6 +1230,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -1098,6 +1301,25 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection
+            if not reflecting then
+
+                -- Check for greek letters/non-self casts
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                    -- Collect data
+                    local entity_id = GetUpdatedEntityID()
+                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
+                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
+                else
+
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
+            
             if reflecting then
                 return
             end
@@ -4473,6 +4695,48 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+		id          = "COPIS_THINGS_QUESTIONABLE",
+		name 		= "?",
+		description = "joke content -- todo remove",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
+		sprite_unidentified = "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
+		spawn_requires_flag = "secret_fruit",
+		type 		= ACTION_TYPE_OTHER,
+		recursive	= true,
+		spawn_level                       = "5,6,10", -- MANA_REDUCE
+		spawn_probability                 = "0.1,0.1,1", -- MANA_REDUCE
+		price = 600,
+		mana = 300,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_bomb.xml",
+        custom_uses_logic = true,
+		action 		= function( recursion_level, iteration )
+			if not reflecting then
+                c.fire_rate_wait = c.fire_rate_wait + 150
+                current_reload_time = current_reload_time + 40
+                local boss_kill_count = tonumber( GlobalsGetValue( "GLOBAL_BOSS_KILL_COUNT", "0" ) )
+                current_action.uses_remaining = boss_kill_count
+                if boss_kill_count > 0 then
+
+                    for i = 1, boss_kill_count do
+                        dofile_once("data/scripts/streaming_integration/event_list.lua")
+                        local choice = streaming_events[math.random(1, #streaming_events)]
+                        choice.action(choice)
+                    end
+
+                else
+
+                    GamePrintImportant("A powerful entity is sealing an unknown power!")
+
+                end
+
+            else
+                
+                c.fire_rate_wait = c.fire_rate_wait - 150
+                current_reload_time = current_reload_time - 40
+            end
+		end,
+	},
     --[[
     {
         id = "COPIS_THINGS_TARGET_TRIGGER",
