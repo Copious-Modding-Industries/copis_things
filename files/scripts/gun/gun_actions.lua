@@ -4704,11 +4704,12 @@ local actions_to_insert = {
 		spawn_requires_flag = "secret_fruit",
 		type 		= ACTION_TYPE_OTHER,
 		recursive	= true,
-		spawn_level                       = "5,6,10", -- MANA_REDUCE
-		spawn_probability                 = "0.1,0.1,1", -- MANA_REDUCE
+		spawn_level = "0,1,2,3,4,5,6", -- BOMB
+		spawn_probability = "1,1,1,1,1,1,1", -- BOMB
 		price = 600,
 		mana = 300,
-        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_bomb.xml",
+        max_uses = 1,
+        never_unlimited = true,
         custom_uses_logic = true,
 		action 		= function( recursion_level, iteration )
 			if not reflecting then

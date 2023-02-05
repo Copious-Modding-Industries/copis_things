@@ -11,15 +11,15 @@ local actions_to_edit = {
     "SUMMON_HOLLOW_EGG",
 }
 
-for i, current_action in ipairs(actions) do                             -- for each action,
-    for e, action_to_edit in ipairs(actions_to_edit) do                 -- go over each action we want to edit
-        if current_action.id == action_to_edit then                     -- if they are the same,
-            table.remove( actions_to_edit, e )                          -- check it off the list
-            current_action.sprite = path .. action_to_edit .. ".png"    -- swap the sprite path
-            break                                                       -- exit our edit list
-        end                                                             -- checked for our spell to edit
-    end                                                                 -- checked our edit list
-end                                                                     -- checked all actions
+for actions_index = 1,#actions do
+    for edit_index = 1,#actions_to_edit do
+        if actions[actions_index].id == actions_to_edit[edit_index] then
+            table.remove( actions_to_edit, edit_index )
+            actions[actions_index].sprite = table.concat({path, actions_to_edit[edit_index], ".png"})
+            break
+        end
+    end
+end
 
 --[[
 
