@@ -573,9 +573,9 @@ local actions_to_insert = {
                 if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
                         if (wand.shuffle == true) then
@@ -591,6 +591,9 @@ local actions_to_insert = {
                             end
                             GameScreenshake(50, pos_x, pos_y)
                             GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        else
+                            GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
+                            GamePrintImportant("Your wand is already unshuffled!", "")
                         end
                     end
                 else
@@ -614,61 +617,38 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
+                        if (wand.shuffle == false) then
+                            wand.shuffle = true
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
+                            wand.manaMax = wand.manaMax * 1.5
+                            wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
+                            wand.castDelay = wand.castDelay * 0.55
+                            wand.rechargeTime = wand.rechargeTime * 0.55
                             local sprite_file = wand:GetSprite()
                             if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
                                 wand:UpdateSprite()
                             end
                             GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                            GamePrintImportant("Wand shuffled!", "Stats vastly improved.")
+                        else
+                            GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
+                            GamePrintImportant("Your wand is already shuffled!", "")
                         end
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    if (wand.shuffle == false) then
-                        wand.shuffle = true
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
-                        wand.manaMax = wand.manaMax * 1.5
-                        wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
-                        wand.castDelay = wand.castDelay * 0.55
-                        wand.rechargeTime = wand.rechargeTime * 0.55
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
-                        end
-                        GameScreenshake(50, pos_x, pos_y)
-                        GamePrintImportant("Wand shuffled!", "Stats improved.")
-                    end
                 end
             end
         end
@@ -687,16 +667,15 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
                         if (wand.shuffle == true) then
@@ -730,10 +709,10 @@ local actions_to_insert = {
                     wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
                     wand.spellsPerCast = wand.spellsPerCast + 1
 
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
+                    local sprite_file = wand:GetSprite()
+                    if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                        wand:UpdateSprite()
+                    end
                     GameScreenshake(50, pos_x, pos_y)
                     GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
                 end
@@ -754,55 +733,30 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
+                        SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
+                        wand.speedMultiplier = wand.speedMultiplier * Random(2, 3)
+                        local sprite_file = wand:GetSprite()
+                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                            wand:UpdateSprite()
                         end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier) .. " speed multiplier.")
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
-                    SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
-                    wand.speedMultiplier = wand.speedMultiplier * Random(2, 3)
-                    local sprite_file = wand:GetSprite()
-                    if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                        wand:UpdateSprite()
-                    end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier) .. " speed multiplier.")
                 end
             end
         end
@@ -821,57 +775,32 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
+                        if (wand.capacity < 26) then
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_CAPACITY")
+                            SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
+                            wand.capacity = wand.capacity + Random(1, 3)
                             local sprite_file = wand:GetSprite()
                             if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
                                 wand:UpdateSprite()
                             end
                             GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                            GamePrintImportant("Wand upgraded!", tostring(wand.capacity) .. " capacity.")
                         end
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    if (wand.capacity < 26) then
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_CAPACITY")
-                        SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
-                        wand.capacity = wand.capacity + Random(1, 3)
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
-                        end
-                        GameScreenshake(50, pos_x, pos_y)
-                        GamePrintImportant("Wand upgraded!", tostring(wand.capacity) .. " capacity.")
-                    end
                 end
             end
         end
@@ -890,57 +819,36 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
+                        local castDelay_old = wand.castDelay
+                        wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
+                        local sprite_file = wand:GetSprite()
+                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                            wand:UpdateSprite()
                         end
+                        GameScreenshake(50, pos_x, pos_y)
+                        local desc = table.concat({
+                                ("%.2fs"):format(castDelay_old / 60),
+                                "->",
+                                ("%.2fs"):format(wand.castDelay / 60),
+                                "cast delay."
+                            }, " ")
+                        GamePrintImportant("Wand upgraded!", desc)
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
-                    local castDelay_old = wand.castDelay
-                    wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
-
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                    GameScreenshake(50, pos_x, pos_y)
-                    local result = table.concat{("%.2fs"):format(castDelay_old / 60), " -> ", ("%.2fs"):format(wand.castDelay / 60),  " cast delay." }
-                    GamePrintImportant( "Wand upgraded!", result)
                 end
             end
         end
@@ -959,60 +867,36 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_RELOAD_TIME" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
+                        local rechargeTime_old = wand.rechargeTime
+                        wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
+                        local sprite_file = wand:GetSprite()
+                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                            wand:UpdateSprite()
                         end
+                        GameScreenshake(50, pos_x, pos_y)
+                        local desc = table.concat({
+                                ("%.2fs"):format(rechargeTime_old / 60),
+                                "->",
+                                ("%.2fs"):format(wand.rechargeTime / 60),
+                                "recharge time."
+                            }, " ")
+                        GamePrintImportant("Wand upgraded!", desc)
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
-                    local rechargeTime_old = wand.rechargeTime
-                    wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
-
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant(
-                        "Wand upgraded!",
-                        ("%.2fs"):format(rechargeTime_old / 60) ..
-                        " -> " .. ("%.2fs"):format(wand.rechargeTime / 60) .. " recharge time."
-                    )
                 end
             end
         end
@@ -1031,59 +915,36 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_SPREAD_DEGREES" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
+                        local rechargeTime_old = wand.rechargeTime
+                        wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
+                        local sprite_file = wand:GetSprite()
+                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                            wand:UpdateSprite()
                         end
+                        GameScreenshake(50, pos_x, pos_y)
+                        local desc = table.concat({
+                                tostring(rechargeTime_old),
+                                "->",
+                                tostring(wand.spread),
+                                "degrees spread."
+                            }, " ")
+                        GamePrintImportant("Wand upgraded!", desc)
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
-                    local rechargeTime_old = wand.rechargeTime
-                    wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
-
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant(
-                        "Wand upgraded!",
-                        tostring(rechargeTime_old) .. " -> " .. tostring(wand.spread) .. " degrees spread."
-                    )
                 end
             end
         end
@@ -1102,55 +963,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_MANA_MAX" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
+                        wand.manaMax = wand.manaMax * 1.2 + 50
+                        local sprite_file = wand:GetSprite()
+                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                            wand:UpdateSprite()
                         end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Wand upgraded!", tostring(wand.manaMax) .. " mana capacity.")
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
-                    wand.manaMax = wand.manaMax * 1.2 + 50
-
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Wand upgraded!", tostring(wand.manaMax) .. " mana capacity.")
                 end
             end
         end
@@ -1169,55 +1004,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
+                        wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
+                        local sprite_file = wand:GetSprite()
+                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                            wand:UpdateSprite()
                         end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Wand upgraded!", tostring(wand.manaChargeSpeed) .. " mana charge speed.")
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
-                    wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
-
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Wand upgraded!", tostring(wand.manaChargeSpeed) .. " mana charge speed.")
                 end
             end
         end
@@ -1236,66 +1045,39 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
-
-            draw_actions(1, true)            -- Check for initial reflection
+            draw_actions(1, true) -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                        local spells, attached_spells = wand:GetSpells()
+                        if (#spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
+                            spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+                        then
+                            local action_to_attach = spells[1]
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
+                            wand:RemoveSpells(spells[1].action_id)
+                            wand:AttachSpells(spells[1].action_id)
+                            local function has_custom_sprite(ez_wand)
+                                local sprite_file = ez_wand:GetSprite()
+                                return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                            end
+                            if not has_custom_sprite(wand) then
                                 wand:UpdateSprite()
                             end
                             GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                            GamePrintImportant("Spell attached!")
                         end
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    local spells, attached_spells = wand:GetSpells()
-                    if (#spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
-                        spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
-                    then
-                        local action_to_attach = spells[1]
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
-                        wand:RemoveSpells(spells[1].action_id)
-                        wand:AttachSpells(spells[1].action_id)
-                        local function has_custom_sprite(ez_wand)
-                            local sprite_file = ez_wand:GetSprite()
-                            return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
-                        end
-
-                        if not has_custom_sprite(wand) then
-                            wand:UpdateSprite()
-                        end
-                        GameScreenshake(50, pos_x, pos_y)
-                        GamePrintImportant("Spell attached!")
-                    end
                 end
             end
         end
@@ -1314,67 +1096,39 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
-
-            local entity_id = GetUpdatedEntityID()
-            draw_actions(1, true)            -- Check for initial reflection
+            draw_actions(1, true) -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent( entity_id, "Inventory2Component" )
-                    local active_wand = ComponentGetValue2( inventory, "mActiveItem" )
-                    local pos_x, pos_y = EntityGetTransform( entity_id )
+                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                    local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                        local spells, attached_spells = wand:GetSpells()
+                        if (#attached_spells > 0 and attached_spells[1].action_id ~= "UPGRADE_GUN_ACTIONS_PERMANENT" and
+                            wand:GetFreeSlotsCount() > 0)
+                        then
+                            local action_to_attach = attached_spells[1]
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+                            wand:DetachSpells(attached_spells[1].action_id)
+                            wand:AddSpells(attached_spells[1].action_id)
+                            local function has_custom_sprite(ez_wand)
+                                local sprite_file = ez_wand:GetSprite()
+                                return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                            end
+                            if not has_custom_sprite(wand) then
                                 wand:UpdateSprite()
                             end
                             GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                            GamePrintImportant("Spell extracted!")
                         end
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    local spells, attached_spells = wand:GetSpells()
-                    if (#attached_spells > 0 and attached_spells[1].action_id ~= "UPGRADE_GUN_ACTIONS_PERMANENT" and
-                        wand:GetFreeSlotsCount() > 0)
-                    then
-                        local action_to_attach = attached_spells[1]
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
-                        wand:DetachSpells(attached_spells[1].action_id)
-                        wand:AddSpells(attached_spells[1].action_id)
-                        local function has_custom_sprite(ez_wand)
-                            local sprite_file = ez_wand:GetSprite()
-                            return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
-                        end
-
-                        if not has_custom_sprite(wand) then
-                            wand:UpdateSprite()
-                        end
-                        GameScreenshake(50, pos_x, pos_y)
-                        GamePrintImportant("Spell extracted!")
-                    end
                 end
             end
         end
@@ -1686,7 +1440,7 @@ local actions_to_insert = {
         mana = 0,
         action = function()
             c.extra_entities =
-            c.extra_entities ..
+                c.extra_entities ..
                 "mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml,"
             draw_actions(1, true)
         end
@@ -1800,7 +1554,7 @@ local actions_to_insert = {
         max_uses = 20,
         action = function()
             c.extra_entities =
-            c.extra_entities ..
+                c.extra_entities ..
                 "mods/copis_things/files/entities/misc/hitfx_explode_frozen.xml,data/entities/particles/tinyspark_orange.xml,"
             draw_actions(1, true)
         end
@@ -2265,7 +2019,7 @@ local actions_to_insert = {
                             if (spells ~= nil) then
                                 for _, spell_id in ipairs(spells) do
                                     local comp =
-                                    EntityGetFirstComponentIncludingDisabled(spell_id, "ItemActionComponent")
+                                        EntityGetFirstComponentIncludingDisabled(spell_id, "ItemActionComponent")
                                     if (comp ~= nil) then
                                         local action_id = ComponentGetValue2(comp, "action_id")
                                         table.insert(options, action_id)
@@ -2311,12 +2065,10 @@ local actions_to_insert = {
         mana = 50,
         action = function(recursion_level, iteration)
             if not reflecting then
-
                 local shooter = GetUpdatedEntityID()
                 DeltaIndex = DeltaIndex or 1
                 local inventory2comp = EntityGetFirstComponent(shooter, "Inventory2Component")
                 if inventory2comp then
-
                     -- Go over all wand spells
                     local active_wand = ComponentGetValue2(inventory2comp, "mActiveItem")
                     for i, wand_action in ipairs(EntityGetAllChildren(active_wand) or {}) do
@@ -2326,7 +2078,7 @@ local actions_to_insert = {
                             -- If action's slot matches delta index then cast it
                             if ComponentGetValue2(itemcomp, "inventory_slot") == DeltaIndex then
                                 local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action,
-                                    "ItemActionComponent")
+                                        "ItemActionComponent")
                                 local action_id = ComponentGetValue2(itemactioncomp, "action_id")
                                 if action_id ~= "COPIS_THINGS_DELTA" then
                                     for _, data in ipairs(actions) do
@@ -2348,7 +2100,6 @@ local actions_to_insert = {
                                     table.concat({ "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_",
                                         tostring(DeltaIndex + 1), ".png" }))
                             end
-
                         end
                     end
 
@@ -2356,7 +2107,6 @@ local actions_to_insert = {
                     local abilitycomp = EntityGetFirstComponentIncludingDisabled(active_wand, "AbilityComponent")
                     local deck_capacity = ComponentObjectGetValue2(abilitycomp, "gun_config", "deck_capacity")
                     DeltaIndex = (DeltaIndex + 1) % deck_capacity
-
                 end
             end
         end
@@ -2429,7 +2179,7 @@ local actions_to_insert = {
         max_uses = 8,
         action = function()
             c.extra_entities =
-            c.extra_entities ..
+                c.extra_entities ..
                 "mods/copis_things/files/entities/misc/static_to_explosion.xml,data/entities/particles/tinyspark_yellow.xml,"
             c.fire_rate_wait = c.fire_rate_wait + 60
             draw_actions(1, true)
@@ -2454,7 +2204,7 @@ local actions_to_insert = {
         max_uses = 8,
         action = function()
             c.extra_entities =
-            c.extra_entities ..
+                c.extra_entities ..
                 "mods/copis_things/files/entities/misc/liquid_to_soil.xml,data/entities/particles/tinyspark_yellow.xml,"
             c.fire_rate_wait = c.fire_rate_wait + 60
             draw_actions(1, true)
@@ -2479,7 +2229,7 @@ local actions_to_insert = {
         max_uses = 8,
         action = function()
             c.extra_entities =
-            c.extra_entities ..
+                c.extra_entities ..
                 "mods/copis_things/files/entities/misc/powder_to_water.xml,data/entities/particles/tinyspark_yellow.xml,"
             c.fire_rate_wait = c.fire_rate_wait + 60
             draw_actions(1, true)
@@ -2504,7 +2254,7 @@ local actions_to_insert = {
         max_uses = 8,
         action = function()
             c.extra_entities =
-            c.extra_entities ..
+                c.extra_entities ..
                 "mods/copis_things/files/entities/misc/powder_to_steel.xml,data/entities/particles/tinyspark_yellow.xml,"
             c.fire_rate_wait = c.fire_rate_wait + 60
             draw_actions(1, true)
@@ -2760,7 +2510,8 @@ local actions_to_insert = {
         action = function()
             add_projectile("mods/copis_things/files/entities/projectiles/material_random.xml")
             c.fire_rate_wait = c.fire_rate_wait - 15
-            current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
+            current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE -
+                10 -- this is a hack to get the cement reload time back to 0
         end
     },
     {
@@ -2914,7 +2665,7 @@ local actions_to_insert = {
             BeginTriggerHitWorld()
             local shot = create_shot(1)
             shot.state.extra_entities =
-            shot.state.extra_entities .. "mods/copis_things/files/entities/misc/recursive_larpa.xml,"
+                shot.state.extra_entities .. "mods/copis_things/files/entities/misc/recursive_larpa.xml,"
             draw_shot(shot, true)
             EndTrigger()
             EndProjectile()
@@ -3150,7 +2901,8 @@ local actions_to_insert = {
         mana = 40,
         action = function()
             c.fire_rate_wait = c.fire_rate_wait - 20
-            current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 5 -- this is a hack to get the digger reload time back to 0
+            current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE -
+                5 -- this is a hack to get the digger reload time back to 0
             if reflecting then
                 return
             end
@@ -3323,7 +3075,7 @@ local actions_to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 30
             c.extra_entities =
-            c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml,"
+                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml,"
             draw_actions(1, true)
         end
     },
@@ -3401,7 +3153,7 @@ local actions_to_insert = {
                 return
             end
             SetRandomSeed(GameGetFrameNum() + 978, GameGetFrameNum() + 663)
-            local new_mana = mana + Random(-20, 60)
+            local new_mana = mana + Random( -20, 60)
 
             if new_mana > mana then
                 --
@@ -3428,7 +3180,7 @@ local actions_to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 12
             c.extra_entities =
-            c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_wet_2x_damage_freeze.xml,"
+                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_wet_2x_damage_freeze.xml,"
             draw_actions(1, true)
         end
     },
@@ -3447,7 +3199,7 @@ local actions_to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 12
             c.extra_entities =
-            c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_bloody_2x_damage_poisoned.xml,"
+                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_bloody_2x_damage_poisoned.xml,"
             draw_actions(1, true)
         end
     },
@@ -3466,7 +3218,7 @@ local actions_to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 12
             c.extra_entities =
-            c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_oiled_2x_damage_burn.xml,"
+                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_oiled_2x_damage_burn.xml,"
             draw_actions(1, true)
         end
     },
@@ -3486,7 +3238,7 @@ local actions_to_insert = {
         action = function()
             c.fire_rate_wait = c.fire_rate_wait + 12
             c.game_effect_entities =
-            c.game_effect_entities ..
+                c.game_effect_entities ..
                 "mods/copis_things/files/entities/misc/status_entities/effect_better_blindness.xml,"
             c.extra_entities = c.extra_entities .. "data/entities/particles/blindness.xml,"
             c.friendly_fire = true
@@ -3509,7 +3261,8 @@ local actions_to_insert = {
             add_projectile("data/entities/projectiles/deck/material_lava.xml")
             c.game_effect_entities = c.game_effect_entities .. "data/entities/misc/effect_apply_on_fire.xml,"
             c.fire_rate_wait = c.fire_rate_wait - 15
-            current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
+            current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE -
+                10 -- this is a hack to get the cement reload time back to 0
         end
     },
     {
@@ -3528,7 +3281,8 @@ local actions_to_insert = {
             add_projectile("mods/copis_things/files/entities/projectiles/material_magic_liquid_polymorph.xml")
             c.game_effect_entities = c.game_effect_entities .. "data/entities/misc/effect_polymorph.xml,"
             c.fire_rate_wait = c.fire_rate_wait - 15
-            current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
+            current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE -
+                10 -- this is a hack to get the cement reload time back to 0
         end
     },
     {
@@ -3547,7 +3301,7 @@ local actions_to_insert = {
         action = function()
             copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
             c.extra_entities =
-            c.extra_entities ..
+                c.extra_entities ..
                 "mods/copis_things/files/entities/particles/healing.xml,mods/copis_things/files/entities/misc/ophiuchus.xml,"
             c.friendly_fire = true
             c.fire_rate_wait = c.fire_rate_wait + 12
@@ -4213,7 +3967,7 @@ local actions_to_insert = {
         mana = 12,
         action = function()
             c.extra_entities =
-            c.extra_entities ..
+                c.extra_entities ..
                 "mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml,"
             draw_actions(1, true)
         end
@@ -4497,7 +4251,6 @@ local actions_to_insert = {
             if IsPlayer(caster) then
                 local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
                 if controls_component ~= nil then
-
                     LastShootingStart = LastShootingStart or 0
                     Revs = Revs or 0
                     local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
@@ -4540,7 +4293,6 @@ local actions_to_insert = {
             if IsPlayer(caster) then
                 local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
                 if controls_component ~= nil then
-
                     LastShootingStart = LastShootingStart or 0
                     Revs = Revs or 0
                     local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
@@ -4584,7 +4336,6 @@ local actions_to_insert = {
             if IsPlayer(caster) then
                 local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
                 if controls_component ~= nil then
-
                     LastShootingStart = LastShootingStart or 0
                     Revs = Revs or 0
                     local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
@@ -4704,11 +4455,11 @@ local actions_to_insert = {
         description = "Summons a bomb that destroys ground very efficiently when you alt fire. Consumes 25 mana per shot.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_bomb.png",
         type = ACTION_TYPE_PASSIVE,
-		spawn_level = "0,1,2,3,4,5,6", -- BOMB
-		spawn_probability = "1,1,1,1,1,1,1", -- BOMB
+        spawn_level = "0,1,2,3,4,5,6", -- BOMB
+        spawn_probability = "1,1,1,1,1,1,1", -- BOMB
         price = 250,
         mana = 0,
-		max_uses = 3,
+        max_uses = 3,
         custom_uses_logic = true,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_bomb.xml",
         action = function()
@@ -4716,48 +4467,42 @@ local actions_to_insert = {
         end
     },
     {
-		id          = "COPIS_THINGS_QUESTIONABLE",
-		name 		= "?",
-		description = "joke content -- todo remove",
-		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
-		sprite_unidentified = "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
-		spawn_requires_flag = "secret_fruit",
-		type 		= ACTION_TYPE_OTHER,
-		recursive	= true,
-		spawn_level = "0,1,2,3,4,5,6", -- BOMB
-		spawn_probability = "1,1,1,1,1,1,1", -- BOMB
-		price = 600,
-		mana = 300,
-        max_uses = 1,
-        never_unlimited = true,
-        custom_uses_logic = true,
-		action 		= function( recursion_level, iteration )
-			if not reflecting then
+        id                  = "COPIS_THINGS_QUESTIONABLE",
+        name                = "?",
+        description         = "joke content -- todo remove",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
+        sprite_unidentified = "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
+        spawn_requires_flag = "secret_fruit",
+        type                = ACTION_TYPE_OTHER,
+        recursive           = true,
+        spawn_level         = "0,1,2,3,4,5,6", -- BOMB
+        spawn_probability   = "1,1,1,1,1,1,1", -- BOMB
+        price               = 600,
+        mana                = 300,
+        max_uses            = 1,
+        never_unlimited     = true,
+        custom_uses_logic   = true,
+        action              = function(recursion_level, iteration)
+            if not reflecting then
                 c.fire_rate_wait = c.fire_rate_wait + 150
                 current_reload_time = current_reload_time + 40
-                local boss_kill_count = tonumber( GlobalsGetValue( "GLOBAL_BOSS_KILL_COUNT", "0" ) )
+                local boss_kill_count = tonumber(GlobalsGetValue("GLOBAL_BOSS_KILL_COUNT", "0"))
                 current_action.uses_remaining = boss_kill_count
                 if boss_kill_count > 0 then
-
                     for i = 1, boss_kill_count do
                         dofile_once("data/scripts/streaming_integration/event_list.lua")
                         local choice = streaming_events[math.random(1, #streaming_events)]
                         choice.action(choice)
                     end
-
                 else
-
                     GamePrintImportant("A powerful entity is sealing an unknown power!")
-
                 end
-
             else
-
                 c.fire_rate_wait = c.fire_rate_wait - 150
                 current_reload_time = current_reload_time - 40
             end
-		end,
-	},
+        end,
+    },
     --[[
     {
         id = "COPIS_THINGS_TARGET_TRIGGER",
@@ -4789,6 +4534,6 @@ local actions_to_insert = {
 }
 
 -- SPEEDY loop
-for i = 1,#actions_to_insert do
-    actions[#actions+1] = actions_to_insert[i]
+for i = 1, #actions_to_insert do
+    actions[#actions + 1] = actions_to_insert[i]
 end
