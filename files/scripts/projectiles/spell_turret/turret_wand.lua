@@ -1,4 +1,3 @@
-dofile_once("data/scripts/lib/utilities.lua")
 dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
 
 function throw_item(from_x, from_y, to_x, to_y)
