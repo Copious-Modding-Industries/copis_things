@@ -1,5 +1,5 @@
 local function upgrade_projectile( entity_filename )
-    -- Add check for if ent/p has perk
+    -- check if shooter has perk
     local vsc = EntityGetComponentIncludingDisabled(Shooter, "VariableStorageComponent", "upgrade_projectile")
     if vsc then
         local stacks = ComponentGetValue2(vsc, "value_int")

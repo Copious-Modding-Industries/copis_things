@@ -2,18 +2,18 @@
 	
 	<Base file="data/entities/base_custom_card.xml" > 
 		<SpriteComponent 
-			image_file="mods/copis_things/files/ui_gfx/gun_actions/auto_alt_fire.png" >
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/auto_holster.png" >
 		</SpriteComponent>
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_AUTO_ALT_FIRE" >
+			action_id="COPIS_THINGS_AUTO_HOLSTER" >
 		</ItemActionComponent>
 	</Base>
 
 	<LuaComponent 
 		_tags="enabled_in_hand"
-		script_source_file="mods/copis_things/files/scripts/custom_cards/auto_alt_fire.lua"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/auto_holster.lua"
 		execute_every_n_frame="1" >
 	</LuaComponent>
 	

@@ -2087,11 +2087,27 @@ local actions_to_insert = {
         end
     },
     {
+        id = "COPIS_THINGS_AUTO_ENEMIES",
+        author = "Copi",
+        name = "Paranoia Casting",
+        description = "Your held wand fires when you're surrounded",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_enemies.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "3,4,5,6", -- TINY_GHOST
+        spawn_probability = "0.1,0.1,0.1,0.1", -- TINY_GHOST
+        price = 160,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_enemies.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
+    {
         id = "COPIS_THINGS_AUTO_FRAME",
         author = "Copi",
         name = "Automatic Casting",
         description = "Your held wand fires constantly",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/passive_auto_frame.png",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_frame.png",
         type = ACTION_TYPE_PASSIVE,
         spawn_level = "3,4,5,6", -- TINY_GHOST
         spawn_probability = "0.1,0.1,0.1,0.1", -- TINY_GHOST
@@ -2103,17 +2119,65 @@ local actions_to_insert = {
         end
     },
     {
+        id = "COPIS_THINGS_AUTO_HOLSTER",
+        author = "Copi",
+        name = "Quick Draw Casting",
+        description = "Your held wand fires when you equip your wand",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_holster.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "3,4,5,6", -- TINY_GHOST
+        spawn_probability = "0.1,0.1,0.1,0.1", -- TINY_GHOST
+        price = 160,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_holster.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_AUTO_HP",
+        author = "Copi",
+        name = "Stress Casting",
+        description = "Your held wand fires when you're on the verge of death",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_hp.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "3,4,5,6", -- TINY_GHOST
+        spawn_probability = "0.1,0.1,0.1,0.1", -- TINY_GHOST
+        price = 160,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_hp.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
+    {
         id = "COPIS_THINGS_AUTO_HURT",
         author = "Copi",
         name = "Reactive Casting",
         description = "Your held wand fires when you're hurt",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/passive_auto_hurt.png",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_hurt.png",
         type = ACTION_TYPE_PASSIVE,
         spawn_level = "3,4,5,6", -- TINY_GHOST
         spawn_probability = "0.1,0.1,0.1,0.1", -- TINY_GHOST
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_hurt.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_AUTO_PROJECTILE",
+        author = "Copi",
+        name = "Ballistic Casting",
+        description = "Your held wand fires when you're around projectiles",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_projectile.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "3,4,5,6", -- TINY_GHOST
+        spawn_probability = "0.1,0.1,0.1,0.1", -- TINY_GHOST
+        price = 160,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_projectile.xml",
         action = function()
             draw_actions(1, true)
         end
