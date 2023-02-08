@@ -1,9 +1,21 @@
+-- State
 copi_state = {
     mana_multiplier = 1.0,
     old = {
         _order_deck = order_deck,
+        _add_projectile = add_projectile,
+        _add_projectile_trigger_timer = add_projectile_trigger_timer,
+        _add_projectile_trigger_hit_world = add_projectile_trigger_hit_world,
+        _add_projectile_trigger_death = add_projectile_trigger_death,
     }
 }
+
+-- Consts
+Shooter = GetUpdatedEntityID();
+
+-- Hook into add projectile funcs for perk
+dofile_once("mods/copis_things/files/scripts/gun/gun_append_upgrade_projectile")
+
 
 function WandGetActive(entity)
     local chosen_wand = nil;
@@ -41,8 +53,7 @@ end
 
 function order_deck()
     local force_sorted = false;
-    local player = GetUpdatedEntityID();
-    local base_wand = WandGetActive(player);
+    local base_wand = WandGetActive(Shooter);
     if base_wand ~= nil then
         local wand_children = EntityGetAllChildren(base_wand) or {};
         for _, wand_child in pairs(wand_children) do

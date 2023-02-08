@@ -678,43 +678,18 @@ local actions_to_insert = {
                     local pos_x, pos_y = EntityGetTransform(entity_id)
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
+                        wand.spellsPerCast = wand.spellsPerCast + 1
+                        local sprite_file = wand:GetSprite()
+                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                            wand:UpdateSprite()
                         end
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
                     end
                 else
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
-                end
-            end
-
-            local entity_id = GetUpdatedEntityID()
-            if entity_id ~= nil and entity_id ~= 0 then
-                dofile("data/scripts/lib/utilities.lua")
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local pos_x, pos_y = EntityGetTransform(entity_id)
-                local wand = EZWand.GetHeldWand()
-                if wand ~= nil then
-                    wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
-                    wand.spellsPerCast = wand.spellsPerCast + 1
-
-                    local sprite_file = wand:GetSprite()
-                    if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                        wand:UpdateSprite()
-                    end
-                    GameScreenshake(50, pos_x, pos_y)
-                    GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
                 end
             end
         end
