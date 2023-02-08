@@ -2089,7 +2089,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_AUTO_FRAME",
         author = "Copi",
-        name = "Automatic Casting",
+        name = "Automation - Constant",
         description = "Your held wand fires constantly",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/passive_auto_frame.png",
         type = ACTION_TYPE_PASSIVE,
@@ -2105,7 +2105,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_AUTO_HURT",
         author = "Copi",
-        name = "Reactionary Casting",
+        name = "Automation - Hurt",
         description = "Your held wand fires when you're hurt",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/passive_auto_hurt.png",
         type = ACTION_TYPE_PASSIVE,
