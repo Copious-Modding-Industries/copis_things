@@ -70,7 +70,7 @@ local actions_to_edit = {
     ["GRAHAM_SPARK_BOLT"] = {
         name 		= "tloB krapS",
         description = "elitcejorp gnilkraps gnitnahcne tub kaew A",
-    }
+    },
 
 }
 
