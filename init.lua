@@ -131,6 +131,17 @@ end
 function OnWorldInitialized()
     meta.version()
     gui.setup()
+
+
+    -- TEMP!!!
+    do
+        local pos = {
+            x = MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X"),
+            y = MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y")
+        }
+        CreateItemActionEntity( "COPIS_THINGS_CONFETTI_TRAIL", pos.x, pos.y );
+    end
+
 end
 
 function OnWorldPreUpdate()
