@@ -2,7 +2,7 @@ local function upgrade_projectile( entity_filename )
     -- check if shooter has perk
     local vsc = EntityGetComponentIncludingDisabled(Shooter, "VariableStorageComponent", "upgrade_projectile")
     if vsc then
-        local stacks = ComponentGetValue2(vsc, "value_int")
+        local stacks = ComponentGetValue2(vsc, "value_int") or 0
         local upgrades = dofile_once("mods/copis_things/files/scripts/gun/upgrade_projectile_list.lua")
         for i = 1, stacks do
             for from, to in pairs(upgrades) do

@@ -14,7 +14,7 @@ copi_state = {
 Shooter = GetUpdatedEntityID();
 
 -- Hook into add projectile funcs for perk
-dofile_once("mods/copis_things/files/scripts/gun/gun_append_upgrade_projectile.lua")
+--dofile_once("mods/copis_things/files/scripts/gun/gun_append_upgrade_projectile.lua")
 
 
 function WandGetActive(entity)
