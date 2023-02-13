@@ -4514,8 +4514,8 @@ local actions_to_insert = {
         spawn_requires_flag = "secret_fruit",
         type                = ACTION_TYPE_OTHER,
         recursive           = true,
-        spawn_level         = "0,1,2,3,4,5,6", -- BOMB
-        spawn_probability   = "1,1,1,1,1,1,1", -- BOMB
+        spawn_level         = "0", -- BOMB
+        spawn_probability   = "0", -- BOMB
         price               = 600,
         mana                = 300,
         max_uses            = 1,
@@ -4570,6 +4570,22 @@ local actions_to_insert = {
             EndProjectile()
         end
     },]]
+    {
+        id = "COPIS_THINGS_CONFETTI_TRAIL",
+        author = "Copi",
+        name = "Confetti Trail",
+        description = "Causes the projectile to spray confetti everywhere!",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/confetti_trail.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.8,0.6,0.4,0.2,0.2,0.2,0.2",
+        price = 10,
+        mana = 0,
+        action = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/confetti_trail.xml,"
+            draw_actions(1, true)
+        end
+    },
 }
 
 -- SPEEDY loop
