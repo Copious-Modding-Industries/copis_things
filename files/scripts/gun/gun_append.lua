@@ -3,10 +3,12 @@ copi_state = {
     mana_multiplier = 1.0,
     old = {
         _order_deck = order_deck,
+        _draw_shot = draw_shot,
         _add_projectile = add_projectile,
         _add_projectile_trigger_timer = add_projectile_trigger_timer,
         _add_projectile_trigger_hit_world = add_projectile_trigger_hit_world,
         _add_projectile_trigger_death = add_projectile_trigger_death,
+        _set_current_action = set_current_action,
     }
 }
 
@@ -16,6 +18,7 @@ Shooter = GetUpdatedEntityID();
 -- Hook into add projectile funcs for perk
 --dofile_once("mods/copis_things/files/scripts/gun/gun_append_upgrade_projectile.lua")
 
+Cast = 0
 
 function WandGetActive(entity)
     local chosen_wand = nil;
@@ -98,4 +101,65 @@ function order_deck()
             action.copi_mana_calculated = true;
         end
     end
+
+    Cast = Cast + 1
+end
+
+
+
+
+
+
+
+-- SORRY FOR OVERWRITING THIS :(
+function set_current_action( action )
+    -- CAST STATE VALUE             |       -- ACTION VALUE             |   -- FALLBACK
+	c.action_id                	            = action.id
+	c.action_name              	            = action.name
+	c.action_sprite_filename   	            = action.sprite
+	c.action_type              	            = action.type
+	c.action_recursive                      = action.recursive
+	c.action_spawn_level       	            = action.spawn_level
+	c.action_spawn_probability 	            = action.spawn_probability
+	c.action_spawn_requires_flag            = action.spawn_requires_flag
+	c.action_spawn_manual_unlock            = action.spawn_manual_unlock    or false
+	c.action_max_uses          	            = action.max_uses
+	c.custom_xml_file          	            = action.custom_xml_file
+	c.action_ai_never_uses		            = action.ai_never_uses          or false
+	c.action_never_unlimited	            = action.never_unlimited        or false
+	c.action_is_dangerous_blast             = action.is_dangerous_blast
+	c.sound_loop_tag                        = action.sound_loop_tag
+	c.action_mana_drain                     = action.mana                   or ACTION_MANA_DRAIN_DEFAULT
+	c.action_unidentified_sprite_filename   = action.sprite_unidentified    or ACTION_UNIDENTIFIED_SPRITE_DEFAULT
+
+    if reflecting then
+        c.action_description                = action.description
+    end
+
+	current_action = action
+end
+
+
+
+
+
+
+
+NewCast = nil
+
+function draw_shot( shot, instant_reload_if_empty )
+    -- ??? wtf it works I guess
+    local call_end_cast = false
+    if NewCast == nil then
+        call_end_cast = true
+        NewCast = false
+        local state = tonumber(GlobalsGetValue("GLOBAL_CAST_STATE", "0"))
+        GlobalsSetValue("GLOBAL_CAST_STATE", tostring( state + 1))
+    end
+
+    if call_end_cast then
+        NewCast = nil
+    end
+
+    copi_state.old._draw_shot( shot, instant_reload_if_empty )
 end

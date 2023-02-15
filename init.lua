@@ -139,7 +139,7 @@ function OnWorldInitialized()
             x = MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X"),
             y = MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y")
         }
-        CreateItemActionEntity( "COPIS_THINGS_CONFETTI_TRAIL", pos.x, pos.y );
+        CreateItemActionEntity( "COPIS_THINGS_SWORD_FORMATION", pos.x, pos.y );
     end
 
 end
