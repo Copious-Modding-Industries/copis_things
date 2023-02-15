@@ -7,7 +7,6 @@ do  -- Get cast state
     shooter = ComponentGetValue2( projcomp, "mWhoShot" );
     local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)\n")
     caststate = (string.sub(desc, i, j))
-    GamePrint(caststate)
 end
 
 -- Get player projectiles
@@ -22,7 +21,6 @@ for index = 1, #player_projectiles do
         local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
         local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)\n")
         local target_caststate = (string.sub(desc, i, j))
-        GamePrint(target_caststate)
         if target_caststate == caststate then
             sword_projectiles[#sword_projectiles+1] = target
         end
