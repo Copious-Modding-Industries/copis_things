@@ -4594,7 +4594,7 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sword_formation.png",
         type = ACTION_TYPE_DRAW_MANY,
         spawn_level = "0,1,2,3,4,5,6",
-        spawn_probability = "0.8,0.6,0.4,0.2,0.2,0.2,0.2",
+        spawn_probability = "0.4,0.4,0.4,0.4,0.4,0.4,0.4",
         price = 10,
         mana = 0,
         action = function()
@@ -4602,15 +4602,18 @@ local actions_to_insert = {
             if not reflecting then
                 c.lifetime_add = math.max(c.lifetime_add, 2)
 
-                -- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
-                c.action_description = table.concat(
-                    {
-                        (c.action_description or ""),
-                        "\nCASTSTATE|",
-                        GlobalsGetValue("GLOBAL_CAST_STATE", "0"),
-                        "\n"
-                    }
-                )
+                if c.caststate == nil then
+                    -- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
+                    c.action_description = table.concat(
+                        {
+                            (c.action_description or ""),
+                            "\nCASTSTATE|",
+                            GlobalsGetValue("GLOBAL_CAST_STATE", "0"),
+                            "\n"
+                        }
+                    )
+                    c.caststate = true
+                end
                 c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sword_parser.xml,"
 
                 if c.sword_formation == nil then
@@ -4620,6 +4623,40 @@ local actions_to_insert = {
             end
 
             draw_actions(5, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_LINK_SHOT",
+        author = "Copi",
+        name = "Link Shot",
+        description = "Cast 2 spells the second of which will expire when the first expires",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/link_shot.png",
+        type = ACTION_TYPE_DRAW_MANY,
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2",
+        price = 10,
+        mana = 0,
+        action = function()
+
+            if not reflecting then
+
+                if c.caststate == nil then
+                    -- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
+                    c.action_description = table.concat(
+                        {
+                            (c.action_description or ""),
+                            "\nCASTSTATE|",
+                            GlobalsGetValue("GLOBAL_CAST_STATE", "0"),
+                            "\n"
+                        }
+                    )
+                    c.caststate = true
+                end
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/link_shot.xml,"
+
+            end
+
+            draw_actions(2, true)
         end
     },
 }
