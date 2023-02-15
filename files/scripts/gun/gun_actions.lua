@@ -3524,7 +3524,7 @@ local actions_to_insert = {
                 return
             end
 
-            local firerate = c.fire_rate_wait + 9
+            local firerate = math.max(c.fire_rate_wait, 9)
             local old_c = c
             c = {}
             shot_effects = {}
@@ -3579,7 +3579,7 @@ local actions_to_insert = {
                 return
             end
 
-            local firerate = c.fire_rate_wait + 9
+            local firerate = math.max(c.fire_rate_wait, 9)
             local old_c = c
             c = {}
             shot_effects = {}
@@ -3642,7 +3642,7 @@ local actions_to_insert = {
                 return
             end
 
-            local firerate = c.fire_rate_wait + 9
+            local firerate = math.max(c.fire_rate_wait, 9)
             local old_c = c
             c = {}
             shot_effects = {}
