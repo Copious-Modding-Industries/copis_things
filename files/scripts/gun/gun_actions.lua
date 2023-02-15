@@ -4676,6 +4676,38 @@ local actions_to_insert = {
             draw_actions(1, true)
 		end,
 	},
+    {
+        id = "COPIS_THINGS_BARRIER_ARC",
+        author = "Copi",
+        name = "Barrier Arc",
+        description = "Creates arcs of barriers between projectiles (requires 2 projectile spells)",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/barrier_arc.png",
+        type = ACTION_TYPE_MODIFIER,
+		spawn_level = "2,3,4,5,6", -- ARC_ELECTRIC
+		spawn_probability = "0.4,0.4,0.4,0.4,0.8", -- ARC_ELECTRIC
+        price = 10,
+        mana = 0,
+        action = function()
+
+            if not reflecting then
+                if c.caststate == nil then
+                    -- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
+                    c.action_description = table.concat(
+                        {
+                            (c.action_description or ""),
+                            "\nCASTSTATE|",
+                            GlobalsGetValue("GLOBAL_CAST_STATE", "0"),
+                            "\n"
+                        }
+                    )
+                    c.caststate = true
+                end
+            end
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/barrier_arc.xml,"
+
+            draw_actions(1, true)
+        end
+    },
 }
 
 -- SPEEDY loop

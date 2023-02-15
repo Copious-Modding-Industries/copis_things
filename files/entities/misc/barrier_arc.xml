@@ -1,0 +1,24 @@
+<Entity>
+
+    <LightComponent
+        _enabled="1"
+        radius="150"
+        r="30"
+        g="90"
+        b="30">
+    </LightComponent>
+
+    <LuaComponent
+        script_source_file="mods/copis_things/files/scripts/projectiles/barrier_arc.lua"
+        execute_every_n_frame="4"
+    >
+    </LuaComponent>
+
+    <LuaComponent
+        script_source_file="mods/copis_things/files/scripts/projectiles/barrier_arc_init.lua"
+        execute_on_added="1"
+        remove_after_executed="1"
+    >
+    </LuaComponent>
+
+</Entity>
