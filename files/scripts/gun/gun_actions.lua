@@ -181,7 +181,10 @@ local actions_to_insert = {
             if reflecting then
                 return
             end
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/anchored_shot.xml,"
+            if c.formation == nil then
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/anchored_shot.xml,"
+                c.formation = "anchored"
+            end
             c.spread_degrees = c.spread_degrees - 10
             c.lifetime_add = c.lifetime_add + 250
             draw_actions(1, true)
@@ -4439,7 +4442,6 @@ local actions_to_insert = {
             end
         end,
     },
-    --[[ WHY NO WORK??
     {
         id = "COPIS_THINGS_RECHARGE_UNSTABLE",
         name = "Unstable Recharge",
@@ -4460,18 +4462,19 @@ local actions_to_insert = {
                 if math.random(0 , 100) < math.max(RechargesUnstable, 0)/3 - 5 then
                     -- Reset Counter + Explode Player
                     RechargesUnstable = 0
-                    local x, y = EntityGetTransform(GetUpdatedEntityID())
-                    EntityLoad("data/entities/projectiles/deck/explosion.xml", x, y)
+                    add_projectile("data/entities/projectiles/deck/explosion.xml")
                     -- Increase Recharge
-                    time_delta = 60
+                    c.fire_rate_wait = c.fire_rate_wait + time_delta + 30
+                    current_reload_time = current_reload_time + 60
+                else
+                    -- Reduce Recharge
+                    c.fire_rate_wait = c.fire_rate_wait - 25
+                    current_reload_time = current_reload_time - 50
                 end
-                -- Reduce Recharge
-                c.fire_rate_wait = c.fire_rate_wait + time_delta/2
-                current_reload_time = current_reload_time + time_delta
-                GamePrint(tostring(current_reload_time))
             end
+            draw_actions(1, true)
         end,
-    },]]
+    },
     {
         id = "COPIS_THINGS_RAINBOW_TRAIL",
         name = "Rainbow Trail",
@@ -4616,9 +4619,9 @@ local actions_to_insert = {
                 end
                 c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sword_parser.xml,"
 
-                if c.sword_formation == nil then
+                if c.formation == nil then
                     add_projectile("mods/copis_things/files/entities/misc/sword_separator.xml")
-                    c.sword_formation = true
+                    c.formation = "sword"
                 end
             end
 
@@ -4629,7 +4632,7 @@ local actions_to_insert = {
         id = "COPIS_THINGS_LINK_SHOT",
         author = "Copi",
         name = "Link Shot",
-        description = "Cast 2 spells the second of which will expire when the first expires",
+        description = "Cast 2 spells the which die together",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/link_shot.png",
         type = ACTION_TYPE_DRAW_MANY,
         spawn_level = "0,1,2,3,4,5,6",
@@ -4659,6 +4662,20 @@ local actions_to_insert = {
             draw_actions(2, true)
         end
     },
+	{
+		id          = "COPIS_THINGS_REDUCE_KNOCKBACK",
+		name 		= "Reduce Knockback",
+		description = "Projectile has lesser knockback",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/reduce_knockback.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "0,1,2,3,4,5,6,7,8,9,10,11", -- KNOCKBACK
+		spawn_probability                        = "1,1,1,1,1,1,1,1,1,1,1,1", -- KNOCKBACK
+		mana = 5,
+		action 		= function()
+			c.knockback_force = c.knockback_force - 2.5
+            draw_actions(1, true)
+		end,
+	},
 }
 
 -- SPEEDY loop
