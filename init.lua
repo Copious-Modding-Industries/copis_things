@@ -139,7 +139,9 @@ function OnWorldInitialized()
             x = MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X"),
             y = MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y")
         }
-        CreateItemActionEntity( "COPIS_THINGS_SWORD_FORMATION", pos.x, pos.y );
+        dofile("data/scripts/gun/gun.lua")
+        local result = actions[math.random(1, #actions)]
+        CreateItemActionEntity( result.id, pos.x, pos.y );
     end
 
 end
