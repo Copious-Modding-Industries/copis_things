@@ -1312,7 +1312,7 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sticky_shot.png",
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "0,1,2,3,4,5,6", -- FIREBALL_RAY
-        spawn_probability = "0.6,0.6,0.6,0.6,0.6,0.6,0.6", -- FIREBALL_RAY
+        spawn_probability = "0.1,0.2,0.2,0.2,0.2,0.2,0.2", -- FIREBALL_RAY
         price = 200,
         mana = 9,
         action = function()
@@ -3899,7 +3899,7 @@ local actions_to_insert = {
         related_projectiles = { "mods/copis_things/files/entities/projectiles/balloon.xml" },
         type = ACTION_TYPE_PROJECTILE,
         spawn_level = "0,1,2,3,4,5,6",
-        spawn_probability = "1,1,1,1,1,1,1",
+        spawn_probability = "0.8,0.6,0.6,0.4,0.2,0.2,0.2",
         price = 90,
         mana = 12,
         action = function()
@@ -4038,7 +4038,7 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/spread_damage.png",
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,3,4,5,6",
-        spawn_probability = "0.5,0.5,0.5,0.5,0.5",
+        spawn_probability = "0.5,0.6,0.7,0.5,0.5",
         price = 150,
         mana = 10,
         action = function()
@@ -4058,8 +4058,8 @@ local actions_to_insert = {
         description = "Jar-based Karate",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/summon_jar_urine.png",
         type = ACTION_TYPE_UTILITY,
-        spawn_level = "2,		3,		4,		5,		6",
-        spawn_probability = "0.025,	0.033,	0.050,	0.033,	0.025",
+        spawn_level = "2,3,4,5,6,10",
+        spawn_probability = "0.1,0.033,0.050,0.033,0.025,0.2",
         price = 200,
         mana = 45,
         max_uses = 30,
@@ -4097,6 +4097,7 @@ local actions_to_insert = {
         price = 150,
         mana = 15,
         action = function()
+            GamePrint("THIS CONTENT IS WIP.")
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/teleport_corpse.xml,"
             draw_actions(1, true)
         end
@@ -4156,6 +4157,7 @@ local actions_to_insert = {
         price = 150,
         mana = 15,
         action = function()
+            GamePrint("THIS CONTENT IS WIP.")
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/corpse_bomb.xml,"
             draw_actions(1, true)
         end
@@ -4708,6 +4710,39 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_LIGHT_BULLET_DECK_RAY_ENEMY",
+        author = "Copi",
+        name = "Enemy Trigger",
+        description = "The next casting block is fired as the enemy",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/barrier_arc.png",
+        type = ACTION_TYPE_MODIFIER,
+		spawn_level = "2,3,4,5,6", -- ARC_ELECTRIC
+		spawn_probability = "0.4,0.4,0.4,0.4,0.8", -- ARC_ELECTRIC
+        price = 10,
+        mana = 0,
+        action = function()
+
+            GamePrint("THIS CONTENT IS WIP.")
+            draw_actions(1, true)
+        end
+    },
+	{
+		id          = "COPIS_THINGS_LIQUID_EATER",
+		name 		= "Drying Shot",
+		description = "Makes a projectile erase liquids as it flies",
+		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/liquid_eater.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		type 		= ACTION_TYPE_MODIFIER,
+		spawn_level                       = "1,2,4,5,6", -- MATTER_EATER
+		spawn_probability                 = "0.6,0.6,0.4,0.2,0.1", -- MATTER_EATER
+		price = 180,
+		mana = 60,
+		action 		= function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/liquid_eater.xml,"
+			draw_actions( 1, true )
+		end,
+	},
 }
 
 -- SPEEDY loop
