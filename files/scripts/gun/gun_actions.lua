@@ -309,23 +309,7 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
-    -- PSYCHIC GRIP
-    {
-        id = "COPIS_THINGS_PSYCHIC_GRIP",
-        author = "Copi",
-        name = "Psychic Grip",
-        description = "Locks a projectile in front of your wand",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/psychic_grip.png",
-        type = ACTION_TYPE_MODIFIER,
-        spawn_level = "2,3,4,5,6",
-        spawn_probability = "0.3,0.4,0.5,0.6,0.6",
-        price = 150,
-        mana = 15,
-        action = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/psychic_grip.xml,"
-            draw_actions(1, true)
-        end
-    },
+
     -- WISPY SHOT
     {
         id = "COPIS_THINGS_WISPY_SHOT",
