@@ -1,4 +1,4 @@
-function peek_draw_action( shot, instant_reload_if_empty )
+local function peek_draw_action( shot, instant_reload_if_empty )
     local action = nil;
 
     if not reflecting then
@@ -35,4 +35,4 @@ function peek_draw_action( shot, instant_reload_if_empty )
     end
 
 end
-return {peek_draw_action}
+return {peek_draw_action = peek_draw_action}

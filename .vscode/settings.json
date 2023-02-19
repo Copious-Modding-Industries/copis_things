@@ -9,6 +9,7 @@
         "register_action",
         "draw_actions",
         "gun",
-        "ACTION_TYPE_OTHER"
+        "ACTION_TYPE_OTHER",
+        "actions"
     ]
 }

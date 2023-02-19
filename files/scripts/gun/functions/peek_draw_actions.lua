@@ -4,8 +4,8 @@ local function peek_draw_actions( how_many, instant_reload_if_empty )
     local old = {
         _reloading              = reloading,
         _draw_actions_capture   = copi_state.draw_actions_capture,
-        _add_projectile         = copi_state._add_projectile,
-        _draw_action            = copi_state._draw_action
+        _add_projectile         = copi_state.old._add_projectile,
+        _draw_action            = copi_state.old._draw_action
     }
 
     -- Increase peeking depth
@@ -37,4 +37,4 @@ local function peek_draw_actions( how_many, instant_reload_if_empty )
 
     return drawn_actions
 end
-return {peek_draw_actions}
+return {peek_draw_actions = peek_draw_actions}

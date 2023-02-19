@@ -10,8 +10,8 @@ local actions_to_insert = {
         sprite = "data/ui_gfx/gun_actions/bloodtentacle.png",
         related_projectiles = { "data/entities/projectiles/deck/bloodtentacle.xml" },
         type = ACTION_TYPE_PROJECTILE,
-        spawn_level = "3,4,5,6", 
-        spawn_probability = "0.2,0.5,1,1", 
+        spawn_level = "3,4,5,6",
+        spawn_probability = "0.2,0.5,1,1",
         price = 170,
         mana = 30,
         --max_uses = 40,
@@ -131,8 +131,8 @@ local actions_to_insert = {
         description = "Allows you to project your vision",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/clairvoyance.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "1,2,3,4,5,6", 
-        spawn_probability = "0.1,0.5,1,1,1,1", 
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.1,0.5,1,1,1,1",
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/clairvoyance.xml",
@@ -215,7 +215,7 @@ local actions_to_insert = {
         description = "Casts a projectile independent of any modifiers before it, like in a multicast",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/separator_cast.png",
         type = ACTION_TYPE_UTILITY,
-        spawn_level = "2,		3,		4,		5", 
+        spawn_level = "2,		3,		4,		5",
         spawn_probability = "0.3,		0.3,	0.3,	0.3",
         price = 210,
         mana = 0,
@@ -280,8 +280,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/temporary_circle.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/deck/temporary_wall.xml" },
         type = ACTION_TYPE_UTILITY,
-        spawn_level = "0,1,2,4,5,6", 
-        spawn_probability = "0.1,0.1,0.3,0.4,0.2,0.1", 
+        spawn_level = "0,1,2,4,5,6",
+        spawn_probability = "0.1,0.1,0.3,0.4,0.2,0.1",
         price = 100,
         mana = 40,
         max_uses = 20,
@@ -298,8 +298,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/forwards_larpa.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/forwards_larpa.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "2,3,4,5,10", 
-        spawn_probability = "0.1,0.2,0.3,0.4,0.2", 
+        spawn_level = "2,3,4,5,10",
+        spawn_probability = "0.1,0.2,0.3,0.4,0.2",
         price = 260,
         mana = 100,
         --max_uses = 20,
@@ -337,8 +337,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "2,3,4,5,10", 
-        spawn_probability = "0.1,0.2,0.3,0.4,0.2", 
+        spawn_level = "2,3,4,5,10",
+        spawn_probability = "0.1,0.2,0.3,0.4,0.2",
         price = 260,
         mana = 100,
         --max_uses = 20,
@@ -356,8 +356,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot_strong.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_strong.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "2,3,4,5,10", 
-        spawn_probability = "0.1,0.2,0.3,0.4,0.2", 
+        spawn_level = "2,3,4,5,10",
+        spawn_probability = "0.1,0.2,0.3,0.4,0.2",
         price = 260,
         mana = 100,
         --max_uses = 20,
@@ -1187,8 +1187,8 @@ local actions_to_insert = {
         description = "Gives a projectile a trail of stinging frost",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/freezing_vapour_trail.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5,0.5", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5,0.5",
         price = 300,
         mana = 13,
         action = function()
@@ -1204,8 +1204,8 @@ local actions_to_insert = {
         description = "Gives a projectile a trail of pure darkness",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/void_trail.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5,0.5", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5,0.5",
         price = 200,
         mana = 6,
         action = function()
@@ -1221,8 +1221,8 @@ local actions_to_insert = {
         description = "Increases the critical damage of a spell",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/damage_critical.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.7,0.7,0.7,0.7,0.7,0.7,0.7", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.7,0.7,0.7,0.7,0.7,0.7,0.7",
         price = 300,
         mana = 5,
         action = function()
@@ -1240,8 +1240,8 @@ local actions_to_insert = {
         description = "Increases the damage done by a projectile slightly for each projectile spell on the wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/dimige.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3", 
-        spawn_probability = "1.0,1.0,1.0,1.0", 
+        spawn_level = "0,1,2,3",
+        spawn_probability = "1.0,1.0,1.0,1.0",
         price = 70,
         mana = 5,
         action = function()
@@ -1278,8 +1278,8 @@ local actions_to_insert = {
         description = "Cast a spell with increased damage and material penetration",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/power_shot.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.7,0.7,0.7,0.7,0.7,0.7,0.7", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.7,0.7,0.7,0.7,0.7,0.7,0.7",
         price = 300,
         mana = 20,
         action = function()
@@ -1295,8 +1295,8 @@ local actions_to_insert = {
         description = "Cast a spell which sticks to surfaces it hits",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sticky_shot.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.1,0.2,0.2,0.2,0.2,0.2,0.2", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.1,0.2,0.2,0.2,0.2,0.2,0.2",
         price = 200,
         mana = 9,
         action = function()
@@ -1312,8 +1312,8 @@ local actions_to_insert = {
         description = "Show your enemies some love",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/lovely_trail.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2",
         price = 10,
         mana = 0,
         action = function()
@@ -1328,8 +1328,8 @@ local actions_to_insert = {
         description = "Only shooting stars",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/starry_trail.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2",
         price = 10,
         mana = 0,
         action = function()
@@ -1344,8 +1344,8 @@ local actions_to_insert = {
         description = "Spread glitter across the world",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sparkling_trail.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2",
         price = 10,
         mana = 0,
         action = function()
@@ -1360,8 +1360,8 @@ local actions_to_insert = {
         description = "Remove all particle emitters from a projectile",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/null_trail.png",
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2",
         price = 10,
         mana = 0,
         action = function()
@@ -1376,8 +1376,8 @@ local actions_to_insert = {
         description = "Spawns a mass of rapidly growing nature",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/root_grower.png",
         type = ACTION_TYPE_STATIC_PROJECTILE,
-        spawn_level = "0,1,2,3,4,5", 
-        spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5", 
+        spawn_level = "0,1,2,3,4,5",
+        spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5",
         price = 90,
         mana = 40,
         max_uses = 10,
@@ -1411,7 +1411,7 @@ local actions_to_insert = {
         id = "COPIS_THINGS_PROJECTILE_HOMING",
         author = "Copi",
         name = "Passive Homing",
-        description = "All projectiles fired from this wand will slightly home in on enemies",	
+        description = "All projectiles fired from this wand will slightly home in on enemies",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/projectile_homing.png",
         type = ACTION_TYPE_PASSIVE,
         spawn_level = "1,2,3,4,5,6",
@@ -1660,8 +1660,8 @@ local actions_to_insert = {
         sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
         spawn_requires_flag = "card_unlocked_maths",
         type = ACTION_TYPE_OTHER,
-        spawn_level = "10", 
-        spawn_probability = "1", 
+        spawn_level = "10",
+        spawn_probability = "1",
         price = 100,
         mana = 0,
         never_ac = true,
@@ -1748,8 +1748,8 @@ local actions_to_insert = {
         sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
         spawn_requires_flag = "card_unlocked_maths",
         type = ACTION_TYPE_OTHER,
-        spawn_level = "10", 
-        spawn_probability = "1", 
+        spawn_level = "10",
+        spawn_probability = "1",
         price = 100,
         mana = 0,
         never_ac = true,
@@ -2039,8 +2039,7 @@ local actions_to_insert = {
 
                             -- If action's slot matches delta index then cast it
                             if ComponentGetValue2(itemcomp, "inventory_slot") == DeltaIndex then
-                                local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action,
-                                        "ItemActionComponent")
+                                local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action, "ItemActionComponent")
                                 local action_id = ComponentGetValue2(itemactioncomp, "action_id")
                                 if action_id ~= "COPIS_THINGS_DELTA" then
                                     for _, data in ipairs(actions) do
@@ -2056,19 +2055,24 @@ local actions_to_insert = {
                             end
 
                             -- If action is this card then update sprite
-                            if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and
-                                current_action.id == "COPIS_THINGS_DELTA" then
-                                ComponentSetValue2(itemcomp, "ui_sprite",
-                                    table.concat({ "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_",
-                                        tostring(DeltaIndex + 1), ".png" }))
+                            if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and current_action.id == "COPIS_THINGS_DELTA" then
+                                ComponentSetValue2(
+                                    itemcomp,
+                                    "ui_sprite",
+                                    table.concat(
+                                        {
+                                            "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_",
+                                            tostring(DeltaIndex + 1),
+                                            ".png"
+                                        }
+                                    )
+                                )
                             end
                         end
                     end
 
                     -- Update delta index
-                    local abilitycomp = EntityGetFirstComponentIncludingDisabled(active_wand, "AbilityComponent")
-                    local deck_capacity = ComponentObjectGetValue2(abilitycomp, "gun_config", "deck_capacity")
-                    DeltaIndex = (DeltaIndex + 1) % deck_capacity
+                    DeltaIndex = (DeltaIndex + 1) % gun.deck_capacity
                 end
             end
         end
@@ -2080,8 +2084,8 @@ local actions_to_insert = {
         description = "Your held wand fires when you're surrounded",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_enemies.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "3,4,5,6", 
-        spawn_probability = "0.1,0.1,0.1,0.1", 
+        spawn_level = "3,4,5,6",
+        spawn_probability = "0.1,0.1,0.1,0.1",
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_enemies.xml",
@@ -2096,8 +2100,8 @@ local actions_to_insert = {
         description = "Your held wand fires constantly",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_frame.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "3,4,5,6", 
-        spawn_probability = "0.1,0.1,0.1,0.1", 
+        spawn_level = "3,4,5,6",
+        spawn_probability = "0.1,0.1,0.1,0.1",
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_frame.xml",
@@ -2112,8 +2116,8 @@ local actions_to_insert = {
         description = "Your held wand fires when you equip your wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_holster.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "3,4,5,6", 
-        spawn_probability = "0.1,0.1,0.1,0.1", 
+        spawn_level = "3,4,5,6",
+        spawn_probability = "0.1,0.1,0.1,0.1",
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_holster.xml",
@@ -2128,8 +2132,8 @@ local actions_to_insert = {
         description = "Your held wand fires when you're on the verge of death",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_hp.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "3,4,5,6", 
-        spawn_probability = "0.1,0.1,0.1,0.1", 
+        spawn_level = "3,4,5,6",
+        spawn_probability = "0.1,0.1,0.1,0.1",
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_hp.xml",
@@ -2144,8 +2148,8 @@ local actions_to_insert = {
         description = "Your held wand fires when you're hurt",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_hurt.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "3,4,5,6", 
-        spawn_probability = "0.1,0.1,0.1,0.1", 
+        spawn_level = "3,4,5,6",
+        spawn_probability = "0.1,0.1,0.1,0.1",
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_hurt.xml",
@@ -2160,8 +2164,8 @@ local actions_to_insert = {
         description = "Your held wand fires when you're around projectiles",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_projectile.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "3,4,5,6", 
-        spawn_probability = "0.1,0.1,0.1,0.1", 
+        spawn_level = "3,4,5,6",
+        spawn_probability = "0.1,0.1,0.1,0.1",
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/auto_projectile.xml",
@@ -2859,8 +2863,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/shield_ghost.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/torch_unidentified.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "1,2,3,4,5,6", 
-        spawn_probability = "0.1,0.5,1,1,1,1", 
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.1,0.5,1,1,1,1",
         price = 160,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/shield_ghost.xml",
@@ -3017,8 +3021,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "3,4,5,10", 
-        spawn_probability = "0.5,0.7,0.5,0.4", 
+        spawn_level = "3,4,5,10",
+        spawn_probability = "0.5,0.7,0.5,0.4",
         price = 300,
         mana = 130,
         --max_uses = 20,
@@ -3036,8 +3040,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_6.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "3,4,5,10", 
-        spawn_probability = "0.5,0.7,0.5,0.4", 
+        spawn_level = "3,4,5,10",
+        spawn_probability = "0.5,0.7,0.5,0.4",
         price = 300,
         mana = 100,
         --max_uses = 20,
@@ -3055,8 +3059,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_on_death.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_on_death.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "3,4,5,10", 
-        spawn_probability = "0.5,0.7,0.5,0.4", 
+        spawn_level = "3,4,5,10",
+        spawn_probability = "0.5,0.7,0.5,0.4",
         price = 300,
         mana = 120,
         --max_uses = 20,
@@ -3074,8 +3078,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_spin.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray_spin.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "3,4,5,10", 
-        spawn_probability = "0.5,0.7,0.5,0.4", 
+        spawn_level = "3,4,5,10",
+        spawn_probability = "0.5,0.7,0.5,0.4",
         price = 300,
         mana = 80,
         max_uses = 50,
@@ -3093,8 +3097,8 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_enemy.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "3,4,5,10", 
-        spawn_probability = "0.5,0.7,0.5,0.4", 
+        spawn_level = "3,4,5,10",
+        spawn_probability = "0.5,0.7,0.5,0.4",
         price = 200,
         mana = 40,
         --max_uses = 20,
@@ -3333,7 +3337,6 @@ local actions_to_insert = {
             c.fire_rate_wait = c.fire_rate_wait + 12
             current_reload_time = current_reload_time + 12
             draw_actions(1, true)
-            copi_state.mana_multiplier = copi_state.mana_multiplier / 2.0
         end
     },
     {
@@ -3676,8 +3679,8 @@ local actions_to_insert = {
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/chaos_ray.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "3,4,5", 
-        spawn_probability = "0.3,0.5,0.3", 
+        spawn_level = "3,4,5",
+        spawn_probability = "0.3,0.5,0.3",
         price = 260,
         mana = 140,
         action = function()
@@ -3693,8 +3696,8 @@ local actions_to_insert = {
         description = "Your wand casts spells in order",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/order_deck.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "0,1,2,3,4", 
-        spawn_probability = "1,1,1,1,1", 
+        spawn_level = "0,1,2,3,4",
+        spawn_probability = "1,1,1,1,1",
         price = 100,
         mana = 7,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/order_deck.xml",
@@ -3717,7 +3720,6 @@ local actions_to_insert = {
         action = function()
             copi_state.mana_multiplier = copi_state.mana_multiplier * 0.5
             draw_actions(1, true)
-            copi_state.mana_multiplier = copi_state.mana_multiplier * 2
         end
     },
     {
@@ -3738,7 +3740,6 @@ local actions_to_insert = {
             c.damage_projectile_add = c.damage_projectile_add + 0.08
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/ult_damage.xml,"
             draw_actions(1, true)
-            copi_state.mana_multiplier = copi_state.mana_multiplier / 3.0
         end
     },
     {
@@ -3848,14 +3849,12 @@ local actions_to_insert = {
                 c.fire_rate_wait = c.fire_rate_wait / 3
                 current_reload_time = current_reload_time / 3
                 draw_actions(1, true)
-                copi_state.mana_multiplier = copi_state.mana_multiplier / 2.0
                 return
             end
             copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
             c.fire_rate_wait = math.min(c.fire_rate_wait / 3, c.fire_rate_wait - 16)
             current_reload_time = math.min(current_reload_time / 3, current_reload_time - 16)
             draw_actions(1, true)
-            copi_state.mana_multiplier = copi_state.mana_multiplier / 2.0
         end
     },
     {
@@ -3877,7 +3876,6 @@ local actions_to_insert = {
             current_reload_time = current_reload_time + 17
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/ult_protection.xml,"
             draw_actions(1, true)
-            copi_state.mana_multiplier = copi_state.mana_multiplier / 3.0
         end
     },
     {
@@ -4038,7 +4036,6 @@ local actions_to_insert = {
             end
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/spread_damage.xml,"
             draw_actions(1, true)
-            copi_state.mana_multiplier = copi_state.mana_multiplier / 2.0
         end
     },
     {
@@ -4203,8 +4200,8 @@ local actions_to_insert = {
         sprite_unidentified = "data/ui_gfx/gun_actions/sinewave_unidentified.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/vertical_arc.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "1,3,5", 
-        spawn_probability = "0.4,0.4,0.4", 
+        spawn_level = "1,3,5",
+        spawn_probability = "0.4,0.4,0.4",
         price = 20,
         mana = 0,
         --max_uses = 150,
@@ -4223,8 +4220,8 @@ local actions_to_insert = {
         sprite_unidentified = "data/ui_gfx/gun_actions/arc_fire_unidentified.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/arc_concrete.xml" },
         type = ACTION_TYPE_MODIFIER,
-        spawn_level = "1,2,3,4,5", 
-        spawn_probability = "0.4,0.4,0.4,0.4,0.4", 
+        spawn_level = "1,2,3,4,5",
+        spawn_probability = "0.4,0.4,0.4,0.4,0.4",
         price = 160,
         --max_uses 	= 15,
         mana = 15,
@@ -4455,8 +4452,8 @@ local actions_to_insert = {
         description = "Summons a bomb that destroys ground very efficiently when you alt fire. Consumes 25 mana per shot.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_bomb.png",
         type = ACTION_TYPE_PASSIVE,
-        spawn_level = "0,1,2,3,4,5,6", 
-        spawn_probability = "1,1,1,1,1,1,1", 
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "1,1,1,1,1,1,1",
         price = 250,
         mana = 0,
         max_uses = 3,
@@ -4475,8 +4472,8 @@ local actions_to_insert = {
         spawn_requires_flag = "secret_fruit",
         type                = ACTION_TYPE_OTHER,
         recursive           = true,
-        spawn_level         = "0", 
-        spawn_probability   = "0", 
+        spawn_level         = "0",
+        spawn_probability   = "0",
         price               = 600,
         mana                = 300,
         max_uses            = 1,
@@ -4624,8 +4621,8 @@ local actions_to_insert = {
 		description = "Projectile has lesser knockback",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/reduce_knockback.png",
 		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level                       = "0,1,2,3,4,5,6,7,8,9,10,11", 
-		spawn_probability                        = "1,1,1,1,1,1,1,1,1,1,1,1", 
+		spawn_level                       = "0,1,2,3,4,5,6,7,8,9,10,11",
+		spawn_probability                        = "1,1,1,1,1,1,1,1,1,1,1,1",
 		mana = 5,
 		action 		= function()
 			c.knockback_force = c.knockback_force - 2.5
@@ -4639,8 +4636,8 @@ local actions_to_insert = {
         description = "Creates arcs of barriers between projectiles (requires 2 projectile spells)",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/barrier_arc.png",
         type = ACTION_TYPE_MODIFIER,
-		spawn_level = "2,3,4,5,6", 
-		spawn_probability = "0.4,0.4,0.4,0.4,0.8", 
+		spawn_level = "2,3,4,5,6",
+		spawn_probability = "0.4,0.4,0.4,0.4,0.8",
         price = 10,
         mana = 0,
         action = function()
@@ -4670,8 +4667,8 @@ local actions_to_insert = {
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/liquid_eater.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type 		= ACTION_TYPE_MODIFIER,
-		spawn_level                       = "1,2,4,5,6", 
-		spawn_probability                 = "0.6,0.6,0.4,0.2,0.1", 
+		spawn_level                       = "1,2,4,5,6",
+		spawn_probability                 = "0.6,0.6,0.4,0.2,0.1",
 		price = 180,
 		mana = 60,
 		action 		= function()
@@ -4686,8 +4683,8 @@ local actions_to_insert = {
         description = "Creates arcs of barriers between projectiles (requires 2 projectile spells)",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/barrier_arc.png",
         type = ACTION_TYPE_STATIC_PROJECTILE,
-		spawn_level = "6,10", 
-		spawn_probability = "0.1,0.2", 
+		spawn_level = "6,10",
+		spawn_probability = "0.1,0.2",
         price = 10,
         mana = 0,
         action = function()
@@ -4724,64 +4721,65 @@ local actions_to_insert = {
         description = "Fire the next spell three times in quick succession based on current cast delay",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/burst_fire.png",
         type = ACTION_TYPE_OTHER,
-		spawn_level = "0,1,2,3,4,5,6", 
-		spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2", 
+		spawn_level = "0,1,2,3,4,5,6",
+		spawn_probability = "0.2,0.2,0.2,0.2,0.2,0.2,0.2",
         price = 10,
         mana = 0,
         action = function()
-            if reflecting then 
-                return;
+            if reflecting then
+                return
             end
-            local burst_wait = (c.fire_rate_wait + math.ceil( gun.reload_time / 5 )) / 3;
-            local old_c = c;
-            c = {};
-            reset_modifiers( c );
+            local burst_wait = (c.fire_rate_wait + math.ceil( gun.reload_time / 5 )) / 3
+            local old_c = c
+            c = {}
+            reset_modifiers( c )
 
-            local deck_snapshot = GunUtils.peek_draw_actions( 1, true );
-
-            BeginProjectile( "mods/copis_things/files/entities/projectiles/burst_fire.xml" );
-                BeginTriggerDeath();
-                    BeginProjectile( "mods/copis_things/files/entities/projectiles/burst_fire.xml" );
-                        BeginTriggerTimer( 1 );
-                            reset_modifiers( c );
+            copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
+            local deck_snapshot = peek_draw_actions( 1, true )
+            BeginProjectile( "mods/copis_things/files/entities/projectiles/burst_fire.xml" )
+                BeginTriggerDeath()
+                    BeginProjectile( "mods/copis_things/files/entities/projectiles/burst_fire.xml" )
+                        BeginTriggerTimer( 1 )
+                            reset_modifiers( c )
                             for k,v in pairs( old_c ) do
-                                c[k] = v;
+                                c[k] = v
                             end
-                            c.spread_degrees = c.spread_degrees + 2;
-                            GunUtils.temporary_deck( function( deck, hand, discarded ) draw_actions( 1, true ); end, GunUtils.deck_from_actions( deck_snapshot ), {}, {} );
-                            register_action( c );
-                            SetProjectileConfigs();
-                        EndTrigger();
+                            c.spread_degrees = c.spread_degrees + 2
+                            GunUtils.temporary_deck( function( deck, hand, discarded ) draw_actions( 1, true ); end, GunUtils.deck_from_actions( deck_snapshot ), {}, {} )
+                            register_action( c )
+                            SetProjectileConfigs()
+                        EndTrigger()
 
-                        BeginTriggerTimer( burst_wait );
-                            reset_modifiers( c );
+                        BeginTriggerTimer( burst_wait )
+                            reset_modifiers( c )
                             for k,v in pairs( old_c ) do
-                                c[k] = v;
+                                c[k] = v
                             end
-                            c.spread_degrees = c.spread_degrees + 2;
-                            GunUtils.temporary_deck( function( deck, hand, discarded ) draw_actions( 1, true ); end, GunUtils.deck_from_actions( deck_snapshot ), {}, {} );
-                            register_action( c );
-                            SetProjectileConfigs();
-                        EndTrigger();
+                            c.spread_degrees = c.spread_degrees + 2
+                            GunUtils.temporary_deck( function( deck, hand, discarded ) draw_actions( 1, true ); end, GunUtils.deck_from_actions( deck_snapshot ), {}, {} )
+                            register_action( c )
+                            SetProjectileConfigs()
+                        EndTrigger()
 
-                        BeginTriggerTimer( burst_wait * 2 );
-                            reset_modifiers( c );
+                        BeginTriggerTimer( burst_wait * 2 )
+                            reset_modifiers( c )
                             for k,v in pairs( old_c ) do
-                                c[k] = v;
+                                c[k] = v
                             end
-                            c.spread_degrees = c.spread_degrees + 2;
-                            GunUtils.temporary_deck( function( deck, hand, discarded ) draw_actions( 1, true ); end, GunUtils.deck_from_actions( deck_snapshot ), {}, {} );
-                            register_action( c );
-                            SetProjectileConfigs();
-                        EndTrigger();
-                    EndProjectile();
-                    reset_modifiers( c );
-                    c.lifetime_add = c.lifetime_add + burst_wait * 3;
-                    register_action( c );
-                    SetProjectileConfigs();
-                EndTrigger();
-            EndProjectile();
-            c = old_c;
+                            c.spread_degrees = c.spread_degrees + 2
+                            GunUtils.temporary_deck( function( deck, hand, discarded ) draw_actions( 1, true ); end, GunUtils.deck_from_actions( deck_snapshot ), {}, {} )
+                            register_action( c )
+                            SetProjectileConfigs()
+                        EndTrigger()
+                    EndProjectile()
+                    reset_modifiers( c )
+                    c.lifetime_add = c.lifetime_add + burst_wait * 3
+                    register_action( c )
+                    SetProjectileConfigs()
+                EndTrigger()
+            EndProjectile()
+            copi_state.mana_multiplier = copi_state.mana_multiplier / 2.0
+            c = old_c
         end
     },
 }
@@ -4789,4 +4787,26 @@ local actions_to_insert = {
 -- SPEEDY loop
 for i = 1, #actions_to_insert do
     actions[#actions + 1] = actions_to_insert[i]
+end
+
+-- Debug stuff
+if DebugGetIsDevBuild() then
+    actions[#actions + 1] = {
+        id = "COPIS_THINGS_DEBUG",
+        author = "Copi",
+        name = "Debug",
+        description = "Creates arcs of barriers between projectiles (requires 2 projectile spells)",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/dev_meta.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "0",
+        spawn_probability = "0",
+        price = 0,
+        mana = 0,
+        action = function()
+            if not reflecting then
+                c.debug = true
+            end
+            draw_actions(1, true)
+        end
+    }
 end

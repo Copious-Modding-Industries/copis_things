@@ -78,4 +78,4 @@ local function order_deck()
     end
 end
 
-return {order_deck}
+return {order_deck = order_deck}

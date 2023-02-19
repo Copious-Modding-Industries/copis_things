@@ -1,4 +1,4 @@
-function draw_action( instant_reload_if_empty )
+local function draw_action( instant_reload_if_empty )
     local result = false
 
     copi_state.draw_depth = copi_state.draw_depth + 1
@@ -7,7 +7,7 @@ function draw_action( instant_reload_if_empty )
         --    handle_extra_modifier( extra_modifier, index, copi_state.draw_action_stack_size )
         --end
         if copi_state.draw_actions_capture ~= nil and copi_state.capture_draw_actions then
-            table.insert( copi_state.draw_actions_capture, deck[1] )
+            copi_state.draw_actions_capture[#copi_state.draw_actions_capture+1] = deck[1]
         end
         result = copi_state.old._draw_action( instant_reload_if_empty )
     else
@@ -24,4 +24,4 @@ function draw_action( instant_reload_if_empty )
 
     return result
 end
-return {draw_action}
+return {draw_action=draw_action}

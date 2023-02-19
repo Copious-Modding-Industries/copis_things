@@ -10,6 +10,10 @@ copi_state = {
 
     draw_actions_capture = nil,
 
+    instant_reload_if_empty = true,
+
+    new_cast = nil,
+
     old = { -- Old functions
         _order_deck                         = order_deck,
         _draw_shot                          = draw_shot,
@@ -18,7 +22,9 @@ copi_state = {
         _add_projectile_trigger_hit_world   = add_projectile_trigger_hit_world,
         _add_projectile_trigger_death       = add_projectile_trigger_death,
         _set_current_action                 = set_current_action,
-        _draw_action                        = draw_action
+        _draw_actions                       = draw_actions,
+        _draw_action                        = draw_action,
+        _register_action                    = register_action
     }
 }
 
@@ -38,11 +44,12 @@ GunUtils            = dofile_once("mods/copis_things/files/scripts/gun/functions
 -- SORRY FOR OVERWRITING THIS :(
 set_current_action  = dofile_once("mods/copis_things/files/scripts/gun/functions/set_current_action.lua").set_current_action
 
--- New Funcs
-peek_draw_actions   = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_actions.lua").peek_draw_actions
-peek_draw_action    = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_action.lua").peek_draw_action
-
 -- Monkey Patching
 order_deck          = dofile_once("mods/copis_things/files/scripts/gun/functions/order_deck.lua").order_deck
 draw_shot           = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_shot.lua").draw_shot
 draw_action         = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_action.lua").draw_action
+register_action     = dofile_once("mods/copis_things/files/scripts/gun/functions/register_action.lua").register_action
+
+-- New Funcs
+peek_draw_actions   = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_actions.lua").peek_draw_actions
+peek_draw_action    = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_action.lua").peek_draw_action
