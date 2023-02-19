@@ -30,7 +30,7 @@ local function get_force_sorted(caster)
             if EntityHasTag( wand_children[i], "card_action" ) then
                 local components = EntityGetComponent( wand_children[i], "ItemActionComponent" ) or {}
                 for iac_index = 1, #components do
-                    if ComponentGetValue2( components[iac_index] "action_id" ) == "GKBRKN_ORDER_DECK" then
+                    if ComponentGetValue2( components[iac_index] "action_id" ) == "COPIS_THINGS_ORDER_DECK" then
                         force_sorted = true
                         GamePrint("Force Sorted")
                         break

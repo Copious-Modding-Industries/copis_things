@@ -2,21 +2,23 @@ local function register_action( state )
     local c = state
 
     if not reflecting then
+
+        local types = {
+            "ACTION_TYPE_PROJECTILE",
+            "ACTION_TYPE_STATIC_PROJECTILE",
+            "ACTION_TYPE_MODIFIER",
+            "ACTION_TYPE_DRAW_MANY",
+            "ACTION_TYPE_MATERIAL",
+            "ACTION_TYPE_OTHER",
+            "ACTION_TYPE_UTILITY",
+            "ACTION_TYPE_PASSIVE",
+        }
+
         if c.debug == true then
             c.debug = nil
             print(string.rep("\n", 3))
-            print(string.rep("_", 83))
+            print(string.rep("-", 83))
 
-            local types = {
-                "ACTION_TYPE_PROJECTILE",
-                "ACTION_TYPE_STATIC_PROJECTILE",
-                "ACTION_TYPE_MODIFIER",
-                "ACTION_TYPE_DRAW_MANY",
-                "ACTION_TYPE_MATERIAL",
-                "ACTION_TYPE_OTHER",
-                "ACTION_TYPE_UTILITY",
-                "ACTION_TYPE_PASSIVE",
-            }
 
             for key, value in pairs(c) do
 
@@ -26,6 +28,9 @@ local function register_action( state )
 
                 print(string.format("%-40s | %40s", tostring(key), GameTextGetTranslatedOrNot(tostring(value))))
             end
+
+            print(string.rep("-", 83))
+            print(string.rep("\n", 3))
         end
     end
 

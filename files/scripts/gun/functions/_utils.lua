@@ -16,7 +16,6 @@ local deck_from_actions = function(actions, start_index)
 end
 
 local temporary_deck = function(deck_fn, new_deck, new_hand, new_discarded)
-    GamePrint("!!")
     -- Save old cardpiles
     local old = {
         _deck = deck,

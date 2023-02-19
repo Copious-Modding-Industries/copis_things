@@ -121,6 +121,7 @@ local actions_to_insert = {
         action = function()
             c.speed_multiplier = c.speed_multiplier * 0.6
             c.spread_degrees = c.spread_degrees - 8
+            GamePrint("!@")
             draw_actions(1, true)
         end
     },
@@ -4736,9 +4737,9 @@ local actions_to_insert = {
 
             copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
             local deck_snapshot = peek_draw_actions( 1, true )
-            BeginProjectile( "mods/copis_things/files/entities/projectiles/burst_fire.xml" )
+            BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" )
                 BeginTriggerDeath()
-                    BeginProjectile( "mods/copis_things/files/entities/projectiles/burst_fire.xml" )
+                    BeginProjectile( "mods/copis_things/files/entities/projectiles/burst_projectile.xml" )
                         BeginTriggerTimer( 1 )
                             reset_modifiers( c )
                             for k,v in pairs( old_c ) do
