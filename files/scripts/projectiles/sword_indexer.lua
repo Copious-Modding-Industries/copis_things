@@ -5,7 +5,7 @@ do  -- Get cast state
     local projcomp = EntityGetFirstComponentIncludingDisabled(separator, "ProjectileComponent")
     local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
     shooter = ComponentGetValue2( projcomp, "mWhoShot" );
-    local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)\n")
+    local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)")
     caststate = (string.sub(desc, i, j))
 end
 
@@ -19,7 +19,7 @@ for index = 1, #player_projectiles do
     if EntityHasTag(target, "SWORD_FORMATION") then
         local projcomp = EntityGetFirstComponentIncludingDisabled(target, "ProjectileComponent")
         local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
-        local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)\n")
+        local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)")
         local target_caststate = (string.sub(desc, i, j))
         if target_caststate == caststate then
             sword_projectiles[#sword_projectiles+1] = target

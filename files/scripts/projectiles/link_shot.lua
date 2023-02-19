@@ -4,7 +4,7 @@ if EntityGetName(entity_id) ~= "separator" then
     do  -- Get cast state
         local projcomp = EntityGetFirstComponentIncludingDisabled(entity_id, "ProjectileComponent")
         local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
-        local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)\n")
+        local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)")
         caststate = (string.sub(desc, i, j))
     end
 
@@ -13,7 +13,7 @@ if EntityGetName(entity_id) ~= "separator" then
         local target = player_projectiles[index]
         local projcomp = EntityGetFirstComponentIncludingDisabled(target, "ProjectileComponent")
         local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
-        local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)\n")
+        local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)")
         local target_caststate = (string.sub(desc, i, j))
         if target_caststate == caststate then
             EntityKill(target)

@@ -1,0 +1,12 @@
+<Entity>
+
+    <GameEffectComponent 
+        effect="CUSTOM" 
+        frames="200"
+		ragdoll_effect="CUSTOM_RAGDOLL_ENTITY"
+		ragdoll_effect_custom_entity_file="mods/copis_things/files/entities/misc/ragdolls/ragdoll_entity.xml"
+		ragdoll_fx_custom_entity_apply_only_to_largest_body="1"
+    >
+	</GameEffectComponent >
+
+</Entity>

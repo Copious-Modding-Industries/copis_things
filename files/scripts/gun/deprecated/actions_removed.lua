@@ -2165,6 +2165,61 @@ local to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_CORPSE_BOMB",
+        author = "Copi",
+        name = "Detonecromation",
+        description = "Causes the corpses of killed enemies to violently explode into noxious gasses",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/corpse_bomb.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "2,3,4,5,6",
+        spawn_probability = "0.3,0.4,0.5,0.6,0.6",
+        price = 150,
+        mana = 15,
+        action = function()
+            if not c.extra_entities:find("mods/copis_things/files/entities/misc/default_ragdoll.xml,") then
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/default_ragdoll.xml,"
+            end
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/corpse_bomb.xml,"
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_TELEPORT_CORPSE",
+        author = "Copi",
+        name = "Deathbound teleport bolt",
+        description = "A magical bolt that curses a body to carry you postmortem",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport_corpse.png",
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "2,3,4,5,6",
+        spawn_probability = "0.3,0.4,0.5,0.6,0.6",
+        price = 150,
+        mana = 15,
+        action = function()
+            if not c.extra_entities:find("mods/copis_things/files/entities/misc/default_ragdoll.xml,") then
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/default_ragdoll.xml,"
+            end
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/corpse_teleport.xml,"
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_LIGHT_BULLET_DECK_RAY_ENEMY",
+        author = "Copi",
+        name = "Enemy Trigger",
+        description = "The next casting block is fired as the enemy",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/barrier_arc.png",
+        type = ACTION_TYPE_MODIFIER,
+		spawn_level = "2,3,4,5,6", -- ARC_ELECTRIC
+		spawn_probability = "0.4,0.4,0.4,0.4,0.8", -- ARC_ELECTRIC
+        price = 10,
+        mana = 0,
+        action = function()
+
+            GamePrint("THIS CONTENT IS WIP.")
+            draw_actions(1, true)
+        end
+    },
 
 }
 

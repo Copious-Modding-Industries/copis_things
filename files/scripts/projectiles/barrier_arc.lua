@@ -6,7 +6,7 @@ if EntityGetName(entity_id) ~= "separator" then
     do -- Get cast state of self
         local projcomp = EntityGetFirstComponentIncludingDisabled(entity_id, "ProjectileComponent")
         local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
-        local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)\n")
+        local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)")
         caststate = (string.sub(desc, i, j))
     end
 
@@ -22,7 +22,7 @@ if EntityGetName(entity_id) ~= "separator" then
         if EntityHasTag(target, "BARRIER_ARC") then
             local projcomp = EntityGetFirstComponentIncludingDisabled(target, "ProjectileComponent")
             local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
-            local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)\n")
+            local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)")
             -- Check if it has caststate in it
             if (i or j) ~= nil then
                 local target_caststate = (string.sub(desc, i, j))
