@@ -4,26 +4,27 @@ local function register_action( state )
     if not reflecting then
         if c.debug == true then
             c.debug = nil
-            print(string.rep("_", 81))
+            print(string.rep("\n", 3))
+            print(string.rep("_", 83))
 
             local types = {
-                ACTION_TYPE_PROJECTILE	= 0,
-                ACTION_TYPE_STATIC_PROJECTILE = 1,
-                ACTION_TYPE_MODIFIER	= 2,
-                ACTION_TYPE_DRAW_MANY	= 3,
-                ACTION_TYPE_MATERIAL	= 4,
-                ACTION_TYPE_OTHER		= 5,
-                ACTION_TYPE_UTILITY		= 6,
-                ACTION_TYPE_PASSIVE		= 7,
+                "ACTION_TYPE_PROJECTILE",
+                "ACTION_TYPE_STATIC_PROJECTILE",
+                "ACTION_TYPE_MODIFIER",
+                "ACTION_TYPE_DRAW_MANY",
+                "ACTION_TYPE_MATERIAL",
+                "ACTION_TYPE_OTHER",
+                "ACTION_TYPE_UTILITY",
+                "ACTION_TYPE_PASSIVE",
             }
 
             for key, value in pairs(c) do
 
                 if key == "action_type" then
-                    value = types[value]
+                    value = types[value+1]
                 end
 
-                print(string.format("%-40s | %40s", tostring(key), tostring(value)))
+                print(string.format("%-40s | %40s", tostring(key), GameTextGetTranslatedOrNot(tostring(value))))
             end
         end
     end
