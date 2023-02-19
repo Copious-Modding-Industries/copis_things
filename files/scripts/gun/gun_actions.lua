@@ -4795,7 +4795,7 @@ if DebugGetIsDevBuild() then
         id = "COPIS_THINGS_DEBUG",
         author = "Copi",
         name = "Debug",
-        description = "Creates arcs of barriers between projectiles (requires 2 projectile spells)",
+        description = "Prints cast state data",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/dev_meta.png",
         type = ACTION_TYPE_OTHER,
         spawn_level = "0",
