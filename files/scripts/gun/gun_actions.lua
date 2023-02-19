@@ -4731,6 +4731,7 @@ local actions_to_insert = {
                 return
             end
             local burst_wait = (c.fire_rate_wait + math.ceil( gun.reload_time / 5 )) / 3
+            GamePrint(tostring(burst_wait))
             local old_c = c
             c = {}
             reset_modifiers( c )
@@ -4751,7 +4752,7 @@ local actions_to_insert = {
                             SetProjectileConfigs()
                         EndTrigger()
 
-                        BeginTriggerTimer( burst_wait )
+                        BeginTriggerTimer( burst_wait + 1)
                             reset_modifiers( c )
                             for k,v in pairs( old_c ) do
                                 c[k] = v
@@ -4762,7 +4763,7 @@ local actions_to_insert = {
                             SetProjectileConfigs()
                         EndTrigger()
 
-                        BeginTriggerTimer( burst_wait * 2 )
+                        BeginTriggerTimer( burst_wait * 2 + 1 )
                             reset_modifiers( c )
                             for k,v in pairs( old_c ) do
                                 c[k] = v
@@ -4777,6 +4778,7 @@ local actions_to_insert = {
                     c.lifetime_add = c.lifetime_add + burst_wait * 3
                     register_action( c )
                     SetProjectileConfigs()
+
                 EndTrigger()
             EndProjectile()
             copi_state.mana_multiplier = copi_state.mana_multiplier / 2.0
