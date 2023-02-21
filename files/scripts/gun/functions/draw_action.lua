@@ -6,7 +6,7 @@ local function draw_action( instant_reload_if_empty )
         --for index,extra_modifier in pairs( active_extra_modifiers ) do
         --    handle_extra_modifier( extra_modifier, index, copi_state.draw_action_stack_size )
         --end
-        if copi_state.draw_actions_capture ~= nil and copi_state.capture_draw_actions then
+        if copi_state.draw_actions_capture ~= nil then
             copi_state.draw_actions_capture[#copi_state.draw_actions_capture+1] = deck[1]
         end
         result = copi_state.old._draw_action( instant_reload_if_empty )

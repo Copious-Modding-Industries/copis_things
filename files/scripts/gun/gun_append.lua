@@ -7,6 +7,7 @@ copi_state = {
 
     draw_depth = 0,
     peeking_depth = 0,
+    add_projectile_depth = 0,
 
     draw_actions_capture = nil,
 
@@ -49,6 +50,7 @@ order_deck          = dofile_once("mods/copis_things/files/scripts/gun/functions
 draw_shot           = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_shot.lua").draw_shot
 draw_action         = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_action.lua").draw_action
 register_action     = dofile_once("mods/copis_things/files/scripts/gun/functions/register_action.lua").register_action
+add_projectile      = dofile_once("mods/copis_things/files/scripts/gun/functions/add_projectile.lua").add_projectile
 
 -- New Funcs
 peek_draw_actions   = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_actions.lua").peek_draw_actions
