@@ -121,7 +121,6 @@ local actions_to_insert = {
         action = function()
             c.speed_multiplier = c.speed_multiplier * 0.6
             c.spread_degrees = c.spread_degrees - 8
-            GamePrint("!@")
             draw_actions(1, true)
         end
     },

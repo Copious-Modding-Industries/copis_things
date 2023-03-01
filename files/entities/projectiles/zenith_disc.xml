@@ -104,7 +104,7 @@
 	
 	<LuaComponent
 		script_source_file="mods/copis_things/files/scripts/projectiles/zenith_disc_teleport.lua"
-		execute_every_n_frame="60"
+		execute_every_n_frame="1"
 		>
 	</LuaComponent>
 	
