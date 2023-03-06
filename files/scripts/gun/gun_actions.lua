@@ -568,6 +568,7 @@ local actions_to_insert = {
                         if (wand.shuffle == true) then
                             wand.shuffle = false
                             wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                             wand.manaMax = wand.manaMax * 0.9
                             wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
                             wand.castDelay = wand.castDelay * 1.1
@@ -618,6 +619,7 @@ local actions_to_insert = {
                         if (wand.shuffle == false) then
                             wand.shuffle = true
                             wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                             wand.manaMax = wand.manaMax * 1.5
                             wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
                             wand.castDelay = wand.castDelay * 0.55
@@ -707,6 +709,7 @@ local actions_to_insert = {
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
                         wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                         SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
                         wand.speedMultiplier = wand.speedMultiplier * Random(2, 3)
                         local sprite_file = wand:GetSprite()
@@ -793,6 +796,7 @@ local actions_to_insert = {
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
                         wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                         local castDelay_old = wand.castDelay
                         wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
                         local sprite_file = wand:GetSprite()
@@ -841,6 +845,7 @@ local actions_to_insert = {
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
                         wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                         local rechargeTime_old = wand.rechargeTime
                         wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
                         local sprite_file = wand:GetSprite()
@@ -889,6 +894,7 @@ local actions_to_insert = {
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
                         wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                         local rechargeTime_old = wand.rechargeTime
                         wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
                         local sprite_file = wand:GetSprite()
@@ -937,6 +943,7 @@ local actions_to_insert = {
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
                         wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                         wand.manaMax = wand.manaMax * 1.2 + 50
                         local sprite_file = wand:GetSprite()
                         if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
@@ -978,6 +985,7 @@ local actions_to_insert = {
                     local wand = EZWand(active_wand)
                     if wand ~= nil then
                         wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                         wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
                         local sprite_file = wand:GetSprite()
                         if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
@@ -1006,6 +1014,7 @@ local actions_to_insert = {
         mana = 0,
         recursive = true,
         never_ac = true,
+        -- Maybe broken?
         action = function(recursion_level, iteration)
             draw_actions(1, true) -- Check for initial reflection
             if not reflecting then
@@ -1057,6 +1066,7 @@ local actions_to_insert = {
         mana = 0,
         recursive = true,
         never_ac = true,
+        -- Maybe broken?
         action = function(recursion_level, iteration)
             draw_actions(1, true) -- Check for initial reflection
             if not reflecting then
@@ -4244,6 +4254,7 @@ local actions_to_insert = {
                             Revs = 0
                         else
                             Revs = Revs + 1
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                             local mana_add = math.min(80, math.ceil((Revs / 5) ^ 1.5) * 5)
                             local delay_add = math.min(40, Revs ^ (1 / 3))
                             mana = mana + mana_add
@@ -4286,6 +4297,7 @@ local actions_to_insert = {
                             Revs = 0
                         else
                             Revs = Revs + 1
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                             local reload_reduce = math.min(80, Revs ^ (1 / 2))
                             current_reload_time = current_reload_time - reload_reduce
                             c.fire_rate_wait = c.fire_rate_wait - reload_reduce
@@ -4329,6 +4341,7 @@ local actions_to_insert = {
                             Revs = 0
                         else
                             Revs = Revs + 1
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
                             c.damage_fire_add = c.damage_fire_add + math.min(0.64, Revs / 100)
                             if math.random(0, 100) < math.min(Revs, 200) / 2 then
                                 GetGameEffectLoadTo(caster, "ON_FIRE", false)
