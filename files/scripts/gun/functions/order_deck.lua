@@ -4,7 +4,7 @@ local function get_force_sorted(caster)
     local wands = {}
     local inventories = EntityGetAllChildren(caster) or {}
     for inventory_index = 1, #inventories do
-        if inventories[inventory_index] == "inventory_quick" then
+        if EntityGetName(inventories[inventory_index]) == "inventory_quick" then
             local children = EntityGetAllChildren(inventories[inventory_index]) or {}
             for i = 1, #children do
                 if EntityHasTag(children[i], "wand") then
@@ -28,13 +28,10 @@ local function get_force_sorted(caster)
         local wand_children = EntityGetAllChildren(base_wand) or {}
         for i=1,#wand_children do
             if EntityHasTag( wand_children[i], "card_action" ) then
-                local components = EntityGetComponent( wand_children[i], "ItemActionComponent" ) or {}
-                for iac_index = 1, #components do
-                    if ComponentGetValue2( components[iac_index] "action_id" ) == "COPIS_THINGS_ORDER_DECK" then
-                        force_sorted = true
-                        GamePrint("Force Sorted")
-                        break
-                    end
+                local iac = EntityGetFirstComponentIncludingDisabled( wand_children[i], "ItemActionComponent" )
+                if ComponentGetValue2( iac, "action_id" ) == "COPIS_THINGS_ORDER_DECK" then
+                    force_sorted = true
+                    break
                 end
             end
             if force_sorted then
@@ -47,6 +44,7 @@ end
 
 local function order_deck()
     local shooter = GetUpdatedEntityID()
+    GamePrint(tostring(shooter))
     local force_sorted = get_force_sorted(shooter)
 
     if force_sorted then
