@@ -29,8 +29,6 @@ copi_state = {
     }
 }
 
--- Consts
-Shooter = GetUpdatedEntityID()
 --[[
 gun.*:
     shuffle_deck_when_empty

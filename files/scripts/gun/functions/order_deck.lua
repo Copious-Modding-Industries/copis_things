@@ -46,7 +46,8 @@ local function get_force_sorted(caster)
 end
 
 local function order_deck()
-    local force_sorted = get_force_sorted(Shooter)
+    local shooter = GetUpdatedEntityID()
+    local force_sorted = get_force_sorted(shooter)
 
     if force_sorted then
         local before = gun.shuffle_deck_when_empty
@@ -56,6 +57,9 @@ local function order_deck()
     else
         copi_state.old._order_deck()
     end
+
+    local vsc = EntityGetFirstComponent(shooter, "VariableStorageComponent", "mana_efficiency_mult")
+    local shooter_mult = ComponentGetValue2(vsc, "value_float") or 1.0
 
     -- This allows me to hook into the mana access and call an arbitrary function. Very tricksy :^)
     for _, action in pairs(deck) do
@@ -67,7 +71,7 @@ local function order_deck()
                 local action_meta = {
                     __index = function(table, key)
                         if key == "mana" then
-                            return base_mana * copi_state.mana_multiplier
+                            return (base_mana * copi_state.mana_multiplier) * shooter_mult
                         end
                     end
                 }

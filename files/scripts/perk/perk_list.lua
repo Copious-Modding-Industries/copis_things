@@ -1,6 +1,7 @@
 to_insert =
 {
-    --  Health multiplication
+    --  Health multiplication (GROSS)
+    --[[
     {
         id = "COPIS_THINGS_MULTIPLY_HP",
         ui_name = "$perk_name_copis_things_multiply_hp",
@@ -33,7 +34,7 @@ to_insert =
                 end
             end
         end,
-    },
+    },]]
     --  Acimorphism
     {
         id = "COPIS_THINGS_POLY_TO_ACID",
@@ -57,13 +58,22 @@ to_insert =
         ui_description = "$perk_desc_copis_things_mana_efficiency",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/mana_efficiency.png",
         perk_icon = "mods/copis_things/files/items_gfx/perks/mana_efficiency.png",
-        stackable = STACKABLE_NO,
+        stackable = STACKABLE_YES,
+        stackable_is_rare = true,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            EntityAddComponent(entity_who_picked, "ShotEffectComponent", {
-                _tags = "perk_component",
-                extra_modifier = "copis_things_mana_efficiency"
-            })
+            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "mana_efficiency_mult")
+            if vsc then
+                ComponentSetValue2(vsc, "value_float", ComponentGetValue2(vsc, "value_float") * 2/3)
+            else
+                local perk = EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
+                    name = "mana_efficiency_mult",
+                    _tags = "perk_component,mana_efficiency_mult",
+                    value_float = 2/3
+                })
+                GamePrint(tostring(perk))
+                GamePrint(tostring(ComponentHasTag(perk, "mana_efficiency_mult")))
+            end
         end,
     },
     --  Short temper
@@ -76,7 +86,7 @@ to_insert =
         stackable = STACKABLE_NO,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            EntityAddComponent(entity_who_picked, "LuaComponent", {
+            EntityAddComponent2(entity_who_picked, "LuaComponent", {
                 _tags = "perk_component",
                 script_damage_received = "mods/copis_things/files/scripts/perk/damage_received/short_temper.lua"
             })
@@ -92,7 +102,7 @@ to_insert =
         stackable = STACKABLE_NO,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            EntityAddComponent(entity_who_picked, "LuaComponent", {
+            EntityAddComponent2(entity_who_picked, "LuaComponent", {
                 _tags = "perk_component",
                 script_damage_received = "mods/copis_things/files/scripts/perk/damage_received/swapper.lua"
             })
@@ -132,7 +142,7 @@ to_insert =
                     end
                 end
             end
-            EntityAddComponent(entity_who_picked, "LuaComponent", {
+            EntityAddComponent2(entity_who_picked, "LuaComponent", {
                 _tags = "perk_component",
                 script_damage_received = "mods/copis_things/files/scripts/perk/damage_received/fragile_ego.lua"
             })
@@ -216,15 +226,12 @@ to_insert =
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/regression_scales.png",
         perk_icon = "mods/copis_things/files/items_gfx/perks/regression_scales.png",
         stackable = STACKABLE_YES,
-        stackable_maximum = 2,
-        max_in_perk_pool = 2,
-        stackable_is_rare = true,
         usable_by_enemies = false,
         func = function(entity_perk_item, entity_who_picked, item_name)
             -- TODO - this should work - seems to work
             GlobalsSetValue("TEMPLE_PERK_REROLL_COUNT", tostring(0))
             local perk_count = tonumber(GlobalsGetValue("TEMPLE_PERK_COUNT", "3"))
-            perk_count = perk_count - 1
+            perk_count = math.max(perk_count - 1, 1)
             GlobalsSetValue("TEMPLE_PERK_COUNT", tostring(perk_count))
         end,
         func_remove = function(entity_who_picked)
@@ -259,13 +266,10 @@ to_insert =
                         "drill",
                         "fire",
                     }
-                    local num = GameGetFrameNum() * 2
-                    for _, damage_type in pairs(multipliers) do
-                        local resistance = ComponentObjectGetValue2(damagemodel, "damage_multipliers", damage_type);
-                        SetRandomSeed(num, 9 + num)
-                        resistance = math.max(0, resistance * (Random(50, 125) / 100));
-                        ComponentObjectSetValue2(damagemodel, "damage_multipliers", damage_type, resistance);
-                        num = num + 1
+                    for i=1, #multipliers do
+                        local resistance = ComponentObjectGetValue2(damagemodel, "damage_multipliers", multipliers[i]);
+                        resistance = math.max(0, resistance * (math.random(50, 125) / 100));
+                        ComponentObjectSetValue2(damagemodel, "damage_multipliers", multipliers[i], resistance)
                     end
                 end
             end
@@ -349,7 +353,7 @@ to_insert =
         stackable = STACKABLE_NO,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            EntityAddComponent(entity_who_picked, "ShotEffectComponent", {
+            EntityAddComponent2(entity_who_picked, "ShotEffectComponent", {
                 _tags = "perk_component",
                 extra_modifier = "copis_things_spell_efficiency"
             })
@@ -370,11 +374,11 @@ to_insert =
             if vsc then
                 ComponentSetValue2(vsc, "value_float", ComponentGetValue2(vsc, "value_float") + 2.0)
             else
-                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
                     script_shot = "mods/copis_things/files/scripts/perk/script_shot/protagonist.lua"
                 })
-                EntityAddComponent(entity_who_picked, "VariableStorageComponent", {
+                EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
                     _tags = "protagonist_bonus,perk_component",
                     value_float = 2.0
                 })
@@ -432,7 +436,7 @@ to_insert =
         stackable = STACKABLE_NO,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            EntityAddComponent(entity_who_picked, "ShotEffectComponent", {
+            EntityAddComponent2(entity_who_picked, "ShotEffectComponent", {
                 _tags = "perk_component",
                 extra_modifier = "copis_things_lead_boots"
             })
@@ -457,7 +461,7 @@ to_insert =
                     end
                 end
             end
-            EntityAddComponent(entity_who_picked, "LuaComponent", {
+            EntityAddComponent2(entity_who_picked, "LuaComponent", {
                 _tags = "perk_component",
                 script_damage_about_to_be_received = "mods/copis_things/files/scripts/perk/damage_about_to_be_received/iron_feathers.lua"
             })
@@ -478,11 +482,11 @@ to_insert =
             if vsc then
                 ComponentSetValue2(vsc, "value_float", ComponentGetValue2(vsc, "value_float") + 0.5)
             else
-                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
                     script_source_file = "mods/copis_things/files/scripts/perk/source/healthier_hearts.lua"
                 })
-                EntityAddComponent(entity_who_picked, "VariableStorageComponent", {
+                EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
                     _tags = "healthier_hearts_count,perk_component",
                     value_float = 0.5
                 })
@@ -504,15 +508,15 @@ to_insert =
             if vsc then
                 ComponentSetValue2(vsc, "value_int", ComponentGetValue2(vsc, "value_int") + 10)
             else
-                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
                     script_source_file = "mods/copis_things/files/scripts/perk/source/Invincibility_flash.lua"
                 })
-                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
                     script_damage_received = "mods/copis_things/files/scripts/perk/damage_received/Invincibility_frames.lua"
                 })
-                EntityAddComponent(entity_who_picked, "VariableStorageComponent", {
+                EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
                     _tags = "invincibility_frames,perk_component",
                     value_int = 20
                 })
@@ -534,11 +538,11 @@ to_insert =
             if vsc then
                 ComponentSetValue2(vsc, "value_int", ComponentGetValue2(vsc, "value_int") + 1.0)
             else
-                EntityAddComponent(entity_who_picked, "LuaComponent", {
+                EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
                     script_shot = "mods/copis_things/files/scripts/perk/script_shot/demolitionist.lua"
                 })
-                EntityAddComponent(entity_who_picked, "VariableStorageComponent", {
+                EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
                     _tags = "demolitionist_bonus,perk_component",
                     value_int = 1.0
                 })

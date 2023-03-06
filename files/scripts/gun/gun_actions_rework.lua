@@ -62,8 +62,31 @@ local actions_to_edit = {
             local new_reload = 60
             local reload_delta = (new_reload - current_reload_time)
             current_reload_time = new_reload
-            GamePrint(tostring(reload_delta))
+            c.damage_projectile_add = c.damage_projectile_add + (reload_delta/25)
             draw_actions(1, true)
+        end,
+    },
+
+    ["RANDOM_SPELL"] = {
+        description = "Draws any one random spell at half cost!",
+        sprite = table.concat({SpriteOverridePath, "random_spell", ".png"}),
+        spawn_requires_flag = nil,
+        mana = 0,
+        action = function()
+            if not reflecting then
+                copi_state.mana_multiplier = copi_state.mana_multiplier * 0.5
+                GunUtils.temporary_deck(
+                    function( deck, hand, discarded )
+                        local flag = "action_" .. deck[1].id:lower()
+                        local progress_remove = not HasFlagPersistent( flag )
+                        draw_actions( 1, true )
+                        if progress_remove then
+                            RemoveFlagPersistent( flag )
+                        end
+                    end,
+                    GunUtils.deck_from_actions( {actions[math.random(1, #actions)]} ), {}, {} )
+                copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
+            end
         end,
     },
 

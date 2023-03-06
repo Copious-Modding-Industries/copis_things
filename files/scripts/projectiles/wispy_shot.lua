@@ -1,13 +1,14 @@
 dofile_once("data/scripts/lib/utilities.lua")
 
-local player = EntityGetWithTag( "player_unit" )[1]
+local entity_id = GetUpdatedEntityID()
+local comp = EntityGetFirstComponent(entity_id, "ProjectileComponent")
+local shooter = ComponentGetValue2( comp, "mWhoShot" )
 local lerp_amount = 0.975
 local bob_h = 3
 local bob_w = 20
 local bob_speed_y = 0.065
 local bob_speed_x = 0.01421
 
-local entity_id = GetUpdatedEntityID()
 local pos_x, pos_y = EntityGetTransform( entity_id )
 
 if pos_x == 0 and pos_y == 0 then
@@ -16,7 +17,7 @@ if pos_x == 0 and pos_y == 0 then
 end
 
 -- ghost continously lerps towards a target that floats around the parent
-local target_x, target_y = EntityGetTransform(player)
+local target_x, target_y = EntityGetTransform(shooter)
 if target_x == nil then return end
 target_y = target_y - 10
 
