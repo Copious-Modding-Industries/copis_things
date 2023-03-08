@@ -4759,13 +4759,12 @@ local actions_to_insert = {
     },
 }
 
-local num = 0
+
+
 -- SPEEDY loop
 for i = 1, #actions_to_insert do
     actions[#actions + 1] = actions_to_insert[i]
-    num = i
 end
-GamePrint(tostring(num))
 
 -- Debug stuff
 if DebugGetIsDevBuild() then
@@ -4788,21 +4787,6 @@ if DebugGetIsDevBuild() then
         end
     }
     actions[#actions + 1] = {
-        id = "COPIS_THINGS_SUS_TRAIL",
-        name = "Sus Trail",
-        description = "A rather.. suspicious.. trail of particles",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/unimplemented/sus_trail.png",
-        type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0,1,2,3,4,5,6",
-        spawn_probability = "0.8,0.6,0.4,0.2,0.2,0.2,0.2",
-        price = 10,
-        mana = 0,
-        action = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sus_trail.xml,"
-            draw_actions(1, true)
-        end,
-    }
-    actions[#actions + 1] = {
         id = "COPIS_THINGS_GFX_SPIRAL",
         name = "GFX TEST",
         description = "hmst",
@@ -4817,4 +4801,25 @@ if DebugGetIsDevBuild() then
             draw_actions(1, true)
         end,
     }
+end
+
+do  -- Don't play noita at 3 am!! :^)
+    local year, month, day, hour = GameGetDateAndTimeLocal()
+    if hour == 3 then
+        actions[#actions + 1] = {
+            id = "COPIS_THINGS_SUS_TRAIL",
+            name = "Sus Trail",
+            description = "A rather.. suspicious.. trail of particles.. Don't play noita at 3AM!!",
+            sprite = "mods/copis_things/files/ui_gfx/gun_actions/unimplemented/sus_trail.png",
+            type = ACTION_TYPE_MODIFIER,
+            spawn_level = "0,1,2,3,4,5,6",
+            spawn_probability = "0.8,0.6,0.4,0.2,0.2,0.2,0.2",
+            price = 10,
+            mana = 0,
+            action = function()
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sus_trail.xml,"
+                draw_actions(1, true)
+            end,
+        }
+    end
 end
