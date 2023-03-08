@@ -1,0 +1,9 @@
+<Entity >
+   
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/sus_trail.lua"
+		execute_every_n_frame="4"
+		>
+	</LuaComponent>
+
+</Entity>
