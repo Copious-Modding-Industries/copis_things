@@ -44,7 +44,6 @@ end
 
 local function order_deck()
     local shooter = GetUpdatedEntityID()
-    GamePrint(tostring(shooter))
     local force_sorted = get_force_sorted(shooter)
 
     if force_sorted then
