@@ -4817,9 +4817,46 @@ do  -- Don't play noita at 3 am!! :^)
             price = 10,
             mana = 0,
             action = function()
+                if not reflecting then
+                    local flag = "copis_things_sus_secret"
+                    if not HasFlagPersistent(flag) then
+                        AddFlagPersistent(flag)
+                        GamePrintImportant("You feel a suspicious sense of accomplishment...", "Go to bed!")
+                    end
+                end
                 c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sus_trail.xml,"
                 draw_actions(1, true)
             end,
+        }
+    else
+        actions[#actions + 1] = {
+            id = "COPIS_THINGS_SUS_TRAIL",
+            name = "? ? ?",
+            description = "Don't Play Copi's Things at 3 AM!",
+            sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta/secret.png",
+            type = ACTION_TYPE_OTHER,
+            spawn_level = "0",
+            spawn_probability = "0",
+            spawn_requires_flag = "THIS_SHOULD_NEVER_SPAWN",
+            price = 0,
+            mana = 0,
+            action = function()
+                if not reflecting then
+                    local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
+                    local shooter = GetUpdatedEntityID()
+                    local inventory2comp = EntityGetFirstComponent(shooter, "Inventory2Component")
+                    if inventory2comp then
+                        local active_wand = ComponentGetValue2(inventory2comp, "mActiveItem")
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            wand:RemoveSpells("COPIS_THINGS_SUS_TRAIL")
+                            if not HasFlagPersistent("copis_things_sus_secret") then
+                                RemoveFlagPersistent("action_copis_things_sus_trail")
+                            end
+                        end
+                    end
+                end
+            end
         }
     end
 end

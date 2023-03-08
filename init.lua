@@ -13,6 +13,13 @@ local meta = {
         GlobalsSetValue("copis_things_version", "v0.2 INDEV")
     end,
 
+    flag_reset = function ()
+        local flag = "THIS_SHOULD_NEVER_SPAWN"
+        if HasFlagPersistent(flag) then
+            RemoveFlagPersistent(flag)
+        end
+    end
+
 }
 
 --[[ STUFF
@@ -120,6 +127,8 @@ local gui = {
 ]]
 
 function OnModInit()
+    meta.flag_reset()
+
     content.actions()
     content.perks()
     content.translations()
