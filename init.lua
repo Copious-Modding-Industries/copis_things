@@ -14,7 +14,7 @@ local meta = {
     end,
 
     flag_reset = function ()
-        local flag = "THIS_SHOULD_NEVER_SPAWN"
+        local flag = "this_should_never_spawn"
         if HasFlagPersistent(flag) then
             RemoveFlagPersistent(flag)
         end
@@ -92,6 +92,25 @@ local content = {
 
 }
 
+local experimental = {
+
+    loadspell = function ()
+        local flag = "copis_things_spell_spawned"
+        if not GameHasFlagRun(flag) then
+            local pos = {
+                x = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X")),
+                y = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y")),
+            }
+            dofile("data/scripts/gun/gun.lua")
+            SetRandomSeed(420, 69)
+            local result = actions[Random(1, #actions)]
+            CreateItemActionEntity( result.id, pos.x, pos.y )
+            GameAddFlagRun(flag)
+        end
+    end
+
+}
+
 --[[ GUI
   ██████████    ██          ██  ██████  
 ██          ██  ██          ██    ██    
@@ -128,7 +147,6 @@ local gui = {
 
 function OnModInit()
     meta.flag_reset()
-
     content.actions()
     content.perks()
     content.translations()
@@ -140,19 +158,7 @@ end
 function OnWorldInitialized()
     meta.version()
     gui.setup()
-
-
-    -- TEMP!!!
-    do
-        local pos = {
-            x = MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X"),
-            y = MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y")
-        }
-        dofile("data/scripts/gun/gun.lua")
-        local result = actions[Random(1, #actions)]
-        CreateItemActionEntity( result.id, pos.x, pos.y );
-    end
-
+    experimental.loadspell()
 end
 
 function OnWorldPreUpdate()

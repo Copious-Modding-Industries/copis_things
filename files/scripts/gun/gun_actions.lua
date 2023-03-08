@@ -3876,7 +3876,7 @@ local actions_to_insert = {
         id = "COPIS_THINGS_BALLOON",
         author = "Copi",
         name = "Alchemia Balloon",
-        description = "A balloon that's filled with a material from your potions",
+        description = "A balloon that's filled with a material from your last potion",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/balloon.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/balloon.xml" },
         type = ACTION_TYPE_PROJECTILE,
@@ -4048,22 +4048,6 @@ local actions_to_insert = {
             c.fire_rate_wait = c.fire_rate_wait + 10
             current_reload_time = current_reload_time + 20
             add_projectile("data/entities/items/pickup/jar_of_urine.xml")
-        end
-    },
-    {
-        id = "COPIS_THINGS_ORBIT_SHOOTER",
-        author = "Copi",
-        name = "Orbital Shot",
-        description = "Causes the projectile to orbit the shooter",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/orbit_shooter.png",
-        type = ACTION_TYPE_MODIFIER,
-        spawn_level = "2,3,4,5,6",
-        spawn_probability = "0.3,0.4,0.5,0.6,0.6",
-        price = 150,
-        mana = 15,
-        action = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/orbit_shooter.xml,"
-            draw_actions(1, true)
         end
     },
     {
@@ -4831,13 +4815,13 @@ do  -- Don't play noita at 3 am!! :^)
     else
         actions[#actions + 1] = {
             id = "COPIS_THINGS_SUS_TRAIL",
-            name = "? ? ?",
+            name = "???",
             description = "Don't Play Copi's Things at 3 AM!",
             sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta/secret.png",
             type = ACTION_TYPE_OTHER,
             spawn_level = "0",
             spawn_probability = "0",
-            spawn_requires_flag = "THIS_SHOULD_NEVER_SPAWN",
+            spawn_requires_flag = "this_should_never_spawn",
             price = 0,
             mana = 0,
             action = function()
