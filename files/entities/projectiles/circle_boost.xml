@@ -71,6 +71,7 @@
             count_min="1" count_max="1"
             randomize_rotation.min="-0.2"
             randomize_rotation.max="0.2"
+            use_velocity_as_rotation="1"
             randomize_angular_velocity.min="-0.2"
             randomize_angular_velocity.max="0.2"
             randomize_position.min_x="-28"
@@ -81,8 +82,8 @@
             randomize_velocity.max_x="20"
             randomize_velocity.min_y="-20"
             randomize_velocity.max_y="20"
-            velocity_always_away_from_center="0"
-            use_rotation_from_entity="1"
+            velocity_always_away_from_center="1"
+            use_rotation_from_entity="0"
             >
         </SpriteParticleEmitterComponent>
 
@@ -95,6 +96,7 @@
         </LifetimeComponent>
 
         <ProjectileComponent
+            damage_game_effect_entities=""
             speed_min="0.1"
             speed_max="0.1"
             friendly_fire="0"
