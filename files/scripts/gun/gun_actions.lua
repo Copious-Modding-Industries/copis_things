@@ -4723,6 +4723,25 @@ local actions_to_insert = {
             draw_actions(1, true)
         end,
     },
+    {
+        id = "COPIS_THINGS_CIRCLE_BOOST",
+        author = "Copi",
+        name = "Circle of Celerity",
+        description = "A field of accelerative magic",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/circle_boost.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/projectiles/circle_boost.xml" },
+        type = ACTION_TYPE_STATIC_PROJECTILE,
+        spawn_level = "0,1,2,3",
+        spawn_probability = "1,1,1,1",
+        price = 200,
+        mana = 30,
+        max_uses = -1,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/circle_boost.xml")
+            draw_actions(1, true)
+        end
+    },
 }
 
 
