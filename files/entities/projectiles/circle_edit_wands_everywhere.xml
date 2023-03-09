@@ -1,11 +1,25 @@
 <Entity 
   name="$projectile_default" 
+  tags="workshop"
    >
+
   <GameAreaEffectComponent
       radius="28"
       frame_length="70"
     >
   </GameAreaEffectComponent>
+
+    <HitboxComponent 
+        _enabled="1" 
+        aabb_max_x="14" 
+        aabb_min_x="-14" 
+        aabb_max_y="14" 
+        aabb_min_y="-14" 
+        is_enemy="0" 
+        is_item="0" 
+        is_player="1" >
+    </HitboxComponent>
+
   
 	<ParticleEmitterComponent 
 		emitted_material_name="spark_teal"
