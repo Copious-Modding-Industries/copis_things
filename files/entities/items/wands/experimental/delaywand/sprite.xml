@@ -1,0 +1,19 @@
+<Sprite filename="mods/copis_things/files/entities/items/wands/experimental/delaywand/sprite.png" >
+	
+  <!-- handgun -->
+  <RectAnimation 
+	name="default" 
+	pos_x="0" 
+	pos_y="0" 
+	offset_x="1" 
+	offset_y="3" 
+	has_offset="1"
+	frame_count="1" 
+	frame_width="12" 
+	frame_height="4"
+	frame_wait="0.2" 
+	frames_per_row="10" 
+	loop="0"  >
+  </RectAnimation>
+  
+</Sprite>
