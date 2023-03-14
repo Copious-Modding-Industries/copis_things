@@ -95,24 +95,26 @@ local content = {
 local experimental = {
 
     loadspell = function ()
-        local flag = "copis_things_spell_spawned"
-        if not GameHasFlagRun(flag) then
-            local pos = {
-                x = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X")),
-                y = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y")),
-            }
-            dofile("data/scripts/gun/gun.lua")
-            SetRandomSeed(420, 69)
-            --local result = actions[Random(1, #actions)]
-            --CreateItemActionEntity( result.id, pos.x, pos.y )
-            local wands = {
-                "experimental/delaywand/wand",
-                "experimental/chargewand/wand",
-                "experimental/blinkwand/wand",
-            }
-            local result = wands[Random(1, #wands)]
-            EntityLoad(table.concat{"mods/copis_things/files/entities/items/wands/", result, ".xml"}, pos.x, pos.y)
-            GameAddFlagRun(flag)
+        if ModSettingGet("CopisThings.do_starting_crap") then
+            local flag = "copis_things_spell_spawned"
+            if not GameHasFlagRun(flag) then
+                local pos = {
+                    x = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X")),
+                    y = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y")),
+                }
+                dofile("data/scripts/gun/gun.lua")
+                SetRandomSeed(420, 69)
+                --local result = actions[Random(1, #actions)]
+                --CreateItemActionEntity( result.id, pos.x, pos.y )
+                local wands = {
+                    "experimental/delaywand/wand",
+                    "experimental/chargewand/wand",
+                    "experimental/blinkwand/wand",
+                }
+                local result = wands[Random(1, #wands)]
+                EntityLoad(table.concat{"mods/copis_things/files/entities/items/wands/", result, ".xml"}, pos.x, pos.y)
+                GameAddFlagRun(flag)
+            end
         end
     end
 
