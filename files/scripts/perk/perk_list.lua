@@ -71,8 +71,6 @@ to_insert =
                     _tags = "perk_component,mana_efficiency_mult",
                     value_float = 2/3
                 })
-                GamePrint(tostring(perk))
-                GamePrint(tostring(ComponentHasTag(perk, "mana_efficiency_mult")))
             end
         end,
     },

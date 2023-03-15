@@ -17,7 +17,7 @@ perk_desc_copis_things_fragile_ego,"Receive significantly less damage, but damag
 perk_name_copis_things_golden_blood,"Aurum Veins",,,,,,,,,,,,
 perk_desc_copis_things_golden_blood,"You bleed gold.",,,,,,,,,,,,
 perk_name_copis_things_healthier_hearts,"Healthier Hearts",,,,,,,,,,,,
-perk_desc_copis_things_healthier_hearts,"You heal for the amount gained when gaining maximum health.",,,,,,,,,,,,
+perk_desc_copis_things_healthier_hearts,"You heal for half the amount gained when gaining maximum health.",,,,,,,,,,,,
 perk_name_copis_things_invincibility_frames,"Invincibility Frames",,,,,,,,,,,,
 perk_desc_copis_things_invincibility_frames,"You become immune to enemy damage for a short time after taking enemy damage.",,,,,,,,,,,,
 perk_name_copis_things_hallowed_step,"Hallowed Step",,,,,,,,,,,,
