@@ -3,20 +3,17 @@ local function button(Gui, id_fn)
 
 
     if Path == nil then
+
         local flags = {
-            "thing",
-            "bonus_haxx",
+            "bonus_copious",
             "bonus_friendship",
-            "bonus_streamer",
-            "secret_amulet_gem",
-            "secret_amulet",
-            "progress_all_bosses",
+            "purgatory_win",
             "progress_worseenemies",
-            "secret_greed",
+            "secret_amulet",
             "progress_nightmare",
+            "secret_greed",
             "progress_carnage",
             "progress_ending0",
-            "bad",
         }
 
         tier = "none"
