@@ -4,7 +4,10 @@ local function button(Gui, id_fn)
 
     if Path == nil then
         local flags = {
+            "thing",
             "bonus_haxx",
+            "bonus_friendship",
+            "bonus_streamer",
             "secret_amulet_gem",
             "secret_amulet",
             "progress_all_bosses",
@@ -13,8 +16,6 @@ local function button(Gui, id_fn)
             "progress_nightmare",
             "progress_carnage",
             "progress_ending0",
-            "bonus_friendship",
-            "bonus_streamer",
             "bad",
         }
 
