@@ -28,6 +28,8 @@ local function button(Gui, id_fn)
         --Path = table.concat({"mods/copis_things/files/ui_gfx/gui/badges/", flags[((math.floor(GameGetFrameNum()/60)) % #flags) + 1], ".png"})
     end
 
+    -- Path = Path or table.concat({"mods/copis_things/files/ui_gfx/gui/badges/", ModSettingsGet, ".png"})
+
     local screen_w, screen_h = GuiGetScreenDimensions(Gui)
     GuiZSetForNextWidget( Gui, -9001 )
     local lmb = GuiImageButton( Gui, id_fn(), screen_w - 14, 2, "", "mods/copis_things/files/ui_gfx/gui/icon.png" )

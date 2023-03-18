@@ -1686,10 +1686,11 @@ local actions_to_insert = {
             local endpoint = -1
             local elsepoint = -1
             local entity_id = GetUpdatedEntityID()
-            local player_id = EntityGetWithTag("player_unit")[1]
+
+            
 
             local doskip = false
-            if (entity_id ~= player_id) then
+            if not IsPlayer(entity_id) then
                 doskip = true
             end
 
@@ -1775,8 +1776,7 @@ local actions_to_insert = {
             local endpoint = -1
             local elsepoint = -1
             local entity_id = GetUpdatedEntityID()
-            local player_id = EntityGetWithTag("player_unit")[1]
-            local controlscomp = EntityGetFirstComponent(player_id, "ControlsComponent")
+            local controlscomp = EntityGetFirstComponent(entity_id, "ControlsComponent")
 
             local doskip = false ---@diagnostic disable-next-line: param-type-mismatch
             if (ComponentGetValue2(controlscomp, "mButtonDownRightClick") ~= true) then
@@ -2428,9 +2428,9 @@ local actions_to_insert = {
             local uses_left
             local stomach
             local entity_id = GetUpdatedEntityID()
-            local player = EntityGetWithTag("player_unit")[1]
-            if entity_id ~= nil and entity_id == player then
-                IngestionComps = EntityGetComponent(player, "IngestionComponent")
+
+            if IsPlayer(entity_id) then
+                IngestionComps = EntityGetComponent(entity_id, "IngestionComponent") or {}
 
                 for _, value in pairs(IngestionComps) do
                     stomach = value
@@ -2443,12 +2443,12 @@ local actions_to_insert = {
                         return
                     end
 
-                    local inventory_2_comp = EntityGetFirstComponentIncludingDisabled(player, "Inventory2Component")
+                    local inventory_2_comp = EntityGetFirstComponentIncludingDisabled(entity_id, "Inventory2Component")
                     if inventory_2_comp == nil then
                         return
                     end
                     local wand_id = ComponentGetValue2(inventory_2_comp, "mActiveItem")
-                    for i, spell in ipairs(EntityGetAllChildren(wand_id)) do
+                    for i, spell in ipairs(EntityGetAllChildren(wand_id) or {}) do
                         spell_comp = EntityGetFirstComponentIncludingDisabled(spell, "ItemComponent")
                         if spell_comp ~= nil and
                             ComponentGetValue2(spell_comp, "mItemUid") == current_action.inventoryitem_id

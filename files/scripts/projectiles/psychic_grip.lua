@@ -2,8 +2,10 @@ dofile_once("data/scripts/lib/utilities.lua")
 local entity_id    = GetUpdatedEntityID()
 local x, y = EntityGetTransform( entity_id )
 
-local player = EntityGetWithTag( "player_unit" )[1]
-local pos_x, pos_y = EntityGetTransform( player )
+local pcomp = EntityGetFirstComponentIncludingDisabled( entity_id, "ProjectileComponent" )
+local shooter = ComponentGetValue2( pcomp, "mWhoShot" ) or 0;
+ComponentSetValue2(pcomp, "die_on_low_velocity", false)
+local pos_x, pos_y = EntityGetTransform( shooter )
 local mouse_x, mouse_y = ComponentGetValue2(EntityGetFirstComponentIncludingDisabled(player, "ControlsComponent"), "mMousePosition")
 if (mouse_x == nil or mouse_y == nil) then return end
 local aim_x = mouse_x - pos_x
@@ -16,9 +18,8 @@ if aim_x < 0 then
     angle = angle + 3.14159
 end
 
-edit_component( entity_id, "ProjectileComponent", function(comp,vars)
-    vars.die_on_low_velocity = 0
-end)
+
+
 --[[
 edit_component2( entity_id, "VelocityComponent", function(comp,vars)
     vars.gravity_y = 0
