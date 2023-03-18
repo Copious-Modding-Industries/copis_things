@@ -1,16 +1,17 @@
 
 local self_id = GetUpdatedEntityID()
 local coin_x, coin_y = EntityGetTransform(self_id)
-local players = EntityGetInRadiusWithTag(coin_x, coin_y, 16, "player_unit")
+local players = EntityGetInRadiusWithTag(coin_x, coin_y, 16, "player_unit") or {}
 
-if players ~= nil then
-    local controls = EntityGetFirstComponentIncludingDisabled(players[1], "ControlsComponent")
+for i = 1, #players do
+    local controls = EntityGetFirstComponentIncludingDisabled(players[i], "ControlsComponent")
     if (ComponentGetValue2(controls, "mButtonFrameKick") == GameGetFrameNum()) then
-        local kickcomp = EntityGetFirstComponentIncludingDisabled(players[1], "KickComponent")
+        local kickcomp = EntityGetFirstComponentIncludingDisabled(players[i], "KickComponent")
         local force = ComponentGetValue2(kickcomp, "max_force") * 50
         local damage_buff = ComponentGetValue2(kickcomp, "max_force")/10
 
-        local target_x, target_y = DEBUG_GetMouseWorld()
+        local ctrls = EntityGetFirstComponentIncludingDisabled(players[i], "ControlsComponent")
+        local target_x, target_y = ComponentGetValueVector2(ctrls, "mMousePosition")
         local velcomp = EntityGetFirstComponent(self_id, "VelocityComponent")
         local vel_x, vel_y = ComponentGetValue2(velcomp, "mVelocity")
         local angle = math.pi - math.atan2( ( target_y - coin_y ), ( target_x - coin_x ) )
@@ -23,7 +24,7 @@ if players ~= nil then
         local damage = ComponentGetValue2( projcomp, "damage" )
         local bounces_left = ComponentGetValue2( projcomp, "bounces_left" )
         ComponentSetValue2(projcomp, "damage_every_x_frames", 1)
-        ComponentSetValue2( projcomp, "damage", damage + damage_buff )
+        ComponentSetValue2(projcomp, "damage", damage + damage_buff )
         ComponentSetValue2(projcomp, "bounces_left", bounces_left + 1)
 
         -- Projectile trail
