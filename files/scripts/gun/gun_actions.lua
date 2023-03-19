@@ -4899,7 +4899,7 @@ local actions_to_insert = {
         end
     },
     {
-        id = "COPIS_THINGS_META_SKIP_NONE",
+        id = "COPIS_THINGS_META_SKIP_MODIFIER",
         author = "Copi",
         name = "Mem",
         description = "Modifiers and multicasts after this spell will be skipped.",
