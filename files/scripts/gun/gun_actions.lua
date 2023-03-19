@@ -1687,10 +1687,8 @@ local actions_to_insert = {
             local elsepoint = -1
             local entity_id = GetUpdatedEntityID()
 
-            
-
             local doskip = false
-            if not IsPlayer(entity_id) then
+            if not (EntityHasTag(entity_id, "player_unit") or EntityHasTag(entity_id, "client")) then
                 doskip = true
             end
 
@@ -2429,7 +2427,6 @@ local actions_to_insert = {
             local stomach
             local entity_id = GetUpdatedEntityID()
 
-            if IsPlayer(entity_id) then
                 IngestionComps = EntityGetComponent(entity_id, "IngestionComponent") or {}
 
                 for _, value in pairs(IngestionComps) do
@@ -2473,7 +2470,6 @@ local actions_to_insert = {
                         current_reload_time = current_reload_time + 33
                     end
                 end
-            end
         end
     },
     {
@@ -4296,31 +4292,29 @@ local actions_to_insert = {
                 return
             end
             local caster = GetUpdatedEntityID()
-            if IsPlayer(caster) then
-                local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
-                if controls_component ~= nil then
-                    LastShootingStart = LastShootingStart or 0
-                    Revs = Revs or 0
-                    local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
-                    local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
+            local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
+            if controls_component ~= nil then
+                LastShootingStart = LastShootingStart or 0
+                Revs = Revs or 0
+                local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
+                local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
 
-                    if not shooting_now then
+                if not shooting_now then
+                    Revs = 0
+                else
+                    if LastShootingStart ~= shooting_start then
                         Revs = 0
                     else
-                        if LastShootingStart ~= shooting_start then
-                            Revs = 0
-                        else
-                            Revs = Revs + 1
-                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                            local mana_add = math.min(80, math.ceil((Revs / 5) ^ 1.5) * 5)
-                            local delay_add = math.min(40, Revs ^ (1 / 3))
-                            mana = mana + mana_add
-                            c.fire_rate_wait = c.fire_rate_wait + delay_add
-                        end
+                        Revs = Revs + 1
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                        local mana_add = math.min(80, math.ceil((Revs / 5) ^ 1.5) * 5)
+                        local delay_add = math.min(40, Revs ^ (1 / 3))
+                        mana = mana + mana_add
+                        c.fire_rate_wait = c.fire_rate_wait + delay_add
                     end
-                    LastShootingStart = shooting_start
-                    draw_actions(1, true)
                 end
+                LastShootingStart = shooting_start
+                draw_actions(1, true)
             end
         end,
     },
@@ -4340,31 +4334,29 @@ local actions_to_insert = {
                 return
             end
             local caster = GetUpdatedEntityID()
-            if IsPlayer(caster) then
-                local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
-                if controls_component ~= nil then
-                    LastShootingStart = LastShootingStart or 0
-                    Revs = Revs or 0
-                    local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
-                    local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
+            local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
+            if controls_component ~= nil then
+                LastShootingStart = LastShootingStart or 0
+                Revs = Revs or 0
+                local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
+                local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
 
-                    if not shooting_now then
+                if not shooting_now then
+                    Revs = 0
+                else
+                    if LastShootingStart ~= shooting_start then
                         Revs = 0
                     else
-                        if LastShootingStart ~= shooting_start then
-                            Revs = 0
-                        else
-                            Revs = Revs + 1
-                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                            local reload_reduce = math.min(80, Revs ^ (1 / 2))
-                            current_reload_time = current_reload_time - reload_reduce
-                            c.fire_rate_wait = c.fire_rate_wait - reload_reduce
-                            c.spread_degrees = c.spread_degrees + math.min(Revs ^ (1 / 4), 75)
-                        end
+                        Revs = Revs + 1
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                        local reload_reduce = math.min(80, Revs ^ (1 / 2))
+                        current_reload_time = current_reload_time - reload_reduce
+                        c.fire_rate_wait = c.fire_rate_wait - reload_reduce
+                        c.spread_degrees = c.spread_degrees + math.min(Revs ^ (1 / 4), 75)
                     end
-                    LastShootingStart = shooting_start
-                    draw_actions(1, true)
                 end
+                LastShootingStart = shooting_start
+                draw_actions(1, true)
             end
         end,
     },
@@ -4384,31 +4376,29 @@ local actions_to_insert = {
                 return
             end
             local caster = GetUpdatedEntityID()
-            if IsPlayer(caster) then
-                local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
-                if controls_component ~= nil then
-                    LastShootingStart = LastShootingStart or 0
-                    Revs = Revs or 0
-                    local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
-                    local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
+            local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
+            if controls_component ~= nil then
+                LastShootingStart = LastShootingStart or 0
+                Revs = Revs or 0
+                local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
+                local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
 
-                    if not shooting_now then
+                if not shooting_now then
+                    Revs = 0
+                else
+                    if LastShootingStart ~= shooting_start then
                         Revs = 0
                     else
-                        if LastShootingStart ~= shooting_start then
-                            Revs = 0
-                        else
-                            Revs = Revs + 1
-                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                            c.damage_fire_add = c.damage_fire_add + math.min(0.64, Revs / 100)
-                            if math.random(0, 100) < math.min(Revs, 200) / 2 then
-                                GetGameEffectLoadTo(caster, "ON_FIRE", false)
-                            end
+                        Revs = Revs + 1
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                        c.damage_fire_add = c.damage_fire_add + math.min(0.64, Revs / 100)
+                        if math.random(0, 100) < math.min(Revs, 200) / 2 then
+                            GetGameEffectLoadTo(caster, "ON_FIRE", false)
                         end
                     end
-                    LastShootingStart = shooting_start
-                    draw_actions(1, true)
                 end
+                LastShootingStart = shooting_start
+                draw_actions(1, true)
             end
         end,
     },
@@ -4428,27 +4418,25 @@ local actions_to_insert = {
                 return
             end
             local caster = GetUpdatedEntityID()
-            if IsPlayer(caster) then
-                local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
-                if controls_component ~= nil then
-                    LastShootingStart = LastShootingStart or 0
-                    Revs = Revs or 0
-                    local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
-                    local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
+            local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent");
+            if controls_component ~= nil then
+                LastShootingStart = LastShootingStart or 0
+                Revs = Revs or 0
+                local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire");
+                local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire");
 
-                    if not shooting_now then
+                if not shooting_now then
+                    Revs = 0
+                else
+                    if LastShootingStart ~= shooting_start then
                         Revs = 0
                     else
-                        if LastShootingStart ~= shooting_start then
-                            Revs = 0
-                        else
-                            Revs = Revs + 1
-                        end
+                        Revs = Revs + 1
                     end
-                    LastShootingStart = shooting_start
-                    GlobalsSetValue("PLAYER_REVS", Revs)
-                    draw_actions(1, true)
                 end
+                LastShootingStart = shooting_start
+                GlobalsSetValue("PLAYER_REVS", Revs)
+                draw_actions(1, true)
             end
         end,
     },
