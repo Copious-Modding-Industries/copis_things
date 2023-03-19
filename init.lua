@@ -116,6 +116,27 @@ local experimental = {
                 GameAddFlagRun(flag)
             end
         end
+    end,
+
+    spell_visualizer = function ()
+        if ModSettingGet("CopisThings.do_spell_visualizer") then
+            local flag = "copis_things_spell_visualizer"
+            if not GameHasFlagRun(flag) then
+                local pos = {
+                    x = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X") - 100),
+                    y = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y") - 50),
+                }
+
+                function spawn_spell_visualizer( x, y )
+                    EntityLoad( "data/entities/buildings/workshop_spell_visualizer.xml", x, y )
+                    EntityLoad( "data/entities/buildings/workshop_aabb.xml", x, y )
+                end
+
+                spawn_spell_visualizer( pos.x, pos.y )
+
+                GameAddFlagRun(flag)
+            end
+        end
     end
 
 }
@@ -168,6 +189,7 @@ function OnWorldInitialized()
     meta.version()
     gui.setup()
     experimental.loadspell()
+    experimental.spell_visualizer()
 end
 
 function OnWorldPreUpdate()
