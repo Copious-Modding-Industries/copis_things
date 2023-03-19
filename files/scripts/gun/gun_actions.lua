@@ -4810,6 +4810,147 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_META_SKIP_PROJECTILE",
+        author = "Copi",
+        name = "Zai",
+        description = "All projectiles after this spell will be skipped.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_projectile.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "4,10",
+        spawn_probability = "0.2,0.5",
+        price = 100,
+        mana = 0,
+        action = function()
+            if not reflecting then
+                copi_state.skip_type[0] = true
+                copi_state.skip_type[1] = true
+                copi_state.skip_type[4] = true
+            end
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_META_STOP_SKIP_PROJECTILE",
+        author = "Copi",
+        name = "Sin",
+        description = "No projectiles after this spell will be skipped.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_stop_skip_projectile.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "4,10",
+        spawn_probability = "0.2,0.5",
+        price = 100,
+        mana = 0,
+        action = function()
+            if not reflecting then
+                copi_state.skip_type[0] = false
+                copi_state.skip_type[1] = false
+                copi_state.skip_type[4] = false
+            end
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_META_SKIP_ALL",
+        author = "Copi",
+        name = "Yod",
+        description = "All spells after this spell will be skipped.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_all.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "4,10",
+        spawn_probability = "0.2,0.5",
+        price = 100,
+        mana = 0,
+        action = function()
+            if not reflecting then
+                copi_state.skip_type[0] = true
+                copi_state.skip_type[1] = true
+                copi_state.skip_type[2] = true
+                copi_state.skip_type[3] = true
+                copi_state.skip_type[4] = true
+                copi_state.skip_type[6] = true
+            end
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_META_SKIP_NONE",
+        author = "Copi",
+        name = "Baet",
+        description = "No spells after this spell will be skipped.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_none.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "4,10",
+        spawn_probability = "0.2,0.5",
+        price = 100,
+        mana = 0,
+        action = function()
+            if not reflecting then
+                copi_state.skip_type[0] = false
+                copi_state.skip_type[1] = false
+                copi_state.skip_type[2] = false
+                copi_state.skip_type[3] = false
+                copi_state.skip_type[4] = false
+                copi_state.skip_type[5] = false
+                copi_state.skip_type[6] = false
+                copi_state.skip_type[7] = false
+            end
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_META_SKIP_NONE",
+        author = "Copi",
+        name = "Mem",
+        description = "Modifiers and multicasts after this spell will be skipped.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_modifier.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "4,10",
+        spawn_probability = "0.2,0.5",
+        price = 100,
+        mana = 0,
+        action = function()
+            if not reflecting then
+                copi_state.skip_type[2] = false
+                copi_state.skip_type[3] = false
+            end
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_META_SKIP_PROJECTILE_IF_PROJECTILE",
+        author = "Copi",
+        name = "Tsade",
+        description = "All projectiles will be skipped if too many of your own projectiles exist.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_projectile_if_projectile.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "4,10",
+        spawn_probability = "0.2,0.5",
+        price = 100,
+        mana = 0,
+        action = function()
+            if not reflecting then
+                local shooter = GetUpdatedEntityID()
+                local x, y = EntityGetTransform(shooter)
+                local projectiles = EntityGetInRadiusWithTag(x, y, 256, "player_projectile") or {}
+                local count = 0
+                for i=1, #projectiles do
+                    local projcomp = EntityGetFirstComponentIncludingDisabled(projectiles[i], "ProjectileComponent")
+                    if projcomp ~= nil then
+                        if ComponentGetValue2( projcomp, "mWhoShot" ) == shooter then
+                            count = count + 1
+                        end
+                    end
+                end
+                if count >= 20 then
+                    copi_state.skip_type[1] = false
+                    copi_state.skip_type[2] = false
+                    copi_state.skip_type[3] = false
+                end
+            end
+            draw_actions(1, true)
+        end
+    },
 }
 
 local do_inject = true

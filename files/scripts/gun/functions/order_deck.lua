@@ -43,6 +43,18 @@ local function get_force_sorted(caster)
 end
 
 local function order_deck()
+
+    copi_state.skip_type = {
+        [0] = false,
+        [1] = false,
+        [2] = false,
+        [3] = false,
+        [4] = false,
+        [5] = false,
+        [6] = false,
+        [7] = false,
+    }
+
     local shooter = GetUpdatedEntityID()
     local force_sorted = get_force_sorted(shooter)
 
@@ -56,7 +68,7 @@ local function order_deck()
     end
 
     local vsc = EntityGetFirstComponent(shooter, "VariableStorageComponent", "mana_efficiency_mult")
-    local shooter_mult = ComponentGetValue2(vsc, "value_float") or 1.0
+    local shooter_mult = (vsc and ComponentGetValue2(vsc, "value_float")) or 1.0
 
     -- This allows me to hook into the mana access and call an arbitrary function. Very tricksy :^)
     for _, action in pairs(deck) do

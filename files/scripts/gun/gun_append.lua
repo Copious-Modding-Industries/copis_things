@@ -4,6 +4,16 @@ copi_state = {
 
     skip_count = 0,
     skipping = false,
+    skip_type = {
+        [0] = false,
+        [1] = false,
+        [2] = false,
+        [3] = false,
+        [4] = false,
+        [5] = false,
+        [6] = false,
+        [7] = false,
+    },
 
     draw_depth = 0,
     peeking_depth = 0,
@@ -25,7 +35,7 @@ copi_state = {
         _set_current_action                 = set_current_action,
         _draw_actions                       = draw_actions,
         _draw_action                        = draw_action,
-        _register_action                    = register_action
+        _register_action                    = register_action,
     }
 }
 
