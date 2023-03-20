@@ -60,7 +60,7 @@ to_insert =
         perk_icon = "mods/copis_things/files/items_gfx/perks/mana_efficiency.png",
         stackable = STACKABLE_YES,
         stackable_is_rare = true,
-        usable_by_enemies = true,
+        run_on_clients = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "mana_efficiency_mult")
             if vsc then
@@ -432,7 +432,7 @@ to_insert =
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/lead_boots.png",
         perk_icon = "mods/copis_things/files/items_gfx/perks/lead_boots.png",
         stackable = STACKABLE_NO,
-        usable_by_enemies = true,
+        run_on_clients = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             EntityAddComponent2(entity_who_picked, "ShotEffectComponent", {
                 _tags = "perk_component",
@@ -474,7 +474,7 @@ to_insert =
         perk_icon = "mods/copis_things/files/items_gfx/perks/healthier_hearts.png",
         stackable = STACKABLE_YES,
         stackable_is_rare = true,
-        usable_by_enemies = false,
+        run_on_clients = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "healthier_hearts_count")
             if vsc then
@@ -500,7 +500,7 @@ to_insert =
         perk_icon = "mods/copis_things/files/items_gfx/perks/invincibility_frames.png",
         stackable = STACKABLE_YES,
         stackable_is_rare = true,
-        usable_by_enemies = false,
+        run_on_clients = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "invincibility_frames")
             if vsc then
