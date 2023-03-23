@@ -11,6 +11,7 @@ local function button(Gui, id_fn)
             "progress_worseenemies",
             "secret_amulet",
             "progress_nightmare",
+            "progress_lap2",
             "secret_greed",
             "progress_carnage",
             "progress_ending0",
