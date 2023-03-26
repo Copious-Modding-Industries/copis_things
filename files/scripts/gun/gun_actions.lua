@@ -5027,7 +5027,7 @@ local actions_to_insert = {
     },
 }
 
-local do_inject = true
+local do_inject = ModSettingGet("CopisThings.inject_spells")
 
 if do_inject then
     -- Based on Conga Lyne's implementation
