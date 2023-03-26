@@ -1,4 +1,3 @@
-dofile_once( "mods/gkbrkn_noita/files/gkbrkn/lib/helper.lua" );
 dofile("data/scripts/lib/utilities.lua")
 
 local entity = GetUpdatedEntityID();
