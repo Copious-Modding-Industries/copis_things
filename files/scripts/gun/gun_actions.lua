@@ -4987,7 +4987,44 @@ local actions_to_insert = {
             add_projectile("data/entities/items/pickup/potion_random_material.xml")
         end,
     },
-
+    {
+        id = "COPIS_THINGS_TELEPORT",
+        author = "Copi",
+        name = "Teleport",
+        description = "Cast a spell on yourself to teleport ahead!",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport.png",
+        type = ACTION_TYPE_UTILITY,
+        spawn_level = "1, 2, 3, 4, 5, 6",
+        spawn_probability = "0.2, 0.2, 0.1,	0.1, 0.1, 0.1",
+        price = 25,
+        mana = 60,
+        action = function()
+            if not reflecting then
+                add_projectile("mods/copis_things/files/entities/projectiles/effect_teleport.xml")
+            end
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            current_reload_time = current_reload_time + 60
+        end
+    },
+    {
+        id = "COPIS_THINGS_TELEPORT_BAD",
+        author = "Copi",
+        name = "Teleport?",
+        description = "Cast a spell on yourself to teleport ahead?",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport_bad.png",
+        type = ACTION_TYPE_UTILITY,
+        spawn_level = "1, 2, 3, 4, 5, 6",
+        spawn_probability = "0.2, 0.2, 0.1,	0.1, 0.1, 0.1",
+        price = 25,
+        mana = 59,
+        action = function()
+            if not reflecting then
+                add_projectile("mods/copis_things/files/entities/projectiles/effect_teleport_bad.xml")
+            end
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            current_reload_time = current_reload_time + 60
+        end
+    },
 }
 
 local do_inject = true
