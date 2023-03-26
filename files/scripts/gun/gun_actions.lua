@@ -4951,6 +4951,43 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+
+    {
+        id                = "COPIS_THINGS_SUMMON_FLASK",
+        name              = "Summon flask",
+        description       = "Summons an empty flask",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
+        type              = ACTION_TYPE_UTILITY,
+        spawn_level       = "2,		3,		4,		5,		6",
+        spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
+        price             = 200,
+        mana              = 90,
+        max_uses          = 1,
+        action            = function()
+            c.fire_rate_wait    = c.fire_rate_wait + 20
+            current_reload_time = current_reload_time + 40
+            add_projectile("data/entities/items/pickup/potion_empty.xml")
+        end,
+    },
+
+    {
+        id                = "COPIS_THINGS_SUMMON_FLASK_FULL",
+        name              = "Summon filled flask",
+        description       = "Summons a flask filled with a random material",
+        sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
+        type              = ACTION_TYPE_UTILITY,
+        spawn_level       = "2,		3,		4,		5,		6",
+        spawn_probability = "0.125,	0.17,	0.25,	0.17,	0.125",
+        price             = 300,
+        mana              = 120,
+        max_uses          = 1,
+        action            = function()
+            c.fire_rate_wait    = c.fire_rate_wait + 20
+            current_reload_time = current_reload_time + 40
+            add_projectile("data/entities/items/pickup/potion_random_material.xml")
+        end,
+    },
+
 }
 
 local do_inject = true

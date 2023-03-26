@@ -1,6 +1,7 @@
 local entity_id = GetUpdatedEntityID()
 local pos_x, pos_y, rot = EntityGetTransform(entity_id)
-
+local shooter = EntityGetRootEntity(entity_id)
+local sh_x, sh_y = EntityGetTransform(shooter)
 local final_target
 local final_x, final_y
 local min_dist = math.huge
@@ -26,4 +27,4 @@ else
     rot = rot + 0.025 % (math.pi * 2)
 end
 
-EntitySetTransform(entity_id, pos_x, pos_y, rot)
+EntitySetTransform(entity_id, pos_x, pos_y - 4, rot)

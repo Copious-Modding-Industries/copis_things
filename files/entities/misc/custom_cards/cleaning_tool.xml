@@ -24,4 +24,8 @@
 		>
 	</CellEaterComponent>
 
+    <InheritTransformComponent
+    _tags="enabled_in_hand">
+    </InheritTransformComponent>   
+
 </Entity>
