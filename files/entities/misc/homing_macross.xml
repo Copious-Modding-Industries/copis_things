@@ -1,0 +1,16 @@
+<Entity>
+	<HomingComponent
+        _enabled="0"
+        _tags="homing_macross"
+		homing_targeting_coeff="250.0"
+		homing_velocity_multiplier="0.845"
+		detect_distance="250"
+	>
+	</HomingComponent>
+    <LuaComponent
+        _enabled="1"
+        script_source_file="mods/copis_things/files/scripts/projectiles/homing_macross_enable.lua"
+        remove_after_executed="1"
+        execute_every_n_frame="15"
+    ></LuaComponent>
+</Entity>

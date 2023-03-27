@@ -1,0 +1,1 @@
+EntitySetComponentsWithTagEnabled(GetUpdatedEntityID(), "homing_macross", true)

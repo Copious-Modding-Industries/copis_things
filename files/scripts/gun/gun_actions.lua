@@ -5087,6 +5087,24 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_HOMING_MACROSS",
+        author = "Copi",
+        name = "Delayed Homing",
+        description = "Projectiles will begin homing after a delay",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_macross.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.5,0.3,0.4,0.5,0.6,0.6",
+        inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        price = 150,
+        mana = 40,
+        action = function()
+            c.speed_multiplier = c.speed_multiplier * 0.75
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_macross.xml,"
+            draw_actions(1, true)
+        end
+    },
 }
 
 local do_inject = ModSettingGet("CopisThings.inject_spells")
