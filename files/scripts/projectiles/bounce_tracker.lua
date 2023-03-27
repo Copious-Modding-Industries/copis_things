@@ -8,7 +8,6 @@ if projectilecomp ~= nil then
     if (bounces_lastframe ~= nil) and (bounced_frame ~= nil) then
         local value_int = ComponentGetValue2( bounces_lastframe, "value_int" )
         if bounces < value_int then
-            GamePrint(tostring(bounces))
             ComponentSetValue2( bounces_lastframe, "value_int", bounces )
             ComponentSetValue2( bounced_frame, "value_int", GameGetFrameNum() )
         end
