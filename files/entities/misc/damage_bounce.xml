@@ -1,20 +1,10 @@
 
 <Entity>
     <LuaComponent
-        remove_after_executed="1"
-        execute_on_added="1"
-        script_source_file="mods/copis_things/files/scripts/projectiles/damage_bounce_init.lua"
-    ></LuaComponent>
-    <LuaComponent
         _enabled="1"
         script_source_file="mods/copis_things/files/scripts/projectiles/damage_bounce.lua"
         execute_on_added="0"
         remove_after_executed="0"
         execute_every_n_frame="1"
         ></LuaComponent>
-    <VariableStorageComponent
-        _tags="bounces_lastframe"
-        name="bounces_lastframe"
-        value_int="0"
-    ></VariableStorageComponent>
 </Entity>

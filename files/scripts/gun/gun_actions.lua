@@ -4131,6 +4131,9 @@ local actions_to_insert = {
             c.bounces = c.bounces + 3
             c.damage_projectile_add = c.damage_projectile_add + 0.1
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/damage_bounce.xml,"
+            if not c.extra_entities:find("mods/copis_things/files/entities/misc/bounce_tracker.xml,") then
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/bounce_tracker.xml,"
+            end
             draw_actions(1, true)
         end
     },
@@ -5023,6 +5026,48 @@ local actions_to_insert = {
             end
             c.fire_rate_wait = c.fire_rate_wait + 30
             current_reload_time = current_reload_time + 60
+        end
+    },
+    {
+        id = "COPIS_THINGS_HOMING_BOUNCE",
+        author = "Copi",
+        name = "Bouncing Homing",
+        description = "Redirects a projectile every time it bounces",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_bounce.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.5,0.3,0.4,0.5,0.6,0.6",
+        inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        price = 150,
+        mana = 25,
+        action = function()
+            c.bounces = c.bounces + 3
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_bounce.xml,"
+            if not c.extra_entities:find("mods/copis_things/files/entities/misc/bounce_tracker.xml,") then
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/bounce_tracker.xml,"
+            end
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_HOMING_BOUNCE_CURSOR",
+        author = "Copi",
+        name = "Bouncing Redirect",
+        description = "Redirects a projectile towards your cursor every time it bounces",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_bounce_cursor.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.5,0.3,0.4,0.5,0.6,0.6",
+        inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        price = 150,
+        mana = 25,
+        action = function()
+            c.bounces = c.bounces + 3
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_bounce_cursor.xml,"
+            if not c.extra_entities:find("mods/copis_things/files/entities/misc/bounce_tracker.xml,") then
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/bounce_tracker.xml,"
+            end
+            draw_actions(1, true)
         end
     },
 }
