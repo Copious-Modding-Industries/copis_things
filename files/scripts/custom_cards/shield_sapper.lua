@@ -14,7 +14,7 @@ end
 
 local entity = GetUpdatedEntityID();
 local x, y = EntityGetTransform( entity );
-local mortals = EntityGetInRadiusWithTag( x, y, 128, "mortal" );
+local mortals = EntityGetInRadiusWithTag( x, y, 128, "mortal" ) or {};
 
 local function reduce_shield( target )
     local energy_shield = EntityGetFirstComponent( target, "EnergyShieldComponent" );
@@ -37,6 +37,6 @@ local function reduce_shield( target )
     end
 end
 
-for k,v in ipairs( mortals ) do
-    reduce_shield( v );
+for i = 1, #mortals do
+    reduce_shield( mortals[i] );
 end
