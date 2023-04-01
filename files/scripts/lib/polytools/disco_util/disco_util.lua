@@ -1,3 +1,4 @@
+---@diagnostic disable
 ---@class List
 List = {}
 List.__mt = {__tostring = function(self) return "Class: List" end}
@@ -38,7 +39,7 @@ List.__tostring = function(self)
     for k, v in self:ipairs() do output = output .. "\n - " .. tostring(v) end
     return output
 end
----@return int length
+---@return number length
 function List:len() return #self.__data end
 ---@return function iterator
 function List:ipairs()
@@ -150,7 +151,7 @@ function Entity.GetInRadius(x, y, radius, tag)
     end
 end
 -- Member functions
----@return int id
+---@return number id
 function Entity:id() return self.__id end
 ---@return string name
 function Entity:name() return EntityGetName(self.__id) end
