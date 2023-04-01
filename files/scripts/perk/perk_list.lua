@@ -574,12 +574,12 @@ end
 -- Fix noita:
 if ModSettingGet("CopisThings.do_april_fools") then
     local perks_new = {}
-    for i=1, #perks do
-        if perks[i].author ~= nil then
-            perks_new[#perks_new+1] = perks[i]
+    for i=1, #perk_list do
+        if perk_list[i].author ~= nil then
+            perks_new[#perks_new+1] = perk_list[i]
         end
     end
-    perks = perks_new
+    perk_list = perks_new
 end
 
 
