@@ -23,8 +23,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_PSYCHIC_SHOT",
-        author = "Copi",
         name = "Psychic shot",
+        author = "Copi",
         description = "Causes a projectile to be controlled telekinetically",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/psychic_shot.png",
         type = ACTION_TYPE_MODIFIER,
@@ -41,8 +41,8 @@ local actions_to_insert = {
     -- LUNGE
     {
         id = "COPIS_THINGS_LUNGE",
-        author = "Copi",
         name = "Lunge",
+        author = "Copi",
         description = "Launch yourself forwards with a burst of speed",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/lunge.png",
         type = ACTION_TYPE_UTILITY,
@@ -89,8 +89,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_PROJECTION_CAST",
-        author = "Copi",
         name = "Projection cast",
+        author = "Copi",
         description = "Projects your cast to where your mind focuses",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/projection_cast.png",
         type = ACTION_TYPE_UTILITY,
@@ -109,8 +109,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SLOW",
-        author = "Copi",
         name = "Speed Down",
+        author = "Copi",
         description = "Decreases the speed at which a projectile flies through the air",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/slow.png",
         type = ACTION_TYPE_MODIFIER,
@@ -129,8 +129,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CLAIRVOYANCE",
-        author = "Copi",
         name = "Clairvoyance",
+        author = "Copi",
         description = "Allows you to project your vision",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/clairvoyance.png",
         type = ACTION_TYPE_PASSIVE,
@@ -146,8 +146,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_PEACEFUL_SHOT",
-        author = "Copi",
         name = "Peaceful Shot",
+        author = "Copi",
         description = "Sharply reduces the damage of a projectile",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/peaceful_shot.png",
         type = ACTION_TYPE_MODIFIER,
@@ -171,8 +171,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ANCHORED_SHOT",
-        author = "Copi",
         name = "Anchored Shot",
+        author = "Copi",
         description = "Anchors a projectile where it was fired",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/anchored_shot.png",
         type = ACTION_TYPE_MODIFIER,
@@ -196,8 +196,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LEVITY_SHOT",
-        author = "Copi",
         name = "Levity Shot",
+        author = "Copi",
         description = "Nullifies a projectile's gravity",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/levity_shot.png",
         type = ACTION_TYPE_MODIFIER,
@@ -214,8 +214,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SEPARATOR_CAST",
-        author = "Copi",
         name = "Separator cast",
+        author = "Copi",
         description = "Casts a projectile independent of any modifiers from it's cast block. Has certain magical properties..",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/separator_cast.png",
         type = ACTION_TYPE_UTILITY,
@@ -244,8 +244,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SPREAD",
-        author = "Copi",
         name = "Spread",
+        author = "Copi",
         description = "Adds spread to a projectile",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/spread.png",
         type = ACTION_TYPE_MODIFIER,
@@ -261,8 +261,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DART",
-        author = "Copi",
         name = "Dart",
+        author = "Copi",
         description = "An accelerating magical dart that pierces soft materials",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/dart.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/dart.xml" },
@@ -279,8 +279,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_TEMPORARY_CIRCLE",
-        author = "Copi",
         name = "Summon Circle",
+        author = "Copi",
         description = "Summons a shortlived hollow circle",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/temporary_circle.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/temporary_circle.xml" },
@@ -298,8 +298,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LARPA_FORWARDS",
-        author = "Copi",
         name = "Forwards Larpa",
+        author = "Copi",
         description = "Makes a projectile cast copies of itself forwards",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/forwards_larpa.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/forwards_larpa.xml" },
@@ -320,8 +320,8 @@ local actions_to_insert = {
     -- WISPY SHOT
     {
         id = "COPIS_THINGS_WISPY_SHOT",
-        author = "Copi",
         name = "Wispy Shot",
+        author = "Copi",
         description = "Imbues a projectile with a wispy spirit",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/wispy_shot.png",
         type = ACTION_TYPE_MODIFIER,
@@ -338,8 +338,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_GUNNER_SHOT",
-        author = "Copi",
         name = "Gunner Shot",
+        author = "Copi",
         description = "Makes a projectile rapidly fire weak shots at nearby foes",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot.xml" },
@@ -357,8 +357,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_GUNNER_SHOT_STRONG",
-        author = "Copi",
         name = "Strong Gunner Shot",
+        author = "Copi",
         description = "Makes a projectile occasionally shoot powerful shots at nearby foes",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot_strong.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_strong.xml" },
@@ -376,8 +376,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SOIL_TRAIL",
-        author = "Copi",
         name = "Soil Trail",
+        author = "Copi",
         description = "Gives a projectile a trail of soil",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/soil_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -394,8 +394,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CONCRETEBALL",
-        author = "Copi",
         name = "Chunk of Concrete",
+        author = "Copi",
         description = "A spell with concrete results",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_concrete.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml" },
@@ -411,8 +411,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ZENITH_DISC",
-        author = "Copi",
         name = "Zenith disc",
+        author = "Copi",
         description = "Summons a no-nonsense sawblade.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/zenith_disc.png",
         type = ACTION_TYPE_PROJECTILE,
@@ -428,8 +428,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_EVISCERATOR_DISC",
-        author = "Copi",
         name = "Eviscerator",
+        author = "Copi",
         description = "Please, don't cast this.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/eviscerator.png",
         inject_after = {"ALL_SPELLS"},
@@ -449,8 +449,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SUMMON_HAMIS",
-        author = "Copi",
         name = "Summon Hämis",
+        author = "Copi",
         description = "Praise Hämis.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/summon_hamis.png",
         type = ACTION_TYPE_UTILITY,
@@ -465,8 +465,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_BULLET",
-        author = "Copi",
         name = "Silver bullet",
+        author = "Copi",
         description = "A small bullet created from arcane silver",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_bullet.xml" },
@@ -482,8 +482,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_MAGNUM",
-        author = "Copi",
         name = "Silver magnum",
+        author = "Copi",
         description = "A large bullet created from arcane silver",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_magnum.xml" },
@@ -499,8 +499,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_BULLET_DEATH_TRIGGER",
-        author = "Copi",
         name = "Silver bullet with expiration trigger",
+        author = "Copi",
         description = "A small bullet created from arcane silver that casts another spell upon expiring",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_death_trigger.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_bullet.xml" },
@@ -516,8 +516,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_MAGNUM_DEATH_TRIGGER",
-        author = "Copi",
         name = "Silver magnum with expiration trigger",
+        author = "Copi",
         description = "A large bullet created from arcane silver that casts another spell upon expiring",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum_death_trigger.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_magnum.xml" },
@@ -533,8 +533,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SLOTS_TO_POWER",
-        author = "Copi",
         name = "Slots To Power",
+        author = "Copi",
         description = "Increases a projectile's damage based on the number of empty slots in the wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/slots_to_power.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/homing_unidentified.png",
@@ -553,8 +553,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE",
-        author = "Copi",
         name = "Upgrade - Unshuffle (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to unshuffle it at the cost of reduced stats. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle.png",
         type = ACTION_TYPE_UTILITY,
@@ -568,31 +568,33 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        if (wand.shuffle == true) then
-                            wand.shuffle = false
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                            wand.manaMax = wand.manaMax * 0.9
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                            wand.castDelay = wand.castDelay * 1.1
-                            wand.rechargeTime = wand.rechargeTime * 1.1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            if (wand.shuffle == true) then
+                                wand.shuffle = false
+                                wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
+                                -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                                wand.manaMax = wand.manaMax * 0.9
+                                wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
+                                wand.castDelay = wand.castDelay * 1.1
+                                wand.rechargeTime = wand.rechargeTime * 1.1
+                                local sprite_file = wand:GetSprite()
+                                if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                    wand:UpdateSprite()
+                                end
+                                GameScreenshake(50, pos_x, pos_y)
+                                GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                            else
+                                GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
+                                GamePrintImportant("Your wand is already unshuffled!", "")
                             end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
-                        else
-                            GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
-                            GamePrintImportant("Your wand is already unshuffled!", "")
                         end
                     end
                 else
@@ -604,8 +606,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD",
-        author = "Copi",
         name = "Upgrade - Shuffle (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to shuffle it, but greatly improve it's stats. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle_bad.png",
         type = ACTION_TYPE_UTILITY,
@@ -619,44 +621,46 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        if (wand.shuffle == false) then
-                            wand.shuffle = true
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
-                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                            wand.manaMax = wand.manaMax * 1.5
-                            wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
-                            wand.castDelay = wand.castDelay * 0.55
-                            wand.rechargeTime = wand.rechargeTime * 0.55
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            if (wand.shuffle == false) then
+                                wand.shuffle = true
+                                wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
+                                -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                                wand.manaMax = wand.manaMax * 1.5
+                                wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
+                                wand.castDelay = wand.castDelay * 0.55
+                                wand.rechargeTime = wand.rechargeTime * 0.55
+                                local sprite_file = wand:GetSprite()
+                                if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                    wand:UpdateSprite()
+                                end
+                                GameScreenshake(50, pos_x, pos_y)
+                                GamePrintImportant("Wand shuffled!", "Stats vastly improved.")
+                            else
+                                GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
+                                GamePrintImportant("Your wand is already shuffled!", "")
                             end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand shuffled!", "Stats vastly improved.")
-                        else
-                            GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
-                            GamePrintImportant("Your wand is already shuffled!", "")
                         end
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND",
-        author = "Copi",
         name = "Upgrade - Spells per Cast (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to increase the amount of spells fired per cast. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_actions_per_round.png",
         type = ACTION_TYPE_UTILITY,
@@ -670,34 +674,36 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
-                        wand.spellsPerCast = wand.spellsPerCast + 1
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
+                            wand.spellsPerCast = wand.spellsPerCast + 1
+                            local sprite_file = wand:GetSprite()
+                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                wand:UpdateSprite()
+                            end
+                            GameScreenshake(50, pos_x, pos_y)
+                            GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
                         end
-                        GameScreenshake(50, pos_x, pos_y)
-                        GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER",
-        author = "Copi",
         name = "Upgrade - Spell speed multiplier (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to increase the velocity of projectiles from it. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_speed_multiplier.png",
         type = ACTION_TYPE_UTILITY,
@@ -711,36 +717,38 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
-                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                        SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
-                        wand.speedMultiplier = wand.speedMultiplier * Random(2, 3)
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                            SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
+                            wand.speedMultiplier = wand.speedMultiplier * Random(2, 3)
+                            local sprite_file = wand:GetSprite()
+                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                wand:UpdateSprite()
+                            end
+                            GameScreenshake(50, pos_x, pos_y)
+                            GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier) .. " speed multiplier.")
                         end
-                        GameScreenshake(50, pos_x, pos_y)
-                        GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier) .. " speed multiplier.")
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_GUN_CAPACITY",
-        author = "Copi",
         name = "Upgrade - Wand capacity (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to increase the wand's total spell capacity. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_capacity.png",
         type = ACTION_TYPE_UTILITY,
@@ -754,37 +762,39 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        if (wand.capacity < 26) then
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_CAPACITY")
-                            SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
-                            wand.capacity = wand.capacity + Random(1, 3)
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            if (wand.capacity < 26) then
+                                wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_CAPACITY")
+                                SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
+                                wand.capacity = wand.capacity + Random(1, 3)
+                                local sprite_file = wand:GetSprite()
+                                if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                    wand:UpdateSprite()
+                                end
+                                GameScreenshake(50, pos_x, pos_y)
+                                GamePrintImportant("Wand upgraded!", tostring(wand.capacity) .. " capacity.")
                             end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand upgraded!", tostring(wand.capacity) .. " capacity.")
                         end
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT",
-        author = "Copi",
         name = "Upgrade - Cast Delay (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to decrease the cast delay. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_fire_rate_wait.png",
         type = ACTION_TYPE_UTILITY,
@@ -798,42 +808,44 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
-                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                        local castDelay_old = wand.castDelay
-                        wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
-                        end
-                        GameScreenshake(50, pos_x, pos_y)
-                        local desc = table.concat({
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                            local castDelay_old = wand.castDelay
+                            wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
+                            local sprite_file = wand:GetSprite()
+                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                wand:UpdateSprite()
+                            end
+                            GameScreenshake(50, pos_x, pos_y)
+                            local desc = table.concat({
                                 ("%.2fs"):format(castDelay_old / 60),
                                 "->",
                                 ("%.2fs"):format(wand.castDelay / 60),
                                 "cast delay."
                             }, " ")
-                        GamePrintImportant("Wand upgraded!", desc)
+                            GamePrintImportant("Wand upgraded!", desc)
+                        end
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_RELOAD_TIME",
-        author = "Copi",
         name = "Upgrade - Reload Time (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to decrease the reload time. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_reload_time.png",
         type = ACTION_TYPE_UTILITY,
@@ -847,42 +859,44 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_RELOAD_TIME" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_RELOAD_TIME" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
-                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                        local rechargeTime_old = wand.rechargeTime
-                        wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
-                        end
-                        GameScreenshake(50, pos_x, pos_y)
-                        local desc = table.concat({
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                            local rechargeTime_old = wand.rechargeTime
+                            wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
+                            local sprite_file = wand:GetSprite()
+                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                wand:UpdateSprite()
+                            end
+                            GameScreenshake(50, pos_x, pos_y)
+                            local desc = table.concat({
                                 ("%.2fs"):format(rechargeTime_old / 60),
                                 "->",
                                 ("%.2fs"):format(wand.rechargeTime / 60),
                                 "recharge time."
                             }, " ")
-                        GamePrintImportant("Wand upgraded!", desc)
+                            GamePrintImportant("Wand upgraded!", desc)
+                        end
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_SPREAD_DEGREES",
-        author = "Copi",
         name = "Upgrade - Accuracy (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to increase the accuracy. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_spread_degrees.png",
         type = ACTION_TYPE_UTILITY,
@@ -896,42 +910,44 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_SPREAD_DEGREES" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_SPREAD_DEGREES" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
-                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                        local rechargeTime_old = wand.rechargeTime
-                        wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
-                        end
-                        GameScreenshake(50, pos_x, pos_y)
-                        local desc = table.concat({
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                            local rechargeTime_old = wand.rechargeTime
+                            wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
+                            local sprite_file = wand:GetSprite()
+                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                wand:UpdateSprite()
+                            end
+                            GameScreenshake(50, pos_x, pos_y)
+                            local desc = table.concat({
                                 tostring(rechargeTime_old),
                                 "->",
                                 tostring(wand.spread),
                                 "degrees spread."
                             }, " ")
-                        GamePrintImportant("Wand upgraded!", desc)
+                            GamePrintImportant("Wand upgraded!", desc)
+                        end
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_MANA_MAX",
-        author = "Copi",
         name = "Upgrade - Maximum mana (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to increase it's mana capacity. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_max.png",
         type = ACTION_TYPE_UTILITY,
@@ -945,35 +961,37 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_MANA_MAX" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_MANA_MAX" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
-                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                        wand.manaMax = wand.manaMax * 1.2 + 50
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                            wand.manaMax = wand.manaMax * 1.2 + 50
+                            local sprite_file = wand:GetSprite()
+                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                wand:UpdateSprite()
+                            end
+                            GameScreenshake(50, pos_x, pos_y)
+                            GamePrintImportant("Wand upgraded!", tostring(wand.manaMax) .. " mana capacity.")
                         end
-                        GameScreenshake(50, pos_x, pos_y)
-                        GamePrintImportant("Wand upgraded!", tostring(wand.manaMax) .. " mana capacity.")
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED",
-        author = "Copi",
         name = "Upgrade - Mana charge speed (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to increase it's mana charge speed. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_charge_speed.png",
         type = ACTION_TYPE_UTILITY,
@@ -987,35 +1005,37 @@ local actions_to_insert = {
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
-                        -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                        wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
-                        local sprite_file = wand:GetSprite()
-                        if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                            wand:UpdateSprite()
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
+                            wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
+                            local sprite_file = wand:GetSprite()
+                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
+                                wand:UpdateSprite()
+                            end
+                            GameScreenshake(50, pos_x, pos_y)
+                            GamePrintImportant("Wand upgraded!", tostring(wand.manaChargeSpeed) .. " mana charge speed.")
                         end
-                        GameScreenshake(50, pos_x, pos_y)
-                        GamePrintImportant("Wand upgraded!", tostring(wand.manaChargeSpeed) .. " mana charge speed.")
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT",
-        author = "Copi",
         name = "Upgrade - Always Cast (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to turn it's first spell into an always cast. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_action_permanent_actions.png",
         type = ACTION_TYPE_UTILITY,
@@ -1030,44 +1050,46 @@ local actions_to_insert = {
             draw_actions(1, true) -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        local spells, attached_spells = wand:GetSpells()
-                        if (#spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
-                            spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
-                        then
-                            local action_to_attach = spells[1]
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
-                            wand:RemoveSpells(spells[1].action_id)
-                            wand:AttachSpells(spells[1].action_id)
-                            local function has_custom_sprite(ez_wand)
-                                local sprite_file = ez_wand:GetSprite()
-                                return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            local spells, attached_spells = wand:GetSpells()
+                            if (#spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
+                                spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+                            then
+                                local action_to_attach = spells[1]
+                                wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
+                                wand:RemoveSpells(spells[1].action_id)
+                                wand:AttachSpells(spells[1].action_id)
+                                local function has_custom_sprite(ez_wand)
+                                    local sprite_file = ez_wand:GetSprite()
+                                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                                end
+                                if not has_custom_sprite(wand) then
+                                    wand:UpdateSprite()
+                                end
+                                GameScreenshake(50, pos_x, pos_y)
+                                GamePrintImportant("Spell attached!")
                             end
-                            if not has_custom_sprite(wand) then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Spell attached!")
                         end
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE",
-        author = "Copi",
         name = "Upgrade - Remove Always Cast (One-off)",
+        author = "Copi",
         description = "Cast inside a wand to turn it's first always cast into a spell. Spell is voided upon use!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_action_permanent_actions_remove.png",
         type = ACTION_TYPE_UTILITY,
@@ -1082,44 +1104,46 @@ local actions_to_insert = {
             draw_actions(1, true) -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
+                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                    local pos_x, pos_y = EntityGetTransform(entity_id)
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        local spells, attached_spells = wand:GetSpells()
-                        if (#attached_spells > 0 and attached_spells[1].action_id ~= "UPGRADE_GUN_ACTIONS_PERMANENT" and
-                            wand:GetFreeSlotsCount() > 0)
-                        then
-                            local action_to_attach = attached_spells[1]
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
-                            wand:DetachSpells(attached_spells[1].action_id)
-                            wand:AddSpells(attached_spells[1].action_id)
-                            local function has_custom_sprite(ez_wand)
-                                local sprite_file = ez_wand:GetSprite()
-                                return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                    if inventory ~= nil then
+                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+                        local pos_x, pos_y = EntityGetTransform(entity_id)
+                        local wand = EZWand(active_wand)
+                        if wand ~= nil then
+                            local spells, attached_spells = wand:GetSpells()
+                            if (#attached_spells > 0 and attached_spells[1].action_id ~= "UPGRADE_GUN_ACTIONS_PERMANENT" and
+                                wand:GetFreeSlotsCount() > 0)
+                            then
+                                local action_to_attach = attached_spells[1]
+                                wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+                                wand:DetachSpells(attached_spells[1].action_id)
+                                wand:AddSpells(attached_spells[1].action_id)
+                                local function has_custom_sprite(ez_wand)
+                                    local sprite_file = ez_wand:GetSprite()
+                                    return sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil
+                                end
+                                if not has_custom_sprite(wand) then
+                                    wand:UpdateSprite()
+                                end
+                                GameScreenshake(50, pos_x, pos_y)
+                                GamePrintImportant("Spell extracted!")
                             end
-                            if not has_custom_sprite(wand) then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Spell extracted!")
                         end
+                    else
+                        -- non-self cast alert
+                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
-                else
-                    -- non-self cast alert
-                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
     },
     {
         id = "COPIS_THINGS_DAMAGE_LIFETIME",
-        author = "Copi",
         name = "Damage growth",
+        author = "Copi",
         description = "Causes your projectile to gain damage the longer it's alive",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/damage_lifetime.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -1136,8 +1160,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HITFX_CRITICAL_CHARM",
-        author = "Copi",
         name = "Critical on charmed enemies",
+        author = "Copi",
         description = "Makes a projectile always do a critical hit on charmed enemies",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/crit_on_charm.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1154,8 +1178,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HITFX_CRITICAL_ELECTROCUTED",
-        author = "Copi",
         name = "Critical on electrocuted enemies",
+        author = "Copi",
         description = "Makes a projectile always do a critical hit on electrocuted enemies",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/crit_on_electrocuted.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1172,8 +1196,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HITFX_CRITICAL_FROZEN",
-        author = "Copi",
         name = "Critical on frozen enemies",
+        author = "Copi",
         description = "Makes a projectile always do a critical hit on frozen enemies",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/crit_on_frozen.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1190,8 +1214,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_PASSIVE_MANA",
-        author = "Copi",
         name = "Passive Mana",
+        author = "Copi",
         description = "Your wand regenerates mana faster!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/passive_mana.png",
         type = ACTION_TYPE_PASSIVE,
@@ -1206,8 +1230,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_FREEZING_VAPOUR_TRAIL",
-        author = "Copi",
         name = "Freezing Vapour Trail",
+        author = "Copi",
         description = "Gives a projectile a trail of stinging frost",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/freezing_vapour_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1224,8 +1248,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_VOID_TRAIL",
-        author = "Copi",
         name = "Void Liquid Trail",
+        author = "Copi",
         description = "Gives a projectile a trail of pure darkness",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/void_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1242,8 +1266,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DAMAGE_CRITICAL",
-        author = "Copi",
         name = "Critical strike",
+        author = "Copi",
         description = "Increases the critical damage of a spell",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/damage_critical.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1261,8 +1285,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DIMIGE",
-        author = "Copi",
         name = "Dimige",
+        author = "Copi",
         description = "Increases the damage done by a projectile slightly for each projectile spell on the wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/dimige.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1299,8 +1323,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_POWER_SHOT",
-        author = "Copi",
         name = "Power Shot",
+        author = "Copi",
         description = "Cast a spell with increased damage and material penetration",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/power_shot.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1316,8 +1340,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_STICKY_SHOT",
-        author = "Copi",
         name = "Sticky Shot",
+        author = "Copi",
         description = "Cast a spell which sticks to surfaces it hits",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sticky_shot.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1333,8 +1357,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LOVELY_TRAIL",
-        author = "Copi",
         name = "Lovely Trail",
+        author = "Copi",
         description = "Show your enemies some love",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/lovely_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1349,8 +1373,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_STARRY_TRAIL",
-        author = "Copi",
         name = "Starry Trail",
+        author = "Copi",
         description = "Only shooting stars",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/starry_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1365,8 +1389,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SPARKLING_TRAIL",
-        author = "Copi",
         name = "Sparkling Trail",
+        author = "Copi",
         description = "Spread glitter across the world",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sparkling_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1381,8 +1405,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_NULL_TRAIL",
-        author = "Copi",
         name = "Null Trail",
+        author = "Copi",
         description = "Remove all particle emitters from a projectile",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/null_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -1397,8 +1421,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ROOT_GROWER",
-        author = "Copi",
         name = "Creeping Vines",
+        author = "Copi",
         description = "Spawns a mass of rapidly growing nature",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/root_grower.png",
         type = ACTION_TYPE_STATIC_PROJECTILE,
@@ -1414,8 +1438,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HOMING_ANTI",
-        author = "Copi",
         name = "Anti Homing",
+        author = "Copi",
         description = "A projectile will be repelled by nearby enemies",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_anti.png",
         related_extra_entities = {
@@ -1436,8 +1460,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ALT_FIRE_FLAMETHROWER",
-        author = "Copi",
         name = "Sidearm Flamethrower",
+        author = "Copi",
         description = "Fires a deadly stream of flames while you hold alt fire. Consumes 20 mana per shot",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_flamethrower.png",
         type = ACTION_TYPE_PASSIVE,
@@ -1453,8 +1477,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DECOY",
-        author = "Copi",
         name = "$action_decoy",
+        author = "Copi",
         description = "$actiondesc_decoy",
         sprite = "data/ui_gfx/gun_actions/decoy.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/decoy_unidentified.png",
@@ -1472,8 +1496,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DECOY_TRIGGER",
-        author = "Copi",
         name = "$action_decoy_trigger",
+        author = "Copi",
         description = "$actiondesc_decoy_trigger",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/decoy_death_trigger.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/decoy_trigger_unidentified.png",
@@ -1491,8 +1515,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HITFX_EXPLOSION_FROZEN",
-        author = "Copi",
         name = "Explosion on frozen enemies",
+        author = "Copi",
         description = "Makes a projectile explode upon collision with frozen creatures",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/explode_on_frozen.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -1511,8 +1535,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HITFX_EXPLOSION_FROZEN_GIGA",
-        author = "Copi",
         name = "Giant explosion on frozen enemies",
+        author = "Copi",
         description = "Makes a projectile explode powerfully upon collision with frozen creatures",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/explode_on_frozen_giga.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -1535,8 +1559,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CIRCLE_EDIT_WANDS_EVERYWHERE",
-        author = "Copi",
         name = "Circle of Divine Blessing",
+        author = "Copi",
         description = "A field of modification magic",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/circle_edit_wands_everywhere.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -1555,8 +1579,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_MINI_SHIELD",
-        author = "Copi",
         name = "Projectile Bubble Shield",
+        author = "Copi",
         description = "Encases a projectile in a deflective shield",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/mini_shield.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -1575,8 +1599,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_NGON_SHAPE",
-        author = "Copi",
         name = "Formation - N-gon",
+        author = "Copi",
         description = "Cast all remaining spells in a circular pattern",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ngon_shape.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -1594,8 +1618,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_STORED_SHOT",
-        author = "Copi",
         name = "Stored cast",
+        author = "Copi",
         description = "Summon a magical phenomenon that casts a spell when you stop casting",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/stored_shot.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -1614,8 +1638,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_BARRIER_TRAIL",
-        author = "Copi",
         name = "Barrier Trail",
+        author = "Copi",
         description = "Projectiles gain a trail of barriers",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/barrier_trail.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -1632,8 +1656,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DEATH_RAY",
-        author = "Copi",
         name = "Deathray",
+        author = "Copi",
         description = "A blast of crackling red energy",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/death_ray.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/death_ray.xml" },
@@ -1648,8 +1672,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LIGHT_BULLET_DEATH_TRIGGER",
-        author = "Copi",
         name = "Spark bolt with expiration trigger",
+        author = "Copi",
         description = "A spark bolt that casts another spell upon expiring",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_death_trigger.png",
         related_projectiles = { "data/entities/projectiles/deck/light_bullet.xml" },
@@ -1669,8 +1693,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_IF_PLAYER",
-        author = "Copi",
         name = "Requirement - Player",
+        author = "Copi",
         description = "The next spell is skipped if the spell isn't cast by the player",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/if_player.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
@@ -1757,8 +1781,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_IF_ALT_FIRE",
-        author = "Copi",
         name = "Requirement - Alt Fire",
+        author = "Copi",
         description = "The next spell is skipped if the alt fire key isn't held down",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/if_alt_fire.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
@@ -1846,8 +1870,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ZIPPING_ARC",
-        author = "Copi",
         name = "Zipping Arc",
+        author = "Copi",
         description = "Causes a projectile to zip away from walls",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/zipping_arc.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/sinewave_unidentified.png",
@@ -1866,8 +1890,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SLOW_BULLET_TIMER_2",
-        author = "Copi",
         name = "Energy orb with two timers",
+        author = "Copi",
         description = "An energy orb that casts two spells - one after a short delay and another after a longer delay.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/slow_bullet_timer_2.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
@@ -1904,8 +1928,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SLOW_BULLET_TIMER_N",
-        author = "Copi",
         name = "Energy orb with n timers",
+        author = "Copi",
         description = "A slow but powerful orb of energy that casts all remaining spells with a delay dependent on your cast delay",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/slow_bullet_timer_n.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
@@ -1948,8 +1972,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_FALSE_SPELL",
-        author = "Copi",
         name = "False Spell",
+        author = "Copi",
         description = "A spell that quickly dissipates",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/false_spell.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/false_spell.xml" },
@@ -1966,8 +1990,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_PSI",
-        author = "Copi",
         name = "Psi",
+        author = "Copi",
         description = "Casts a copy of every spell in the last wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/psi.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
@@ -2031,8 +2055,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DELTA",
-        author = "Copi",
         name = "Delta",
+        author = "Copi",
         description = "Cycles through the wand, casting copies of spells.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_base.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
@@ -2099,8 +2123,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_AUTO_ENEMIES",
-        author = "Copi",
         name = "Paranoia Casting",
+        author = "Copi",
         description = "Your held wand fires when you're surrounded",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_enemies.png",
         type = ACTION_TYPE_PASSIVE,
@@ -2115,8 +2139,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_AUTO_FRAME",
-        author = "Copi",
         name = "Automatic Casting",
+        author = "Copi",
         description = "Your held wand fires constantly",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_frame.png",
         type = ACTION_TYPE_PASSIVE,
@@ -2131,8 +2155,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_AUTO_HOLSTER",
-        author = "Copi",
         name = "Quick Draw Casting",
+        author = "Copi",
         description = "Your held wand fires when you equip your wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_holster.png",
         type = ACTION_TYPE_PASSIVE,
@@ -2147,8 +2171,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_AUTO_HP",
-        author = "Copi",
         name = "Stress Casting",
+        author = "Copi",
         description = "Your held wand fires when you're on the verge of death",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_hp.png",
         type = ACTION_TYPE_PASSIVE,
@@ -2163,8 +2187,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_AUTO_HURT",
-        author = "Copi",
         name = "Reactive Casting",
+        author = "Copi",
         description = "Your held wand fires when you're hurt",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_hurt.png",
         type = ACTION_TYPE_PASSIVE,
@@ -2179,8 +2203,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_AUTO_PROJECTILE",
-        author = "Copi",
         name = "Ballistic Casting",
+        author = "Copi",
         description = "Your held wand fires when you're around projectiles",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/auto_projectile.png",
         type = ACTION_TYPE_PASSIVE,
@@ -2195,8 +2219,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ICICLE_LANCE",
-        author = "Copi",
         name = "Icicle Lance",
+        author = "Copi",
         description = "A rapidly accelerating icicle which impales itself into terrain",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/icicle_lance.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/icicle_lance.xml" },
@@ -2212,8 +2236,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_STATIC_TO_EXPLOSION",
-        author = "Copi",
         name = "Terrain Detonation",
+        author = "Copi",
         description = "Makes any hard, solid materials within a projectile's range explode violently",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/static_to_explosion.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
@@ -2238,8 +2262,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LIQUID_TO_SOIL",
-        author = "Copi",
         name = "Liquids to Soil",
+        author = "Copi",
         description = "Makes any fluids within a projectile's range turn earthly",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/liquid_to_soil.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
@@ -2264,8 +2288,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_POWDER_TO_WATER",
-        author = "Copi",
         name = "Powders to water",
+        author = "Copi",
         description = "Makes any soft, powdery materials within a projectile's range dissolve into water",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/powder_to_water.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
@@ -2290,8 +2314,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_POWDER_TO_STEEL",
-        author = "Copi",
         name = "Powders to steel",
+        author = "Copi",
         description = "Makes any soft, powdery materials within a projectile's range become hard like metal",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/powder_to_steel.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
@@ -2316,8 +2340,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ZAP",
-        author = "Copi",
         name = "Zap",
+        author = "Copi",
         description = "A short lived spark of electricity",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/zap.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/zap.xml" },
@@ -2385,8 +2409,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_MATRA_MAGIC",
-        author = "Copi",
         name = "Matra Magic",
+        author = "Copi",
         description = "Summon a seeking arcane missile",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/matra_magic.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/matra_magic.xml" },
@@ -2403,8 +2427,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_VOMERE",
-        author = "Copi",
         name = "Vomeremancy",
+        author = "Copi",
         description = "Purge thy satiety; allow oneself to feast again!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/vomeremancy.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/vomere.xml" },
@@ -2474,8 +2498,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CIRCLE_RANDOM",
-        author = "Copi",
         name = "Circle of Chaos",
+        author = "Copi",
         description = "An expanding circle of a random material",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/circle_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
@@ -2494,8 +2518,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CLOUD_RANDOM",
-        author = "Copi",
         name = "Chaos Cloud",
+        author = "Copi",
         description = "Creates a rain of a random material",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/cloud_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
@@ -2514,8 +2538,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_TOUCH_RANDOM",
-        author = "Copi",
         name = "Touch of Chaos",
+        author = "Copi",
         description = "Transmutes everything in a short radius into a random material, including walls, creatures... and you",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/touch_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
@@ -2533,8 +2557,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CHUNK_OF_RANDOM",
-        author = "Copi",
         name = "Chunk of Chaos",
+        author = "Copi",
         description = "A blast of random material",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
@@ -2551,8 +2575,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_MATERIAL_RANDOM",
-        author = "Copi",
         name = "Droplet of Chaos",
+        author = "Copi",
         description = "Transmute drops of a random material from nothing",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/material_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
@@ -2573,8 +2597,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SEA_RANDOM",
-        author = "Copi",
         name = "Sea of Chaos",
+        author = "Copi",
         description = "Summons a large body of a random material below the caster",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sea_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
@@ -2593,8 +2617,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SUMMON_ANVIL",
-        author = "Copi",
         name = "Summon Anvil",
+        author = "Copi",
         description = "Summon a heavy anvil which can be kicked around and even moved by explosions",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/summon_anvil.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/anvil.xml" },
@@ -2702,8 +2726,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_RECURSIVE_LARPA",
-        author = "Copi",
         name = "Recursive Larpa",
+        author = "Copi",
         description = "Causes a spell to cast a perfect copy of itself on death",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/recursive_larpa.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
@@ -2753,8 +2777,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SHIELD_SAPPER",
-        author = "Copi",
         name = "Shield Sapper",
+        author = "Copi",
         description = "Slowly sap nearby energy shields (including your own)",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/shield_sapper.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
@@ -2772,8 +2796,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_PAPER_SHOT",
-        author = "Copi",
         name = "Paper Shot",
+        author = "Copi",
         description = "Projectiles are affected by a very low terminal velocity",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/paper_shot.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
@@ -2791,8 +2815,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_FEATHER_SHOT",
-        author = "Copi",
         name = "Feather Shot",
+        author = "Copi",
         description = "The projectile has reduced terminal velocity and added lifetime",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/feather_shot.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
@@ -2811,8 +2835,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SCATTER_6",
-        author = "Copi",
         name = "Sextuple scatter spell",
+        author = "Copi",
         description = "Simultaneously casts 6 spells with low accuracy",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/scatter_6.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/scatter_2_unidentified.png",
@@ -2830,8 +2854,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SCATTER_8",
-        author = "Copi",
         name = "Octuple scatter spell",
+        author = "Copi",
         description = "Simultaneously casts 8 spells with low accuracy",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/scatter_8.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/scatter_2_unidentified.png",
@@ -2849,8 +2873,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CLOUD_MAGIC_LIQUID_HP_REGENERATION",
-        author = "Copi",
         name = "Healthy Cloud",
+        author = "Copi",
         description = "Creates a soothing rain that cures your wounds",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/cloud_magic_liquid_hp_regeneration.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
@@ -2870,8 +2894,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CHAOS_SPRITES",
-        author = "Copi",
         name = "Chaos Sprites",
+        author = "Copi",
         description = "Cast an uncontrolled burst of projectiles",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/chaos_sprites.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/chaos_sprites.xml", 5 },
@@ -2892,8 +2916,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SHIELD_GHOST",
-        author = "Copi",
         name = "Summon Shielding Ghost",
+        author = "Copi",
         description = "Summons a tiny ethereal being to your help. It will fire protective shots that grant you an energy shield.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/shield_ghost.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/torch_unidentified.png",
@@ -2910,8 +2934,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_VACUUM_CLAW",
-        author = "Copi",
         name = "Vacuum Claw",
+        author = "Copi",
         description = "A feral slash that sucks in your foes",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/vacuum_claw.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
@@ -2932,8 +2956,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CAUSTIC_CLAW",
-        author = "Copi",
         name = "Caustic Claw",
+        author = "Copi",
         description = "An acidic claw that melts your foes",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/caustic_claw.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
@@ -2954,8 +2978,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LUMINOUS_BLADE",
-        author = "Copi",
         name = "Luminous Blade",
+        author = "Copi",
         description = "A sword of pure light; it slices through enemies with such grace that it doesn't damage the environment",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/luminous_blade.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
@@ -2977,8 +3001,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_INVERT",
-        author = "Copi",
         name = "Invert Speed",
+        author = "Copi",
         description = "Reverses the direction that a spell flies",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/invert.png",
         type = ACTION_TYPE_MODIFIER,
@@ -2995,8 +3019,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
-        author = "Copi",
         name = "Small Teleport Bolt with Expiration Trigger",
+        author = "Copi",
         description = "A shortlived magical bolt that moves you and casts another spell wherever it ends up flying",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport_projectile_short_trigger_death.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/teleport_projectile_unidentified.png",
@@ -3016,8 +3040,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DEATH_CROSS_TRAIL",
-        author = "Copi",
         name = "Death Cross Trail",
+        author = "Copi",
         description = "Projectiles leave a devastating trail of deathly crosses",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/death_cross_trail.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3035,8 +3059,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_GLITTERING_TRAIL",
-        author = "Copi",
         name = "Glittering Trail",
+        author = "Copi",
         description = "Projectiles gain a trail of explosions",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/glittering_trail.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3053,8 +3077,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_BULLET_RAY",
-        author = "Copi",
         name = "Assault shot",
+        author = "Copi",
         description = "Makes a projectile rapidly fire silver bullets",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
@@ -3073,8 +3097,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_BULLET_RAY_6",
-        author = "Copi",
         name = "Hexassault shot",
+        author = "Copi",
         description = "Makes a projectile fire silver bullets from its sides",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_6.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
@@ -3093,8 +3117,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_BULLET_ON_DEATH",
-        author = "Copi",
         name = "Silver Scatter",
+        author = "Copi",
         description = "Makes a projectile fire silver bullets when it dies",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_on_death.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_on_death.xml" },
@@ -3113,8 +3137,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_BULLET_RAY_SPIN",
-        author = "Copi",
         name = "Silver Spread",
+        author = "Copi",
         description = "Makes a projectile fire silver bullets in a circle",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_spin.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray_spin.xml" },
@@ -3133,8 +3157,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SILVER_BULLET_RAY_ENEMY",
-        author = "Copi",
         name = "Personal Silver Spread",
+        author = "Copi",
         description = "Causes hit enemies to spray out bullets",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_enemy.png",
         related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml" },
@@ -3154,8 +3178,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ICE_ORB",
-        author = "Copi",
         name = "Frost Orb",
+        author = "Copi",
         description = "A chilling orb which shatters on death",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ice_orb.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
@@ -3190,8 +3214,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CHARM_FIELD",
-        author = "Copi",
         name = "Circle of Persuasion",
+        author = "Copi",
         description = "A field of charming magic",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/charm_field.png",
         related_projectiles = { "data/entities/projectiles/deck/charm_field.xml" },
@@ -3209,8 +3233,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_MANA_RANDOM",
-        author = "Copi",
         name = "Random Mana",
+        author = "Copi",
         description = "Adds or removes a random amount of mana to the wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/mana_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
@@ -3242,8 +3266,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HITFX_WET_2X_DAMAGE_FREEZE",
-        author = "Copi",
         name = "Snap Freeze",
+        author = "Copi",
         description = "A projectile will deal 2x damage to wet enemies and freeze them",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_wet_2x_damage_freeze.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -3261,8 +3285,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HITFX_BLOODY_2X_DAMAGE_POISONED",
-        author = "Copi",
         name = "Viral Blood",
+        author = "Copi",
         description = "A projectile will deal 2x damage to bloody enemies and poison them",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_bloody_2x_damage_poisoned.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -3280,8 +3304,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HITFX_OILED_2X_DAMAGE_BURN",
-        author = "Copi",
         name = "Oil Ignition",
+        author = "Copi",
         description = "A projectile will deal 2x damage to oiled enemies and engulf them in flames",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_oiled_2x_damage_burn.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/burn_trail_unidentified.png",
@@ -3299,8 +3323,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_BLINDNESS",
-        author = "Copi",
         name = "Blinding Shot",
+        author = "Copi",
         description = "A projectile will blind anyone it hits, including you...",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/blindness.png",
         type = ACTION_TYPE_MODIFIER,
@@ -3322,8 +3346,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_MATERIAL_LAVA",
-        author = "Copi",
         name = "$action_material_lava",
+        author = "Copi",
         description = "$actiondesc_material_lava",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/material_lava.png",
         type = ACTION_TYPE_MATERIAL,
@@ -3343,8 +3367,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_MATERIAL_MAGIC_LIQUID_POLYMORPH",
-        author = "Copi",
         name = "Polymorphine",
+        author = "Copi",
         description = "Transmute globs of polymorphine from nothing",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/material_magic_liquid_polymorph.png",
         type = ACTION_TYPE_MATERIAL,
@@ -3364,8 +3388,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_OPHIUCHUS",
-        author = "Copi",
         name = "Ophiuchus Arts",
+        author = "Copi",
         description = "All your damage is halved, then converted to healing, and your projectile can hit you. The next spell costs twice as much mana.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ophiuchus.png",
         type = ACTION_TYPE_MODIFIER,
@@ -3388,8 +3412,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_NUGGET_SHOT",
-        author = "Copi",
         name = "Nugget Shot",
+        author = "Copi",
         description = "Hurl some of your hard earned gold at the enemy. Requires 10 gold",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/nugget_shot.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/nugget_shot.xml" },
@@ -3413,8 +3437,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ASTRAL_VORTEX",
-        author = "Copi",
         name = "Astral Vortex",
+        author = "Copi",
         description = "Summons a swirling phenomenon that fires 5 bursts of astral energy",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/astral_vortex.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/astral_beam.xml", 6 },
@@ -3471,8 +3495,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LASER_EMITTER_SMALL",
-        author = "Copi",
         name = "Plasma Shiv",
+        author = "Copi",
         description = "A short beam of light",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/laser_small.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/laser_unidentified.png",
@@ -3491,8 +3515,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ACID",
-        author = "Copi",
         name = "Acidic Shot",
+        author = "Copi",
         description = "Affected projectiles will explode into dangerous acid",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/acid.png",
         type = ACTION_TYPE_MODIFIER,
@@ -3508,8 +3532,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CEMENT",
-        author = "Copi",
         name = "Cementing shot",
+        author = "Copi",
         description = "He really cemented himself as a household name",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/cement.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/unstable_gunpowder_unidentified.png",
@@ -3528,8 +3552,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LIFETIME_RANDOM",
-        author = "Copi",
         name = "Randomize Lifetime",
+        author = "Copi",
         description = "Randomizes the lifetime of a projectile",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/lifetime_random.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
@@ -3547,8 +3571,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DELAY_2",
-        author = "Copi",
         name = "Double Delay Spell",
+        author = "Copi",
         description = "Casts 2 spells in sequence",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/delay_2.png",
         type = ACTION_TYPE_DRAW_MANY,
@@ -3605,8 +3629,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DELAY_3",
-        author = "Copi",
         name = "Triple Delay Spell",
+        author = "Copi",
         description = "Casts 3 spells in sequence",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/delay_3.png",
         type = ACTION_TYPE_DRAW_MANY,
@@ -3673,8 +3697,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DELAY_X",
-        author = "Copi",
         name = "Total Delay Spell",
+        author = "Copi",
         description = "Casts all remaining spells in sequence",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/delay_x.png",
         type = ACTION_TYPE_DRAW_MANY,
@@ -3724,8 +3748,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CHAOS_RAY",
-        author = "Copi",
         name = "Pandora Shot",
+        author = "Copi",
         description = "Your projectile fires out random projectiles",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/chaos_ray.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3744,8 +3768,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ORDER_DECK",
-        author = "Copi",
         name = "Order Deck",
+        author = "Copi",
         description = "Your wand casts spells in order",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/order_deck.png",
         type = ACTION_TYPE_PASSIVE,
@@ -3760,8 +3784,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_MANA_EFFICENCY",
-        author = "Copi",
         name = "Mana Efficiency",
+        author = "Copi",
         description = "The next spell costs half as much mana",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/mana_efficiency.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3778,8 +3802,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ULT_DAMAGE",
-        author = "Copi",
         name = "Empower",
+        author = "Copi",
         description = "The next spell deals 5x more damage, but costs 3x more mana",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ult_damage.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3798,8 +3822,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ULT_DRAW_MANY",
-        author = "Copi",
         name = "Stack",
+        author = "Copi",
         description = "Fire all remaining spells with stat improvements proportional to spells drawn.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ult_draw_many.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
@@ -3848,8 +3872,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ULT_LIFETIME",
-        author = "Copi",
         name = "Bind",
+        author = "Copi",
         description = "Cast a spell that drains 30 mana every second, but doesn't die unless your wand runs out of mana.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ult_lifetime.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3868,8 +3892,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ULT_CONTROL",
-        author = "Copi",
         name = "Impose",
+        author = "Copi",
         description = "A spell will follow your cursor",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ult_control.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3888,8 +3912,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ULT_RECHARGE",
-        author = "Copi",
         name = "Haste",
+        author = "Copi",
         description = "Dramatically reduce the next spell's cast delay and recharge time, but it will cost double mana",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ult_recharge.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3916,8 +3940,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ULT_PROTECTION",
-        author = "Copi",
         name = "Fortify",
+        author = "Copi",
         description = "Cast the next spell with a 3x higher mana cost, but it can not directly damage you",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ult_protection.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -3937,8 +3961,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_BALLOON",
-        author = "Copi",
         name = "Alchemia Balloon",
+        author = "Copi",
         description = "A balloon that's filled with a material from your last potion",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/balloon.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/balloon.xml" },
@@ -3955,8 +3979,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HOMING_SEEKER",
-        author = "Copi",
         name = "Seeker Shot",
+        author = "Copi",
         description = "Projectiles rotate and accelerate towards the nearest target in front of them",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_seeker.png",
         type = ACTION_TYPE_MODIFIER,
@@ -3974,8 +3998,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_PERSISTENT_SHOT",
-        author = "Copi",
         name = "Persistent Shot",
+        author = "Copi",
         description = "Cast 2 spells that keep moving in the direction they were cast",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/persistent_shot.png",
         type = ACTION_TYPE_DRAW_MANY,
@@ -3990,8 +4014,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HYPER_BOUNCE",
-        author = "Copi",
         name = "Hyper Bounce",
+        author = "Copi",
         description = "Cast a spell with unrivaled bouncing potential",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/hyper_bounce.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4007,8 +4031,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ULTRAKILL",
-        author = "Copi",
         name = "Steel Sole",
+        author = "Copi",
         description = "Kick nearby projectiles to launch them forwards. Costs 5 mana per projectile",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ultrakill.png",
         type = ACTION_TYPE_PASSIVE,
@@ -4024,8 +4048,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_WOOD_BRUSH",
-        author = "Copi",
         name = "Engineering Shot",
+        author = "Copi",
         description = "Cast a spell which leaves sturdy wood in its wake",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/wood_brush.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4041,8 +4065,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HOMING_ANTI_SHOOTER",
-        author = "Copi",
         name = "Repulsion Shot",
+        author = "Copi",
         description = "Projectiles will be repelled from the caster",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_anti_shooter.png",
         related_extra_entities = {
@@ -4063,8 +4087,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ALCOHOL_SHOT",
-        author = "Copi",
         name = "Inebriation",
+        author = "Copi",
         description = "A projectile will make the enemies it hits drunk",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/inebriation.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4079,8 +4103,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SPREAD_DAMAGE",
-        author = "Copi",
         name = "Area Damage",
+        author = "Copi",
         description = "Projectiles deal their damage in a radius around them, but cost 2x more mana to cast",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/spread_damage.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4099,8 +4123,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SUMMON_JAR_URINE",
-        author = "Copi",
         name = "Jarate",
+        author = "Copi",
         description = "Jar-based Karate",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/summon_jar_urine.png",
         type = ACTION_TYPE_UTILITY,
@@ -4117,8 +4141,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DAMAGE_BOUNCE",
-        author = "Copi",
         name = "Bouncing Damage",
+        author = "Copi",
         description = "Increases the damage done by a projectile every time it bounces",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/damage_bounce.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4139,8 +4163,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_DIE",
-        author = "Copi",
         name = "Die",
+        author = "Copi",
         description = "Reverses the flow of mana in your body, giving you a quick and painless death.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/die.png",
         type = ACTION_TYPE_UTILITY,
@@ -4164,8 +4188,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ENERGY_SHIELD_DIRECTIONAL",
-        author = "Copi",
         name = "Smart Energy Shield",
+        author = "Copi",
         description = "A denser energy shield which turns towards projectiles.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/energy_shield_directional.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/energy_shield_sector_unidentified.png",
@@ -4183,8 +4207,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CLEANING_TOOL",
-        author = "Copi",
         name = "Mop",
+        author = "Copi",
         description = "Clean the ground around you!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/cleaning_tool.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/energy_shield_sector_unidentified.png",
@@ -4201,8 +4225,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_COIN",
-        author = "Copi",
         name = "Toss Coin",
+        author = "Copi",
         description = "Toss a coin in the air. Requires 10 gold. Maybe you can shoot it?",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ricoinshot.png",
         type = ACTION_TYPE_UTILITY,
@@ -4214,10 +4238,12 @@ local actions_to_insert = {
             if not reflecting then
                 local shooter = GetUpdatedEntityID()
                 local wallet_component = EntityGetFirstComponentIncludingDisabled(shooter, "WalletComponent")
-                local money = ComponentGetValue2(wallet_component, "money")
-                if money >= 10 then
-                    ComponentSetValue2(wallet_component, "money", money - 10)
-                    add_projectile("mods/copis_things/files/entities/projectiles/coin.xml")
+                if wallet_component ~= nil then
+                    local money = ComponentGetValue2(wallet_component, "money")
+                    if money >= 10 then
+                        ComponentSetValue2(wallet_component, "money", money - 10)
+                        add_projectile("mods/copis_things/files/entities/projectiles/coin.xml")
+                    end
                 end
             end
             c.fire_rate_wait = c.fire_rate_wait + 10
@@ -4226,8 +4252,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_ALT_FIRE_COIN",
-        author = "Copi",
         name = "Alt Fire Toss Coin",
+        author = "Copi",
         description = "Toss a coin in the air when you alt fire. Requires 10 gold. Maybe you can shoot it?",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_ricoinshot.png",
         type = ACTION_TYPE_PASSIVE,
@@ -4243,6 +4269,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_VERTICAL_ARC",
         name = "Vertical Path",
+        author = "Copi",
         description = "Forces a projectile on a vertical path, but increases its damage",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/vertical_arc.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/sinewave_unidentified.png",
@@ -4263,6 +4290,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_ARC_CONCRETE",
         name = "Concrete Arc",
+        author = "Copi",
         description = "Creates arcs of concrete between projectiles. Make sure not to get stuck! (requires 2 projectile spells)",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/arc_concrete.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/arc_fire_unidentified.png",
@@ -4282,6 +4310,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_MANA_ENGINE",
         name = "Mana Engine",
+        author = "Copi",
         description = "Adds additional mana when you fire consecutively.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/mana_engine.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4324,6 +4353,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_RECHARGE_ENGINE",
         name = "Recharge Engine",
+        author = "Copi",
         description = "Reduces time between spellcasts when you fire consecutively.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/recharge_engine.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4366,6 +4396,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_DAMAGE_ENGINE",
         name = "Overheat Engine",
+        author = "Copi",
         description = "Adds burning damage when you fire consecutively, but you may catch on fire!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/damage_engine.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4408,6 +4439,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_SHIELD_ENGINE",
         name = "Shield Engine",
+        author = "Copi",
         description = "Bolsters your defences while you fire consecutively",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/shield_engine.png",
         type = ACTION_TYPE_PASSIVE,
@@ -4438,7 +4470,7 @@ local actions_to_insert = {
                     end
                 end
                 LastShootingStart = shooting_start
-                GlobalsSetValue("PLAYER_REVS", Revs)
+                GlobalsSetValue("PLAYER_REVS", tostring(Revs))
                 draw_actions(1, true)
             end
         end,
@@ -4446,6 +4478,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_RECHARGE_UNSTABLE",
         name = "Unstable Recharge",
+        author = "Copi",
         description = "Greatly reduces the time between spellcasts, with an increasing chance to malfunction",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/recharge_unstable.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4480,6 +4513,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_RAINBOW_TRAIL",
         name = "Rainbow Trail",
+        author = "Copi",
         description = "Show your colour",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/rainbow_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4495,6 +4529,7 @@ local actions_to_insert = {
     {
         id                  = "COPIS_THINGS_QUESTIONABLE",
         name                = "?",
+        author = "Copi",
         description         = "joke content -- todo remove",
         sprite              = "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
         sprite_unidentified = "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
@@ -4532,8 +4567,8 @@ local actions_to_insert = {
     --[[
     {
         id = "COPIS_THINGS_TARGET_TRIGGER",
-        author = "Copi",
         name = "Target with expiration trigger",
+        author = "Copi",
         description = "A target which fires a projectile when it is destroyed.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/target_death_trigger.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/target.xml" },
@@ -4559,8 +4594,8 @@ local actions_to_insert = {
     },]]
     {
         id = "COPIS_THINGS_CONFETTI_TRAIL",
-        author = "Copi",
         name = "Confetti Trail",
+        author = "Copi",
         description = "Causes a projectile to spray confetti everywhere!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/confetti_trail.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4575,8 +4610,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_SWORD_FORMATION",
-        author = "Copi",
         name = "Sword Formation",
+        author = "Copi",
         description = "Cast 5 spells that are held in place in front of your wand",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/sword_formation.png",
         type = ACTION_TYPE_DRAW_MANY,
@@ -4613,8 +4648,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_LINK_SHOT",
-        author = "Copi",
         name = "Link Shot",
+        author = "Copi",
         description = "Cast 2 spells which die together",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/link_shot.png",
         type = ACTION_TYPE_DRAW_MANY,
@@ -4647,12 +4682,14 @@ local actions_to_insert = {
 	{
 		id          = "COPIS_THINGS_REDUCE_KNOCKBACK",
 		name 		= "Reduce Knockback",
+        author      = "Copi",
 		description = "Projectile has lesser knockback",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/reduce_knockback.png",
 		type 		= ACTION_TYPE_MODIFIER,
 		spawn_level = "0,1,2,3,4,5,6,7,8,9,10,11",
 		spawn_probability = "1,1,1,1,1,1,1,1,1,1,1,1",
         inject_after = {"KNOCKBACK"},
+        price = 10,
 		mana = 5,
 		action 		= function()
 			c.knockback_force = c.knockback_force - 2.5
@@ -4661,8 +4698,8 @@ local actions_to_insert = {
 	},
     {
         id = "COPIS_THINGS_BARRIER_ARC",
-        author = "Copi",
         name = "Barrier Arc",
+        author = "Copi",
         description = "Creates arcs of barriers between projectiles (requires 2 projectile spells)",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/barrier_arc.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4693,6 +4730,7 @@ local actions_to_insert = {
 	{
 		id          = "COPIS_THINGS_LIQUID_EATER",
 		name 		= "Drying Shot",
+        author      = "Copi",
 		description = "Makes a projectile erase liquids as it flies",
 		sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/liquid_eater.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
@@ -4709,8 +4747,8 @@ local actions_to_insert = {
 	},
     {
         id = "COPIS_THINGS_BURST_FIRE",
-        author = "Copi",
         name = "Burst Fire",
+        author = "Copi",
         description = "Fire the next spell three times in quick succession based on current cast delay",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/burst_fire.png",
         type = ACTION_TYPE_OTHER,
@@ -4780,6 +4818,7 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_TRANSMISSION_CAST",
         name = "Transmission Cast",
+        author = "Copi",
         description = "A projectile will teleport you to where it expires.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/transmission_cast.png",
         type = ACTION_TYPE_MODIFIER,
@@ -4795,8 +4834,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_CIRCLE_BOOST",
-        author = "Copi",
         name = "Circle of Celerity",
+        author = "Copi",
         description = "A field of accelerative magic",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/circle_boost.png",
         sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
@@ -4815,8 +4854,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_META_SKIP_PROJECTILE",
-        author = "Copi",
         name = "Zai",
+        author = "Copi",
         description = "All projectiles after this spell will be skipped.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_projectile.png",
         type = ACTION_TYPE_OTHER,
@@ -4835,8 +4874,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_META_STOP_SKIP_PROJECTILE",
-        author = "Copi",
         name = "Sin",
+        author = "Copi",
         description = "No projectiles after this spell will be skipped.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_stop_skip_projectile.png",
         type = ACTION_TYPE_OTHER,
@@ -4855,8 +4894,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_META_SKIP_ALL",
-        author = "Copi",
         name = "Yod",
+        author = "Copi",
         description = "All spells after this spell will be skipped.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_all.png",
         type = ACTION_TYPE_OTHER,
@@ -4878,8 +4917,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_META_SKIP_NONE",
-        author = "Copi",
         name = "Baet",
+        author = "Copi",
         description = "No spells after this spell will be skipped.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_none.png",
         type = ACTION_TYPE_OTHER,
@@ -4903,8 +4942,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_META_SKIP_MODIFIER",
-        author = "Copi",
         name = "Mem",
+        author = "Copi",
         description = "Modifiers and multicasts after this spell will be skipped.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_modifier.png",
         type = ACTION_TYPE_OTHER,
@@ -4922,8 +4961,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_META_SKIP_PROJECTILE_IF_PROJECTILE",
-        author = "Copi",
         name = "Tsade",
+        author = "Copi",
         description = "All projectiles will be skipped if too many of your own projectiles exist.",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_projectile_if_projectile.png",
         type = ACTION_TYPE_OTHER,
@@ -4958,6 +4997,7 @@ local actions_to_insert = {
     {
         id                = "COPIS_THINGS_SUMMON_FLASK",
         name              = "Summon flask",
+        author = "Copi",
         description       = "Summons an empty flask",
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
         type              = ACTION_TYPE_UTILITY,
@@ -4976,6 +5016,7 @@ local actions_to_insert = {
     {
         id                = "COPIS_THINGS_SUMMON_FLASK_FULL",
         name              = "Summon filled flask",
+        author = "Copi",
         description       = "Summons a flask filled with a random material",
         sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
         type              = ACTION_TYPE_UTILITY,
@@ -4992,8 +5033,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_TELEPORT",
-        author = "Copi",
         name = "Teleport",
+        author = "Copi",
         description = "Cast a spell on yourself to teleport ahead!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport.png",
         type = ACTION_TYPE_UTILITY,
@@ -5011,8 +5052,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_TELEPORT_BAD",
-        author = "Copi",
         name = "Teleport?",
+        author = "Copi",
         description = "Cast a spell on yourself to teleport ahead?",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport_bad.png",
         type = ACTION_TYPE_UTILITY,
@@ -5030,8 +5071,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HOMING_BOUNCE",
-        author = "Copi",
         name = "Bouncing Homing",
+        author = "Copi",
         description = "Redirects a projectile every time it bounces",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_bounce.png",
         type = ACTION_TYPE_MODIFIER,
@@ -5051,8 +5092,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HOMING_BOUNCE_CURSOR",
-        author = "Copi",
         name = "Bouncing Redirect",
+        author = "Copi",
         description = "Redirects a projectile towards your cursor every time it bounces",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_bounce_cursor.png",
         type = ACTION_TYPE_MODIFIER,
@@ -5072,8 +5113,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HOMING_INTERVAL",
-        author = "Copi",
         name = "Interval Homing",
+        author = "Copi",
         description = "Redirects a projectile towards enemies occasionally",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_interval.png",
         type = ACTION_TYPE_MODIFIER,
@@ -5089,8 +5130,8 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_HOMING_MACROSS",
-        author = "Copi",
         name = "Delayed Homing",
+        author = "Copi",
         description = "Projectiles will begin homing after a delay",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/homing_macross.png",
         type = ACTION_TYPE_MODIFIER,
@@ -5103,6 +5144,67 @@ local actions_to_insert = {
             c.speed_multiplier = c.speed_multiplier * 0.75
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_macross.xml,"
             draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_DUPLICATE_ACTION",
+        name = "Recast",
+        author = "Copi",
+        description = "Fire the next spell an extra time",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action.png",
+        type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5,6,10",
+		spawn_probability = "0.05,0.05,0.05,0.1,0.1,0.1,0.2,0.5",
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        price = 256,
+        mana = 12,
+        action = function()
+            if not reflecting then
+                copi_state.duplicating_action = true
+                copi_state.recursion_count = copi_state.recursion_count + 1
+                if copi_state.recursion_count < 420 then -- todo: recursion count setting\
+
+                    function draw_action( instant_reload_if_empty )
+                        local action = nil
+                        if #deck > 0 then
+                            -- draw from the start of the deck
+                            action = deck[ 1 ]
+
+                            -- update mana
+                            local action_mana_required = action.mana
+                            if action.mana == nil then
+                                action_mana_required = ACTION_MANA_DRAIN_DEFAULT
+                            end
+
+                            if action_mana_required > mana then
+                                OnNotEnoughManaForAction()
+                                table.insert( discarded, action )
+                                copi_state.recursion_count = copi_state.recursion_count - 1
+                                copi_state.duplicating_action = false
+                                return false -- <------------------------------------------ RETURNS
+                            end
+
+                            if action.uses_remaining == 0 then
+                                table.insert( discarded, action )
+                                copi_state.recursion_count = copi_state.recursion_count - 1
+                                copi_state.duplicating_action = false
+                                return false -- <------------------------------------------ RETURNS
+                            end
+
+                            mana = mana - action_mana_required
+                        end
+
+                        --- add the action to hand and execute it ---
+                        if action ~= nil then
+                            play_action( action )
+                        end
+
+                    end
+                end
+                copi_state.recursion_count = copi_state.recursion_count - 1
+                copi_state.duplicating_action = false
+
+            end
         end
     },
 }
@@ -5146,16 +5248,24 @@ else
     end
 end
 
-
-
+-- Fix noita:
+if ModSettingGet("CopisThings.do_april_fools") then
+    local actions_new = {}
+    for i=1, #actions do
+        if actions[i].author ~= nil then
+            actions_new[#actions_new+1] = actions[i]
+        end
+    end
+    actions = actions_new
+end
 
 
 -- Debug stuff
 if DebugGetIsDevBuild() then
     actions[#actions + 1] = {
         id = "COPIS_THINGS_DEBUG",
-        author = "Copi",
         name = "Debug",
+        author = "Copi",
         description = "Prints cast state data",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/dev_meta.png",
         type = ACTION_TYPE_OTHER,
@@ -5169,21 +5279,6 @@ if DebugGetIsDevBuild() then
             end
             draw_actions(1, true)
         end
-    }
-    actions[#actions + 1] = {
-        id = "COPIS_THINGS_GFX_SPIRAL",
-        name = "GFX TEST",
-        description = "hmst",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/unimplemented/sus_trail.png",
-        type = ACTION_TYPE_MODIFIER,
-        spawn_level = "0",
-        spawn_probability = "0",
-        price = 10,
-        mana = 0,
-        action = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/spiral_gfx.xml,"
-            draw_actions(1, true)
-        end,
     }
 end
 

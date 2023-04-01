@@ -86,6 +86,33 @@ mod_settings =
 
         end
     },
+    {
+        id = "do_april_fools",
+        ui_name = "Game Rebalancer",
+        ui_description = "If enabled, rebalances vanilla.",
+        value_default = true,
+        scope = MOD_SETTING_SCOPE_NEW_GAME,
+        ui_fn = function( mod_id, gui, in_main_menu, im_id, setting )
+
+            GuiLayoutBeginHorizontal(gui, 0, 0, false, 0, 0)
+                GuiColorSetForNextWidget(gui, 1.0, 1.0, 1.0, 0.5)
+                GuiText(gui, mod_setting_group_x_offset, 0, "Fix Noita's balance: ")
+                local value = ModSettingGetNextValue( mod_setting_get_id(mod_id,setting) )
+                local lmb, rmb = GuiButton(gui, im_id, 0, 0, value and "[Yes]" or "[No]")
+                if lmb then
+                    ModSettingSetNextValue( mod_setting_get_id(mod_id,setting), not value, false )
+                    mod_setting_handle_change_callback( mod_id, gui, in_main_menu, setting, value, not value )
+                end
+                if rmb then
+                    local new_value = setting.value_default or false
+                    ModSettingSetNextValue( mod_setting_get_id(mod_id,setting), new_value, false )
+                    mod_setting_handle_change_callback( mod_id, gui, in_main_menu, setting, value, new_value )
+                end
+                mod_setting_tooltip( mod_id, gui, in_main_menu, setting )
+            GuiLayoutEnd(gui)
+
+        end
+    },
 }
 
 function ModSettingsUpdate( init_scope )

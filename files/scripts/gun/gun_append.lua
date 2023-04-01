@@ -1,6 +1,8 @@
 -- State
 copi_state = {
     mana_multiplier = 1.0,
+    duplicating_action = false,
+    recursion_count = 0,
 
     skip_count = 0,
     skipping = false,

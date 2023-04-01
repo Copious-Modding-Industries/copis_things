@@ -22,17 +22,17 @@ function add_projectile( entity_filename )
     copi_state.old._add_projectile( entity_filename )
 end
 
-function add_projectile_trigger_timer( entity_filename )
+function add_projectile_trigger_timer( entity_filename, delay_frames, action_draw_count )
     entity_filename = upgrade_projectile( entity_filename )
-    copi_state.old._add_projectile_trigger_timer( entity_filename )
+    copi_state.old._add_projectile_trigger_timer( entity_filename, delay_frames, action_draw_count )
 end
 
-function add_projectile_trigger_hit_world( entity_filename )
+function add_projectile_trigger_hit_world( entity_filename, action_draw_count )
     entity_filename = upgrade_projectile( entity_filename )
-    copi_state.old._add_projectile_trigger_hit_world( entity_filename )
+    copi_state.old._add_projectile_trigger_hit_world( entity_filename, action_draw_count )
 end
 
-function add_projectile_trigger_death( entity_filename )
+function add_projectile_trigger_death( entity_filename, action_draw_count )
     entity_filename = upgrade_projectile( entity_filename )
-    copi_state.old._add_projectile_trigger_death( entity_filename )
+    copi_state.old._add_projectile_trigger_death( entity_filename, action_draw_count )
 end

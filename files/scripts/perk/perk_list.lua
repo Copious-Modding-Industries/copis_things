@@ -38,6 +38,7 @@ to_insert =
     --  Acimorphism
     {
         id = "COPIS_THINGS_POLY_TO_ACID",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_poly_to_acid",
         ui_description = "$perk_desc_copis_things_poly_to_acid",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/poly_to_acid.png",
@@ -54,6 +55,7 @@ to_insert =
     --  Mana efficiency
     {
         id = "COPIS_THINGS_MANA_EFFICIENCY",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_mana_efficiency",
         ui_description = "$perk_desc_copis_things_mana_efficiency",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/mana_efficiency.png",
@@ -77,6 +79,7 @@ to_insert =
     --  Short temper
     {
         id = "COPIS_THINGS_SHORT_TEMPER",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_short_temper",
         ui_description = "$perk_desc_copis_things_short_temper",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/short_temper.png",
@@ -93,6 +96,7 @@ to_insert =
     --  Swapper
     {
         id = "COPIS_THINGS_SWAPPER",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_swapper",
         ui_description = "$perk_desc_copis_things_swapper",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/swapper.png",
@@ -109,6 +113,7 @@ to_insert =
     --  Fragile Ego
     {
         id = "COPIS_THINGS_FRAGILE_EGO",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_fragile_ego",
         ui_description = "$perk_desc_copis_things_fragile_ego",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/fragile_ego.png",
@@ -173,6 +178,7 @@ to_insert =
     --  Golden Blood
     {
         id = "COPIS_THINGS_GOLDEN_BLOOD",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_golden_blood",
         ui_description = "$perk_desc_copis_things_golden_blood",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/golden_blood.png",
@@ -219,6 +225,7 @@ to_insert =
     },
     {
         id = "COPIS_THINGS_REGRESSION_SCALES",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_regression_scales",
         ui_description = "$perk_desc_copis_things_regression_scales",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/regression_scales.png",
@@ -240,6 +247,7 @@ to_insert =
     --  Protection Lottery
     {
         id = "COPIS_THINGS_PROTECTION_LOTTERY",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_protection_lottery",
         ui_description = "$perk_desc_copis_things_protection_lottery",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/protection_lottery.png",
@@ -300,6 +308,7 @@ to_insert =
     -- Resilience
     {
         id = "COPIS_THINGS_RESILIENCE",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_resilience",
         ui_description = "$perk_desc_copis_things_resilience",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/resilience.png",
@@ -344,6 +353,7 @@ to_insert =
     -- Spell efficiency
     {
         id = "COPIS_THINGS_SPELL_EFFICIENCY",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_spell_efficiency",
         ui_description = "$perk_desc_copis_things_spell_efficiency",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/spell_efficiency.png",
@@ -360,6 +370,7 @@ to_insert =
     --  Protagonist
     {
         id = "COPIS_THINGS_PROTAGONIST",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_protagonist",
         ui_description = "$perk_desc_copis_things_protagonist",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/protagonist.png",
@@ -386,6 +397,7 @@ to_insert =
     --  Spell Jam
     {
         id = "COPIS_THINGS_SPELL_JAM",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_spell_jam",
         ui_description = "$perk_desc_copis_things_spell_jam",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/spell_jam.png",
@@ -427,6 +439,7 @@ to_insert =
     --  Lead Boots
     {
         id = "COPIS_THINGS_LEAD_BOOTS",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_lead_boots",
         ui_description = "$perk_desc_copis_things_lead_boots",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/lead_boots.png",
@@ -443,6 +456,7 @@ to_insert =
     --  Iron Feathers
     {
         id = "COPIS_THINGS_IRON_FEATHERS",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_iron_feathers",
         ui_description = "$perk_desc_copis_things_iron_feathers",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/iron_feathers.png",
@@ -468,6 +482,7 @@ to_insert =
     --  Healthier Hearts
     {
         id = "COPIS_THINGS_HEALTHIER_HEARTS",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_healthier_hearts",
         ui_description = "$perk_desc_copis_things_healthier_hearts",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/healthier_hearts.png",
@@ -494,6 +509,7 @@ to_insert =
     --  Invincibility Frames
     {
         id = "COPIS_THINGS_INVINCIBILITY_FRAMES",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_invincibility_frames",
         ui_description = "$perk_desc_copis_things_invincibility_frames",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/invincibility_frames.png",
@@ -524,6 +540,7 @@ to_insert =
     --  Demolitionist
     {
         id = "COPIS_THINGS_DEMOLITIONIST",
+        author = "Copi",
         ui_name = "$perk_name_copis_things_demolitionist",
         ui_description = "$perk_desc_copis_things_demolitionist",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/demolitionist.png",
@@ -552,6 +569,22 @@ to_insert =
 for _, perk in ipairs(to_insert) do
     perk_list[#perk_list+1] = perk
 end
+
+
+-- Fix noita:
+if ModSettingGet("CopisThings.do_april_fools") then
+    local perks_new = {}
+    for i=1, #perks do
+        if perks[i].author ~= nil then
+            perks_new[#perks_new+1] = perks[i]
+        end
+    end
+    perks = perks_new
+end
+
+
+
+
 
 --[[
         --  Duplicate Wand (One-Off)

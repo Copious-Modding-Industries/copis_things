@@ -100,6 +100,7 @@ local actions_to_edit = {
 for actions_index = 1,#actions do
     for edit_id, edit_contents in pairs(actions_to_edit) do
         if actions[actions_index].id == edit_id then
+            value.author = "Copi"
             for key, value in pairs(edit_contents) do
                 actions[actions_index][key] = value
             end
