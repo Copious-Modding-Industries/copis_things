@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field, undefined-field, return-type-mismatch
 dofile_once("data/scripts/lib/utilities.lua")
 if DebugGetIsDevBuild() then
     function Dprint(...) print(...) end
@@ -45,7 +46,7 @@ List.__tostring = function(self)
     for k, v in self:ipairs() do output = output .. "\n - " .. tostring(v) end
     return output
 end
----@return int length
+---@return number length
 function List:len() return #self.__data end
 ---@return function iterator
 function List:ipairs()
@@ -162,13 +163,13 @@ function Entity.GetInRadius(x, y, tag, radius)
     end
 end
 -- Member functions
----@return int id
+---@return number id
 function Entity:id() return self.__id end
 ---@return string name
 function Entity:name() return EntityGetName(self.__id) end
 ---@param name string
 function Entity:setName(name) return EntitySetName(self.__id, name) end
----@return bool
+---@return boolean
 function Entity:alive() return EntityGetIsAlive(self.__id) end
 function Entity:kill() EntityKill(self.__id) end
 ---@return number x, number y, number angle, number scale_x, number scale_y
@@ -197,7 +198,7 @@ end
 ---@return string tags
 function Entity:tags() return EntityGetTags(self.__id) end
 ---@param tag string
----@return bool
+---@return boolean
 function Entity:hasTag(tag) return EntityHasTag(self.__id, tag) end
 ---@param tag string
 function Entity:addTag(tag) EntityAddTag(self.__id, tag) end
@@ -218,15 +219,15 @@ function Entity:componentsWithTag(ctype, tag)
 end
 
 ---@param tag string
----@param enabled bool
+---@param enabled boolean
 function Entity:setEnabledWithTag(tag, enabled)
     EntitySetComponentsWithTagEnabled(self.__id, tag, enabled)
 end
 
 ---@param filename string
----@param load_children bool
----@param set_name bool
----@param set_tags bool
+---@param load_children boolean
+---@param set_name boolean
+---@param set_tags boolean
 function Entity:loadComponents(filename, load_children, set_name, set_tags)
     EntityLoadToEntity(filename, self.__id)
     if load_children or set_name or set_tags then
@@ -264,7 +265,7 @@ end
 -- Parent/child hierarchy
 ---@return Entity|nil
 function Entity:parent() return Entity(EntityGetParent(self.__id)) end
----@param parent Entity|int
+---@param parent Entity|number
 function Entity:setParent(parent)
     EntityRemoveFromParent(self.__id)
     if not parent then
@@ -280,8 +281,8 @@ function Entity:root() return Entity(EntityGetRootEntity(self.__id)) end
 ---@return List|nil
 function Entity:children() return List(EntityGetAllChildren(self.__id), Entity) end
 -- Misc Gameplay
----@param material string|int
----@param amount int
+---@param material string|number
+---@param amount number
 function Entity:addStains(material, amount)
     if type(material) == "string" then material = CellFactory_GetType(material) end
     EntityAddRandomStains(self.__id, material, amount)
@@ -354,7 +355,7 @@ Vec2.__tostring = function(self) return "Vector2: (" .. self[1] .. ", " .. self[
 
 setmetatable(Vec2, Vec2.__mt)
 
----@param component_id int
+---@param component_id number
 ---@param key string
 ---@param value table
 function SetVec2(component_id, key, value)

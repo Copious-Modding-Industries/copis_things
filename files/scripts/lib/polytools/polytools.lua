@@ -1,3 +1,4 @@
+---@diagnostic disable
 dofile_once("[POLYTOOLS_PATH]disco_util/disco_util.lua")
 local base64 = dofile_once("[POLYTOOLS_PATH]base64.lua")
 

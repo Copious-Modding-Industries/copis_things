@@ -2066,7 +2066,7 @@ local actions_to_insert = {
         recursive = true,
         spawn_level = "5,6,10",
         spawn_probability = "0.1,0.1,1",
-        inject_after = {"ALPHA", "GAMMA", "TAU", "OMEGA", "MU", "PHI", "SIGMA", "ZETA", },
+        inject_after = { "ALPHA", "GAMMA", "TAU", "OMEGA", "MU", "PHI", "SIGMA", "ZETA", },
         price = 350,
         mana = 50,
         action = function(recursion_level, iteration)
@@ -2080,37 +2080,41 @@ local actions_to_insert = {
                     for i, wand_action in ipairs(EntityGetAllChildren(active_wand) or {}) do
                         if EntityHasTag(wand_action, "card_action") then
                             local itemcomp = EntityGetFirstComponentIncludingDisabled(wand_action, "ItemComponent")
-
-                            -- If action's slot matches delta index then cast it
-                            if ComponentGetValue2(itemcomp, "inventory_slot") == DeltaIndex then
-                                local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action, "ItemActionComponent")
-                                local action_id = ComponentGetValue2(itemactioncomp, "action_id")
-                                if action_id ~= "COPIS_THINGS_DELTA" then
-                                    for _, data in ipairs(actions) do
-                                        if (data.id == action_id) then
-                                            local rec = check_recursion(data, recursion_level)
-                                            if (data ~= nil) and (rec > -1) then
-                                                data.action(rec)
+                            if itemcomp ~= nil then
+                                -- If action's slot matches delta index then cast it
+                                if ComponentGetValue2(itemcomp, "inventory_slot") == DeltaIndex then
+                                    local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action,
+                                    "ItemActionComponent")
+                                    if itemactioncomp ~= nil then
+                                        local action_id = ComponentGetValue2(itemactioncomp, "action_id")
+                                        if action_id ~= "COPIS_THINGS_DELTA" then
+                                            for _, data in ipairs(actions) do
+                                                if (data.id == action_id) then
+                                                    local rec = check_recursion(data, recursion_level)
+                                                    if (data ~= nil) and (rec > -1) then
+                                                        data.action(rec)
+                                                    end
+                                                    break
+                                                end
                                             end
-                                            break
                                         end
                                     end
                                 end
-                            end
 
-                            -- If action is this card then update sprite
-                            if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and current_action.id == "COPIS_THINGS_DELTA" then
-                                ComponentSetValue2(
-                                    itemcomp,
-                                    "ui_sprite",
-                                    table.concat(
-                                        {
-                                            "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_",
-                                            tostring(DeltaIndex + 1),
-                                            ".png"
-                                        }
+                                -- If action is this card then update sprite
+                                if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and current_action.id == "COPIS_THINGS_DELTA" then
+                                    ComponentSetValue2(
+                                        itemcomp,
+                                        "ui_sprite",
+                                        table.concat(
+                                            {
+                                                "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_",
+                                                tostring(DeltaIndex + 1),
+                                                ".png"
+                                            }
+                                        )
                                     )
-                                )
+                                end
                             end
                         end
                     end
@@ -2657,6 +2661,7 @@ local actions_to_insert = {
             end
 
             local shooter = Entity.Current() -- Returns the entity shooting the wand
+            ---@diagnostic disable-next-line: undefined-field
             local wand = Entity(shooter.Inventory2Component.mActiveItem)
             if not wand then
                 return
@@ -2702,6 +2707,7 @@ local actions_to_insert = {
             end
 
             local shooter = Entity.Current() -- Returns the entity shooting the wand
+            ---@diagnostic disable-next-line: undefined-field
             local wand = Entity(shooter.Inventory2Component.mActiveItem)
             if not wand then
                 return
