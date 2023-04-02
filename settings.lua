@@ -117,7 +117,7 @@ if month == 4 and day == 1 then
             GuiLayoutEnd(gui)
 
         end
-    },
+    }
 end
 
 function ModSettingsUpdate( init_scope )
