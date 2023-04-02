@@ -2,8 +2,7 @@
 for i = 1, #actions do
     local action = actions[i]
     if not ModSettingGet("CopisThings.spelltoggle" .. action.id) then
-
-        local replacement =  {
+        local replacement = {
             id = action.id,
             name = action.name,
             description = "This content is disabled via Copi's Things.",
@@ -15,30 +14,25 @@ for i = 1, #actions do
             price = 0,
             mana = 0,
             action = function()
-                
-            end
-        }
-
-		action.spawn_level = "0"
-		action.spawn_probability = "0"
-        action.action = function ()
-            -- Kill action
-            if not reflecting then
-                local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                local shooter = GetUpdatedEntityID()
-                local inventory2comp = EntityGetFirstComponent(shooter, "Inventory2Component")
-                if inventory2comp then
-                    local active_wand = ComponentGetValue2(inventory2comp, "mActiveItem")
-                    local wand = EZWand(active_wand)
-                    if wand ~= nil then
-                        wand:RemoveSpells(action.id)
-                        if not HasFlagPersistent("copis_things_sus_secret") then
-                            RemoveFlagPersistent("action_copis_things_sus_trail")
+                if not reflecting then
+                    local shooter = GetUpdatedEntityID()
+                    local inv2comp = EntityGetFirstComponentIncludingDisabled(shooter, "Inventory2Component")
+                    if inv2comp then
+                        local activeitem = ComponentGetValue2(inv2comp, "mActiveItem")
+                        if EntityHasTag(activeitem, "wand") then
+                            local wand_actions = EntityGetAllChildren(wand_id) or {}
+                            for j = 1, #wand_actions do
+                                local itemcomp = EntityGetFirstComponentIncludingDisabled(wand_actions[j], "ItemComponent")
+                                if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id then
+                                    EntityKill(wand_actions[j])
+                                    print(table.concat{"[COPIS THINGS]: ACTION ", action.id, " WHICH IS DISABLED HAS BEEN CASTED"})
+                                end
+                            end
                         end
                     end
                 end
             end
-        end
-
+        }
+        actions[i] = replacement
     end
 end

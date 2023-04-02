@@ -5254,17 +5254,19 @@ else
     end
 end
 
--- Fix noita:
-if ModSettingGet("CopisThings.do_april_fools") then
-    local actions_new = {}
-    for i=1, #actions do
-        if actions[i].author ~= nil then
-            actions_new[#actions_new+1] = actions[i]
+local year, month, day, hour = GameGetDateAndTimeLocal()
+if month == 4 and day == 1 then
+    -- Fix noita:
+    if ModSettingGet("CopisThings.do_april_fools") then
+        local actions_new = {}
+        for i=1, #actions do
+            if actions[i].author ~= nil then
+                actions_new[#actions_new+1] = actions[i]
+            end
         end
+        actions = actions_new
     end
-    actions = actions_new
 end
-
 
 -- Debug stuff
 if DebugGetIsDevBuild() then
@@ -5289,7 +5291,6 @@ if DebugGetIsDevBuild() then
 end
 
 do  -- Don't play noita at 3 am!! :^)
-    local year, month, day, hour = GameGetDateAndTimeLocal()
     if hour == 3 then
         actions[#actions + 1] = {
             id = "COPIS_THINGS_SUS_TRAIL",

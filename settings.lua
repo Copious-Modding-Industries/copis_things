@@ -86,7 +86,12 @@ mod_settings =
 
         end
     },
-    {
+}
+
+
+local year, month, day, hour = GameGetDateAndTimeLocal()
+if month == 4 and day == 1 then
+    mod_settings[#mod_settings+1] = {
         id = "do_april_fools",
         ui_name = "Game Rebalancer",
         ui_description = "If enabled, rebalances vanilla.",
@@ -113,7 +118,7 @@ mod_settings =
 
         end
     },
-}
+end
 
 function ModSettingsUpdate( init_scope )
     local old_version = mod_settings_get_version( mod_id ) -- This can be used to migrate some settings between mod versions.

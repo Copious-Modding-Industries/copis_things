@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-field
 dofile_once("data/scripts/gun/procedural/gun_action_utils.lua")
 dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
 

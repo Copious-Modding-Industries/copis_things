@@ -571,17 +571,19 @@ for _, perk in ipairs(to_insert) do
 end
 
 
--- Fix noita:
-if ModSettingGet("CopisThings.do_april_fools") then
-    local perks_new = {}
-    for i=1, #perk_list do
-        if perk_list[i].author ~= nil then
-            perks_new[#perks_new+1] = perk_list[i]
+local year, month, day, hour = GameGetDateAndTimeLocal()
+if month == 4 and day == 1 then
+    -- Fix noita:
+    if ModSettingGet("CopisThings.do_april_fools") then
+        local perks_new = {}
+        for i=1, #perk_list do
+            if perk_list[i].author ~= nil then
+                perks_new[#perks_new+1] = perk_list[i]
+            end
         end
+        perk_list = perks_new
     end
-    perk_list = perks_new
 end
-
 
 
 
