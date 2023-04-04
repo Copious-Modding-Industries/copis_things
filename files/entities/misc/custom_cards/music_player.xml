@@ -1,0 +1,62 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/music_player.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_MUSIC_PLAYER" >
+		</ItemActionComponent>
+	</Base>
+
+    <InheritTransformComponent
+		_tags="enabled_in_hand"
+		parent_hotspot_tag="shoot_pos" 
+		always_use_immediate_parent_rotation="1" >
+		<Transform 
+        position.x="0" 
+        position.y="0">
+		</Transform>
+	</InheritTransformComponent>
+
+	<MusicEnergyAffectorComponent
+		_tags="enabled_in_hand"
+		energy_target="1.0"
+		trigger_danger_music="1"
+		is_enemy="0"
+		fog_of_war_threshold="255" 
+		>
+	</MusicEnergyAffectorComponent>
+
+	<SpriteParticleEmitterComponent
+		_tags="enabled_in_hand"
+		sprite_file="data/particles/note_$[1-4].xml"
+		delay="0"
+		lifetime="1.5"
+		color.r="0.8" color.g="1" color.b="1" color.a="1"
+		color_change.r="0" color_change.g="0" color_change.b="0" color_change.a="-1"
+		velocity.x="0" velocity.y="0"
+		gravity.x="0" gravity.y="0"
+		velocity_slowdown="0"
+		rotation="0"
+		angular_velocity="0"
+		use_velocity_as_rotation="0"
+		scale.x="1" scale.y="1"
+		scale_velocity.x="0" scale_velocity.y="0"
+		emission_interval_min_frames="30"
+		emission_interval_max_frames="60"
+		count_min="1" count_max="1"
+		randomize_rotation.min="-0.3415"
+		randomize_rotation.max="0.3415"
+		randomize_angular_velocity.min="-0.1415"
+		randomize_angular_velocity.max="0.1415"
+		randomize_velocity.min_x="-12"
+		randomize_velocity.max_x="12"
+		randomize_velocity.min_y="-12"
+		randomize_velocity.max_y="12"
+		entity_velocity_multiplier="0.1"
+	>
+	</SpriteParticleEmitterComponent>
+</Entity>

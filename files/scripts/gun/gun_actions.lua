@@ -5050,7 +5050,20 @@ local actions_to_insert = {
         mana = 60,
         action = function()
             if not reflecting then
-                add_projectile("mods/copis_things/files/entities/projectiles/effect_teleport.xml")
+                --add_projectile("mods/copis_things/files/entities/projectiles/effect_teleport.xml")
+                local shooter = GetUpdatedEntityID()
+                if EntityGetIsAlive(shooter) then
+                    local effect_entity = EntityCreateNew("COPI_TELEPORT_EFFECT")
+                    EntityAddComponent2(effect_entity, "GameEffectComponent", {
+                        effect="TELEPORTATION",
+                        frames=1,
+                        teleportation_probability=0,
+                        teleportation_delay_min_frames=0,
+                        exclusivity_group=42069001,
+                    })
+                    EntityAddComponent2(effect_entity, "InheritTransformComponent", {})
+                    EntityAddChild(shooter, effect_entity)
+                end
             end
             c.fire_rate_wait = c.fire_rate_wait + 30
             current_reload_time = current_reload_time + 60
@@ -5068,8 +5081,22 @@ local actions_to_insert = {
         price = 25,
         mana = 59,
         action = function()
+
             if not reflecting then
-                add_projectile("mods/copis_things/files/entities/projectiles/effect_teleport_bad.xml")
+                --add_projectile("mods/copis_things/files/entities/projectiles/effect_teleport_bad.xml")
+                local shooter = GetUpdatedEntityID()
+                if EntityGetIsAlive(shooter) then
+                    local effect_entity = EntityCreateNew("COPI_TELEPORT_EFFECT")
+                    EntityAddComponent2(effect_entity, "GameEffectComponent", {
+                        effect="UNSTABLE_TELEPORTATION",
+                        frames=1,
+                        teleportation_probability=0,
+                        teleportation_delay_min_frames=0,
+                        exclusivity_group=42069001,
+                    })
+                    EntityAddComponent2(effect_entity, "InheritTransformComponent", {})
+                    EntityAddChild(shooter, effect_entity)
+                end
             end
             c.fire_rate_wait = c.fire_rate_wait + 30
             current_reload_time = current_reload_time + 60
@@ -5213,11 +5240,65 @@ local actions_to_insert = {
             end
         end
     },
+    {
+        id = "COPIS_THINGS_POLYMORPH",
+        name = "Polymorph",
+        author = "Copi",
+        description = "Cast a spell on yourself to become a fluffy critter!",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/polymorph.png",
+        type = ACTION_TYPE_UTILITY,
+        spawn_level = "1, 2, 3, 4, 5, 6",
+        spawn_probability = "0.2, 0.2, 0.1,	0.1, 0.1, 0.1",
+        price = 25,
+        mana = 30,
+        action = function()
+
+            if not reflecting then
+                local shooter = GetUpdatedEntityID()
+                if EntityGetIsAlive(shooter) then
+                    local effect = GetGameEffectLoadTo( shooter, "POLYMORPH", true )
+                    if effect ~= nil then ComponentSetValue2( effect, "frames", 600 ) end
+                end
+            end
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            current_reload_time = current_reload_time + 60
+        end
+    },
+    {
+        id = "COPIS_THINGS_SUS_TRAIL",
+        name = "Sus Trail",
+        description = "A rather.. ..suspicious.. trail of particles..",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/sus_trail.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "0.1,0.1,0.3,0.2,0.2,0.2,0.2",
+        price = 10,
+        mana = 0,
+        action = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sus_trail.xml,"
+            draw_actions(1, true)
+        end,
+    },
+    {
+        id = "COPIS_THINGS_MUSIC_PLAYER",
+        name = "Clairvoyance",
+        author = "Copi",
+        description = "You hear an enchanting song while holding your wand!",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/music_player.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.1,0.5,0.5,0.5,0.5,0.5",
+        inject_after = {"TORCH", "TORCH_ELECTRIC"},
+        price = 160,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/music_player.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
 }
 
-local do_inject = ModSettingGet("CopisThings.inject_spells")
-
-if do_inject then
+if ModSettingGet("CopisThings.inject_spells") then
     -- Based on Conga Lyne's implementation
     for insert_index = 1, #actions_to_insert do
         local action_to_insert = actions_to_insert[insert_index]
@@ -5254,6 +5335,8 @@ else
     end
 end
 
+-- Handle april fools
+
 local year, month, day, hour = GameGetDateAndTimeLocal()
 if month == 4 and day == 1 then
     -- Fix noita:
@@ -5268,7 +5351,8 @@ if month == 4 and day == 1 then
     end
 end
 
--- Debug stuff
+-- Handle dev build spells
+
 if DebugGetIsDevBuild() then
     actions[#actions + 1] = {
         id = "COPIS_THINGS_DEBUG",
@@ -5288,61 +5372,4 @@ if DebugGetIsDevBuild() then
             draw_actions(1, true)
         end
     }
-end
-
-do  -- Don't play noita at 3 am!! :^)
-    if hour == 3 then
-        actions[#actions + 1] = {
-            id = "COPIS_THINGS_SUS_TRAIL",
-            name = "Sus Trail",
-            description = "A rather.. suspicious.. trail of particles.. Don't play noita at 3AM!!",
-            sprite = "mods/copis_things/files/ui_gfx/gun_actions/unimplemented/sus_trail.png",
-            type = ACTION_TYPE_MODIFIER,
-            spawn_level = "0,1,2,3,4,5,6",
-            spawn_probability = "0.8,0.6,0.4,0.2,0.2,0.2,0.2",
-            price = 10,
-            mana = 0,
-            action = function()
-                if not reflecting then
-                    local flag = "copis_things_sus_secret"
-                    if not HasFlagPersistent(flag) then
-                        AddFlagPersistent(flag)
-                        GamePrintImportant("You feel a suspicious sense of accomplishment...", "Go to bed!")
-                    end
-                end
-                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sus_trail.xml,"
-                draw_actions(1, true)
-            end,
-        }
-    else
-        actions[#actions + 1] = {
-            id = "COPIS_THINGS_SUS_TRAIL",
-            name = "???",
-            description = "Don't Play Copi's Things at 3 AM!",
-            sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta/secret.png",
-            type = ACTION_TYPE_OTHER,
-            spawn_level = "0",
-            spawn_probability = "0",
-            spawn_requires_flag = "this_should_never_spawn",
-            price = 0,
-            mana = 0,
-            action = function()
-                if not reflecting then
-                    local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                    local shooter = GetUpdatedEntityID()
-                    local inventory2comp = EntityGetFirstComponent(shooter, "Inventory2Component")
-                    if inventory2comp then
-                        local active_wand = ComponentGetValue2(inventory2comp, "mActiveItem")
-                        local wand = EZWand(active_wand)
-                        if wand ~= nil then
-                            wand:RemoveSpells("COPIS_THINGS_SUS_TRAIL")
-                            if not HasFlagPersistent("copis_things_sus_secret") then
-                                RemoveFlagPersistent("action_copis_things_sus_trail")
-                            end
-                        end
-                    end
-                end
-            end
-        }
-    end
 end
