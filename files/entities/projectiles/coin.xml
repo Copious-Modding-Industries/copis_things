@@ -89,11 +89,6 @@
 		script_collision_trigger_hit="mods/copis_things/files/scripts/projectiles/ricoshot_collision.lua">
 	</LuaComponent>
 
-	<LuaComponent
-	
-		script_source_file="mods/copis_things/files/scripts/projectiles/ricoshot_raycast.lua">
-	</LuaComponent>
-
 	<VariableStorageComponent
 		name="projectile_file"
 		value_string="mods/copis_things/files/entities/projectiles/coin.xml"
