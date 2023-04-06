@@ -2913,11 +2913,9 @@ local actions_to_insert = {
         max_uses = -1,
         never_unlimited = true,
         action = function()
-            add_projectile("mods/copis_things/files/entities/projectiles/chaos_sprites.xml")
-            add_projectile("mods/copis_things/files/entities/projectiles/chaos_sprites.xml")
-            add_projectile("mods/copis_things/files/entities/projectiles/chaos_sprites.xml")
-            add_projectile("mods/copis_things/files/entities/projectiles/chaos_sprites.xml")
-            add_projectile("mods/copis_things/files/entities/projectiles/chaos_sprites.xml")
+            for i=1, 5 do
+                add_projectile("mods/copis_things/files/entities/projectiles/chaos_sprites.xml")
+            end
         end
     },
     {
@@ -3206,12 +3204,10 @@ local actions_to_insert = {
 
             BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb.xml")
             BeginTriggerDeath()
-            BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb_fragment.xml")
-            EndProjectile()
-            BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb_fragment.xml")
-            EndProjectile()
-            BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb_fragment.xml")
-            EndProjectile()
+            for i=1, 3 do
+                BeginProjectile("mods/copis_things/files/entities/projectiles/ice_orb_fragment.xml")
+                EndProjectile()
+            end
             register_action(c)
             SetProjectileConfigs()
             EndTrigger()
@@ -5281,7 +5277,7 @@ local actions_to_insert = {
     },
     {
         id = "COPIS_THINGS_MUSIC_PLAYER",
-        name = "Clairvoyance",
+        name = "Musical Wand",
         author = "Copi",
         description = "You hear an enchanting song while holding your wand!",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/music_player.png",

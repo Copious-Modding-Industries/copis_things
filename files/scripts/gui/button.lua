@@ -1,7 +1,5 @@
 local function button(Gui, id_fn)
 
-
-
     if Path == nil then
 
         local flags = {

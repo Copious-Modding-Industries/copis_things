@@ -70,8 +70,15 @@ local function order_deck()
     local vsc = EntityGetFirstComponent(shooter, "VariableStorageComponent", "mana_efficiency_mult")
     local shooter_mult = (vsc and ComponentGetValue2(vsc, "value_float")) or 1.0
 
+    --[[print(string.rep("\n", 3))
+    print(string.rep("=", 83))]]
     -- This allows me to hook into the mana access and call an arbitrary function. Very tricksy :^)
     for _, action in pairs(deck) do
+        --[[print(string.rep("\n", 3))
+        print(string.rep("-", 83))
+        for key, value in pairs(action) do
+            print(string.format("%-40s | %40s", tostring(key), GameTextGetTranslatedOrNot(tostring(value))))
+        end]]
         if action.copi_mana_calculated == nil then
             if action.type == ACTION_TYPE_PROJECTILE or action.type == ACTION_TYPE_STATIC_PROJECTILE or
                 action.type == ACTION_TYPE_MATERIAL or action.type == ACTION_TYPE_UTILITY then

@@ -1,3 +1,4 @@
+---@diagnostic disable: lowercase-global
 -- State
 copi_state = {
     mana_multiplier = 1.0,
