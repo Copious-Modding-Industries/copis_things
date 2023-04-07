@@ -14,7 +14,7 @@ A series of changes and additions to Noita.
  - Changes:
    - Spells added to reward pools
  - Download Links:
-   - [Github]((https://github.com/Conga0/Apotheosis))
+   - [Github](https://github.com/Conga0/Apotheosis)
 
 **Chemical Curiosities**
  - Changes:
