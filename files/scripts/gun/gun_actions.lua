@@ -4850,7 +4850,9 @@ local actions_to_insert = {
         mana = 30,
         max_uses = -1,
         action = function()
-            add_projectile("mods/copis_things/files/entities/projectiles/circle_boost.xml")
+            if not reflecting then
+                add_projectile("mods/copis_things/files/entities/projectiles/circle_boost.xml")
+            end
             draw_actions(1, true)
         end
     },
@@ -5378,6 +5380,50 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_CIRCLE_ANCHOR",
+        name = "Circle of Serenity",
+        author = "Copi",
+        description = "A field of lethargic magic",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/circle_anchor.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/projectiles/circle_anchor.xml" },
+        type = ACTION_TYPE_STATIC_PROJECTILE,
+        spawn_level = "0,1,2,3",
+        spawn_probability = "0.6,0.6,0.6,0.6",
+        inject_after = {"BERSERK_FIELD", "POLYMORPH_FIELD", "CHAOS_POLYMORPH_FIELD", "ELECTROCUTION_FIELD", "FREEZE_FIELD", "REGENERATION_FIELD", "TELEPORTATION_FIELD", "LEVITATION_FIELD", "SHIELD_FIELD"},
+        price = 200,
+        mana = 30,
+        max_uses = -1,
+        action = function()
+            if not reflecting then
+                add_projectile("mods/copis_things/files/entities/projectiles/circle_anchor.xml")
+            end
+            draw_actions(1, true)
+        end
+    },--[[ TODO: Orbital Mechanics
+    {
+        id = "COPIS_THINGS_CIRCLE_ORBIT",
+        name = "Circle of Cyclicity",
+        author = "Copi",
+        description = "A field of rotational magic",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/circle_orbit.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/projectiles/circle_orbit.xml" },
+        type = ACTION_TYPE_STATIC_PROJECTILE,
+        spawn_level = "0,1,2,3",
+        spawn_probability = "0.6,0.6,0.6,0.6",
+        inject_after = {"BERSERK_FIELD", "POLYMORPH_FIELD", "CHAOS_POLYMORPH_FIELD", "ELECTROCUTION_FIELD", "FREEZE_FIELD", "REGENERATION_FIELD", "TELEPORTATION_FIELD", "LEVITATION_FIELD", "SHIELD_FIELD"},
+        price = 200,
+        mana = 30,
+        max_uses = -1,
+        action = function()
+            if not reflecting then
+                add_projectile("mods/copis_things/files/entities/projectiles/circle_orbit.xml")
+            end
+            draw_actions(1, true)
+        end
+    },]]
 }
 
 if ModSettingGet("CopisThings.inject_spells") then

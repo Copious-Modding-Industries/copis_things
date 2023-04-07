@@ -1,0 +1,114 @@
+<Entity
+    name="$projectile_default"
+>
+
+    <GameAreaEffectComponent
+        radius="28"
+        frame_length="70"
+    >
+    </GameAreaEffectComponent>
+
+    <ParticleEmitterComponent
+        emitted_material_name="spark_teal"
+        gravity.y="0.0"
+        lifetime_min="0.5"
+        lifetime_max="1.5"
+        count_min="2"
+        count_max="4"
+        render_on_grid="1"
+        fade_based_on_lifetime="1"
+        area_circle_radius.max="28"
+        cosmetic_force_create="0"
+        airflow_force="0.1"
+        airflow_time="0.01"
+        airflow_scale="0.05"
+        emission_interval_min_frames="1"
+        emission_interval_max_frames="1"
+        emit_cosmetic_particles="1"
+        is_emitting="1">
+    </ParticleEmitterComponent>
+
+    <ParticleEmitterComponent
+        emitted_material_name="spark_teal"
+        gravity.y="0.0"
+        lifetime_min="0.5"
+        lifetime_max="1.5"
+        count_min="4"
+        count_max="4"
+        render_on_grid="1"
+        fade_based_on_lifetime="1"
+        area_circle_radius.min="28"
+        area_circle_radius.max="28"
+        cosmetic_force_create="0"
+        airflow_force="0.3"
+        airflow_time="0.01"
+        airflow_scale="0.05"
+        emission_interval_min_frames="1"
+        emission_interval_max_frames="1"
+        emit_cosmetic_particles="1"
+        is_emitting="1">
+    </ParticleEmitterComponent>
+
+    <Base file="data/entities/projectiles/deck/base_field.xml">
+
+        <SpriteParticleEmitterComponent
+            sprite_file="data/particles/smoke_icy.xml"
+            delay="0"
+            lifetime="1.5"
+            color.r="1" color.g="1" color.b="1" color.a="1"
+            color_change.r="0" color_change.g="0" color_change.b="0" color_change.a="-1"
+            velocity.x="0" velocity.y="0"
+            gravity.x="0" gravity.y="0"
+            velocity_slowdown="0"
+            rotation="0"
+            angular_velocity="0"
+            emissive="1"
+            additive="1"
+            scale.x="1" scale.y="1"
+            scale_velocity.x="0" scale_velocity.y="0"
+            emission_interval_min_frames="3"
+            emission_interval_max_frames="6"
+            count_min="1" count_max="1"
+            randomize_rotation.min="-0.2"
+            randomize_rotation.max="0.2"
+            use_velocity_as_rotation="1"
+            randomize_angular_velocity.min="-0.2"
+            randomize_angular_velocity.max="0.2"
+            randomize_position.min_x="-28"
+            randomize_position.max_x="28"
+            randomize_position.min_y="-28"
+            randomize_position.max_y="28"
+            randomize_velocity.min_x="-20"
+            randomize_velocity.max_x="20"
+            randomize_velocity.min_y="-20"
+            randomize_velocity.max_y="20"
+            velocity_always_away_from_center="1"
+            use_rotation_from_entity="0"
+            >
+        </SpriteParticleEmitterComponent>
+
+        <SpriteComponent
+            image_file="data/projectiles_gfx/blast_frozen.xml"
+        >
+        </SpriteComponent>
+
+        <LifetimeComponent lifetime="1200">
+        </LifetimeComponent>
+
+        <ProjectileComponent
+            damage_game_effect_entities=""
+            speed_min="0.1"
+            speed_max="0.1"
+            friendly_fire="0"
+            collide_with_shooter_frames="0"
+        >
+        </ProjectileComponent>
+    </Base>
+
+    <LuaComponent
+        script_source_file="mods/copis_things/files/scripts/projectiles/circle_anchor.lua"
+        execute_every_n_frame="1"
+    >
+    </LuaComponent>
+
+</Entity>
