@@ -1,0 +1,19 @@
+<Sprite 
+  filename="mods/copis_things/files/projectiles_gfx/srs.png" 
+  offset_x="6" 
+  offset_y="6" >
+
+  <RectAnimation 
+    frame_count="1" 
+    frame_height="12" 
+    frame_wait="0.2" 
+    frame_width="12" 
+    frames_per_row="1" 
+    name="default"
+    pos_x="0" 
+    pos_y="0" 
+    shrink_by_one_pixel="0" >
+
+  </RectAnimation>
+
+</Sprite>

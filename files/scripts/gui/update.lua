@@ -10,6 +10,12 @@ local function new_id()
 end
 
 local opened = dofile("mods/copis_things/files/scripts/gui/button.lua")(Gui, new_id)
+if opened then
+    MenuOpen = not (MenuOpen or false)
+end
+if MenuOpen then
+    
+end
 
 -- Gui End
 GuiIdPop( Gui )

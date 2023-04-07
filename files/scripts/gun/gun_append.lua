@@ -39,6 +39,7 @@ copi_state = {
         _draw_actions                       = draw_actions,
         _draw_action                        = draw_action,
         _register_action                    = register_action,
+        _create_shot                        = create_shot,
     }
 }
 
@@ -62,6 +63,7 @@ draw_shot           = dofile_once("mods/copis_things/files/scripts/gun/functions
 draw_action         = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_action.lua").draw_action
 register_action     = dofile_once("mods/copis_things/files/scripts/gun/functions/register_action.lua").register_action
 add_projectile      = dofile_once("mods/copis_things/files/scripts/gun/functions/add_projectile.lua").add_projectile
+create_shot         = dofile_once("mods/copis_things/files/scripts/gun/functions/create_shot.lua").create_shot
 
 -- New Funcs
 peek_draw_actions   = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_actions.lua").peek_draw_actions

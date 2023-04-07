@@ -12,6 +12,15 @@ local function draw_shot( shot, instant_reload_if_empty )
         copi_state.new_cast = nil
     end
 
-    copi_state.old._draw_shot( shot, instant_reload_if_empty )
+    if copi_state.skip_config then
+        local c_old = c
+        c = shot.state
+        shot_structure = {}
+        draw_actions( shot.num_of_cards_to_draw, instant_reload_if_empty )
+        register_action( shot.state )
+        c = c_old
+    else
+        copi_state.old._draw_shot( shot, instant_reload_if_empty )
+    end
 end
 return {draw_shot=draw_shot}

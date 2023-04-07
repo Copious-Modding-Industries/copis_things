@@ -93,3 +93,5 @@ for _, type in ipairs(damage_types) do
     local type_damage = ComponentObjectGetValue2(projcomp, "damage_by_type", type)
     ComponentObjectSetValue2(projcomp, "damage_by_type", type, type_damage * 1.5)
 end
+
+

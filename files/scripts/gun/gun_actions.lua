@@ -5292,6 +5292,92 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_SRS",
+        name = "Serious Cannonball",
+        author = "Copi",
+        description = "A heavy cannonball which can be charged as you hold fire!",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/SRS.png",
+        --related_projectiles = { "mods/copis_things/files/entities/projectiles/SRS.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.6,0.6,0.4,0.2,0.2,0.2",
+        price = 90,
+        mana = 40,
+        action = function()
+            if reflecting then
+                Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
+            else
+                local found = false
+                local player_projs = EntityGetWithTag("player_projectiles") or {}
+                for i = 1, #player_projs do
+                    if EntityGetName(player_projs[i]) == "SRS_handler" then
+                        local pcomp = EntityGetFirstComponent(player_projs[i], "ProjectileComponent")
+                        if pcomp then
+                            local mWhoShot = ComponentGetValue2(pcomp, "mWhoShot")
+                            if mWhoShot == GetUpdatedEntityID() then
+                                found = true
+                                break
+                            end
+                        end
+                    end
+                end
+                if found then
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/SRS_booster.xml")
+                    EndProjectile()
+                else
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/SRS_handler.xml")
+                        BeginTriggerDeath()
+                            BeginProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
+                            EndProjectile()
+                            register_action(c)
+                            SetProjectileConfigs()
+                        EndTrigger()
+                    EndProjectile()
+                end
+            end
+            c.fire_rate_wait = c.fire_rate_wait + 12
+            current_reload_time = current_reload_time + 12
+        end
+    },
+    {
+        id = "COPIS_THINGS_GRAPPLING_HOOK",
+        name = "Arcane Hook",
+        author = "Copi",
+        description = "A magical hook which draws you in when it lands!",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/grappling_hook.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/grappling_hook.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "0,1,2",
+        spawn_probability = "1,1,0.5",
+        inject_after = {"BULLET", "BULLET_TRIGGER", "BULLET_TIMER"},
+        price = 120,
+        mana = 12,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/grappling_hook.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 2
+        end
+    },
+    {
+        id = "COPIS_THINGS_GRAPPLING_HOOK_SHOT",
+        name = "Hooking Shot",
+        author = "Copi",
+        description = "Projectiles fire out hooks after a period of time.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/grappling_hook_shot.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3",
+        spawn_probability = "0.5,0.6,0.7",
+        price = 150,
+        mana = 10,
+        action = function()
+            if not c.extra_entities:find("mods/copis_things/files/entities/misc/grappling_hook_shot.xml,") then
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/grappling_hook_shot.xml,"
+            else
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/grappling_hook_shot_adder.xml,"
+            end
+            draw_actions(1, true)
+        end
+    },
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
@@ -5303,7 +5389,7 @@ if ModSettingGet("CopisThings.inject_spells") then
             -- Loop over actions
             local found = false
             for actions_index = #actions, 1, -1 do
-                action = actions[actions_index]
+                local action = actions[actions_index]
                 -- Loop over inject after options
                 for inject_index = 1, #action_to_insert.inject_after do
                     if action.id == action_to_insert.inject_after[inject_index] then
