@@ -1,5 +1,5 @@
 # Copi's Things
-## [Wiki (heavily WIP)](https://noita.wiki.gg/wiki/Mod:Copi%27s_Things)
+### [Wiki (heavily WIP)](https://noita.wiki.gg/wiki/Mod:Copi%27s_Things)
 A series of changes and additions to Noita.
 
 # Install Instructions
