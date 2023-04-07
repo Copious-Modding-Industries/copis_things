@@ -5046,6 +5046,7 @@ local actions_to_insert = {
         spawn_probability = "0.2, 0.2, 0.1,	0.1, 0.1, 0.1",
         price = 25,
         mana = 60,
+        max_uses = 5,
         action = function()
             if not reflecting then
                 --add_projectile("mods/copis_things/files/entities/projectiles/effect_teleport.xml")
@@ -5424,6 +5425,44 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },]]
+    {
+        id = "COPIS_THINGS_GRAPPLING_HOOK_RAY_ENEMY",
+        name = "Personal Hook Thrower",
+        author = "Copi",
+        description = "Causes hit enemies to uncontrollably grapple around",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/grappling_hook_ray_enemy.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_grappling_hook_ray_enemy.xml" },
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,5",
+        spawn_probability = "0.5,0.7,0.5",
+        inject_after = {"FIREBALL_RAY_ENEMY", "LIGHTNING_RAY_ENEMY", "TENTACLE_RAY_ENEMY"},
+        price = 200,
+        mana = 30,
+        --max_uses = 20,
+        action = function()
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            c.extra_entities =
+                c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_grappling_hook_ray_enemy.xml,"
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_ALT_FIRE_GRAPPLING_HOOK",
+        name = "Alt Fire Arcane Hook",
+        author = "Copi",
+        description = "Fires a magical hook when you alt fire. Consumes 12 mana per shot",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_grappling_hook.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "1,2,3,4,5",
+        spawn_probability = "1,0.5,0.2,0.1,0.1",
+        price = 280,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_grappling_hook.xml",
+        action = function()
+            -- does nothing to the projectiles
+            draw_actions(1, true)
+        end
+    },
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
