@@ -163,6 +163,18 @@ local gui = {
         dofile("mods/copis_things/files/scripts/gui/update.lua")
     end,
 
+    tr_crap = function ()
+        if GlobalsGetValue( "config_mod_button_tr_max", "0" ) == "0" then
+            local current = GlobalsGetValue( "mod_button_tr_current", "0" )
+            GlobalsSetValue( "config_mod_button_tr_max", current or "0" );
+        end
+        GlobalsSetValue( "mod_button_tr_current", "0" );
+    end,
+
+    spawned = function ()
+        GlobalsSetValue( "mod_button_tr_width", "0" );
+    end
+
 }
 
 --[[ CALLBACKS
@@ -186,8 +198,8 @@ function OnModInit()
 end
 
 function OnWorldInitialized()
-    meta.version()
     gui.setup()
+    meta.version()
     experimental.loadspell()
     experimental.spell_visualizer()
 end
@@ -195,5 +207,14 @@ end
 function OnWorldPreUpdate()
     gui.update()
 end
+
+function OnPlayerSpawned()
+    gui.spawned()
+end
+
+function OnWorldPostUpdate()
+    gui.tr_crap()
+end
+
 
 GamePrint("Copi's things INDEV 0.01")
