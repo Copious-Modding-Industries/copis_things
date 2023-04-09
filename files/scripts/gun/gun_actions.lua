@@ -2034,7 +2034,6 @@ local actions_to_insert = {
                         end
                         if (#options > 0) then
                             for _, spell in ipairs(options) do
-                                print(tostring(spell))
                                 for _, data in ipairs(actions) do
                                     if (data.id == spell) then
                                         local rec = check_recursion(data, recursion_level)

@@ -26,7 +26,6 @@ if (velcomp ~= nil) then
         -- Calculate angle and velocity
         local angle = (math.pi - math.atan2((trgt_y - self_y), (trgt_x - self_x)))
         local length = (vel_x ^ 2 + vel_y ^ 2) ^ 0.5
-        print(tostring(length))
         vel_x = -math.cos(angle) * length
         vel_y = math.sin(angle) * length
 

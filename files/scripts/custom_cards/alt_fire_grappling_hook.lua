@@ -7,7 +7,6 @@ local abilitycomp = EntityGetFirstComponentIncludingDisabled(parent, "AbilityCom
 local variablecomp = EntityGetFirstComponentIncludingDisabled(entity_id, "VariableStorageComponent")
 local controlscomp = EntityGetFirstComponentIncludingDisabled(root, "ControlsComponent")
 if (abilitycomp ~= nil) and (variablecomp ~= nil) and (controlscomp ~= nil) then
-    print("oi")
     local cooldown_frames = 30
     local cooldown_frame = ComponentGetValue2(variablecomp, "value_int")
     local aim_x, aim_y = ComponentGetValue2(controlscomp, "mAimingVectorNormalized")

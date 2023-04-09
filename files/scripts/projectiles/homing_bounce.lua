@@ -32,7 +32,6 @@ if bounced_frame ~= nil then
                 local divergence = ((math.random() - 0.5) * 0.174533)
                 local angle = (math.pi - math.atan2((trgt_y - self_y), (trgt_x - self_x))) + divergence
                 local length = (vel_x^2 + vel_y^2) ^ 0.5
-                print(tostring(length))
                 vel_x = -math.cos(angle) * length
                 vel_y = math.sin(angle) * length
 

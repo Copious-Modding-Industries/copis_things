@@ -23,7 +23,6 @@ function collision_trigger( colliding_entity_id )
                     local did_hit = RaytraceSurfaces(coin_x, coin_y, target_x, target_y)
                     if not did_hit then
                         local distance = (target_x - coin_x)^2 + (target_y - coin_y)^2
-                        GamePrint(tostring(distance))
                         if distance < target_data.distance then
                             target_data.id = target
                         end
