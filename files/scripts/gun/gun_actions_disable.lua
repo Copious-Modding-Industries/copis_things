@@ -3,6 +3,7 @@ for i = 1, #actions do
     local action = actions[i]
     if not ModSettingGet("CopisThings.spelltoggle" .. action.id) then
         local replacement = {
+            disabled = true,
             id = action.id,
             name = action.name,
             description = "This content is disabled via Copi's Things.",
