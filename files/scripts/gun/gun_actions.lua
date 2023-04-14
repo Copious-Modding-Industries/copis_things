@@ -5462,6 +5462,26 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_TRUE_CHAOS_RAY",
+        name = "Unstable Pandora Shot",
+        author = "Copi",
+        description = "Your projectile fires out truly random projectiles",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/true_chaos_ray.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/chaos_ray.xml" },
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "5,6,10",
+        spawn_probability = "0.2,0.2,0.3",
+        inject_after = {"FIREBALL_RAY_LINE"},
+        price = 300,
+        mana = 300,
+        action = function()
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/true_chaos_ray.xml,"
+            draw_actions(1, true)
+        end
+    },
 }
 
 if ModSettingGet("CopisThings.inject_spells") then

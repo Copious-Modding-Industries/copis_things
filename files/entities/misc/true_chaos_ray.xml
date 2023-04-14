@@ -1,0 +1,12 @@
+<Entity>
+	<LuaComponent 
+		_enabled="1" 
+		script_source_file="mods/copis_things/files/scripts/projectiles/true_chaos_ray.lua" 
+		execute_every_n_frame="6">
+    </LuaComponent>
+	
+	<LifetimeComponent
+		lifetime="300"
+		>
+	</LifetimeComponent>
+</Entity>

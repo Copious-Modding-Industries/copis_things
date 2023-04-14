@@ -21,7 +21,7 @@ for i = 1, #actions do
                     if inv2comp then
                         local activeitem = ComponentGetValue2(inv2comp, "mActiveItem")
                         if EntityHasTag(activeitem, "wand") then
-                            local wand_actions = EntityGetAllChildren(wand_id) or {}
+                            local wand_actions = EntityGetAllChildren(activeitem) or {}
                             for j = 1, #wand_actions do
                                 local itemcomp = EntityGetFirstComponentIncludingDisabled(wand_actions[j], "ItemComponent")
                                 if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id then
