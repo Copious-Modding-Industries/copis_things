@@ -10,7 +10,7 @@ Now flee, escape until this primordial slate of commands is in it's final state.
 local meta = {
 
     version = function ()
-        GlobalsSetValue("copis_things_version", "v0.2 INDEV")
+        GlobalsSetValue("copis_things_version", "v0.3 INDEV")
     end,
 
     flag_reset = function ()
@@ -456,4 +456,4 @@ function OnWorldPostUpdate()
 end
 
 
-GamePrint("Copi's things INDEV 0.01")
+GamePrint("Copi's things INDEV 0.3")
