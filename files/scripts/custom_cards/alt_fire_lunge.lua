@@ -5,7 +5,6 @@ local wand = self:parent()
 local shooter = self:root()
 
 if GameGetFrameNum() >= self.var_int.cooldown_frame then     -- run if cooldown is over
-GamePrint("a")
     local shooter_controls = shooter.ControlsComponent
     if shooter_controls ~= nil and shooter_controls.mButtonDownRightClick == GameGetFrameNum() then
 
