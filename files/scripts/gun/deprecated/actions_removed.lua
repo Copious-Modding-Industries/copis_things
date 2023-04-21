@@ -2184,6 +2184,45 @@ local to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id                  = "COPIS_THINGS_QUESTIONABLE",
+        name                = "?",
+        author = "Copi",
+        mod = "Copi's Things",
+        description         = "joke content -- todo remove",
+        sprite              = "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
+        sprite_unidentified = "mods/copis_things/files/ui_gfx/gun_actions/dotpng.png",
+        spawn_requires_flag = "secret_fruit",
+        type                = ACTION_TYPE_OTHER,
+        recursive           = true,
+        spawn_level         = "0",
+        spawn_probability   = "0",
+        price               = 600,
+        mana                = 300,
+        max_uses            = 1,
+        never_unlimited     = true,
+        custom_uses_logic   = true,
+        action              = function(recursion_level, iteration)
+            if not reflecting then
+                c.fire_rate_wait = c.fire_rate_wait + 150
+                current_reload_time = current_reload_time + 40
+                local boss_kill_count = tonumber(GlobalsGetValue("GLOBAL_BOSS_KILL_COUNT", "0"))
+                current_action.uses_remaining = boss_kill_count
+                if boss_kill_count > 0 then
+                    for i = 1, boss_kill_count do
+                        dofile_once("data/scripts/streaming_integration/event_list.lua")
+                        local choice = streaming_events[math.random(1, #streaming_events)]
+                        choice.action(choice)
+                    end
+                else
+                    GamePrintImportant("A powerful entity is sealing an unknown power!")
+                end
+            else
+                c.fire_rate_wait = c.fire_rate_wait - 150
+                current_reload_time = current_reload_time - 40
+            end
+        end,
+    },
 
 }
 

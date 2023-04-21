@@ -38,7 +38,7 @@
 	knockback_force="0"
 	>
 	<damage_by_type
-		curse="0.09"
+		ice="0.09"
 	></damage_by_type>
     <config_explosion
       never_cache="1" 

@@ -37,7 +37,32 @@ local temporary_deck = function(deck_fn, new_deck, new_hand, new_discarded)
     discarded = old._discarded
 end
 
+--- ### Gets the current card entity.
+--- ***
+--- @return integer|nil card The *Entity ID* of the card being played.
+local current_card = function ()
+    local shooter = GetUpdatedEntityID()
+    local inv2comp = EntityGetFirstComponentIncludingDisabled(shooter, "Inventory2Component")
+    if inv2comp then
+        local activeitem = ComponentGetValue2(inv2comp, "mActiveItem")
+        if EntityHasTag(activeitem, "wand") then
+            local wand_actions = EntityGetAllChildren(activeitem) or {}
+            for j = 1, #wand_actions do
+                local itemcomp = EntityGetFirstComponentIncludingDisabled(wand_actions[j], "ItemComponent")
+                if itemcomp then
+                    if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id then
+                        return wand_actions[j]
+                    end
+                end
+            end
+        end
+    end
+    return nil
+end
+
+
 return {
+    current_card = current_card,
     state_per_cast = state_per_cast,
     discard_action = discard_action,
     deck_from_actions = deck_from_actions,

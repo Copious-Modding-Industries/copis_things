@@ -4,9 +4,9 @@
    * Fixing several grammatical and consistency errors
    * Original Concept for Alchemia Balloon
  * Eli10293
-   * Original concept and graphics for Luminous Saber
-   * Original concept and graphics for Invert
-   * Original concept and graphics (modified) for Death Cross Trail
+   * Original concept and graphics for Luminous Saber icon
+   * Original concept and graphics for Invert icon
+   * Original concept and graphics (modified) for Death Cross Trail icon
    * Original concept for Summon Circle
  * Conga Lyne
    * Coming up with limited use Alt Fire spells
