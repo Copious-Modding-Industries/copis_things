@@ -2,9 +2,9 @@
 	<HomingComponent
         _enabled="0"
         _tags="homing_macross"
-		homing_targeting_coeff="250.0"
+		homing_targeting_coeff="100.0"
 		homing_velocity_multiplier="0.845"
-		detect_distance="250"
+		detect_distance="150"
 	>
 	</HomingComponent>
     <LuaComponent

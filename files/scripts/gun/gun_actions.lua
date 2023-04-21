@@ -496,7 +496,7 @@ local actions_to_insert = {
         spawn_level = "2,3,4",
         spawn_probability = "1,1,0.5",
         price = 220,
-        mana = 20,
+        mana = 25,
         action = function()
             add_projectile("mods/copis_things/files/entities/projectiles/silver_bullet.xml")
             c.fire_rate_wait = c.fire_rate_wait - 12
@@ -514,7 +514,7 @@ local actions_to_insert = {
         spawn_level = "4,			5,			6",
         spawn_probability = "1.00,		0.66,		0.33",
         price = 330,
-        mana = 35,
+        mana = 40,
         action = function()
             add_projectile("mods/copis_things/files/entities/projectiles/silver_magnum.xml")
             c.fire_rate_wait = c.fire_rate_wait - 6
@@ -532,7 +532,7 @@ local actions_to_insert = {
         spawn_level = "4,			5,			6",
         spawn_probability = "1.00,		0.50,		0.20",
         price = 220,
-        mana = 25,
+        mana = 30,
         action = function()
             add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/silver_bullet.xml", 1)
             c.fire_rate_wait = c.fire_rate_wait - 12
@@ -550,7 +550,7 @@ local actions_to_insert = {
         spawn_level = "2, 3, 4",
         spawn_probability = "1.00, 0.66, 0.33",
         price = 330,
-        mana = 40,
+        mana = 45,
         action = function()
             add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/silver_magnum.xml", 1)
             c.fire_rate_wait = c.fire_rate_wait - 6
@@ -4504,7 +4504,7 @@ local actions_to_insert = {
                     else
                         Revs = Revs + 1
                         -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                        local mana_add = math.min(80, math.ceil((Revs / 5) ^ 1.5) * 5)
+                        local mana_add = math.min(80, math.ceil((Revs / 5) ^ 1.5) * 4)
                         local delay_add = math.min(40, Revs ^ (1 / 3))
                         mana = mana + mana_add
                         c.fire_rate_wait = c.fire_rate_wait + delay_add
