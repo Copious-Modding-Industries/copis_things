@@ -13,6 +13,7 @@ A series of changes and additions to Noita.
 **Apotheosis**
  - Changes:
    - Spells added to reward pools
+   - Spells supported in random spell pools
  - Download Links:
    - [Github](https://github.com/Conga0/Apotheosis)
 
