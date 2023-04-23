@@ -10,7 +10,7 @@ Now flee, escape until this primordial slate of commands is in it's final state.
 local meta = {
 
     version = function ()
-        GlobalsSetValue("copis_things_version", "v0.4 SUMMIT CANDIDATE")
+        GlobalsSetValue("copis_things_version", "v0.4 PUBLIC BETA")
     end,
 
     flag_reset = function ()
