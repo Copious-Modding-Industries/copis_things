@@ -195,16 +195,12 @@ to_insert =
                     ComponentSetValue2(damagemodel, "blood_material", "gold");
                     ComponentSetValue2(damagemodel, "blood_spray_material", "gold");
                     ComponentSetValue2(damagemodel, "blood_multiplier", 0.2);
-                    ComponentSetValue2(damagemodel, "blood_sprite_directional",
-                        "data/particles/bloodsplatters/bloodsplatter_directional_yellow_$[1-3].xml");
-                    ComponentSetValue2(damagemodel, "blood_sprite_large",
-                        "data/particles/bloodsplatters/bloodsplatter_yellow_$[1-3].xml");
+                    ComponentSetValue2(damagemodel, "blood_sprite_directional", "data/particles/bloodsplatters/bloodsplatter_directional_yellow_$[1-3].xml");
+                    ComponentSetValue2(damagemodel, "blood_sprite_large", "data/particles/bloodsplatters/bloodsplatter_yellow_$[1-3].xml");
 
-                    local projectile_resistance = tonumber(ComponentObjectGetValue(damagemodel, "damage_multipliers",
-                        "projectile"))
+                    local projectile_resistance = tonumber(ComponentObjectGetValue(damagemodel, "damage_multipliers", "projectile"))
                     projectile_resistance = projectile_resistance * 0.9
-                    ComponentObjectSetValue(damagemodel, "damage_multipliers", "projectile",
-                        tostring(projectile_resistance))
+                    ComponentObjectSetValue(damagemodel, "damage_multipliers", "projectile", tostring(projectile_resistance))
                 end
             end
 
@@ -279,6 +275,40 @@ to_insert =
                     end
                 end
             end
+
+            local effects = {
+                "PROTECTION_FIRE",
+                "PROTECTION_RADIOACTIVITY",
+                "PROTECTION_EXPLOSION",
+                "PROTECTION_MELEE",
+                "PROTECTION_ELECTRICITY",
+            }
+
+            local children = EntityGetAllChildren(entity_who_picked) or {}
+            for i = 1, #children do
+                local effect = EntityGetFirstComponent(children[i], "GameEffectComponent")
+                if effect ~= nil then
+                    if #effects < 1 then
+                        break
+                    end
+                    for j = 1, #effects do
+                        if ComponentGetValue2(effect, "effect") == effects[j] then
+                            table.remove(effects, j)
+                            break
+                        end
+                    end
+                end
+            end
+
+            if #effects > 0 then
+                local effect = EntityCreateNew("PROT_LOTTERY_EFFECT")
+                EntityAddTag(effect, "perk_entity")
+                EntityAddComponent2(effect, "GameEffectComponent", {
+                    effect=effects[math.random(1, #effects)],
+                    frames=-1
+                })
+            end
+
         end,
         func_remove = function(entity_who_picked)
             local damagemodels = EntityGetComponent(entity_who_picked, "DamageModelComponent")

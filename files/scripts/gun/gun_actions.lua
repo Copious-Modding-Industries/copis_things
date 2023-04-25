@@ -5331,7 +5331,7 @@ local actions_to_insert = {
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_macross.xml,"
             draw_actions(1, true)
         end
-    },
+    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS
     {
         id = "COPIS_THINGS_DUPLICATE_ACTION",
         name = "Recast",
@@ -5393,7 +5393,7 @@ local actions_to_insert = {
 
             end
         end
-    },
+    },]]
     {
         id = "COPIS_THINGS_POLYMORPH",
         name = "Polymorph",
