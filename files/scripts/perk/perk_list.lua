@@ -301,12 +301,14 @@ to_insert =
             end
 
             if #effects > 0 then
+                local effect_type = effects[math.random(1, #effects)]
                 local effect = EntityCreateNew("PROT_LOTTERY_EFFECT")
                 EntityAddTag(effect, "perk_entity")
                 EntityAddComponent2(effect, "GameEffectComponent", {
-                    effect=effects[math.random(1, #effects)],
+                    effect=effect_type,
                     frames=-1
                 })
+                EntityAddChild(entity_who_picked, effect)
             end
 
         end,
