@@ -20,6 +20,8 @@
    * Several bug reports
  * Nolla Games
    * Blood Tentacle
+ * Priskip
+   * [Tool used to generate text in workshop image](https://github.com/Priskip/Noita_Summit_Text_Maker)
 
 ## Blessed Compatibility Implementors
  * Conga Lyne
