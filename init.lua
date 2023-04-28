@@ -1,10 +1,7 @@
 --[[
 Hello seeker of knowledge.
 
-I will speak many words to you through the past present and future.
-But for now, rid yourself of this domain, as it is unstable and incomplete.
-To base your future on the chaotic state of this project would only worsen them.
-Now flee, escape until this primordial slate of commands is in it's final state.
+A long milestone has been reached, at last. Keep listening with your eyes, for there is more to come.
 ]]
 
 local meta = {
@@ -283,6 +280,14 @@ local compatibility = {
                 },
             1 )
 
+            -- Funny monster powder
+            ---@diagnostic disable-next-line: undefined-global
+            append_effect("monster_powder_test", function(wand)
+                if math.random() > 0.85 then
+                    wand:AddSpells("COPIS_THINGS_SUMMON_HAMIS")
+                end
+            end)
+
             -- Slicy rune
             ---@diagnostic disable-next-line: undefined-global
             potion_recipe_add_spells( "runestone_disc",
@@ -454,6 +459,5 @@ end
 function OnWorldPostUpdate()
     gui.tr_crap()
 end
-
 
 GamePrint("Copi's things INDEV 0.3")

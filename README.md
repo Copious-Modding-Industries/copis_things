@@ -32,4 +32,3 @@ A series of changes and additions to Noita.
    - [Github](https://github.com/Conga0/Mo_Creeps)
    - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2879253717)
    - [ModWorkshop](https://modworkshop.net/mod/39990)
-

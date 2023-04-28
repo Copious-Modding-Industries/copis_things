@@ -1,5 +1,7 @@
 # Thank Yous and Stuff
 Foreword - I am bad at thanking and stuff, this is the best I can do. I seriously and genuinely appreciate all of your support, I would never have gone so far in modding without everyone by my side.
+This mod would never be possible without the immense support, friendship, inspiration, and over all companionship all these brilliant people have brought me over my time in noita's community.
+This may seem weird to put in copi's things, but this mod means a lot to me, as do all these people, the best I can offer all of you is immortality in a github repo markdown file.
 
 In alphabetical order, since I could never pick one of you to put first:
 
@@ -13,12 +15,14 @@ In alphabetical order, since I could never pick one of you to put first:
     - [Goki](#goki)
     - [Graham](#graham)
     - [Horscht](#horscht)
+    - [Nolla Games](#nolla-games)
     - [Sosig](#sosig)
     - [Spicy](#spicy)
     - [Spoop](#spoop)
     - [Squirrelly](#squirrelly)
     - [Tanksy](#tanksy)
     - [Yourdoom](#yourdoom)
+    - [You](#you)
 
 ### Alias
 Wether it be crab champions, Noita, Nova Drift, or whatever else (except rainworld, I'm holding off on spoilers still :p ), I've had such a blast spending time in your chat, I love the noita challenge runs, various games, and even just the small talk that goes on in your channel. Keep up the awesome work, you're a really fun guy. I've got my eyes out for sky islands thanks to you :aliasbSus:
@@ -47,6 +51,9 @@ Thank you for being so damn cool, and having such cool ideas. Your mods mean a l
 ### Horscht
 I adore your mods. Missile mina, Anvil of destiny, all of them. They're really fun, cool, and innovative. I appreciate everything you've done for the modding community, and I'd have never gotten so far with GUI if it weren't for you. Thank you for everything, and for being a huge inspiration. To go back and update anvil's API so us newer modders can support it, you've done a lot for us. You're incredible, and I will always look up to you and your work.
 
+### Nolla Games
+It feels quite odd to be writing to a few people, but without your game none of this would have ever been possible. I have immesurable respect for all of you, for getting me so deeply invested in a game which has changed my life, and inspired so much creativity and growth from me. This mod is built on your hard work, and while I only ever personally said a few words to petri one time, all of you are really important to me. I'd be more surprised by any of you reading this - but thank you for allowing me and many others to not only enjoy Noita, but express ourselves through it's modding API.
+
 ### Sosig
 I haven't gotten to talk to you so much, but you're absolutely amazing. Your newer content mods are bafflingly, amazing, the perks you've made are freaking cool. More stuff, I'm speechless. Alt biomes is to this day one of my favourite mods, I'm super thankful you're a part of this community. You're a prime example of creativity and quality, and your mods show just how capable you are.
 
@@ -64,3 +71,6 @@ Nothing brings my mood up like getting to hang out with you and watch your strea
 
 ### Yourdoom
 Your pixel art is godly. To this day I look at the art you've made, and it fills me with inspiration. It's thanks to you that I strive to improve. You make incredible designs and artwork, I could only hope to get close to that level of skill. When I think of good pixel art, you come to mind. You're really freaking cool, and so is everything you're involved in. Keep up the great work dude, you're incredible.
+
+### You
+Yes, You, The reader, The player, the one who's gone out of their way to check out this mod. Keep being who you are, you are one of a kind. I thank you so sincerely for even taking the time to look at this file, which most won't notice. This mod means so much to me, and the fact that you've not only discovered it, but looked into it is amazing. Thank you.

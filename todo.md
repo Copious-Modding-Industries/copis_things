@@ -1,22 +1,38 @@
-Adjust spell spawning rarities and tiers
-Haunted shot                                        -- Spawns ghosts where hit
-Card shot                                           -- Select random card projectile from deck, damage/effects based on card
+## Perks
+ - Summon Medkit (One-Off)
+   - Single use healing item
+ - Summon Loot Cache (One-Off)
+   - Special chest with spells and crap
+ - Lost Treasure
+   - Track despawned gold by default, and upon taking, give a cut of that to the player
+ - Wandsmith
+   - Future wands generate better
+ - Wand Fusion (One-Off)
+   - All held wands merge, stat boost, excess spells dropped
+ - Volcanic Blood
+   - Fire + Lava immunity, Bleed lava, hurt by wet, and ignite nearby enemies randomly
+ - Recursion (One-Off)
+   - Next stackable perk is tripled
+ - Material Compression
+   - Denser Flasks
+ - Hallowed Step
+   - Purifying aoe + some crap
+ - Gold Rush
+   - Killstreak awarding gold at the end, but gold is slightly less valuable
+ - Diplomatic Immunity
+   - Leaving HM does not anger the gods
+ - Black Market
+   - Extra perk which costs max hp but is guaranteed to be kept
+ - Anemia
+   - All enemies bleed less
+   - You bleed nothing
+   - Lighter player
+ - Adrenaline
+   - Stats adjust based on hp percent, speed up, flight up, etc etc
 
-Perks
-
-medkit (summons one use medkit)
-lootbox (loot box)
-
-spell rarities
+spell rarities SEVERE TODO
 static camera projectile, camera locks to it. deletes on alt fire, deletes on creating a new one
-
-magic 8 ball dice type item 
-high rolling time, physics damage and strong effects
-
-move sword blade card out of projectiles/
-
-
-
-
-investigate bug where spells will murder innocents when made to be peaceful by friendly AI, when in the presence of certain enemies
 remove herobrine 
+Figure out SRS crap
+
+# CHANGE WORKSHOP XML TO REFLECT NEW CRAP!

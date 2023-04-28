@@ -1,3 +1,4 @@
+-- This is a fucking mess, and won't be in the final version.
 dofile("data/scripts/lib/mod_settings.lua") -- see this file for documentation on some of the features.
 dofile("data/scripts/lib/utilities.lua")
 local mod_id = "CopisThings"
