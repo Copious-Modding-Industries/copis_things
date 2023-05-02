@@ -7,7 +7,7 @@ A long milestone has been reached, at last. Keep listening with your eyes, for t
 local meta = {
 
     version = function ()
-        GlobalsSetValue("copis_things_version", "v0.41 SUMMIT EDITION")
+        GlobalsSetValue("copis_things_version", "v0.42")
     end,
 
     flag_reset = function ()
