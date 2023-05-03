@@ -4,6 +4,7 @@
    * Fixing several grammatical and consistency errors
    * Spell balance suggestions
    * Original Concept for Alchemia Balloon
+   * Motivation
  * Eli10293
    * Original concept and graphics for Luminous Saber icon
    * Original concept and graphics for Invert icon
@@ -13,6 +14,7 @@
    * Coming up with limited use Alt Fire spells
    * Spell balance suggestions
    * Several bug reports
+   * Motivation
  * Squirrelly
    * Concept for Octuple Scatter Spell
    * Several bug reports

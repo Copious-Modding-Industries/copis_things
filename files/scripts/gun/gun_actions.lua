@@ -32,6 +32,7 @@ local actions_to_insert = {
         spawn_level = "2,3,4,5,6",
         spawn_probability = "0.3,0.4,0.5,0.6,0.6",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        subtype = { homing = true },
         price = 150,
         mana = 15,
         action = function()
@@ -1504,6 +1505,7 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5",
         spawn_probability = "0.1,0.1,0.1,0.1,0.1",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        subtype = { homing = true },
         price = 100,
         mana = 0,
         action = function()
@@ -4045,6 +4047,7 @@ local actions_to_insert = {
         spawn_level = "2,3,4,5,6,10",
         spawn_probability = "0.12,0.12,0.12,0.24,0.24,0.36",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        subtype = { homing = true },
         price = 80,
         mana = 10,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/ult_control.xml",
@@ -4135,6 +4138,7 @@ local actions_to_insert = {
         spawn_level = "0,1,2,3,4,5,6",
         spawn_probability = "0.1,0.2,0.3,0.4,0.5,0.4,0.3",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        subtype = { homing = true },
         price = 280,
         mana = 22,
         action = function()
@@ -4171,6 +4175,10 @@ local actions_to_insert = {
         type = ACTION_TYPE_MODIFIER,
         spawn_level = "2,3,4",
         spawn_probability = "0.8,0.8,0.8",
+        subtype =
+        {
+            bounce = true,
+        },
         price = 300,
         mana = 15,
         action = function()
@@ -4229,6 +4237,7 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5,6",
         spawn_probability = "0.1,0.1,0.1,0.1,0.1,6",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        subtype = { homing = true },
         price = 100,
         mana = 12,
         action = function()
@@ -4306,6 +4315,10 @@ local actions_to_insert = {
         spawn_level = "2,3,4,5,6",
         spawn_probability = "0.3,0.4,0.5,0.6,0.6",
         inject_after = {"HEAVY_SHOT", "LIGHT_SHOT"},
+        subtype =
+            {
+                bounce = true,
+            },
         price = 150,
         mana = 15,
         action = function()
@@ -5262,6 +5275,10 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5,6",
         spawn_probability = "0.5,0.3,0.4,0.5,0.6,0.6",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        {
+            homing = true,
+            bounce = true,
+        },
         price = 150,
         mana = 25,
         action = function()
@@ -5284,6 +5301,11 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5,6",
         spawn_probability = "0.5,0.3,0.4,0.5,0.6,0.6",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        subtype =
+            {
+                homing = true,
+                bounce = true,
+            },
         price = 150,
         mana = 25,
         action = function()
@@ -5306,6 +5328,7 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5,6",
         spawn_probability = "0.5,0.3,0.4,0.5,0.6,0.6",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        subtype = { homing = true },
         price = 150,
         mana = 15,
         action = function()
@@ -5324,6 +5347,7 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5,6",
         spawn_probability = "0.5,0.3,0.4,0.5,0.6,0.6",
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+        subtype = { homing = true },
         price = 150,
         mana = 40,
         action = function()

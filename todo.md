@@ -30,9 +30,10 @@
  - Adrenaline
    - Stats adjust based on hp percent, speed up, flight up, etc etc
 
-spell rarities SEVERE TODO
+**spell rarities SEVERE TODO** <-- NEEDS TO BE DONE URGENTLY IF YOU'RE READING THIS DO NOT BE AFRAID TO REACH OUT TO HELP THEY ARE A MESS
 static camera projectile, camera locks to it. deletes on alt fire, deletes on creating a new one
 remove herobrine 
 Figure out SRS crap
+
 
 # CHANGE WORKSHOP XML TO REFLECT NEW CRAP!
