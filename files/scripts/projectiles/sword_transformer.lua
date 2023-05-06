@@ -5,12 +5,19 @@ local leader = ComponentGetValue2(vsc, "value_int")
 
 if EntityGetIsAlive(leader) then
 
+    local dist_init = 4
     local inventory = EntityGetFirstComponent(leader, "Inventory2Component")
-    local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-    local dist_init = 12
-    if EntityHasTag(active_wand, "wand") then
-        local HotspotComponent = EntityGetFirstComponentIncludingDisabled(active_wand, "HotspotComponent")
-        dist_init = ComponentGetValueVector2(HotspotComponent, "shoot_pos")
+    local active_wand
+    if inventory then
+        active_wand = ComponentGetValue2(inventory, "mActiveItem")
+        if EntityHasTag(active_wand, "wand") then
+            local _, _, rot = EntityGetTransform(active_wand)
+            local HotspotComponent = EntityGetFirstComponentIncludingDisabled(active_wand, "HotspotComponent", "shoot_pos")
+            if HotspotComponent then
+                local ox, oy = ComponentGetValueVector2(HotspotComponent, "offset")
+                dist_init = ox
+            end
+        end
     end
 
     local controls = EntityGetFirstComponent( leader ,"ControlsComponent" );

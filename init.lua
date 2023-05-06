@@ -1,13 +1,13 @@
 --[[
 Hello seeker of knowledge.
 
-A long milestone has been reached, at last. Keep listening with your eyes, for there is more to come.
+A new era of development ensues, after being seen by many eyes. 
 ]]
 
 local meta = {
 
     version = function ()
-        GlobalsSetValue("copis_things_version", "v0.42")
+        GlobalsSetValue("copis_things_version", "v0.43")
     end,
 
     flag_reset = function ()
@@ -460,4 +460,4 @@ function OnWorldPostUpdate()
     gui.tr_crap()
 end
 
-GamePrint("Copi's things INDEV 0.3")
+GamePrint("Copi's things INDEV " .. (GlobalsGetValue("copis_things_version", "VERSION NOT DECLARED") or "VERSION NOT DECLARED"))

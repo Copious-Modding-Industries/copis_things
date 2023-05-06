@@ -1,6 +1,8 @@
 local SpriteOverridePath = "mods/copis_things/files/ui_gfx/gun_actions/replace/"
 local actions_to_edit = {
 
+    -- Vanilla material spells
+
     ["MATERIAL_ACID"] = {
         sprite = table.concat({SpriteOverridePath, "material_acid", ".png"})
     },
@@ -21,9 +23,13 @@ local actions_to_edit = {
         sprite = table.concat({SpriteOverridePath, "material_water", ".png"})
     },
 
+    -- Mo stuff material spells
+
     ["MATERIAL_METAL"] = {
         sprite = table.concat({SpriteOverridePath, "material_metal", ".png"})
     },
+    
+    -- Graham material spells
 
     ["GRAHAM_MATERIAL_PURE"] = {
         sprite = table.concat({SpriteOverridePath, "material_pure", ".png"})
@@ -33,8 +39,29 @@ local actions_to_edit = {
         sprite = table.concat({SpriteOverridePath, "material_radioactive", ".png"})
     },
 
+    
+    -- Midas suite material spells
+
     ["MATERIAL_GOLD"] = {
         sprite = table.concat({SpriteOverridePath, "material_gold", ".png"})
+    },
+
+
+    -- Apo material spells
+    --[[
+    Leaving these ready to uncomment in case conga does anything with the commented out spells as per my suggestion in dms, to save myself some time
+
+    ["APOTHEOSIS_MATERIAL_LAVA"] = {    -- NOTE! Move copi's things material lava sprite into replace folder, and use vanilla style for material spells, so people can toggle off and have consistency; do same override sprite in here
+        sprite = table.concat({SpriteOverridePath, "material_lava", ".png"})
+    },
+
+    ]]
+    ["APOTHEOSIS_MATERIAL_ALCOHOL"] = {
+        sprite = table.concat({SpriteOverridePath, "material_alcohol", ".png"})
+    },
+
+    ["APOTHEOSIS_MATERIAL_SLIME"] = {
+        sprite = table.concat({SpriteOverridePath, "material_slime", ".png"})
     },
 
     ["BLACK_HOLE_DEATH_TRIGGER"] = {

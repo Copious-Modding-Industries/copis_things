@@ -22,6 +22,20 @@ if projcomp then
 
     if target ~= -420 and EntityGetIsAlive(target) then
         local target_x, target_y = EntityGetTransform(target)
+        local inventory = EntityGetFirstComponent(target, "Inventory2Component")
+        if inventory then
+            local active_wand = ComponentGetValue2(inventory, "mActiveItem")
+            if EntityHasTag(active_wand, "wand") then
+                local _, _, rot = EntityGetTransform(active_wand)
+                local HotspotComponent = EntityGetFirstComponentIncludingDisabled(active_wand, "HotspotComponent", "shoot_pos")
+                if HotspotComponent then
+                    local ox, oy = ComponentGetValueVector2(HotspotComponent, "offset")
+                    local tx = math.cos(rot) * ox - math.sin(rot) * oy
+                    local ty = math.sin(rot) * ox + math.cos(rot) * oy
+                    target_x, target_y = target_x + tx, target_y + ty
+                end
+            end
+        end
         -- Particle logic
         local vars = EntityGetComponentIncludingDisabled(entity_id, "ParticleEmitterComponent", "disabled_at_start") or {}
         for i = 1, #vars do
@@ -50,7 +64,7 @@ if projcomp then
                 }
 
                 local len = math.sqrt(math.sqrt((offset.x ^ 2) + (offset.y ^ 2)))
-                vel_x = vel_x + (offset.x)
+                vel_x = vel_x + (offset.x)/1.5
                 vel_y = vel_y + (offset.y)
 
                 ComponentSetValue2(cdc, "mVelocity", vel_x, vel_y)
@@ -67,6 +81,11 @@ if projcomp then
                 vel_y = vel_y + (offset.y / len)
 
                 ComponentSetValue2(vcomp, "mVelocity", vel_x, vel_y)
+            end
+            -- Hook lifetime behaviour
+            local distance = (pos_x-target_x)^2 + (pos_y-target_y)^2
+            if distance < 750 then
+                EntityAddComponent2(entity_id, "LifetimeComponent", {lifetime=1})
             end
         end
     end

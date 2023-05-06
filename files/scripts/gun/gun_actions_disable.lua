@@ -26,7 +26,7 @@ for i = 1, #actions do
                                 local itemcomp = EntityGetFirstComponentIncludingDisabled(wand_actions[j], "ItemComponent")
                                 if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id then
                                     EntityKill(wand_actions[j])
-                                    print(table.concat{"[COPIS THINGS]: ACTION ", action.id, " WHICH IS DISABLED HAS BEEN CASTED"})
+                                    print(table.concat{"[COPIS THINGS]: ACTION ", action.id, " WHICH IS DISABLED HAS BEEN CASTED!"})
                                 end
                             end
                         end
