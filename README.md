@@ -32,3 +32,10 @@ A series of changes and additions to Noita.
    - [Github](https://github.com/Conga0/Mo_Creeps)
    - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2879253717)
    - [ModWorkshop](https://modworkshop.net/mod/39990)
+
+# FAQ
+
+ - Why is Copi's Things not on the workshop?
+   - Copi's Things is a direct successor and competitor to the abandoned Goki's Things mod; it would kill initial hype to release it in an unfinished state
+   - Unlike triple A game studios, I only release to steam when my projects are done
+   - The mod still contains bugs and balance issues, and it would leave a bad impression on the wider userbase stopping them from further using it
