@@ -7,6 +7,17 @@ local targets = EntityGetInRadiusWithTag( pos_x, pos_y, 192, "homing_target" )
 
 SetRandomSeed( pos_x + pos_y, GameGetFrameNum() )
 
+local projectile_comp = EntityGetFirstComponentIncludingDisabled( entity_id, "ProjectileComponent" )
+if(projectile_comp)then
+	local who_shot = ComponentGetValue2( projectile_comp, "mWhoShot" )
+	for i, v in ipairs(targets)do
+		if(v == who_shot)then
+			table.remove(targets, i)
+			break
+		end
+	end
+end
+
 if ( #targets > 0 ) then
 	local rnd = Random(1, #targets)
 	local target_id = targets[rnd]
