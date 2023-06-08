@@ -26,6 +26,18 @@ if valid then
         -- I've been thinking about making it summon a 'distorted' player clone who's like a mere imitation of the real player,
         -- Acting as a mindless follower or something: I can't animate at all and enemy making still eludes me, so some help would be appreciated
         -- https://imgur.com/a/YzMTrrd
+
+        -- Thanks for the help conga!
+        local dmc = EntityGetFirstComponentIncludingDisabled(victim, "DamageModelComponent") --[[@cast dmc number]]
+        local ragdoll = ComponentGetValue2(dmc, "ragdoll_filenames_file")
+        local material = ComponentGetValue2(dmc, "ragdoll_material")
+
+        -- Temp: new api func
+        -- Eba PLEASE add this to your extension
+        -- No clue what half these values are for, I think it's:
+        -- LRD ( files file, x, y, material, Scale???, velx??, vely??)
+        ---@diagnostic disable-next-line: undefined-global
+        LoadRagdoll( ragdoll, x, y, material, 1, Random( -5, 5 ), Random( -5, 5 ) )
     else
         local path = EntityGetFilename(victim)
         if path:match("data/") or path:match("mods/") then
