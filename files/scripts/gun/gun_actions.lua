@@ -4267,15 +4267,15 @@ local actions_to_insert = {
                 draw_actions(1, true)
             end
 
-            c.spread_degrees = c.spread_degrees + (n * 2.5)
-            c.fire_rate_wait = c.fire_rate_wait + (n * 6)
-            c.screenshake = c.screenshake + (n * 1)
-            c.damage_critical_chance = c.damage_critical_chance + (n * 2)
-            c.lifetime_add = c.lifetime_add + (n * 1)
-            c.damage_projectile_add = c.damage_projectile_add + (n * 0.05)
-            c.speed_multiplier = c.speed_multiplier + (n * 0.2)
-            c.gore_particles = c.gore_particles + (n * 2)
-            c.bounces = c.bounces + math.floor(n * 0.25)
+            c.spread_degrees            = c.spread_degrees          + (n * 2.5)
+            c.fire_rate_wait            = c.fire_rate_wait          + (n * 6)
+            c.screenshake               = c.screenshake             + (n * 1)
+            c.damage_critical_chance    = c.damage_critical_chance  + (n * 2)
+            c.lifetime_add              = c.lifetime_add            + (n * 1)
+            c.damage_projectile_add     = c.damage_projectile_add   + (n * 0.05)
+            c.speed_multiplier          = c.speed_multiplier        + (n * 0.2)
+            c.gore_particles            = c.gore_particles          + (n * 2)
+            c.bounces                   = c.bounces                 + math.floor(n * 0.25)
             if n >= 20 then
                 c.extra_entities = c.extra_entities .. "data/entities/particles/tinyspark_white.xml,"
                 c.ragdoll_fx = 3
@@ -4624,8 +4624,7 @@ local actions_to_insert = {
             if entity_id ~= nil and entity_id ~= 0 then
                 local x, y = EntityGetTransform(entity_id)
                 EntityLoad("data/entities/particles/image_emitters/player_disappear_effect_right.xml", x, y) -- gfx
-                EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999,
-                    "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTERGRATED", 0, 0, entity_id, x, y, 10)
+                EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999, "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTERGRATED", 0, 0, entity_id, x, y, 10)
                 EntityKill(entity_id)
             end
         end
