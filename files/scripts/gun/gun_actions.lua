@@ -1,4 +1,8 @@
 dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
+-- prevent angry code
+---@diagnostic disable-next-line: lowercase-global
+
+
 local actions_to_insert = {
     -- BLOOD TENTACLE
     {
@@ -593,39 +597,69 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-            -- Check for initial reflection
+            -- Check for initial reflection and greek letters/non-self casts
             if not reflecting then
-                -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
-                    local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                    local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    if inventory ~= nil then
-                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                        local pos_x, pos_y = EntityGetTransform(entity_id)
-                        local wand = EZWand(active_wand)
-                        if wand ~= nil then
-                            if (wand.shuffle == true) then
-                                wand.shuffle = false
-                                wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE")
-                                -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                                wand.manaMax = wand.manaMax * 0.9
-                                wand.manaChargeSpeed = wand.manaChargeSpeed * 0.9
-                                wand.castDelay = wand.castDelay * 1.1
-                                wand.rechargeTime = wand.rechargeTime * 1.1
-                                local sprite_file = wand:GetSprite()
-                                if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                    wand:UpdateSprite()
-                                end
-                                GameScreenshake(50, pos_x, pos_y)
-                                GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
-                            else
-                                GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
-                                GamePrintImportant("Your wand is already unshuffled!", "")
-                            end
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local pos_x, pos_y = EntityGetTransform(this_wand)
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent")
+                    if type(ability) == "number" then
+                        if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
+                            GunUtils.update_ability(ability, {
+                                -- gunaction_config
+                                {
+                                    object = 'gunaction_config',
+                                    key = 'fire_rate_wait',
+                                    modify = function (old)
+                                        return old * 1.1
+                                    end,
+                                },
+                                -- gun_config
+                                {
+                                    object = 'gun_config',
+                                    key = 'actions_per_round',
+                                    modify = function (old)
+                                        return math.max(1, old-1)
+                                    end,
+                                },
+                                {
+                                    object = 'gun_config',
+                                    key = 'shuffle_deck_when_empty',
+                                    value = false,
+                                },
+                                {
+                                    object = 'gun_config',
+                                    key = 'reload_time',
+                                    modify = function (old)
+                                        return old * 1.1
+                                    end,
+                                },
+                                -- Ability
+                                {
+                                    key = 'mana_max',
+                                    modify = function (old)
+                                        return old * 0.9
+                                    end,
+                                },
+                                {
+                                    key = 'mana_charge_speed',
+                                    modify = function (old)
+                                        return old * 0.9
+                                    end,
+                                },
+                            })
+                            --stuff
+                            GameScreenshake(50, pos_x, pos_y)
+                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                            -- Remove this spell
+                            EntityKill(this_card)
                         end
                     end
                 else
+                    GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
+                    GamePrintImportant("Your wand is already unshuffled!", "")
                     -- non-self cast alert
                     GamePrintImportant("You cannot cheat the gods!", "")
                 end
@@ -647,41 +681,74 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-            -- Check for initial reflection
+            -- Check for initial reflection and greek letters/non-self casts
             if not reflecting then
-                -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
-                    local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                    local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    if inventory ~= nil then
-                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                        local pos_x, pos_y = EntityGetTransform(entity_id)
-                        local wand = EZWand(active_wand)
-                        if wand ~= nil then
-                            if (wand.shuffle == false) then
-                                wand.shuffle = true
-                                wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD")
-                                -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                                wand.manaMax = wand.manaMax * 1.5
-                                wand.manaChargeSpeed = wand.manaChargeSpeed * 1.5
-                                wand.castDelay = wand.castDelay * 0.55
-                                wand.rechargeTime = wand.rechargeTime * 0.55
-                                local sprite_file = wand:GetSprite()
-                                if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                    wand:UpdateSprite()
-                                end
-                                GameScreenshake(50, pos_x, pos_y)
-                                GamePrintImportant("Wand shuffled!", "Stats vastly improved.")
-                            else
-                                GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
-                                GamePrintImportant("Your wand is already shuffled!", "")
-                            end
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local pos_x, pos_y = EntityGetTransform(this_wand)
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
+                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent")
+                    if type(ability) == "number" then
+                        if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
+                            GunUtils.update_ability(ability, {
+                                -- gunaction_config
+                                {
+                                    object = 'gunaction_config',
+                                    key = 'fire_rate_wait',
+                                    modify = function (old)
+                                        return old * 0.55
+                                    end,
+                                },
+                                -- gun_config
+                                {
+                                    object = 'gun_config',
+                                    key = 'actions_per_round',
+                                    modify = function (old)
+                                        if old <=26 then
+                                            math.min(old+math.random(1,3), 26)
+                                        end
+                                        return old
+                                    end,
+                                },
+                                {
+                                    object = 'gun_config',
+                                    key = 'shuffle_deck_when_empty',
+                                    value = true,
+                                },
+                                {
+                                    object = 'gun_config',
+                                    key = 'reload_time',
+                                    modify = function (old)
+                                        return old * 0.55
+                                    end,
+                                },
+                                -- Ability
+                                {
+                                    key = 'mana_max',
+                                    modify = function (old)
+                                        return old * 1.5
+                                    end,
+                                },
+                                {
+                                    key = 'mana_charge_speed',
+                                    modify = function (old)
+                                        return old * 1.5
+                                    end,
+                                },
+                            })
+                            --stuff
+                            GameScreenshake(50, pos_x, pos_y)
+                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                            -- Remove this spell
+                            EntityKill(this_card)
                         end
-                    else
-                        -- non-self cast alert
-                        GamePrintImportant("You cannot cheat the gods!", "")
                     end
+                else
+                    GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
+                    GamePrintImportant("Your wand is already unshuffled!", "")
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
         end
@@ -701,10 +768,45 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting then
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local pos_x, pos_y = EntityGetTransform(this_wand)
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
+                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent")
+                    if type(ability) == "number" then
+                        if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
+                            -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
+                            GunUtils.update_ability(ability, {
+                                -- gun_config
+                                {
+                                    object = 'gun_config',
+                                    key = 'actions_per_round',
+                                    modify = function (old)
+                                        --stuff
+                                        old = math.min(old+math.random(1,2), 32)
+                                        GameScreenshake(50, pos_x, pos_y)
+                                        GamePrintImportant("Wand upgraded!", old .. " spells per cast.")
+                                        return old
+                                    end,
+                                },
+                            })
+                            -- Remove this spell
+                            EntityKill(this_card)
+                        end
+                    end
+                else
+                    GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
+                end
+            end
+
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -745,10 +847,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -791,10 +912,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -838,10 +978,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -890,10 +1049,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_RELOAD_TIME" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_RELOAD_TIME" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -942,10 +1120,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_SPREAD_DEGREES" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_SPREAD_DEGREES" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -994,10 +1191,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_MANA_MAX" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_MANA_MAX" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1039,10 +1255,29 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1085,10 +1320,29 @@ local actions_to_insert = {
         never_ac = true,
         -- Maybe broken?
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             draw_actions(1, true) -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1140,10 +1394,29 @@ local actions_to_insert = {
         never_ac = true,
         -- Maybe broken?
         action = function(recursion_level, iteration)
+
+            -- Check for initial reflection and greek letters/non-self casts
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+
+                local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+                local this_card = GunUtils.current_card(this_wand)
+                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                if ability then
+
+                    EntityKill(this_card)
+                end
+            else
+
+                -- non-self cast alert
+                GamePrintImportant("You cannot cheat the gods!", "")
+            end
+
+
+
             draw_actions(1, true) -- Check for initial reflection
             if not reflecting then
                 -- Check for greek letters/non-self casts
-                if not copi_state.duplicating_action and current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
                     local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                     local entity_id = GetUpdatedEntityID()
                     local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -2454,47 +2727,47 @@ local actions_to_insert = {
 
             local function zap(count)
                 BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
-                BeginTriggerDeath()
-                for i = 1, count, 1 do
-                    BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
-                    EndProjectile()
-                end
-                register_action(c)
-                SetProjectileConfigs()
-                EndTrigger()
+                    BeginTriggerDeath()
+                        for i = 1, count, 1 do
+                            BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
+                            EndProjectile()
+                        end
+                        register_action(c)
+                        SetProjectileConfigs()
+                    EndTrigger()
                 EndProjectile()
             end
 
             if GameGetFrameNum() % 3 == 0 then
                 BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
-                BeginTriggerDeath()
-                zap(2)
-                zap(2)
-                register_action(c)
-                SetProjectileConfigs()
-                EndTrigger()
+                    BeginTriggerDeath()
+                        zap(2)
+                        zap(2)
+                        register_action(c)
+                        SetProjectileConfigs()
+                    EndTrigger()
                 EndProjectile()
             elseif GameGetFrameNum() % 3 == 1 then
                 BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
-                BeginTriggerDeath()
-                BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
-                EndProjectile()
-                zap(1)
-                register_action(c)
-                SetProjectileConfigs()
-                EndTrigger()
+                    BeginTriggerDeath()
+                        BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
+                        EndProjectile()
+                    zap(1)
+                        register_action(c)
+                        SetProjectileConfigs()
+                    EndTrigger()
                 EndProjectile()
             else
                 BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
-                BeginTriggerDeath()
-                zap(1)
-                EndTrigger()
+                    BeginTriggerDeath()
+                        zap(1)
+                    EndTrigger()
                 EndProjectile()
 
                 BeginProjectile("mods/copis_things/files/entities/projectiles/zap.xml")
-                BeginTriggerDeath()
-                zap(1)
-                EndTrigger()
+                    BeginTriggerDeath()
+                        zap(1)
+                    EndTrigger()
                 EndProjectile()
             end
         end
@@ -5190,6 +5463,7 @@ local actions_to_insert = {
         price             = 300,
         mana              = 120,
         max_uses          = 1,
+        never_unlimited   = true,
         action            = function()
             c.fire_rate_wait    = c.fire_rate_wait + 20
             current_reload_time = current_reload_time + 40
@@ -5330,7 +5604,7 @@ local actions_to_insert = {
         inject_after = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
         subtype = { homing = true },
         price = 150,
-        mana = 15,
+        mana = 30,
         action = function()
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_interval.xml,"
             draw_actions(1, true)
@@ -5355,69 +5629,28 @@ local actions_to_insert = {
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_macross.xml,"
             draw_actions(1, true)
         end
-    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS
+    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
     {
         id = "COPIS_THINGS_DUPLICATE_ACTION",
-        name = "Recast",
+        name = "Mimic Spell",
         author = "Copi",
         mod = "Copi's Things",
-        description = "Fire the next spell an extra time",
+        description = "Mimics the next spell's behaviour",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action.png",
         type = ACTION_TYPE_OTHER,
 		spawn_level = "0,1,2,3,4,5,6,10",
 		spawn_probability = "0.05,0.05,0.05,0.1,0.1,0.1,0.2,0.5",
         inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
         price = 256,
-        mana = 12,
+        mana = 40,
         action = function()
             if not reflecting then
-                copi_state.duplicating_action = true
-                copi_state.recursion_count = copi_state.recursion_count + 1
-                if copi_state.recursion_count < 420 then -- todo: recursion count setting\
-
-                    function draw_action( instant_reload_if_empty )
-                        local action = nil
-                        if #deck > 0 then
-                            -- draw from the start of the deck
-                            action = deck[ 1 ]
-
-                            -- update mana
-                            local action_mana_required = action.mana
-                            if action.mana == nil then
-                                action_mana_required = ACTION_MANA_DRAIN_DEFAULT
-                            end
-
-                            if action_mana_required > mana then
-                                OnNotEnoughManaForAction()
-                                table.insert( discarded, action )
-                                copi_state.recursion_count = copi_state.recursion_count - 1
-                                copi_state.duplicating_action = false
-                                return false -- <------------------------------------------ RETURNS
-                            end
-
-                            if action.uses_remaining == 0 then
-                                table.insert( discarded, action )
-                                copi_state.recursion_count = copi_state.recursion_count - 1
-                                copi_state.duplicating_action = false
-                                return false -- <------------------------------------------ RETURNS
-                            end
-
-                            mana = mana - action_mana_required
-                        end
-
-                        --- add the action to hand and execute it ---
-                        if action ~= nil then
-                            play_action( action )
-                        end
-
-                    end
+                if deck[1] then
+                    hand[#hand] = deck[1]
                 end
-                copi_state.recursion_count = copi_state.recursion_count - 1
-                copi_state.duplicating_action = false
-
             end
         end
-    },]]
+    },
     {
         id = "COPIS_THINGS_POLYMORPH",
         name = "Polymorph",
@@ -5699,6 +5932,116 @@ local actions_to_insert = {
             end
         end
     },]]
+    {
+        id = "COPIS_THINGS_HITFX_LARPA",
+        name = "Personal Larpa",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "Your projectile duplicates hit creatures. Uncopyable. Doubles mana costs.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_larpa.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_larpa.xml" },
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "6,10",
+        spawn_probability = "0.2,0.3",
+        inject_after = {"FIREBALL_RAY_LINE"},
+        price = 300,
+        mana = 150,
+        max_uses = 3,
+        action = function()
+            if current_action.id == "COPIS_THINGS_HITFX_LARPA" then
+                copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
+                c.fire_rate_wait = c.fire_rate_wait + 60
+                current_reload_time = current_reload_time + 120
+                c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_larpa.xml,"
+                draw_actions(1, true)
+            end
+        end
+    },
+    --[[ TODO: Figure out recast so I can make it drain mana properly, and cost mana and whatnot, and handle card deletions with currentcard change
+        -- Worst case; just add slots and move the spells into wand then back out, but this can probably be exploited. Bad idea actually, fuck that
+    {
+        id = "COPIS_THINGS_INVENTORY_WAND",
+        name = "Spell Bag",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "Casts every spell from your inventory, in order. Uncopyable.",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_larpa.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_larpa.xml" },
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "6,10",
+        spawn_probability = "0.1,0.2",
+        price = 300,
+        mana = 150,
+        max_uses = 3,
+        action = function()
+            if current_action.id == "COPIS_THINGS_INVENTORY_WAND" and not reflecting then
+                local caster = GetUpdatedEntityID()
+                local children = EntityGetAllChildren(caster) or {}
+                local spells = {}
+                -- Get spells inventory
+                for i=1,#children do
+                    if (EntityGetName(children[i]) == "inventory_full") then
+                        local lookup = GunUtils.lookup_spells()
+                        -- Gather all spells in inventory
+                        local inventory_items = EntityGetAllChildren(children[i]) or {}
+                        for j=1,#inventory_items do
+                            if EntityHasTag(inventory_items[j], "card_action") then
+                                local iac = EntityGetFirstComponentIncludingDisabled( inventory_items[j], "ItemActionComponent" ) ---@cast iac integer
+                                local action = lookup[ComponentGetValue2( iac, "action_id" )]
+                                if action ~= nil then
+                                    action.action()
+                                end
+                            end
+                        end
+                        break
+                    end
+                end
+            end
+        end
+    },
+    {
+        id = "COPIS_THINGS_RIP_HOOK",
+        name = "Riphook",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "A cruel hook which drags the first creature it strikes",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/rip_hook.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/rip_hook.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "0,1,2",  -- idk how to balance this shit genuinely PLEASE if you have any degree of a sense of balance help me out with all these spawn probs and levels
+        spawn_probability = "1,1,0.5",
+        inject_after = {"BULLET", "BULLET_TRIGGER", "BULLET_TIMER"},
+        price = 120,
+        mana = 40,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/rip_hook.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 2
+        end
+    },]]
+    -- This breaks shit
+    -- I only just realized now how much more profanity my mod has since moving on to vD.5 hmmmmmmm...
+    -- Must be my decline into madness...
+    -- Eh whatever
+    --[[{
+        id = "COPIS_THINGS_AFFIX",
+        name = "Affix",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "The fuck does this do",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/affix.png",
+        related_projectiles = { "mods/copis_things/files/entities/misc/affix.xml" },
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "0,1,2",  -- idk how to balance this shit genuinely PLEASE if you have any degree of a sense of balance help me out with all these spawn probs and levels
+        spawn_probability = "1,1,0.5",
+        price = 120,
+        mana = 0,
+        action = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/affix.xml,"
+            draw_actions(1, true)
+        end
+    },]]
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
@@ -5719,7 +6062,7 @@ if ModSettingGet("CopisThings.inject_spells") then
                     end
                 end
                 if found then
-                    table.insert(actions, actions_index + 1, action_to_insert)
+                    table.insert(actions, actions_index + 1, action_to_insert)  -- I hate table insert; push over the other spells and insert at index+1 later
                     break
                 end
                 if actions_index == 1 then
@@ -5732,9 +6075,9 @@ if ModSettingGet("CopisThings.inject_spells") then
         end
     end
 else
-    -- SPEEDY loop
+    local len = #actions -- SPEEDY loop
     for i = 1, #actions_to_insert do
-        actions[#actions + 1] = actions_to_insert[i]
+        actions[len+i] = actions_to_insert[i]
     end
 end
 
@@ -5750,6 +6093,7 @@ if month == 4 and day == 1 then
                 actions_new[#actions_new+1] = actions[i]
             end
         end
+        ---@diagnostic disable-next-line: lowercase-global
         actions = actions_new
     end
 end

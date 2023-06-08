@@ -1,2 +1,3 @@
 -- Add statuses
 ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
+-- Why am I doing this again? I don't think I'm using any....

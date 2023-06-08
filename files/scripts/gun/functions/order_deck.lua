@@ -67,8 +67,15 @@ local function order_deck()
         copi_state.old._order_deck()
     end
 
-    local vsc = EntityGetFirstComponent(shooter, "VariableStorageComponent", "mana_efficiency_mult")
-    local shooter_mult = (vsc and ComponentGetValue2(vsc, "value_float")) or 1.0
+    local vscs = EntityGetComponent(shooter, "VariableStorageComponent") or {}
+    local vid = nil
+    for i=1, #vscs do
+        if ComponentGetValue2( vscs[i], "name" ) == "mana_efficiency_mult" then
+            vid = vscs[i]
+            break
+        end
+    end
+    local shooter_mult = ComponentGetValue2(vid, "value_float") or 1.0
 
     --[[print(string.rep("\n", 3))
     print(string.rep("=", 83))]]
@@ -84,14 +91,13 @@ local function order_deck()
                 action.type == ACTION_TYPE_MATERIAL or action.type == ACTION_TYPE_UTILITY then
                 local base_mana = action.mana or 0
                 action.mana = nil
-                local action_meta = {
+                setmetatable(action, {
                     __index = function(table, key)
                         if key == "mana" then
                             return (base_mana * copi_state.mana_multiplier) * shooter_mult
                         end
                     end
-                }
-                setmetatable(action, action_meta)
+                })
             end
             action.copi_mana_calculated = true
         end

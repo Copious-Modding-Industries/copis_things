@@ -1,0 +1,13 @@
+<Entity>
+	<UIIconComponent
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/larpa.png"
+		name="$effect_name_copis_things_entity_larpa"
+		description="$effect_desc_copis_things_entity_larpa"
+		display_above_head="1"
+		display_in_hud="1"
+    />
+    <LifetimeComponent lifetime="300"/>
+	<LuaComponent _enabled="1" execute_on_added="0" execute_every_n_frame="1" remove_after_executed="1"
+        script_source_file="mods/copis_things/files/scripts/projectiles/effect_larpa.lua"
+    />
+</Entity>

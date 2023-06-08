@@ -1,9 +1,17 @@
 local projectile = GetUpdatedEntityID()
-local vsc = EntityGetFirstComponentIncludingDisabled(projectile, "VariableStorageComponent", "SWORD_DATA")
-local index = ComponentGetValue2(vsc, "value_float")
-local leader = ComponentGetValue2(vsc, "value_int")
+local index = nil
+local leader = nil
 
-if EntityGetIsAlive(leader) then
+local vscs = EntityGetComponent(projectile, "VariableStorageComponent") or {}
+for i=1, #vscs do
+    if ComponentGetValue2(vscs[i], "name") == "formation_data" then
+        index = ComponentGetValue2(vscs[i], "value_float")
+        leader = ComponentGetValue2(vscs[i], "value_int")
+    end
+end
+
+
+if EntityGetIsAlive(leader) and index ~= nil then
 
     local dist_init = 4
     local inventory = EntityGetFirstComponent(leader, "Inventory2Component")
@@ -24,7 +32,7 @@ if EntityGetIsAlive(leader) then
     if controls then
 
         -- Data
-        local ax, ay = ComponentGetValue2( controls, "mAimingVectorNormalized" )
+        local ax, ay = ComponentGetValue2( controls, "mAimingVectorNormalized" ) --[[@cast ax number]] --[[@cast ay number]]
         local aim_angle = math.atan2( ay, ax )
 
         -- Transform

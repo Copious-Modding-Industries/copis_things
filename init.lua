@@ -1,13 +1,16 @@
 --[[
 Hello seeker of knowledge.
 
-A new era of development ensues, after being seen by many eyes. 
+Keep your eyes open, for there is much to come.
 ]]
+
+-- NOTICE! This is CRAP! I will be REWRITING THIS LIBRARY!
+dofile_once("mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init( "mods/copis_things/files/scripts/lib/polytools/")
 
 local meta = {
 
     version = function ()
-        GlobalsSetValue("copis_things_version", "v0.43")
+        GlobalsSetValue("copis_things_version", "vD.5")
     end,
 
     flag_reset = function ()
@@ -53,9 +56,9 @@ local content = {
             while translations:find("\r\n\r\n") do
                 translations = translations:gsub("\r\n\r\n","\r\n");
             end
-            local files = {"perks", "actions"}
-            for _, file in ipairs(files) do
-                local new_translations = ModTextFileGetContent( table.concat({"mods/copis_things/files/translations/", file, ".csv"}) );
+            local files = {"perks", "actions", "effects"}
+            for i=1, #files do
+                local new_translations = ModTextFileGetContent( table.concat({"mods/copis_things/files/translations/", files[i], ".csv"}) );
                 translations = translations .. new_translations;
             end
             ModTextFileSetContent( "data/translations/common.csv", translations );
@@ -307,6 +310,7 @@ local compatibility = {
                 -- TODO: THE OTHER ITEMS!
 
             -- # Apotheosis
+            -- I should likely remove this, seeing as conga handled it in apo... todo, double check apo anvil compat
             if ModIsEnabled("apotheosis") then
 
                 -- Attunium
@@ -446,6 +450,7 @@ function OnWorldInitialized()
     meta.version()
     experimental.loadspell()
     experimental.spell_visualizer()
+    GamePrint("Copi's things INDEV " .. (GlobalsGetValue("copis_things_version", "VERSION NOT DECLARED") or "VERSION NOT DECLARED")) -- <- bad line needs fixing
 end
 
 function OnWorldPreUpdate()
@@ -460,4 +465,12 @@ function OnWorldPostUpdate()
     gui.tr_crap()
 end
 
-GamePrint("Copi's things INDEV " .. (GlobalsGetValue("copis_things_version", "VERSION NOT DECLARED") or "VERSION NOT DECLARED"))
+-- I see you peeking in here.. sneaky sneaky :^) 
+-- I can't offer you much at the moment, but for being so persistent in your search I do offer my greetings o/
+-- As you might've noticed, seeing as you're so observant, there's a lot more comments around this time.
+-- To be honest, I've just not been doing the best on motivation and mental health in the past month(s) so modding has been hard
+-- Keep this between us, but I personally worry that I might've bitten off more than I can chew with this mod
+-- I have no clue what to do about it as is, it's too late to cut down scope but even without adding more scope
+-- I just can't keep up with all the crap that needs to get done
+-- Hopefully you didn't mind the mini-ramble, enjoy .5!!!
+-- - Mr. Copio Thing, 2022

@@ -37,7 +37,7 @@ for i=1,10 do
                 custom_xml = custom_xml..","..random_action.custom_xml_file;
             end
         end
-        ]]
+        ]] -- todo merge these idk might break for ammo stuff
         table.insert( callbacks, random_action.action );
     end
     table.insert( dynamic_actions, {

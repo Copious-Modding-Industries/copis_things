@@ -46,8 +46,3 @@ if (abilitycomp ~= nil) and (variablecomp ~= nil) and (controlscomp ~= nil) then
         end
     end
 end
-
-
-
-
-

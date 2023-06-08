@@ -41,6 +41,7 @@
     shoot_light_flash_radius="64" 
 	knockback_force="0"
     on_collision_die="0"
+    damage_every_x_frames="8"
 	>
     <config_explosion
       damage="0.0"

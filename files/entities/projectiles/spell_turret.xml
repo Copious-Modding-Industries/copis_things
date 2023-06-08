@@ -86,12 +86,15 @@
         </Entity>
     </Entity>
 
-    <LuaComponent execute_on_added="1"
+    <LuaComponent
+        execute_on_added="1"
         execute_every_n_frame="-1"
-        script_source_file="mods/copis_things/files/scripts/projectiles/spell_turret/turret.lua" />
+        script_source_file="mods/copis_things/files/scripts/projectiles/spell_turret/turret.lua"
+    />
     <LuaComponent script_shot="mods/copis_things/files/scripts/projectiles/spell_turret/turret_shot.lua" />
 
-    <ParticleEmitterComponent emitted_material_name="spark_purple_bright"
+    <ParticleEmitterComponent
+        emitted_material_name="spark_purple_bright"
         offset.x="0"
         gravity.y="0.0"
         lifetime_min="2"
@@ -116,9 +119,9 @@
         image_animation_loop="1"
         image_animation_use_entity_rotation="1"
         is_emitting="1"
-        render_back="0">
-    </ParticleEmitterComponent>
-    <ParticleEmitterComponent emitted_material_name="spark_blue"
+        render_back="0" />
+    <ParticleEmitterComponent
+        emitted_material_name="spark_blue"
         offset.x="0"
         gravity.y="0.0"
         lifetime_min="2"
@@ -143,17 +146,20 @@
         image_animation_loop="1"
         image_animation_use_entity_rotation="1"
         is_emitting="1"
-        render_back="0">
-    </ParticleEmitterComponent>
+        render_back="0" />
     <GameStatsComponent />
 
     <Entity name="turret_target"
         tags="mortal,hittable,teleportable_NOT">
-        <LuaComponent script_source_file="mods/copis_things/files/scripts/projectiles/spell_turret/target.lua"
+        <LuaComponent
+            script_source_file="mods/copis_things/files/scripts/projectiles/spell_turret/target.lua"
             execute_every_n_frame="12" />
-        <GenomeDataComponent herd_id="healer"
+        <GenomeDataComponent
+            herd_id="healer"
             food_chain_rank="20"
             is_predator="0" />
         <GameStatsComponent />
     </Entity>
 </Entity>
+
+<!-- This entire thing is fucked. TODO: rewrite ENTIRE SPELL. -->

@@ -9,9 +9,9 @@ contents = contents:gsub(
     [[local opts = { ]],
     table.concat{[[local opts = { ]] , greeks.psi and [["COPIS_THINGS_PSI", ]] or "", greeks.delta and [["COPIS_THINGS_DELTA", ]] or ""}
 )
---[=[ boost drops FOR TESTING
+--[=[ boost drops FOR TESTING!!!
 contents = contents:gsub(
     [[i=1,4]],
-    [[i=1,8]]
+    [[i=1,12]]
 )]=]
 ModTextFileSetContent(path, contents)

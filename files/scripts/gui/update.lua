@@ -15,7 +15,7 @@ if opened then
     MenuOpen = not (MenuOpen or false)
 end
 if MenuOpen then
-   -- sorry this isnt done motivation issue lole 
+   -- sorry this isnt done motivation issue lolololol
 end
 
 -- Gui End

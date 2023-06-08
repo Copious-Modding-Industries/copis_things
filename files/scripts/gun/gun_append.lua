@@ -7,15 +7,15 @@ copi_state = {
 
     skip_count = 0,
     skipping = false,
-    skip_type = {
-        [0] = false,
-        [1] = false,
-        [2] = false,
-        [3] = false,
-        [4] = false,
-        [5] = false,
-        [6] = false,
-        [7] = false,
+    skip_type = {                                                                   ---@type table
+        [0] = false,                                                                    ---@type boolean
+        [1] = false,                                                                    ---@type boolean
+        [2] = false,                                                                    ---@type boolean
+        [3] = false,                                                                    ---@type boolean
+        [4] = false,                                                                    ---@type boolean
+        [5] = false,                                                                    ---@type boolean
+        [6] = false,                                                                    ---@type boolean
+        [7] = false,                                                                    ---@type boolean
     },
 
     draw_depth = 0,
@@ -28,18 +28,20 @@ copi_state = {
 
     new_cast = nil,
 
-    old = { -- Old functions
-        _order_deck                         = order_deck,
-        _draw_shot                          = draw_shot,
-        _add_projectile                     = add_projectile,
-        _add_projectile_trigger_timer       = add_projectile_trigger_timer,
-        _add_projectile_trigger_hit_world   = add_projectile_trigger_hit_world,
-        _add_projectile_trigger_death       = add_projectile_trigger_death,
-        _set_current_action                 = set_current_action,
-        _draw_actions                       = draw_actions,
-        _draw_action                        = draw_action,
-        _register_action                    = register_action,
-        _create_shot                        = create_shot,
+    lookup_spells = nil,
+
+    old = {                                                                         ---@type table
+        _order_deck                         = order_deck,                               ---@type function
+        _draw_shot                          = draw_shot,                                ---@type function
+        _add_projectile                     = add_projectile,                           ---@type function
+        _add_projectile_trigger_timer       = add_projectile_trigger_timer,             ---@type function
+        _add_projectile_trigger_hit_world   = add_projectile_trigger_hit_world,         ---@type function
+        _add_projectile_trigger_death       = add_projectile_trigger_death,             ---@type function
+        _set_current_action                 = set_current_action,                       ---@type function
+        _draw_actions                       = draw_actions,                             ---@type function
+        _draw_action                        = draw_action,                              ---@type function
+        _register_action                    = register_action,                          ---@type function
+        _create_shot                        = create_shot,                              ---@type function
     }
 }
 
@@ -51,20 +53,32 @@ gun.*:
     reload_time
 ]]
 
--- Utility Functions
-GunUtils            = dofile_once("mods/copis_things/files/scripts/gun/functions/_utils.lua")
+--- ### Utility Functions
+--- ***
+--- @class Utilities
+--- @field lookup_spells function Returns a lookup table of spells
+--- @field update_ability function Updates an AbilityComponent's values
+--- @field current_wand function Returns the current wand
+--- @field current_card function Returns the current card
+--- @field state_per_cast function Resets the state per cast
+--- @field discard_action function Discards an action
+--- @field deck_from_actions function Generates a deck from actions
+--- @field temporary_deck function Creates a temporary deck
+GunUtils            = dofile_once("mods/copis_things/files/scripts/gun/functions/_utils.lua")                                       ---@type Utilities
 
 -- SORRY FOR OVERWRITING THIS :(
-set_current_action  = dofile_once("mods/copis_things/files/scripts/gun/functions/set_current_action.lua").set_current_action
+-- TODO: Sub in change
+set_current_action  = dofile_once("mods/copis_things/files/scripts/gun/functions/set_current_action.lua").set_current_action        ---@type function
 
 -- Monkey Patching
-order_deck          = dofile_once("mods/copis_things/files/scripts/gun/functions/order_deck.lua").order_deck
-draw_shot           = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_shot.lua").draw_shot
-draw_action         = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_action.lua").draw_action
-register_action     = dofile_once("mods/copis_things/files/scripts/gun/functions/register_action.lua").register_action
-add_projectile      = dofile_once("mods/copis_things/files/scripts/gun/functions/add_projectile.lua").add_projectile
-create_shot         = dofile_once("mods/copis_things/files/scripts/gun/functions/create_shot.lua").create_shot
+order_deck          = dofile_once("mods/copis_things/files/scripts/gun/functions/order_deck.lua").order_deck                        ---@type function
+draw_shot           = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_shot.lua").draw_shot                          ---@type function
+draw_action         = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_action.lua").draw_action                      ---@type function
+register_action     = dofile_once("mods/copis_things/files/scripts/gun/functions/register_action.lua").register_action              ---@type function
+add_projectile      = dofile_once("mods/copis_things/files/scripts/gun/functions/add_projectile.lua").add_projectile                ---@type function
+create_shot         = dofile_once("mods/copis_things/files/scripts/gun/functions/create_shot.lua").create_shot                      ---@type function
+draw_actions        = draw_actions --[[ TODO: Patch this, only here for annotation ]]                                               ---@type function
 
 -- New Funcs
-peek_draw_actions   = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_actions.lua").peek_draw_actions
-peek_draw_action    = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_action.lua").peek_draw_action
+peek_draw_actions   = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_actions.lua").peek_draw_actions          ---@type function
+peek_draw_action    = dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_action.lua").peek_draw_action            ---@type function
