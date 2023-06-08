@@ -3,6 +3,18 @@ local self = Entity.Current()
 local x, y = self:transform()
 local nearby_entities = EntityGetInRadiusWithTag( x, y, 128, "homing_target" ) or {};
 
+local entity_id = GetUpdatedEntityID()
+local projectile_comp = EntityGetFirstComponentIncludingDisabled( entity_id, "ProjectileComponent" )
+if(projectile_comp)then
+	local who_shot = ComponentGetValue2( projectile_comp, "mWhoShot" )
+	for i, v in ipairs(nearby_entities)do
+		if(v == who_shot)then
+			table.remove(nearby_entities, i)
+			break
+		end
+	end
+end
+
 local function angle_difference( target_angle, starting_angle )
     return math.atan2( math.sin( target_angle - starting_angle ), math.cos( target_angle - starting_angle ) );
 end
