@@ -2,6 +2,11 @@ local seek_distance = 128;
 local entity = GetUpdatedEntityID();
 local x, y  = EntityGetTransform( entity );
 local nearby_entities = EntityGetInRadiusWithTag( x, y, seek_distance, "homing_target" ) or {};
+local projectile_comp = EntityGetFirstComponentIncludingDisabled(entity, "ProjectileComponent")
+local who_shot = nil
+if(projectile_comp)then
+    who_shot = ComponentGetValue2( projectile_comp, "mWhoShot" )
+end
 local target = nil;
 local nearest_distance = seek_distance;
 -- setting nearest_angle to less than pi will effectively limit the projectiles line of sight to a certain cone in front of it
@@ -17,14 +22,18 @@ if velocity ~= nil then
         nearest_angle = math.pi * 2;
     end
 
-    for _,test_entity in pairs( nearby_entities ) do
-        local ex, ey = EntityGetTransform( test_entity );
+    for _,e in ipairs( nearby_entities ) do
+        if(e == who_shot)then
+            goto continue
+        end
+        local ex, ey = EntityGetTransform( e );
         local target_angle = math.atan2( ey - y, ex - x );
         local angle = math.abs(angle_difference( target_angle, velocity_angle ));
         if angle < nearest_angle then
             nearest_angle = angle;
-            target = test_entity;
+            target = e;
         end
+        ::continue::
     end
     local velocity = EntityGetFirstComponentIncludingDisabled( entity, "VelocityComponent" );
     if velocity ~= nil then

@@ -457,6 +457,7 @@ to_insert =
         perk_icon = "mods/copis_things/files/items_gfx/perks/spell_jam.png",
         stackable = STACKABLE_YES,
         usable_by_enemies = false,
+        one_off_effect = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             local spells = {}
 
@@ -499,6 +500,7 @@ to_insert =
         perk_icon = "mods/copis_things/files/items_gfx/perks/spindown.png",
         stackable = STACKABLE_YES,
         usable_by_enemies = false,
+        one_off_effect = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             dofile("data/scripts/gun/gun.lua")
             local lookup = GunUtils.lookup_spells()
