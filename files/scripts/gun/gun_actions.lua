@@ -6041,6 +6041,27 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },]]
+    {
+        id = "COPIS_THINGS_ARCANA_TO_POWER",
+        name = "Arcana To Power",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "Burns the very fabric of magic to empower your spells!",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/arcana_to_power.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "2,3,4,5,6",                      -- <- needs adjusting
+        spawn_probability = "0.3,0.4,0.5,0.6,0.6",      -- <- needs adjusting
+        subtype = { damage = true },
+        price = 150,                                    -- <- needs adjusting
+        mana = 100,                                     -- <- needs adjusting
+        action = function()
+            -- might be jank as fuck? idk
+            local _, count = c.extra_entities:gsub(",", ",")
+            c.damage_projectile_add = c.damage_projectile_add + (15/25)*count
+            c.extra_entities = "HAMIS"
+            draw_actions(1, true)
+        end
+    },
 }
 
 if ModSettingGet("CopisThings.inject_spells") then

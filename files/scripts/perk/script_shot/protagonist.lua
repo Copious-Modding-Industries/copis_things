@@ -6,7 +6,7 @@ function shot(projectile_entity)
     local dmcs = EntityGetComponentIncludingDisabled(shooter, "DamageModelComponent") or {}
     local vscs = EntityGetComponent(shooter, "VariableStorageComponent") or {}
     for i=1, #vscs do
-        if ComponentGetValue2( vscs[i], "name" ) == "demolitionist_bonus" then
+        if ComponentGetValue2( vscs[i], "name" ) == "protagonist_bonus" then
             protagonist_bonus = protagonist_bonus + ComponentGetValue2(vscs[i], "value_int")
             break
         end
