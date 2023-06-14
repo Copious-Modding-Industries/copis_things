@@ -721,6 +721,7 @@ to_insert =
         stackable = STACKABLE_YES,
         stackable_is_rare = true,
         usable_by_enemies = false,
+		one_off_effect = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
             local vid = nil
