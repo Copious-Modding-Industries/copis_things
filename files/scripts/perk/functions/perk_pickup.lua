@@ -19,7 +19,8 @@ local function perk_pickup( entity_item, entity_who_picked, item_name, do_cosmet
         local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
         for i=1, #vscs do
             if ComponentGetValue2( vscs[i], "name" ) == "copi_recursion_stacks" then
-                count = ComponentGetValue2( vscs[i], "value_int" )
+                -- dumb haxx so it doesnt fucking break
+                count = math.max(count, ComponentGetValue2( vscs[i], "value_int" ))
                 ComponentSetValue2( vscs[i], "value_int", 0 )
                 break
             end
