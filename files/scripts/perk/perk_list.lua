@@ -709,57 +709,57 @@ to_insert =
                 })
             end
         end,
-        --  Recursion
-        {
-            id = "COPIS_THINGS_RECURSION",
-            author = "Copi",
-            ui_name = "$perk_name_copis_things_recursion",
-            ui_description = "$perk_desc_copis_things_recursion",
-            ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/recursion.png",
-            perk_icon = "mods/copis_things/files/items_gfx/perks/recursion.png",
-            stackable = STACKABLE_YES,
-            stackable_is_rare = true,
-            usable_by_enemies = false,
-            func = function(entity_perk_item, entity_who_picked, item_name)
-                local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
-                local vid = nil
-                for i=1, #vscs do
-                    if ComponentGetValue2( vscs[i], "name" ) == "copi_recursion_stacks" then
-                        vid = vscs[i]
-                        break
-                    end
-                end
-                if vid then
-                    ComponentSetValue2(vid, "value_int", ComponentGetValue2(vid, "value_int") + 3)
-                else
-                    EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
-                        _tags = "perk_component",
-                        name = "copi_recursion_stacks",
-                        value_int = 3
-                    })
-                end
-                -- Reduce max hp
-                local dmcs = EntityGetComponent(entity_who_picked, "DamageModelComponent") or {}
-                for i=1, #dmcs do
-                    local damagemodel = dmcs[i]
-                    local max_hp = ComponentGetValue2(damagemodel, "max_hp")*(2/3)
-                    local hp = ComponentGetValue2(damagemodel, "hp")*(2/3)
-                    ComponentSetValue2(damagemodel, "max_hp", max_hp)
-                    ComponentSetValue2(damagemodel, "hp", hp)
-                end
-            end,
-            func_remove = function(entity_who_picked)
-                local dmcs = EntityGetComponent(entity_who_picked, "DamageModelComponent") or {}
-                for i=1, #dmcs do
-                    local damagemodel = dmcs[i]
-                    local max_hp = ComponentGetValue2(damagemodel, "max_hp")*1.5
-                    local hp = ComponentGetValue2(damagemodel, "hp")*1.5
-                    ComponentSetValue2(damagemodel, "max_hp", max_hp)
-                    ComponentSetValue2(damagemodel, "hp", hp)
-                end
-            end,
-        }
     },
+    --  Recursion
+    {
+        id = "COPIS_THINGS_RECURSION",
+        author = "Copi",
+        ui_name = "$perk_name_copis_things_recursion",
+        ui_description = "$perk_desc_copis_things_recursion",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/recursion.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/recursion.png",
+        stackable = STACKABLE_YES,
+        stackable_is_rare = true,
+        usable_by_enemies = false,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
+            local vid = nil
+            for i=1, #vscs do
+                if ComponentGetValue2( vscs[i], "name" ) == "copi_recursion_stacks" then
+                    vid = vscs[i]
+                    break
+                end
+            end
+            if vid then
+                ComponentSetValue2(vid, "value_int", ComponentGetValue2(vid, "value_int") + 3)
+            else
+                EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
+                    _tags = "perk_component",
+                    name = "copi_recursion_stacks",
+                    value_int = 3
+                })
+            end
+            -- Reduce max hp
+            local dmcs = EntityGetComponent(entity_who_picked, "DamageModelComponent") or {}
+            for i=1, #dmcs do
+                local damagemodel = dmcs[i]
+                local max_hp    = math.max(0.06, ComponentGetValue2(damagemodel, "max_hp")) * (2/3)
+                local hp        = math.max(0.06, ComponentGetValue2(damagemodel, "hp"))     * (2/3)
+                ComponentSetValue2(damagemodel, "max_hp",   max_hp)
+                ComponentSetValue2(damagemodel, "hp",       hp)
+            end
+        end,
+        func_remove = function(entity_who_picked)
+            local dmcs = EntityGetComponent(entity_who_picked, "DamageModelComponent") or {}
+            for i=1, #dmcs do
+                local damagemodel = dmcs[i]
+                local max_hp = ComponentGetValue2(damagemodel, "max_hp")*1.5
+                local hp = ComponentGetValue2(damagemodel, "hp")*1.5
+                ComponentSetValue2(damagemodel, "max_hp", max_hp)
+                ComponentSetValue2(damagemodel, "hp", hp)
+            end
+        end,
+    }
 }
 
 local len = #perk_list

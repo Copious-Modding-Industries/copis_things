@@ -48,6 +48,8 @@ local content = {
     perks = function ()
         -- Add perks
         ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/scripts/perk/perk_list.lua")
+        -- Edit perk.lua
+        ModLuaFileAppend("data/scripts/perks/perk.lua", "mods/copis_things/files/scripts/perk/perk_append.lua")
     end,
 
     translations = function ()
