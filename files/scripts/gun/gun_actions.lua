@@ -6061,6 +6061,62 @@ local actions_to_insert = {
             c.extra_entities = "HAMIS"
             draw_actions(1, true)
         end
+    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
+    {
+        id = "COPIS_THINGS_SPINDOWN_SPELL",
+        name = "$actionname_spindown_spell",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_spindown_spell",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/spindown_spell.png",
+        type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5,6,10",
+		spawn_probability = "0.05,0.05,0.05,0.1,0.1,0.1,0.2,0.5",
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        price = 256,
+        mana = 40,
+        action = function()
+            if not reflecting then
+
+                if deck[1] then
+                    if not deck[1]['spun'] then
+                        local lookup    = GunUtils.lookup_spells()
+                        local index     = lookup[deck[1]['id']]['index']
+                        local spun      = ((index-2)%#actions)+1
+                        local action    = actions[spun]
+                        deck[1]['id']                   = action.id
+                        deck[1]['uses_remaining']       = math.min(action.max_uses or -1, deck[1]['uses_remaining'] or -1)
+                        deck[1]['related_projectiles']  = action.related_projectiles
+                        deck[1]['name']                 = action.name
+                        deck[1]['action']               = action.action
+                        deck[1]['spun']                 = true
+                    end
+                end
+            end
+        end
+    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
+    {
+        id = "COPIS_THINGS_DUPLICATE_ACTION_2",
+        name = "$actionname_duplicate_action_2",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_duplicate_action_2",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action_2.png",
+        type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5,6,10",
+		spawn_probability = "0.05,0.05,0.05,0.1,0.1,0.1,0.2,0.5",
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        price = 256,
+        mana = 40,
+        action = function()
+            if (not reflecting) and (not current_action.permanently_attached) then
+                if not deck[1]['duplicate_action_2'] then
+                    table.insert(deck, 1, deck[1])
+                    deck[1]['duplicate_action_2']=true
+                end
+                draw_actions(1, true)
+            end
+        end
     },
 }
 

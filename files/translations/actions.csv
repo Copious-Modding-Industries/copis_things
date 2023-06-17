@@ -1,3 +1,4 @@
+BUFFERTEXT,,,,,,,,,,,,,DOESN'T NEED TO BE TRANSLATED
 actionname_psychic_shot,"Psychic shot",,,,,,,,,,,,
 actiondesc_psychic_shot,"Causes a projectile to be controlled telekinetically",,,,,,,,,,,,
 actionname_lunge,"Lunge",,,,,,,,,,,,
@@ -402,3 +403,7 @@ actionname_hitfx_larpa,"Personal Larpa",,,,,,,,,,,,
 actiondesc_hitfx_larpa,"Your projectile duplicates hit creatures. Uncopyable. Doubles mana costs.",,,,,,,,,,,,
 actionname_arcana_to_power,"Arcana To Power",,,,,,,,,,,,
 actiondesc_arcana_to_power,"Burns the very fabric of magic to empower your spells!",,,,,,,,,,,,
+actionname_spindown_spell,"Spelldown",,,,,,,,,,,,
+actiondesc_spindown_spell,"Pulls the next spell's threads in the fabric of magic..?",,,,,,,,,,,,
+actionname_duplicate_action_2,"Duplicast",,,,,,,,,,,,
+actiondesc_duplicate_action_2,"Dyes the patterns of magic in front of it",,,,,,,,,,,,

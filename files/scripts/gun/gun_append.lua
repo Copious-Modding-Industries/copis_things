@@ -66,10 +66,6 @@ gun.*:
 --- @field temporary_deck function Creates a temporary deck
 GunUtils            = dofile_once("mods/copis_things/files/scripts/gun/functions/_utils.lua")                                       ---@type Utilities
 
--- SORRY FOR OVERWRITING THIS :(
--- TODO: Sub in change
-set_current_action  = dofile_once("mods/copis_things/files/scripts/gun/functions/set_current_action.lua").set_current_action        ---@type function
-
 -- Monkey Patching
 order_deck          = dofile_once("mods/copis_things/files/scripts/gun/functions/order_deck.lua").order_deck                        ---@type function
 draw_shot           = dofile_once("mods/copis_things/files/scripts/gun/functions/draw_shot.lua").draw_shot                          ---@type function
@@ -77,6 +73,7 @@ draw_action         = dofile_once("mods/copis_things/files/scripts/gun/functions
 register_action     = dofile_once("mods/copis_things/files/scripts/gun/functions/register_action.lua").register_action              ---@type function
 add_projectile      = dofile_once("mods/copis_things/files/scripts/gun/functions/add_projectile.lua").add_projectile                ---@type function
 create_shot         = dofile_once("mods/copis_things/files/scripts/gun/functions/create_shot.lua").create_shot                      ---@type function
+set_current_action  = dofile_once("mods/copis_things/files/scripts/gun/functions/set_current_action.lua").set_current_action        ---@type function
 draw_actions        = draw_actions --[[ TODO: Patch this, only here for annotation ]]                                               ---@type function
 
 -- New Funcs
