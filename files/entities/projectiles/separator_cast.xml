@@ -24,7 +24,7 @@
         damage="0"
         ragdoll_force_multiplier="0.0"
         hit_particle_force_multiplier="0.0"
-        camera_shake_when_shot="5.0"
+        camera_shake_when_shot="0.0"
         bounce_energy="0"
         bounces_left="0"
         muzzle_flash_file=""
@@ -36,16 +36,15 @@
         damage_every_x_frames="25"
         collide_with_world="0"
         collide_with_tag="" >
-            <config_explosion
-                damage="0.0"
-                explosion_radius="0" >
-            </config_explosion>
+        <config_explosion
+            damage="0.0"
+            explosion_radius="0" 
+        />
     </ProjectileComponent>
 
 	<LuaComponent
 		script_source_file="mods/copis_things/files/scripts/kill_entity.lua"
 		execute_on_added="1"
-		>
-	</LuaComponent>
+    />
 
 </Entity>

@@ -18,6 +18,11 @@ local meta = {
         if HasFlagPersistent(flag) then
             RemoveFlagPersistent(flag)
         end
+        if HasFlagPersistent("copis_things_meta_spell") then
+            AddFlagPersistent("copis_things_meta_spell_action")
+        else
+            RemoveFlagPersistent("copis_things_meta_spell_action")
+        end
     end
 
 }
@@ -58,7 +63,7 @@ local content = {
             while translations:find("\r\n\r\n") do
                 translations = translations:gsub("\r\n\r\n","\r\n");
             end
-            local files = {"perks", "actions", "effects"}
+            local files = {"perks", "actions", "effects", "other"}
             for i=1, #files do
                 local new_translations = ModTextFileGetContent( table.concat({"mods/copis_things/files/translations/", files[i], ".csv"}) );
                 translations = translations .. new_translations;

@@ -3,6 +3,8 @@
         "deprecated"
     ],
     "Lua.diagnostics.globals": [
-        "generate_gun"
+        "generate_gun",
+        "reflecting",
+        "current_action"
     ]
 }

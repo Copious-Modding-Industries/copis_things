@@ -1,4 +1,18 @@
 dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
+
+local meta_manager = function(action, current_id)
+    if action['id'] == current_id then
+        if not HasFlagPersistent("copis_things_meta_spell") then
+            GamePrintImportant("$secret_meta_spell_main", "$secret_meta_spell_sub")
+            AddFlagPersistent("copis_things_meta_spell")
+        end
+        return true
+    end
+    return false
+end
+
+
+
 -- prevent angry code
 ---@diagnostic disable-next-line: lowercase-global
 
@@ -5628,27 +5642,6 @@ local actions_to_insert = {
             c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/homing_macross.xml,"
             draw_actions(1, true)
         end
-    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
-    {
-        id = "COPIS_THINGS_DUPLICATE_ACTION",
-        name = "$actionname_duplicate_action",
-        author = "Copi",
-        mod = "Copi's Things",
-        description = "$actiondesc_duplicate_action",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action.png",
-        type = ACTION_TYPE_OTHER,
-		spawn_level = "0,1,2,3,4,5,6,10",
-		spawn_probability = "0.2,0.3,0.4,0.3,0.2,0.1,0.2,0.5",
-        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
-        price = 256,
-        mana = 40,
-        action = function()
-            if not reflecting then
-                if deck[1] then
-                    hand[#hand] = deck[1]
-                end
-            end
-        end
     },
     {
         id = "COPIS_THINGS_POLYMORPH",
@@ -6063,6 +6056,33 @@ local actions_to_insert = {
         end
     },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
     {
+        id = "COPIS_THINGS_DUPLICATE_ACTION",
+        name = "$actionname_duplicate_action",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_duplicate_action",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action.png",
+        type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5,6,10",
+		spawn_probability = "0.2,0.3,0.4,0.3,0.2,0.1,0.2,0.5",
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        price = 256,
+        mana = 40,
+        action = function()
+            if not reflecting then
+                local drew = deck[1]
+                if drew then
+                    if meta_manager(drew, "COPIS_THINGS_DUPLICATE_ACTION") then
+                        local lookup = GunUtils.lookup_spells()
+                        drew = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+                    end
+                    drew['uses_remaining'] = drew['uses_remaining'] or -1
+                    hand[#hand] = drew
+                end
+            end
+        end
+    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
+    {
         id = "COPIS_THINGS_SPINDOWN_SPELL",
         name = "$actionname_spindown_spell",
         author = "Copi",
@@ -6077,21 +6097,29 @@ local actions_to_insert = {
         mana = 40,
         action = function()
             if not reflecting then
-
-                if deck[1] then
-                    if not deck[1]['spun'] then
+                local drew = deck[1]
+                if drew then
+                    if not drew['spun'] then
+                        local action = nil
                         local lookup    = GunUtils.lookup_spells()
-                        local index     = lookup[deck[1]['id']]['index']
-                        local spun      = ((index-2)%#actions)+1
-                        local action    = actions[spun]
-                        deck[1]['id']                   = action.id
-                        deck[1]['uses_remaining']       = math.min(action.max_uses or -1, deck[1]['uses_remaining'] or -1)
-                        deck[1]['related_projectiles']  = action.related_projectiles
-                        deck[1]['name']                 = action.name
-                        deck[1]['action']               = action.action
-                        deck[1]['spun']                 = true
+                        if meta_manager(drew, "COPIS_THINGS_SPINDOWN_SPELL") then
+                            action = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+                        else
+                            local index     = lookup[drew['id']]['index']
+                            local spun      = ((index-2)%#actions)+1
+                            action          = actions[spun]
+                        end
+                        if action then
+                            deck[1]['id']                   = action.id
+                            deck[1]['uses_remaining']       = math.min(action.max_uses or -1, drew['uses_remaining'] or -1)
+                            deck[1]['related_projectiles']  = action.related_projectiles
+                            deck[1]['name']                 = action.name
+                            deck[1]['action']               = action.action
+                            deck[1]['spun']                 = true
+                        end
                     end
                 end
+                draw_actions(1, true)
             end
         end
     },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
@@ -6110,13 +6138,170 @@ local actions_to_insert = {
         mana = 40,
         action = function()
             if (not reflecting) and (not current_action.permanently_attached) then
-                if not deck[1]['duplicate_action_2'] then
-                    table.insert(deck, 1, deck[1])
-                    deck[1]['duplicate_action_2']=true
+                local drew = deck[1]
+                if not drew then return end
+                if not drew['duplicate_action_2'] then
+                    if meta_manager(drew, "COPIS_THINGS_DUPLICATE_ACTION_2") then
+                        local lookup = GunUtils.lookup_spells()
+                        drew = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+                    end
+                    drew['duplicate_action_2'] = true
+                    drew['uses_remaining'] = drew['uses_remaining'] or -1
+                    table.insert(deck, 1, drew)
                 end
                 draw_actions(1, true)
             end
         end
+    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
+    {
+        id = "COPIS_THINGS_IMPRINT",
+        name = "$actionname_imprint",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_imprint",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/imprint.png",
+        type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5,6,10",
+		spawn_probability = "0.2,0.3,0.4,0.3,0.2,0.1,0.2,0.5",
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        price = 256,
+        mana = 40,
+        action = function()
+            if not reflecting then
+                local drew = deck[1]
+                if drew then
+                    if not drew['spun'] then
+                        local action = nil
+                        if meta_manager(drew, "COPIS_THINGS_IMPRINT") then
+                            local lookup = GunUtils.lookup_spells()
+                            action = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+                        else
+                            local iter = tonumber(GlobalsGetValue( "fungal_shift_iteration", "0" )) or 0
+                            local id_sum = 0
+                            for i=1,drew['id']:len() do
+                                id_sum = id_sum + drew['id']:sub(i,i):byte()
+                            end
+
+                            -- Action is determined by drew action id and fungal shift iteration, so you can trip balls to shuffle your imprints
+                            SetRandomSeed(id_sum, iter)
+                            action = actions[Random(1,#actions)]
+                        end
+                        if action then
+                            deck[1]['id']                   = action.id
+                            deck[1]['uses_remaining']       = math.min(action.max_uses or -1, drew['uses_remaining'] or -1)
+                            deck[1]['related_projectiles']  = action.related_projectiles
+                            deck[1]['name']                 = action.name
+                            deck[1]['action']               = action.action
+                            deck[1]['spun']                 = true
+                        end
+                    end
+                end
+                draw_actions(1, true)
+            end
+        end
+    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
+    {
+        id = "COPIS_THINGS_ACTION_INVERSION",
+        name = "$actionname_action_inversion",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_action_inversion",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/action_inversion.png",
+        type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5,6,10",
+		spawn_probability = "0.2,0.3,0.4,0.3,0.2,0.1,0.2,0.5",
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        spawn_requires_flag = "copis_things_meta_spell_action",
+        price = 256,
+        mana = 40,
+        action = function()
+            -- this spell was a fucking multi hour migraine marathon. fuck. probably not even worth the effort too.
+            -- I pray this works. Have spent literally all day working on it.
+            if not reflecting then
+                local drew = deck[1]
+                if drew then
+                    meta_manager(drew, "COPIS_THINGS_ACTION_INVERSION")
+
+                    -- Discard the next spell
+                    table.insert( discarded, table.remove( deck, 1 ) )
+                    local lookup            = GunUtils.lookup_spells()
+                    local index             = lookup[drew['id']]['index']
+                    local action            = actions[index]
+                    local c_mod = {}
+                    local c_old = c
+
+                    c = {}
+                    reset_modifiers(c)
+                    -- arbitrary trigger meant to never collide, to separate c and prevent projectile creation, only to evaluate c
+                    BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml")
+                        BeginTriggerHitWorld()
+                            GunUtils.temporary_deck(
+                                -- func run on the deck
+                                function( deck, hand, discarded )
+
+                                    for key, value in pairs(c_old) do
+                                        c[key] = value
+                                    end
+
+                                    -- invert mana cost
+                                    copi_state.mana_multiplier = copi_state.mana_multiplier * -1
+                                    -- prevent drawing
+                                    force_stop_draws = true
+                                    dont_draw_actions = true
+                                    draw_action(true)
+                                    c_mod = c
+                                    dont_draw_actions = false
+                                    copi_state.mana_multiplier = copi_state.mana_multiplier * -1
+                                end,
+                                -- hand, deck, discard
+                                GunUtils.deck_from_actions( {action} ),
+                                {},
+                                {}
+                            )
+                        EndTrigger()
+                    EndProjectile()
+
+                    c = c_old
+
+                    -- undo c delta (number and bool)
+                    for key, value in pairs(c) do
+                        local t = type(value)
+                        if t == "number" then
+                            c[key] = c[key] + (c[key] - c_mod[key])
+                        elseif t == "boolean" then
+                            c[key] = c[key] and not c_mod[key]
+                        elseif key == "extra_entities" then
+                            -- remove extra entities
+                            for seg in string.gmatch(c_mod['extra_entities'], "([^,]+)[,$]") do
+                                c['extra_entities'] = c['extra_entities']:gsub((seg..","), '', 1)
+                            end
+                        end
+                    end
+
+                end
+                draw_actions(1, true)
+            end
+        end
+    },
+    {
+        id = "COPIS_THINGS_BALANCE",
+        name = "$actionname_balance",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_balance",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/balance.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
+        inject_after = {"RECHARGE"},
+        price = 220,
+        mana = 5,
+        action = function()
+            local avg = (c.fire_rate_wait+current_reload_time)/2
+            c.fire_rate_wait =      avg
+            current_reload_time =   avg
+            draw_actions(1, true)
+        end,
     },
 }
 

@@ -21,6 +21,7 @@ copi_state = {
     draw_depth = 0,
     peeking_depth = 0,
     add_projectile_depth = 0,
+    draw_cancel = false,
 
     draw_actions_capture = nil,
 
