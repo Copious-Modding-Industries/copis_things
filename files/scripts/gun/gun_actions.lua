@@ -6152,6 +6152,36 @@ local actions_to_insert = {
                 draw_actions(1, true)
             end
         end
+    },
+    {
+        id = "COPIS_THINGS_DUPLICATE_ACTION_3",
+        name = "$actionname_duplicate_action_3",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_duplicate_action_3",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action_3.png",
+        type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5,6,10",
+		spawn_probability = "0.2,0.3,0.4,0.3,0.2,0.1,0.2,0.5",
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        price = 256,
+        mana = 40,
+        action = function()
+            if (not reflecting) and (not current_action.permanently_attached) then
+                local drew = deck[1]
+                if not drew then return end
+                if not drew['duplicate_action_3'] then
+                    if meta_manager(drew, "COPIS_THINGS_DUPLICATE_ACTION_3") then
+                        local lookup = GunUtils.lookup_spells()
+                        drew = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+                    end
+                    drew['duplicate_action_3'] = true
+                    drew['uses_remaining'] = drew['uses_remaining'] or -1
+                    for i=1,2 do table.insert(deck, 1, drew) end
+                end
+                draw_actions(1, true)
+            end
+        end
     },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
     {
         id = "COPIS_THINGS_IMPRINT",
