@@ -596,7 +596,7 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
-    {
+    {   -- Unshuffle
         id = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE",
         name = "Upgrade - Unshuffle (One-off)",
         author = "Copi",
@@ -680,7 +680,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Shuffle
         id = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD",
         name = "Upgrade - Shuffle (One-off)",
         author = "Copi",
@@ -767,7 +767,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- S/C
         id = "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND",
         name = "Upgrade - Spells per Cast (One-off)",
         author = "Copi",
@@ -816,37 +816,9 @@ local actions_to_insert = {
                     GamePrintImportant("You cannot cheat the gods!", "")
                 end
             end
-
-            -- Check for initial reflection
-            if not reflecting then
-                -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
-                    local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                    local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    if inventory ~= nil then
-                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                        local pos_x, pos_y = EntityGetTransform(entity_id)
-                        local wand = EZWand(active_wand)
-                        if wand ~= nil then
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND")
-                            wand.spellsPerCast = wand.spellsPerCast + 1
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand upgraded!", tostring(wand.spellsPerCast) .. " spells per cast.")
-                        end
-                    else
-                        -- non-self cast alert
-                        GamePrintImportant("You cannot cheat the gods!", "")
-                    end
-                end
-            end
         end
     },
-    {
+    {   -- Speed
         id = "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER",
         name = "Upgrade - Spell speed multiplier (One-off)",
         author = "Copi",
@@ -863,17 +835,32 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
+                local pos_x, pos_y = EntityGetTransform(this_wand)
                 local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
                 if ability then
-
+                    -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
+                    GunUtils.update_ability(ability, {
+                        -- gunaction_config
+                        {
+                            object = 'gunaction_config',
+                            key = 'speed_multiplier',
+                            modify = function (old)
+                                --stuff
+                                old = old * Random(2, 3)
+                                GameScreenshake(50, pos_x, pos_y)
+                                GamePrintImportant("Wand upgraded!", tostring(old) .. " speed multiplier.")
+                                return old
+                            end,
+                        },
+                    })
+                    -- Remove this spell
                     EntityKill(this_card)
                 end
             else
-
                 -- non-self cast alert
                 GamePrintImportant("You cannot cheat the gods!", "")
             end
@@ -911,7 +898,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Capacity
         id = "COPIS_THINGS_UPGRADE_GUN_CAPACITY",
         name = "Upgrade - Wand capacity (One-off)",
         author = "Copi",
@@ -928,7 +915,7 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
@@ -977,7 +964,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Cast Delay
         id = "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT",
         name = "Upgrade - Cast Delay (One-off)",
         author = "Copi",
@@ -994,7 +981,7 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
@@ -1048,7 +1035,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Reload Time
         id = "COPIS_THINGS_UPGRADE_RELOAD_TIME",
         name = "Upgrade - Reload Time (One-off)",
         author = "Copi",
@@ -1065,7 +1052,7 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_RELOAD_TIME" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
@@ -1119,7 +1106,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Accuracy
         id = "COPIS_THINGS_UPGRADE_SPREAD_DEGREES",
         name = "Upgrade - Accuracy (One-off)",
         author = "Copi",
@@ -1136,7 +1123,7 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_SPREAD_DEGREES" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
@@ -1190,7 +1177,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Maximum mana
         id = "COPIS_THINGS_UPGRADE_MANA_MAX",
         name = "Upgrade - Maximum mana (One-off)",
         author = "Copi",
@@ -1207,7 +1194,7 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_MANA_MAX" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
@@ -1254,7 +1241,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Mana charge speed
         id = "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED",
         name = "Upgrade - Mana charge speed (One-off)",
         author = "Copi",
@@ -1271,7 +1258,7 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
@@ -1318,7 +1305,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Upgrade - Always Cast
         id = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT",
         name = "Upgrade - Always Cast (One-off)",
         author = "Copi",
@@ -1336,7 +1323,7 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
@@ -1392,7 +1379,7 @@ local actions_to_insert = {
             end
         end
     },
-    {
+    {   -- Remove Always Cast
         id = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE",
         name = "Upgrade - Remove Always Cast (One-off)",
         author = "Copi",
@@ -1410,7 +1397,7 @@ local actions_to_insert = {
         action = function(recursion_level, iteration)
 
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
 
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
@@ -6332,6 +6319,26 @@ local actions_to_insert = {
             current_reload_time =   avg
             draw_actions(1, true)
         end,
+    },
+    {
+        id = "COPIS_THINGS_GILDED_AXE",
+        name = "$actionname_gilded_axe",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_gilded_axe",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/gilded_axe.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/gilded_axe.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "0,1,2",                                                   -- THIS IS IN URGENT NEED OF BALANCING.
+        spawn_probability = "2,1,0.5",                                           -- THIS IS IN URGENT NEED OF BALANCING.
+        inject_after = {"DISC_BULLET", "DISC_BULLET_BIG", "DISC_BULLET_BIGGER"},
+        price = 120,
+        mana = 20,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/gilded_axe.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 4
+            current_reload_time = current_reload_time + 8
+        end
     },
 }
 

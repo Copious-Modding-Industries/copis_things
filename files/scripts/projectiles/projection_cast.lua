@@ -2,7 +2,6 @@ local entity_id = GetUpdatedEntityID()
 local projectile = EntityGetFirstComponentIncludingDisabled( entity_id, "ProjectileComponent" )
 if projectile ~= nil then
     local shooter = ComponentGetValue2( projectile, "mWhoShot" )
-    print(shooter)
     local ctrls = EntityGetFirstComponentIncludingDisabled(shooter, "ControlsComponent")
     if ctrls and shooter then
         local mouse_x, mouse_y = ComponentGetValue2(ctrls, "mMousePosition")
