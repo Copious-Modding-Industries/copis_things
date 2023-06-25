@@ -40,7 +40,6 @@
         bounce_at_any_angle="0"
         velocity_updates_animation="1"
         velocity_sets_scale="0"
-        velocity_sets_y_flip="1"
         ragdoll_fx_on_collision="BLOOD_EXPLOSION"
         knockback_force="1.3"
         physics_impulse_coeff="1500"

@@ -596,59 +596,57 @@ local actions_to_insert = {
                 local this_card = GunUtils.current_card(this_wand)
                 local pos_x, pos_y = EntityGetTransform(this_wand)
                 if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
-                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent")
-                    if type(ability) == "number" then
-                        if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
-                            -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
-                            GunUtils.update_ability(ability, {
-                                -- gunaction_config
-                                {
-                                    object = 'gunaction_config',
-                                    key = 'fire_rate_wait',
-                                    modify = function (old)
-                                        return old * 1.1
-                                    end,
-                                },
-                                -- gun_config
-                                {
-                                    object = 'gun_config',
-                                    key = 'actions_per_round',
-                                    modify = function (old)
-                                        return math.max(1, old-1)
-                                    end,
-                                },
-                                {
-                                    object = 'gun_config',
-                                    key = 'shuffle_deck_when_empty',
-                                    value = false,
-                                },
-                                {
-                                    object = 'gun_config',
-                                    key = 'reload_time',
-                                    modify = function (old)
-                                        return old * 1.1
-                                    end,
-                                },
-                                -- Ability
-                                {
-                                    key = 'mana_max',
-                                    modify = function (old)
-                                        return old * 0.9
-                                    end,
-                                },
-                                {
-                                    key = 'mana_charge_speed',
-                                    modify = function (old)
-                                        return old * 0.9
-                                    end,
-                                },
-                            })
-                            --stuff
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
-                            -- Remove this spell
-                            EntityKill(this_card)
-                        end
+                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
+                    if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
+                        GunUtils.update_ability(ability, {
+                            -- gunaction_config
+                            {
+                                object = 'gunaction_config',
+                                key = 'fire_rate_wait',
+                                modify = function (old)
+                                    return old * 1.1
+                                end,
+                            },
+                            -- gun_config
+                            {
+                                object = 'gun_config',
+                                key = 'actions_per_round',
+                                modify = function (old)
+                                    return math.max(1, old-1)
+                                end,
+                            },
+                            {
+                                object = 'gun_config',
+                                key = 'shuffle_deck_when_empty',
+                                value = false,
+                            },
+                            {
+                                object = 'gun_config',
+                                key = 'reload_time',
+                                modify = function (old)
+                                    return old * 1.1
+                                end,
+                            },
+                            -- Ability
+                            {
+                                key = 'mana_max',
+                                modify = function (old)
+                                    return old * 0.9
+                                end,
+                            },
+                            {
+                                key = 'mana_charge_speed',
+                                modify = function (old)
+                                    return old * 0.9
+                                end,
+                            },
+                        })
+                        --stuff
+                        GameScreenshake(50, pos_x, pos_y)
+                        GamePrintImportant("Wand unshuffled!", "Stats slightly reduced.")
+                        -- Remove this spell
+                        EntityKill(this_card)
                     end
                 else
                     GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
@@ -680,8 +678,7 @@ local actions_to_insert = {
                 local this_card = GunUtils.current_card(this_wand)
                 local pos_x, pos_y = EntityGetTransform(this_wand)
                 if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
-                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent")
-                    if type(ability) == "number" then
+                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
                         if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
                             -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
                             GunUtils.update_ability(ability, {
@@ -736,7 +733,6 @@ local actions_to_insert = {
                             -- Remove this spell
                             EntityKill(this_card)
                         end
-                    end
                 else
                     GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
                     GamePrintImportant("Your wand is already unshuffled!", "")
@@ -766,29 +762,25 @@ local actions_to_insert = {
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
                 local pos_x, pos_y = EntityGetTransform(this_wand)
-                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
-                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent")
-                    if type(ability) == "number" then
-                        if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
-                            -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
-                            GunUtils.update_ability(ability, {
-                                -- gun_config
-                                {
-                                    object = 'gun_config',
-                                    key = 'actions_per_round',
-                                    modify = function (old)
-                                        --stuff
-                                        old = math.min(old+math.random(1,2), 32)
-                                        GameScreenshake(50, pos_x, pos_y)
-                                        GamePrintImportant("Wand upgraded!", old .. " spells per cast.")
-                                        return old
-                                    end,
-                                },
-                            })
-                            -- Remove this spell
-                            EntityKill(this_card)
-                        end
-                    end
+                if current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
+                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
+                    -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
+                    GunUtils.update_ability(ability, {
+                        -- gun_config
+                        {
+                            object = 'gun_config',
+                            key = 'actions_per_round',
+                            modify = function (old)
+                                --stuff
+                                old = math.min(old+math.random(1,2), 32)
+                                GameScreenshake(50, pos_x, pos_y)
+                                GamePrintImportant("Wand upgraded!", old .. " spells per cast.")
+                                return old
+                            end,
+                        },
+                    })
+                    -- Remove this spell
+                        EntityKill(this_card)
                 else
                     GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
                     -- non-self cast alert
@@ -812,14 +804,12 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection and greek letters/non-self casts
             if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
-
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
                 local pos_x, pos_y = EntityGetTransform(this_wand)
-                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
+                local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
                 if ability then
                     -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
                     GunUtils.update_ability(ability, {
@@ -843,38 +833,6 @@ local actions_to_insert = {
                 -- non-self cast alert
                 GamePrintImportant("You cannot cheat the gods!", "")
             end
-
-
-
-            -- Check for initial reflection
-            if not reflecting then
-                -- Check for greek letters/non-self casts
-                if current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
-                    local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
-                    local entity_id = GetUpdatedEntityID()
-                    local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
-                    if inventory ~= nil then
-                        local active_wand = ComponentGetValue2(inventory, "mActiveItem")
-                        local pos_x, pos_y = EntityGetTransform(entity_id)
-                        local wand = EZWand(active_wand)
-                        if wand ~= nil then
-                            wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER")
-                            -- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
-                            SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
-                            wand.speedMultiplier = wand.speedMultiplier * Random(2, 3)
-                            local sprite_file = wand:GetSprite()
-                            if not sprite_file:match("data/items_gfx/wands/wand_0%d%d%d.png") == nil then
-                                wand:UpdateSprite()
-                            end
-                            GameScreenshake(50, pos_x, pos_y)
-                            GamePrintImportant("Wand upgraded!", tostring(wand.speedMultiplier) .. " speed multiplier.")
-                        end
-                    else
-                        -- non-self cast alert
-                        GamePrintImportant("You cannot cheat the gods!", "")
-                    end
-                end
-            end
         end
     },
     {   -- Capacity
@@ -892,23 +850,41 @@ local actions_to_insert = {
         recursive = true,
         never_ac = true,
         action = function(recursion_level, iteration)
-
             -- Check for initial reflection and greek letters/non-self casts
-            if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
-
+            if not reflecting then
                 local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
                 local this_card = GunUtils.current_card(this_wand)
-                local ability = EntityGetComponentIncludingDisabled(this_wand, "AbilityComponent")
-                if ability then
+                local pos_x, pos_y = EntityGetTransform(this_wand)
+                if current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
+                    local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
+                    if ComponentObjectGetValue2(ability, "gun_config", "deck_capacity") < 26 then
+                        -- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
+                        GunUtils.update_ability(ability, {
+                            -- gun_config
+                            {
+                                object = 'gun_config',
+                                key = 'deck_capacity',
+                                modify = function (old)
+                                    --stuff
 
-                    EntityKill(this_card)
+                                    old = math.min(old+math.random(1,2), 32)
+                                    GameScreenshake(50, pos_x, pos_y)
+                                    GamePrintImportant("Wand upgraded!", old .. " spells per cast.")
+                                    return old
+                                end,
+                            },
+                        })
+                        -- Remove this spell
+                        EntityKill(this_card)
+                    else
+                        GamePrintImportant("Wand is already too large!")
+                    end
+                else
+                    GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", pos_x, pos_y)
+                    -- non-self cast alert
+                    GamePrintImportant("You cannot cheat the gods!", "")
                 end
-            else
-
-                -- non-self cast alert
-                GamePrintImportant("You cannot cheat the gods!", "")
             end
-
 
 
             -- Check for initial reflection
@@ -6369,6 +6345,23 @@ local actions_to_insert = {
                 EndProjectile()
             end
             c.fire_rate_wait = c.fire_rate_wait + 40
+        end
+    },
+    {
+        id = "COPIS_THINGS_REVENGE_RECHARGE",
+        name = "$actionname_revenge_recharge",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_revenge_recharge",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/revenge_recharge.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "1,2,3,4,5,6",                        -- URGENTLY NEEDS REBALANCING
+        spawn_probability = "0.5,0.2,0.2,0.2,0.1,0.1",      -- URGENTLY NEEDS REBALANCING
+        price = 200,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/revenge_recharge.xml",
+        action = function()
+            draw_actions(1, true)
         end
     },
 }
