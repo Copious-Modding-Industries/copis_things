@@ -18,27 +18,6 @@ end
 
 
 local actions_to_insert = {
-    -- BLOOD TENTACLE
-    {
-        id = "COPIS_THINGS_BLOODTENTACLE",
-        author = "Nolla Games",
-        name = "$action_bloodtentacle",
-        description = "$actiondesc_bloodtentacle",
-        spawn_requires_flag = "card_unlocked_pyramid",
-        sprite = "data/ui_gfx/gun_actions/bloodtentacle.png",
-        related_projectiles = { "data/entities/projectiles/deck/bloodtentacle.xml" },
-        type = ACTION_TYPE_PROJECTILE,
-        spawn_level = "3,4,5,6",
-        spawn_probability = "0.2,0.5,1,1",
-        inject_after = {"TENTACLE", "TENTACLE_TIMER"},
-        price = 170,
-        mana = 30,
-        --max_uses = 40,
-        action = function()
-            add_projectile("data/entities/projectiles/deck/bloodtentacle.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 20
-        end
-    },
     {
         id = "COPIS_THINGS_PSYCHIC_SHOT",
         name = "$actionname_psychic_shot",
@@ -1800,7 +1779,8 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5",
         spawn_probability = "0.2,0.3,0.2,0.1,0.1",
         price = 280,
-        mana = 0,
+        mana = 20,
+        skip_mana = true,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_flamethrower.xml",
         action = function()
             -- does nothing to the projectiles
@@ -4472,7 +4452,8 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5",
         spawn_probability = "0.2,0.3,0.2,0.1,0.1",
         price = 280,
-        mana = 0,
+        mana = 5,
+        skip_mana = true,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/ultrakill.xml",
         action = function()
             -- does nothing to the projectiles
@@ -5856,7 +5837,8 @@ local actions_to_insert = {
         spawn_level = "1,2,3,4,5",
         spawn_probability = "1,0.5,0.2,0.1,0.1",
         price = 280,
-        mana = 0,
+        mana = 12,
+        skip_mana = true,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_grappling_hook.xml",
         action = function()
             -- does nothing to the projectiles
@@ -6340,6 +6322,55 @@ local actions_to_insert = {
             current_reload_time = current_reload_time + 8
         end
     },
+    --[[
+        I wanted to add a special case where it's added to projectiles with damagemodels like fish and pollen, but that's too much work
+    ]]
+    {
+        id = "COPIS_THINGS_TRIGGER_DAMAGE_RECEIVED",
+        name = "$actionname_trigger_damage_received",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_trigger_damage_received",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/trigger_damage_received.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "0,1,2,3,4,5",
+        spawn_probability = "0.1,0.3,0.2,0.2,0.1,0.1",
+        price = 130,
+        mana = -10,
+        action = function()
+            -- Only run post-init and if there's something to catch
+            if not reflecting and deck[1] then
+                -- Attempt to add damage taken checker if non existent
+                local shooter = GetUpdatedEntityID()
+                local luacs = EntityGetComponent(shooter, "LuaComponent") or {}
+                local found = false
+                local path = "mods/copis_things/files/scripts/projectiles/trigger_damage_received.lua"
+                for i=1, #luacs do
+                    if ComponentGetValue2(luacs[i], "script_damage_received") == path then
+                        found = true
+                        break
+                    end
+                end
+                if not found then
+                    EntityAddComponent2( shooter, "LuaComponent", { script_damage_received = path, })
+                end
+
+                -- Separate cast to negate modifiers
+                BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" )
+                    BeginTriggerDeath()
+                        -- This does the magic
+                        BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_damage_received.xml" )
+                            BeginTriggerDeath()
+                                -- The shot to fire from within
+                                draw_shot(create_shot(1), true)
+                            EndTrigger()
+                        EndProjectile()
+                    EndTrigger()
+                EndProjectile()
+            end
+            c.fire_rate_wait = c.fire_rate_wait + 40
+        end
+    },
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
@@ -6378,6 +6409,9 @@ else
         actions[len+i] = actions_to_insert[i]
     end
 end
+
+print("COPI SPELLS: ".. tostring(#actions_to_insert))
+
 
 -- Handle april fools
 

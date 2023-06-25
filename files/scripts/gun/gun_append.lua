@@ -1,10 +1,12 @@
 ---@diagnostic disable: lowercase-global
 -- State
 copi_state = {
+    -- Mana multiplier and stuff
     mana_multiplier = 1.0,
     duplicating_action = false,
     recursion_count = 0,
 
+    -- Used in skip spells
     skip_count = 0,
     skipping = false,
     skip_type = {                                                                   ---@type table
@@ -18,19 +20,30 @@ copi_state = {
         [7] = false,                                                                    ---@type boolean
     },
 
+    -- Various draw related variables
     draw_depth = 0,
     peeking_depth = 0,
     add_projectile_depth = 0,
     draw_cancel = false,
 
+    -- Used to capture drawn actions, doesnt do much *yet*
     draw_actions_capture = nil,
 
+    -- I forgot what this is for
     instant_reload_if_empty = true,
 
+    -- Used to measure if we're doing a new cast, to increment cast state global
     new_cast = nil,
 
+    --- Stores the lookup table for spells
+    ---@see GunUtils.lookup_spells function
     lookup_spells = nil,
 
+    --- Should we do a full clone of actions for deck and card playing?
+    ---@see clone_action function
+    full_clone = true,
+
+    -- Old functions to monkey patch
     old = {                                                                         ---@type table
         _order_deck                         = order_deck,                               ---@type function
         _draw_shot                          = draw_shot,                                ---@type function
@@ -43,6 +56,7 @@ copi_state = {
         _draw_action                        = draw_action,                              ---@type function
         _register_action                    = register_action,                          ---@type function
         _create_shot                        = create_shot,                              ---@type function
+        _clone_action                       = clone_action,                             ---@type function
     }
 }
 
@@ -75,6 +89,7 @@ register_action     = dofile_once("mods/copis_things/files/scripts/gun/functions
 add_projectile      = dofile_once("mods/copis_things/files/scripts/gun/functions/add_projectile.lua").add_projectile                ---@type function
 create_shot         = dofile_once("mods/copis_things/files/scripts/gun/functions/create_shot.lua").create_shot                      ---@type function
 set_current_action  = dofile_once("mods/copis_things/files/scripts/gun/functions/set_current_action.lua").set_current_action        ---@type function
+clone_action        = dofile_once("mods/copis_things/files/scripts/gun/functions/clone_action.lua").clone_action                    ---@type function
 draw_actions        = draw_actions --[[ TODO: Patch this, only here for annotation ]]                                               ---@type function
 
 -- New Funcs

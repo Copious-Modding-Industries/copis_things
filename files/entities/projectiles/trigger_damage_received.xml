@@ -1,4 +1,4 @@
-<Entity name="$projectile_default" tags="projectile_player">
+<Entity name="copi_trigger_damage_received" tags="projectile_player">
     <Base file="data/entities/base_projectile.xml">
         <VelocityComponent gravity_y="0" air_friction="0" mass="0" />
     </Base>
@@ -15,8 +15,9 @@
         explosion_dont_damage_shooter="1"
         on_collision_die="0"
         die_on_liquid_collision="0"
-        lifetime="0"
+        lifetime="-1"
         damage="0"
+        die_on_low_velocity="0"
         ragdoll_force_multiplier="0.0"
         hit_particle_force_multiplier="0.0"
         camera_shake_when_shot="5.0"
@@ -34,5 +35,7 @@
         >
         <config_explosion damage="0.0" explosion_radius="0" />
     </ProjectileComponent>
-    <LuaComponent execute_on_added="1" script_source_file="mods/copis_things/files/scripts/projectiles/kill.lua" />
+    <LuaComponent execute_on_added="1"      script_source_file="mods/copis_things/files/scripts/projectiles/trigger_damage_received_reset.lua" />
+    <LuaComponent execute_every_n_frame="1" script_source_file="mods/copis_things/files/scripts/projectiles/trigger_damage_received_handler.lua" />
+  
 </Entity>
