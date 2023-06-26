@@ -6268,15 +6268,15 @@ local actions_to_insert = {
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/gilded_axe.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/gilded_axe.xml" },
         type = ACTION_TYPE_PROJECTILE,
-        spawn_level = "0,1,2",                                                   -- THIS IS IN URGENT NEED OF BALANCING.
-        spawn_probability = "2,1,0.5",                                           -- THIS IS IN URGENT NEED OF BALANCING.
+        spawn_level = "0,1,2,3,4",                                                   -- THIS IS IN URGENT NEED OF BALANCING.
+        spawn_probability = "2,1,0.5,0.5,0.5",                                           -- THIS IS IN URGENT NEED OF BALANCING.
         inject_after = {"DISC_BULLET", "DISC_BULLET_BIG", "DISC_BULLET_BIGGER"},
         price = 120,
         mana = 20,
         action = function()
             add_projectile("mods/copis_things/files/entities/projectiles/gilded_axe.xml")
             c.fire_rate_wait = c.fire_rate_wait + 4
-            current_reload_time = current_reload_time + 8
+            current_reload_time = current_reload_time + 12
         end
     },
     --[[
