@@ -5937,25 +5937,6 @@ local actions_to_insert = {
                 end
             end
         end
-    },
-    {
-        id = "COPIS_THINGS_RIP_HOOK",
-        name = "Riphook",
-        author = "Copi",
-        mod = "Copi's Things",
-        description = "A cruel hook which drags the first creature it strikes",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/rip_hook.png",
-        related_projectiles = { "mods/copis_things/files/entities/projectiles/rip_hook.xml" },
-        type = ACTION_TYPE_PROJECTILE,
-        spawn_level = "0,1,2",  -- idk how to balance this shit genuinely PLEASE if you have any degree of a sense of balance help me out with all these spawn probs and levels
-        spawn_probability = "1,1,0.5",
-        inject_after = {"BULLET", "BULLET_TRIGGER", "BULLET_TIMER"},
-        price = 120,
-        mana = 40,
-        action = function()
-            add_projectile("mods/copis_things/files/entities/projectiles/rip_hook.xml")
-            c.fire_rate_wait = c.fire_rate_wait + 2
-        end
     },]]
     -- This breaks shit
     -- I only just realized now how much more profanity my mod has since moving on to vD.5 hmmmmmmm...
@@ -6346,7 +6327,7 @@ local actions_to_insert = {
             end
             c.fire_rate_wait = c.fire_rate_wait + 40
         end
-    },
+    },--[[
     {
         id = "COPIS_THINGS_REVENGE_RECHARGE",
         name = "$actionname_revenge_recharge",
@@ -6362,6 +6343,26 @@ local actions_to_insert = {
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/revenge_recharge.xml",
         action = function()
             draw_actions(1, true)
+        end
+    },]]
+    -- I'd make this reel enemies through portals, but that's too much effort for now
+    {
+        id = "COPIS_THINGS_RIPHOOK",
+        name = "$actionname_riphook",
+        description = "$actiondesc_riphook",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/riphook.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/riphook.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "0,1,2",  -- idk how to balance this shit genuinely PLEASE if you have any degree of a sense of balance help me out with all these spawn probs and levels
+        spawn_probability = "1,1,0.5",
+        inject_after = {"BULLET", "BULLET_TRIGGER", "BULLET_TIMER"},
+        price = 120,
+        mana = 35,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/riphook.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 2
         end
     },
 }

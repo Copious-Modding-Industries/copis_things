@@ -4,6 +4,6 @@
 		<ItemActionComponent  _tags="enabled_in_world" action_id="COPIS_THINGS_REVENGE_RECHARGE" />
 	</Base>
 	<InheritTransformComponent _tags="enabled_in_world,enabled_in_hand" />
-	<LuaComponent _tags="enabled_in_hand" script_damage_received="mods/copis_things/files/scripts/custom_cards/revenge_recharge.lua" execute_every_n_frame="1" />
+	<LuaComponent _tags="enabled_in_hand" script_damage_received="mods/copis_things/files/scripts/custom_cards/revenge_recharge.lua" execute_every_n_frame="-1" />
     <VariableStorageComponent _tags="enabled_in_hand" name="cooldown_frame" value_int="0" />
 </Entity>

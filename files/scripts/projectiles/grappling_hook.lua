@@ -28,8 +28,7 @@ if projcomp then
             local active_wand = ComponentGetValue2(inventory, "mActiveItem")
             if EntityHasTag(active_wand, "wand") then
                 local _, _, rot = EntityGetTransform(active_wand)
-                local HotspotComponent = EntityGetFirstComponentIncludingDisabled(active_wand, "HotspotComponent",
-                    "shoot_pos")
+                local HotspotComponent = EntityGetFirstComponentIncludingDisabled(active_wand, "HotspotComponent", "shoot_pos")
                 if HotspotComponent then
                     local ox, oy = ComponentGetValueVector2(HotspotComponent, "offset")
                     local tx = math.cos(rot) * ox - math.sin(rot) * oy
