@@ -25,3 +25,8 @@ for i = 1, #mcmcs do
     local mcmc = mcmcs[i]
     ComponentSetValue2(mcmc, "radius", radius)
 end
+local lgcs = EntityGetComponent(entity_id, "LooseGroundComponent", "fire") or {}
+for i = 1, #lgcs do
+    local lgc = lgcs[i]
+    ComponentSetValue2(lgc, "max_distance", radius)
+end

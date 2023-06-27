@@ -140,8 +140,8 @@
     <MagicConvertMaterialComponent
         _tags="fire"
         ignite_materials="99"
-        from_material=""
-        to_material=""
+        from_material_array="snowrock_static,water"
+        to_material_array="sand_static,steam"
         steps_per_frame="5"
         loop="1"
         is_circle="1"
@@ -181,6 +181,14 @@
 		emission_interval_max_frames="4"
 		render_ultrabright="1"
 		is_emitting="1"
+    />
+    <LooseGroundComponent
+        _tags="fire"
+        max_distance="240"
+        probability="0.1"
+        max_angle="3.1415926535"
+        chunk_max_angle="3.1415926535"
+        chunk_probability="0.005"
     />
 
 </Entity>
