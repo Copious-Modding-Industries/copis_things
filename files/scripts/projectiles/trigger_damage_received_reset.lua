@@ -32,6 +32,11 @@ local component_whitelist = {
     ProjectileComponent = true,
     VelocityComponent   = true,
     LuaComponent        = true,
+    UIIconComponent     = true,
+}
+local luac_whitelist = {
+    ["mods/copis_things/files/scripts/projectiles/trigger_damage_received_reset.lua"] = true,
+    ["mods/copis_things/files/scripts/projectiles/trigger_damage_received_handler.lua"] = true,
 }
 local entity_id = GetUpdatedEntityID()
 local projcomp = EntityGetFirstComponent(entity_id, "ProjectileComponent") --[[@cast projcomp number]]
@@ -39,6 +44,6 @@ local comps = EntityGetAllComponents(entity_id) or {}
 local luacs = EntityGetComponent(entity_id, "LuaComponent") or {}
 for i=1,#values do ComponentSetValue2(projcomp, values[i][1], values[i][2]) end
 for i=1,#comps do if not component_whitelist[ComponentGetTypeName(comps[i])] then EntityRemoveComponent(entity_id, comps[i]) end end
-for i=1,#luacs do if ComponentGetValue2(luacs[i],"script_source_file")~="mods/copis_things/files/scripts/projectiles/trigger_damage_received_handler.lua" then EntityRemoveComponent(entity_id, luacs[i]) end end
+for i=1,#luacs do if not luac_whitelist[ComponentGetValue2(luacs[i],"script_source_file")] then EntityRemoveComponent(entity_id, luacs[i]) end end
 local x, y = EntityGetTransform(entity_id)
 EntityLoad("mods/copis_things/files/entities/particles/blood_glyph.xml", x, y)

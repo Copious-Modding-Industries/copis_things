@@ -6365,6 +6365,28 @@ local actions_to_insert = {
             c.fire_rate_wait = c.fire_rate_wait + 2
         end
     },
+    {
+        id = "COPIS_THINGS_FIRESPHERE",
+        name = "$actionname_firesphere",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_firesphere",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/firesphere.png",
+        sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+        related_extra_entities = { "mods/copis_things/files/entities/projectiles/firesphere.xml" },
+        type = ACTION_TYPE_STATIC_PROJECTILE,
+        spawn_level = "2,3,4",
+        spawn_probability = "1,0.8,0.6",
+        price = 200,
+        mana = 60,
+        max_uses = -1,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/firesphere.xml")
+            draw_actions(1, true)
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            current_reload_time = current_reload_time + 15
+        end
+    },
 }
 
 if ModSettingGet("CopisThings.inject_spells") then

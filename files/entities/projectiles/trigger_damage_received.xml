@@ -35,7 +35,6 @@
         >
         <config_explosion damage="0.0" explosion_radius="0" />
     </ProjectileComponent>
-    <LuaComponent execute_on_added="1"      script_source_file="mods/copis_things/files/scripts/projectiles/trigger_damage_received_reset.lua" />
+    <LuaComponent execute_on_added="1" remove_after_executed="1" script_source_file="mods/copis_things/files/scripts/projectiles/trigger_damage_received_reset.lua" />
     <LuaComponent execute_every_n_frame="1" script_source_file="mods/copis_things/files/scripts/projectiles/trigger_damage_received_handler.lua" />
-  
 </Entity>

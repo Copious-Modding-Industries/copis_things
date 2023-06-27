@@ -44,7 +44,7 @@
 		</config_explosion>
 		<damage_critical
 			chance="15.0"
-			damage_multiplier="0.5" >
+			damage_multiplier="2.5" >
 		</damage_critical>
 	</ProjectileComponent>
   
