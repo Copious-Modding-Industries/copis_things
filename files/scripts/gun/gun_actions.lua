@@ -5817,6 +5817,9 @@ local actions_to_insert = {
         skip_mana = true,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_grappling_hook.xml",
         action = function()
+            if reflecting then
+                Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/grappling_hook.xml")
+            end
             -- does nothing to the projectiles
             draw_actions(1, true)
         end
@@ -6363,6 +6366,28 @@ local actions_to_insert = {
         action = function()
             add_projectile("mods/copis_things/files/entities/projectiles/riphook.xml")
             c.fire_rate_wait = c.fire_rate_wait + 2
+        end
+    },
+    {
+        id = "COPIS_THINGS_ALT_FIRE_RIPHOOK",
+        name = "$actionname_alt_fire_riphook",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_alt_fire_riphook",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_riphook.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "0,1,2",  -- idk how to balance this shit genuinely PLEASE if you have any degree of a sense of balance help me out with all these spawn probs and levels
+        spawn_probability = "1,1,0.5",
+        price = 280,
+        mana = 35,
+        skip_mana = true,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_riphook.xml",
+        action = function()
+            if reflecting then
+                Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/riphook.xml")
+            end
+            -- does nothing to the projectiles
+            draw_actions(1, true)
         end
     },
     {

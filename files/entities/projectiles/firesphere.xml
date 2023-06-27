@@ -147,7 +147,6 @@
         is_circle="1"
         radius="15"
     />
-	
 	<ParticleEmitterComponent 
         _tags="fire"
 		emitted_material_name="spark_yellow"
@@ -160,8 +159,8 @@
 		x_vel_max="40"
 		y_vel_min="-40"
 		y_vel_max="40"
-		area_circle_radius.min="16"
-		area_circle_radius.max="42"
+		area_circle_radius.min="0"
+		area_circle_radius.max="10"
 		velocity_always_away_from_center="250"
 		gravity.y="0"
 		friction="0.1"
@@ -171,7 +170,7 @@
 		count_min="10"
 		count_max="20"
 		lifetime_min="0.1"
-		lifetime_max="0.1"
+		lifetime_max="0.3"
 		create_real_particles="0"
 		emit_cosmetic_particles="1"
 		draw_as_long="1"
@@ -184,11 +183,10 @@
     />
     <LooseGroundComponent
         _tags="fire"
-        max_distance="240"
+        max_distance="10"
         probability="0.1"
         max_angle="3.1415926535"
         chunk_max_angle="3.1415926535"
         chunk_probability="0.005"
     />
-
 </Entity>

@@ -30,3 +30,21 @@ for i = 1, #lgcs do
     local lgc = lgcs[i]
     ComponentSetValue2(lgc, "max_distance", radius)
 end
+
+local projcomp = EntityGetFirstComponent(entity_id, "ProjectileComponent") --[[@cast projcomp number]]
+local shooter = ComponentGetValue2(projcomp, "mWhoShot")
+if not shooter then return end
+local inv2comp = EntityGetFirstComponentIncludingDisabled(shooter, "Inventory2Component")
+if inv2comp then
+    local activeitem = ComponentGetValue2(inv2comp, "mActiveItem")
+    if EntityHasTag(activeitem, "wand") then
+        local ability = EntityGetFirstComponentIncludingDisabled(activeitem, "AbilityComponent") --[[@cast ability number]]
+        local mana = ComponentGetValue2(ability, "mana")
+        local drain = radius^0.3
+        if mana >= drain then
+            ComponentSetValue2(ability, "mana", mana - drain)
+        else
+            EntityKill(entity_id)
+        end
+    end
+end

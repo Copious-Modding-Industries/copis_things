@@ -349,13 +349,6 @@ local compatibility = {
 local experimental = {
 
     loadspell = function ()
-        do
-            local pos = {
-                x = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_X")),
-                y = tonumber(MagicNumbersGetValue("DESIGN_PLAYER_START_POS_Y")),
-            }
-            CreateItemActionEntity( "COPIS_THINGS_CONFETTI_TRAIL", pos.x, pos.y )
-        end
         if ModSettingGet("CopisThings.do_starting_crap") then
             local flag = "copis_things_spell_spawned"
             if not GameHasFlagRun(flag) then
