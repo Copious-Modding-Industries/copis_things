@@ -41,7 +41,6 @@ function AltFireHandler(card, projectile, cooldown_frames, vel_min, vel_max, man
                     local ox, oy = ComponentGetValue2(HotspotComponent, "offset")
                     local tx = math.cos(wand_r) * ox - math.sin(wand_r) * oy
                     local ty = math.sin(wand_r) * ox + math.cos(wand_r) * oy
-                    print(math.deg(wand_r))
                     dist_x, dist_y = tx, ty
                 end
 
@@ -64,8 +63,11 @@ function AltFireHandler(card, projectile, cooldown_frames, vel_min, vel_max, man
                 ComponentSetValue2(abilitycomp, "mana", mana - mana_cost)
                 ComponentSetValue2(vsc, "value_int", now + cooldown_frames)
             else
+                --[[ weird jank, cant figure this out
+                local invguicomp = EntityGetFirstComponentIncludingDisabled(shooter, "InventoryGuiComponent")
+                if invguicomp then ComponentSetValue2(invguicomp, "mFrameShake_ManaBar", now) end
+                ]]
                 GamePlaySound("data/audio/Desktop/items.bank", "magic_wand/out_of_mana", x, y)
-                --OnNotEnoughManaForAction()
             end
         end
     end
