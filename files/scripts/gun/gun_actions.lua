@@ -5714,6 +5714,25 @@ local actions_to_insert = {
         end
     },
     {
+        id = "COPIS_THINGS_SPECTRAL_HOOK",
+        name = "$actionname_spectral_hook",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_spectral_hook",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/spectral_hook.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/spectral_hook.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "0,1,2,3,4",
+        spawn_probability = "0.2,3,0.3,0.5,1",
+        inject_after = {"COPIS_THINGS_GRAPPLING_HOOK"},
+        price = 120,
+        mana = 45,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/spectral_hook.xml")
+            current_reload_time = current_reload_time + 24
+        end
+    },
+    {
         id = "COPIS_THINGS_GRAPPLING_HOOK_SHOT",
         name = "$actionname_grappling_hook_shot",
         author = "Copi",
@@ -6371,9 +6390,9 @@ local actions_to_insert = {
     {
         id = "COPIS_THINGS_ALT_FIRE_RIPHOOK",
         name = "$actionname_alt_fire_riphook",
+        description = "$actiondesc_alt_fire_riphook",
         author = "Copi",
         mod = "Copi's Things",
-        description = "$actiondesc_alt_fire_riphook",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_riphook.png",
         type = ACTION_TYPE_PASSIVE,
         spawn_level = "0,1,2",  -- idk how to balance this shit genuinely PLEASE if you have any degree of a sense of balance help me out with all these spawn probs and levels
@@ -6410,6 +6429,25 @@ local actions_to_insert = {
             draw_actions(1, true)
             c.fire_rate_wait = c.fire_rate_wait + 30
             current_reload_time = current_reload_time + 15
+        end
+    },
+    {
+        id = "COPIS_THINGS_ALT_FIRE_BOMB",
+        name = "$actionname_alt_fire_bomb",
+        description = "$actiondesc_alt_fire_bomb",
+        author = "Copi",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_bomb.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "0,1,2,3,4,5,6",
+        spawn_probability = "1,1,1,1,1,1,1",
+        price = 250,
+        mana = 25,
+        skip_mana = true,
+        max_uses = 3,
+        custom_uses_logic = true,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_bomb.xml",
+        action = function()
+            draw_actions(1, true)
         end
     },
 }

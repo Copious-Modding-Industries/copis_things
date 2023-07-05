@@ -25,7 +25,7 @@ function AltFireHandler(card, projectile, cooldown_frames, vel_min, vel_max, man
     local controlscomp = EntityGetFirstComponentIncludingDisabled(shooter, "ControlsComponent") --[[@cast controlscomp number]]
     local x, y = EntityGetTransform(card)
     if now >= cooldown then
-        if ComponentGetValue2(controlscomp, "mButtonFrameRightClick") == now then
+        if ComponentGetValue2(controlscomp, "mButtonDownRightClick") then
             local mana = ComponentGetValue2(abilitycomp, "mana")
             if (mana >= mana_cost) then
 

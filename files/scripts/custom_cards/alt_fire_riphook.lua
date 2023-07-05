@@ -5,6 +5,5 @@ AltFireHandler(
     "mods/copis_things/files/entities/projectiles/riphook.xml",
     30,         -- Cooldown frames
     450, 500,   -- Speed min and max
-    35,         -- Mana cost
-    false
+    35          -- Mana cost
 )
