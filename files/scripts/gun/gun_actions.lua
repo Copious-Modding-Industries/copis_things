@@ -6085,11 +6085,11 @@ local actions_to_insert = {
         price = 256,
         mana = 40,
         action = function()
-            if (not reflecting) and (not current_action.permanently_attached) then
+            if (not reflecting) and (not current_action.permanently_attached) then  -- ACs make the game angry I guess
                 local drew = deck[1]
                 if not drew then return end
-                if not drew['duplicate_action_2'] then
-                    if meta_manager(drew, "COPIS_THINGS_DUPLICATE_ACTION_2") then
+                if not drew['duplicate_action_2'] then  -- prevent adding a copy each cast, like the AC refresh exploit
+                    if meta_manager(drew, "COPIS_THINGS_DUPLICATE_ACTION_2") then   -- Ignore this part, it's for a little secret when you cast the spell on itself
                         local lookup = GunUtils.lookup_spells()
                         drew = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
                     end
@@ -6145,12 +6145,13 @@ local actions_to_insert = {
         price = 256,
         mana = 40,
         action = function()
+            -- this WILL break lol lmao
             if not reflecting then
                 local drew = deck[1]
                 if drew then
                     if not drew['spun'] then
                         local action = nil
-                        if meta_manager(drew, "COPIS_THINGS_IMPRINT") then
+                        if meta_manager(drew, "COPIS_THINGS_IMPRINT") then   -- Ignore this part, it's for a little secret when you cast the spell on itself
                             local lookup = GunUtils.lookup_spells()
                             action = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
                         else
@@ -6448,6 +6449,85 @@ local actions_to_insert = {
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/alt_fire_bomb.xml",
         action = function()
             draw_actions(1, true)
+        end
+    },--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
+    {
+        id = "COPIS_THINGS_LOOP_CAST",
+        name = "$actionname_loop_cast",
+        description = "$actiondesc_loop_cast",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/loop_cast.png",
+        type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5,6,10",
+		spawn_probability = "0.2,0.3,0.4,0.3,0.2,0.1,0.2,0.5",
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        price = 256,
+        mana = 40,
+        action = function()
+            if not reflecting then
+                hand = {}
+                discarded = {}
+                draw_actions(1, true)
+            end
+            current_reload_time = 0
+            c.fire_rate_wait    = 0
+        end
+    },--[[ cant figure out the silly spell 
+    {
+        id = "COPIS_THINGS_FLIP_EVERY_OTHER",
+        name = "$actionname_flip_every_other",
+        description = "$actiondesc_flip_every_other",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/flip_every_other.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "0,1,2,3,4",                  -- URGENTLY NEEDS REBALANCING
+        spawn_probability = "0.5,0.5,0.5,0.5,0.5",  -- URGENTLY NEEDS REBALANCING
+        inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
+        price = 256,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/flip_every_other.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },]]--[[ cant make this look right
+    {
+        id = "COPIS_THINGS_CRIMSON_DAGGER",
+        name = "$actionname_crimson_dagger",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "$actiondesc_crimson_dagger",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/crimson_dagger.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/crimson_dagger.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "0,1,2,3,4",                                                   -- THIS IS IN URGENT NEED OF BALANCING.
+        spawn_probability = "2,1,0.5,0.5,0.5",                                           -- THIS IS IN URGENT NEED OF BALANCING.
+        inject_after = {"DISC_BULLET", "DISC_BULLET_BIG", "DISC_BULLET_BIGGER"},
+        price = 120,
+        mana = 20,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/crimson_dagger.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 4
+            current_reload_time = current_reload_time + 12
+        end
+    },]]
+    {
+        id = "COPIS_THINGS_ICE_CUBE",
+        name = "$actionname_ice_cube",
+        description = "$actiondesc_ice_cube",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/ice_cube.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/ice_cube.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "2,3,4,5", -- SUMMON_ROCK
+        spawn_probability = "0.3,0.5,0.5,0.1", -- SUMMON_ROCK
+        price = 227,
+        mana = 143,
+        max_uses = 25,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/ice_cube.xml")
         end
     },
 }

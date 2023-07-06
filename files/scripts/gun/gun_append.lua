@@ -43,6 +43,10 @@ copi_state = {
     ---@see clone_action function
     full_clone = true,
 
+    --- Do we flip the deck when ordering?
+    ---@see order_deck
+    flip_deck = false,
+
     -- Old functions to monkey patch
     old = {                                                                         ---@type table
         _order_deck                         = order_deck,                               ---@type function

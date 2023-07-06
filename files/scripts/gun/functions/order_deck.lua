@@ -1,5 +1,6 @@
 local function get_force_sorted(caster)
     local force_sorted = false
+    local flip_every_other = false
     local base_wand = nil
     local wands = {}
     local inventories = EntityGetAllChildren(caster) or {}
@@ -28,18 +29,17 @@ local function get_force_sorted(caster)
         local wand_children = EntityGetAllChildren(base_wand) or {}
         for i=1,#wand_children do
             if EntityHasTag( wand_children[i], "card_action" ) then
-                local iac = EntityGetFirstComponentIncludingDisabled( wand_children[i], "ItemActionComponent" )
-                if ComponentGetValue2( iac, "action_id" ) == "COPIS_THINGS_ORDER_DECK" then
+                local iac = EntityGetFirstComponentIncludingDisabled( wand_children[i], "ItemActionComponent" ) --[[@cast iac number]]
+                local action_id = ComponentGetValue2( iac, "action_id" )
+                if action_id == "COPIS_THINGS_ORDER_DECK" then
                     force_sorted = true
-                    break
+                --[[elseif action_id == "COPIS_THINGS_FLIP_EVERY_OTHER" then
+                    flip_every_other = true]] break
                 end
-            end
-            if force_sorted then
-                break
             end
         end
     end
-    return force_sorted
+    return force_sorted--, flip_every_other
 end
 
 local function order_deck()
@@ -56,7 +56,7 @@ local function order_deck()
     }
 
     local shooter = GetUpdatedEntityID()
-    local force_sorted = get_force_sorted(shooter)
+    local force_sorted--[[, flip_every_other]] = get_force_sorted(shooter)
 
     if force_sorted then
         local before = gun.shuffle_deck_when_empty
@@ -76,16 +76,30 @@ local function order_deck()
         end
     end
     local shooter_mult = ComponentGetValue2(vid, "value_float") or 1.0
+    --[[
+    if flip_every_other then
+        copi_state.flip_deck = not copi_state.flip_deck
+        if copi_state.flip_deck then
+            table.sort(deck, function(x, y) return x.deck_index > y.deck_index end)
+            print("HEY!")
+        end
+        shooter_mult = shooter_mult/2
+    end]]
 
-    --[[print(string.rep("\n", 3))
-    print(string.rep("=", 131))]]
+
+    --[[
+    print(string.rep("\n", 3))
+    print(string.rep("=", 131))
+    ]]
     -- This allows me to hook into the mana access and call an arbitrary function. Very tricksy :^)
     for _, action in pairs(deck) do
-        --[[print(string.rep("\n", 3))
+        --[[
+        print(string.rep("\n", 3))
         print(string.rep("-", 131))
         for key, value in pairs(action) do
             print(string.format("%-60s | %70s", tostring(key), GameTextGetTranslatedOrNot(tostring(value))))
-        end]]
+        end
+        ]]
         if action.copi_mana_calculated == nil then
             local meta = {}
             if action.skip_mana then
