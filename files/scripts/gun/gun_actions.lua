@@ -6524,10 +6524,11 @@ local actions_to_insert = {
         spawn_level = "2,3,4,5", -- SUMMON_ROCK
         spawn_probability = "0.3,0.5,0.5,0.1", -- SUMMON_ROCK
         price = 227,
-        mana = 143,
+        mana = 50,
         max_uses = 25,
         action = function()
             add_projectile("mods/copis_things/files/entities/projectiles/ice_cube.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 45
         end
     },
 }
