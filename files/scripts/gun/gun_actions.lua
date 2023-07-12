@@ -4726,7 +4726,8 @@ local actions_to_insert = {
         spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
         inject_after = {"MANA_REDUCE"},
         price = 220,
-        mana = 0,
+        mana = -80,
+        skip_mana = true,
         action = function()
             if reflecting then
                 return
@@ -6520,7 +6521,7 @@ local actions_to_insert = {
         mod = "Copi's Things",
         sprite = "mods/copis_things/files/ui_gfx/gun_actions/ice_cube.png",
         related_projectiles = { "mods/copis_things/files/entities/projectiles/ice_cube.xml" },
-        type = ACTION_TYPE_PROJECTILE,
+        type = ACTION_TYPE_STATIC_PROJECTILE,
         spawn_level = "2,3,4,5", -- SUMMON_ROCK
         spawn_probability = "0.3,0.5,0.5,0.1", -- SUMMON_ROCK
         price = 227,
@@ -6529,6 +6530,51 @@ local actions_to_insert = {
         action = function()
             add_projectile("mods/copis_things/files/entities/projectiles/ice_cube.xml")
             c.fire_rate_wait = c.fire_rate_wait + 45
+        end
+    },
+    {
+        id = "COPIS_THINGS_MANA_DELTA",
+        name = "$actionname_mana_delta",
+        description = "$actiondesc_mana_delta",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/mana_delta.png",
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "1,2,3,4,5,6",
+        spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
+        inject_after = {"MANA_REDUCE"},
+        price = 220,
+        mana = -120,
+        skip_mana = true,
+        action = function()
+            current_reload_time = current_reload_time + 15
+            if not reflecting then
+                local delta = math.min(120, (GameGetFrameNum() - (LastShootingStart or 0)) * 2)
+                mana = mana + delta
+                draw_actions(1, true)
+                LastShootingStart = GameGetFrameNum()
+            end
+        end,
+    },
+    {
+        id = "COPIS_THINGS_PAIN_RAY",
+        name = "$actionname_pain_ray",
+        description = "$actiondesc_pain_ray",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/pain_ray.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/pain_ray.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "2,3,4,5", -- SUMMON_ROCK
+        spawn_probability = "0.3,0.5,0.5,0.1", -- SUMMON_ROCK
+        price = 100,
+        mana = 50,
+        action = function()
+            if not reflecting then
+                add_projectile("mods/copis_things/files/entities/projectiles/pain_ray.xml")
+            end
+            c.fire_rate_wait = c.fire_rate_wait + 30
+            current_reload_time = current_reload_time + 30
         end
     },
 }

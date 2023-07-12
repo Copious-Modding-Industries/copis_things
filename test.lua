@@ -1,4 +1,3 @@
-
 ---@diagnostic disable shuts up diagnostics here
 
 
@@ -16,3 +15,11 @@ end)()
 local player = EntityGetWithTag("player_unit")[1]
 local sedc = EntityGetFirstComponent(player, "StatusEffectDataComponent") --[[@cast sedc number]]
 local ingestion = ComponentGetValue2(sedc, "ingestion_effects")
+
+
+local targets = EntityGetWithTag("card_action") or {}
+for i = 1, #targets do
+    local iac = EntityGetFirstComponent(targets[i], "ItemActionComponent") --[[@cast iac number]]
+    local action_id = ComponentGetValue2(iac, "action_id")
+    print(action_id)
+end
