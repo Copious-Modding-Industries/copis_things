@@ -105,7 +105,7 @@ local compatibility = {
         if ModIsEnabled("anvil_of_destiny") then
 
             -- # Vanilla AOD compat 
-            dofile_once("anvil_of_destiny/files/scripts/mod_interop.lua")
+            dofile_once("mods/anvil_of_destiny/files/scripts/mod_interop.lua")
 
             -- Tele
             ---@diagnostic disable-next-line: undefined-global

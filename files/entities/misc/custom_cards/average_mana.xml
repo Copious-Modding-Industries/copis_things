@@ -1,0 +1,21 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/average_mana.png"
+        />
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_AVERAGE_MANA"
+        />
+	</Base>
+
+    <LuaComponent
+        _tags="enabled_in_hand"
+        vm_type="SHARED_BY_MANY_COMPONENTS"
+        script_source_file="mods/copis_things/files/scripts/custom_cards/average_mana.lua"
+        execute_every_n_frame="1"
+    />
+	
+</Entity>

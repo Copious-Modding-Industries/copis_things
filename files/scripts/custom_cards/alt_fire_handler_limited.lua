@@ -60,21 +60,23 @@ function AltFireHandler(card, projectile, cooldown_frames, vel_min, vel_max, man
                     -- Handle Mana
                     ComponentSetValue2(abilitycomp, "mana", mana - mana_cost)
                     ComponentSetValue2(vsc, "value_int", now + cooldown_frames)
-                    -- Handle Charges
-                    local chance = 1
-                    local shoteffectcomps = EntityGetComponent(shooter, "ShotEffectComponent", "perk_component") or {}
-                    for i=1, #shoteffectcomps do
-                        if ComponentGetValue2(shoteffectcomps[i], "extra_modifier") == "copis_things_spell_efficiency" then
-                            chance = chance / 1.5
+                    if not ComponentGetValue2(itemcomp, "permanently_attached") then
+                        -- Handle Charges
+                        local chance = 1
+                        local shoteffectcomps = EntityGetComponent(shooter, "ShotEffectComponent", "perk_component") or {}
+                        for i=1, #shoteffectcomps do
+                            if ComponentGetValue2(shoteffectcomps[i], "extra_modifier") == "copis_things_spell_efficiency" then
+                                chance = chance / 1.5
+                            end
                         end
-                    end
-                    if math.random() < chance then
-                        ComponentSetValue2(itemcomp, "uses_remaining", charges - 1)
-                        --[[ Todo: summon a temp invis wand to deplete 1 charge of a real spell to simulate the effect
-                        if charges == 1 then
-                            -- This func is only available in the gun system, fucking hell. 
-                            --ActionUsesRemainingChanged( ComponentGetValue2(itemcomp, "mItemUid"), 0 )
-                        end]]
+                        if math.random() < chance then
+                            ComponentSetValue2(itemcomp, "uses_remaining", charges - 1)
+                            --[[ Todo: summon a temp invis wand to deplete 1 charge of a real spell to simulate the effect
+                            if charges == 1 then
+                                -- This func is only available in the gun system, fucking hell. 
+                                --ActionUsesRemainingChanged( ComponentGetValue2(itemcomp, "mItemUid"), 0 )
+                            end]]
+                        end
                     end
                 end
 

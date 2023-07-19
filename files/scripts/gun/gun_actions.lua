@@ -6577,6 +6577,23 @@ local actions_to_insert = {
             current_reload_time = current_reload_time + 30
         end
     },
+    {
+        id = "COPIS_THINGS_AVERAGE_MANA",
+        name = "$actionname_average_mana",
+        description = "$actiondesc_average_mana",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/average_mana.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "0,1,2,3,4",                  -- URGENTLY NEEDS REBALANCING
+        spawn_probability = "0.5,0.5,0.5,0.5,0.5",  -- URGENTLY NEEDS REBALANCING
+        price = 256,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/average_mana.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
@@ -6655,6 +6672,23 @@ if DebugGetIsDevBuild() then
             if not reflecting then
                 c.debug = true
             end
+            draw_actions(1, true)
+        end
+    }
+    actions[#actions + 1] = {
+        id = "COPIS_THINGS_TEST",
+        name = "TEST",
+        author = "Copi",
+        mod = "Copi's Things",
+        description = "TEST",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/dev_meta.png",
+        type = ACTION_TYPE_OTHER,
+        spawn_level = "0",
+        spawn_probability = "0",
+        price = 0,
+        mana = 0,
+        action = function()
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/test.xml,"
             draw_actions(1, true)
         end
     }
