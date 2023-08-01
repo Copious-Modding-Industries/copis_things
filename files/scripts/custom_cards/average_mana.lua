@@ -5,15 +5,7 @@ local now = GameGetFrameNum()
 _G['ENTITY_LAST_FRAME'] = _G['ENTITY_LAST_FRAME'] or {}
 if _G['ENTITY_LAST_FRAME'][shooter] ~= now then
     local wand = EntityGetParent(card)
-    local children = EntityGetAllChildren(shooter) or {}
-    local inv_quick = nil
-    for i=1, #children do
-        if EntityGetName(children[i]) == "inventory_quick" then
-            inv_quick = children[i]
-            break
-        end
-    end
-    if not inv_quick then return end
+    local inv_quick = EntityGetParent(wand)
     local wands = EntityGetAllChildren(inv_quick) or {}
     local mana_sum = 0
     for i=1, #wands do

@@ -34,3 +34,46 @@ States              = States or {
 
 -- Handle appropriate code
 States[ComponentGetValue2(this_luacomp, "execute_times")](GetUpdatedEntityID())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local effect_id = GetUpdatedEntityID()
+local victim_id = EntityGetParent(effect_id)
+local dmc = EntityGetFirstComponent(victim_id, "DamageModelComponent")
+if dmc then
+    -- Prevent stainless, Set hp to 1, Deal 1000*maxhp damage
+    EntityAddRandomStains(victim_id, CellFactory_GetType("poison"), 100)
+    ComponentSetValue2(dmc, "hp", 0.04)
+    local hp = ComponentGetValue2(dmc, "max_hp")
+    EntityInflictDamage(victim_id, hp * 1000, "DAMAGE_CURSE", "translation_string_here", "DISINTEGRATED", 0, 0)
+    -- Extra measures :)
+    EntityKill(victim_id)
+else
+    -- Clean up effect
+    EntityKill(effect_id)
+end
+
+
+
+local entity_id = GetUpdatedEntityID()
+local x, y = EntityGetTransform(entity_id)
+local liquiform = RaytraceSurfacesAndLiquiform(x, y, x, y+1)
+local platform = RaytracePlatforms(x, y, x, y+1)
+if liquiform and not platform then
+    local velcomp = EntityGetFirstComponent(entity_id, "VelocityComponent") --[[@cast velcomp number]]
+    local vel_x, vel_y = ComponentGetValue2(velcomp, "mVelocity")
+    ComponentSetValue2(velcomp, vel_x, vel_y+1)
+end

@@ -10,14 +10,14 @@ copi_state = {
     skip_count = 0,
     skipping = false,
     skip_type = {                                                                   ---@type table
-        [0] = false,                                                                    ---@type boolean
-        [1] = false,                                                                    ---@type boolean
-        [2] = false,                                                                    ---@type boolean
-        [3] = false,                                                                    ---@type boolean
-        [4] = false,                                                                    ---@type boolean
-        [5] = false,                                                                    ---@type boolean
-        [6] = false,                                                                    ---@type boolean
-        [7] = false,                                                                    ---@type boolean
+        [0] = false,                                                                    ---@type boolean PROJECTILE
+        [1] = false,                                                                    ---@type boolean STATIC_PROJECTILE
+        [2] = false,                                                                    ---@type boolean MODIFIER
+        [3] = false,                                                                    ---@type boolean DRAW_MANY
+        [4] = false,                                                                    ---@type boolean MATERIAL
+        [5] = false,                                                                    ---@type boolean OTHER
+        [6] = false,                                                                    ---@type boolean UTILITY
+        [7] = false,                                                                    ---@type boolean PASSIVE
     },
 
     -- Various draw related variables

@@ -177,7 +177,6 @@ local lookup_spells = function ()
     return copi_state.lookup_spells
 end
 
-
 --- o/ sorry this file isn't the cleanest as-is
 return {
     lookup_spells = lookup_spells,
