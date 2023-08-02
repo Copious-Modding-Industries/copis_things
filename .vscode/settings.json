@@ -10,6 +10,15 @@
         "ACTION_TYPE_PROJECTILE",
         "ACTION_TYPE_MODIFIER",
         "ACTION_TYPE_UTILITY",
-        "ACTION_TYPE_PASSIVE"
+        "ACTION_TYPE_PASSIVE",
+        "MOD_SETTING_SCOPE_NEW_GAME",
+        "mod_setting_group_x_offset",
+        "mod_setting_get_id",
+        "mod_setting_handle_change_callback",
+        "mod_setting_tooltip",
+        "mod_settings_gui_count",
+        "mod_settings_get_version",
+        "mod_settings_update",
+        "mod_settings_gui"
     ]
 }
