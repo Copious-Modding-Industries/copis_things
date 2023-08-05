@@ -52,25 +52,58 @@
 	/>
 	
 	<ParticleEmitterComponent
-		emitted_material_name="spark_purple"
+		emitted_material_name="fire"
 		offset.x="0"
 		offset.y="0"
-		count_min="1"
+		count_min="4"
 		count_max="8"
 		lifetime_min="2"
 		lifetime_max="2"
-		airflow_force="0.6"
+		airflow_force="1.1"
 		airflow_time="0.1"
-		airflow_scale="0.03"
+		airflow_scale="0.1"
 		gravity.y="0.0" 
 		is_trail="1"
-		trail_gap="0.5"
+		trail_gap="0.1"
 		render_on_grid="1"
 		fade_based_on_lifetime="1"
 		create_real_particles="0"
 		emit_cosmetic_particles="1"
 		emission_interval_min_frames="1"
 		emission_interval_max_frames="1"
+        x_pos_offset_min="-1"
+        y_pos_offset_min="-3"
+        x_pos_offset_max="1"
+        y_pos_offset_max="3"
+		is_emitting="1"
+		x_vel_max="25"
+		x_vel_min="25"
+	/>
+	
+	<ParticleEmitterComponent
+		emitted_material_name="spark_yellow"
+		offset.x="0"
+		offset.y="0"
+		count_min="2"
+		count_max="6"
+		lifetime_min="2"
+		lifetime_max="2"
+		airflow_force="1.1"
+		airflow_time="0.1"
+		airflow_scale="0.1"
+		gravity.y="0.0" 
+		is_trail="1"
+		trail_gap="0.1"
+		render_on_grid="1"
+		fade_based_on_lifetime="1"
+		create_real_particles="0"
+		emit_cosmetic_particles="1"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+        x_pos_offset_min="-1"
+        y_pos_offset_min="-1"
+        x_pos_offset_max="1"
+        y_pos_offset_max="1"
 		is_emitting="1"
 		x_vel_max="25"
 		x_vel_min="25"
@@ -79,11 +112,6 @@
 	<AudioComponent
 		file="data/audio/Desktop/projectiles.bank"
 		event_root="projectiles/magic"
-	/>
-
-	<HitEffectComponent
-		effect_hit="LOAD_UNIQUE_CHILD_ENTITY"
-		value_string="mods/copis_things/files/entities/misc/status_entities/effect_pain.xml"
 	/>
 
 </Entity>

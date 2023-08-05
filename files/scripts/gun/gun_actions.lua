@@ -6578,6 +6578,44 @@ local actions_to_insert = {
         end
     },
     {
+        id = "COPIS_THINGS_HOLY_RAY",
+        name = "$actionname_holy_ray",
+        description = "$actiondesc_holy_ray",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/holy_ray.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/holy_ray.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "1,2,3,4", -- SUMMON_ROCK
+        spawn_probability = "0.8,1,0.5,0.5", -- SUMMON_ROCK
+        price = 100,
+        mana = 50,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/holy_ray.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 60
+            current_reload_time = current_reload_time + 15
+        end
+    },
+    {
+        id = "COPIS_THINGS_INFERNAL_STREAK",
+        name = "$actionname_infernal_streak",
+        description = "$actiondesc_infernal_streak",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/infernal_streak.png",
+        related_projectiles = { "mods/copis_things/files/entities/projectiles/infernal_streak.xml" },
+        type = ACTION_TYPE_PROJECTILE,
+        spawn_level = "1,2,3,4", -- SUMMON_ROCK
+        spawn_probability = "0.8,1,0.5,0.5", -- SUMMON_ROCK
+        price = 100,
+        mana = 50,
+        action = function()
+            add_projectile("mods/copis_things/files/entities/projectiles/infernal_streak.xml")
+            c.fire_rate_wait = c.fire_rate_wait + 60
+            current_reload_time = current_reload_time + 15
+        end
+    },
+    {
         id = "COPIS_THINGS_AVERAGE_MANA",
         name = "$actionname_average_mana",
         description = "$actiondesc_average_mana",
@@ -6590,6 +6628,42 @@ local actions_to_insert = {
         price = 256,
         mana = 0,
         custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/average_mana.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_AMMO_BOX",
+        name = "$actionname_ammo_box",
+        description = "$actiondesc_ammo_box",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/ammo_box.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "0,1,2,3,4",                  -- URGENTLY NEEDS REBALANCING
+        spawn_probability = "0.5,0.5,0.5,0.5,0.5",  -- URGENTLY NEEDS REBALANCING
+        price = 256,
+        mana = 0,
+        max_uses = 25,
+        custom_uses_logic = true,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/ammo_box.xml",
+        action = function()
+            draw_actions(1, true)
+        end
+    },
+    {
+        id = "COPIS_THINGS_AMMO_FROM_HP",
+        name = "$actionname_ammo_from_hp",
+        description = "$actiondesc_ammo_from_hp",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/ammo_from_hp.png",
+        type = ACTION_TYPE_PASSIVE,
+        spawn_level = "0,1,2,3,4",                  -- URGENTLY NEEDS REBALANCING
+        spawn_probability = "0.5,0.5,0.5,0.5,0.5",  -- URGENTLY NEEDS REBALANCING
+        price = 256,
+        mana = 0,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/ammo_from_hp.xml",
         action = function()
             draw_actions(1, true)
         end

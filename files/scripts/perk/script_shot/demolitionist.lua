@@ -1,3 +1,4 @@
+---@diagnostic disable-next-line: lowercase-global
 function shot(projectile_entity)
     local shooter = GetUpdatedEntityID()
     local demolitionist_bonus = 1

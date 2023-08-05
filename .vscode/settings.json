@@ -1,7 +1,6 @@
 {
     "Lua.diagnostics.disable": [
         "deprecated",
-        "lowercase-global"
     ],
     "Lua.diagnostics.globals": [
         "generate_gun",
