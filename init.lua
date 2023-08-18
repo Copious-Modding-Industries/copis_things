@@ -9,8 +9,9 @@ COPIS_THINGS_VERSION = "vD.5"
 -- NOTICE! This is CRAP! I will be REWRITING THIS LIBRARY!
 dofile_once("mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init( "mods/copis_things/files/scripts/lib/polytools/")
 
+-- gus you fuck this file literally doesnt exist you broke my mod
 ---@module "setupCompatibility"
-local compatibility = dofile_once("mods/copis_things/files/setupCompatibility.lua")
+--local compatibility = dofile_once("mods/copis_things/files/setupCompatibility.lua")
 
 ---@module "gui"
 local Gui = dofile_once("mods/copis_things/files/scripts/gui/gui.lua")
@@ -84,6 +85,7 @@ local content = {
     materials = function ()
         ModMaterialsFileAdd("mods/copis_things/files/materials_nugget.xml")
         ModMaterialsFileAdd("mods/copis_things/files/materials_rainbow.xml")
+        ModMaterialsFileAdd("mods/copis_things/files/materials_test.xml")
     end,
 
 }
@@ -166,7 +168,7 @@ function OnModInit()
     content.greeks()
     content.statuses()
     content.materials()
-    compatibility.setupModCompat()
+    --compatibility.setupModCompat()
 end
 
 function OnWorldInitialized()
@@ -191,12 +193,4 @@ end
 
 --#endregion
 
--- I see you peeking in here.. sneaky sneaky :^) 
--- I can't offer you much at the moment, but for being so persistent in your search I do offer my greetings o/
--- As you might've noticed, seeing as you're so observant, there's a lot more comments around this time.
--- To be honest, I've just not been doing the best on motivation and mental health in the past month(s) so modding has been hard
--- Keep this between us, but I personally worry that I might've bitten off more than I can chew with this mod
--- I have no clue what to do about it as is, it's too late to cut down scope but even without adding more scope
--- I just can't keep up with all the crap that needs to get done
--- Hopefully you didn't mind the mini-ramble, enjoy .5!!!
--- - Mr. Copio Thing, 2022
+-- what the FUCK is this file

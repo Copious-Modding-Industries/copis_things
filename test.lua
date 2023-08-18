@@ -77,3 +77,11 @@ if liquiform and not platform then
     local vel_x, vel_y = ComponentGetValue2(velcomp, "mVelocity")
     ComponentSetValue2(velcomp, vel_x, vel_y+1)
 end
+
+ModTextFileSetContent("data/virtual/tremble.lua", [[
+local entity_id = GetUpdatedEntityID()
+local x, y = EntityGetTransform(entity_id)
+EntitySetTransform(entity_id, x+math.random()-0.5, y+math.random()-0.5)]])
+EntityAddComponent2(entity_id, "LuaComponent", {
+    script_source_file = "data/virtual/tremble.lua"
+})

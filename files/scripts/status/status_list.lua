@@ -6,6 +6,13 @@ local to_insert = {
         ui_icon="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",
         effect_entity="mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
     },
+    {
+        id              = "COPIS_THINGS_INSTAKILL",
+        ui_name         = "$effect_name_copis_things_instakill",
+        ui_description  = "$effect_desc_copis_things_instakill",
+        ui_icon         = "mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",
+        effect_entity   = "mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
+    },
     --[[ Shouldn't be handled as a status effect, what was I thinking lmao
     {
         id="COPIS_THINGS_ENTITY_LARPA",

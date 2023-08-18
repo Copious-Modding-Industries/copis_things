@@ -148,32 +148,6 @@ local actions_to_insert = {
         end
     },
     {
-        id = "COPIS_THINGS_PEACEFUL_SHOT",
-        name = "$actionname_peaceful_shot",
-        author = "Copi",
-        mod = "Copi's Things",
-        description = "$actiondesc_peaceful_shot",
-        sprite = "mods/copis_things/files/ui_gfx/gun_actions/peaceful_shot.png",
-        type = ACTION_TYPE_MODIFIER,
-        spawn_level = "1,2,3",
-        spawn_probability = "1,0.5,0.5",
-        price = 100,
-        mana = -15,
-        action = function()
-            c.gore_particles = c.gore_particles - 10
-            c.damage_projectile_add = c.damage_projectile_add - 2.4
-
-            c.spread_degrees = c.spread_degrees - 5
-            c.speed_multiplier = c.speed_multiplier * 0.8
-            shot_effects.recoil_knockback = shot_effects.recoil_knockback - 10.0
-
-            c.fire_rate_wait = c.fire_rate_wait - 24
-            current_reload_time = current_reload_time + 12
-
-            draw_actions(1, true)
-        end
-    },
-    {
         id = "COPIS_THINGS_ANCHORED_SHOT",
         name = "$actionname_anchored_shot",
         author = "Copi",
@@ -457,6 +431,7 @@ local actions_to_insert = {
         price = 1000,
         mana = 280,
         recursive = true,
+        custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/eviscerator.xml",
         action = function()
             if reflecting then
                 return
@@ -6668,6 +6643,28 @@ local actions_to_insert = {
             draw_actions(1, true)
         end
     },
+    {
+        id = "COPIS_THINGS_LARPA_BUT_GOOD",
+        name = "$actionname_larpa_but_good",
+        description = "$actiondesc_larpa_but_good",
+        author = "Copi",
+        mod = "Copi's Things",
+        sprite = "mods/copis_things/files/ui_gfx/gun_actions/larpa_but_good.png",
+        related_extra_entities = { "mods/copis_things/files/entities/misc/larpa_but_good.xml" },
+        type = ACTION_TYPE_MODIFIER,
+        spawn_level = "2,3,4,5,10",
+        spawn_probability = "0.1,0.2,0.3,0.4,0.2",
+        inject_after = {"LARPA_CHAOS", "LARPA_DOWNWARDS", "LARPA_UPWARDS", "LARPA_CHAOS_2", "LARPA_DEATH"},
+        price = 260,
+        mana = 100,
+        --max_uses = 20,
+        action = function()
+            c.fire_rate_wait = c.fire_rate_wait + 15
+            current_reload_time = current_reload_time + 30
+            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/larpa_but_good.xml,"
+            draw_actions(1, true)
+        end
+    },
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
@@ -6762,7 +6759,8 @@ if DebugGetIsDevBuild() then
         price = 0,
         mana = 0,
         action = function()
-            c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/test.xml,"
+            --c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/test.xml,"
+            c.physics_impulse_coeff = c.physics_impulse_coeff + 5
             draw_actions(1, true)
         end
     }
