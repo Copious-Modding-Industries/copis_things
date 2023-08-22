@@ -74,9 +74,9 @@
     />
 
     <LuaComponent
-        script_source_file="mods/copis_things/files/scripts/projectiles/riphook_return.lua"
+        script_source_file="mods/copis_things/files/scripts/projectiles/riphook/riphook_return.lua"
         execute_every_n_frame="24"
-            remove_after_executed="1"
+		remove_after_executed="1"
     />
 
     <HitEffectComponent 
@@ -85,7 +85,7 @@
     />
 
     <LuaComponent
-        script_source_file="mods/copis_things/files/scripts/projectiles/riphook_hax_selfhit.lua"
+        script_source_file="mods/copis_things/files/scripts/projectiles/riphook/riphook_hax_selfhit.lua"
         execute_every_n_frame="1"
         remove_after_executed="1"
     />
@@ -93,11 +93,11 @@
     <!-- This is a child entity so we can rotate it via LuaComponent, the chain is scaled via randomize_position and count min and max values-->
     <Entity name="riphook_chain">
         <LuaComponent
-            script_source_file="mods/copis_things/files/scripts/projectiles/riphook_chain.lua"
+            script_source_file="mods/copis_things/files/scripts/projectiles/riphook/riphook_chain.lua"
             execute_every_n_frame="1"
         />
         <LuaComponent
-            script_source_file="mods/copis_things/files/scripts/projectiles/riphook_enable.lua"
+            script_source_file="mods/copis_things/files/scripts/projectiles/riphook/riphook_enable.lua"
             execute_on_added="1"
             remove_after_executed="1"
         />

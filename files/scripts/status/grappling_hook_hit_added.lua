@@ -7,7 +7,7 @@ local hook_id = (function ()
     for i=1, #projectiles do
         local target = projectiles[i]
         -- Skip over already embedded hooks
-        if EntityGetName(target) ~= "riphook_nohit" then goto continue end
+        if EntityGetName(target) ~= "grappling_hook_nohit" then goto continue end
         -- Compare to closest
         local target_x, target_y = EntityGetTransform(target)
         local t_dist = (target_x-victim_x)^2+(target_y-victim_y)^2
@@ -20,11 +20,11 @@ local hook_id = (function ()
     return closest.id
 end)()
 if not hook_id then return end
--- Below code is only run if a valid axe is found!!
+-- Below code is only run if a valid hook is found!!
 
 local hitfxs = EntityGetComponent(hook_id, "HitEffectComponent") or {}
 for i=1,#hitfxs do
-    if ComponentGetValue2(hitfxs[i], "value_string") == "mods/copis_things/files/entities/misc/effect_riphook_hit.xml" then
+    if ComponentGetValue2(hitfxs[i], "value_string") == "mods/copis_things/files/entities/misc/effect_grappling_hook_hit.xml" then
         EntityRemoveComponent(hook_id, hitfxs[i])
         break
     end
@@ -41,15 +41,18 @@ end
 
 local velcomp = EntityGetFirstComponent(hook_id, "VelocityComponent") --[[@cast velcomp number]]
 ComponentSetValue2(velcomp, "gravity_y", 0)
-EntitySetName(hook_id, "riphook_hit")
+EntitySetName(hook_id, "grappling_hook_hit")
 
 -- Add all components to the hook in question
 EntityAddComponent2(hook_id, "VariableStorageComponent", {
-    name = "riphook_victim",
+    name = "grappling_hook_victim",
     value_int = victim_id
 })
-EntityAddComponent2(hook_id, "LuaComponent", {
-    execute_every_n_frame=1,
-    script_source_file = "mods/copis_things/files/scripts/projectiles/riphook/riphook_handler.lua"
-})
--- TODO: fake bleeding particle emitter on axe entity + get the victim's blood material and splatter a bit of it
+
+-- SWITCH TO STATE
+local luacomps = EntityGetComponent(hook_id, "LuaComponent") or {}
+for i = 1, #luacomps do
+    if ComponentGetValue2(luacomps[i], "script_source_file") == "mods/copis_things/files/scripts/projectiles/grappling_hook/grappling_hook_looking.lua" then
+        ComponentSetValue2(luacomps[i], "script_source_file", "mods/copis_things/files/scripts/projectiles/grappling_hook/grappling_hook_handler.lua")
+    end
+end

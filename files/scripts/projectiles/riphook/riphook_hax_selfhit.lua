@@ -30,7 +30,7 @@ if ComponentGetValue2(projcomp, "friendly_fire") then
     })
     EntityAddComponent2(entity_id, "LuaComponent", {
         execute_every_n_frame=1,
-        script_source_file = "mods/copis_things/files/scripts/projectiles/riphook_handler.lua"
+        script_source_file = "mods/copis_things/files/scripts/projectiles/riphook/riphook_handler.lua"
     })
     -- TODO: fake bleeding particle emitter on axe entity + get the victim's blood material and splatter a bit of it
 end

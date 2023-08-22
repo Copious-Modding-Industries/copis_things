@@ -6771,11 +6771,14 @@ else
 	end
 end
 
-print("COPI SPELLS: ".. tostring(#actions_to_insert))
-
+-- erm... shut up?
+local print_txt = true
+if print_txt then
+	print("COPI SPELLS: ".. tostring(#actions_to_insert))
+	print_txt = false
+end
 
 -- Handle april fools
-
 local year, month, day, hour = GameGetDateAndTimeLocal()
 if month == 4 and day == 1 then
 	-- Fix noita:
@@ -6792,7 +6795,6 @@ if month == 4 and day == 1 then
 end
 
 -- Handle dev build spells
-
 if DebugGetIsDevBuild() then
 	actions[#actions + 1] = {
 		id = "COPIS_THINGS_DEBUG",

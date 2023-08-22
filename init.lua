@@ -172,8 +172,8 @@ function OnModInit()
 end
 
 function OnWorldInitialized()
+    GlobalsSetValue("copis_things_version", COPIS_THINGS_VERSION)
     Gui:Setup()
-    GlobalsSetValue("copis_things_version", "vD.5")
     experimental.loadspell()
     experimental.spell_visualizer()
     GamePrint(("Copi's things INDEV %s"):format(COPIS_THINGS_VERSION))
@@ -192,5 +192,4 @@ function OnWorldPostUpdate()
 end
 
 --#endregion
-
 -- what the FUCK is this file

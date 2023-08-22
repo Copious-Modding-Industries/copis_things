@@ -24,8 +24,8 @@ end
 -- SWITCH TO CARRY STATE
 local luacomps = EntityGetComponent(entity_id, "LuaComponent") or {}
 for i = 1, #luacomps do
-    if ComponentGetValue2(luacomps[i], "script_source_file") == "mods/copis_things/files/scripts/projectiles/riphook_setter.lua" then
-        ComponentSetValue2(luacomps[i], "script_source_file", "mods/copis_things/files/scripts/projectiles/riphook_carry.lua")
+    if ComponentGetValue2(luacomps[i], "script_source_file") == "mods/copis_things/files/scripts/projectiles/riphook/riphook_setter.lua" then
+        ComponentSetValue2(luacomps[i], "script_source_file", "mods/copis_things/files/scripts/projectiles/riphook/riphook_carry.lua")
     end
 end
 

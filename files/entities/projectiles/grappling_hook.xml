@@ -1,126 +1,130 @@
-<Entity name="$projectile_default" tags="projectile_player" >
+<Entity name="grappling_hook_nohit" tags="projectile_player" >
 
 	<Base file="data/entities/base_projectile.xml" >
-        <VelocityComponent
+		<VelocityComponent
 			_enabled="1"
 			air_friction="-3"
 			gravity_y="100"
 			mass="0.08"
 			terminal_velocity="2000"
-			>
-		</VelocityComponent> 
+		/> 
 	</Base>
 
-  <ProjectileComponent 
-    _enabled="1" 
-    lob_min="0.5"
-    lob_max="0.7"
-    speed_min="500"
-    speed_max="750"
-    friction="1"
-    direction_random_rad="0.00"
-    on_death_explode="0"
-    on_death_gfx_leave_sprite="0" 
-    on_lifetime_out_explode="0"
-    explosion_dont_damage_shooter="1"
-    ground_penetration_coeff="0"
-    bounce_always="1"
-    bounce_energy="0"
-    bounces_left="1000"
-    bounce_at_any_angle="1"
-    lifetime="120"
-    damage="0.28"
-    velocity_sets_scale="0"
-    lifetime_randomness="7"
-    ragdoll_force_multiplier="0.015"
-    hit_particle_force_multiplier="0.3"
-    muzzle_flash_file="data/entities/particles/muzzle_flashes/muzzle_flash_magic_small.xml"
-    shoot_light_flash_r="255"
-    shoot_light_flash_g="160"
-    shoot_light_flash_b="160"
-    shoot_light_flash_radius="64" 
-	knockback_force="0"
-    on_collision_die="0"
-    damage_every_x_frames="8"
-	>
-    <config_explosion
-      damage="0.0"
-      radius="0">
-    </config_explosion>
-  </ProjectileComponent>
-  
-  <SpriteComponent 
-    _enabled="1" 
-    alpha="1" 
-    image_file="mods/copis_things/files/projectiles_gfx/grappling_hook.xml" 
-    next_rect_animation="default"
-    rect_animation="default"
-	additive="1"
-     >
-  </SpriteComponent>
-  
-  	<!-- dense emitter -->
-      <ParticleEmitterComponent 
-      _tags="disabled_at_start"
-      emitted_material_name="spark_purple"
-      offset.x="0"
-      offset.y="0"
-      x_pos_offset_min="0"
-      x_pos_offset_max="0"
-      y_pos_offset_min="0"
-      y_pos_offset_max="0"
-      x_vel_min="0"
-      x_vel_max="0"
-      y_vel_min="0"
-      y_vel_max="0"
-      gravity.y="0.0"
-      count_min="1"
-      count_max="4"
-      lifetime_min="0.1"
-      lifetime_max="0.2"
-      is_trail="1"
-      render_ultrabright="1"
-      trail_gap="1.0"
-      area_circle_sector_degrees="93459876"
-      render_on_grid="1"
-      fade_based_on_lifetime="1"
-      airflow_force="10.5"
-      airflow_time="1.401"
-      airflow_scale="0.05"
-      emission_interval_min_frames="1"
-      emission_interval_max_frames="1"
-      emit_cosmetic_particles="1"
-      create_real_particles="0"
-      is_emitting="1" >
-  </ParticleEmitterComponent>
+	<ProjectileComponent 
+		_enabled="1" 
+		lob_min="0.5"
+		lob_max="0.7"
+		speed_min="500"
+		speed_max="750"
+		friction="1"
+		direction_random_rad="0.00"
+		on_death_explode="0"
+		on_death_gfx_leave_sprite="0" 
+		on_lifetime_out_explode="0"
+		explosion_dont_damage_shooter="1"
+		ground_penetration_coeff="0"
+		bounce_always="1"
+		bounce_energy="0"
+		bounces_left="1000"
+		bounce_at_any_angle="1"
+		lifetime="120"
+		damage="0.08"
+		velocity_sets_scale="0"
+		lifetime_randomness="7"
+		ragdoll_force_multiplier="0.015"
+		hit_particle_force_multiplier="0.3"
+		muzzle_flash_file="data/entities/particles/muzzle_flashes/muzzle_flash_magic_small.xml"
+		shoot_light_flash_r="255"
+		shoot_light_flash_g="160"
+		shoot_light_flash_b="160"
+		shoot_light_flash_radius="64" 
+		knockback_force="0"
+		on_collision_die="0"
+		damage_every_x_frames="8"
+		>
+		<config_explosion
+			damage="0.0"
+			radius="0"
+		/>
+	</ProjectileComponent>
+
+	<SpriteComponent 
+		_enabled="1" 
+		alpha="1" 
+		image_file="mods/copis_things/files/projectiles_gfx/grappling_hook.xml" 
+		next_rect_animation="default"
+		rect_animation="default"
+		additive="1"
+	/>
+
+		<!-- dense emitter -->
+	<ParticleEmitterComponent 
+		_tags="disabled_at_start"
+		emitted_material_name="spark_purple"
+		offset.x="0"
+		offset.y="0"
+		x_pos_offset_min="0"
+		x_pos_offset_max="0"
+		y_pos_offset_min="0"
+		y_pos_offset_max="0"
+		x_vel_min="0"
+		x_vel_max="0"
+		y_vel_min="0"
+		y_vel_max="0"
+		gravity.y="0.0"
+		count_min="1"
+		count_max="4"
+		lifetime_min="0.1"
+		lifetime_max="0.2"
+		is_trail="1"
+		render_ultrabright="1"
+		trail_gap="1.0"
+		area_circle_sector_degrees="93459876"
+		render_on_grid="1"
+		fade_based_on_lifetime="1"
+		airflow_force="10.5"
+		airflow_time="1.401"
+		airflow_scale="0.05"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		emit_cosmetic_particles="1"
+		create_real_particles="0"
+		is_emitting="1"
+	/>
 
 	<LightComponent 
-    _enabled="1" 
-	r="255"
-	g="40"
-	b="255"
-    radius="30" >
-  </LightComponent>
+		_enabled="1" 
+		r="255"
+		g="40"
+		b="255"
+		radius="30"
+	/>
 
-  <AudioComponent
-      file="data/audio/Desktop/projectiles.bank"
-      event_root="player_projectiles/bullet_light">
-  </AudioComponent>
+	<AudioComponent
+		file="data/audio/Desktop/projectiles.bank"
+		event_root="player_projectiles/bullet_light"
+	/>
 
-    <VariableStorageComponent
-    name="projectile_file"
-    value_string="mods/copis_things/files/entities/projectiles/grappling_hook.xml"
-    >
-    </VariableStorageComponent>
-    <VariableStorageComponent
-        name="target_ent"
-        value_int="-420"
-        >
-    </VariableStorageComponent>
-    <LuaComponent
-        script_source_file="mods/copis_things/files/scripts/projectiles/grappling_hook.lua"
-        execute_every_n_frame="1"
-        >
-    </LuaComponent>
+	<VariableStorageComponent
+		name="projectile_file"
+		value_string="mods/copis_things/files/entities/projectiles/grappling_hook.xml"
+	/>
+	<VariableStorageComponent
+		name="target_ent"
+		value_int="-420"
+	/>
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/grappling_hook/grappling_hook_init.lua"
+		execute_every_n_frame="1"
+		remove_after_executed="1"
+	/>
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/grappling_hook/grappling_hook_looking.lua"
+		execute_every_n_frame="2"
+	/>
+    <HitEffectComponent 
+        effect_hit="LOAD_UNIQUE_CHILD_ENTITY"
+        value_string="mods/copis_things/files/entities/misc/effect_grappling_hook_hit.xml"
+    />
 
 </Entity>
