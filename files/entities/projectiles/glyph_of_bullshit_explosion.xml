@@ -1,0 +1,61 @@
+<Entity	name="$projectile_default" tags="projectile_player" >
+
+	<Base file="data/entities/base_projectile.xml">
+		<VelocityComponent/>
+	</Base>
+
+	<ProjectileComponent
+		_enabled="1"
+		lob_min="0.8"
+		lob_max="1.0"
+		speed_min="0"
+		speed_max="0"
+		die_on_low_velocity="1"
+		on_death_explode="1"
+		on_death_gfx_leave_sprite="0"
+		on_lifetime_out_explode="1"
+		explosion_dont_damage_shooter="0"
+		on_collision_die="1"
+		shoot_light_flash_radius="15"
+		shoot_light_flash_r="255"
+		shoot_light_flash_g="250"
+		shoot_light_flash_b="80"
+		damage="0"
+		lifetime="0">
+		<config_explosion
+			explosion_radius="52" 
+			cell_explosion_power_ragdoll_coeff="0.5"
+			hole_destroy_liquid="1"
+			explosion_sprite_additive="1"
+			ray_energy="0"
+			damage="5.2"
+			particle_effect="1" 
+			damage_mortals="1"
+			physics_explosion_power.min="1.0" 
+			physics_explosion_power.max="1.4"
+			physics_throw_enabled="1"
+			sparks_count_max="90" 
+			sparks_count_min="60" 
+			spark_material="plasma_fading"
+			audio_event_name="explosions/magic_rocket_big" 
+			never_cache="1"
+			camera_shake="60"
+			explosion_sprite="data/particles/explosion_032_electric.xml"
+			load_this_entity="data/entities/misc/explosion_was_here.xml"
+			create_cell_probability="0"
+			hole_enabled="0"
+			shake_vegetation="1"
+			sparks_enabled="1"
+			stains_enabled="0"
+			stains_radius="0"
+			background_lightning_count="5"
+			max_durability_to_destroy="12"
+		/>
+	</ProjectileComponent>
+
+	<VariableStorageComponent
+		name="projectile_file"
+		value_string="mods/copis_things/files/entities/projectiles/glyph_of_bullshit_explosion.xml"
+	/>
+
+</Entity>

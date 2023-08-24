@@ -6278,6 +6278,26 @@ local actions_to_insert = {
 			current_reload_time = current_reload_time + 12
 		end
 	},
+	{
+		id =					"COPIS_THINGS_STARLIGHT_AXE",
+		name =					"$actionname_starlight_axe",
+		description =			"$actiondesc_starlight_axe",
+		sprite =				"mods/copis_things/files/ui_gfx/gun_actions/starlight_axe.png",
+		author =				"Copi",
+		mod =					"Copi's Things",
+		related_projectiles =	{ "mods/copis_things/files/entities/projectiles/starlight_axe.xml" },
+		type =					ACTION_TYPE_PROJECTILE,
+		spawn_level =			"0,1,2,3,4",		-- THIS IS IN URGENT NEED OF BALANCING.
+		spawn_probability =		"2,2,0.5,0.5,0.5",	-- THIS IS IN URGENT NEED OF BALANCING.
+		inject_after =			{"DISC_BULLET", "DISC_BULLET_BIG", "DISC_BULLET_BIGGER"},
+		price =					120,
+		mana =					35,
+		action =				function()
+			add_projectile("mods/copis_things/files/entities/projectiles/starlight_axe.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 8
+			current_reload_time = current_reload_time + 24
+		end
+	},
 	--[[
 		I wanted to add a special case where it's added to projectiles with damagemodels like fish and pollen, but that's too much work
 	]]
@@ -6729,6 +6749,43 @@ local actions_to_insert = {
 				else
 					draw_actions(1, true)
 				end
+			end
+		end
+	},
+	{
+		id = "COPIS_THINGS_GLYPH_OF_BULLSHIT",
+		name = "$actionname_glyph_of_bullshit",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_glyph_of_bullshit",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/glyph_of_bullshit_t.png",
+		type = ACTION_TYPE_OTHER,
+		spawn_level = "0,1,2,3,4,5",					-- THIS IS IN URGENT NEED OF BALANCING.
+		spawn_probability = "0.5,0.3,0.5,0.2,0.1,0.1",	-- THIS IS IN URGENT NEED OF BALANCING.
+		price = 130,
+		mana = 15,
+		action = function()
+			if reflecting then
+				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/glyph_of_bullshit_explosion.xml")
+			else
+				local capture = deck[1]
+				-- Separate cast to negate modifiers
+				BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" )
+					BeginTriggerDeath()
+						-- This does the magic
+						BeginProjectile( "mods/copis_things/files/entities/projectiles/glyph_of_bullshit.xml" )
+							BeginTriggerHitWorld()
+								if not capture then
+									add_projectile("mods/copis_things/files/entities/projectiles/glyph_of_bullshit_explosion.xml")
+								else
+									-- The shot to fire from within
+									draw_shot(create_shot(1), true)
+								end
+							EndTrigger()
+						EndProjectile()
+					EndTrigger()
+				EndProjectile()
+				c.fire_rate_wait = c.fire_rate_wait + 40
 			end
 		end
 	},
