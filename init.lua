@@ -189,16 +189,6 @@ end
 
 function OnWorldPostUpdate()
     Gui:Tr()
-	if GameGetFrameNum()%3600==0 then
-		if not GameHasFlagRun("COPISS") then
-			GamePrintImportant("OH PISS....", "(cue laugh track)")
-			GameAddFlagRun("COPISS")
-		end
-		local x, y = EntityGetTransform(EntityGetWithTag("player_unit")[1])
-		for i=1,math.random(0,10) do
-			EntityLoad("data/entities/animals/easter/sniper.xml", x+math.random(-50,50),y+math.random(-50,50))
-		end
-	end
 end
 
 --#endregion
