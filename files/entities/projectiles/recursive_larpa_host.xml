@@ -42,3 +42,5 @@
         knockback_force="0">
     </ProjectileComponent>
 </Entity>
+
+<!-- This entire thing is fucked. TODO: rewrite ENTIRE SPELL. -->

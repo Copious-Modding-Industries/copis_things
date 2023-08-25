@@ -1,14 +1,7 @@
-<Entity
-    name="$projectile_default" tags="projectile_player">
+<Entity name="$projectile_default" tags="projectile_player">
     <Base file="data/entities/base_projectile.xml">
-        <VelocityComponent
-            gravity_y="0"
-            air_friction="0"
-            mass="0"
-        >
-        </VelocityComponent>
+        <VelocityComponent gravity_y="0" air_friction="0" mass="0" />
     </Base>
-
     <ProjectileComponent
         _enabled="1"
         lob_min="0.0"
@@ -38,15 +31,8 @@
         damage_every_x_frames="25"
         collide_with_world="0"
         collide_with_tag=""
-    >
-        <config_explosion
-            damage="0.0"
-            explosion_radius="0"
         >
-        </config_explosion>
+        <config_explosion damage="0.0" explosion_radius="0" />
     </ProjectileComponent>
-
-    <LuaComponent execute_on_added="1"
-        script_source_file="mods/copis_things/files/scripts/projectiles/kill.lua"></LuaComponent>
-
+    <LuaComponent execute_on_added="1" script_source_file="mods/copis_things/files/scripts/projectiles/kill.lua" />
 </Entity>

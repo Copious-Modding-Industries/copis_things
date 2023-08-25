@@ -31,3 +31,14 @@ if self.ProjectileComponent then
         script_shot = "mods/copis_things/files/scripts/projectiles/ult_protection_shot.lua",
     })
 end
+--[[
+local entity_id = GetUpdatedEntityID()
+local proj = EntityGetFirstComponent(entity_id, "ProjectileComponent")
+if proj then
+    local shooter = ComponentGetValue2(proj, "mWhoShot")
+    local vsc = EntityGetComponent(entity_id, "VariableStorageComponent") or {}
+    for i=1,#vsc do
+        
+    end
+end
+]]

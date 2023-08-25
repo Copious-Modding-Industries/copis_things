@@ -2,7 +2,7 @@ local separator = GetUpdatedEntityID()
 local caststate = nil
 local shooter = nil
 do  -- Get cast state
-    local projcomp = EntityGetFirstComponentIncludingDisabled(separator, "ProjectileComponent")
+    local projcomp = EntityGetFirstComponentIncludingDisabled(separator, "ProjectileComponent") --[[@cast projcomp number]]
     local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
     shooter = ComponentGetValue2( projcomp, "mWhoShot" );
     local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)")
@@ -17,7 +17,7 @@ local sword_projectiles = {}
 for index = 1, #player_projectiles do
     local target = player_projectiles[index]
     if EntityHasTag(target, "SWORD_FORMATION") then
-        local projcomp = EntityGetFirstComponentIncludingDisabled(target, "ProjectileComponent")
+        local projcomp = EntityGetFirstComponentIncludingDisabled(target, "ProjectileComponent") --[[@cast projcomp number]]
         local desc = ComponentObjectGetValue2(projcomp, "config", "action_description")
         local i, j = string.find(desc, "\nCASTSTATE|([a-zA-Z0-9]*)")
         local target_caststate = (string.sub(desc, i, j))
@@ -34,7 +34,7 @@ table.sort( player_projectiles, function( a, b ) return a < b; end )
 for index = 1, #sword_projectiles do
     local target = sword_projectiles[index]
     EntityAddComponent(target, "VariableStorageComponent", {
-        _tags = "SWORD_DATA",
+        name = "formation_data",
         value_float = index,  -- "Position"
         value_int = shooter  -- "Leader"
     })

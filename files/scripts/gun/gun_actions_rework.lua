@@ -124,15 +124,11 @@ local actions_to_edit = {
 
 }
 
-for actions_index = 1,#actions do
-    for edit_id, edit_contents in pairs(actions_to_edit) do
-        if actions[actions_index].id == edit_id then
-            for key, value in pairs(edit_contents) do
-                actions[actions_index][key] = value
-            end
-            actions[actions_index].author = "Copi"
-            actions_to_edit[edit_id] = nil
-            break
+for i=1,#actions do -- fast as fuck boi
+    if actions_to_edit[actions[i].id] then
+        for key, value in pairs(actions_to_edit[actions[i].id]) do
+            actions[i][key] = value
         end
+        actions[i]['copis_things_reworked'] = true
     end
 end

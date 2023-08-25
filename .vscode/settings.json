@@ -1,5 +1,14 @@
 {
     "Lua.diagnostics.disable": [
-        "deprecated"
+        "deprecated",
+    ],
+    "Lua.diagnostics.globals": [
+        "generate_gun",
+        "reflecting",
+        "current_action",
+        "ACTION_TYPE_PROJECTILE",
+        "ACTION_TYPE_MODIFIER",
+        "ACTION_TYPE_UTILITY",
+        "ACTION_TYPE_PASSIVE"
     ]
 }

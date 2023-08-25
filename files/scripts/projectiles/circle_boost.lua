@@ -32,8 +32,8 @@ end
 PhysicsApplyForceOnArea(
     function(entity, body_mass, body_x, body_y, body_vel_x, body_vel_y, body_vel_angular)
         local len = 30 * math.random(0.70, 1.30)
-        vel_x = (math.cos(rot) * len) + body_vel_x
-        vel_y = (math.sin(rot) * len) + body_vel_y
+        local vel_x = (math.cos(rot) * len) + body_vel_x
+        local vel_y = (math.sin(rot) * len) + body_vel_y
 
         return body_x, body_y, vel_x, vel_y, 0 -- forcePosX,forcePosY,forceX,forceY,forceAngular
     end,

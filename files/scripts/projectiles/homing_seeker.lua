@@ -5,6 +5,14 @@ local nearby_entities = EntityGetInRadiusWithTag( x, y, 128, "homing_target" ) o
 local nearest_angle = math.pi / 3;
 local target = nil
 
+local entity_id = GetUpdatedEntityID()
+local projectile_comp = EntityGetFirstComponentIncludingDisabled(entity_id, "ProjectileComponent")
+local who_shot = nil
+if(projectile_comp)then
+    who_shot = ComponentGetValue2( projectile_comp, "mWhoShot" )
+end
+
+
 local function ease_angle( angle, target_angle, easing )
     local dir = (angle - target_angle) / (math.pi*2);
     dir = dir - math.floor(dir + 0.5);
@@ -21,6 +29,9 @@ if self.VelocityComponent ~= nil then
     if velocity.x == 0 and velocity.y == 0 then nearest_angle = math.pi * 2 end
     local velocity_angle = math.atan2( velocity.y, velocity.x );
     for _, entity_id in pairs( nearby_entities ) do
+        if(entity_id == who_shot)then
+            goto continue
+        end
         local ex, ey = EntityGetFirstHitboxCenter(entity_id)
         local target_angle = math.atan2( ey - y, ex - x );
         local angle = math.abs(angle_difference( target_angle, velocity_angle ));
@@ -28,6 +39,7 @@ if self.VelocityComponent ~= nil then
             nearest_angle = angle;
             target = entity_id;
         end
+        ::continue::
     end
     SetRandomSeed( x, y );
     if target ~= nil then

@@ -1,5 +1,5 @@
 dofile_once("data/scripts/lib/utilities.lua")
-local entity_id    = GetUpdatedEntityID()
+local entity_id = GetUpdatedEntityID()
 local x, y
 
 local variablestorages = EntityGetComponent( entity_id, "VariableStorageComponent" )
@@ -15,6 +15,3 @@ if ( variablestorages ~= nil ) then
 end
 
 EntitySetTransform(entity_id, x, y)
-edit_component2( entity_id, "VelocityComponent", function(comp,vars)
- 	--ComponentSetValueVector2( comp, "mVelocity", 0, 0)
-end)

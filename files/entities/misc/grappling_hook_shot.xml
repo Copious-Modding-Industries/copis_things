@@ -1,9 +1,9 @@
 <Entity >
     <LuaComponent 
-		script_source_file="mods/copis_things/files/scripts/projectiles/grappling_hook_shot.lua" 
+		script_source_file="mods/copis_things/files/scripts/projectiles/grappling_hook/grappling_hook_shot.lua" 
 		execute_every_n_frame="30"
-		remove_after_executed="1" >
-	</LuaComponent>
+		remove_after_executed="1"
+	/>
     <VariableStorageComponent
         name="grappling_hook_shot_count"
         value_int="4"

@@ -30,7 +30,7 @@
         emit_cosmetic_particles="1"
         is_emitting="1"
         area_circle_sector_degrees="360"
-        ></ParticleEmitterComponent>
+    />
 
     <ParticleEmitterComponent
         emitted_material_name="spark_player"

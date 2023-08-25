@@ -15,7 +15,7 @@ local function button(Gui, id_fn)
             "progress_ending0",
         }
 
-        tier = "none"
+        local tier = "none"
         for i = 1, #flags do
             if HasFlagPersistent( flags[i] ) then
                 tier = flags[i]

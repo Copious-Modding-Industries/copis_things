@@ -106,10 +106,10 @@
     <AudioComponent
         file="data/audio/Desktop/projectiles.bank"
         event_root="player_projectiles/throwable"
-        ></AudioComponent>
+    />
 
     <VariableStorageComponent
         name="projectile_file"
-        value_string="mods/copis_things/files/entites/projectiles/tablet.xml"
-        ></VariableStorageComponent>
+        value_string="mods/copis_things/files/entities/projectiles/anvil.xml"
+    />
 </Entity>

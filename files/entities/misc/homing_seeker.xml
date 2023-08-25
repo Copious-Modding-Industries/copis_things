@@ -35,7 +35,7 @@
         emission_interval_min_frames="1"
         emission_interval_max_frames="2"
         is_emitting="1"
-        ></ParticleEmitterComponent>
+    />
 
     <ParticleEmitterComponent
         emitted_material_name="spark"
@@ -58,7 +58,7 @@
         emission_interval_min_frames="1"
         emission_interval_max_frames="2"
         is_emitting="1"
-        ></ParticleEmitterComponent>
+    />
 
     <ParticleEmitterComponent
         emitted_material_name="spark"
@@ -81,5 +81,5 @@
         emission_interval_min_frames="1"
         emission_interval_max_frames="2"
         is_emitting="1"
-        ></ParticleEmitterComponent>
+    />
 </Entity>

@@ -64,13 +64,20 @@ to_insert =
         stackable_is_rare = true,
         run_on_clients = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "mana_efficiency_mult")
-            if vsc then
-                ComponentSetValue2(vsc, "value_float", ComponentGetValue2(vsc, "value_float") * 2/3)
+            local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
+            local vid = nil
+            for i=1, #vscs do
+                if ComponentGetValue2( vscs[i], "name" ) == "mana_efficiency_mult" then
+                    vid = vscs[i]
+                    break
+                end
+            end
+            if vid then
+                ComponentSetValue2(vid, "value_float", ComponentGetValue2(vid, "value_float") * 2/3)
             else
                 local perk = EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
                     name = "mana_efficiency_mult",
-                    _tags = "perk_component,mana_efficiency_mult",
+                    _tags = "perk_component",
                     value_float = 2/3
                 })
             end
@@ -108,6 +115,11 @@ to_insert =
                 _tags = "perk_component",
                 script_damage_received = "mods/copis_things/files/scripts/perk/damage_received/swapper.lua"
             })
+            local dmcs = EntityGetComponent(entity_who_picked, "DamageModelComponent") or {}
+            for i=1,#dmcs do
+                local res = ComponentObjectGetValue2(dmcs[i], "damage_multipliers", "projectile")
+                ComponentObjectSetValue2(dmcs[i], "damage_multipliers", "projectile", res*.8)
+            end
         end,
     },
     --  Fragile Ego
@@ -411,16 +423,25 @@ to_insert =
         stackable_is_rare = true,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "protagonist_bonus")
-            if vsc then
-                ComponentSetValue2(vsc, "value_float", ComponentGetValue2(vsc, "value_float") + 2.0)
+
+            local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
+            local vid = nil
+            for i=1, #vscs do
+                if ComponentGetValue2( vscs[i], "name" ) == "protagonist_bonus" then
+                    vid = vscs[i]
+                    break
+                end
+            end
+            if vid then
+                ComponentSetValue2(vid, "value_float", ComponentGetValue2(vid, "value_float") + 2.0)
             else
                 EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
                     script_shot = "mods/copis_things/files/scripts/perk/script_shot/protagonist.lua"
                 })
                 EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
-                    _tags = "protagonist_bonus,perk_component",
+                    _tags = "perk_component",
+                    name = "protagonist_bonus",
                     value_float = 2.0
                 })
             end
@@ -436,23 +457,24 @@ to_insert =
         perk_icon = "mods/copis_things/files/items_gfx/perks/spell_jam.png",
         stackable = STACKABLE_YES,
         usable_by_enemies = false,
+        one_off_effect = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             local spells = {}
 
             -- Get spells inventory
-            local inventory_full
-            for _, child in ipairs(EntityGetAllChildren(entity_who_picked) or {}) do
-                if (EntityGetName(child) == "inventory_full") then
-                    inventory_full = child
-                    break
-                end
-            end
+            local children = EntityGetAllChildren(entity_who_picked) or {}
+            for i=1,#children do
+                if (EntityGetName(children[i]) == "inventory_full") then
 
-            -- Gather all spells in inventory
-            local inventory_items = EntityGetAllChildren(inventory_full) or {}
-            for _, item in ipairs(inventory_items) do
-                if EntityHasTag(item, "card_action") then
-                    table.insert(spells, item)
+                    -- Gather all spells in inventory
+                    local inventory_items = EntityGetAllChildren(children[i]) or {}
+                    for j=1,#inventory_items do
+                        if EntityHasTag(inventory_items[j], "card_action") then
+                            spells[#spells+1] = inventory_items[j]
+                        end
+                    end
+                    break
+
                 end
             end
 
@@ -466,6 +488,74 @@ to_insert =
                     EntityKill(spell)
                 end
             end
+        end,
+    },
+    --  Spell Jam
+    {
+        id = "COPIS_THINGS_SPINDOWN",
+        author = "Copi",
+        ui_name = "$perk_name_copis_things_spindown",
+        ui_description = "$perk_desc_copis_things_spindown",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/spindown.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/spindown.png",
+        stackable = STACKABLE_YES,
+        usable_by_enemies = false,
+        one_off_effect = true,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            dofile("data/scripts/gun/gun.lua")
+            local lookup = GunUtils.lookup_spells()
+            local spells = {}
+            -- Get spells inventory
+            local children = EntityGetAllChildren(entity_who_picked) or {}
+            for i=1,#children do
+                if (EntityGetName(children[i]) == "inventory_full") then
+
+                    -- Gather all spells in inventory
+                    local inventory_items = EntityGetAllChildren(children[i]) or {}
+                    for j=1,#inventory_items do
+                        if EntityHasTag(inventory_items[j], "card_action") then
+
+                            spells[#spells+1] = inventory_items[j]
+
+                        end
+                    end
+                    break
+
+                end
+            end
+
+
+            local x, y = EntityGetTransform(entity_who_picked)
+            for i=1, #spells do
+                local iac = EntityGetFirstComponentIncludingDisabled( spells[i], "ItemActionComponent" ) --[[@cast iac number]]
+
+                -- I apologize for my sins against math :pray: 
+                -- Bear with me as I explain this mess, or just ask me on discord if you want to get a more comprehensive step by step
+
+                --- @see _utils.lua Get current spell index via lookuptable 
+                local index = lookup[ComponentGetValue2( iac, "action_id" )]['index']
+                -- go down 2, modulo by actions count, add 1 (CASE: "BOMB"=1, go down to -1, wrap to #actions, add 1)
+                -- this was a fucking pain to figure out, sometimes I despise lua for being indexed from 1...
+                local spun  = ((index-2)%#actions)+1
+                -- get action at new id
+                local action= actions[spun]['id']
+                -- spawn said action
+                local card = CreateItemActionEntity(action, x, y)
+                local velcomp = EntityGetFirstComponentIncludingDisabled(card, "VelocityComponent") --[[@cast velcomp number]]
+                -- launch spells
+                ComponentSetValue2(velcomp, "mVelocity", 10*(i-(#spells/2)), -100)
+                -- make floaty until pickup
+                EntityAddComponent2(card, "LuaComponent", {
+                    script_item_picked_up="mods/copis_things/files/scripts/perk/misc/card_levitate_pickup.lua",
+                    script_source_file = "mods/copis_things/files/scripts/perk/misc/card_levitate.lua",
+                    execute_every_n_frame = 1,
+                    _tags="enabled_in_world",
+                })
+                -- kill old card
+                -- TODO: figure out how to forcefully place card in the same slot, but I'm a lazy fucker with no motivation
+                EntityKill(spells[i])
+            end
+
         end,
     },
     --  Lead Boots
@@ -523,16 +613,24 @@ to_insert =
         stackable_is_rare = true,
         run_on_clients = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "healthier_hearts_count")
-            if vsc then
-                ComponentSetValue2(vsc, "value_float", ComponentGetValue2(vsc, "value_float") + 0.5)
+            local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
+            local vid = nil
+            for i=1, #vscs do
+                if ComponentGetValue2( vscs[i], "name" ) == "healthier_hearts_count" then
+                    vid = vscs[i]
+                    break
+                end
+            end
+            if vid then
+                ComponentSetValue2(vid, "value_float", ComponentGetValue2(vid, "value_float") + 0.5)
             else
                 EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
                     script_source_file = "mods/copis_things/files/scripts/perk/source/healthier_hearts.lua"
                 })
                 EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
-                    _tags = "healthier_hearts_count,perk_component",
+                    _tags = "perk_component",
+                    name = "healthier_hearts_count",
                     value_float = 0.5
                 })
             end
@@ -550,9 +648,16 @@ to_insert =
         stackable_is_rare = true,
         run_on_clients = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "invincibility_frames")
-            if vsc then
-                ComponentSetValue2(vsc, "value_int", ComponentGetValue2(vsc, "value_int") + 10)
+            local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
+            local vid = nil
+            for i=1, #vscs do
+                if ComponentGetValue2( vscs[i], "name" ) == "invincibility_frames" then
+                    vid = vscs[i]
+                    break
+                end
+            end
+            if vid then
+                ComponentSetValue2(vid, "value_int", ComponentGetValue2(vid, "value_int") + 10)
             else
                 EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
@@ -563,7 +668,8 @@ to_insert =
                     script_damage_received = "mods/copis_things/files/scripts/perk/damage_received/Invincibility_frames.lua"
                 })
                 EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
-                    _tags = "invincibility_frames,perk_component",
+                    _tags = "perk_component",
+                    name = "invincibility_frames",
                     value_int = 20
                 })
             end
@@ -581,27 +687,86 @@ to_insert =
         stackable_is_rare = true,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
-            local vsc = EntityGetFirstComponent(entity_who_picked, "VariableStorageComponent", "demolitionist_bonus")
-            if vsc then
-                ComponentSetValue2(vsc, "value_int", ComponentGetValue2(vsc, "value_int") + 1.0)
+            local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
+            local vid = nil
+            for i=1, #vscs do
+                if ComponentGetValue2( vscs[i], "name" ) == "demolitionist_bonus" then
+                    vid = vscs[i]
+                    break
+                end
+            end
+            if vid then
+                ComponentSetValue2(vid, "value_int", ComponentGetValue2(vid, "value_int") + 1.0)
             else
                 EntityAddComponent2(entity_who_picked, "LuaComponent", {
                     _tags = "perk_component",
                     script_shot = "mods/copis_things/files/scripts/perk/script_shot/demolitionist.lua"
                 })
                 EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
-                    _tags = "demolitionist_bonus,perk_component",
+                    _tags = "perk_component",
+                    name = "demolitionist_bonus",
                     value_int = 1.0
                 })
             end
         end,
     },
+    --  Recursion
+    {
+        id = "COPIS_THINGS_RECURSION",
+        author = "Copi",
+        ui_name = "$perk_name_copis_things_recursion",
+        ui_description = "$perk_desc_copis_things_recursion",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/recursion.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/recursion.png",
+        stackable = STACKABLE_YES,
+        stackable_is_rare = true,
+        usable_by_enemies = false,
+		one_off_effect = true,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            local vscs = EntityGetComponent(entity_who_picked, "VariableStorageComponent") or {}
+            local vid = nil
+            for i=1, #vscs do
+                if ComponentGetValue2( vscs[i], "name" ) == "copi_recursion_stacks" then
+                    vid = vscs[i]
+                    break
+                end
+            end
+            if vid then
+                ComponentSetValue2(vid, "value_int", ComponentGetValue2(vid, "value_int") + 3)
+            else
+                EntityAddComponent2(entity_who_picked, "VariableStorageComponent", {
+                    _tags = "perk_component",
+                    name = "copi_recursion_stacks",
+                    value_int = 3
+                })
+            end
+            -- Reduce max hp
+            local dmcs = EntityGetComponent(entity_who_picked, "DamageModelComponent") or {}
+            for i=1, #dmcs do
+                local damagemodel = dmcs[i]
+                local max_hp    = math.max(0.06, ComponentGetValue2(damagemodel, "max_hp")) * (2/3)
+                local hp        = math.max(0.06, ComponentGetValue2(damagemodel, "hp"))     * (2/3)
+                ComponentSetValue2(damagemodel, "max_hp",   max_hp)
+                ComponentSetValue2(damagemodel, "hp",       hp)
+            end
+        end,
+        func_remove = function(entity_who_picked)
+            local dmcs = EntityGetComponent(entity_who_picked, "DamageModelComponent") or {}
+            for i=1, #dmcs do
+                local damagemodel = dmcs[i]
+                local max_hp = ComponentGetValue2(damagemodel, "max_hp")*1.5
+                local hp = ComponentGetValue2(damagemodel, "hp")*1.5
+                ComponentSetValue2(damagemodel, "max_hp", max_hp)
+                ComponentSetValue2(damagemodel, "hp", hp)
+            end
+        end,
+    }
 }
 
-for _, perk in ipairs(to_insert) do
-    perk_list[#perk_list+1] = perk
+local len = #perk_list
+for i=1,#to_insert do
+    perk_list[len+i] = to_insert[i]
 end
-
 
 local year, month, day, hour = GameGetDateAndTimeLocal()
 if month == 4 and day == 1 then

@@ -1,25 +1,23 @@
 --[[
 Hello seeker of knowledge.
 
-A new era of development ensues, after being seen by many eyes. 
+Keep your eyes open, for there is much to come.
 ]]
 
-local meta = {
+COPIS_THINGS_VERSION = "vD.5"
 
-    version = function ()
-        GlobalsSetValue("copis_things_version", "v0.43")
-    end,
+-- NOTICE! This is CRAP! I will be REWRITING THIS LIBRARY!
+dofile_once("mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init( "mods/copis_things/files/scripts/lib/polytools/")
 
-    flag_reset = function ()
-        local flag = "this_should_never_spawn"
-        if HasFlagPersistent(flag) then
-            RemoveFlagPersistent(flag)
-        end
-    end
+-- gus you fuck this file literally doesnt exist you broke my mod
+---@module "setupCompatibility"
+--local compatibility = dofile_once("mods/copis_things/files/setupCompatibility.lua")
 
-}
+---@module "gui"
+local Gui = dofile_once("mods/copis_things/files/scripts/gui/gui.lua")
 
---[[ STUFF
+--#region stuff
+--[[
   ██████████    ██████████████  ██          ██  ██████████████  ██████████████  
 ██          ██        ██        ██          ██  ██              ██              
 ██                    ██        ██          ██  ██              ██              
@@ -45,6 +43,8 @@ local content = {
     perks = function ()
         -- Add perks
         ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/copis_things/files/scripts/perk/perk_list.lua")
+        -- Edit perk.lua
+        ModLuaFileAppend("data/scripts/perks/perk.lua", "mods/copis_things/files/scripts/perk/perk_append.lua")
     end,
 
     translations = function ()
@@ -53,9 +53,9 @@ local content = {
             while translations:find("\r\n\r\n") do
                 translations = translations:gsub("\r\n\r\n","\r\n");
             end
-            local files = {"perks", "actions"}
-            for _, file in ipairs(files) do
-                local new_translations = ModTextFileGetContent( table.concat({"mods/copis_things/files/translations/", file, ".csv"}) );
+            local files = {"perks", "actions", "effects", "other"}
+            for i=1, #files do
+                local new_translations = ModTextFileGetContent( table.concat({"mods/copis_things/files/translations/", files[i], ".csv"}) );
                 translations = translations .. new_translations;
             end
             ModTextFileSetContent( "data/translations/common.csv", translations );
@@ -85,253 +85,8 @@ local content = {
     materials = function ()
         ModMaterialsFileAdd("mods/copis_things/files/materials_nugget.xml")
         ModMaterialsFileAdd("mods/copis_things/files/materials_rainbow.xml")
+        ModMaterialsFileAdd("mods/copis_things/files/materials_test.xml")
     end,
-
-}
-
-local compatibility = {
-
-    anvil = function ()
-        if ModIsEnabled("anvil_of_destiny") then
-
-            -- # Vanilla AOD compat 
-            dofile_once("anvil_of_destiny/files/scripts/mod_interop.lua")
-
-            -- Tele
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_teleportation",
-                {
-                    "COPIS_THINGS_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
-                    "COPIS_THINGS_TRANSMISSION_CAST",
-                    "COPIS_THINGS_TELEPORT",
-                },
-            1 )
-
-            -- Unstable tele
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_unstable_teleportation",
-                {
-                    "COPIS_THINGS_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
-                    "COPIS_THINGS_TRANSMISSION_CAST",
-                    "COPIS_THINGS_TELEPORT_BAD"
-                },
-            1 )
-
-            -- Blood (ULTRAKILL!!!!!!!!!!)
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "blood",
-                {
-                    "COPIS_THINGS_HITFX_BLOODY_2X_DAMAGE_POISONED",
-                },
-            1 )
-
-            -- Water
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "water",
-                {
-                    "COPIS_THINGS_POWDER_TO_WATER",
-                    "COPIS_THINGS_HITFX_WET_2X_DAMAGE_FREEZE",
-                },
-            1 )
-
-            -- Piss
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "urine",
-                {
-                    "COPIS_THINGS_SUMMON_JAR_URINE",
-                },
-            1 )
-
-            -- Berserkium
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_berserk ",
-                {
-                    "COPIS_THINGS_RECHARGE_UNSTABLE",
-                    "COPIS_THINGS_STATIC_TO_EXPLOSION",
-                },
-            1 )
-
-            -- Lava
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "lava ",
-                {
-                    "COPIS_THINGS_MATERIAL_LAVA",
-                },
-            1 )
-
-            -- Vomit
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "vomit",
-                {
-                    "COPIS_THINGS_VOMERE",
-                },
-            1 )
-
-            -- Acid  
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "acid",
-                {
-                    "COPIS_THINGS_ACID",
-                },
-            1 )
-
-            -- Precursor 
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "midas_precursor",
-                {
-                    "COPIS_THINGS_LIGHT_BULLET_DEATH_TRIGGER",
-                    "COPIS_THINGS_SILVER_BULLET_DEATH_TRIGGER",
-                    "COPIS_THINGS_SILVER_MAGNUM_DEATH_TRIGGER",
-                },
-            1 )
-
-            -- Midas 
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "midas",
-                {
-                    "COPIS_THINGS_NUGGET_SHOT",
-                    "COPIS_THINGS_COIN",
-                    "COPIS_THINGS_ALT_FIRE_COIN",
-                },
-            1 )
-
-            -- Cement 
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "cement",
-                {
-                    "COPIS_THINGS_CEMENT",
-                    "COPIS_THINGS_ARC_CONCRETE",
-                    "COPIS_THINGS_CONCRETEBALL",
-                },
-            1 )
-
-            -- Poly 
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_polymorph",
-                {
-                    "COPIS_THINGS_POLYMORPH",
-                    "COPIS_THINGS_SUMMON_HAMIS",
-                    "COPIS_THINGS_BLOODTENTACLE",
-                },
-            1 )
-
-            -- Poly 
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_random_polymorph",
-                {
-                    "COPIS_THINGS_POLYMORPH",
-                    "COPIS_THINGS_SUMMON_HAMIS",
-                    "COPIS_THINGS_BLOODTENTACLE",
-                },
-            1 )
-
-            -- Poly 
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_unstable_polymorph",
-                {
-                    "COPIS_THINGS_POLYMORPH",
-                    "COPIS_THINGS_SUMMON_HAMIS",
-                    "COPIS_THINGS_BLOODTENTACLE",
-                },
-            1 )
-
-            -- Pheremones
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_charm",
-                {
-                    "COPIS_THINGS_CHARM_FIELD",
-                    "COPIS_THINGS_SUMMON_HAMIS",
-                },
-            1 )
-
-            -- Healy juice
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_hp_regeneration ",
-                {
-                    "COPIS_THINGS_OPHIUCHUS",
-                    "COPIS_THINGS_CLOUD_MAGIC_LIQUID_HP_REGENERATION",
-                },
-            1 )
-
-            -- Hastium
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_faster_levitation_and_movement ",
-                {
-                    "COPIS_THINGS_LUNGE",
-                },
-            1 )
-
-            -- Conc mana
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "magic_liquid_mana_regeneration",
-                {
-                    "COPIS_THINGS_MANA_ENGINE",
-                    "COPIS_THINGS_MANA_EFFICENCY",
-                    "COPIS_THINGS_MANA_RANDOM",
-                    "COPIS_THINGS_PASSIVE_MANA",
-                },
-            1 )
-
-            -- Funny monster powder
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "monster_powder_test",
-                {
-                    "COPIS_THINGS_SUMMON_HAMIS",
-                },
-            1 )
-
-            -- Funny monster powder
-            ---@diagnostic disable-next-line: undefined-global
-            append_effect("monster_powder_test", function(wand)
-                if math.random() > 0.85 then
-                    wand:AddSpells("COPIS_THINGS_SUMMON_HAMIS")
-                end
-            end)
-
-            -- Slicy rune
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "runestone_disc",
-                {
-                    "COPIS_THINGS_ZENITH_DISC",
-                },
-            1 )
-
-            -- Slow rune
-            ---@diagnostic disable-next-line: undefined-global
-            potion_recipe_add_spells( "runestone_slow",
-                {
-                    "COPIS_THINGS_SLOW",
-                },
-            1 )
-
-                -- TODO: THE OTHER ITEMS!
-
-            -- # Apotheosis
-            if ModIsEnabled("apotheosis") then
-
-                -- Attunium
-                ---@diagnostic disable-next-line: undefined-global
-                potion_recipe_add_spells( "apotheosis_magic_liquid_attunium",
-                    {
-                        "COPIS_THINGS_HOMING_SEEKER",
-                        "COPIS_THINGS_HOMING_BOUNCE",
-                        "COPIS_THINGS_HOMING_INTERVAL",
-                        "COPIS_THINGS_HOMING_MACROSS",
-                    },
-                1 )
-
-                -- Velocium
-                ---@diagnostic disable-next-line: undefined-global
-                potion_recipe_add_spells( "apotheosis_magic_liquid_velocium",
-                    {
-                        "COPIS_THINGS_LUNGE",
-                        "Upgrade - Spell speed multiplier (One-off)",
-                    },
-                1 )
-
-            end
-        end
-    end
 
 }
 
@@ -384,43 +139,10 @@ local experimental = {
 
 }
 
---[[ GUI
-  ██████████    ██          ██  ██████  
-██          ██  ██          ██    ██    
-██              ██          ██    ██    
-██    ████████  ██          ██    ██    
-██          ██  ██          ██    ██    
-██          ██  ██          ██    ██    
-  ██████████      ██████████    ██████  
-]]
+--#endregion
 
-local gui = {
-
-    setup = function ()
-        local mods_res = tonumber(GlobalsGetValue("mod_button_tr_width", "0"))
-        GlobalsSetValue("copis_things_mod_button_reservation", tostring(mods_res))
-        GlobalsSetValue("mod_button_tr_width", tostring(mods_res + 15))
-    end,
-
-    update = function ()
-        dofile("mods/copis_things/files/scripts/gui/update.lua")
-    end,
-
-    tr_crap = function ()
-        if GlobalsGetValue( "config_mod_button_tr_max", "0" ) == "0" then
-            local current = GlobalsGetValue( "mod_button_tr_current", "0" )
-            GlobalsSetValue( "config_mod_button_tr_max", current or "0" );
-        end
-        GlobalsSetValue( "mod_button_tr_current", "0" );
-    end,
-
-    spawned = function ()
-        GlobalsSetValue( "mod_button_tr_width", "0" );
-    end
-
-}
-
---[[ CALLBACKS
+--#region callbacks
+--[[
   ██████████          ██        ██              ██              ████████████          ██          ██████████    ██        ██    ██████████    
 ██          ██      ██  ██      ██              ██              ██          ██      ██  ██      ██          ██  ██      ██    ██          ██  
 ██                ██      ██    ██              ██              ██          ██    ██      ██    ██              ██    ██      ██              
@@ -431,33 +153,53 @@ local gui = {
 ]]
 
 function OnModInit()
-    meta.flag_reset()
+    local flag = "this_should_never_spawn"
+    if HasFlagPersistent(flag) then
+        RemoveFlagPersistent(flag)
+    end
+    if HasFlagPersistent("copis_things_meta_spell") then
+        AddFlagPersistent("copis_things_meta_spell_action")
+    else
+        RemoveFlagPersistent("copis_things_meta_spell_action")
+    end
     content.actions()
     content.perks()
     content.translations()
     content.greeks()
     content.statuses()
     content.materials()
-    compatibility.anvil()
+    --compatibility.setupModCompat()
 end
 
 function OnWorldInitialized()
-    gui.setup()
-    meta.version()
+    GlobalsSetValue("copis_things_version", COPIS_THINGS_VERSION)
+    Gui:Setup()
     experimental.loadspell()
     experimental.spell_visualizer()
+    GamePrint(("Copi's things INDEV %s"):format(COPIS_THINGS_VERSION))
 end
 
 function OnWorldPreUpdate()
-    gui.update()
+    Gui:Update()
 end
 
 function OnPlayerSpawned()
-    gui.spawned()
+    Gui:PlayerSpawned()
 end
 
 function OnWorldPostUpdate()
-    gui.tr_crap()
+    Gui:Tr()
+	if GameGetFrameNum()%3600==0 then
+		if not GameHasFlagRun("COPISS") then
+			GamePrintImportant("OH PISS....", "(cue laugh track)")
+			GameAddFlagRun("COPISS")
+		end
+		local x, y = EntityGetTransform(EntityGetWithTag("player_unit")[1])
+		for i=1,math.random(0,10) do
+			EntityLoad("data/entities/animals/easter/sniper.xml", x+math.random(-50,50),y+math.random(-50,50))
+		end
+	end
 end
 
-GamePrint("Copi's things INDEV " .. (GlobalsGetValue("copis_things_version", "VERSION NOT DECLARED") or "VERSION NOT DECLARED"))
+--#endregion
+-- what the FUCK is this file

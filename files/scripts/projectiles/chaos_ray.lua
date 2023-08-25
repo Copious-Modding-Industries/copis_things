@@ -29,6 +29,7 @@ if ( #projectile_file > 0 ) then
 	local vel_x = math.cos( angle ) * length
 	local vel_y = 0 - math.sin( angle ) * length
 
+    ---@diagnostic disable-next-line: undefined-global  -- todo steal the shoot projectile code
 	local eid = shoot_projectile_from_projectile( entity_id, projectile_file, pos_x, pos_y, vel_x, vel_y )
 	EntityAddTag( eid, "projectile_cloned" )
 end

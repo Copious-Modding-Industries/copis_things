@@ -10,8 +10,18 @@ if bounced_frame ~= nil then
             local self_x, self_y = EntityGetTransform(entity_id)
             local trgt_id, trgt_dist = nil, math.huge
 
+            local projectile_comp = EntityGetFirstComponentIncludingDisabled(entity_id, "ProjectileComponent")
+            local who_shot = nil
+            if(projectile_comp)then
+                who_shot = ComponentGetValue2( projectile_comp, "mWhoShot" )
+            end
+
+
             local targets = EntityGetInRadiusWithTag(self_x, self_y, 256, "homing_target") or {}
             for i = 1, #targets do
+                if(targets[i] == who_shot)then
+                    goto continue
+                end
                 local trgt_x, trgt_y = EntityGetTransform(targets[i])
                 local did_hit = RaytracePlatforms(self_x, self_y, trgt_x, trgt_y)
                 if not did_hit then
@@ -21,6 +31,7 @@ if bounced_frame ~= nil then
                         trgt_id = targets[i]
                     end
                 end
+                ::continue::
             end
 
             if trgt_id ~= nil then

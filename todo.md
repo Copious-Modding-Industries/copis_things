@@ -11,8 +11,6 @@
    - All held wands merge, stat boost, excess spells dropped
  - Volcanic Blood
    - Fire + Lava immunity, Bleed lava, hurt by wet, and ignite nearby enemies randomly
- - Recursion (One-Off)
-   - Next stackable perk is tripled
  - Material Compression
    - Denser Flasks
  - Hallowed Step
@@ -30,10 +28,19 @@
  - Adrenaline
    - Stats adjust based on hp percent, speed up, flight up, etc etc
 
+
+vvvvvvv this is REALLY bad I need help pls :/
 **spell rarities SEVERE TODO** <-- NEEDS TO BE DONE URGENTLY IF YOU'RE READING THIS DO NOT BE AFRAID TO REACH OUT TO HELP THEY ARE A MESS
+^^^^^ NEEDS DOING ASAP PLEASE I NEED HELP I UNIRONICALLY HAVE NO CLUE WHAT TO DO FOR THIS AAAAAAAAAAAAAAAAAAA
 static camera projectile, camera locks to it. deletes on alt fire, deletes on creating a new one
 remove herobrine 
 Figure out SRS crap
 
+
+
+
+
+
+ask audio modder to include among us song audio loop to play from among us spell card
 
 # CHANGE WORKSHOP XML TO REFLECT NEW CRAP!

@@ -10,5 +10,6 @@ ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/ac
 --[[ Dev content ]]
 if DebugGetIsDevBuild() then
     -- Add dev spells
+    -- Self note: Why? I can just do this in gun actions file?
     ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/actions_dev.lua")
 end

@@ -1,0 +1,39 @@
+<Materials>
+
+    <CellData
+        name="copis_things_creepy_poly"
+        ui_name="Creepy Polymorphine"
+        tags="[liquid],[magic_liquid],[magic_polymorph],[impure]"
+        burnable="0"
+        density="1"
+        lifetime="1350"
+        cell_type="liquid"
+        wang_color="8091448D"
+        generates_smoke="0"
+        liquid_stains="1"
+        liquid_gravity="0"
+        liquid_static="1"
+        liquid_sand="0"
+        gfx_glow="90"
+        on_fire="0"
+        requires_oxygen="0"
+        temperature_of_fire="60"
+        status_effects="POLYMORPH"
+        audio_materialaudio_type="MAGICAL"
+        liquid_sprite_stains_check_offset="1"
+        >
+        <Graphics
+            texture_file="mods/copis_things/files/materials_gfx/creepy_poly.png"
+            color="88E8BD5C"
+            ></Graphics>
+        <StatusEffects>
+            <Ingestion>
+                <StatusEffect
+                    type="POLYMORPH"
+                    amount="0.2"
+                    />
+            </Ingestion>
+        </StatusEffects>
+    </CellData>
+
+</Materials>

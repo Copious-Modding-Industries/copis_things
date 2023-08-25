@@ -1,4 +1,2 @@
-local projectile = GetUpdatedEntityID()
-if EntityGetName(projectile) ~= "separator" then
-    EntityAddTag(projectile, "BARRIER_ARC")
-end
+local entity_id = GetUpdatedEntityID()
+if not EntityHasTag(entity_id, "CASTSTATE_SHARED") then EntityAddTag(entity_id, "CASTSTATE_SHARED") end

@@ -23,3 +23,5 @@ for _,value in ipairs(EntityGetAllChildren(entity_id) or {}) do
 	EntitySetComponentsWithTagEnabled(value, "re_enable_homing", true)
 end
 ]]
+
+-- This genuinely hurts to look at. Purge with fire and build from the ground up, including homing patch.

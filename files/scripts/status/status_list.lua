@@ -7,14 +7,22 @@ local to_insert = {
         effect_entity="mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
     },
     {
-        id="COPIS_THINGS_PASSIVE_ATTACK_FOOT",
-        ui_name="Reduce recharge",
-        ui_description="Reduces the time between spellcasts",
-        ui_icon="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",
-        effect_entity="mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
+        id              = "COPIS_THINGS_INSTAKILL",
+        ui_name         = "$effect_name_copis_things_instakill",
+        ui_description  = "$effect_desc_copis_things_instakill",
+        ui_icon         = "mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",
+        effect_entity   = "mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
     },
+    --[[ Shouldn't be handled as a status effect, what was I thinking lmao
+    {
+        id="COPIS_THINGS_ENTITY_LARPA",
+        ui_name         = "$effect_name_copis_things_entity_larpa",
+        ui_description  = "$effect_desc_copis_things_entity_larpa",
+        ui_icon         = "mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",
+        effect_entity   = "mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
+    },]]
 }
-
-for k, v in ipairs(to_insert) do
-    table.insert(status_effects, v)
+local len = #status_effects
+for i = 1, #to_insert do
+    status_effects[len+i] = to_insert[i]
 end
