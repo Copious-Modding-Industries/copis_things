@@ -1,10 +1,10 @@
 ---Handles simple alt fire projectile firing
----@param card number the card ID
+---@param card integer the card ID
 ---@param projectile string the projectile to fire
 ---@param cooldown_frames integer the number of frames to wait
----@param vel_min number the minimum velocity
----@param vel_max number the maximum velocity
----@param mana_cost number the mana cost
+---@param vel_min integer the minimum velocity
+---@param vel_max integer the maximum velocity
+---@param mana_cost integer the mana cost
 function AltFireHandler(card, projectile, cooldown_frames, vel_min, vel_max, mana_cost)
     local wand = EntityGetParent(card)
     local shooter = EntityGetRootEntity(card)

@@ -12,6 +12,11 @@ local meta_manager = function(action, current_id)
 end
 
 
+-- Handle april fools
+local april_fools = (function ()
+	local year, month, day, hour = GameGetDateAndTimeLocal()
+	return month == 4 and day == 1 
+end)()
 
 -- prevent angry code
 ---@diagnostic disable-next-line: lowercase-global
@@ -2935,7 +2940,6 @@ local actions_to_insert = {
 		price = 227,
 		mana = 143,
 		max_uses = 3,
-		--custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/summon_rock.xml",
 		action = function()
 			add_projectile("mods/copis_things/files/entities/projectiles/anvil.xml")
 		end
@@ -4549,17 +4553,23 @@ local actions_to_insert = {
 		spawn_probability = "0.2,1",
 		price = 250,
 		mana = 0,
-		action = function()
-			if reflecting then
-				return
-			end
-			local entity_id = GetUpdatedEntityID()
-			if entity_id ~= nil and entity_id ~= 0 then
-				local x, y = EntityGetTransform(entity_id)
-				EntityLoad("data/entities/particles/image_emitters/player_disappear_effect_right.xml", x, y) -- gfx
-				EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999, "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTERGRATED", 0, 0, entity_id, x, y, 10)
+		action = april_fools and function ()
+			if reflecting then return end
+			local players = EntityGetWithTag( "player_unit" ) or {}
+			for i=1, #players do
+				local entity_id = players[i]
+				local x, y, r, sx, sy = EntityGetTransform(entity_id)
+				EntityLoad(table.concat{"data/entities/particles/image_emitters/player_disappear_effect_", (sx<0 and "left" or "right"), ".xml"}, x, y) -- gfx
+				EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999, "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTEGRATED", 0, 0, entity_id, x, y, 10)
 				EntityKill(entity_id)
 			end
+		end or function()
+			if reflecting then return end
+			local entity_id = GetUpdatedEntityID()
+			local x, y, r, sx, sy = EntityGetTransform(entity_id)
+			EntityLoad(table.concat{"data/entities/particles/image_emitters/player_disappear_effect_", (sx<0 and "left" or "right"), ".xml"}, x, y) -- gfx
+			EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999, "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTEGRATED", 0, 0, entity_id, x, y, 10)
+			EntityKill(entity_id)
 		end
 	},
 	{
@@ -4923,7 +4933,7 @@ local actions_to_insert = {
 		mod = "Copi's Things",
 		description = "A target which fires a projectile when it is destroyed.",
 		sprite = "mods/copis_things/files/ui_gfx/gun_actions/target_death_trigger.png",
-		related_projectiles = { "mods/copis_things/files/entities/projectiles/target.xml" },
+		related_projectiles = { "--mods/copis_things/files/entities/projectiles/target.xml" },
 		type = ACTION_TYPE_PROJECTILE,
 		spawn_level = "0,1,2,3,4,5,6",
 		spawn_probability = "1,1,1,1,1,1,1",
@@ -4933,11 +4943,11 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			current_reload_time = current_reload_time + 12
 			if reflecting then
-				Reflection_RegisterProjectile( "mods/copis_things/files/entities/projectiles/target.xml" )
+				Reflection_RegisterProjectile( "--mods/copis_things/files/entities/projectiles/target.xml" )
 				return
 			end
 
-			BeginProjectile( "mods/copis_things/files/entities/projectiles/target.xml" )
+			BeginProjectile( "--mods/copis_things/files/entities/projectiles/target.xml" )
 				BeginTriggerDeath()
 					draw_shot( create_shot( 1 ), true )
 				EndTrigger()
@@ -5846,8 +5856,8 @@ local actions_to_insert = {
 		author = "Copi",
 		mod = "Copi's Things",
 		description = "A fast projectile which grows in power the less often it is fired",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/chrono_caliber.png",
-		related_projectiles = { "mods/copis_things/files/entities/projectiles/chrono_caliber.xml" },
+		sprite = "--mods/copis_things/files/ui_gfx/gun_actions/chrono_caliber.png",
+		related_projectiles = { "--mods/copis_things/files/entities/projectiles/chrono_caliber.xml" },
 		type = ACTION_TYPE_PROJECTILE,
 		spawn_level = "0,1,2",
 		spawn_probability = "2,1,0.5",
@@ -5855,7 +5865,7 @@ local actions_to_insert = {
 		price = 120,
 		mana = 7,
 		action = function()
-			local projectile = "mods/copis_things/files/entities/projectiles/chrono_caliber.xml"
+			local projectile = "--mods/copis_things/files/entities/projectiles/chrono_caliber.xml"
 			if not reflecting then
 				Reflection_RegisterProjectile(projectile)
 			else
@@ -5946,7 +5956,7 @@ local actions_to_insert = {
 		author = "Copi",
 		mod = "Copi's Things",
 		description = "The fuck does this do",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/affix.png",
+		sprite = "--mods/copis_things/files/ui_gfx/gun_actions/affix.png",
 		related_projectiles = { "mods/copis_things/files/entities/misc/affix.xml" },
 		type = ACTION_TYPE_MODIFIER,
 		spawn_level = "0,1,2",  -- idk how to balance this shit genuinely PLEASE if you have any degree of a sense of balance help me out with all these spawn probs and levels
@@ -6788,7 +6798,27 @@ local actions_to_insert = {
 				c.fire_rate_wait = c.fire_rate_wait + 40
 			end
 		end
-	},
+	},--[[ woe be upon ye
+	{
+		id = "COPIS_THINGS_SILENCER",
+		name = "$actionname_silencer",
+		description = "$actiondesc_silencer",
+		author = "Copi",
+		mod = "Copi's Things",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/silencer.png",
+		type = ACTION_TYPE_MODIFIER,
+		spawn_level = "1,2,3,4,5,6",					-- THIS IS IN URGENT NEED OF BALANCING.
+		spawn_probability = "0.2,0.2,0.4,0.2,0.2,0.2",	-- THIS IS IN URGENT NEED OF BALANCING.
+		price = 25,
+		mana = 0,
+		action = function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/silencer.xml,"
+			c.fire_rate_wait = c.fire_rate_wait - 8
+			c.speed_multiplier = c.speed_multiplier * 1.2
+			c.screenshake = math.max(0, c.screenshake - 2.5)
+			draw_actions( 1, true )
+		end
+	},]]
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
@@ -6828,16 +6858,14 @@ else
 	end
 end
 
+--[[ Not a shared state, cannot easily handle this. We're somewhere in the high 200s? I think?
 -- erm... shut up?
-local print_txt = true
-if print_txt then
+if PrintCount == nil then
 	print("COPI SPELLS: ".. tostring(#actions_to_insert))
-	print_txt = false
-end
+	PrintCount = false
+end]]
 
--- Handle april fools
-local year, month, day, hour = GameGetDateAndTimeLocal()
-if month == 4 and day == 1 then
+if april_fools then
 	-- Fix noita:
 	if ModSettingGet("CopisThings.do_april_fools") then
 		local actions_new = {}
