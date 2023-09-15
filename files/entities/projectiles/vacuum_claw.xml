@@ -8,7 +8,7 @@
             air_friction="0.3"
             mass="0.1"
             terminal_velocity="50"
-            ></VelocityComponent>
+		/>
     </Base>
 
     <ProjectileComponent
@@ -42,9 +42,8 @@
         shoot_light_flash_b="30"
         shoot_light_flash_radius="32"
         penetrate_entities="1"
-        damage_every_x_frames="10"
-        >
-        <damage_by_type melee="0.3"></damage_by_type>
+        damage_every_x_frames="10" >
+        <damage_by_type melee="0.3"/>
         <config_explosion
             never_cache="1"
             camera_shake="1.5"
@@ -75,14 +74,14 @@
             stains_radius="1"
             is_digger="1"
             audio_enabled="0"
-            ></config_explosion>
+		/>
     </ProjectileComponent>
 
     <GameAreaEffectComponent
         radius="16"
         collide_with_tag="hittable"
         frame_length="1"
-        ></GameAreaEffectComponent>
+	/>
 
     <ParticleEmitterComponent
         emitted_material_name="rocket_particles"
@@ -109,7 +108,7 @@
         area_circle_radius.min="0"
         area_circle_radius.max="64"
         is_emitting="1"
-        ></ParticleEmitterComponent>
+	/>
 
     <SpriteComponent
         _enabled="1"
@@ -117,22 +116,22 @@
         image_file="mods/copis_things/files/projectiles_gfx/vacuum_claw.xml"
         next_rect_animation=""
         rect_animation=""
-        ></SpriteComponent>
+	/>
 
     <AudioLoopComponent
         file="data/audio/Desktop/projectiles.bank"
         event_name="player_projectiles/chainsaw/loop"
         auto_play="1"
-        ></AudioLoopComponent>
+	/>
 
     <LuaComponent
         script_source_file="mods/copis_things/files/scripts/projectiles/vacuum_claw.lua"
         execute_on_added="1"
         execute_every_n_frame="1"
-        ></LuaComponent>
+	/>
 
     <VariableStorageComponent
         name="projectile_file"
         value_string="mods/copis_things/files/entities/projectiles/vacuum_claw.xml"
-        ></VariableStorageComponent>
+	/>
 </Entity>
