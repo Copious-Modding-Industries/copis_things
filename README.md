@@ -4,7 +4,7 @@ A series of changes and additions to Noita.
 
 # Install Instructions
 
- - Press the *[Download Zip](https://github.com/Copious-Modding-Industries/copis_things/archive/refs/heads/development.zip)* button
+ - Press the *[Download Zip](https://github.com/Copious-Modding-Industries/copis_things/archive/refs/heads/main.zip)* button
  - Extract into your noita mod folder (`C:/Program Files (x86)/Steam/steamapps/common/Noita/mods/` for steam users)
  - Rename `copis_things-main` to `copis_things`
 
