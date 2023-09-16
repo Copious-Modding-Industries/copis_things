@@ -280,10 +280,6 @@ function OnWorldPreUpdate()
 	end
 end
 
-function OnModPreInit()
-	AddFlagPersistent("sp_nolla")
-end
-
 function OnPlayerSpawned()
     Gui:PlayerSpawned()
 	if not GameIsBetaBuild() then
