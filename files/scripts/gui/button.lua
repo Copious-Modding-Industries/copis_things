@@ -4,6 +4,8 @@ local function button(Gui, id_fn)
 
         local flags = {
             "bonus_copious",
+			-- READ THE README
+            "sp_nolla",
             "bonus_friendship",
             "purgatory_win",
             "progress_worseenemies",

@@ -1,0 +1,1 @@
+Hey! You might notice a few badges with specific people's names. Don't feel left out, it's hard coming up with designs for people. If you want one and have something in mind, message me!
