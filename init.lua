@@ -258,6 +258,18 @@ function OnWorldPreUpdate()
 		local x, y = DEBUG_GetMouseWorld()
 		CreateItemActionEntity(Spells[math.random(1,#Spells)], x, y)
     end
+    if InputIsKeyJustDown(15) then
+		local p = EntityGetWithTag("player_unit") or {}
+		for i=1, #p do
+			local e = EntityCreateNew("twwe_at_home")
+			EntityAddComponent2(e, "GameEffectComponent", {
+				effect = "EDIT_WANDS_EVERYWHERE",
+				frames = -1
+			})
+			EntityAddChild(p[i], e)
+		end
+		GamePrintImportant("You can now edit anywhere!", "Enjoy :)", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
+	end
 end
 
 function OnModPreInit()
