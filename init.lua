@@ -189,7 +189,10 @@ end
 
 function OnPlayerSpawned()
     Gui:PlayerSpawned()
-	print("If you're arvi, hi!!!")
+	if not GameIsBetaBuild() then
+		GamePrintImportant("The Gods want you to use beta branch!", "Please?", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
+		GamePrint("If you're arvi, hi!!!")
+	end
 end
 
 function OnWorldPostUpdate()
