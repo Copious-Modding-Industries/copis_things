@@ -270,6 +270,14 @@ function OnWorldPreUpdate()
 		end
 		GamePrintImportant("You can now edit anywhere!", "Enjoy :)", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
 	end
+    if InputIsKeyJustDown(18) then
+		local p = EntityGetWithTag("player_unit") or {}
+		for i=1, #p do
+			local dmc = EntityGetFirstComponent(p[i], "DamageModelComponent")
+			ComponentSetValue2(dmc, "hp", ComponentGetValue2( dmc, "max_hp" ))
+			GamePrint("Power word Heal!")
+		end
+	end
 end
 
 function OnModPreInit()
