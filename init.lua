@@ -183,8 +183,13 @@ function OnWorldPreUpdate()
     Gui:Update()
 end
 
+function OnModPreInit()
+	AddFlagPersistent("sp_nolla")
+end
+
 function OnPlayerSpawned()
     Gui:PlayerSpawned()
+	print("If you're arvi, hi!!!")
 end
 
 function OnWorldPostUpdate()
