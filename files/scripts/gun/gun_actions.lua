@@ -576,7 +576,7 @@ local actions_to_insert = {
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
 				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
-					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
+					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 					if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
 						-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
 						GunUtils.update_ability(ability, {
@@ -658,7 +658,7 @@ local actions_to_insert = {
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
 				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
-					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
+					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 						if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
 							-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
 							GunUtils.update_ability(ability, {
@@ -743,7 +743,7 @@ local actions_to_insert = {
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
 				if current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
-					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
+					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 					-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
 					GunUtils.update_ability(ability, {
 						-- gun_config
@@ -789,7 +789,7 @@ local actions_to_insert = {
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
-				local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
+				local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 				if ability then
 					-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
 					GunUtils.update_ability(ability, {
@@ -836,7 +836,7 @@ local actions_to_insert = {
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
 				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
-					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability number]]
+					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 					if ComponentObjectGetValue2(ability, "gun_config", "deck_capacity") < 26 then
 						-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
 						GunUtils.update_ability(ability, {
@@ -6152,12 +6152,12 @@ local actions_to_insert = {
 							action = actions[Random(1,#actions)]
 						end
 						if action then
-							deck[1]['id']				   = action.id
-							deck[1]['uses_remaining']	   = math.min(action.max_uses or -1, drew['uses_remaining'] or -1)
-							deck[1]['related_projectiles']  = action.related_projectiles
-							deck[1]['name']				 = action.name
-							deck[1]['action']			   = action.action
-							deck[1]['spun']				 = true
+							deck[1]['id']					= action.id
+							deck[1]['uses_remaining']		= math.min(action.max_uses or -1, drew['uses_remaining'] or -1)
+							deck[1]['related_projectiles']	= action.related_projectiles
+							deck[1]['name']					= action.name
+							deck[1]['action']				= action.action
+							deck[1]['spun']					= true
 						end
 					end
 				end
@@ -6711,7 +6711,7 @@ local actions_to_insert = {
 			---@diagnostic disable-next-line: lowercase-global
 			if not reflecting then
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
-				local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent")	--[[@cast ability number]]
+				local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent")	--[[@cast ability integer]]
 				local mana_max = ComponentGetValue2(ability, "mana_max")
 				if mana < mana_max then
 					current_reload_time = 0

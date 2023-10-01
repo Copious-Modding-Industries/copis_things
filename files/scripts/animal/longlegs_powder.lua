@@ -1,14 +1,9 @@
+local entity_id = GetUpdatedEntityID()
+local x, y      = EntityGetTransform(entity_id)
 
-local entity_id    = GetUpdatedEntityID()
-local x, y = EntityGetTransform( entity_id )
-
-SetRandomSeed( x, y )
-local rats = EntityGetWithTag( "plague_rat" )
-
-if ( #rats < 30 ) then
-	if ( Random( 1, 20 ) == 5 ) then
-		EntityLoad( "data/entities/misc/perks/plague_rats_rat.xml", x, y )
-	end
+-- dc 5 hamis check
+if math.random(1, 20) == 5 then
+	EntityLoad("data/entities/animals/longleg.xml", x, y)
 end
 
-EntityKill( entity_id )
+EntityKill(entity_id)

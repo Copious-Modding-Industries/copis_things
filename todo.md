@@ -44,3 +44,6 @@ Figure out SRS crap
 ask audio modder to include among us song audio loop to play from among us spell card
 
 # CHANGE WORKSHOP XML TO REFLECT NEW CRAP!
+
+
+add spriteparticleemittercomp to the big disc:tm:

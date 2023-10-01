@@ -64,28 +64,7 @@ local function button(Gui, id_fn)
                 GuiText(Gui, text_offset_x - text_width, 24 + text_offset_y , text )
             end
             do
-                local text = "DEBUG: Press [P] to spawn a random copi spell."
-                local text_width, text_height = GuiGetTextDimensions(Gui, text)
-                window_w = math.max(window_w, text_width)
-                GuiColorSetForNextWidget( Gui, 0.5, 0.5, 0.5, 1.0 )
-                GuiText(Gui, text_offset_x - text_width, 36 + text_offset_y , text )
-            end
-            do
-                local text = "DEBUG: Press [L] to edit wands."
-                local text_width, text_height = GuiGetTextDimensions(Gui, text)
-                window_w = math.max(window_w, text_width)
-                GuiColorSetForNextWidget( Gui, 0.5, 0.5, 0.5, 1.0 )
-                GuiText(Gui, text_offset_x - text_width, 48 + text_offset_y , text )
-            end
-            do
-                local text = "DEBUG: Press [O] to heal."
-                local text_width, text_height = GuiGetTextDimensions(Gui, text)
-                window_w = math.max(window_w, text_width)
-                GuiColorSetForNextWidget( Gui, 0.5, 0.5, 0.5, 1.0 )
-                GuiText(Gui, text_offset_x - text_width, 60 + text_offset_y , text )
-            end
-            do
-                local im_w, im_h = GuiGetImageDimensions(Gui, Path)
+                --local im_w, im_h = GuiGetImageDimensions(Gui, Path)
                 GuiOptionsAddForNextWidget(Gui, 22)
                 GuiImage(Gui, id_fn(), text_offset_x - window_w, text_offset_y, Path, 1, 1, 1)
             end

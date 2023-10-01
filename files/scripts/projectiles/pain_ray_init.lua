@@ -19,7 +19,6 @@ local types = {
 
 for i=1, #types do
     local old = ComponentObjectGetValue2(projcomp, "damage_by_type", types[i].id)
-    print(old)
     ComponentObjectSetValue2(projcomp, "damage_by_type", types[i].id, old * types[i].mult)
 end
 ComponentSetValue2(projcomp, "damage", 0)
