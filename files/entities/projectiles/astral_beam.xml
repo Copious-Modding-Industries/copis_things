@@ -34,7 +34,7 @@
 		penetrate_entities="1"
 		penetrate_world="0" >
         <damage_by_type
-            curse="0.2">
+            holy="0.2">
         </damage_by_type>
         <config_explosion
             damage="0"

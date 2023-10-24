@@ -4203,15 +4203,15 @@ local actions_to_insert = {
 				draw_actions(1, true)
 			end
 
-			c.spread_degrees			= c.spread_degrees		  + (n * 2.5)
-			c.fire_rate_wait			= c.fire_rate_wait		  + (n * 6)
-			c.screenshake			   = c.screenshake			 + (n * 1)
-			c.damage_critical_chance	= c.damage_critical_chance  + (n * 2)
-			c.lifetime_add			  = c.lifetime_add			+ (n * 1)
-			c.damage_projectile_add	 = c.damage_projectile_add   + (n * 0.05)
-			c.speed_multiplier		  = c.speed_multiplier		+ (n * 0.2)
-			c.gore_particles			= c.gore_particles		  + (n * 2)
-			c.bounces				   = c.bounces				 + math.floor(n * 0.25)
+			c.spread_degrees			= c.spread_degrees			+ (n * 2.5)
+			c.fire_rate_wait			= c.fire_rate_wait			+ (n * 6)
+			c.screenshake				= c.screenshake				+ (n * 1)
+			c.damage_critical_chance	= c.damage_critical_chance	+ (n * 2)
+			c.lifetime_add				= c.lifetime_add			+ (n * 1)
+			c.damage_projectile_add		= c.damage_projectile_add	+ (n * 0.05)
+			c.speed_multiplier			= c.speed_multiplier		+ (n * 0.2)
+			c.gore_particles			= c.gore_particles			+ (n * 2)
+			c.bounces					= c.bounces					+ math.floor(n * 0.25)
 			if n >= 20 then
 				c.extra_entities = c.extra_entities .. "data/entities/particles/tinyspark_white.xml,"
 				c.ragdoll_fx = 3
