@@ -11,12 +11,13 @@ local meta_manager = function(action, current_id)
 	return false
 end
 
+local year, month, day, hour = GameGetDateAndTimeLocal()
+local events = {
+	april_fools = month == 4 and day == 1,
+	birthday = month == 11 and day == 11
+}
 
--- Handle april fools
-local april_fools = (function ()
-	local year, month, day, hour = GameGetDateAndTimeLocal()
-	return month == 4 and day == 1 
-end)()
+
 
 -- prevent angry code
 ---@diagnostic disable-next-line: lowercase-global
@@ -555,6 +556,8 @@ local actions_to_insert = {
 			draw_actions(1, true)
 		end
 	},
+	-- TODO translations
+	-- TODO figure out why the gods are so sus
 	{   -- Unshuffle
 		id = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE",
 		name = "Upgrade - Unshuffle (One-off)",
@@ -676,7 +679,7 @@ local actions_to_insert = {
 									key = 'actions_per_round',
 									modify = function (old)
 										if old <=26 then
-											math.min(old+math.random(1,3), 26)
+											math.min(old+math.random(0,3), 26)
 										end
 										return old
 									end,
@@ -690,20 +693,20 @@ local actions_to_insert = {
 									object = 'gun_config',
 									key = 'reload_time',
 									modify = function (old)
-										return old * 0.55
+										return old * math.random(0.55, 0.75) - 5
 									end,
 								},
 								-- Ability
 								{
 									key = 'mana_max',
 									modify = function (old)
-										return old * 1.5
+										return old * math.random(1.2, 1.6) + math.random(20,60)
 									end,
 								},
 								{
 									key = 'mana_charge_speed',
 									modify = function (old)
-										return old * 1.5
+										return old * math.random(1.2, 1.6) + math.random(20,60)
 									end,
 								},
 							})
@@ -799,7 +802,7 @@ local actions_to_insert = {
 							key = 'speed_multiplier',
 							modify = function (old)
 								--stuff
-								old = old * Random(2, 3)
+								old = old + Random(2, 3)
 								GameScreenshake(50, pos_x, pos_y)
 								GamePrintImportant("Wand upgraded!", tostring(old) .. " speed multiplier.")
 								return old
@@ -914,9 +917,9 @@ local actions_to_insert = {
 		recursive = true,
 		never_ac = true,
 		action = function(recursion_level, iteration)
-
 			-- Check for initial reflection and greek letters/non-self casts
-			if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
+			if reflecting then return end
+			if current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
 
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
@@ -4553,7 +4556,7 @@ local actions_to_insert = {
 		spawn_probability = "0.2,1",
 		price = 250,
 		mana = 0,
-		action = april_fools and function ()
+		action = events.april_fools and function ()
 			if reflecting then return end
 			local players = EntityGetWithTag( "player_unit" ) or {}
 			for i=1, #players do
@@ -4963,7 +4966,7 @@ local actions_to_insert = {
 		sprite = "mods/copis_things/files/ui_gfx/gun_actions/confetti_trail.png",
 		type = ACTION_TYPE_MODIFIER,
 		spawn_level = "0,1,2,3,4,5,6",
-		spawn_probability = "0.8,0.6,0.4,0.2,0.2,0.2,0.2",
+		spawn_probability = events.birthday and "1,1,1,1,1,1,1" or "0.8,0.6,0.4,0.2,0.2,0.2,0.2",
 		price = 10,
 		mana = 0,
 		action = function()
@@ -6865,7 +6868,7 @@ if PrintCount == nil then
 	PrintCount = false
 end]]
 
-if april_fools then
+if events.april_fools then
 	-- Fix noita:
 	if ModSettingGet("CopisThings.do_april_fools") then
 		local actions_new = {}

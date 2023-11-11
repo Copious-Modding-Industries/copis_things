@@ -187,7 +187,6 @@ function OnPlayerSpawned()
     Gui:PlayerSpawned()
 	if not GameIsBetaBuild() then
 		GamePrintImportant("The Gods want you to use beta branch!", "Please?", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
-		GamePrint("If you're arvi, hi!!!")
 	end
 end
 
