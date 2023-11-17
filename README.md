@@ -16,6 +16,7 @@ A series of changes and additions to Noita.
    - Spells supported in random spell pools
  - Download Links:
    - [Github](https://github.com/Conga0/Apotheosis)
+   - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3032128572)
 
 **Chemical Curiosities**
  - Changes:
