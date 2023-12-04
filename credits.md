@@ -24,6 +24,8 @@
    * Blood Tentacle
  * Priskip
    * [Tool used to generate text in workshop image](https://github.com/Priskip/Noita_Summit_Text_Maker)
+ * Bobilka
+   * Emotional Support
 
 ## Blessed Compatibility Implementors
  * Conga Lyne
