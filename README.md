@@ -34,6 +34,13 @@ A series of changes and additions to Noita.
    - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2879253717)
    - [ModWorkshop](https://modworkshop.net/mod/39990)
 
+**Tales of Kupoli**
+ - Changes:
+   - Spells added to reward pools
+ - Download Links:
+   - [Github](https://github.com/SiriMoel/tales_of_kupoli)
+   - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3093591071)
+
 # FAQ
 
  - Why is Copi's Things not on the workshop?
