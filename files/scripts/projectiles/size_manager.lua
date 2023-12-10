@@ -5,6 +5,26 @@ function EditSizeManager(entity, set, amount)
 			
 		end
 	end
+
+
+
+
+
+
+
+
+	local scale = GetValueNumber("entity_scale", 1.0)
+
+
+
+
+	
+	SetValueNumber("entity_scale", scale)
+
+
+
+
+
 end
 
 

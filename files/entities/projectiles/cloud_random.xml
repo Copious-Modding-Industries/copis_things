@@ -1,4 +1,4 @@
-<Entity name="$projectile_default" tags="projectile_player" >
+<Entity name="$projectile_default" tags="projectile_player,kupoli_cloud" >
 	<Base file="data/entities/base_projectile.xml" >
 		<VelocityComponent
 			air_friction="-0.2"

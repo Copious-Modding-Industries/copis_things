@@ -37,6 +37,7 @@ A series of changes and additions to Noita.
 **Tales of Kupoli**
  - Changes:
    - Spells added to reward pools
+   - Projectiles usable in quests
  - Download Links:
    - [Github](https://github.com/SiriMoel/tales_of_kupoli)
    - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3093591071)

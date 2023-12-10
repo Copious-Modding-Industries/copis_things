@@ -6822,6 +6822,26 @@ local actions_to_insert = {
 			draw_actions( 1, true )
 		end
 	},]]
+	--[[
+	{
+		id = "COPIS_THINGS_LIGHT_BULLET_WITH_AMNESIA",
+		name = "$actionname_light_bullet_with_amnesia",
+		description = "$actiondesc_light_bullet_with_amnesia",
+		author = "Copi",
+		mod = "Copi's Things",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_with_amnesia.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/infernal_streak.xml" },
+		type = ACTION_TYPE_PROJECTILE,
+		spawn_level = "1,2,3,4", -- SUMMON_ROCK
+		spawn_probability = "0.8,1,0.5,0.5", -- SUMMON_ROCK
+		price = 100,
+		mana = 50,
+		action = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/infernal_streak.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 60
+			current_reload_time = current_reload_time + 15
+		end
+	},]]
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
