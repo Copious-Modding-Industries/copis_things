@@ -1,3 +1,5 @@
+*file is kinda outdated, will update for 2024 some time*
+
 # Thank Yous and Stuff
 Foreword - I am bad at thanking and stuff, this is the best I can do. I seriously and genuinely appreciate all of your support, I would never have gone so far in modding without everyone by my side.
 This mod would never be possible without the immense support, friendship, inspiration, and over all companionship all these brilliant people have brought me over my time in noita's community.
@@ -6,23 +8,23 @@ This may seem weird to put in copi's things, but this mod means a lot to me, as 
 In alphabetical order, since I could never pick one of you to put first:
 
 - [Thank Yous and Stuff](#thank-yous-and-stuff)
-    - [Alias](#alias)
-    - [Bruham](#bruham)
-    - [Conga](#conga)
-    - [Dexter](#dexter)
-    - [Evaisa](#evaisa)
-    - [Fury](#fury)
-    - [Goki](#goki)
-    - [Graham](#graham)
-    - [Horscht](#horscht)
-    - [Nolla Games](#nolla-games)
-    - [Sosig](#sosig)
-    - [Spicy](#spicy)
-    - [Spoop](#spoop)
-    - [Squirrelly](#squirrelly)
-    - [Tanksy](#tanksy)
-    - [Yourdoom](#yourdoom)
-    - [You](#you)
+		- [Alias](#alias)
+		- [Bruham](#bruham)
+		- [Conga](#conga)
+		- [Dexter](#dexter)
+		- [Evaisa](#evaisa)
+		- [Fury](#fury)
+		- [Goki](#goki)
+		- [Graham](#graham)
+		- [Horscht](#horscht)
+		- [Nolla Games](#nolla-games)
+		- [Sosig](#sosig)
+		- [Spicy](#spicy)
+		- [Spoop](#spoop)
+		- [Squirrelly](#squirrelly)
+		- [Tanksy](#tanksy)
+		- [Yourdoom](#yourdoom)
+		- [You](#you)
 
 ### Alias
 Wether it be crab champions, Noita, Nova Drift, or whatever else (except rainworld, I'm holding off on spoilers still :p ), I've had such a blast spending time in your chat, I love the noita challenge runs, various games, and even just the small talk that goes on in your channel. Keep up the awesome work, you're a really fun guy. I've got my eyes out for sky islands thanks to you :aliasbSus:
