@@ -5066,6 +5066,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
+		-- Todo optimize
 		id = "COPIS_THINGS_BARRIER_ARC",
 		name = "$actionname_barrier_arc",
 		author = "Copi",
@@ -5395,7 +5396,6 @@ local actions_to_insert = {
 			add_projectile("data/entities/items/pickup/potion_empty.xml")
 		end,
 	},
-
 	{
 		id				= "COPIS_THINGS_SUMMON_FLASK_FULL",
 		name			  = "$actionname_summon_flask_full",
@@ -5419,9 +5419,9 @@ local actions_to_insert = {
 	{
 		id = "COPIS_THINGS_TELEPORT",
 		name = "$actionname_teleport",
+		description = "$actiondesc_teleport",
 		author = "Copi",
 		mod = "Copi's Things",
-		description = "$actiondesc_teleport",
 		sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport.png",
 		type = ACTION_TYPE_UTILITY,
 		spawn_level = "1, 2, 3, 4, 5, 6",
@@ -5450,12 +5450,12 @@ local actions_to_insert = {
 			current_reload_time = current_reload_time + 60
 		end
 	},
-	{
+	{	
 		id = "COPIS_THINGS_TELEPORT_BAD",
-		name = "Teleport?",
+		name = "$actionname_teleport_bad",
+		description = "$actiondesc_teleport_bad",
 		author = "Copi",
 		mod = "Copi's Things",
-		description = "Cast a spell on yourself to teleport ahead?",
 		sprite = "mods/copis_things/files/ui_gfx/gun_actions/teleport_bad.png",
 		type = ACTION_TYPE_UTILITY,
 		spawn_level = "1, 2, 3, 4, 5, 6",
@@ -5577,6 +5577,10 @@ local actions_to_insert = {
 		end
 	},
 	{
+		--[[
+			Credits:
+				Inspiration: Azoth
+		]]
 		id = "COPIS_THINGS_POLYMORPH",
 		name = "$actionname_polymorph",
 		author = "Copi",
@@ -5602,6 +5606,10 @@ local actions_to_insert = {
 		end
 	},
 	{
+		--[[
+			Credits:
+				Particle: Evaisa
+		]]
 		id = "COPIS_THINGS_SUS_TRAIL",
 		name = "$actionname_sus_trail",
 		description = "$actiondesc_sus_trail",
@@ -5703,6 +5711,10 @@ local actions_to_insert = {
 		end
 	},
 	{
+		--[[
+			Credits:
+				Inspiration: Shattered Pixel Dungeon
+		]]
 		id = "COPIS_THINGS_SPECTRAL_HOOK",
 		name = "$actionname_spectral_hook",
 		author = "Copi",
@@ -5833,6 +5845,10 @@ local actions_to_insert = {
 		end
 	},
 	{
+		--[[
+			Credits:
+				Inspiration: Chemical Curiosities (Chaotic Pandorium)
+		]]
 		id = "COPIS_THINGS_TRUE_CHAOS_RAY",
 		name = "$actionname_true_chaos_ray",
 		author = "Copi",
@@ -5973,6 +5989,7 @@ local actions_to_insert = {
 		end
 	},]]
 	{
+		-- TODO better 
 		id = "COPIS_THINGS_ARCANA_TO_POWER",
 		name = "$actionname_arcana_to_power",
 		author = "Copi",
@@ -5980,11 +5997,11 @@ local actions_to_insert = {
 		description = "$actiondesc_arcana_to_power",
 		sprite = "mods/copis_things/files/ui_gfx/gun_actions/arcana_to_power.png",
 		type = ACTION_TYPE_MODIFIER,
-		spawn_level = "2,3,4,5,6",					  -- <- needs adjusting
-		spawn_probability = "0.3,0.4,0.5,0.6,0.6",	  -- <- needs adjusting
+		spawn_level = "2,3,4,5,6",					-- <- needs adjusting
+		spawn_probability = "0.3,0.4,0.5,0.6,0.6",	-- <- needs adjusting
 		subtype = { damage = true },
-		price = 150,									-- <- needs adjusting
-		mana = 100,									 -- <- needs adjusting
+		price = 150,								-- <- needs adjusting
+		mana = 100,									-- <- needs adjusting
 		action = function()
 			-- might be jank as fuck? idk
 			local _, count = c.extra_entities:gsub(",", ",")
@@ -6039,7 +6056,7 @@ local actions_to_insert = {
 				if drew then
 					if not drew['spun'] then
 						local action = nil
-						local lookup	= GunUtils.lookup_spells()
+						local lookup = GunUtils.lookup_spells()
 						if meta_manager(drew, "COPIS_THINGS_SPINDOWN_SPELL") then
 							action = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
 						else
@@ -6048,12 +6065,12 @@ local actions_to_insert = {
 							action		  = actions[spun]
 						end
 						if action then
-							deck[1]['id']				   = action.id
-							deck[1]['uses_remaining']	   = math.min(action.max_uses or -1, drew['uses_remaining'] or -1)
-							deck[1]['related_projectiles']  = action.related_projectiles
-							deck[1]['name']				 = action.name
-							deck[1]['action']			   = action.action
-							deck[1]['spun']				 = true
+							deck[1]['id']					= action.id
+							deck[1]['uses_remaining']		= math.min(action.max_uses or -1, drew['uses_remaining'] or -1)
+							deck[1]['related_projectiles']	= action.related_projectiles
+							deck[1]['name']					= action.name
+							deck[1]['action']				= action.action
+							deck[1]['spun']					= true
 						end
 					end
 				end
@@ -6193,11 +6210,11 @@ local actions_to_insert = {
 
 					-- Discard the next spell
 					table.insert( discarded, table.remove( deck, 1 ) )
-					local lookup			= GunUtils.lookup_spells()
-					local index			 = lookup[drew['id']]['index']
-					local action			= actions[index]
-					local c_mod = {}
-					local c_old = c
+					local lookup	= GunUtils.lookup_spells()
+					local index		= lookup[drew['id']]['index']
+					local action	= actions[index]
+					local c_mod		= {}
+					local c_old		= c
 
 					c = {}
 					reset_modifiers(c)
@@ -6267,8 +6284,8 @@ local actions_to_insert = {
 		mana = 5,
 		action = function()
 			local avg = (c.fire_rate_wait+current_reload_time)/2
-			c.fire_rate_wait =	  avg
-			current_reload_time =   avg
+			c.fire_rate_wait = avg
+			current_reload_time = avg
 			draw_actions(1, true)
 		end,
 	},
@@ -6624,7 +6641,11 @@ local actions_to_insert = {
 			current_reload_time = current_reload_time + 15
 		end
 	},
-	{
+	{	
+		--[[
+			Credits:
+				Concept: Conga Lyne
+		]]
 		id = "COPIS_THINGS_AVERAGE_MANA",
 		name = "$actionname_average_mana",
 		description = "$actiondesc_average_mana",
@@ -6767,6 +6788,10 @@ local actions_to_insert = {
 		end
 	},
 	{
+		--[[
+			Credits:
+				Inspiration: Dungeons and Dragons 5e
+		]]
 		id = "COPIS_THINGS_GLYPH_OF_BULLSHIT",
 		name = "$actionname_glyph_of_bullshit",
 		author = "Copi",
@@ -6843,6 +6868,160 @@ local actions_to_insert = {
 			current_reload_time = current_reload_time + 15
 		end
 	},]]
+	{
+		--[[
+			Credits:
+				Inspiration: Risk of Rain 2
+		]]
+		id = "COPIS_THINGS_ROR2COLLAPSE",
+		name = "$actionname_ror2collapse",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_ror2collapse",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/ror2collapse.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_collapse.xml" },
+		type = ACTION_TYPE_MODIFIER,
+		spawn_level = "2,3,4",
+		spawn_probability = "0.6,0.3,0.4",
+		inject_after = {"FIREBALL_RAY_LINE"},
+		price = 300,
+		mana = 10,
+		action = function()
+			c.fire_rate_wait = c.fire_rate_wait + 12
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_collapse.xml,"
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPIS_THINGS_REDIRECT_THIS",
+		name = "$actionname_redirect_this",
+		description = "$actiondesc_redirect_this",
+		author = "Copi",
+		mod = "Copi's Things",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/redirect_this.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/redirect_this.xml" },
+		type = ACTION_TYPE_MODIFIER,
+		spawn_level = "0,1,2,3",
+		spawn_probability = "0.2,0.3,0.4,0.2",
+		price = 60,
+		mana = 5,
+		action = function()
+			c.fire_rate_wait = c.fire_rate_wait + 12
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/redirect_this.xml,"
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPIS_THINGS_REDIRECT_THIS_RARE",
+		name = "$actionname_redirect_this_rare",
+		description = "$actiondesc_redirect_this_rare",
+		author = "Copi",
+		mod = "Copi's Things",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/redirect_this_rare.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/redirect_this_rare.xml" },
+		type = ACTION_TYPE_MODIFIER,
+		spawn_level = "1,2,3",
+		spawn_probability = "0.1,0.05,0.05",
+		price = 80,
+		mana = 20,
+		action = function()
+			c.fire_rate_wait = c.fire_rate_wait + 24
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/redirect_this_rare.xml,"
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPIS_THINGS_HYDROJET",
+		name = "$actionname_hydrojet",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_hydrojet",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/hydrojet.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/hydrojet.xml" },
+		type = ACTION_TYPE_PROJECTILE,
+		spawn_level = "0,1,2",
+		spawn_probability = "0.35,0.25,0.25",
+		price = 120,
+		mana = 4,
+		action = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/hydrojet.xml")
+			c.fire_rate_wait = c.fire_rate_wait - 14
+			current_reload_time = current_reload_time - 14
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPIS_THINGS_VILE_EYE",
+		name = "$actionname_vile_eye",
+		description = "$actiondesc_vile_eye",
+		author = "Copi",
+		mod = "Copi's Things",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/vile_eye.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/vile_eye.xml" },
+		type = ACTION_TYPE_OTHER,
+		spawn_level = "0,4,5,10",
+		spawn_probability = "0.01,0.25,0.25,0.25",
+		price = 120,
+		mana = 50,
+		action = function()
+			local entity_id = GetUpdatedEntityID()
+			local dmc = EntityGetFirstComponent( entity_id, "DamageModelComponent" )
+			if dmc then
+				local hp = ComponentGetValue2( dmc, "hp" )
+				if hp > 0.24 then
+					ComponentSetValue2( dmc, "hp", hp - 0.2 )
+					add_projectile("mods/copis_things/files/entities/projectiles/vile_eye.xml")
+					c.fire_rate_wait = c.fire_rate_wait + 32
+					current_reload_time = current_reload_time + 32
+				end
+			end
+		end
+	},
+	{
+		id = "COPIS_THINGS_BOMB_SMALL",
+		name = "$actionname_bomb_small",
+		description = "$actiondesc_bomb_small",
+		author = "Copi",
+		mod = "Copi's Things",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/bomb_small.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/bomb_small.xml" },
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "0,1,2,3,4,5,6",
+		spawn_probability	= "0.5,0.2,0.2,0.2,0.25,0.25,0.1",
+		price = 120,
+		mana = 15,
+		max_uses = 7,
+		action = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/bomb_small.xml")
+			add_projectile("mods/copis_things/files/entities/projectiles/bomb_small.xml")
+			add_projectile("mods/copis_things/files/entities/projectiles/bomb_small.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 60
+		end
+	},
+	{
+		id = "COPIS_THINGS_STUN_BOMBS",
+		name = "$actionname_stun_bombs",
+		description = "$actiondesc_stun_bombs",
+		author = "Copi",
+		mod = "Copi's Things",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/stun_bombs.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/stun_bombs.xml" },
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "0,1,2,3",
+		spawn_probability	= "0.25,0.1,0.1,0.1",
+		price = 120,
+		mana = 10,
+		max_uses = 15,
+		action = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/stun_bombs.xml")
+			add_projectile("mods/copis_things/files/entities/projectiles/stun_bombs.xml")
+			add_projectile("mods/copis_things/files/entities/projectiles/stun_bombs.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 60
+		end
+	},
 }
 
 if ModSettingGet("CopisThings.inject_spells") then
@@ -6943,3 +7122,5 @@ if DebugGetIsDevBuild() then
 		end
 	}
 end
+
+-- Holy fuck that's one hell of a file :/

@@ -22,3 +22,9 @@ local types = {
 }
 
 EntityInflictDamage( entity_id(), DAMAGE_MELEE, "DAMAGE_MELEE", "Deferred damage", "BLOOD_SPRAY", 0, 0)
+
+
+
+
+
+SetValueNumber()

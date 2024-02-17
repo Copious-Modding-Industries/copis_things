@@ -105,17 +105,17 @@
         _tags="zap_frames"
         name="zap_frames"
         value_int="0"
-        ></VariableStorageComponent>
+	/>
 
     <ElectricitySourceComponent
         _tags="enabled_in_world,enabled_in_hand"
         radius="4"
         emission_interval_frames="4"
-        ></ElectricitySourceComponent>
+	/>
 
     <VariableStorageComponent
         name="projectile_file"
         value_string="mods/copis_things/files/entities/projectiles/zap.xml"
-        ></VariableStorageComponent>
+	/>
 
 </Entity>

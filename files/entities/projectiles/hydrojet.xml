@@ -1,0 +1,110 @@
+<Entity name="$projectile_default" tags="projectile_player" >
+
+	<Base file="data/entities/base_projectile.xml" >
+		<VelocityComponent
+			terminal_velocity="1500"
+			air_friction="0"
+			mass="0.1"
+			limit_to_max_velocity="1"
+			gravity_y="0"
+		/>
+	</Base>
+
+	<ProjectileComponent 
+		_enabled="1" 
+		lob_min="2.0"
+		lob_max="2.0"
+		speed_min="1000"
+		speed_max="1000"
+		friction="0.0"
+		on_death_explode="0"
+		on_death_gfx_leave_sprite="0" 
+		on_lifetime_out_explode="0"
+		ground_collision_fx="0"
+		on_collision_die="0"
+		penetrate_world="0"
+		lifetime="14"
+		bounce_always="1"
+		bounces_left="1"
+		bounce_energy="0.1"
+		bounce_fx_file = "mods/copis_things/files/entities/misc/hydrojet_bounce.xml"
+		knockback_force="2.0" 
+		damage="-1"
+		velocity_sets_scale="0"
+		lifetime_randomness="0"
+		ragdoll_force_multiplier="0"
+		hit_particle_force_multiplier="0"
+		penetrate_entities="1"
+		physics_impulse_coeff="0"
+		penetrate_world_velocity_coeff="0"
+		ground_penetration_coeff="0"
+		>
+        <damage_by_type
+			ice = "0.15"
+        />
+		<config_explosion
+			damage="0.0"
+			explosion_radius="0"
+		/>
+	</ProjectileComponent>
+	
+	<LifetimeComponent
+		lifetime="10"
+	/>
+	
+	<ParticleEmitterComponent
+		emitted_material_name="water"
+		offset.x="0"
+		offset.y="0"
+		count_min="1"
+		count_max="8"
+		lifetime_min="1"
+		lifetime_max="2"
+		airflow_force="0.3"
+		airflow_time="0.5"
+		airflow_scale="0.03"
+		gravity.y="0.0" 
+		is_trail="1"
+		trail_gap="0.2"
+		render_on_grid="1"
+		fade_based_on_lifetime="1"
+		create_real_particles="0"
+		emit_cosmetic_particles="1"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		is_emitting="1"
+		x_vel_max="15"
+		x_vel_min="50"
+	/>
+	
+	<ParticleEmitterComponent
+		emitted_material_name="water"
+		offset.x="0"
+		offset.y="0"
+		count_min="1"
+		count_max="8"
+		lifetime_min="0.2"
+		lifetime_max="1"
+		airflow_force="0.6"
+		airflow_time="0.5"
+		airflow_scale="0.1"
+		gravity.y="0.0" 
+		is_trail="1"
+		trail_gap="1.5"
+		render_on_grid="1"
+		fade_based_on_lifetime="1"
+		create_real_particles="0"
+		emit_cosmetic_particles="1"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		is_emitting="1"
+		x_vel_max="15"
+		x_vel_min="50"
+	/>
+
+	<AudioComponent
+		file="data/audio/Desktop/projectiles.bank"
+		event_root="projectiles/icethrower"
+	/>
+
+</Entity>

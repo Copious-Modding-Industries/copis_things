@@ -68,14 +68,14 @@ local function order_deck()
     end
 
     local vscs = EntityGetComponent(shooter, "VariableStorageComponent") or {}
-    local vid = nil
+    local vid = 0
     for i=1, #vscs do
         if ComponentGetValue2( vscs[i], "name" ) == "mana_efficiency_mult" then
             vid = vscs[i]
             break
         end
     end
-    local shooter_mult = ComponentGetValue2(vid, "value_float") or 1.0
+    local shooter_mult = (vid > 0 and ComponentGetValue2(vid, "value_float")) or 1.0
     --[[
     if flip_every_other then
         copi_state.flip_deck = not copi_state.flip_deck
