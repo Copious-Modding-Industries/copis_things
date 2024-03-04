@@ -556,6 +556,7 @@ local actions_to_insert = {
 			draw_actions(1, true)
 		end
 	},
+	--[=[
 	-- TODO translations
 	-- TODO figure out why the gods are so sus
 	{   -- Unshuffle
@@ -1390,7 +1391,7 @@ local actions_to_insert = {
 				end
 			end
 		end
-	},
+	},]=]
 	{
 		id = "COPIS_THINGS_DAMAGE_LIFETIME",
 		name = "$actionname_damage_lifetime",
