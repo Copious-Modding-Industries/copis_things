@@ -5913,6 +5913,7 @@ local actions_to_insert = {
 		mana = 150,
 		max_uses = 3,
 		action = function()
+			if not current_action then return end
 			if current_action.id == "COPIS_THINGS_HITFX_LARPA" then
 				copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
 				c.fire_rate_wait = c.fire_rate_wait + 60
