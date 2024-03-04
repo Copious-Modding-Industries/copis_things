@@ -6947,6 +6947,7 @@ local actions_to_insert = {
 		mana = 4,
 		action = function()
 			add_projectile("mods/copis_things/files/entities/projectiles/hydrojet.xml")
+			c.speed_multiplier = c.speed_multiplier * 1.1
 			c.fire_rate_wait = c.fire_rate_wait - 14
 			current_reload_time = current_reload_time - 14
 			draw_actions(1, true)
@@ -7020,6 +7021,23 @@ local actions_to_insert = {
 			add_projectile("mods/copis_things/files/entities/projectiles/stun_bombs.xml")
 			c.fire_rate_wait = c.fire_rate_wait + 60
 		end
+	},
+	{
+		id         			= "COPIS_THINGS_TOUCH_GRASS",
+		name 				= "$actionname_touch_grass",
+		description			= "$actiondesc_touch_grass",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/touch_grass.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/rocket_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/touch_grass.xml"},
+		type 				= ACTION_TYPE_MATERIAL,
+		spawn_level			= "1,2,3,4,5,6,7,10", -- TOUCH_GOLD
+		spawn_probability	= "0,0,0,0,0.1,0.1,0.1,0.05", -- TOUCH_GOLD
+		price				= 480,
+		mana				= 20,
+		max_uses			= 3,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/touch_grass.xml")
+		end,
 	},
 }
 
