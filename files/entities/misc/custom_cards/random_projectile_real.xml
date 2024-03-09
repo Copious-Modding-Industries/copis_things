@@ -1,0 +1,30 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/random_projectile_real.png"
+		/>
+		<SpriteComponent 
+			alpha="0"
+		/>
+		<SpriteComponent 
+			alpha="0"
+		/>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPIS_THINGS_RANDOM_PROJECTILE_REAL"
+		/>
+		
+		<ItemComponent 
+			always_use_item_name_in_ui="1"
+		/>
+	</Base>
+
+	<LuaComponent 
+		_tags="enabled_in_hand,enabled_in_world,enabled_in_inventory"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/random_projectile_real.lua"
+		execute_every_n_frame="3"
+	/>
+	
+</Entity>

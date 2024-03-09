@@ -2,7 +2,7 @@
 
 	<Base file="data/entities/base_projectile.xml" >
 		<VelocityComponent
-			terminal_velocity="15000"
+			terminal_velocity="10000"
 			air_friction="0"
 			mass="0"
 			limit_to_max_velocity="1"
@@ -16,8 +16,8 @@
 		_enabled="1" 
 		lob_min="2.0"
 		lob_max="2.0"
-		speed_min="15000"
-		speed_max="15000"
+		speed_min="10000"
+		speed_max="10000"
 		friction="0.0"
 		on_death_explode="0"
 		on_death_gfx_leave_sprite="0" 
