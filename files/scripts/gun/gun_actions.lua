@@ -2080,6 +2080,7 @@ local actions_to_insert = {
 		mana = 0,
 		never_ac = true,
 		action = function(recursion_level, iteration)
+			if reflecting then return end
 			local endpoint = -1
 			local elsepoint = -1
 			local entity_id = GetUpdatedEntityID()
