@@ -3,7 +3,7 @@ to_insert =
     --  Health multiplication (GROSS)
     --[[
     {
-        id = "COPIS_THINGS_MULTIPLY_HP",
+        id = "COPITH_MULTIPLY_HP",
         ui_name = "$perk_name_copis_things_multiply_hp",
         ui_description = "$perk_desc_copis_things_multiply_hp",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/multiply_hp.png",
@@ -37,7 +37,7 @@ to_insert =
     },]]
     --  Acimorphism
     {
-        id = "COPIS_THINGS_POLY_TO_ACID",
+        id = "COPITH_POLY_TO_ACID",
         author = "Copi",
         ui_name = "$perk_name_copis_things_poly_to_acid",
         ui_description = "$perk_desc_copis_things_poly_to_acid",
@@ -54,7 +54,7 @@ to_insert =
     },
     --  Mana efficiency
     {
-        id = "COPIS_THINGS_MANA_EFFICIENCY",
+        id = "COPITH_MANA_EFFICIENCY",
         author = "Copi",
         ui_name = "$perk_name_copis_things_mana_efficiency",
         ui_description = "$perk_desc_copis_things_mana_efficiency",
@@ -85,7 +85,7 @@ to_insert =
     },
     --  Short temper
     {
-        id = "COPIS_THINGS_SHORT_TEMPER",
+        id = "COPITH_SHORT_TEMPER",
         author = "Copi",
         ui_name = "$perk_name_copis_things_short_temper",
         ui_description = "$perk_desc_copis_things_short_temper",
@@ -102,7 +102,7 @@ to_insert =
     },
     --  Swapper
     {
-        id = "COPIS_THINGS_SWAPPER",
+        id = "COPITH_SWAPPER",
         author = "Copi",
         ui_name = "$perk_name_copis_things_swapper",
         ui_description = "$perk_desc_copis_things_swapper",
@@ -124,7 +124,7 @@ to_insert =
     },
     --  Fragile Ego
     {
-        id = "COPIS_THINGS_FRAGILE_EGO",
+        id = "COPITH_FRAGILE_EGO",
         author = "Copi",
         ui_name = "$perk_name_copis_things_fragile_ego",
         ui_description = "$perk_desc_copis_things_fragile_ego",
@@ -189,7 +189,7 @@ to_insert =
     },
     --  Golden Blood
     {
-        id = "COPIS_THINGS_GOLDEN_BLOOD",
+        id = "COPITH_GOLDEN_BLOOD",
         author = "Copi",
         ui_name = "$perk_name_copis_things_golden_blood",
         ui_description = "$perk_desc_copis_things_golden_blood",
@@ -232,7 +232,7 @@ to_insert =
         end,
     },
     {
-        id = "COPIS_THINGS_REGRESSION_SCALES",
+        id = "COPITH_REGRESSION_SCALES",
         author = "Copi",
         ui_name = "$perk_name_copis_things_regression_scales",
         ui_description = "$perk_desc_copis_things_regression_scales",
@@ -254,7 +254,7 @@ to_insert =
     },
     --  Protection Lottery
     {
-        id = "COPIS_THINGS_PROTECTION_LOTTERY",
+        id = "COPITH_PROTECTION_LOTTERY",
         author = "Copi",
         ui_name = "$perk_name_copis_things_protection_lottery",
         ui_description = "$perk_desc_copis_things_protection_lottery",
@@ -351,7 +351,7 @@ to_insert =
     },
     -- Resilience
     {
-        id = "COPIS_THINGS_RESILIENCE",
+        id = "COPITH_RESILIENCE",
         author = "Copi",
         ui_name = "$perk_name_copis_things_resilience",
         ui_description = "$perk_desc_copis_things_resilience",
@@ -396,7 +396,7 @@ to_insert =
     },
     -- Spell efficiency
     {
-        id = "COPIS_THINGS_SPELL_EFFICIENCY",
+        id = "COPITH_SPELL_EFFICIENCY",
         author = "Copi",
         ui_name = "$perk_name_copis_things_spell_efficiency",
         ui_description = "$perk_desc_copis_things_spell_efficiency",
@@ -413,7 +413,7 @@ to_insert =
     },
     --  Protagonist
     {
-        id = "COPIS_THINGS_PROTAGONIST",
+        id = "COPITH_PROTAGONIST",
         author = "Copi",
         ui_name = "$perk_name_copis_things_protagonist",
         ui_description = "$perk_desc_copis_things_protagonist",
@@ -449,7 +449,7 @@ to_insert =
     },
     --  Spell Jam
     {
-        id = "COPIS_THINGS_SPELL_JAM",
+        id = "COPITH_SPELL_JAM",
         author = "Copi",
         ui_name = "$perk_name_copis_things_spell_jam",
         ui_description = "$perk_desc_copis_things_spell_jam",
@@ -492,7 +492,7 @@ to_insert =
     },
     --  Spell Jam
     {
-        id = "COPIS_THINGS_SPINDOWN",
+        id = "COPITH_SPINDOWN",
         author = "Copi",
         ui_name = "$perk_name_copis_things_spindown",
         ui_description = "$perk_desc_copis_things_spindown",
@@ -560,7 +560,7 @@ to_insert =
     },
     --  Lead Boots
     {
-        id = "COPIS_THINGS_LEAD_BOOTS",
+        id = "COPITH_LEAD_BOOTS",
         author = "Copi",
         ui_name = "$perk_name_copis_things_lead_boots",
         ui_description = "$perk_desc_copis_things_lead_boots",
@@ -577,7 +577,7 @@ to_insert =
     },
     --  Iron Feathers
     {
-        id = "COPIS_THINGS_IRON_FEATHERS",
+        id = "COPITH_IRON_FEATHERS",
         author = "Copi",
         ui_name = "$perk_name_copis_things_iron_feathers",
         ui_description = "$perk_desc_copis_things_iron_feathers",
@@ -603,7 +603,7 @@ to_insert =
     },
     --  Healthier Hearts
     {
-        id = "COPIS_THINGS_HEALTHIER_HEARTS",
+        id = "COPITH_HEALTHIER_HEARTS",
         author = "Copi",
         ui_name = "$perk_name_copis_things_healthier_hearts",
         ui_description = "$perk_desc_copis_things_healthier_hearts",
@@ -638,7 +638,7 @@ to_insert =
     },
     --  Invincibility Frames
     {
-        id = "COPIS_THINGS_INVINCIBILITY_FRAMES",
+        id = "COPITH_INVINCIBILITY_FRAMES",
         author = "Copi",
         ui_name = "$perk_name_copis_things_invincibility_frames",
         ui_description = "$perk_desc_copis_things_invincibility_frames",
@@ -677,7 +677,7 @@ to_insert =
     },
     --  Demolitionist
     {
-        id = "COPIS_THINGS_DEMOLITIONIST",
+        id = "COPITH_DEMOLITIONIST",
         author = "Copi",
         ui_name = "$perk_name_copis_things_demolitionist",
         ui_description = "$perk_desc_copis_things_demolitionist",
@@ -712,7 +712,7 @@ to_insert =
     },
     --  Recursion
     {
-        id = "COPIS_THINGS_RECURSION",
+        id = "COPITH_RECURSION",
         author = "Copi",
         ui_name = "$perk_name_copis_things_recursion",
         ui_description = "$perk_desc_copis_things_recursion",
@@ -788,7 +788,7 @@ end
 --[[
         --  Duplicate Wand (One-Off)
     {
-        id = "COPIS_THINGS_WAND_DUPLICATE",
+        id = "COPITH_WAND_DUPLICATE",
         ui_name = "Duplicate Wand (One-Off)",
         ui_description = "Create a copy of your wand.",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/wand_duplicate.png",
@@ -808,7 +808,7 @@ end
     }
             --  Alchemic aura
     {
-        id = "COPIS_THINGS_ALCHEMY_AURA",
+        id = "COPITH_ALCHEMY_AURA",
         ui_name = "Alchemic Aura",
         ui_description = "Transmutes some materials into other ones",
         ui_icon = "mods/copis_things/files/sprites/perks/ui/alchemic_aura.png",
@@ -824,7 +824,7 @@ end
     },
 
     {
-        id = "COPIS_THINGS_HALLOWED_STEP",
+        id = "COPITH_HALLOWED_STEP",
         ui_name = "Hallowed Step",
         ui_description = "Purifies stone within a short radius",
         ui_icon = "mods/copis_things/files/sprites/perks/ui/hallowed_step.png",
@@ -840,7 +840,7 @@ end
     },
     -- Death Lottery
     {
-        id = "COPIS_THINGS_DEATH_LOTTERY",
+        id = "COPITH_DEATH_LOTTERY",
         ui_name = "$perk_name_copis_things_death_lottery",
         ui_description = "$perk_desc_copis_things_death_lottery",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/death_lottery.png",

@@ -3,7 +3,7 @@
         <SpriteComponent image_file="mods/copis_things/files/ui_gfx/gun_actions/shield_sapper.png" />
         <ItemActionComponent
             _tags="enabled_in_world"
-            action_id="COPIS_THINGS_SHIELD_SAPPER"
+            action_id="COPITH_SHIELD_SAPPER"
             />
     </Base>
     <InheritTransformComponent _tags="enabled_in_world,enabled_in_hand" />

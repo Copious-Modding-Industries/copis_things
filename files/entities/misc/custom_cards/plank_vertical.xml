@@ -7,7 +7,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_PLANK_VERTICAL" >
+			action_id="COPITH_PLANK_VERTICAL" >
 		</ItemActionComponent>
 	</Base>
 

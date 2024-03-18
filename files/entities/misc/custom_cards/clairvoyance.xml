@@ -7,7 +7,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_CLAIRVOYANCE" >
+			action_id="COPITH_CLAIRVOYANCE" >
 		</ItemActionComponent>
 	</Base>
 

@@ -1,7 +1,7 @@
 <Entity>	
 	<Base file="data/entities/base_custom_card.xml" > 
 		<SpriteComponent  image_file="mods/copis_things/files/ui_gfx/gun_actions/revenge_recharge.png" />
-		<ItemActionComponent  _tags="enabled_in_world" action_id="COPIS_THINGS_REVENGE_RECHARGE" />
+		<ItemActionComponent  _tags="enabled_in_world" action_id="COPITH_REVENGE_RECHARGE" />
 	</Base>
 	<InheritTransformComponent _tags="enabled_in_world,enabled_in_hand" />
 	<LuaComponent _tags="enabled_in_hand" script_damage_received="mods/copis_things/files/scripts/custom_cards/revenge_recharge.lua" execute_every_n_frame="-1" />

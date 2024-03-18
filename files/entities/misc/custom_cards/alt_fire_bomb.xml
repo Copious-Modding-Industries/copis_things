@@ -12,7 +12,7 @@
 
         <ItemActionComponent
             _tags="enabled_in_world"
-            action_id="COPIS_THINGS_ALT_FIRE_BOMB">
+            action_id="COPITH_ALT_FIRE_BOMB">
         </ItemActionComponent>
     </Base>
 

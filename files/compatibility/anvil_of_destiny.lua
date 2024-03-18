@@ -4,9 +4,9 @@ dofile_once("mods/anvil_of_destiny/files/scripts/mod_interop.lua")
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_teleportation",
     {
-        "COPIS_THINGS_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
-        "COPIS_THINGS_TRANSMISSION_CAST",
-        "COPIS_THINGS_TELEPORT",
+        "COPITH_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
+        "COPITH_TRANSMISSION_CAST",
+        "COPITH_TELEPORT",
     },
 1 )
 
@@ -14,9 +14,9 @@ potion_recipe_add_spells( "magic_liquid_teleportation",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_unstable_teleportation",
     {
-        "COPIS_THINGS_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
-        "COPIS_THINGS_TRANSMISSION_CAST",
-        "COPIS_THINGS_TELEPORT_BAD"
+        "COPITH_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
+        "COPITH_TRANSMISSION_CAST",
+        "COPITH_TELEPORT_BAD"
     },
 1 )
 
@@ -24,7 +24,7 @@ potion_recipe_add_spells( "magic_liquid_unstable_teleportation",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "blood",
     {
-        "COPIS_THINGS_HITFX_BLOODY_2X_DAMAGE_POISONED",
+        "COPITH_HITFX_BLOODY_2X_DAMAGE_POISONED",
     },
 1 )
 
@@ -32,8 +32,8 @@ potion_recipe_add_spells( "blood",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "water",
     {
-        "COPIS_THINGS_POWDER_TO_WATER",
-        "COPIS_THINGS_HITFX_WET_2X_DAMAGE_FREEZE",
+        "COPITH_POWDER_TO_WATER",
+        "COPITH_HITFX_WET_2X_DAMAGE_FREEZE",
     },
 1 )
 
@@ -41,7 +41,7 @@ potion_recipe_add_spells( "water",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "urine",
     {
-        "COPIS_THINGS_SUMMON_JAR_URINE",
+        "COPITH_SUMMON_JAR_URINE",
     },
 1 )
 
@@ -49,8 +49,8 @@ potion_recipe_add_spells( "urine",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_berserk ",
     {
-        "COPIS_THINGS_RECHARGE_UNSTABLE",
-        "COPIS_THINGS_STATIC_TO_EXPLOSION",
+        "COPITH_RECHARGE_UNSTABLE",
+        "COPITH_STATIC_TO_EXPLOSION",
     },
 1 )
 
@@ -58,7 +58,7 @@ potion_recipe_add_spells( "magic_liquid_berserk ",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "lava ",
     {
-        "COPIS_THINGS_MATERIAL_LAVA",
+        "COPITH_MATERIAL_LAVA",
     },
 1 )
 
@@ -66,7 +66,7 @@ potion_recipe_add_spells( "lava ",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "vomit",
     {
-        "COPIS_THINGS_VOMERE",
+        "COPITH_VOMERE",
     },
 1 )
 
@@ -74,7 +74,7 @@ potion_recipe_add_spells( "vomit",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "acid",
     {
-        "COPIS_THINGS_ACID",
+        "COPITH_ACID",
     },
 1 )
 
@@ -82,9 +82,9 @@ potion_recipe_add_spells( "acid",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "midas_precursor",
     {
-        "COPIS_THINGS_LIGHT_BULLET_DEATH_TRIGGER",
-        "COPIS_THINGS_SILVER_BULLET_DEATH_TRIGGER",
-        "COPIS_THINGS_SILVER_MAGNUM_DEATH_TRIGGER",
+        "COPITH_LIGHT_BULLET_DEATH_TRIGGER",
+        "COPITH_SILVER_BULLET_DEATH_TRIGGER",
+        "COPITH_SILVER_MAGNUM_DEATH_TRIGGER",
     },
 1 )
 
@@ -92,9 +92,9 @@ potion_recipe_add_spells( "midas_precursor",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "midas",
     {
-        "COPIS_THINGS_NUGGET_SHOT",
-        "COPIS_THINGS_COIN",
-        "COPIS_THINGS_ALT_FIRE_COIN",
+        "COPITH_NUGGET_SHOT",
+        "COPITH_COIN",
+        "COPITH_ALT_FIRE_COIN",
     },
 1 )
 
@@ -102,9 +102,9 @@ potion_recipe_add_spells( "midas",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "cement",
     {
-        "COPIS_THINGS_CEMENT",
-        "COPIS_THINGS_ARC_CONCRETE",
-        "COPIS_THINGS_CONCRETEBALL",
+        "COPITH_CEMENT",
+        "COPITH_ARC_CONCRETE",
+        "COPITH_CONCRETEBALL",
     },
 1 )
 
@@ -112,9 +112,9 @@ potion_recipe_add_spells( "cement",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_polymorph",
     {
-        "COPIS_THINGS_POLYMORPH",
-        "COPIS_THINGS_SUMMON_HAMIS",
-        "COPIS_THINGS_BLOODTENTACLE",
+        "COPITH_POLYMORPH",
+        "COPITH_SUMMON_HAMIS",
+        "COPITH_BLOODTENTACLE",
     },
 1 )
 
@@ -122,9 +122,9 @@ potion_recipe_add_spells( "magic_liquid_polymorph",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_random_polymorph",
     {
-        "COPIS_THINGS_POLYMORPH",
-        "COPIS_THINGS_SUMMON_HAMIS",
-        "COPIS_THINGS_BLOODTENTACLE",
+        "COPITH_POLYMORPH",
+        "COPITH_SUMMON_HAMIS",
+        "COPITH_BLOODTENTACLE",
     },
 1 )
 
@@ -132,9 +132,9 @@ potion_recipe_add_spells( "magic_liquid_random_polymorph",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_unstable_polymorph",
     {
-        "COPIS_THINGS_POLYMORPH",
-        "COPIS_THINGS_SUMMON_HAMIS",
-        "COPIS_THINGS_BLOODTENTACLE",
+        "COPITH_POLYMORPH",
+        "COPITH_SUMMON_HAMIS",
+        "COPITH_BLOODTENTACLE",
     },
 1 )
 
@@ -142,8 +142,8 @@ potion_recipe_add_spells( "magic_liquid_unstable_polymorph",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_charm",
     {
-        "COPIS_THINGS_CHARM_FIELD",
-        "COPIS_THINGS_SUMMON_HAMIS",
+        "COPITH_CHARM_FIELD",
+        "COPITH_SUMMON_HAMIS",
     },
 1 )
 
@@ -151,8 +151,8 @@ potion_recipe_add_spells( "magic_liquid_charm",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_hp_regeneration ",
     {
-        "COPIS_THINGS_OPHIUCHUS",
-        "COPIS_THINGS_CLOUD_MAGIC_LIQUID_HP_REGENERATION",
+        "COPITH_OPHIUCHUS",
+        "COPITH_CLOUD_MAGIC_LIQUID_HP_REGENERATION",
     },
 1 )
 
@@ -160,7 +160,7 @@ potion_recipe_add_spells( "magic_liquid_hp_regeneration ",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_faster_levitation_and_movement ",
     {
-        "COPIS_THINGS_LUNGE",
+        "COPITH_LUNGE",
     },
 1 )
 
@@ -168,10 +168,10 @@ potion_recipe_add_spells( "magic_liquid_faster_levitation_and_movement ",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "magic_liquid_mana_regeneration",
     {
-        "COPIS_THINGS_MANA_ENGINE",
-        "COPIS_THINGS_MANA_EFFICENCY",
-        "COPIS_THINGS_MANA_RANDOM",
-        "COPIS_THINGS_PASSIVE_MANA",
+        "COPITH_MANA_ENGINE",
+        "COPITH_MANA_EFFICENCY",
+        "COPITH_MANA_RANDOM",
+        "COPITH_PASSIVE_MANA",
     },
 1 )
 
@@ -179,7 +179,7 @@ potion_recipe_add_spells( "magic_liquid_mana_regeneration",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "monster_powder_test",
     {
-        "COPIS_THINGS_SUMMON_HAMIS",
+        "COPITH_SUMMON_HAMIS",
     },
 1 )
 
@@ -187,7 +187,7 @@ potion_recipe_add_spells( "monster_powder_test",
 ---@diagnostic disable-next-line: undefined-global
 append_effect("monster_powder_test", function(wand)
     if math.random() > 0.85 then
-        wand:AddSpells("COPIS_THINGS_SUMMON_HAMIS")
+        wand:AddSpells("COPITH_SUMMON_HAMIS")
     end
 end)
 
@@ -195,7 +195,7 @@ end)
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "runestone_disc",
     {
-        "COPIS_THINGS_ZENITH_DISC",
+        "COPITH_ZENITH_DISC",
     },
 1 )
 
@@ -203,34 +203,8 @@ potion_recipe_add_spells( "runestone_disc",
 ---@diagnostic disable-next-line: undefined-global
 potion_recipe_add_spells( "runestone_slow",
     {
-        "COPIS_THINGS_SLOW",
+        "COPITH_SLOW",
     },
 1 )
 
     -- TODO: THE OTHER ITEMS!
-
--- # Apotheosis
--- I should likely remove this, seeing as conga handled it in apo... todo, double check apo anvil compat
-if ModIsEnabled("apotheosis") then
-
-    -- Attunium
-    ---@diagnostic disable-next-line: undefined-global
-    potion_recipe_add_spells( "apotheosis_magic_liquid_attunium",
-        {
-            "COPIS_THINGS_HOMING_SEEKER",
-            "COPIS_THINGS_HOMING_BOUNCE",
-            "COPIS_THINGS_HOMING_INTERVAL",
-            "COPIS_THINGS_HOMING_MACROSS",
-        },
-    1 )
-
-    -- Velocium
-    ---@diagnostic disable-next-line: undefined-global
-    potion_recipe_add_spells( "apotheosis_magic_liquid_velocium",
-        {
-            "COPIS_THINGS_LUNGE",
-            "Upgrade - Spell speed multiplier (One-off)",
-        },
-    1 )
-
-end

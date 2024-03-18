@@ -12,7 +12,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_NUGGET_SHOT" >
+			action_id="COPITH_NUGGET_SHOT" >
 		</ItemActionComponent>
 	</Base>
 

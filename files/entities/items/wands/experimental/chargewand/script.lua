@@ -25,17 +25,17 @@ generator({
         regular = {
             -- Sword Formation
             {
-                id = "COPIS_THINGS_SWORD_FORMATION",
+                id = "COPITH_SWORD_FORMATION",
                 --frozen = true
             },
             -- Stored Cast
             {
-                id = "COPIS_THINGS_STORED_SHOT",
+                id = "COPITH_STORED_SHOT",
                 --frozen = true
             },
             -- Overheat Engine
             {
-                id = "COPIS_THINGS_DAMAGE_ENGINE",
+                id = "COPITH_DAMAGE_ENGINE",
                 --frozen = true
             },
             -- Concentrated Light

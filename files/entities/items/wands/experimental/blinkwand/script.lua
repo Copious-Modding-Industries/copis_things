@@ -22,7 +22,7 @@ generator({
         permanently_attached = {
             -- Transmission Cast
             {
-                id = "COPIS_THINGS_TRANSMISSION_CAST",
+                id = "COPITH_TRANSMISSION_CAST",
             },
         },
         regular = {

@@ -7,7 +7,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_CLEANING_TOOL" >
+			action_id="COPITH_CLEANING_TOOL" >
 		</ItemActionComponent>
 	</Base>
 

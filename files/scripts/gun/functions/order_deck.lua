@@ -31,9 +31,9 @@ local function get_force_sorted(caster)
             if EntityHasTag( wand_children[i], "card_action" ) then
                 local iac = EntityGetFirstComponentIncludingDisabled( wand_children[i], "ItemActionComponent" ) --[[@cast iac number]]
                 local action_id = ComponentGetValue2( iac, "action_id" )
-                if action_id == "COPIS_THINGS_ORDER_DECK" then
+                if action_id == "COPITH_ORDER_DECK" then
                     force_sorted = true
-                --[[elseif action_id == "COPIS_THINGS_FLIP_EVERY_OTHER" then
+                --[[elseif action_id == "COPITH_FLIP_EVERY_OTHER" then
                     flip_every_other = true]] break
                 end
             end

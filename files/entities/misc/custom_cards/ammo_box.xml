@@ -6,7 +6,7 @@
 
 		<ItemActionComponent
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_AMMO_BOX">
+			action_id="COPITH_AMMO_BOX">
 		</ItemActionComponent>
 	</Base>
 

@@ -7,7 +7,7 @@
 
 		<ItemActionComponent
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_ATTACK_LEG">
+			action_id="COPITH_ATTACK_LEG">
 		</ItemActionComponent>
 	</Base>
 

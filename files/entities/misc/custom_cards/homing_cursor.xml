@@ -8,7 +8,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_HOMING_CURSOR" >
+			action_id="COPITH_HOMING_CURSOR" >
 		</ItemActionComponent>
 	</Base>	
 

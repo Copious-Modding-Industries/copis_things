@@ -4,13 +4,13 @@
 
     <GameEffectComponent 
         effect="CUSTOM"
-        custom_effect_id="COPIS_THINGS_BUFF_RECHARGE"
+        custom_effect_id="COPITH_BUFF_RECHARGE"
         frames="1200"
         exclusivity_group="2011">
     </GameEffectComponent> 
 
     <ShotEffectComponent
-        extra_modifier="COPIS_THINGS_BUFF_RECHARGE">
+        extra_modifier="COPITH_BUFF_RECHARGE">
     </ShotEffectComponent>
     
 	<UIIconComponent

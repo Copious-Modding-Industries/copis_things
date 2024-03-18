@@ -30,7 +30,7 @@ extra_modifiers["copis_things_ammo_box"] = function()
             local spell = spells[i]
             if EntityHasTag(spell, "card_action") then
                 local iac = EntityGetFirstComponentIncludingDisabled(spell, "ItemActionComponent") --[[@cast iac number]]
-                if ComponentGetValue2(iac, "action_id") == "COPIS_THINGS_AMMO_BOX" then
+                if ComponentGetValue2(iac, "action_id") == "COPITH_AMMO_BOX" then
                     local ic = EntityGetFirstComponentIncludingDisabled(spell, "ItemComponent") --[[@cast ic number]]
                     if ComponentGetValue2(ic, "uses_remaining") > 0 then
                         ammo_box_id = spell

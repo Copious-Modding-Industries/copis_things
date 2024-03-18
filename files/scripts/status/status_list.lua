@@ -1,13 +1,13 @@
 local to_insert = {
     {
-        id="COPIS_THINGS_BUFF_RECHARGE",
+        id="COPITH_BUFF_RECHARGE",
         ui_name="Reduce recharge",
         ui_description="Reduces the time between spellcasts",
         ui_icon="mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",
         effect_entity="mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
     },
     {
-        id              = "COPIS_THINGS_INSTAKILL",
+        id              = "COPITH_INSTAKILL",
         ui_name         = "$effect_name_copis_things_instakill",
         ui_description  = "$effect_desc_copis_things_instakill",
         ui_icon         = "mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",
@@ -15,7 +15,7 @@ local to_insert = {
     },
     --[[ Shouldn't be handled as a status effect, what was I thinking lmao
     {
-        id="COPIS_THINGS_ENTITY_LARPA",
+        id="COPITH_ENTITY_LARPA",
         ui_name         = "$effect_name_copis_things_entity_larpa",
         ui_description  = "$effect_desc_copis_things_entity_larpa",
         ui_icon         = "mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",

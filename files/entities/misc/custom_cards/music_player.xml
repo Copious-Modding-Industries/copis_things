@@ -7,7 +7,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_MUSIC_PLAYER" >
+			action_id="COPITH_MUSIC_PLAYER" >
 		</ItemActionComponent>
 	</Base>
 

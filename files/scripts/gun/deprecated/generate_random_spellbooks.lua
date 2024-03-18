@@ -41,7 +41,7 @@ for i=1,10 do
         table.insert( callbacks, random_action.action );
     end
     table.insert( dynamic_actions, {
-        id          = "COPIS_THINGS_SPELLBOOK_"..i,
+        id          = "COPITH_SPELLBOOK_"..i,
         name 		= spellbook_name,
         description = spellbook_description,
         sprite 		= "mods/copis_things/files/ui_gfx/gun_actions/spellbook.png",

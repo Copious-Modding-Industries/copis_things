@@ -7,7 +7,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_AVERAGE_MANA"
+			action_id="COPITH_AVERAGE_MANA"
         />
 	</Base>
 

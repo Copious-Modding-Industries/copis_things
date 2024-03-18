@@ -13,7 +13,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_RANDOM_PROJECTILE_REAL"
+			action_id="COPITH_RANDOM_PROJECTILE_REAL"
 		/>
 		
 		<ItemComponent 

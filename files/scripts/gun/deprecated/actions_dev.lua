@@ -39,7 +39,7 @@ local to_insert = {
         end,
     },
     {
-        id = "COPIS_THINGS_LARPA_RAIN",
+        id = "COPITH_LARPA_RAIN",
         author = "Copi",
         name = "Larpasade",
         description = "Creates arcs of barriers between projectiles (requires 2 projectile spells)",
@@ -77,7 +77,7 @@ local to_insert = {
         end
     },
     {
-        id = "COPIS_THINGS_PROJECTILE_HOMING",
+        id = "COPITH_PROJECTILE_HOMING",
         author = "Copi",
         name = "Passive Homing",
         description = "All projectiles fired from this wand will slightly home in on enemies",
@@ -93,7 +93,7 @@ local to_insert = {
         end
     },
     {
-        id = "COPIS_THINGS_ORBIT_SHOOTER",
+        id = "COPITH_ORBIT_SHOOTER",
         author = "Copi",
         name = "Orbital Shot",
         description = "Causes the projectile to orbit the shooter",
@@ -114,6 +114,6 @@ for _, value in ipairs(to_insert) do
     if (value.author == nil) then
         value.author = "Copi"
     end
-    value.id = "COPIS_THINGS_" .. value.id
+    value.id = "COPITH_" .. value.id
     table.insert(actions, value)
 end

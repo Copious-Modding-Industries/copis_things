@@ -4,12 +4,12 @@
 
     <GameEffectComponent 
         effect="CUSTOM"
-        custom_effect_id="COPIS_THINGS_ON_DAMAGE_DAMAGE"
+        custom_effect_id="COPITH_ON_DAMAGE_DAMAGE"
         frames="300">
     </GameEffectComponent> 
 
     <ShotEffectComponent
-        extra_modifier="COPIS_THINGS_ON_DAMAGE_DAMAGE">
+        extra_modifier="COPITH_ON_DAMAGE_DAMAGE">
     </ShotEffectComponent>
     
 	<UIIconComponent

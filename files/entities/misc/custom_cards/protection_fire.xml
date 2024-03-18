@@ -8,7 +8,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_PROTECTION_FIRE" >
+			action_id="COPITH_PROTECTION_FIRE" >
 		</ItemActionComponent>
 	</Base>
 

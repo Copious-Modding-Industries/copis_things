@@ -8,7 +8,7 @@
 
         <ItemActionComponent 
             _tags="enabled_in_world"
-            action_id="COPIS_THINGS_ENERGY_SHIELD_DIRECTIONAL" >
+            action_id="COPITH_ENERGY_SHIELD_DIRECTIONAL" >
         </ItemActionComponent>
 
         <InheritTransformComponent

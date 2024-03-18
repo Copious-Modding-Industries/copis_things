@@ -34,7 +34,7 @@ generator({
             },
             -- Burst Fire
             {
-                id = "COPIS_THINGS_BURST_FIRE",
+                id = "COPITH_BURST_FIRE",
                 --frozen = true
             },
             -- Auto-Aim

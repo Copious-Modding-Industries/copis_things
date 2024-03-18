@@ -6,7 +6,7 @@
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPIS_THINGS_FLIP_EVERY_OTHER"
+			action_id="COPITH_FLIP_EVERY_OTHER"
         />
 	</Base>
 

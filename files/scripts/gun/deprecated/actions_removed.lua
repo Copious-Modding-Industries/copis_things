@@ -1917,7 +1917,7 @@ local to_insert = {
                 local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
                 if not ModSettingGet("copis_things.wand0") then
                     local wand = EZWand.GetHeldWand()
-                    wand:RemoveSpells("COPIS_THINGS_WAND_SET")
+                    wand:RemoveSpells("COPITH_WAND_SET")
                     ModSettingSet("copis_things.wand0", wand:Serialize())
                     GameScreenshake(50, x, y)
                     EntityLoad("mods/copis_things/files/entities/particles/blast.xml", x, y)
@@ -1961,7 +1961,7 @@ local to_insert = {
                     EntityLoad("mods/copis_things/files/entities/particles/blast.xml", x, y)
                     ModSettingRemove("copis_things.wand0")
                     local wand2 = EZWand.GetHeldWand()
-                    wand2:RemoveSpells("COPIS_THINGS_WAND_GET")
+                    wand2:RemoveSpells("COPITH_WAND_GET")
                 end
             end
         end
@@ -2114,7 +2114,7 @@ local to_insert = {
 	},
     -- PSYCHIC GRIP
     {
-        id = "COPIS_THINGS_PSYCHIC_GRIP",
+        id = "COPITH_PSYCHIC_GRIP",
         author = "Copi",
         name = "Psychic Grip",
         description = "Locks a projectile in front of your wand",
@@ -2130,7 +2130,7 @@ local to_insert = {
         end
     },
     {
-        id = "COPIS_THINGS_CORPSE_BOMB",
+        id = "COPITH_CORPSE_BOMB",
         author = "Copi",
         name = "Detonecromation",
         description = "Causes the corpses of killed enemies to violently explode into noxious gasses",
@@ -2149,7 +2149,7 @@ local to_insert = {
         end
     },
     {
-        id = "COPIS_THINGS_TELEPORT_CORPSE",
+        id = "COPITH_TELEPORT_CORPSE",
         author = "Copi",
         name = "Deathbound teleport bolt",
         description = "A magical bolt that curses a body to carry you postmortem",
@@ -2168,7 +2168,7 @@ local to_insert = {
         end
     },
     {
-        id = "COPIS_THINGS_LIGHT_BULLET_DECK_RAY_ENEMY",
+        id = "COPITH_LIGHT_BULLET_DECK_RAY_ENEMY",
         author = "Copi",
         name = "Enemy Trigger",
         description = "The next casting block is fired as the enemy",
@@ -2185,7 +2185,7 @@ local to_insert = {
         end
     },
     {
-        id                  = "COPIS_THINGS_QUESTIONABLE",
+        id                  = "COPITH_QUESTIONABLE",
         name                = "?",
         author = "Copi",
         mod = "Copi's Things",
@@ -2230,6 +2230,6 @@ for _, value in ipairs(to_insert) do
     if (value.author == nil) then
         value.author = "Copi"
     end
-    value.id = "COPIS_THINGS_" .. value.id
+    value.id = "COPITH_" .. value.id
     table.insert(actions, value)
 end

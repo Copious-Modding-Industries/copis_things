@@ -25,7 +25,7 @@ local events = {
 
 local actions_to_insert = {
 	{
-		id = "COPIS_THINGS_PSYCHIC_SHOT",
+		id = "COPITH_PSYCHIC_SHOT",
 		name = "$actionname_psychic_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -45,7 +45,7 @@ local actions_to_insert = {
 	},
 	-- LUNGE
 	{
-		id = "COPIS_THINGS_LUNGE",
+		id = "COPITH_LUNGE",
 		name = "$actionname_lunge",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -94,7 +94,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_PROJECTION_CAST",
+		id = "COPITH_PROJECTION_CAST",
 		name = "$actionname_projection_cast",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -115,7 +115,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SLOW",
+		id = "COPITH_SLOW",
 		name = "$actionname_slow",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -136,7 +136,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CLAIRVOYANCE",
+		id = "COPITH_CLAIRVOYANCE",
 		name = "$actionname_clairvoyance",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -154,7 +154,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ANCHORED_SHOT",
+		id = "COPITH_ANCHORED_SHOT",
 		name = "$actionname_anchored_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -180,7 +180,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LEVITY_SHOT",
+		id = "COPITH_LEVITY_SHOT",
 		name = "$actionname_levity_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -199,7 +199,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SEPARATOR_CAST",
+		id = "COPITH_SEPARATOR_CAST",
 		name = "$actionname_separator_cast",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -230,7 +230,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SPREAD",
+		id = "COPITH_SPREAD",
 		name = "$actionname_spread",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -248,7 +248,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DART",
+		id = "COPITH_DART",
 		name = "$actionname_dart",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -267,7 +267,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_TEMPORARY_CIRCLE",
+		id = "COPITH_TEMPORARY_CIRCLE",
 		name = "$actionname_temporary_circle",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -287,7 +287,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LARPA_FORWARDS",
+		id = "COPITH_LARPA_FORWARDS",
 		name = "$actionname_larpa_forwards",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -310,7 +310,7 @@ local actions_to_insert = {
 
 	-- WISPY SHOT
 	{
-		id = "COPIS_THINGS_WISPY_SHOT",
+		id = "COPITH_WISPY_SHOT",
 		name = "$actionname_wispy_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -329,7 +329,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_GUNNER_SHOT",
+		id = "COPITH_GUNNER_SHOT",
 		name = "$actionname_gunner_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -349,7 +349,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_GUNNER_SHOT_STRONG",
+		id = "COPITH_GUNNER_SHOT_STRONG",
 		name = "$actionname_gunner_shot_strong",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -369,7 +369,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SOIL_TRAIL",
+		id = "COPITH_SOIL_TRAIL",
 		name = "$actionname_soil_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -388,7 +388,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CONCRETEBALL",
+		id = "COPITH_CONCRETEBALL",
 		name = "$actionname_concreteball",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -406,7 +406,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ZENITH_DISC",
+		id = "COPITH_ZENITH_DISC",
 		name = "$actionname_zenith_disc",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -424,7 +424,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_EVISCERATOR_DISC",
+		id = "COPITH_EVISCERATOR_DISC",
 		name = "$actionname_eviscerator_disc",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -447,7 +447,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SUMMON_HAMIS",
+		id = "COPITH_SUMMON_HAMIS",
 		name = "$actionname_summon_hamis",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -464,7 +464,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_BULLET",
+		id = "COPITH_SILVER_BULLET",
 		name = "$actionname_silver_bullet",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -482,7 +482,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_MAGNUM",
+		id = "COPITH_SILVER_MAGNUM",
 		name = "$actionname_silver_magnum",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -500,7 +500,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_BULLET_DEATH_TRIGGER",
+		id = "COPITH_SILVER_BULLET_DEATH_TRIGGER",
 		name = "$actionname_silver_bullet_death_trigger",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -518,7 +518,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_MAGNUM_DEATH_TRIGGER",
+		id = "COPITH_SILVER_MAGNUM_DEATH_TRIGGER",
 		name = "$actionname_silver_magnum_death_trigger",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -536,7 +536,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SLOTS_TO_POWER",
+		id = "COPITH_SLOTS_TO_POWER",
 		name = "$actionname_slots_to_power",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -560,7 +560,7 @@ local actions_to_insert = {
 	-- TODO translations
 	-- TODO figure out why the gods are so sus
 	{   -- Unshuffle
-		id = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE",
+		id = "COPITH_UPGRADE_GUN_SHUFFLE",
 		name = "Upgrade - Unshuffle (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -579,7 +579,7 @@ local actions_to_insert = {
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
-				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE" then
+				if current_action.id == "COPITH_UPGRADE_GUN_SHUFFLE" then
 					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 					if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
 						-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
@@ -642,7 +642,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Shuffle
-		id = "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD",
+		id = "COPITH_UPGRADE_GUN_SHUFFLE_BAD",
 		name = "Upgrade - Shuffle (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -661,7 +661,7 @@ local actions_to_insert = {
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
-				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_SHUFFLE_BAD" then
+				if current_action.id == "COPITH_UPGRADE_GUN_SHUFFLE_BAD" then
 					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 						if ComponentObjectGetValue2(ability, "gun_config", "shuffle_deck_when_empty") then
 							-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
@@ -727,7 +727,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- S/C
-		id = "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND",
+		id = "COPITH_UPGRADE_ACTIONS_PER_ROUND",
 		name = "Upgrade - Spells per Cast (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -746,7 +746,7 @@ local actions_to_insert = {
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
-				if current_action.id == "COPIS_THINGS_UPGRADE_ACTIONS_PER_ROUND" then
+				if current_action.id == "COPITH_UPGRADE_ACTIONS_PER_ROUND" then
 					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 					-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
 					GunUtils.update_ability(ability, {
@@ -774,7 +774,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Speed
-		id = "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER",
+		id = "COPITH_UPGRADE_SPEED_MULTIPLIER",
 		name = "Upgrade - Spell speed multiplier (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -789,7 +789,7 @@ local actions_to_insert = {
 		never_ac = true,
 		action = function(recursion_level, iteration)
 			-- Check for initial reflection and greek letters/non-self casts
-			if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_SPEED_MULTIPLIER" then
+			if not reflecting and current_action.id == "COPITH_UPGRADE_SPEED_MULTIPLIER" then
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
@@ -820,7 +820,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Capacity
-		id = "COPIS_THINGS_UPGRADE_GUN_CAPACITY",
+		id = "COPITH_UPGRADE_GUN_CAPACITY",
 		name = "Upgrade - Wand capacity (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -839,7 +839,7 @@ local actions_to_insert = {
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
 				local pos_x, pos_y = EntityGetTransform(this_wand)
-				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
+				if current_action.id == "COPITH_UPGRADE_GUN_CAPACITY" then
 					local ability = EntityGetFirstComponentIncludingDisabled(this_wand, "AbilityComponent") --[[@cast ability integer]]
 					if ComponentObjectGetValue2(ability, "gun_config", "deck_capacity") < 26 then
 						-- I have no clue what this bs scaling is I threw it together in desmso DM if you have a better func to use
@@ -874,7 +874,7 @@ local actions_to_insert = {
 			-- Check for initial reflection
 			if not reflecting then
 				-- Check for greek letters/non-self casts
-				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_CAPACITY" then
+				if current_action.id == "COPITH_UPGRADE_GUN_CAPACITY" then
 					local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 					local entity_id = GetUpdatedEntityID()
 					local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -884,7 +884,7 @@ local actions_to_insert = {
 						local wand = EZWand(active_wand)
 						if wand ~= nil then
 							if (wand.capacity < 26) then
-								wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_CAPACITY")
+								wand:RemoveSpells("COPITH_UPGRADE_GUN_CAPACITY")
 								SetRandomSeed(pos_x, pos_y + GameGetFrameNum() + 137)
 								wand.capacity = wand.capacity + Random(1, 3)
 								local sprite_file = wand:GetSprite()
@@ -904,7 +904,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Cast Delay
-		id = "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT",
+		id = "COPITH_UPGRADE_FIRE_RATE_WAIT",
 		name = "Upgrade - Cast Delay (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -920,7 +920,7 @@ local actions_to_insert = {
 		action = function(recursion_level, iteration)
 			-- Check for initial reflection and greek letters/non-self casts
 			if reflecting then return end
-			if current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
+			if current_action.id == "COPITH_UPGRADE_FIRE_RATE_WAIT" then
 
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
@@ -940,7 +940,7 @@ local actions_to_insert = {
 			-- Check for initial reflection
 			if not reflecting then
 				-- Check for greek letters/non-self casts
-				if current_action.id == "COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT" then
+				if current_action.id == "COPITH_UPGRADE_FIRE_RATE_WAIT" then
 					local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 					local entity_id = GetUpdatedEntityID()
 					local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -949,7 +949,7 @@ local actions_to_insert = {
 						local pos_x, pos_y = EntityGetTransform(entity_id)
 						local wand = EZWand(active_wand)
 						if wand ~= nil then
-							wand:RemoveSpells("COPIS_THINGS_UPGRADE_FIRE_RATE_WAIT")
+							wand:RemoveSpells("COPITH_UPGRADE_FIRE_RATE_WAIT")
 							-- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
 							local castDelay_old = wand.castDelay
 							wand.castDelay = ((wand.castDelay - 0.2) * 0.8) + 0.2
@@ -975,7 +975,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Reload Time
-		id = "COPIS_THINGS_UPGRADE_RELOAD_TIME",
+		id = "COPITH_UPGRADE_RELOAD_TIME",
 		name = "Upgrade - Reload Time (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -991,7 +991,7 @@ local actions_to_insert = {
 		action = function(recursion_level, iteration)
 
 			-- Check for initial reflection and greek letters/non-self casts
-			if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_RELOAD_TIME" then
+			if not reflecting and current_action.id == "COPITH_UPGRADE_RELOAD_TIME" then
 
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
@@ -1011,7 +1011,7 @@ local actions_to_insert = {
 			-- Check for initial reflection
 			if not reflecting then
 				-- Check for greek letters/non-self casts
-				if current_action.id == "COPIS_THINGS_UPGRADE_RELOAD_TIME" then
+				if current_action.id == "COPITH_UPGRADE_RELOAD_TIME" then
 					local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 					local entity_id = GetUpdatedEntityID()
 					local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1020,7 +1020,7 @@ local actions_to_insert = {
 						local pos_x, pos_y = EntityGetTransform(entity_id)
 						local wand = EZWand(active_wand)
 						if wand ~= nil then
-							wand:RemoveSpells("COPIS_THINGS_UPGRADE_RELOAD_TIME")
+							wand:RemoveSpells("COPITH_UPGRADE_RELOAD_TIME")
 							-- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
 							local rechargeTime_old = wand.rechargeTime
 							wand.rechargeTime = ((wand.rechargeTime - 0.2) * 0.8) + 0.2
@@ -1046,7 +1046,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Accuracy
-		id = "COPIS_THINGS_UPGRADE_SPREAD_DEGREES",
+		id = "COPITH_UPGRADE_SPREAD_DEGREES",
 		name = "Upgrade - Accuracy (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1062,7 +1062,7 @@ local actions_to_insert = {
 		action = function(recursion_level, iteration)
 
 			-- Check for initial reflection and greek letters/non-self casts
-			if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_SPREAD_DEGREES" then
+			if not reflecting and current_action.id == "COPITH_UPGRADE_SPREAD_DEGREES" then
 
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
@@ -1082,7 +1082,7 @@ local actions_to_insert = {
 			-- Check for initial reflection
 			if not reflecting then
 				-- Check for greek letters/non-self casts
-				if current_action.id == "COPIS_THINGS_UPGRADE_SPREAD_DEGREES" then
+				if current_action.id == "COPITH_UPGRADE_SPREAD_DEGREES" then
 					local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 					local entity_id = GetUpdatedEntityID()
 					local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1091,7 +1091,7 @@ local actions_to_insert = {
 						local pos_x, pos_y = EntityGetTransform(entity_id)
 						local wand = EZWand(active_wand)
 						if wand ~= nil then
-							wand:RemoveSpells("COPIS_THINGS_UPGRADE_SPREAD_DEGREES")
+							wand:RemoveSpells("COPITH_UPGRADE_SPREAD_DEGREES")
 							-- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
 							local rechargeTime_old = wand.rechargeTime
 							wand.spread = wand.spread - ((math.abs(wand.spread) * 0.25) + 0.5)
@@ -1117,7 +1117,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Maximum mana
-		id = "COPIS_THINGS_UPGRADE_MANA_MAX",
+		id = "COPITH_UPGRADE_MANA_MAX",
 		name = "Upgrade - Maximum mana (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1133,7 +1133,7 @@ local actions_to_insert = {
 		action = function(recursion_level, iteration)
 
 			-- Check for initial reflection and greek letters/non-self casts
-			if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_MANA_MAX" then
+			if not reflecting and current_action.id == "COPITH_UPGRADE_MANA_MAX" then
 
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
@@ -1153,7 +1153,7 @@ local actions_to_insert = {
 			-- Check for initial reflection
 			if not reflecting then
 				-- Check for greek letters/non-self casts
-				if current_action.id == "COPIS_THINGS_UPGRADE_MANA_MAX" then
+				if current_action.id == "COPITH_UPGRADE_MANA_MAX" then
 					local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 					local entity_id = GetUpdatedEntityID()
 					local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1162,7 +1162,7 @@ local actions_to_insert = {
 						local pos_x, pos_y = EntityGetTransform(entity_id)
 						local wand = EZWand(active_wand)
 						if wand ~= nil then
-							wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_MAX")
+							wand:RemoveSpells("COPITH_UPGRADE_MANA_MAX")
 							-- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
 							wand.manaMax = wand.manaMax * 1.2 + 50
 							local sprite_file = wand:GetSprite()
@@ -1181,7 +1181,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Mana charge speed
-		id = "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED",
+		id = "COPITH_UPGRADE_MANA_CHARGE_SPEED",
 		name = "Upgrade - Mana charge speed (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1197,7 +1197,7 @@ local actions_to_insert = {
 		action = function(recursion_level, iteration)
 
 			-- Check for initial reflection and greek letters/non-self casts
-			if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED" then
+			if not reflecting and current_action.id == "COPITH_UPGRADE_MANA_CHARGE_SPEED" then
 
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
@@ -1217,7 +1217,7 @@ local actions_to_insert = {
 			-- Check for initial reflection
 			if not reflecting then
 				-- Check for greek letters/non-self casts
-				if current_action.id == "COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED" then
+				if current_action.id == "COPITH_UPGRADE_MANA_CHARGE_SPEED" then
 					local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 					local entity_id = GetUpdatedEntityID()
 					local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1226,7 +1226,7 @@ local actions_to_insert = {
 						local pos_x, pos_y = EntityGetTransform(entity_id)
 						local wand = EZWand(active_wand)
 						if wand ~= nil then
-							wand:RemoveSpells("COPIS_THINGS_UPGRADE_MANA_CHARGE_SPEED")
+							wand:RemoveSpells("COPITH_UPGRADE_MANA_CHARGE_SPEED")
 							-- I have no clue what this bs scaling is I threw it together in desmso DM me on discord Human#6606 if you have a better func to use
 							wand.manaChargeSpeed = wand.manaChargeSpeed * 1.2 + 50
 							local sprite_file = wand:GetSprite()
@@ -1245,7 +1245,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Upgrade - Always Cast
-		id = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT",
+		id = "COPITH_UPGRADE_GUN_ACTIONS_PERMANENT",
 		name = "Upgrade - Always Cast (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1262,7 +1262,7 @@ local actions_to_insert = {
 		action = function(recursion_level, iteration)
 
 			-- Check for initial reflection and greek letters/non-self casts
-			if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" then
+			if not reflecting and current_action.id == "COPITH_UPGRADE_GUN_ACTIONS_PERMANENT" then
 
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
@@ -1282,7 +1282,7 @@ local actions_to_insert = {
 			draw_actions(1, true) -- Check for initial reflection
 			if not reflecting then
 				-- Check for greek letters/non-self casts
-				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" then
+				if current_action.id == "COPITH_UPGRADE_GUN_ACTIONS_PERMANENT" then
 					local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 					local entity_id = GetUpdatedEntityID()
 					local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1292,11 +1292,11 @@ local actions_to_insert = {
 						local wand = EZWand(active_wand)
 						if wand ~= nil then
 							local spells, attached_spells = wand:GetSpells()
-							if (#spells > 0 and spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT" and
-								spells[1].action_id ~= "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+							if (#spells > 0 and spells[1].action_id ~= "COPITH_UPGRADE_GUN_ACTIONS_PERMANENT" and
+								spells[1].action_id ~= "COPITH_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
 							then
 								local action_to_attach = spells[1]
-								wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT")
+								wand:RemoveSpells("COPITH_UPGRADE_GUN_ACTIONS_PERMANENT")
 								wand:RemoveSpells(spells[1].action_id)
 								wand:AttachSpells(spells[1].action_id)
 								local function has_custom_sprite(ez_wand)
@@ -1319,7 +1319,7 @@ local actions_to_insert = {
 		end
 	},
 	{   -- Remove Always Cast
-		id = "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE",
+		id = "COPITH_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE",
 		name = "Upgrade - Remove Always Cast (One-off)",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1336,7 +1336,7 @@ local actions_to_insert = {
 		action = function(recursion_level, iteration)
 
 			-- Check for initial reflection and greek letters/non-self casts
-			if not reflecting and current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
+			if not reflecting and current_action.id == "COPITH_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
 
 				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
 				local this_card = GunUtils.current_card(this_wand)
@@ -1356,7 +1356,7 @@ local actions_to_insert = {
 			draw_actions(1, true) -- Check for initial reflection
 			if not reflecting then
 				-- Check for greek letters/non-self casts
-				if current_action.id == "COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
+				if current_action.id == "COPITH_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE" then
 					local EZWand = dofile_once("mods/copis_things/lib/EZWand/EZWand.lua")
 					local entity_id = GetUpdatedEntityID()
 					local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
@@ -1370,7 +1370,7 @@ local actions_to_insert = {
 								wand:GetFreeSlotsCount() > 0)
 							then
 								local action_to_attach = attached_spells[1]
-								wand:RemoveSpells("COPIS_THINGS_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
+								wand:RemoveSpells("COPITH_UPGRADE_GUN_ACTIONS_PERMANENT_REMOVE")
 								wand:DetachSpells(attached_spells[1].action_id)
 								wand:AddSpells(attached_spells[1].action_id)
 								local function has_custom_sprite(ez_wand)
@@ -1393,7 +1393,7 @@ local actions_to_insert = {
 		end
 	},]=]
 	{
-		id = "COPIS_THINGS_DAMAGE_LIFETIME",
+		id = "COPITH_DAMAGE_LIFETIME",
 		name = "$actionname_damage_lifetime",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1412,7 +1412,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HITFX_CRITICAL_CHARM",
+		id = "COPITH_HITFX_CRITICAL_CHARM",
 		name = "$actionname_hitfx_critical_charm",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1431,7 +1431,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HITFX_CRITICAL_ELECTROCUTED",
+		id = "COPITH_HITFX_CRITICAL_ELECTROCUTED",
 		name = "$actionname_hitfx_critical_electrocuted",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1450,7 +1450,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HITFX_CRITICAL_FROZEN",
+		id = "COPITH_HITFX_CRITICAL_FROZEN",
 		name = "$actionname_hitfx_critical_frozen",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1469,7 +1469,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_PASSIVE_MANA",
+		id = "COPITH_PASSIVE_MANA",
 		name = "$actionname_passive_mana",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1486,7 +1486,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_FREEZING_VAPOUR_TRAIL",
+		id = "COPITH_FREEZING_VAPOUR_TRAIL",
 		name = "$actionname_freezing_vapour_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1505,7 +1505,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_VOID_TRAIL",
+		id = "COPITH_VOID_TRAIL",
 		name = "$actionname_void_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1524,7 +1524,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DAMAGE_CRITICAL",
+		id = "COPITH_DAMAGE_CRITICAL",
 		name = "$actionname_damage_critical",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1544,7 +1544,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DIMIGE",
+		id = "COPITH_DIMIGE",
 		name = "$actionname_dimige",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1583,7 +1583,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_POWER_SHOT",
+		id = "COPITH_POWER_SHOT",
 		name = "$actionname_power_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1601,7 +1601,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_STICKY_SHOT",
+		id = "COPITH_STICKY_SHOT",
 		name = "$actionname_sticky_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1619,7 +1619,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LOVELY_TRAIL",
+		id = "COPITH_LOVELY_TRAIL",
 		name = "$actionname_lovely_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1636,7 +1636,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_STARRY_TRAIL",
+		id = "COPITH_STARRY_TRAIL",
 		name = "$actionname_starry_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1653,7 +1653,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SPARKLING_TRAIL",
+		id = "COPITH_SPARKLING_TRAIL",
 		name = "$actionname_sparkling_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1670,7 +1670,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_NULL_TRAIL",
+		id = "COPITH_NULL_TRAIL",
 		name = "$actionname_null_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1687,7 +1687,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ROOT_GROWER",
+		id = "COPITH_ROOT_GROWER",
 		name = "$actionname_root_grower",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1705,7 +1705,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HOMING_ANTI",
+		id = "COPITH_HOMING_ANTI",
 		name = "$actionname_homing_anti",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1729,7 +1729,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ALT_FIRE_FLAMETHROWER",
+		id = "COPITH_ALT_FIRE_FLAMETHROWER",
 		name = "$actionname_alt_fire_flamethrower",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1748,7 +1748,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DECOY",
+		id = "COPITH_DECOY",
 		name = "$action_decoy",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1768,7 +1768,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DECOY_TRIGGER",
+		id = "COPITH_DECOY_TRIGGER",
 		name = "$action_decoy_trigger",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1788,7 +1788,7 @@ local actions_to_insert = {
 		end
 	},--[[
 	{
-		id = "COPIS_THINGS_HITFX_EXPLOSION_FROZEN",
+		id = "COPITH_HITFX_EXPLOSION_FROZEN",
 		name = "Explosion on frozen enemies",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1809,7 +1809,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HITFX_EXPLOSION_FROZEN_GIGA",
+		id = "COPITH_HITFX_EXPLOSION_FROZEN_GIGA",
 		name = "Giant explosion on frozen enemies",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1834,7 +1834,7 @@ local actions_to_insert = {
 		end
 	},]]
 	{
-		id = "COPIS_THINGS_CIRCLE_EDIT_WANDS_EVERYWHERE",
+		id = "COPITH_CIRCLE_EDIT_WANDS_EVERYWHERE",
 		name = "$actionname_circle_edit_wands_everywhere",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1855,7 +1855,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_MINI_SHIELD",
+		id = "COPITH_MINI_SHIELD",
 		name = "$actionname_mini_shield",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1876,7 +1876,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_NGON_SHAPE",
+		id = "COPITH_NGON_SHAPE",
 		name = "Formation - N-gon",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1896,7 +1896,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_STORED_SHOT",
+		id = "COPITH_STORED_SHOT",
 		name = "$actionname_stored_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1917,7 +1917,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_BARRIER_TRAIL",
+		id = "COPITH_BARRIER_TRAIL",
 		name = "$actionname_barrier_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1936,7 +1936,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DEATH_RAY",
+		id = "COPITH_DEATH_RAY",
 		name = "$actionname_death_ray",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1953,7 +1953,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LIGHT_BULLET_DEATH_TRIGGER",
+		id = "COPITH_LIGHT_BULLET_DEATH_TRIGGER",
 		name = "$actionname_light_bullet_death_trigger",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -1975,7 +1975,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_IF_PLAYER",
+		id = "COPITH_IF_PLAYER",
 		name = "Requirement - Player",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2064,7 +2064,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_IF_ALT_FIRE",
+		id = "COPITH_IF_ALT_FIRE",
 		name = "Requirement - Alt Fire",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2155,7 +2155,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ZIPPING_ARC",
+		id = "COPITH_ZIPPING_ARC",
 		name = "$actionname_zipping_arc",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2176,7 +2176,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SLOW_BULLET_TIMER_2",
+		id = "COPITH_SLOW_BULLET_TIMER_2",
 		name = "$actionname_slow_bullet_timer_2",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2215,7 +2215,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SLOW_BULLET_TIMER_N",
+		id = "COPITH_SLOW_BULLET_TIMER_N",
 		name = "$actionname_slow_bullet_timer_n",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2260,7 +2260,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_FALSE_SPELL",
+		id = "COPITH_FALSE_SPELL",
 		name = "$actionname_false_spell",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2279,7 +2279,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_PSI",
+		id = "COPITH_PSI",
 		name = "$actionname_psi",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2344,7 +2344,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DELTA",
+		id = "COPITH_DELTA",
 		name = "$actionname_delta",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2378,7 +2378,7 @@ local actions_to_insert = {
 									"ItemActionComponent")
 									if itemactioncomp ~= nil then
 										local action_id = ComponentGetValue2(itemactioncomp, "action_id")
-										if action_id ~= "COPIS_THINGS_DELTA" then
+										if action_id ~= "COPITH_DELTA" then
 											for _, data in ipairs(actions) do
 												if (data.id == action_id) then
 													local rec = check_recursion(data, recursion_level)
@@ -2393,7 +2393,7 @@ local actions_to_insert = {
 								end
 
 								-- If action is this card then update sprite
-								if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and current_action.id == "COPIS_THINGS_DELTA" then
+								if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and current_action.id == "COPITH_DELTA" then
 									ComponentSetValue2(
 										itemcomp,
 										"ui_sprite",
@@ -2417,7 +2417,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_AUTO_ENEMIES",
+		id = "COPITH_AUTO_ENEMIES",
 		name = "$actionname_auto_enemies",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2434,7 +2434,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_AUTO_FRAME",
+		id = "COPITH_AUTO_FRAME",
 		name = "$actionname_auto_frame",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2451,7 +2451,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_AUTO_HOLSTER",
+		id = "COPITH_AUTO_HOLSTER",
 		name = "$actionname_auto_holster",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2468,7 +2468,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_AUTO_HP",
+		id = "COPITH_AUTO_HP",
 		name = "$actionname_auto_hp",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2485,7 +2485,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_AUTO_HURT",
+		id = "COPITH_AUTO_HURT",
 		name = "$actionname_auto_hurt",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2502,7 +2502,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_AUTO_PROJECTILE",
+		id = "COPITH_AUTO_PROJECTILE",
 		name = "$actionname_auto_projectile",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2519,7 +2519,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ICICLE_LANCE",
+		id = "COPITH_ICICLE_LANCE",
 		name = "$actionname_icicle_lance",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2537,7 +2537,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_STATIC_TO_EXPLOSION",
+		id = "COPITH_STATIC_TO_EXPLOSION",
 		name = "$actionname_static_to_explosion",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2564,7 +2564,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LIQUID_TO_SOIL",
+		id = "COPITH_LIQUID_TO_SOIL",
 		name = "$actionname_liquid_to_soil",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2591,7 +2591,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_POWDER_TO_WATER",
+		id = "COPITH_POWDER_TO_WATER",
 		name = "$actionname_powder_to_water",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2618,7 +2618,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_POWDER_TO_STEEL",
+		id = "COPITH_POWDER_TO_STEEL",
 		name = "$actionname_powder_to_steel",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2645,7 +2645,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ZAP",
+		id = "COPITH_ZAP",
 		name = "$actionname_zap",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2715,7 +2715,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_MATRA_MAGIC",
+		id = "COPITH_MATRA_MAGIC",
 		name = "$actionname_matra_magic",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2734,7 +2734,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_VOMERE",
+		id = "COPITH_VOMERE",
 		name = "$actionname_vomere",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2806,7 +2806,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CIRCLE_RANDOM",
+		id = "COPITH_CIRCLE_RANDOM",
 		name = "$actionname_circle_random",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2827,7 +2827,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CLOUD_RANDOM",
+		id = "COPITH_CLOUD_RANDOM",
 		name = "$actionname_cloud_random",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2848,7 +2848,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_TOUCH_RANDOM",
+		id = "COPITH_TOUCH_RANDOM",
 		name = "$actionname_touch_random",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2868,7 +2868,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CHUNK_OF_RANDOM",
+		id = "COPITH_CHUNK_OF_RANDOM",
 		name = "$actionname_chunk_of_random",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2887,7 +2887,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_MATERIAL_RANDOM",
+		id = "COPITH_MATERIAL_RANDOM",
 		name = "$actionname_material_random",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2910,7 +2910,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SEA_RANDOM",
+		id = "COPITH_SEA_RANDOM",
 		name = "$actionname_sea_random",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2931,7 +2931,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SUMMON_ANVIL",
+		id = "COPITH_SUMMON_ANVIL",
 		name = "$actionname_summon_anvil",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -2950,7 +2950,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ARCANE_TURRET",
+		id = "COPITH_ARCANE_TURRET",
 		name = "$actionname_arcane_turret",
 		description = "$actiondesc_arcane_turret",
 		author = "Disco Witch",
@@ -2981,7 +2981,7 @@ local actions_to_insert = {
 			local storage = Entity(EntityCreateNew("turret_storage")) -- Create a storage entity to pass our spell info to the turret
 			local cards = GetSpells(wand)
 			local store_deck = ""
-			local store_inventory_item_id = "COPIS_THINGS_" -- The inventory_item_id is used to synchronize spell uses
+			local store_inventory_item_id = "COPITH_" -- The inventory_item_id is used to synchronize spell uses
 			for k, v in ipairs(deck) do -- Generate ordered lists of cards to populate the turret wand
 				store_deck = store_deck .. tostring(cards[v.deck_index + 1]:id()) .. ","
 				store_inventory_item_id = store_inventory_item_id .. tostring(v.inventoryitem_id) .. ","
@@ -2996,7 +2996,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ARCANE_TURRET_PATIENT",
+		id = "COPITH_ARCANE_TURRET_PATIENT",
 		name = "$actionname_arcane_turret_patient",
 		description = "$actiondesc_arcane_turret_patient",
 		author = "Disco Witch",
@@ -3027,7 +3027,7 @@ local actions_to_insert = {
 			local storage = Entity(EntityCreateNew("turret_storage")) -- Create a storage entity to pass our spell info to the turret
 			local cards = GetSpells(wand)
 			local store_deck = ""
-			local store_inventory_item_id = "COPIS_THINGS_" -- The inventory_item_id is used to synchronize spell uses
+			local store_inventory_item_id = "COPITH_" -- The inventory_item_id is used to synchronize spell uses
 			for k, v in ipairs(deck) do -- Generate ordered lists of cards to populate the turret wand
 				store_deck = store_deck .. tostring(cards[v.deck_index + 1]:id()) .. ","
 				store_inventory_item_id = store_inventory_item_id .. tostring(v.inventoryitem_id) .. ","
@@ -3042,7 +3042,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_RECURSIVE_LARPA",
+		id = "COPITH_RECURSIVE_LARPA",
 		name = "$actionname_recursive_larpa",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3074,7 +3074,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LARPA_FIELD",
+		id = "COPITH_LARPA_FIELD",
 		name = "$actionname_larpa_field",
 		description = "$actiondesc_larpa_field",
 		author = "Disco Witch",
@@ -3094,7 +3094,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SHIELD_SAPPER",
+		id = "COPITH_SHIELD_SAPPER",
 		name = "$actionname_shield_sapper",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3114,7 +3114,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_PAPER_SHOT",
+		id = "COPITH_PAPER_SHOT",
 		name = "$actionname_paper_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3134,7 +3134,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_FEATHER_SHOT",
+		id = "COPITH_FEATHER_SHOT",
 		name = "$actionname_feather_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3155,7 +3155,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SCATTER_6",
+		id = "COPITH_SCATTER_6",
 		name = "$actionname_scatter_6",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3175,7 +3175,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SCATTER_8",
+		id = "COPITH_SCATTER_8",
 		name = "$actionname_scatter_8",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3195,7 +3195,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CLOUD_MAGIC_LIQUID_HP_REGENERATION",
+		id = "COPITH_CLOUD_MAGIC_LIQUID_HP_REGENERATION",
 		name = "$actionname_cloud_magic_liquid_hp_regeneration",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3217,7 +3217,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CHAOS_SPRITES",
+		id = "COPITH_CHAOS_SPRITES",
 		name = "$actionname_chaos_sprites",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3238,7 +3238,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SHIELD_GHOST",
+		id = "COPITH_SHIELD_GHOST",
 		name = "$actionname_shield_ghost",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3257,7 +3257,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_VACUUM_CLAW",
+		id = "COPITH_VACUUM_CLAW",
 		name = "$actionname_vacuum_claw",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3280,7 +3280,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CAUSTIC_CLAW",
+		id = "COPITH_CAUSTIC_CLAW",
 		name = "$actionname_caustic_claw",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3303,7 +3303,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LUMINOUS_BLADE",
+		id = "COPITH_LUMINOUS_BLADE",
 		name = "$actionname_luminous_blade",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3327,7 +3327,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_INVERT",
+		id = "COPITH_INVERT",
 		name = "$actionname_invert",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3346,7 +3346,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
+		id = "COPITH_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
 		name = "$actionname_teleport_projectile_short_trigger_death",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3368,7 +3368,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DEATH_CROSS_TRAIL",
+		id = "COPITH_DEATH_CROSS_TRAIL",
 		name = "$actionname_death_cross_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3388,7 +3388,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_GLITTERING_TRAIL",
+		id = "COPITH_GLITTERING_TRAIL",
 		name = "$actionname_glittering_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3407,7 +3407,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_BULLET_RAY",
+		id = "COPITH_SILVER_BULLET_RAY",
 		name = "$actionname_silver_bullet_ray",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3428,7 +3428,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_BULLET_RAY_6",
+		id = "COPITH_SILVER_BULLET_RAY_6",
 		name = "$actionname_silver_bullet_ray_6",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3449,7 +3449,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_BULLET_ON_DEATH",
+		id = "COPITH_SILVER_BULLET_ON_DEATH",
 		name = "$actionname_silver_bullet_on_death",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3470,7 +3470,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_BULLET_RAY_SPIN",
+		id = "COPITH_SILVER_BULLET_RAY_SPIN",
 		name = "$actionname_silver_bullet_ray_spin",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3491,7 +3491,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SILVER_BULLET_RAY_ENEMY",
+		id = "COPITH_SILVER_BULLET_RAY_ENEMY",
 		name = "$actionname_silver_bullet_ray_enemy",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3513,7 +3513,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ICE_ORB",
+		id = "COPITH_ICE_ORB",
 		name = "$actionname_ice_orb",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3548,7 +3548,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CHARM_FIELD",
+		id = "COPITH_CHARM_FIELD",
 		name = "$actionname_charm_field",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3568,7 +3568,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_MANA_RANDOM",
+		id = "COPITH_MANA_RANDOM",
 		name = "$actionname_mana_random",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3602,7 +3602,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HITFX_WET_2X_DAMAGE_FREEZE",
+		id = "COPITH_HITFX_WET_2X_DAMAGE_FREEZE",
 		name = "$actionname_hitfx_wet_2x_damage_freeze",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3622,7 +3622,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HITFX_BLOODY_2X_DAMAGE_POISONED",
+		id = "COPITH_HITFX_BLOODY_2X_DAMAGE_POISONED",
 		name = "$actionname_hitfx_bloody_2x_damage_poisoned",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3642,7 +3642,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HITFX_OILED_2X_DAMAGE_BURN",
+		id = "COPITH_HITFX_OILED_2X_DAMAGE_BURN",
 		name = "$actionname_hitfx_oiled_2x_damage_burn",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3662,7 +3662,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_BLINDNESS",
+		id = "COPITH_BLINDNESS",
 		name = "$actionname_blindness",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3686,7 +3686,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_MATERIAL_LAVA",
+		id = "COPITH_MATERIAL_LAVA",
 		name = "$action_material_lava",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3708,7 +3708,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_MATERIAL_MAGIC_LIQUID_POLYMORPH",
+		id = "COPITH_MATERIAL_MAGIC_LIQUID_POLYMORPH",
 		name = "$actionname_material_magic_liquid_polymorph",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3730,7 +3730,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_OPHIUCHUS",
+		id = "COPITH_OPHIUCHUS",
 		name = "$actionname_ophiuchus",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3755,7 +3755,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_NUGGET_SHOT",
+		id = "COPITH_NUGGET_SHOT",
 		name = "$actionname_nugget_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3781,7 +3781,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ASTRAL_VORTEX",
+		id = "COPITH_ASTRAL_VORTEX",
 		name = "$actionname_astral_vortex",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3840,7 +3840,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LASER_EMITTER_SMALL",
+		id = "COPITH_LASER_EMITTER_SMALL",
 		name = "$actionname_laser_emitter_small",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3861,7 +3861,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ACID",
+		id = "COPITH_ACID",
 		name = "$actionname_acid",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3879,7 +3879,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CEMENT",
+		id = "COPITH_CEMENT",
 		name = "$actionname_cement",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3900,7 +3900,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LIFETIME_RANDOM",
+		id = "COPITH_LIFETIME_RANDOM",
 		name = "$actionname_lifetime_random",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3920,7 +3920,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DELAY_2",
+		id = "COPITH_DELAY_2",
 		name = "$actionname_delay_2",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -3979,7 +3979,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DELAY_3",
+		id = "COPITH_DELAY_3",
 		name = "$actionname_delay_3",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4048,7 +4048,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DELAY_X",
+		id = "COPITH_DELAY_X",
 		name = "$actionname_delay_x",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4100,7 +4100,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CHAOS_RAY",
+		id = "COPITH_CHAOS_RAY",
 		name = "$actionname_chaos_ray",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4121,7 +4121,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ORDER_DECK",
+		id = "COPITH_ORDER_DECK",
 		name = "$actionname_order_deck",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4138,7 +4138,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_MANA_EFFICENCY",
+		id = "COPITH_MANA_EFFICENCY",
 		name = "$actionname_mana_efficency",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4157,7 +4157,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ULT_DAMAGE",
+		id = "COPITH_ULT_DAMAGE",
 		name = "$actionname_ult_damage",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4178,7 +4178,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ULT_DRAW_MANY",
+		id = "COPITH_ULT_DRAW_MANY",
 		name = "$actionname_ult_draw_many",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4229,7 +4229,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ULT_LIFETIME",
+		id = "COPITH_ULT_LIFETIME",
 		name = "$actionname_ult_lifetime",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4250,7 +4250,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ULT_CONTROL",
+		id = "COPITH_ULT_CONTROL",
 		name = "$actionname_ult_control",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4272,7 +4272,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ULT_RECHARGE",
+		id = "COPITH_ULT_RECHARGE",
 		name = "$actionname_ult_recharge",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4301,7 +4301,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ULT_PROTECTION",
+		id = "COPITH_ULT_PROTECTION",
 		name = "$actionname_ult_protection",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4323,7 +4323,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_BALLOON",
+		id = "COPITH_BALLOON",
 		name = "$actionname_balloon",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4342,7 +4342,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HOMING_SEEKER",
+		id = "COPITH_HOMING_SEEKER",
 		name = "$actionname_homing_seeker",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4363,7 +4363,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_PERSISTENT_SHOT",
+		id = "COPITH_PERSISTENT_SHOT",
 		name = "$actionname_persistent_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4380,7 +4380,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HYPER_BOUNCE",
+		id = "COPITH_HYPER_BOUNCE",
 		name = "$actionname_hyper_bounce",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4402,7 +4402,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ULTRAKILL",
+		id = "COPITH_ULTRAKILL",
 		name = "$actionname_ultrakill",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4421,7 +4421,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_WOOD_BRUSH",
+		id = "COPITH_WOOD_BRUSH",
 		name = "$actionname_wood_brush",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4439,7 +4439,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HOMING_ANTI_SHOOTER",
+		id = "COPITH_HOMING_ANTI_SHOOTER",
 		name = "$actionname_homing_anti_shooter",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4463,7 +4463,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ALCOHOL_SHOT",
+		id = "COPITH_ALCOHOL_SHOT",
 		name = "$actionname_alcohol_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4480,7 +4480,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SPREAD_DAMAGE",
+		id = "COPITH_SPREAD_DAMAGE",
 		name = "$actionname_spread_damage",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4501,7 +4501,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SUMMON_JAR_URINE",
+		id = "COPITH_SUMMON_JAR_URINE",
 		name = "$actionname_summon_jar_urine",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4520,7 +4520,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DAMAGE_BOUNCE",
+		id = "COPITH_DAMAGE_BOUNCE",
 		name = "$actionname_damage_bounce",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4547,7 +4547,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DIE",
+		id = "COPITH_DIE",
 		name = "$actionname_die",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4566,6 +4566,7 @@ local actions_to_insert = {
 				local x, y, r, sx, sy = EntityGetTransform(entity_id)
 				EntityLoad(table.concat{"data/entities/particles/image_emitters/player_disappear_effect_", (sx<0 and "left" or "right"), ".xml"}, x, y) -- gfx
 				EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999, "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTEGRATED", 0, 0, entity_id, x, y, 10)
+				GamePrintImportant("April Fooled")
 				EntityKill(entity_id)
 			end
 		end or function()
@@ -4578,7 +4579,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ENERGY_SHIELD_DIRECTIONAL",
+		id = "COPITH_ENERGY_SHIELD_DIRECTIONAL",
 		name = "$actionname_energy_shield_directional",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4598,7 +4599,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CLEANING_TOOL",
+		id = "COPITH_CLEANING_TOOL",
 		name = "$actionname_cleaning_tool",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4617,7 +4618,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_COIN",
+		id = "COPITH_COIN",
 		name = "$actionname_coin",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4645,7 +4646,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ALT_FIRE_COIN",
+		id = "COPITH_ALT_FIRE_COIN",
 		name = "$actionname_alt_fire_coin",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4662,7 +4663,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_VERTICAL_ARC",
+		id = "COPITH_VERTICAL_ARC",
 		name = "$actionname_vertical_arc",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4684,7 +4685,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_ARC_CONCRETE",
+		id = "COPITH_ARC_CONCRETE",
 		name = "$actionname_arc_concrete",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4705,7 +4706,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_MANA_ENGINE",
+		id = "COPITH_MANA_ENGINE",
 		name = "$actionname_mana_engine",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4750,7 +4751,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_RECHARGE_ENGINE",
+		id = "COPITH_RECHARGE_ENGINE",
 		name = "$actionname_recharge_engine",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4794,7 +4795,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_DAMAGE_ENGINE",
+		id = "COPITH_DAMAGE_ENGINE",
 		name = "$actionname_damage_engine",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4838,7 +4839,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_SHIELD_ENGINE",
+		id = "COPITH_SHIELD_ENGINE",
 		name = "$actionname_shield_engine",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4878,7 +4879,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_RECHARGE_UNSTABLE",
+		id = "COPITH_RECHARGE_UNSTABLE",
 		name = "$actionname_recharge_unstable",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4914,7 +4915,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_RAINBOW_TRAIL",
+		id = "COPITH_RAINBOW_TRAIL",
 		name = "$actionname_rainbow_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4932,7 +4933,7 @@ local actions_to_insert = {
 	},
 	--[[
 	{
-		id = "COPIS_THINGS_TARGET_TRIGGER",
+		id = "COPITH_TARGET_TRIGGER",
 		name = "Target with expiration trigger",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4960,7 +4961,7 @@ local actions_to_insert = {
 		end
 	},]]
 	{
-		id = "COPIS_THINGS_CONFETTI_TRAIL",
+		id = "COPITH_CONFETTI_TRAIL",
 		name = "$actionname_confetti_trail",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -4977,7 +4978,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_SWORD_FORMATION",
+		id = "COPITH_SWORD_FORMATION",
 		name = "$actionname_sword_formation",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5016,7 +5017,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LINK_SHOT",
+		id = "COPITH_LINK_SHOT",
 		name = "$actionname_link_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5050,7 +5051,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id		  = "COPIS_THINGS_REDUCE_KNOCKBACK",
+		id		  = "COPITH_REDUCE_KNOCKBACK",
 		name 		= "$actionname_reduce_knockback",
 		author	  = "Copi",
 		mod = "Copi's Things",
@@ -5069,7 +5070,7 @@ local actions_to_insert = {
 	},
 	{
 		-- Todo optimize
-		id = "COPIS_THINGS_BARRIER_ARC",
+		id = "COPITH_BARRIER_ARC",
 		name = "$actionname_barrier_arc",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5101,7 +5102,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id		  = "COPIS_THINGS_LIQUID_EATER",
+		id		  = "COPITH_LIQUID_EATER",
 		name 		= "$actionname_liquid_eater",
 		author	  = "Copi",
 		mod = "Copi's Things",
@@ -5120,7 +5121,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_BURST_FIRE",
+		id = "COPITH_BURST_FIRE",
 		name = "$actionname_burst_fire",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5191,7 +5192,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_TRANSMISSION_CAST",
+		id = "COPITH_TRANSMISSION_CAST",
 		name = "$actionname_transmission_cast",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5209,7 +5210,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_CIRCLE_BOOST",
+		id = "COPITH_CIRCLE_BOOST",
 		name = "$actionname_circle_boost",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5232,7 +5233,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_META_SKIP_PROJECTILE",
+		id = "COPITH_META_SKIP_PROJECTILE",
 		name = "$actionname_meta_skip_projectile",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5253,7 +5254,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_META_STOP_SKIP_PROJECTILE",
+		id = "COPITH_META_STOP_SKIP_PROJECTILE",
 		name = "$actionname_meta_stop_skip_projectile",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5274,7 +5275,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_META_SKIP_ALL",
+		id = "COPITH_META_SKIP_ALL",
 		name = "$actionname_meta_skip_all",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5298,7 +5299,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_META_SKIP_NONE",
+		id = "COPITH_META_SKIP_NONE",
 		name = "$actionname_meta_skip_none",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5324,7 +5325,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_META_SKIP_MODIFIER",
+		id = "COPITH_META_SKIP_MODIFIER",
 		name = "$actionname_meta_skip_modifier",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5344,7 +5345,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_META_SKIP_PROJECTILE_IF_PROJECTILE",
+		id = "COPITH_META_SKIP_PROJECTILE_IF_PROJECTILE",
 		name = "$actionname_meta_skip_projectile_if_projectile",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5380,7 +5381,7 @@ local actions_to_insert = {
 	},
 
 	{
-		id				= "COPIS_THINGS_SUMMON_FLASK",
+		id				= "COPITH_SUMMON_FLASK",
 		name			  = "$actionname_summon_flask",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5399,7 +5400,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id				= "COPIS_THINGS_SUMMON_FLASK_FULL",
+		id				= "COPITH_SUMMON_FLASK_FULL",
 		name			  = "$actionname_summon_flask_full",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5419,7 +5420,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_TELEPORT",
+		id = "COPITH_TELEPORT",
 		name = "$actionname_teleport",
 		description = "$actiondesc_teleport",
 		author = "Copi",
@@ -5453,7 +5454,7 @@ local actions_to_insert = {
 		end
 	},
 	{	
-		id = "COPIS_THINGS_TELEPORT_BAD",
+		id = "COPITH_TELEPORT_BAD",
 		name = "$actionname_teleport_bad",
 		description = "$actiondesc_teleport_bad",
 		author = "Copi",
@@ -5487,7 +5488,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HOMING_BOUNCE",
+		id = "COPITH_HOMING_BOUNCE",
 		name = "$actionname_homing_bounce",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5513,7 +5514,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HOMING_BOUNCE_CURSOR",
+		id = "COPITH_HOMING_BOUNCE_CURSOR",
 		name = "$actionname_homing_bounce_cursor",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5540,7 +5541,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HOMING_INTERVAL",
+		id = "COPITH_HOMING_INTERVAL",
 		name = "$actionname_homing_interval",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5559,7 +5560,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HOMING_MACROSS",
+		id = "COPITH_HOMING_MACROSS",
 		name = "$actionname_homing_macross",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5583,7 +5584,7 @@ local actions_to_insert = {
 			Credits:
 				Inspiration: Azoth
 		]]
-		id = "COPIS_THINGS_POLYMORPH",
+		id = "COPITH_POLYMORPH",
 		name = "$actionname_polymorph",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5612,7 +5613,7 @@ local actions_to_insert = {
 			Credits:
 				Particle: Evaisa
 		]]
-		id = "COPIS_THINGS_SUS_TRAIL",
+		id = "COPITH_SUS_TRAIL",
 		name = "$actionname_sus_trail",
 		description = "$actiondesc_sus_trail",
 		sprite = "mods/copis_things/files/ui_gfx/gun_actions/sus_trail.png",
@@ -5627,7 +5628,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_MUSIC_PLAYER",
+		id = "COPITH_MUSIC_PLAYER",
 		name = "$actionname_music_player",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5645,7 +5646,7 @@ local actions_to_insert = {
 		end
 	},--[[
 	{
-		id = "COPIS_THINGS_SRS",
+		id = "COPITH_SRS",
 		name = "Serious Cannonball",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5694,7 +5695,7 @@ local actions_to_insert = {
 		end
 	},]]
 	{
-		id = "COPIS_THINGS_GRAPPLING_HOOK",
+		id = "COPITH_GRAPPLING_HOOK",
 		name = "$actionname_grappling_hook",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5717,7 +5718,7 @@ local actions_to_insert = {
 			Credits:
 				Inspiration: Shattered Pixel Dungeon
 		]]
-		id = "COPIS_THINGS_SPECTRAL_HOOK",
+		id = "COPITH_SPECTRAL_HOOK",
 		name = "$actionname_spectral_hook",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5727,7 +5728,7 @@ local actions_to_insert = {
 		type = ACTION_TYPE_PROJECTILE,
 		spawn_level = "0,1,2,3,4",
 		spawn_probability = "0.2,3,0.3,0.5,1",
-		inject_after = {"COPIS_THINGS_GRAPPLING_HOOK"},
+		inject_after = {"COPITH_GRAPPLING_HOOK"},
 		price = 120,
 		mana = 45,
 		action = function()
@@ -5736,7 +5737,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_GRAPPLING_HOOK_SHOT",
+		id = "COPITH_GRAPPLING_HOOK_SHOT",
 		name = "$actionname_grappling_hook_shot",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5757,7 +5758,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_CIRCLE_ANCHOR",
+		id = "COPITH_CIRCLE_ANCHOR",
 		name = "$actionname_circle_anchor",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5780,7 +5781,7 @@ local actions_to_insert = {
 		end
 	},--[[ TODO: Orbital Mechanics
 	{
-		id = "COPIS_THINGS_CIRCLE_ORBIT",
+		id = "COPITH_CIRCLE_ORBIT",
 		name = "Circle of Cyclicity",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5803,7 +5804,7 @@ local actions_to_insert = {
 		end
 	},]]
 	{
-		id = "COPIS_THINGS_GRAPPLING_HOOK_RAY_ENEMY",
+		id = "COPITH_GRAPPLING_HOOK_RAY_ENEMY",
 		name = "$actionname_grappling_hook_ray_enemy",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5825,7 +5826,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ALT_FIRE_GRAPPLING_HOOK",
+		id = "COPITH_ALT_FIRE_GRAPPLING_HOOK",
 		name = "$actionname_alt_fire_grappling_hook",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5851,7 +5852,7 @@ local actions_to_insert = {
 			Credits:
 				Inspiration: Chemical Curiosities (Chaotic Pandorium)
 		]]
-		id = "COPIS_THINGS_TRUE_CHAOS_RAY",
+		id = "COPITH_TRUE_CHAOS_RAY",
 		name = "$actionname_true_chaos_ray",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5872,7 +5873,7 @@ local actions_to_insert = {
 		end
 	},--[[
 	{
-		id = "COPIS_THINGS_CHRONO_CALIBER",
+		id = "COPITH_CHRONO_CALIBER",
 		name = "Chrono Caliber",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5899,7 +5900,7 @@ local actions_to_insert = {
 		end
 	},]]
 	{
-		id = "COPIS_THINGS_HITFX_LARPA",
+		id = "COPITH_HITFX_LARPA",
 		name = "$actionname_hitfx_larpa",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5916,7 +5917,7 @@ local actions_to_insert = {
 		max_uses = 3,
 		action = function()
 			if not current_action then return end
-			if current_action.id == "COPIS_THINGS_HITFX_LARPA" then
+			if current_action.id == "COPITH_HITFX_LARPA" then
 				copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
 				c.fire_rate_wait = c.fire_rate_wait + 60
 				current_reload_time = current_reload_time + 120
@@ -5928,7 +5929,7 @@ local actions_to_insert = {
 	--[[ TODO: Figure out recast so I can make it drain mana properly, and cost mana and whatnot, and handle card deletions with currentcard change
 		-- Worst case; just add slots and move the spells into wand then back out, but this can probably be exploited. Bad idea actually, fuck that
 	{
-		id = "COPIS_THINGS_INVENTORY_WAND",
+		id = "COPITH_INVENTORY_WAND",
 		name = "Spell Bag",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5943,7 +5944,7 @@ local actions_to_insert = {
 		mana = 150,
 		max_uses = 3,
 		action = function()
-			if current_action.id == "COPIS_THINGS_INVENTORY_WAND" and not reflecting then
+			if current_action.id == "COPITH_INVENTORY_WAND" and not reflecting then
 				local caster = GetUpdatedEntityID()
 				local children = EntityGetAllChildren(caster) or {}
 				local spells = {}
@@ -5973,7 +5974,7 @@ local actions_to_insert = {
 	-- Must be my decline into madness...
 	-- Eh whatever
 	--[[{
-		id = "COPIS_THINGS_AFFIX",
+		id = "COPITH_AFFIX",
 		name = "Affix",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -5992,7 +5993,7 @@ local actions_to_insert = {
 	},]]
 	{
 		-- TODO better 
-		id = "COPIS_THINGS_ARCANA_TO_POWER",
+		id = "COPITH_ARCANA_TO_POWER",
 		name = "$actionname_arcana_to_power",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6013,7 +6014,7 @@ local actions_to_insert = {
 		end
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
-		id = "COPIS_THINGS_DUPLICATE_ACTION",
+		id = "COPITH_DUPLICATE_ACTION",
 		name = "$actionname_duplicate_action",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6029,9 +6030,9 @@ local actions_to_insert = {
 			if not reflecting then
 				local drew = deck[1]
 				if drew then
-					if meta_manager(drew, "COPIS_THINGS_DUPLICATE_ACTION") then
+					if meta_manager(drew, "COPITH_DUPLICATE_ACTION") then
 						local lookup = GunUtils.lookup_spells()
-						drew = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+						drew = actions[lookup["COPITH_ACTION_INVERSION"]['index']]
 					end
 					drew['uses_remaining'] = drew['uses_remaining'] or -1
 					hand[#hand] = drew
@@ -6040,7 +6041,7 @@ local actions_to_insert = {
 		end
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
-		id = "COPIS_THINGS_SPINDOWN_SPELL",
+		id = "COPITH_SPINDOWN_SPELL",
 		name = "$actionname_spindown_spell",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6059,8 +6060,8 @@ local actions_to_insert = {
 					if not drew['spun'] then
 						local action = nil
 						local lookup = GunUtils.lookup_spells()
-						if meta_manager(drew, "COPIS_THINGS_SPINDOWN_SPELL") then
-							action = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+						if meta_manager(drew, "COPITH_SPINDOWN_SPELL") then
+							action = actions[lookup["COPITH_ACTION_INVERSION"]['index']]
 						else
 							local index	 = lookup[drew['id']]['index']
 							local spun	  = ((index-2)%#actions)+1
@@ -6081,7 +6082,7 @@ local actions_to_insert = {
 		end
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
-		id = "COPIS_THINGS_DUPLICATE_ACTION_2",
+		id = "COPITH_DUPLICATE_ACTION_2",
 		name = "$actionname_duplicate_action_2",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6098,9 +6099,9 @@ local actions_to_insert = {
 				local drew = deck[1]
 				if not drew then return end
 				if not drew['duplicate_action_2'] then  -- prevent adding a copy each cast, like the AC refresh exploit
-					if meta_manager(drew, "COPIS_THINGS_DUPLICATE_ACTION_2") then   -- Ignore this part, it's for a little secret when you cast the spell on itself
+					if meta_manager(drew, "COPITH_DUPLICATE_ACTION_2") then   -- Ignore this part, it's for a little secret when you cast the spell on itself
 						local lookup = GunUtils.lookup_spells()
-						drew = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+						drew = actions[lookup["COPITH_ACTION_INVERSION"]['index']]
 					end
 					drew['duplicate_action_2'] = true
 					drew['uses_remaining'] = drew['uses_remaining'] or -1
@@ -6111,7 +6112,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_DUPLICATE_ACTION_3",
+		id = "COPITH_DUPLICATE_ACTION_3",
 		name = "$actionname_duplicate_action_3",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6128,9 +6129,9 @@ local actions_to_insert = {
 				local drew = deck[1]
 				if not drew then return end
 				if not drew['duplicate_action_3'] then
-					if meta_manager(drew, "COPIS_THINGS_DUPLICATE_ACTION_3") then
+					if meta_manager(drew, "COPITH_DUPLICATE_ACTION_3") then
 						local lookup = GunUtils.lookup_spells()
-						drew = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+						drew = actions[lookup["COPITH_ACTION_INVERSION"]['index']]
 					end
 					drew['duplicate_action_3'] = true
 					drew['uses_remaining'] = drew['uses_remaining'] or -1
@@ -6141,7 +6142,7 @@ local actions_to_insert = {
 		end
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
-		id = "COPIS_THINGS_IMPRINT",
+		id = "COPITH_IMPRINT",
 		name = "$actionname_imprint",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6160,9 +6161,9 @@ local actions_to_insert = {
 				if drew then
 					if not drew['spun'] then
 						local action = nil
-						if meta_manager(drew, "COPIS_THINGS_IMPRINT") then   -- Ignore this part, it's for a little secret when you cast the spell on itself
+						if meta_manager(drew, "COPITH_IMPRINT") then   -- Ignore this part, it's for a little secret when you cast the spell on itself
 							local lookup = GunUtils.lookup_spells()
-							action = actions[lookup["COPIS_THINGS_ACTION_INVERSION"]['index']]
+							action = actions[lookup["COPITH_ACTION_INVERSION"]['index']]
 						else
 							local iter = tonumber(GlobalsGetValue( "fungal_shift_iteration", "0" )) or 0
 							local id_sum = 0
@@ -6189,7 +6190,7 @@ local actions_to_insert = {
 		end
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
-		id = "COPIS_THINGS_ACTION_INVERSION",
+		id = "COPITH_ACTION_INVERSION",
 		name = "$actionname_action_inversion",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6208,7 +6209,7 @@ local actions_to_insert = {
 			if not reflecting then
 				local drew = deck[1]
 				if drew then
-					meta_manager(drew, "COPIS_THINGS_ACTION_INVERSION")
+					meta_manager(drew, "COPITH_ACTION_INVERSION")
 
 					-- Discard the next spell
 					table.insert( discarded, table.remove( deck, 1 ) )
@@ -6272,7 +6273,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_BALANCE",
+		id = "COPITH_BALANCE",
 		name = "$actionname_balance",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6292,7 +6293,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_GILDED_AXE",
+		id = "COPITH_GILDED_AXE",
 		name = "$actionname_gilded_axe",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6312,7 +6313,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id =					"COPIS_THINGS_STARLIGHT_AXE",
+		id =					"COPITH_STARLIGHT_AXE",
 		name =					"$actionname_starlight_axe",
 		description =			"$actiondesc_starlight_axe",
 		sprite =				"mods/copis_things/files/ui_gfx/gun_actions/starlight_axe.png",
@@ -6335,7 +6336,7 @@ local actions_to_insert = {
 		I wanted to add a special case where it's added to projectiles with damagemodels like fish and pollen, but that's too much work
 	]]
 	{
-		id = "COPIS_THINGS_TRIGGER_DAMAGE_RECEIVED",
+		id = "COPITH_TRIGGER_DAMAGE_RECEIVED",
 		name = "$actionname_trigger_damage_received",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6381,7 +6382,7 @@ local actions_to_insert = {
 		end
 	},--[[
 	{
-		id = "COPIS_THINGS_REVENGE_RECHARGE",
+		id = "COPITH_REVENGE_RECHARGE",
 		name = "$actionname_revenge_recharge",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6399,7 +6400,7 @@ local actions_to_insert = {
 	},]]
 	-- I'd make this reel enemies through portals, but that's too much effort for now
 	{
-		id = "COPIS_THINGS_RIPHOOK",
+		id = "COPITH_RIPHOOK",
 		name = "$actionname_riphook",
 		description = "$actiondesc_riphook",
 		author = "Copi",
@@ -6418,7 +6419,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ALT_FIRE_RIPHOOK",
+		id = "COPITH_ALT_FIRE_RIPHOOK",
 		name = "$actionname_alt_fire_riphook",
 		description = "$actiondesc_alt_fire_riphook",
 		author = "Copi",
@@ -6440,7 +6441,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_FIRESPHERE",
+		id = "COPITH_FIRESPHERE",
 		name = "$actionname_firesphere",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6462,7 +6463,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_ALT_FIRE_BOMB",
+		id = "COPITH_ALT_FIRE_BOMB",
 		name = "$actionname_alt_fire_bomb",
 		description = "$actiondesc_alt_fire_bomb",
 		author = "Copi",
@@ -6481,7 +6482,7 @@ local actions_to_insert = {
 		end
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
-		id = "COPIS_THINGS_LOOP_CAST",
+		id = "COPITH_LOOP_CAST",
 		name = "$actionname_loop_cast",
 		description = "$actiondesc_loop_cast",
 		author = "Copi",
@@ -6504,7 +6505,7 @@ local actions_to_insert = {
 		end
 	},--[[ cant figure out the silly spell 
 	{
-		id = "COPIS_THINGS_FLIP_EVERY_OTHER",
+		id = "COPITH_FLIP_EVERY_OTHER",
 		name = "$actionname_flip_every_other",
 		description = "$actiondesc_flip_every_other",
 		author = "Copi",
@@ -6522,7 +6523,7 @@ local actions_to_insert = {
 		end
 	},]]--[[ cant make this look right
 	{
-		id = "COPIS_THINGS_CRIMSON_DAGGER",
+		id = "COPITH_CRIMSON_DAGGER",
 		name = "$actionname_crimson_dagger",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6542,7 +6543,7 @@ local actions_to_insert = {
 		end
 	},]]
 	{
-		id = "COPIS_THINGS_ICE_CUBE",
+		id = "COPITH_ICE_CUBE",
 		name = "$actionname_ice_cube",
 		description = "$actiondesc_ice_cube",
 		author = "Copi",
@@ -6561,7 +6562,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_MANA_DELTA",
+		id = "COPITH_MANA_DELTA",
 		name = "$actionname_mana_delta",
 		description = "$actiondesc_mana_delta",
 		author = "Copi",
@@ -6585,7 +6586,7 @@ local actions_to_insert = {
 		end,
 	},
 	{
-		id = "COPIS_THINGS_PAIN_RAY",
+		id = "COPITH_PAIN_RAY",
 		name = "$actionname_pain_ray",
 		description = "$actiondesc_pain_ray",
 		author = "Copi",
@@ -6606,7 +6607,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HOLY_RAY",
+		id = "COPITH_HOLY_RAY",
 		name = "$actionname_holy_ray",
 		description = "$actiondesc_holy_ray",
 		author = "Copi",
@@ -6625,7 +6626,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_INFERNAL_STREAK",
+		id = "COPITH_INFERNAL_STREAK",
 		name = "$actionname_infernal_streak",
 		description = "$actiondesc_infernal_streak",
 		author = "Copi",
@@ -6648,7 +6649,7 @@ local actions_to_insert = {
 			Credits:
 				Concept: Conga Lyne
 		]]
-		id = "COPIS_THINGS_AVERAGE_MANA",
+		id = "COPITH_AVERAGE_MANA",
 		name = "$actionname_average_mana",
 		description = "$actiondesc_average_mana",
 		author = "Copi",
@@ -6665,7 +6666,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_AMMO_BOX",
+		id = "COPITH_AMMO_BOX",
 		name = "$actionname_ammo_box",
 		description = "$actiondesc_ammo_box",
 		author = "Copi",
@@ -6684,7 +6685,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_AMMO_FROM_HP",
+		id = "COPITH_AMMO_FROM_HP",
 		name = "$actionname_ammo_from_hp",
 		description = "$actiondesc_ammo_from_hp",
 		author = "Copi",
@@ -6701,7 +6702,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_LARPA_BUT_GOOD",
+		id = "COPITH_LARPA_BUT_GOOD",
 		name = "$actionname_larpa_but_good",
 		description = "$actiondesc_larpa_but_good",
 		author = "Copi",
@@ -6723,7 +6724,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id					= "COPIS_THINGS_GATE_MANA",
+		id					= "COPITH_GATE_MANA",
 		name				= "$actionname_gate_mana",
 		description			= "$actiondesc_gate_mana",
 		author				= "Copi",
@@ -6756,7 +6757,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id					= "COPIS_THINGS_GATE_HP",
+		id					= "COPITH_GATE_HP",
 		name				= "$actionname_gate_hp",
 		description			= "$actiondesc_gate_hp",
 		author				= "Copi",
@@ -6794,7 +6795,7 @@ local actions_to_insert = {
 			Credits:
 				Inspiration: Dungeons and Dragons 5e
 		]]
-		id = "COPIS_THINGS_GLYPH_OF_BULLSHIT",
+		id = "COPITH_GLYPH_OF_BULLSHIT",
 		name = "$actionname_glyph_of_bullshit",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6831,7 +6832,7 @@ local actions_to_insert = {
 		end
 	},--[[ woe be upon ye
 	{
-		id = "COPIS_THINGS_SILENCER",
+		id = "COPITH_SILENCER",
 		name = "$actionname_silencer",
 		description = "$actiondesc_silencer",
 		author = "Copi",
@@ -6852,7 +6853,7 @@ local actions_to_insert = {
 	},]]
 	--[[
 	{
-		id = "COPIS_THINGS_LIGHT_BULLET_WITH_AMNESIA",
+		id = "COPITH_LIGHT_BULLET_WITH_AMNESIA",
 		name = "$actionname_light_bullet_with_amnesia",
 		description = "$actiondesc_light_bullet_with_amnesia",
 		author = "Copi",
@@ -6875,7 +6876,7 @@ local actions_to_insert = {
 			Credits:
 				Inspiration: Risk of Rain 2
 		]]
-		id = "COPIS_THINGS_ROR2COLLAPSE",
+		id = "COPITH_ROR2COLLAPSE",
 		name = "$actionname_ror2collapse",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6896,7 +6897,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_REDIRECT_THIS",
+		id = "COPITH_REDIRECT_THIS",
 		name = "$actionname_redirect_this",
 		description = "$actiondesc_redirect_this",
 		author = "Copi",
@@ -6916,7 +6917,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_REDIRECT_THIS_RARE",
+		id = "COPITH_REDIRECT_THIS_RARE",
 		name = "$actionname_redirect_this_rare",
 		description = "$actiondesc_redirect_this_rare",
 		author = "Copi",
@@ -6936,7 +6937,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_HYDROJET",
+		id = "COPITH_HYDROJET",
 		name = "$actionname_hydrojet",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -6957,7 +6958,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_VILE_EYE",
+		id = "COPITH_VILE_EYE",
 		name = "$actionname_vile_eye",
 		description = "$actiondesc_vile_eye",
 		author = "Copi",
@@ -6984,7 +6985,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_BOMB_SMALL",
+		id = "COPITH_BOMB_SMALL",
 		name = "$actionname_bomb_small",
 		description = "$actiondesc_bomb_small",
 		author = "Copi",
@@ -7005,7 +7006,7 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPIS_THINGS_STUN_BOMBS",
+		id = "COPITH_STUN_BOMBS",
 		name = "$actionname_stun_bombs",
 		description = "$actiondesc_stun_bombs",
 		author = "Copi",
@@ -7026,9 +7027,11 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id         			= "COPIS_THINGS_TOUCH_GRASS",
+		id         			= "COPITH_TOUCH_GRASS",
 		name 				= "$actionname_touch_grass",
 		description			= "$actiondesc_touch_grass",
+		author				= "Copi",
+		mod					= "Copi's Things",
 		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/touch_grass.png",
 		sprite_unidentified	= "data/ui_gfx/gun_actions/rocket_unidentified.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/touch_grass.xml"},
@@ -7043,9 +7046,11 @@ local actions_to_insert = {
 		end,
 	},
 	{ -- rare esoteric bullshit
-		id         			= "COPIS_THINGS_RANDOM_PROJECTILE_REAL",
+		id         			= "COPITH_RANDOM_PROJECTILE_REAL",
 		name 				= "$actionname_random_projectile_real",
 		description			= "$actiondesc_random_projectile_real",
+		author				= "Copi",
+		mod					= "Copi's Things",
 		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/random_projectile_real.png",
 		sprite_unidentified	= "data/ui_gfx/gun_actions/rocket_unidentified.png",
 		related_projectiles	= {"mods/copis_things/files/entities/projectiles/random_projectile_real.xml"},
@@ -7125,7 +7130,7 @@ end
 -- Handle dev build spells
 if DebugGetIsDevBuild() then
 	actions[#actions + 1] = {
-		id = "COPIS_THINGS_DEBUG",
+		id = "COPITH_DEBUG",
 		name = "Debug",
 		author = "Copi",
 		mod = "Copi's Things",
@@ -7144,7 +7149,7 @@ if DebugGetIsDevBuild() then
 		end
 	}
 	actions[#actions + 1] = {
-		id = "COPIS_THINGS_TEST",
+		id = "COPITH_TEST",
 		name = "TEST",
 		author = "Copi",
 		mod = "Copi's Things",
