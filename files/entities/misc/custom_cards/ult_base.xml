@@ -9,8 +9,6 @@
     <ParticleEmitterComponent
         _tags="enabled_in_world,item_identified"
         emitted_material_name="spark_white"
-        offset.x="0"
-        offset.y="0"
         x_pos_offset_min="-1"
         x_pos_offset_max="1"
         y_pos_offset_min="-9"
@@ -20,8 +18,8 @@
         x_vel_max="0"
         y_vel_min="-50"
         y_vel_max="-10"
-        count_min="2"
-        count_max="5"
+        count_min="0"
+        count_max="1"
         lifetime_min="0.1"
         lifetime_max="0.2"
         airflow_force="0.1"
@@ -36,9 +34,21 @@
         fade_based_on_lifetime="1"
         is_emitting="1"
         image_animation_file="mods/copis_things/files/particles/image_emitters/card_emitter.png"
-        image_animation_speed="5"
+        image_animation_speed="1"
         image_animation_loop="1"
         image_animation_raytrace_from_center="0"
+        custom_style="FIRE"
+		color="32323232"
+		offset.x="-1"
+		offset.y="0"
+		image_animation_use_entity_rotation="1"
         ></ParticleEmitterComponent>
+
+		<LuaComponent
+			_tags="enabled_in_hand,enabled_in_world,enabled_in_inventory"
+			script_source_file="mods/copis_things/files/scripts/custom_cards/ult_bg.lua"
+			execute_every_n_frame="1"
+			remove_after_executed="1"
+		/>
 
 </Entity>

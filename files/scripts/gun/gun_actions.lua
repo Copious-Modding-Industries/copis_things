@@ -6026,6 +6026,7 @@ local actions_to_insert = {
 		inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
 		price = 256,
 		mana = 40,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			if not reflecting then
 				local drew = deck[1]
@@ -6053,6 +6054,7 @@ local actions_to_insert = {
 		inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
 		price = 256,
 		mana = 40,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			if not reflecting then
 				local drew = deck[1]
@@ -6094,6 +6096,7 @@ local actions_to_insert = {
 		inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
 		price = 256,
 		mana = 40,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			if (not reflecting) and (not current_action.permanently_attached) then  -- ACs make the game angry I guess
 				local drew = deck[1]
@@ -6124,6 +6127,7 @@ local actions_to_insert = {
 		inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
 		price = 256,
 		mana = 40,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			if (not reflecting) and (not current_action.permanently_attached) then
 				local drew = deck[1]
@@ -6154,6 +6158,7 @@ local actions_to_insert = {
 		inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
 		price = 256,
 		mana = 40,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			-- this WILL break lol lmao
 			if not reflecting then
@@ -6203,6 +6208,7 @@ local actions_to_insert = {
 		spawn_requires_flag = "copis_things_meta_spell_action",
 		price = 256,
 		mana = 40,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			-- this spell was a fucking multi hour migraine marathon. fuck. probably not even worth the effort too.
 			-- I pray this works. Have spent literally all day working on it.
@@ -6494,6 +6500,7 @@ local actions_to_insert = {
 		inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
 		price = 256,
 		mana = 40,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			if not reflecting then
 				hand = {}
@@ -6768,6 +6775,7 @@ local actions_to_insert = {
 		spawn_probability	= "0.2,0.3,0.4,0.3,0.2,0.1,0.2,0.5",
 		price				= 256,
 		mana				= 0,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			---@diagnostic disable-next-line: lowercase-global
 			if not reflecting then
@@ -6806,6 +6814,7 @@ local actions_to_insert = {
 		spawn_probability = "0.5,0.3,0.5,0.2,0.1,0.1",	-- THIS IS IN URGENT NEED OF BALANCING.
 		price = 130,
 		mana = 15,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			if reflecting then
 				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/glyph_of_bullshit_explosion.xml")

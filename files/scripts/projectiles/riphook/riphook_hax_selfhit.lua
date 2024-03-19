@@ -12,7 +12,7 @@ if ComponentGetValue2(projcomp, "friendly_fire") then
     end
 
     -- Halve damage and set hit frames to 1 in 42
-    local damage_types = {"curse", "drill", "electricity", "explosion", "fire", "healing", "ice", "melee", "overeating", "physics_hit", "poison", "projectile", "radioactive", "slice"}
+    local damage_types = {"curse", "drill", "electricity", "explosion", "fire", "healing", "ice", "melee", "overeating", "physics_hit", "poison", "projectile", "radioactive", "slice", "holy"}
     ComponentSetValue2(projcomp, "damage_every_x_frames", 42)
     ComponentSetValue2(projcomp, "damage", ComponentGetValue2(projcomp,"damage")/2)
     for i=1,#damage_types do

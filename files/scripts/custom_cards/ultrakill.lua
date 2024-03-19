@@ -76,7 +76,7 @@ if cdcomp ~= nil then
                                 -- Set damage
                                 ComponentSetValue2(projectile, "damage", ComponentGetValue2(projectile, "damage") * multiplier)
                                 -- Set typed damage
-                                for _, type in ipairs({"curse", "drill", "electricity", "explosion", "fire", "healing", "ice", "melee", "overeating", "physics_hit", "poison", "projectile", "radioactive", "slice"}) do
+                                for _, type in ipairs({"curse", "drill", "electricity", "explosion", "fire", "healing", "ice", "melee", "overeating", "physics_hit", "poison", "projectile", "radioactive", "slice", "holy"}) do
                                     local damage = ComponentObjectGetValue2(projectile, "damage_by_type", type)
                                     ComponentObjectSetValue2(projectile, "damage_by_type", type, damage * multiplier)
                                 end

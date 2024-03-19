@@ -87,7 +87,7 @@ function collision_trigger( colliding_entity_id )
         ComponentSetValue2( pec, "mExPosition", coin_x, coin_y )
     end
 
-    local damage_types = {"curse", "drill", "electricity", "explosion", "fire", "healing", "ice", "melee", "overeating", "physics_hit", "poison", "projectile", "radioactive", "slice"}
+    local damage_types = {"curse", "drill", "electricity", "explosion", "fire", "healing", "ice", "melee", "overeating", "physics_hit", "poison", "projectile", "radioactive", "slice", "holy"}
     local projcomp = EntityGetFirstComponentIncludingDisabled(colliding_entity_id, "ProjectileComponent")
     if ComponentGetValue2(projcomp, "collide_with_world") then
         EntityAddComponent2(colliding_entity_id, "LuaComponent", {

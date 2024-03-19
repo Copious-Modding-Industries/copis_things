@@ -15,6 +15,7 @@ local types = {
 	{ id = "projectile",	mult = 0.0},	-- no
 	{ id = "radioactive",	mult = 0.5},	-- idk funny
 	{ id = "slice",			mult = 0.0},	-- no
+	{ id = "holy",			mult = 0.0},	-- no
 }
 
 for i=1, #types do

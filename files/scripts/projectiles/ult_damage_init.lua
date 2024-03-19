@@ -1,7 +1,7 @@
 dofile("data/scripts/lib/utilities.lua")
 local entity_id = GetUpdatedEntityID()
 local comp = EntityGetFirstComponent( entity_id, "ProjectileComponent")
-local damage_types = {"curse", "drill", "electricity", "explosion", "fire", "healing", "ice", "melee", "overeating", "physics_hit", "poison", "projectile", "radioactive", "slice"}
+local damage_types = {"curse", "drill", "electricity", "explosion", "fire", "healing", "ice", "melee", "overeating", "physics_hit", "poison", "projectile", "radioactive", "slice", "holy"}
 if ( comp ~= nil ) then
 
     local damage = ComponentGetValue2( comp, "damage" )
