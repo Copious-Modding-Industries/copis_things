@@ -78,7 +78,7 @@ if self.ProjectileComponent then
         if wand then
             if wand.AbilityComponent then
                 local mana = wand.AbilityComponent.mana
-                local mana_drain = self.var_float.copis_things_mana_drain
+                local mana_drain = 0.5
                 if mana > mana_drain then
                     wand.AbilityComponent.mana = math.max(mana - mana_drain, 0)
                 else

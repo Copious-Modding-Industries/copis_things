@@ -7054,6 +7054,167 @@ local actions_to_insert = {
 			add_projectile("mods/copis_things/files/entities/projectiles/touch_grass.xml")
 		end,
 	},
+	-- ALMOST works. Either using a temp deck and it skips all spells after it (???) or it does an AC wand refresh haxx
+	--[[{
+		id 						= "COPITH_INVENTORY_WAND",
+		name 					= "$actionname_inventory_wand",
+		description 			= "$actiondesc_inventory_wand",
+		author 					= "Copi",
+		mod 					= "Copi's Things",
+		sprite 					= "mods/copis_things/files/ui_gfx/gun_actions/inventory_wand.png",
+		sprite_unidentified 	= "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		type 					= ACTION_TYPE_OTHER,
+		spawn_level 			= "6,10",
+		spawn_probability 		= "0.1,0.4",
+		price 					= 300,
+		mana 					= 150,
+		max_uses 				= 3,
+		custom_xml_file			= "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
+		action = function()
+			if reflecting then return end
+			local caster = GetUpdatedEntityID()
+			local inv2comp = EntityGetFirstComponentIncludingDisabled(caster, "Inventory2Component")
+			if not inv2comp then return end
+			local slots = ComponentGetValue2(inv2comp, "full_inventory_slots_x") * ComponentGetValue2(inv2comp, "full_inventory_slots_y")
+			local children = EntityGetAllChildren(caster) or {}
+			-- Get spells inventory
+			for i=1,#children do
+				if (EntityGetName(children[i]) == "inventory_full") then
+					local lookup = GunUtils.lookup_spells()
+					-- Gather all spells in inventory
+					local inventory_items = EntityGetAllChildren(children[i]) or {}
+					local old_deck = deck
+					local deck = {}
+					for j=1,#inventory_items do
+						if EntityHasTag(inventory_items[j], "card_action") then
+							local iac = EntityGetFirstComponentIncludingDisabled( inventory_items[j], "ItemActionComponent" ) ---@cast iac integer
+							local action = lookup[ComponentGetValue2( iac, "action_id" )]
+							if action ~= nil then
+								deck[#deck+1] = action
+							end
+						end
+					end
+
+					while (#deck > 0) do draw_actions(1, true) end
+
+					deck = old_deck
+
+					for key, value in pairs(deck) do
+						print(tostring(key), tostring(value.id))
+					end
+					break
+				end
+			end
+		end
+	},]]
+
+	{
+		id         			= "COPITH_ELECTRIC_TELEPORT",
+		name 				= "$actionname_electric_teleport",
+		description			= "$actiondesc_electric_teleport",
+		author				= "Copi",
+		mod					= "Copi's Things",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/electric_teleport.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/rocket_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/electric_teleport.xml"},
+		type 				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "2,3,4",
+		spawn_probability	= "1,0.5,0.5",
+		price				= 100,
+		mana				= 30,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/electric_teleport.xml")
+		end,
+	},
+	{
+		id         			= "COPITH_CLOUD_DISC_BULLET",
+		name 				= "$actionname_cloud_disc_bullet",
+		description			= "$actiondesc_cloud_disc_bullet",
+		author				= "Copi",
+		mod					= "Copi's Things",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/cloud_disc_bullet.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/cloud_disc_bullet.xml"},
+		type 				= ACTION_TYPE_STATIC_PROJECTILE,
+		spawn_level			= "0,1,2,3,4,5", -- CLOUD_THUNDER
+		spawn_probability	= "0.3,0.3,0.2,0.3,0.4,0.5", -- CLOUD_THUNDER
+		price				= 100,
+		mana				= 120,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/cloud_disc_bullet.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 30
+		end,
+	},
+	--[[{
+		id         			= "COPITH_VELOCITY_UP",
+		name 				= "$actionname_velocity_up",
+		description			= "$actiondesc_velocity_up",
+		author				= "Copi",
+		mod					= "Copi's Things",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/velocity_up.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		type 				= ACTION_TYPE_UTILITY,
+		spawn_level			= "6",
+		spawn_probability	= "0.3",
+		price				= 100,
+		mana				= 120,
+		action				= function()
+			local shooter = GetUpdatedEntityID()
+			local x, y = EntityGetTransform(shooter)
+			local entities = EntityGetInRadius(x, y, 128) or {}
+			for i=1, #entities do
+				local cdcs	= EntityGetComponent(entities[i], "CharacterDataComponent") or {}
+				local vcs	= EntityGetComponent(entities[i], "VelocityComponent") or {}
+				for j=1, #cdcs do
+					local vx, vy = ComponentGetValue2(cdcs[i], "mVelocity")
+					ComponentSetValue2(cdcs[i], "mVelocity", vx*1.5, vy*1.5)
+				end
+				for j=1, #vcs do
+					local vx, vy = ComponentGetValue2(vcs[i], "mVelocity")
+					ComponentSetValue2(vcs[i], "mVelocity", vx*1.5, vy*1.5)
+				end
+			end
+			current_reload_time = current_reload_time + 30
+		end,
+	},
+	{
+		id         			= "COPITH_VELOCITY_DOWN",
+		name 				= "$actionname_velocity_down",
+		description			= "$actiondesc_velocity_down",
+		author				= "Copi",
+		mod					= "Copi's Things",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/velocity_down.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
+		type 				= ACTION_TYPE_UTILITY,
+		spawn_level			= "6",
+		spawn_probability	= "0.3",
+		price				= 100,
+		mana				= 120,
+		action				= function()
+			local shooter = GetUpdatedEntityID()
+			local x, y = EntityGetTransform(shooter)
+			local entities = EntityGetInRadius(x, y, 128) or {}
+			for i=1, #entities do
+				local cdcs	= EntityGetComponent(entities[i], "CharacterDataComponent") or {}
+				print(#cdcs)
+				local vcs	= EntityGetComponent(entities[i], "VelocityComponent") or {}
+				print(#vcs)
+				for j=1, #cdcs do
+					local vx, vy = ComponentGetValue2(cdcs[j], "mVelocity")
+					print(vx, vy)
+					ComponentSetValue2(cdcs[j], "mVelocity", vx*1.5, vy*1.5)
+				end
+				for j=1, #vcs do
+					local vx, vy = ComponentGetValue2(vcs[j], "mVelocity")
+					print(vx, vy)
+					ComponentSetValue2(vcs[j], "mVelocity", vx*0.66, vy*0.66)
+				end
+			end
+			current_reload_time = current_reload_time + 30
+		end,
+	},]]
+
+	-- IDEALLY keep at end of list.
 	{ -- rare esoteric bullshit
 		id         			= "COPITH_RANDOM_PROJECTILE_REAL",
 		name 				= "$actionname_random_projectile_real",

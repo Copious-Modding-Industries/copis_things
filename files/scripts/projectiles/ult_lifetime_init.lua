@@ -1,11 +1,9 @@
-dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
-local self = Entity.Current()
-
-if self.ProjectileComponent then
-    self.ProjectileComponent.lifetime = -1
+local entity_id = GetUpdatedEntityID()
+local ltc = EntityGetComponentIncludingDisabled(entity_id, "LifetimeComponent") or {}
+for i=1, #ltc do
+	EntityRemoveComponent(entity_id, ltc[i])
 end
-if self.LifetimeComponent then
-    self.LifetimeComponent:remove()
+local pc = EntityGetComponentIncludingDisabled(entity_id, "ProjectileComponent") or {}
+for i=1, #pc do
+	ComponentSetValue2(pc[i], "lifetime", -1)
 end
-
-self.var_float.copis_things_mana_drain = 0.5
