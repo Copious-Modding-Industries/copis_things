@@ -406,24 +406,6 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPITH_ZENITH_DISC",
-		name = "$actionname_zenith_disc",
-		author = "Copi",
-		mod = "Copi's Things",
-		description = "Summons a no-nonsense sawblade.",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/zenith_disc.png",
-		type = ACTION_TYPE_PROJECTILE,
-		spawn_level = "6,10",
-		spawn_probability = "0.2,0.2",
-		inject_after = {"DISC_BULLET", "DISC_BULLET_BIG", "DISC_BULLET_BIGGER"},
-		price = 100,
-		mana = 140,
-		action = function()
-			c.spread_degrees = c.spread_degrees + 5.0
-			add_projectile("mods/copis_things/files/entities/projectiles/zenith_disc.xml")
-		end
-	},
-	{
 		id = "COPITH_EVISCERATOR_DISC",
 		name = "$actionname_eviscerator_disc",
 		author = "Copi",
@@ -6297,6 +6279,24 @@ local actions_to_insert = {
 			current_reload_time = avg
 			draw_actions(1, true)
 		end,
+	},
+	{
+		id = "COPITH_ZENITH_DISC",
+		name = "$actionname_zenith_disc",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "Summons a no-nonsense sawblade.",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/zenith_disc.png",
+		type = ACTION_TYPE_PROJECTILE,
+		spawn_level = "6,10",
+		spawn_probability = "0.2,0.2",
+		inject_after = {"DISC_BULLET", "DISC_BULLET_BIG", "DISC_BULLET_BIGGER"},
+		price = 100,
+		mana = 140,
+		action = function()
+			c.spread_degrees = c.spread_degrees + 5.0
+			add_projectile("mods/copis_things/files/entities/projectiles/zenith_disc.xml")
+		end
 	},
 	{
 		id = "COPITH_GILDED_AXE",
