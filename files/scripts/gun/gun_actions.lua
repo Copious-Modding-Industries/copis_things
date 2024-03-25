@@ -7035,25 +7035,6 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 60
 		end
 	},
-	{
-		id         			= "COPITH_TOUCH_GRASS",
-		name 				= "$actionname_touch_grass",
-		description			= "$actiondesc_touch_grass",
-		author				= "Copi",
-		mod					= "Copi's Things",
-		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/touch_grass.png",
-		sprite_unidentified	= "data/ui_gfx/gun_actions/rocket_unidentified.png",
-		related_projectiles	= {"mods/copis_things/files/entities/projectiles/touch_grass.xml"},
-		type 				= ACTION_TYPE_MATERIAL,
-		spawn_level			= "1,2,3,4,5,6,7,10", -- TOUCH_GOLD
-		spawn_probability	= "0,0,0,0,0.1,0.1,0.1,0.05", -- TOUCH_GOLD
-		price				= 480,
-		mana				= 20,
-		max_uses			= 3,
-		action				= function()
-			add_projectile("mods/copis_things/files/entities/projectiles/touch_grass.xml")
-		end,
-	},
 	-- ALMOST works. Either using a temp deck and it skips all spells after it (???) or it does an AC wand refresh haxx
 	--[[{
 		id 						= "COPITH_INVENTORY_WAND",
