@@ -1,0 +1,32 @@
+<Entity>
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/luminous_blade.png"
+		/>
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPITH_LUMINOUS_BLADE"
+		/>
+	</Base>
+	<SpriteComponent
+		_tags="enabled_in_hand,not_enabled_in_wand"
+		_enabled="0"
+		offset_x="1.5" 
+		offset_y="18" 
+		alpha="1"
+		image_file="mods/copis_things/files/ui_gfx/gun_actions/extra_gfx/luminous_blade.png"
+	/>
+	<AbilityComponent
+		_tags="enabled_in_hand"
+		entity_file="mods/copis_things/files/entities/projectiles/luminous_blade.xml"
+		rotate_hand_amount="0.75"
+		throw_as_item="1"
+		ui_name="$actionname_luminous_blade"
+		simulate_throw_as_item="1"
+		use_entity_file_as_projectile_info_proxy="1"
+		>
+			<gun_config
+				deck_capacity="0"
+			/>
+	</AbilityComponent>
+</Entity>

@@ -30,6 +30,8 @@ local Gui = dofile_once("mods/copis_things/files/scripts/gui/gui.lua")
 local content = {
 
     actions = function ()
+		dofile("mods/copis_things/init/handhelds.lua")
+
         -- Gun Extra Modifiers (status)
         ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/gun/gun_extra_modifiers.lua")
         -- Edit gun.lua
@@ -185,9 +187,7 @@ end
 
 function OnPlayerSpawned()
     Gui:PlayerSpawned()
-	if not GameIsBetaBuild() then
-		GamePrintImportant("The Gods want you to use beta branch!", "Please?", "mods/copis_things/files/ui_gfx/decorations/3piece_meta.png")
-	end
+	-- Update main
 end
 
 function OnWorldPostUpdate()

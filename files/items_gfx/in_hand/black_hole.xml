@@ -1,0 +1,17 @@
+<Sprite 
+  filename="mods/copis_things/files/items_gfx/in_hand/black_hole.png" 
+  offset_x="5.5" 
+  offset_y="5.5" >
+
+  <RectAnimation 
+    frame_count="7" 
+	frames_per_row="1"
+    frame_height="10" 
+    frame_width="10" 
+    frame_wait="0.2" 
+    name="default"
+    pos_x="0" 
+    pos_y="0" 
+    shrink_by_one_pixel="1" >
+  </RectAnimation>
+</Sprite>
