@@ -6710,7 +6710,7 @@ local actions_to_insert = {
 			draw_actions(1, true)
 		end
 	},
-	{
+	--[[{
 		id = "COPITH_LARPA_BUT_GOOD",
 		name = "$actionname_larpa_but_good",
 		description = "$actiondesc_larpa_but_good",
@@ -6731,7 +6731,7 @@ local actions_to_insert = {
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/larpa_but_good.xml,"
 			draw_actions(1, true)
 		end
-	},
+	},]]
 	{
 		id					= "COPITH_GATE_MANA",
 		name				= "$actionname_gate_mana",
