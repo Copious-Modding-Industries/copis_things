@@ -2,7 +2,7 @@
 for i = 1, #actions do
     local action = actions[i]
     if not ModSettingGet("CopisThings.spelltoggle" .. action.id) then
-        local replacement = {
+        actions[i] = {
             disabled = true,
             id = action.id,
             name = action.name,
@@ -16,14 +16,12 @@ for i = 1, #actions do
             mana = 0,
             action = function()
                 ---@diagnostic disable-next-line: undefined-global
-                if not reflecting then
-                    local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
-                    local this_card = GunUtils.current_card(this_wand)
-                    EntityKill(this_card)
-                    print(table.concat { "[COPIS THINGS]: ACTION ", action.id, " WHICH IS DISABLED HAS BEEN CASTED!" })
-                end
+                if reflecting then return end
+				local this_wand = GunUtils.current_wand(GetUpdatedEntityID())
+				local this_card = GunUtils.current_card(this_wand)
+				EntityKill(this_card)
+				print(table.concat { "[COPIS THINGS]: ACTION ", action.id, " WHICH IS DISABLED HAS BEEN CASTED!" })
             end
         }
-        actions[i] = replacement
     end
 end

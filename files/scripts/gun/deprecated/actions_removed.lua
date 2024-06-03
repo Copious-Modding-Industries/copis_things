@@ -2223,6 +2223,154 @@ local to_insert = {
             end
         end,
     },
+	{
+		id = "COPITH_META_SKIP_PROJECTILE",
+		name = "$actionname_meta_skip_projectile",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_meta_skip_projectile",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_projectile.png",
+		type = ACTION_TYPE_OTHER,
+		spawn_level = "4,10",
+		spawn_probability = "0.2,0.2",
+		price = 100,
+		mana = 0,
+		action = function()
+			if not reflecting then
+				copi_state.skip_type[0] = true
+				copi_state.skip_type[1] = true
+				copi_state.skip_type[4] = true
+			end
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPITH_META_STOP_SKIP_PROJECTILE",
+		name = "$actionname_meta_stop_skip_projectile",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_meta_stop_skip_projectile",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_stop_skip_projectile.png",
+		type = ACTION_TYPE_OTHER,
+		spawn_level = "4,10",
+		spawn_probability = "0.2,0.2",
+		price = 100,
+		mana = 0,
+		action = function()
+			if not reflecting then
+				copi_state.skip_type[0] = false
+				copi_state.skip_type[1] = false
+				copi_state.skip_type[4] = false
+			end
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPITH_META_SKIP_ALL",
+		name = "$actionname_meta_skip_all",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_meta_skip_all",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_all.png",
+		type = ACTION_TYPE_OTHER,
+		spawn_level = "4,10",
+		spawn_probability = "0.2,0.2",
+		price = 100,
+		mana = 0,
+		action = function()
+			if not reflecting then
+				copi_state.skip_type[0] = true
+				copi_state.skip_type[1] = true
+				copi_state.skip_type[2] = true
+				copi_state.skip_type[3] = true
+				copi_state.skip_type[4] = true
+				copi_state.skip_type[6] = true
+			end
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPITH_META_SKIP_NONE",
+		name = "$actionname_meta_skip_none",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_meta_skip_none",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_none.png",
+		type = ACTION_TYPE_OTHER,
+		spawn_level = "4,10",
+		spawn_probability = "0.2,0.2",
+		price = 100,
+		mana = 0,
+		action = function()
+			if not reflecting then
+				copi_state.skip_type[0] = false
+				copi_state.skip_type[1] = false
+				copi_state.skip_type[2] = false
+				copi_state.skip_type[3] = false
+				copi_state.skip_type[4] = false
+				copi_state.skip_type[5] = false
+				copi_state.skip_type[6] = false
+				copi_state.skip_type[7] = false
+			end
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPITH_META_SKIP_MODIFIER",
+		name = "$actionname_meta_skip_modifier",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_meta_skip_modifier",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_modifier.png",
+		type = ACTION_TYPE_OTHER,
+		spawn_level = "4,10",
+		spawn_probability = "0.2,0.5",
+		price = 100,
+		mana = 0,
+		action = function()
+			if not reflecting then
+				copi_state.skip_type[2] = false
+				copi_state.skip_type[3] = false
+			end
+			draw_actions(1, true)
+		end
+	},
+	{
+		id = "COPITH_META_SKIP_PROJECTILE_IF_PROJECTILE",
+		name = "$actionname_meta_skip_projectile_if_projectile",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_meta_skip_projectile_if_projectile",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_projectile_if_projectile.png",
+		type = ACTION_TYPE_OTHER,
+		spawn_level = "4,10",
+		spawn_probability = "0.2,0.1",
+		price = 100,
+		mana = 0,
+		action = function()
+			if not reflecting then
+				local shooter = GetUpdatedEntityID()
+				local x, y = EntityGetTransform(shooter)
+				local projectiles = EntityGetInRadiusWithTag(x, y, 256, "player_projectile") or {}
+				local count = 0
+				for i=1, #projectiles do
+					local projcomp = EntityGetFirstComponentIncludingDisabled(projectiles[i], "ProjectileComponent")
+					if projcomp ~= nil then
+						if ComponentGetValue2( projcomp, "mWhoShot" ) == shooter then
+							count = count + 1
+						end
+					end
+				end
+				if count >= 20 then
+					copi_state.skip_type[1] = false
+					copi_state.skip_type[2] = false
+					copi_state.skip_type[3] = false
+				end
+			end
+			draw_actions(1, true)
+		end
+	},
+
 
 }
 

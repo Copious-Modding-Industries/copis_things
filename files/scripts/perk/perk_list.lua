@@ -347,6 +347,12 @@ to_insert =
                     end
                 end
             end
+			local children = EntityGetAllChildren(entity_who_picked) or {}
+			for i=1, #children do
+				if EntityGetName(children[i]) == "PROT_LOTTERY_EFFECT" then
+					EntityKill(children[i])
+				end
+			end
         end,
     },
     -- Resilience

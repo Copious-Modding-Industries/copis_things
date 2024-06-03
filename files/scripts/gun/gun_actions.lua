@@ -5217,154 +5217,6 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPITH_META_SKIP_PROJECTILE",
-		name = "$actionname_meta_skip_projectile",
-		author = "Copi",
-		mod = "Copi's Things",
-		description = "$actiondesc_meta_skip_projectile",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_projectile.png",
-		type = ACTION_TYPE_OTHER,
-		spawn_level = "4,10",
-		spawn_probability = "0.2,0.2",
-		price = 100,
-		mana = 0,
-		action = function()
-			if not reflecting then
-				copi_state.skip_type[0] = true
-				copi_state.skip_type[1] = true
-				copi_state.skip_type[4] = true
-			end
-			draw_actions(1, true)
-		end
-	},
-	{
-		id = "COPITH_META_STOP_SKIP_PROJECTILE",
-		name = "$actionname_meta_stop_skip_projectile",
-		author = "Copi",
-		mod = "Copi's Things",
-		description = "$actiondesc_meta_stop_skip_projectile",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_stop_skip_projectile.png",
-		type = ACTION_TYPE_OTHER,
-		spawn_level = "4,10",
-		spawn_probability = "0.2,0.2",
-		price = 100,
-		mana = 0,
-		action = function()
-			if not reflecting then
-				copi_state.skip_type[0] = false
-				copi_state.skip_type[1] = false
-				copi_state.skip_type[4] = false
-			end
-			draw_actions(1, true)
-		end
-	},
-	{
-		id = "COPITH_META_SKIP_ALL",
-		name = "$actionname_meta_skip_all",
-		author = "Copi",
-		mod = "Copi's Things",
-		description = "$actiondesc_meta_skip_all",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_all.png",
-		type = ACTION_TYPE_OTHER,
-		spawn_level = "4,10",
-		spawn_probability = "0.2,0.2",
-		price = 100,
-		mana = 0,
-		action = function()
-			if not reflecting then
-				copi_state.skip_type[0] = true
-				copi_state.skip_type[1] = true
-				copi_state.skip_type[2] = true
-				copi_state.skip_type[3] = true
-				copi_state.skip_type[4] = true
-				copi_state.skip_type[6] = true
-			end
-			draw_actions(1, true)
-		end
-	},
-	{
-		id = "COPITH_META_SKIP_NONE",
-		name = "$actionname_meta_skip_none",
-		author = "Copi",
-		mod = "Copi's Things",
-		description = "$actiondesc_meta_skip_none",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_none.png",
-		type = ACTION_TYPE_OTHER,
-		spawn_level = "4,10",
-		spawn_probability = "0.2,0.2",
-		price = 100,
-		mana = 0,
-		action = function()
-			if not reflecting then
-				copi_state.skip_type[0] = false
-				copi_state.skip_type[1] = false
-				copi_state.skip_type[2] = false
-				copi_state.skip_type[3] = false
-				copi_state.skip_type[4] = false
-				copi_state.skip_type[5] = false
-				copi_state.skip_type[6] = false
-				copi_state.skip_type[7] = false
-			end
-			draw_actions(1, true)
-		end
-	},
-	{
-		id = "COPITH_META_SKIP_MODIFIER",
-		name = "$actionname_meta_skip_modifier",
-		author = "Copi",
-		mod = "Copi's Things",
-		description = "$actiondesc_meta_skip_modifier",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_modifier.png",
-		type = ACTION_TYPE_OTHER,
-		spawn_level = "4,10",
-		spawn_probability = "0.2,0.5",
-		price = 100,
-		mana = 0,
-		action = function()
-			if not reflecting then
-				copi_state.skip_type[2] = false
-				copi_state.skip_type[3] = false
-			end
-			draw_actions(1, true)
-		end
-	},
-	{
-		id = "COPITH_META_SKIP_PROJECTILE_IF_PROJECTILE",
-		name = "$actionname_meta_skip_projectile_if_projectile",
-		author = "Copi",
-		mod = "Copi's Things",
-		description = "$actiondesc_meta_skip_projectile_if_projectile",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/meta_skip_projectile_if_projectile.png",
-		type = ACTION_TYPE_OTHER,
-		spawn_level = "4,10",
-		spawn_probability = "0.2,0.1",
-		price = 100,
-		mana = 0,
-		action = function()
-			if not reflecting then
-				local shooter = GetUpdatedEntityID()
-				local x, y = EntityGetTransform(shooter)
-				local projectiles = EntityGetInRadiusWithTag(x, y, 256, "player_projectile") or {}
-				local count = 0
-				for i=1, #projectiles do
-					local projcomp = EntityGetFirstComponentIncludingDisabled(projectiles[i], "ProjectileComponent")
-					if projcomp ~= nil then
-						if ComponentGetValue2( projcomp, "mWhoShot" ) == shooter then
-							count = count + 1
-						end
-					end
-				end
-				if count >= 20 then
-					copi_state.skip_type[1] = false
-					copi_state.skip_type[2] = false
-					copi_state.skip_type[3] = false
-				end
-			end
-			draw_actions(1, true)
-		end
-	},
-
-	{
 		id				= "COPITH_SUMMON_FLASK",
 		name			  = "$actionname_summon_flask",
 		author = "Copi",
@@ -6191,7 +6043,7 @@ local actions_to_insert = {
 		inject_after = {"DIVIDE_2", "DIVIDE_3", "DIVIDE_4", "DIVIDE_10"},
 		spawn_requires_flag = "copis_things_meta_spell_action",
 		price = 256,
-		mana = 40,
+		mana = 5,
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/wandbuilding.xml",
 		action = function()
 			-- this spell was a fucking multi hour migraine marathon. fuck. probably not even worth the effort too.
@@ -7128,72 +6980,46 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 30
 		end,
 	},
-	--[[{
-		id         			= "COPITH_VELOCITY_UP",
-		name 				= "$actionname_velocity_up",
-		description			= "$actiondesc_velocity_up",
-		author				= "Copi",
-		mod					= "Copi's Things",
-		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/velocity_up.png",
-		sprite_unidentified	= "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-		type 				= ACTION_TYPE_UTILITY,
-		spawn_level			= "6",
-		spawn_probability	= "0.3",
-		price				= 100,
-		mana				= 120,
-		action				= function()
-			local shooter = GetUpdatedEntityID()
-			local x, y = EntityGetTransform(shooter)
-			local entities = EntityGetInRadius(x, y, 128) or {}
-			for i=1, #entities do
-				local cdcs	= EntityGetComponent(entities[i], "CharacterDataComponent") or {}
-				local vcs	= EntityGetComponent(entities[i], "VelocityComponent") or {}
-				for j=1, #cdcs do
-					local vx, vy = ComponentGetValue2(cdcs[i], "mVelocity")
-					ComponentSetValue2(cdcs[i], "mVelocity", vx*1.5, vy*1.5)
-				end
-				for j=1, #vcs do
-					local vx, vy = ComponentGetValue2(vcs[i], "mVelocity")
-					ComponentSetValue2(vcs[i], "mVelocity", vx*1.5, vy*1.5)
-				end
-			end
-			current_reload_time = current_reload_time + 30
-		end,
-	},
 	{
-		id         			= "COPITH_VELOCITY_DOWN",
-		name 				= "$actionname_velocity_down",
-		description			= "$actiondesc_velocity_down",
+		id         			= "COPITH_POLY_PROPANE_TANK",
+		name 				= "$actionname_poly_propane_tank",
+		description			= "$actiondesc_poly_propane_tank",
 		author				= "Copi",
 		mod					= "Copi's Things",
-		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/velocity_down.png",
-		sprite_unidentified	= "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
-		type 				= ACTION_TYPE_UTILITY,
-		spawn_level			= "6",
-		spawn_probability	= "0.3",
-		price				= 100,
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/poly_propane_tank.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/bomb_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/poly_propane_tank.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "2,3,4,5,6", -- PROPANE_TANK
+		spawn_probability	= "0.5,0.5,0.6,0.5,0.6", -- PROPANE_TANK
+		price				= 200,
 		mana				= 120,
+		max_uses			= 10,
+		custom_xml_file		= "mods/copis_things/files/entities/misc/custom_cards/poly_propane_tank.xml",
 		action				= function()
-			local shooter = GetUpdatedEntityID()
-			local x, y = EntityGetTransform(shooter)
-			local entities = EntityGetInRadius(x, y, 128) or {}
-			for i=1, #entities do
-				local cdcs	= EntityGetComponent(entities[i], "CharacterDataComponent") or {}
-				print(#cdcs)
-				local vcs	= EntityGetComponent(entities[i], "VelocityComponent") or {}
-				print(#vcs)
-				for j=1, #cdcs do
-					local vx, vy = ComponentGetValue2(cdcs[j], "mVelocity")
-					print(vx, vy)
-					ComponentSetValue2(cdcs[j], "mVelocity", vx*1.5, vy*1.5)
-				end
-				for j=1, #vcs do
-					local vx, vy = ComponentGetValue2(vcs[j], "mVelocity")
-					print(vx, vy)
-					ComponentSetValue2(vcs[j], "mVelocity", vx*0.66, vy*0.66)
-				end
-			end
-			current_reload_time = current_reload_time + 30
+			add_projectile("mods/copis_things/files/entities/projectiles/poly_propane_tank.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 120
+		end,
+	},--[[
+	{
+		id         			= "COPITH_HOLIEST_BOMB",
+		name 				= "$actionname_holiest_bomb",
+		description			= "$actiondesc_holiest_bomb",
+		author				= "Copi",
+		mod					= "Copi's Things",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/holiest_bomb.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/bomb_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/poly_propane_tank.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "2,3,4,5,6", -- PROPANE_TANK
+		spawn_probability	= "0.5,0.5,0.6,0.5,0.6", -- PROPANE_TANK
+		price				= 200,
+		mana				= 120,
+		max_uses			= 10,
+		custom_xml_file		= "mods/copis_things/files/entities/misc/custom_cards/poly_propane_tank.xml",
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/poly_propane_tank.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 120
 		end,
 	},]]
 
