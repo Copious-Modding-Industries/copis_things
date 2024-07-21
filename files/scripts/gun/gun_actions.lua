@@ -7046,8 +7046,7 @@ local actions_to_insert = {
 			end
 		end,
 	},
-	{
-		--[[
+	--[[{
 		id = "COPITH_DELAYED_DAMAGE",
 		name = "$actionname_ror2collapse",
 		author = "Copi",
