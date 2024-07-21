@@ -1,4 +1,4 @@
-
+local perk_pickup_old = perk_pickup
 local function perk_pickup( entity_item, entity_who_picked, item_name, do_cosmetic_fx, kill_other_perks )
 
     local valid = false
@@ -44,7 +44,7 @@ local function perk_pickup( entity_item, entity_who_picked, item_name, do_cosmet
     -- Give perk
     for i=1,count do
         -- cant be bothered to make custom particle emitter for this, it'd be cool if it did some fancier gfx if you pick up while doing recursion
-        old.perk_pickup(entity_item, entity_who_picked, item_name, (i==1 and do_cosmetic_fx), kill_other_perks)
+        perk_pickup_old(entity_item, entity_who_picked, item_name, (i==1 and do_cosmetic_fx), kill_other_perks)
     end
 end
 
