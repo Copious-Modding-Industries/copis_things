@@ -1,0 +1,31 @@
+<Entity name="collapse">
+	<UIIconComponent
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/ror2collapse.png"
+		name="$effect_name_copis_things_ror2collapse"
+		description="$effect_desc_copis_things_ror2collapse"
+		display_above_head="0"
+		display_in_hud="1"
+	/>
+	<LifetimeComponent lifetime="6000" />
+	<LuaComponent _enabled="1" execute_on_added="1" execute_every_n_frame="-1"
+		remove_after_executed="1"
+		script_source_file="mods/copis_things/files/scripts/projectiles/effect_delayed_damage_init.lua"
+	/>
+	<InheritTransformComponent />
+	<SpriteComponent
+		_enabled="1"
+		alpha="0.8"
+		image_file="mods/copis_things/files/projectiles_gfx/delayed_damage_orb.png"
+		next_rect_animation=""
+		offset_x="0"
+		offset_y="0"
+		rect_animation="default"
+		additive="1"
+		emissive="1"
+	/>
+	<AudioLoopComponent
+		file="data/audio/Desktop/projectiles.bank"
+		event_name="projectiles/fuse_burn_magic"
+		auto_play="1"
+	/>
+</Entity>

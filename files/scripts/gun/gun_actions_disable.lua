@@ -1,7 +1,7 @@
 -- Disable unwanted actions
 for i = 1, #actions do
     local action = actions[i]
-    if not ModSettingGet("CopisThings.spelltoggle" .. action.id) then
+    if not ModSettingGet("copis_things.spelltoggle_" .. action.id) then
         actions[i] = {
             disabled = true,
             id = action.id,

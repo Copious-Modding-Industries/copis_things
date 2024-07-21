@@ -2927,6 +2927,7 @@ local actions_to_insert = {
 		price = 227,
 		mana = 143,
 		max_uses = 3,
+		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/summon_anvil.xml",
 		action = function()
 			add_projectile("mods/copis_things/files/entities/projectiles/anvil.xml")
 		end
@@ -5302,7 +5303,6 @@ local actions_to_insert = {
 		price = 25,
 		mana = 59,
 		action = function()
-
 			if not reflecting then
 				--add_projectile("mods/copis_things/files/entities/projectiles/effect_teleport_bad.xml")
 				local shooter = GetUpdatedEntityID()
@@ -7046,6 +7046,28 @@ local actions_to_insert = {
 			end
 		end,
 	},
+	{
+		--[[
+		id = "COPITH_DELAYED_DAMAGE",
+		name = "$actionname_ror2collapse",
+		author = "Copi",
+		mod = "Copi's Things",
+		description = "$actiondesc_ror2collapse",
+		sprite = "mods/copis_things/files/ui_gfx/gun_actions/delayed_damage.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_collapse.xml" },
+		type = ACTION_TYPE_MODIFIER,
+		spawn_level = "2,3,4",
+		spawn_probability = "0.6,0.3,0.4",
+		inject_after = {"FIREBALL_RAY_LINE"},
+		price = 300,
+		mana = 10,
+		action = function()
+			c.fire_rate_wait = c.fire_rate_wait + 12
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_delayed_damage.xml,"
+			draw_actions(1, true)
+		end
+	},]]
 }
 
 if ModSettingGet("CopisThings.inject_spells") then

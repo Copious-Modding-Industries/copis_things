@@ -171,6 +171,8 @@ function OnModInit()
     content.statuses()
     content.materials()
     --compatibility.setupModCompat()
+
+	AddFlagPersistent("flag_you_must_have")
 end
 
 function OnWorldInitialized()

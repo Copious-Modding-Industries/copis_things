@@ -7,12 +7,12 @@
 	    </ItemComponent>
 
 		<SpriteComponent 
-			image_file="mods/copis_things/files/ui_gfx/gun_actions/poly_propane_tank.png" 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/summon_anvil.png" 
 		></SpriteComponent>
 		
 		<ItemActionComponent 
 			_tags="enabled_in_world"
-			action_id="COPITH_POLY_PROPANE_TANK" >
+			action_id="COPITH_SUMMON_ANVIL" >
 		</ItemActionComponent>
 	</Base>
 
@@ -21,13 +21,13 @@
 		_enabled="0"
 		offset_x="3.5"
 		offset_y="6"
-    	image_file="mods/copis_things/files/items_gfx/in_hand/poly_propane_tank.png" >
+    	image_file="mods/copis_things/files/items_gfx/in_hand/anvil.png" >
 	</SpriteComponent>
 
 	<AbilityComponent
 		_tags="enabled_in_hand"
-		ui_name="$actionname_poly_propane_tank"
-		entity_file="mods/copis_things/files/entities/projectiles/poly_propane_tank.xml"
+		ui_name="$actionname_summon_anvil"
+		entity_file="mods/copis_things/files/entities/projectiles/anvil.xml"
 		rotate_hand_amount="0.05"
 		throw_as_item="1" 
 		simulate_throw_as_item="1"

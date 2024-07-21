@@ -1,0 +1,11 @@
+<Entity>
+	<InheritTransformComponent />
+	<LuaComponent _enabled="1" execute_on_added="1" execute_every_n_frame="-1"
+		remove_after_executed="1"
+		script_source_file="mods/copis_things/files/scripts/projectiles/delayed_damage_edit.lua"
+	/>
+    <HitEffectComponent
+        effect_hit="LOAD_CHILD_ENTITY"
+        value_string="mods/copis_things/files/entities/misc/effect_delayed_damage.xml"
+    />
+</Entity>
