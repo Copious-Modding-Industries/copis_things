@@ -1,0 +1,143 @@
+<Entity name="$projectile_default" tags="projectile_player,disc_bullet">
+
+	<Base file="data/entities/base_projectile.xml">
+		<VelocityComponent
+			gravity_y="0"
+			air_friction="-2"
+			mass="0.05"
+		>
+		</VelocityComponent>
+	</Base>
+
+	<ProjectileComponent
+		_enabled="1"
+		lob_min="0.5"
+		lob_max="0.7"
+		speed_min="200"
+		speed_max="200"
+		friction="1"
+		direction_random_rad="0.01"
+		on_death_explode="0"
+		on_death_gfx_leave_sprite="1"
+		on_lifetime_out_explode="0"
+		explosion_dont_damage_shooter="1"
+		on_collision_die="0"
+		on_collision_remove_projectile="0"
+		lifetime="500"
+		damage="1"
+		lifetime_randomness="7"
+		ragdoll_force_multiplier="0"
+		hit_particle_force_multiplier="0.1"
+		create_shell_casing="0"
+		muzzle_flash_file="data/entities/particles/muzzle_flashes/muzzle_flash_medium.xml"
+		shoot_light_flash_r="255"
+		shoot_light_flash_g="240"
+		shoot_light_flash_b="30"
+		shoot_light_flash_radius="64"
+		die_on_low_velocity="0"
+		bounces_left="30"
+		bounce_at_any_angle="1"
+		collide_with_shooter_frames="6"
+		friendly_fire="1"
+		velocity_sets_rotation="1"
+		velocity_sets_scale="0"
+		ragdoll_fx_on_collision="BLOOD_EXPLOSION"
+		knockback_force="2.6"
+		physics_impulse_coeff="10000"
+		>
+		<damage_by_type
+			slice="1"
+		/>
+		<config_explosion />
+	</ProjectileComponent>
+
+
+	<ParticleEmitterComponent
+		randomize_rotation.min="-3.1415"
+		randomize_rotation.max="3.1415"
+		emitted_material_name="rocket_particles"
+		gravity.y="0.0"
+		offset_x="0"
+		offset_y=""
+		lifetime_min="1.0"
+		lifetime_max="1.1"
+		count_min="1"
+		count_max="1"
+		render_on_grid="1"
+		collide_with_grid="0"
+		collide_with_gas_and_fire="0"
+		fade_based_on_lifetime="1"
+		area_circle_radius.min="0"
+		area_circle_radius.max="0"
+		cosmetic_force_create="0"
+		airflow_force="0.251"
+		airflow_time="1.01"
+		airflow_scale="0.05"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		emit_cosmetic_particles="1"
+		image_animation_file="mods/copis_things/files/particles/image_emitters/aerodisc.png"
+		image_animation_speed="5"
+		image_animation_loop="1"
+		image_animation_raytrace_from_center="0"
+		emission_chance="40"
+		is_emitting="1"
+	/>
+
+	<AudioComponent
+		file="data/audio/Desktop/projectiles.bank"
+		event_root="player_projectiles/bullet_disc">
+	</AudioComponent>
+
+	<AudioLoopComponent
+		file="data/audio/Desktop/projectiles.bank"
+		event_name="player_projectiles/bullet_disc/loop"
+		auto_play="1"
+	/>
+
+	<ParticleEmitterComponent
+		emitted_material_name="rocket_particles"
+		x_pos_offset_min="5"
+		x_pos_offset_max="5"
+		y_vel_min="-40"
+		y_vel_max="40"
+		gravity.y="0.0"
+		lifetime_min="1"
+		lifetime_max="6"
+		attractor_force="1"
+		friction="0"
+		draw_as_long="1"
+		count_min="1"
+		count_max="2"
+		area_circle_radius.min="8"
+		area_circle_radius.max="8"
+		render_on_grid="1"
+		collide_with_grid="0"
+		fade_based_on_lifetime="1"
+		cosmetic_force_create="0"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		emit_cosmetic_particles="1"
+	/>
+
+	<CellEaterComponent
+		radius="8"
+		eat_probability="1"
+	/>
+
+	<AudioComponent
+		file="data/audio/Desktop/projectiles.bank"
+		event_root="player_projectiles/bullet_burst_of_air"
+	/>
+
+	<VariableStorageComponent
+		name="projectile_file"
+		value_string="mods/copis_things/files/entities/projectiles/aerodisc.xml"
+	/>
+
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/aerodisc_waver.lua"
+		execute_every_n_frame="4"
+	/>
+
+</Entity>

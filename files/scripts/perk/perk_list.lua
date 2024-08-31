@@ -1,4 +1,4 @@
-to_insert =
+local to_insert =
 {
     --  Health multiplication (GROSS)
     --[[
@@ -6,8 +6,8 @@ to_insert =
         id = "COPITH_MULTIPLY_HP",
         ui_name = "$perk_name_copis_things_multiply_hp",
         ui_description = "$perk_desc_copis_things_multiply_hp",
-        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/multiply_hp.png",
-        perk_icon = "mods/copis_things/files/items_gfx/perks/multiply_hp.png",
+        ui_icon = "mods /copis_things/files/ui_gfx/perk_icons/multiply_hp.png",
+        perk_icon = "mods /copis_things/files/items_gfx/perks/multiply_hp.png",
         stackable = STACKABLE_YES,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
@@ -530,7 +530,6 @@ to_insert =
                 end
             end
 
-
             local x, y = EntityGetTransform(entity_who_picked)
             for i=1, #spells do
                 local iac = EntityGetFirstComponentIncludingDisabled( spells[i], "ItemActionComponent" ) --[[@cast iac number]]
@@ -797,8 +796,8 @@ end
         id = "COPITH_WAND_DUPLICATE",
         ui_name = "Duplicate Wand (One-Off)",
         ui_description = "Create a copy of your wand.",
-        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/wand_duplicate.png",
-        perk_icon = "mods/copis_things/files/items_gfx/perks/wand_duplicate.png",
+        ui_icon = "mods /copis_things/files/ui_gfx/perk_icons/wand_duplicate.png",
+        perk_icon = "mods /copis_things/files/items_gfx/perks/wand_duplicate.png",
 		stackable = STACKABLE_YES,
 		max_in_perk_pool = 3,
 		one_off_effect = true,
@@ -817,8 +816,8 @@ end
         id = "COPITH_ALCHEMY_AURA",
         ui_name = "Alchemic Aura",
         ui_description = "Transmutes some materials into other ones",
-        ui_icon = "mods/copis_things/files/sprites/perks/ui/alchemic_aura.png",
-        perk_icon = "mods/copis_things/files/sprites/perks/alchemic_aura.png",
+        ui_icon = "mods /copis_things/files/sprites/perks/ui/alchemic_aura.png",
+        perk_icon = "mods /copis_things/files/sprites/perks/alchemic_aura.png",
         stackable = STACKABLE_NO,
         usable_by_enemies = true,
         func = function( entity_perk_item, entity_who_picked, item_name )
@@ -833,8 +832,8 @@ end
         id = "COPITH_HALLOWED_STEP",
         ui_name = "Hallowed Step",
         ui_description = "Purifies stone within a short radius",
-        ui_icon = "mods/copis_things/files/sprites/perks/ui/hallowed_step.png",
-        perk_icon = "mods/copis_things/files/sprites/perks/hallowed_step.png",
+        ui_icon = "mods /copis_things/files/sprites/perks/ui/hallowed_step.png",
+        perk_icon = "mods /copis_things/files/sprites/perks/hallowed_step.png",
         stackable = STACKABLE_NO,
         usable_by_enemies = true,
         func = function( entity_perk_item, entity_who_picked, item_name )
@@ -850,7 +849,7 @@ end
         ui_name = "$perk_name_copis_things_death_lottery",
         ui_description = "$perk_desc_copis_things_death_lottery",
         ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/death_lottery.png",
-        perk_icon = "mods/copis_things/files/items_gfx/perks/death_lottery.png",
+        perk_icon = "mods /copis_things/files/items_gfx/perks/death_lottery.png",
         stackable = STACKABLE_YES,
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)

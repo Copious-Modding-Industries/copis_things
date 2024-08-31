@@ -38,6 +38,7 @@ local actions_to_insert = {
 		subtype = { homing = true },
 		price = 150,
 		mana = 15,
+		pandorium_ignore = true,
 		action = function()
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/psychic_shot.xml,"
 			draw_actions(1, true)
@@ -56,6 +57,7 @@ local actions_to_insert = {
 		spawn_probability = "0.6,0.6",
 		price = 100,
 		mana = 5,
+		pandorium_ignore = true,
 		ai_never_uses = true,
 		action = function()
 			local entity_id = GetUpdatedEntityID()
@@ -94,19 +96,20 @@ local actions_to_insert = {
 		end
 	},
 	{
-		id = "COPITH_PROJECTION_CAST",
-		name = "$actionname_projection_cast",
-		author = "Copi",
-		mod = "Copi's Things",
-		description = "$actiondesc_projection_cast",
-		sprite = "mods/copis_things/files/ui_gfx/gun_actions/projection_cast.png",
-		type = ACTION_TYPE_UTILITY,
-		spawn_level = "6,10",
-		spawn_probability = "0.2,0.7",
-		inject_after = {"SUPER_TELEPORT_CAST", "TELEPORT_CAST", "LONG_DISTANCE_CAST"},
-		price = 250,
-		mana = 50,
-		action = function()
+		id =				"COPITH_PROJECTION_CAST",
+		name =				"$actionname_projection_cast",
+		author =			"Copi",
+		mod =				"Copi's Things",
+		description =		"$actiondesc_projection_cast",
+		sprite =			"mods/copis_things/files/ui_gfx/gun_actions/projection_cast.png",
+		type =				ACTION_TYPE_UTILITY,
+		spawn_level =		"6,10",
+		spawn_probability =	"0.2,0.7",
+		inject_after =		{"SUPER_TELEPORT_CAST", "TELEPORT_CAST", "LONG_DISTANCE_CAST"},
+		price =				250,
+		mana =				50,
+		pandorium_ignore =	true,
+		action =			function()
 			c.fire_rate_wait = c.fire_rate_wait + 10
 			c.spread_degrees = c.spread_degrees - 6
 			if not reflecting then
@@ -419,6 +422,7 @@ local actions_to_insert = {
 		price = 1000,
 		mana = 280,
 		recursive = true,
+		pandorium_ignore = true,
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/eviscerator.xml",
 		action = function()
 			if reflecting then
@@ -4249,6 +4253,7 @@ local actions_to_insert = {
 		subtype = { homing = true },
 		price = 80,
 		mana = 10,
+		pandorium_ignore = true,
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/ult_control.xml",
 		action = function()
 			c.fire_rate_wait = c.fire_rate_wait + 32
@@ -7000,6 +7005,63 @@ local actions_to_insert = {
 			add_projectile("mods/copis_things/files/entities/projectiles/poly_propane_tank.xml")
 			c.fire_rate_wait = c.fire_rate_wait + 120
 		end,
+	},
+	{
+		id         			= "COPITH_SLOTS_TO_SPEED",
+		name 				= "$actionname_slots_to_speed",
+		description			= "$actiondesc_slots_to_speed",
+		author				= "Copi",
+		mod					= "Copi's Things",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/slots_to_speed.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/bomb_unidentified.png",
+		type				= ACTION_TYPE_PASSIVE,
+		spawn_level			= "0,1,2",				-- URGENTLY NEEDS REBALANCING
+		spawn_probability	= "0.5,0.5,0.1",	-- URGENTLY NEEDS REBALANCING
+		price				= 200,
+		mana				= 0,
+		custom_xml_file		= "mods/copis_things/files/entities/misc/custom_cards/slots_to_speed.xml",
+		action				= function()
+			draw_actions(1, true)
+		end,
+	},
+	{
+		id         			= "COPITH_AERODISC",
+		name 				= "$actionname_aerodisc",
+		description			= "$actiondesc_aerodisc",
+		author				= "Copi",
+		mod					= "Copi's Things",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/aerodisc.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/bomb_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/aerodisc.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "2,3,4", -- PROPANE_TANK
+		spawn_probability	= "0.5,0.5,0.6", -- PROPANE_TANK
+		price				= 200,
+		mana				= 12,
+		action				= function()
+			add_projectile("mods/copis_things/files/entities/projectiles/aerodisc.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 120
+		end,
+	},
+	{
+		id         			= "COPITH_COWARD_BOLT_DEATH_TRIGGER",
+		name 				= "$actionname_coward_bolt_death_trigger",
+		description			= "$actiondesc_coward_bolt_death_trigger",
+		author				= "Copi",
+		mod					= "Copi's Things",
+		sprite 				= "mods/copis_things/files/ui_gfx/gun_actions/coward_bolt_death_trigger.png",
+		sprite_unidentified	= "data/ui_gfx/gun_actions/bomb_unidentified.png",
+		related_projectiles	= {"mods/copis_things/files/entities/projectiles/coward_bolt.xml"},
+		type				= ACTION_TYPE_PROJECTILE,
+		spawn_level			= "0,1,2",
+		spawn_probability	= "0.5,1,0.5",
+		price				= 200,
+		mana				= -4,
+		action				= function()
+			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/coward_bolt.xml", 1)
+			c.fire_rate_wait = c.fire_rate_wait + 6
+			c.spread_degrees = c.spread_degrees - 18
+		end,
 	},--[[
 	{
 		id         			= "COPITH_HOLIEST_BOMB",
@@ -7038,6 +7100,7 @@ local actions_to_insert = {
 		spawn_probability	= "0,0,0,0,0,0,0,0.01",
 		price				= 34,
 		mana				= 21,
+		pandorium_ignore	= true,
 		custom_xml_file		= "mods/copis_things/files/entities/misc/custom_cards/random_projectile_real.xml",
 		action				= function()
 			if reflecting then return end

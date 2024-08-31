@@ -1,0 +1,20 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/slots_to_speed.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPITH_SLOTS_TO_SPEED" >
+		</ItemActionComponent>
+	</Base>
+
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/slots_to_speed.lua"
+		execute_every_n_frame="6" >
+	</LuaComponent>
+	
+</Entity>
