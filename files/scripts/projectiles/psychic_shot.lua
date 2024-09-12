@@ -25,5 +25,5 @@ if controls ~= nil then
         force_x, force_y = vec_mult(force_x, force_y, 400)
     end
 
-    ComponentSetValueVector2( velcomp, "mVelocity", force_x, force_y)
+    ComponentSetValueVector2( velcomp, "mVelocity", force_x or 0, force_y or 0)
 end
