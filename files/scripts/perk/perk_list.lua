@@ -47,7 +47,13 @@ local to_insert =
         usable_by_enemies = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
             local x, y = EntityGetTransform(entity_who_picked)
-            local child_id = EntityLoad("mods/copis_things/files/entities/misc/perk/poly_to_acid.xml", x, y)
+            local file
+            if ModSettingGet("CopisThings.poly_immunity") then
+                file = "mods/copis_things/files/entities/misc/perk/poly_to_acid.xml"
+            else
+                file = "mods/copis_things/files/entities/misc/perk/poly_to_acid_no_immunity.xml"
+            end
+            local child_id = EntityLoad(file, x, y)
             EntityAddTag(child_id, "perk_entity")
             EntityAddChild(entity_who_picked, child_id)
         end,

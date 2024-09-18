@@ -87,6 +87,13 @@ mod_settings =
 
         end
     },
+    {
+        id = "poly_immunity",
+        ui_name = "Acimorphism Poly Immunity",
+        ui_description = "If enabled, the Acimorphism perk will grant polymorph immunity in addition to its other effects.",
+        value_default = true,
+        scope = MOD_SETTING_SCOPE_NEW_GAME,
+    }
 }
 
 
