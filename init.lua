@@ -113,6 +113,10 @@ local experimental = {
                 }
                 local result = wands[Random(1, #wands)]
                 EntityLoad(table.concat{"mods/copis_things/files/entities/items/wands/", result, ".xml"}, pos.x, pos.y)]]
+				if Random(1, 100000) == 1 then
+					-- Can't be bothered to move this to the tower n add mod compat
+					EntityLoad("mods/copis_things/files/entities/items/wands/diewand/wand.xml", pos.x, pos.y)
+				end 
                 GameAddFlagRun(flag)
             end
         end
