@@ -4300,7 +4300,7 @@ local actions_to_insert = {
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type = ACTION_TYPE_MODIFIER,
 		spawn_level = "0,1,2,3,4,5,6",
-		spawn_probability = "1,1,1,1,1,1,1",
+		spawn_probability = "0.5,0.5,0.5,0.5,0.5,0.5,0.5",
 		price = 200,
 		mana = 23,
 		custom_xml_file = "mods/copis_things/files/entities/misc/custom_cards/ult_protection.xml",
@@ -6816,12 +6816,11 @@ local actions_to_insert = {
 		spawn_level = "0,1,2",
 		spawn_probability = "0.35,0.25,0.25",
 		price = 120,
-		mana = 4,
+		mana = 6,
 		action = function()
 			add_projectile("mods/copis_things/files/entities/projectiles/hydrojet.xml")
 			c.speed_multiplier = c.speed_multiplier * 1.1
 			c.fire_rate_wait = c.fire_rate_wait - 14
-			current_reload_time = current_reload_time - 14
 			draw_actions(1, true)
 		end
 	},
