@@ -145,6 +145,14 @@ local experimental = {
 
 }
 
+local compatiblity = {
+	frostbite = function ()
+		if ModIsEnabled("conga_temperature_mod") then
+			dofile_once("mods/copis_things/init/compat_frostbite.lua")
+		end
+	end
+}
+
 --#endregion
 
 --#region callbacks
@@ -174,7 +182,7 @@ function OnModInit()
     content.greeks()
     content.statuses()
     content.materials()
-    --compatibility.setupModCompat()
+    compatiblity.frostbite()
 
 	AddFlagPersistent("flag_you_must_have")
 end

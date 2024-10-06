@@ -50,6 +50,12 @@ A series of changes and additions to Noita.
    - [Github](https://github.com/SiriMoel/tales_of_kupoli)
    - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3093591071)
 
+**Frostbite**
+ - Changes:
+   - Spells interact with temperature mechanic
+ - Download Links:
+   - [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3343413451)
+
 # FAQ
 
  - Why is Copi's Things not on the workshop?
