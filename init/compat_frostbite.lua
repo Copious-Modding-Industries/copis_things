@@ -1,6 +1,7 @@
 
 -- fucking incomprehensible but it works
-local function add_tag(xml, attr_value_new)
+local function add_tag(xml,)
+	local attr_value_new = "warmth_affector"
     local attr_value_old = nil
     local new_xml = xml:gsub("(<%s*[%w]+)(.-)(/?>)",
 		function(first_tag, attrs, last_tag)
@@ -18,24 +19,34 @@ local function add_tag(xml, attr_value_new)
     return new_xml
 end
 
+--- ### Adds a component to an entity file.
+--- ***
+--- @param file_path string The path to the file you wish to add a component to.
+--- @param comp string The component you wish to add.
+function ModEntityFileAddComponent(file_path, comp)
+    local file_contents = ModTextFileGetContent(file_path)
+    local contents = file_contents:gsub("</Entity>$", function() return comp .. "</Entity>" end)
+    ModTextFileSetContent(file_path, contents)
+end
+
 local files_to_edit = {
 	{
 		path = "mods/copis_things/files/entities/projectiles/firesphere.xml",
-		tag = "warm"
+		amount = 40
 	},
 	{
 		path = "mods/copis_things/files/entities/projectiles/ice_orb.xml",
-		tag = "cold_passive"
+		amount = -10
 	},
 	{
 		path = "mods/copis_things/files/entities/projectiles/ice_cube.xml",
-		tag = "cold"
+		amount = -20
 	},
 }
 
 for i=1, #files_to_edit do
 	local file = files_to_edit[i]
-	print(ModTextFileGetContent(file.path))
-	ModTextFileSetContent(file.path, add_tag(ModTextFileGetContent(file.path), file.tag))
-	print(ModTextFileGetContent(file.path))
+	local content = add_tag(ModTextFileGetContent(file.path))
+	ModEntityFileAddComponent(content, [[<VariableStorageComponent name="warmth_affector" value_float="]] .. tostring(file.amount) .. [[" />]])
+	ModTextFileSetContent(file.path, content)
 end
