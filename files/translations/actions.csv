@@ -408,7 +408,7 @@ actiondesc_spindown_spell,"The next spell instead casts an arcanely adjacent spe
 actionname_duplicate_action_2,"Duplicast",,,,,,,,,,,,
 actiondesc_duplicate_action_2,"When cast, this spell will weave a virtual copy of the next spell, then draw it!",,,,,,,,,,,,
 actionname_duplicate_action_3,"Triplicast",,,,,,,,,,,,
-actiondesc_duplicate_action_3,"When cast, this spell will weave two virtual copies of the next spell, then draw them!",,,,,,,,,,,,
+actiondesc_duplicate_action_3,"When cast, this spell will weave two virtual copies of the next spell, then draw one!",,,,,,,,,,,,
 actionname_imprint,"Imprint",,,,,,,,,,,,
 actiondesc_imprint,"The next spell instead casts something wildly different!",,,,,,,,,,,,
 actionname_action_inversion,"Unravel",,,,,,,,,,,,

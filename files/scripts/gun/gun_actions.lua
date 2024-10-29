@@ -6071,7 +6071,11 @@ local actions_to_insert = {
 					-- arbitrary trigger meant to never collide, to separate c and prevent projectile creation, only to evaluate c
 					BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml")
 						BeginTriggerHitWorld()
-							GunUtils.temporary_deck(
+
+							-- 10/29/24 Copi:
+							-- Experimenting with unshackling this a little at the reccomendation of Noby, if this causes the mod to get FUBAR I can revert it
+
+							--[[GunUtils.temporary_deck(
 								-- func run on the deck
 								function( deck, hand, discarded )
 
@@ -6093,7 +6097,24 @@ local actions_to_insert = {
 								GunUtils.deck_from_actions( {action} ),
 								{},
 								{}
-							)
+							)]]
+
+							
+							
+							for key, value in pairs(c_old) do
+								c[key] = value
+							end
+
+							-- invert mana cost
+							copi_state.mana_multiplier = copi_state.mana_multiplier * -1
+							-- prevent drawing
+							force_stop_draws = true
+							dont_draw_actions = true
+							draw_action(true)
+							c_mod = c
+							dont_draw_actions = false
+							copi_state.mana_multiplier = copi_state.mana_multiplier * -1
+
 						EndTrigger()
 					EndProjectile()
 
