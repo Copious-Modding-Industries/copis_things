@@ -1,0 +1,17 @@
+<Sprite
+    filename="mods/copis_things/files/particles/coward_bolt_explode.png"
+	default_animation="default"
+    offset_x="6.5"
+    offset_y="6.5">
+    <RectAnimation
+        frame_count="3"
+        frame_height="13"
+        frame_wait="0.1"
+        frame_width="13"
+        frames_per_row="3"
+        name="default"
+        pos_x="0"
+        pos_y="0"
+        shrink_by_one_pixel="1"
+    />
+</Sprite>

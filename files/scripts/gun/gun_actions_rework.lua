@@ -1,4 +1,5 @@
 local SpriteOverridePath = "mods/copis_things/files/ui_gfx/gun_actions/replace/"
+-- TODO! Use sprite edit functions to replace.
 local actions_to_edit = {
 
     -- Vanilla material spells

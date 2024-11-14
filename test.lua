@@ -1,6 +1,6 @@
 ----@diagnostic disable shuts up diagnostics here
 local this_luacomp = GetUpdatedComponentID()
-_G['EntityTable']   = _G['EntityTable'] or {}
+EntityTable			= EntityTable or {}
 States              = States or {
 
     -- Execute On Added

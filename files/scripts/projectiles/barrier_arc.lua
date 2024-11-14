@@ -39,3 +39,11 @@ if EntityGetName(entity_id) ~= "separator" then                                 
         end
     end
 end
+
+
+-- NEW OPTIMIZATION
+--[[
+
+Assemble table of projectiles in state -> make barrier to next projectile in table (wrap around last proj) -> ez win 
+
+]]

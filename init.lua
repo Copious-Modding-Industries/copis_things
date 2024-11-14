@@ -4,7 +4,7 @@ Hello seeker of knowledge.
 Keep your eyes open, for there is much to come.
 ]]
 
-COPIS_THINGS_VERSION = "0.5"
+COPIS_THINGS_VERSION = "0.51"
 
 -- NOTICE! This is CRAP! I will be REWRITING THIS LIBRARY!
 dofile_once("mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init( "mods/copis_things/files/scripts/lib/polytools/")
@@ -113,6 +113,10 @@ local experimental = {
                 }
                 local result = wands[Random(1, #wands)]
                 EntityLoad(table.concat{"mods/copis_things/files/entities/items/wands/", result, ".xml"}, pos.x, pos.y)]]
+				if Random(1, 100000) == 1 then
+					-- Can't be bothered to move this to the tower n add mod compat
+					EntityLoad("mods/copis_things/files/entities/items/wands/diewand/wand.xml", pos.x, pos.y)
+				end 
                 GameAddFlagRun(flag)
             end
         end
@@ -139,6 +143,14 @@ local experimental = {
         end
     end
 
+}
+
+local compatiblity = {
+	frostbite = function ()
+		if ModIsEnabled("conga_temperature_mod") then
+			dofile_once("mods/copis_things/init/compat_frostbite.lua")
+		end
+	end
 }
 
 --#endregion
@@ -170,7 +182,7 @@ function OnModInit()
     content.greeks()
     content.statuses()
     content.materials()
-    --compatibility.setupModCompat()
+    compatiblity.frostbite()
 
 	AddFlagPersistent("flag_you_must_have")
 end
