@@ -13,6 +13,9 @@ end
 function Gui:Update()
 	self.obj = self.obj or GuiCreate()
 	GuiStartFrame( self.obj )
+
+	if not ModSettingGet("CopisThings.show_button") then return end
+
 	GuiIdPushString( self.obj, "Copis_Things_Gui" )
 	-- ID Stuff
 	local id = 0
