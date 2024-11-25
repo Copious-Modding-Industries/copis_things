@@ -57,6 +57,14 @@ mod_settings =
         scope = MOD_SETTING_SCOPE_RUNTIME,
         ui_fn = copis_button
     },
+    {
+        id = "poly_immunity",
+        ui_name = "Acimorphism Poly Immunity",
+		ui_description = "If enabled, the Acimorphism perk will grant polymorph immunity in addition to its other effects",
+        value_default = true,
+        scope = MOD_SETTING_SCOPE_RUNTIME,
+        ui_fn = copis_button
+    },
 }
 
 

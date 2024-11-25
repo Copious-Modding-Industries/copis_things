@@ -1,4 +1,8 @@
 dofile_once("mods/copis_things/files/scripts/lib/disco_util/disco_util.lua")
+-- Evil lib todo remove
+
+
+-- Evil regex: \t\{([\t\r\n\s\S]*?)(?=\s*action\s*=\s*function\()[^\n(?=\n\s*action\s*=\s*function\()]*
 
 local meta_manager = function(action, current_id)
 	if action['id'] == current_id then
@@ -5422,7 +5426,7 @@ local actions_to_insert = {
 	},
 	{
 		--[[
-			Credits    : 
+			Credits: 
 			Inspiration: Azoth
 		]]
 		id                = "COPITH_POLYMORPH",
@@ -5451,7 +5455,7 @@ local actions_to_insert = {
 	},
 	{
 		--[[
-			Credits : 
+			Credits: 
 			Particle: Evaisa
 		]]
 		id                = "COPITH_SUS_TRAIL",
@@ -5556,7 +5560,7 @@ local actions_to_insert = {
 	},
 	{
 		--[[
-			Credits    : 
+			Credits: 
 			Inspiration: Shattered Pixel Dungeon
 		]]
 		id                  = "COPITH_SPECTRAL_HOOK",
@@ -5690,7 +5694,7 @@ local actions_to_insert = {
 	},
 	{
 		--[[
-			Credits    : 
+			Credits: 
 			Inspiration: Chemical Curiosities (Chaotic Pandorium)
 		]]
 		id                     = "COPITH_TRUE_CHAOS_RAY",
@@ -6680,7 +6684,7 @@ local actions_to_insert = {
 	},
 	{
 		--[[
-			Credits    : 
+			Credits: 
 			Inspiration: Dungeons and Dragons 5e
 		]]
 		id                = "COPITH_GLYPH_OF_BULLSHIT",
@@ -6762,7 +6766,7 @@ local actions_to_insert = {
 	},]]
 	{
 		--[[
-			Credits    : 
+			Credits: 
 			Inspiration: Risk of Rain 2
 		]]
 		id                     = "COPITH_ROR2COLLAPSE",
