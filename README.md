@@ -8,7 +8,9 @@ A series of changes and additions to Noita.
 
  - Press the *[Download Zip](https://github.com/Copious-Modding-Industries/copis_things/archive/refs/heads/main.zip)* button
  - Extract into your noita mod folder (`C:/Program Files (x86)/Steam/steamapps/common/Noita/mods/` for steam users)
+ - The `init.lua` file should be 1 layer deeper than `Noita/mods/`, found in `mods/copis_things/init.lua`.
  - Rename `copis_things-main` to `copis_things` **⚠ THE MOD WILL NOT WORK IF YOU SKIP THIS STEP. ⚠**
+ - If you see any initialization errors, go through these steps again and ensure it isn't user error.
 
 ### Cloning Repository
 
