@@ -90,6 +90,40 @@ local content = {
         ModMaterialsFileAdd("mods/copis_things/files/materials_test.xml")
     end,
 
+	--[[
+	metaballs = function ()
+		local cx, cy = GameGetCameraPos()
+		local cbx, cby, cw, ch = GameGetCameraBounds()
+		local projs = EntityGetInRadiusWithTag(cx, cy, cw*0.58, "player_projectile") --0.58 is an arcane number
+		if #projs>0 then
+			local data = {}
+			for i=1, #projs do
+				data[i] = {}
+				data[i].x, data[i].y = EntityGetTransform(projs[i])
+			end
+			for x=1, cw do
+				for y=1, ch do
+					local px, py = cbx+x, cby+y
+					local sum = 0
+					for i=1, #data do
+						local pos = data[i]
+						sum = sum + 1/((px-pos.x)^2+(py-pos.y)^2)
+					end
+					if sum > 0.03 then
+						-- Drops the particles 
+						--GameCreateParticle("copith_metaball_acid", px, py, 1, 0, 0, false, false, false)
+
+						-- Looks like shit
+						--GameCreateCosmeticParticle(sum<0.05 and "spark_green" or "acid", px, py, 1, 0, 0, 0, 0.025, 0.025, true, true, false, false, 0, 0)
+
+						-- LAGGY AS FUCK
+						--GameCreateSpriteForXFrames("mods/metaball/png.png", px, py, true, 0, 0, 2, false)
+					end
+				end
+			end
+		end
+	end]]
+
 }
 
 local experimental = {
@@ -150,6 +184,12 @@ local compatiblity = {
 		if ModIsEnabled("conga_temperature_mod") then
 			dofile_once("mods/copis_things/init/compat_frostbite.lua")
 		end
+	end,
+
+	grahamth = function ()
+		if ModIsEnabled("grahamsperks") then
+			dofile_once("mods/copis_things/init/compat_grahamth.lua")
+		end
 	end
 }
 
@@ -179,10 +219,11 @@ function OnModInit()
     content.actions()
     content.perks()
     content.translations()
-    content.greeks()
+    --content.greeks()
     content.statuses()
     content.materials()
     compatiblity.frostbite()
+    compatiblity.grahamth()
 
 	AddFlagPersistent("flag_you_must_have")
 end
@@ -197,6 +238,7 @@ end
 
 function OnWorldPreUpdate()
     Gui:Update()
+	--content:metaballs()
 end
 
 function OnPlayerSpawned()

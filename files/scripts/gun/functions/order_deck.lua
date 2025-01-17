@@ -110,6 +110,7 @@ local function order_deck()
                 action.mana = nil
                 meta['__index'] = function(table, key)
                     if key == "mana" then
+						-- todo optimize shooter mult in some way to not get vsc every time. do get number funcs work here?
                         return (base_mana * copi_state.mana_multiplier) * shooter_mult
                     end
                 end

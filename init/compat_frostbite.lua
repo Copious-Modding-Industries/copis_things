@@ -1,6 +1,6 @@
 
 -- fucking incomprehensible but it works
-local function add_tag(xml,)
+local function add_tag(xml)
 	local attr_value_new = "warmth_affector"
     local attr_value_old = nil
     local new_xml = xml:gsub("(<%s*[%w]+)(.-)(/?>)",

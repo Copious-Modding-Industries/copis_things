@@ -2370,7 +2370,592 @@ local to_insert = {
 			draw_actions(1, true)
 		end
 	},
+	{
+		id                  = "COPITH_DELTA",
+		name                = "$actionname_delta",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		description         = "$actiondesc_delta",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/delta/delta_base.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+		spawn_requires_flag = "card_unlocked_duplicate",
+		type                = ACTION_TYPE_OTHER,
+		spawn_manual_unlock = true,
+		recursive           = true,
+		spawn_level         = "5,6,10",
+		spawn_probability   = "0.1,0.1,0.75",
+		inject_after        = { "ALPHA", "GAMMA", "TAU", "OMEGA", "MU", "PHI", "SIGMA", "ZETA", },
+		price               = 350,
+		mana                = 50,
+		action = function(recursion_level, iteration)
+			if not reflecting then
+				local shooter = GetUpdatedEntityID()
+				DeltaIndex = DeltaIndex or 1
+				local inventory2comp = EntityGetFirstComponent(shooter, "Inventory2Component")
+				if inventory2comp then
+					-- Go over all wand spells
+					local active_wand = ComponentGetValue2(inventory2comp, "mActiveItem")
+					for i, wand_action in ipairs(EntityGetAllChildren(active_wand) or {}) do
+						if EntityHasTag(wand_action, "card_action") then
+							local itemcomp = EntityGetFirstComponentIncludingDisabled(wand_action, "ItemComponent")
+							if itemcomp ~= nil then
+								-- If action's slot matches delta index then cast it
+								if ComponentGetValue2(itemcomp, "inventory_slot") == DeltaIndex then
+									local itemactioncomp = EntityGetFirstComponentIncludingDisabled(wand_action,
+									"ItemActionComponent")
+									if itemactioncomp ~= nil then
+										local action_id = ComponentGetValue2(itemactioncomp, "action_id")
+										if action_id ~= "COPITH_DELTA" then
+											for _, data in ipairs(actions) do
+												if (data.id == action_id) then
+													local rec = check_recursion(data, recursion_level)
+													if (data ~= nil) and (rec > -1) then
+														data.action(rec)
+													end
+													break
+												end
+											end
+										end
+									end
+								end
 
+								-- If action is this card then update sprite
+								if ComponentGetValue2(itemcomp, "mItemUid") == current_action.inventoryitem_id and current_action.id == "COPITH_DELTA" then
+									ComponentSetValue2(
+										itemcomp,
+										"ui_sprite",
+										table.concat(
+											{
+												"mods/copis_things/files/ui_gfx/gun_actions/delta/delta_",
+												tostring(DeltaIndex + 1),
+												".png"
+											}
+										)
+									)
+								end
+							end
+						end
+					end
+
+					-- Update delta index
+					DeltaIndex = (DeltaIndex + 1) % gun.deck_capacity
+				end
+			end
+		end
+	},	{
+		id                  = "COPITH_PSI",
+		name                = "$actionname_psi",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		description         = "$actiondesc_psi",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/psi.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+		spawn_requires_flag = "card_unlocked_duplicate",
+		type                = ACTION_TYPE_OTHER,
+		spawn_manual_unlock = true,
+		recursive           = true,
+		spawn_level         = "5,6,10",
+		spawn_probability   = "0.1,0.1,0.75",
+		inject_after        = {"ALPHA", "GAMMA", "TAU", "OMEGA", "MU", "PHI", "SIGMA", "ZETA", },
+		price               = 600,
+		mana                = 350,
+		action = function(recursion_level, iteration)
+			c.fire_rate_wait = c.fire_rate_wait + 60
+			local entity_id = GetUpdatedEntityID()
+			local options = {}
+			local children = EntityGetAllChildren(entity_id)
+			local inventory = EntityGetFirstComponent(entity_id, "Inventory2Component")
+
+			if (children ~= nil) and (inventory ~= nil) then
+				for i, child_id in ipairs(children) do
+					if (EntityGetName(child_id) == "inventory_quick") then
+						local wand_id = 0
+						local wands = EntityGetAllChildren(child_id)
+						if wands ~= nil and wands[4] ~= nil then
+							wand_id = wands[4]
+						end
+						if (wand_id ~= ComponentGetValue2(inventory, "mActiveItem")) and EntityHasTag(wand_id, "wand") then
+							local spells = EntityGetAllChildren(wand_id)
+							if (spells ~= nil) then
+								for _, spell_id in ipairs(spells) do
+									local comp =
+										EntityGetFirstComponentIncludingDisabled(spell_id, "ItemActionComponent")
+									if (comp ~= nil) then
+										local action_id = ComponentGetValue2(comp, "action_id")
+										table.insert(options, action_id)
+									end
+								end
+							end
+						end
+						if (#options > 0) then
+							for _, spell in ipairs(options) do
+								for _, data in ipairs(actions) do
+									if (data.id == spell) then
+										local rec = check_recursion(data, recursion_level)
+										if (rec > -1) then
+											dont_draw_actions = true
+											data.action(rec)
+											dont_draw_actions = false
+										end
+										break
+									end
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	},
+
+	-- WISPY SHOT
+	{
+		id                = "COPITH_WISPY_SHOT",
+		name              = "$actionname_wispy_shot",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_wispy_shot",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/wispy_shot.png",
+		type              = ACTION_TYPE_MODIFIER,
+		spawn_level       = "2,3,4,5,6",
+		spawn_probability = "0.3,0.4,0.5,0.6,0.6",
+		price             = 150,
+		mana              = 15,
+		action = function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/wispy_shot.xml,"
+			draw_actions(1, true)
+			c.lifetime_add = c.lifetime_add + 500
+			c.fire_rate_wait = c.fire_rate_wait + 20
+		end
+	},
+	{
+		id                = "COPITH_SEPARATOR_CAST",
+		name              = "$actionname_separator_cast",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_separator_cast",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/separator_cast.png",
+		type              = ACTION_TYPE_UTILITY,
+		spawn_level       = "2,		3,		4,		5",
+		spawn_probability = "0.3,		0.3,	0.3,	0.3",
+		price             = 210,
+		mana              = 0,
+		action = function()
+			if reflecting then
+				return
+			end
+			local old_c = c
+			c = {}
+			shot_effects = {}
+			--reset_modifiers(c);
+
+			BeginProjectile("mods/copis_things/files/entities/projectiles/separator_cast.xml")
+			BeginTriggerDeath()
+			local shot = create_shot(1)
+			shot.state = {}
+			draw_shot(shot, true)
+			EndTrigger()
+			EndProjectile()
+			c = old_c
+		end
+	},
+	{
+		id                = "COPITH_AUTO_ENEMIES",
+		name              = "$actionname_auto_enemies",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_auto_enemies",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/auto_enemies.png",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "3,4,5,6",
+		spawn_probability = "0.1,0.1,0.1,0.1",
+		price             = 160,
+		mana              = 0,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/auto_enemies.xml",
+		action = function()
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                = "COPITH_AUTO_HOLSTER",
+		name              = "$actionname_auto_holster",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_auto_holster",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/auto_holster.png",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "3,4,5,6",
+		spawn_probability = "0.1,0.1,0.1,0.1",
+		price             = 160,
+		mana              = 0,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/auto_holster.xml",
+		action = function()
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                = "COPITH_AUTO_HP",
+		name              = "$actionname_auto_hp",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_auto_hp",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/auto_hp.png",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "3,4,5,6",
+		spawn_probability = "0.1,0.1,0.1,0.1",
+		price             = 160,
+		mana              = 0,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/auto_hp.xml",
+		action = function()
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                = "COPITH_AUTO_HURT",
+		name              = "$actionname_auto_hurt",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_auto_hurt",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/auto_hurt.png",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "3,4,5,6",
+		spawn_probability = "0.1,0.1,0.1,0.1",
+		price             = 160,
+		mana              = 0,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/auto_hurt.xml",
+		action = function()
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                = "COPITH_AUTO_PROJECTILE",
+		name              = "$actionname_auto_projectile",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_auto_projectile",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/auto_projectile.png",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "3,4,5,6",
+		spawn_probability = "0.1,0.1,0.1,0.1",
+		price             = 160,
+		mana              = 0,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/auto_projectile.xml",
+		action = function()
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                = "COPITH_STICKY_SHOT",
+		name              = "$actionname_sticky_shot",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_sticky_shot",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/sticky_shot.png",
+		type              = ACTION_TYPE_MODIFIER,
+		spawn_level       = "0,1,2,3,4,5,6",
+		spawn_probability = "0.1,0.2,0.2,0.2,0.2,0.2,0.2",
+		price             = 200,
+		mana              = 9,
+		action = function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sticky_shot.xml,"
+			c.fire_rate_wait = c.fire_rate_wait - 12
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                  = "COPITH_IF_PLAYER",
+		name                = "Requirement - Player",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		description         = "$actiondesc_if_player",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/if_player.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
+		spawn_requires_flag = "card_unlocked_maths",
+		type                = ACTION_TYPE_OTHER,
+		spawn_level         = "10",
+		spawn_probability   = "1",
+		inject_after        = {"IF_ENEMY", "IF_PROJECTILE", "IF_HP", "IF_HALF", "IF_END", "IF_ELSE"},
+		price               = 100,
+		mana                = 0,
+		never_ac            = true,
+		action = function(recursion_level, iteration)
+			local endpoint = -1
+			local elsepoint = -1
+			local entity_id = GetUpdatedEntityID()
+
+			local doskip = false
+			if not (EntityHasTag(entity_id, "player_unit") or EntityHasTag(entity_id, "client")) then
+				doskip = true
+			end
+
+			if (#deck > 0) then
+				for i, v in ipairs(deck) do
+					if (v ~= nil) then
+						if (string.sub(v.id, 1, 3) == "IF_") and (v.id ~= "IF_END") and (v.id ~= "IF_ELSE") then
+							endpoint = -1
+							break
+						end
+
+						if (v.id == "IF_ELSE") then
+							endpoint = i
+							elsepoint = i
+						end
+
+						if (v.id == "IF_END") then
+							endpoint = i
+							break
+						end
+					end
+				end
+
+				local envelope_min = 1
+				local envelope_max = 1
+
+				if doskip then
+					if (elsepoint > 0) then
+						envelope_max = elsepoint
+					elseif (endpoint > 0) then
+						envelope_max = endpoint
+					end
+
+					for i = envelope_min, envelope_max do
+						local v = deck[envelope_min]
+
+						if (v ~= nil) then
+							table.insert(discarded, v)
+							table.remove(deck, envelope_min)
+						end
+					end
+				else
+					if (elsepoint > 0) then
+						envelope_min = elsepoint
+
+						if (endpoint > 0) then
+							envelope_max = endpoint
+						else
+							envelope_max = #deck
+						end
+
+						for i = envelope_min, envelope_max do
+							local v = deck[envelope_min]
+
+							if (v ~= nil) then
+								table.insert(discarded, v)
+								table.remove(deck, envelope_min)
+							end
+						end
+					end
+				end
+			end
+
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                     = "COPITH_HOMING_ANTI",
+		name                   = "$actionname_homing_anti",
+		author                 = "Copi",
+		mod                    = "Copi's Things",
+		description            = "$actiondesc_homing_anti",
+		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/homing_anti.png",
+		related_extra_entities = {
+			"mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml"
+		},
+		type              = ACTION_TYPE_MODIFIER,
+		spawn_level       = "1,2,3,4,5",
+		spawn_probability = "0.1,0.1,0.1,0.1,0.1",
+		inject_after      = {"HOMING", "HOMING_SHORT", "HOMING_ROTATE", "HOMING_SHOOTER", "AUTOAIM", "HOMING_ACCELERATING", "HOMING_CURSOR", "HOMING_AREA"},
+		subtype           = { homing = true },
+		price             = 100,
+		mana              = 0,
+		action = function()
+			c.extra_entities =
+				c.extra_entities ..
+				"mods/copis_things/files/entities/misc/homing_anti.xml,data/entities/particles/tinyspark_white_weak.xml,"
+			draw_actions(1, true)
+		end
+	},
+	{
+		-- TODO better 
+		id                = "COPITH_ARCANA_TO_POWER",
+		name              = "$actionname_arcana_to_power",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_arcana_to_power",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcana_to_power.png",
+		type              = ACTION_TYPE_MODIFIER,
+		spawn_level       = "2,3,4,5,6",                                                      -- <- needs adjusting
+		spawn_probability = "0.3,0.4,0.5,0.6,0.6",                                            -- <- needs adjusting
+		subtype           = { damage = true },
+		price             = 150,                                                              -- <- needs adjusting
+		mana              = 100,                                                              -- <- needs adjusting
+		action = function()
+			-- might be jank as fuck? idk
+			local _, count = c.extra_entities:gsub(",", ",")
+			c.damage_projectile_add = c.damage_projectile_add + (15/25)*count
+			c.extra_entities = "HAMIS"
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                = "COPITH_REDUCE_KNOCKBACK",
+		name              = "$actionname_reduce_knockback",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_reduce_knockback",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/reduce_knockback.png",
+		type              = ACTION_TYPE_MODIFIER,
+		spawn_level       = "0,1,2,3,4,5,6,7,8,9,10,11",
+		spawn_probability = "1,1,1,1,1,1,1,1,1,1,1,1",
+		inject_after      = {"KNOCKBACK"},
+		price             = 10,
+		mana              = 5,
+		action 		= function()
+			c.knockback_force = c.knockback_force - 2.5
+			draw_actions(1, true)
+		end,
+	},
+	{
+		id                = "COPITH_SUMMON_FLASK",
+		name              = "$actionname_summon_flask",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_summon_flask",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_flask.png",
+		type              = ACTION_TYPE_UTILITY,
+		spawn_level       = "2,		3,		4,		5,		6",
+		spawn_probability = "0.25,	0.33,	0.50,	0.33,	0.25",
+		price             = 200,
+		mana              = 90,
+		max_uses          = 1,
+		action			= function()
+			c.fire_rate_wait	= c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/potion_empty.xml")
+		end,
+	},
+	{
+		id                = "COPITH_RECHARGE_UNSTABLE",
+		name              = "$actionname_recharge_unstable",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_recharge_unstable",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/recharge_unstable.png",
+		type              = ACTION_TYPE_MODIFIER,
+		spawn_level       = "1,2,3,4,5,6",
+		spawn_probability = "0.8,0.8,0.8,0.8,0.8,0.8",
+		inject_after      = {"RECHARGE"},
+		price             = 220,
+		mana              = 8,
+		action = function()
+			if reflecting then
+				c.fire_rate_wait = c.fire_rate_wait - 10
+				current_reload_time = current_reload_time - 20
+			else
+				RechargesUnstable = (RechargesUnstable or 0) + 1
+				local time_delta = -100
+				if math.random(0 , 100) < math.max(RechargesUnstable, 0)/3 - 5 then
+					-- Reset Counter + Explode Player
+					RechargesUnstable = 0
+					add_projectile("data/entities/projectiles/deck/explosion.xml")
+					-- Increase Recharge
+					c.fire_rate_wait = c.fire_rate_wait + time_delta + 30
+					current_reload_time = current_reload_time + 60
+				else
+					-- Reduce Recharge
+					c.fire_rate_wait = c.fire_rate_wait - 25
+					current_reload_time = current_reload_time - 50
+				end
+			end
+			draw_actions(1, true)
+		end,
+	},
+	{
+		id                     = "COPITH_SILVER_BULLET_RAY_SPIN",
+		name                   = "$actionname_silver_bullet_ray_spin",
+		author                 = "Copi",
+		mod                    = "Copi's Things",
+		description            = "$actiondesc_silver_bullet_ray_spin",
+		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_spin.png",
+		related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray_spin.xml" },
+		type                   = ACTION_TYPE_MODIFIER,
+		spawn_level            = "3,4,5",
+		spawn_probability      = "0.5,0.7,0.5",
+		inject_after           = {"FIREBALL_RAY_LINE"},
+		price                  = 300,
+		mana                   = 80,
+		max_uses               = 50,
+		action = function()
+			c.fire_rate_wait = c.fire_rate_wait + 30
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/silver_bullet_ray_spin.xml,"
+			draw_actions(1, true)
+		end
+	},
+	{
+		id                  = "COPITH_ARCANE_TURRET_PATIENT",
+		name                = "$actionname_arcane_turret_patient",
+		description         = "$actiondesc_arcane_turret_patient",
+		author              = "Disco Witch",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/spell_turret_patient.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/spell_turret_patient.xml" },
+		type                = ACTION_TYPE_STATIC_PROJECTILE,
+		spawn_level         = "0,1,2,3,4,5,6,10",
+		spawn_probability   = "0,0,0,0.1,0.1,0.1,0.2,0.3",
+		price               = 500,
+		mana                = 300,
+		ai_never_uses       = true,
+		max_uses            = -1,
+		action = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/spell_turret_patient.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 60
+			if reflecting then
+				return
+			end
+
+			local shooter = Entity.Current() -- Returns the entity shooting the wand
+			---@diagnostic disable-next-line: undefined-field
+			local wand = Entity(shooter.Inventory2Component.mActiveItem)
+			if not wand then
+				return
+			end
+
+			local storage = Entity(EntityCreateNew("turret_storage")) -- Create a storage entity to pass our spell info to the turret
+			local cards = GetSpells(wand)
+			local store_deck = ""
+			local store_inventory_item_id = "COPITH_" -- The inventory_item_id is used to synchronize spell uses
+			for k, v in ipairs(deck) do -- Generate ordered lists of cards to populate the turret wand
+				store_deck = store_deck .. tostring(cards[v.deck_index + 1]:id()) .. ","
+				store_inventory_item_id = store_inventory_item_id .. tostring(v.inventoryitem_id) .. ","
+			end
+			storage.variables.wand = tostring(wand:id()) -- Store relevant data in the storage entity for the turret to retrieve on spawn
+			storage.variables.deck = store_deck
+			storage.variables.inventoryitem_id = store_inventory_item_id
+			for i, action in ipairs(deck) do
+				table.insert(discarded, action)
+			end -- Dump the rest of the deck into discard because they're consumed by the turret
+			deck = {}
+		end
+	},
+	{
+		id                = "COPITH_HITFX_CRITICAL_CHARM",
+		name              = "$actionname_hitfx_critical_charm",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_hitfx_critical_charm",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/crit_on_charm.png",
+		type              = ACTION_TYPE_MODIFIER,
+		spawn_level       = "1,3,4,5",
+		spawn_probability = "0.2,0.2,0.2,0.2",
+		inject_after      = {"HITFX_CRITICAL_BLOOD", "HITFX_CRITICAL_OIL", "HITFX_CRITICAL_WATER", "HITFX_BURNING_CRITICAL_HIT"},
+		price             = 70,
+		mana              = 10,
+		--max_uses        = 50,
+		action = function()
+			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/crit_on_charm.xml,"
+			draw_actions(1, true)
+		end
+	},
 
 }
 
