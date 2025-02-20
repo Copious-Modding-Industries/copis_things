@@ -41,12 +41,11 @@
         penetrate_world="1"
         damage_every_x_frames="25"
         collide_with_world="0"
-    >
+    	>
         <config_explosion
             damage="0.0"
             explosion_radius="0"
-        >
-        </config_explosion>
+        />
     </ProjectileComponent>
 
 </Entity>

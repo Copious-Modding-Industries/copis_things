@@ -16,6 +16,19 @@ extra_modifiers["copis_things_spell_efficiency"] = function()
     end
 end
 
+extra_modifiers["copith_cold_hearted"] = function()
+	-- Prevent projectile n-dipping
+	if c.cold_hearted then return end c.cold_hearted = true
+	local children = EntityGetAllChildren(GetUpdatedEntityID()) or {}
+	for i=1, #children do
+		if EntityGetName(children[i]) == "cold_hearted" then
+			local VSC = EntityGetFirstComponent(children[i], "VariableStorageComponent") ---@cast VSC number
+			c.damage_ice_add = c.damage_ice_add + math.min(0.12 * ComponentGetValue2(VSC, "value_int"), 0.6)
+			return
+		end
+	end
+end
+
 extra_modifiers["copis_things_mana_efficiency"] = function()
     mana = math.ceil(mana + c.action_mana_drain * 0.667)
 end

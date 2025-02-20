@@ -1,6 +1,7 @@
 local state_per_cast = function(state)
     copi_state.skipping = false
     copi_state.mana_multiplier = 1.0
+    copi_state.bit = 0
 end
 
 local discard_action = function()

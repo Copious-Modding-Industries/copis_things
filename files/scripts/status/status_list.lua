@@ -13,6 +13,14 @@ local to_insert = {
         ui_icon         = "mods/copis_things/files/ui_gfx/status_indicators/buff_recharge.png",
         effect_entity   = "mods/copis_things/files/entities/misc/status_entities/buff_recharge.xml",
     },
+    {
+        id              = "COPITH_COLD_HEARTED",
+        ui_name         = "$effectname_copith_cold_hearted",
+        ui_description  = "$effectdesc_copith_cold_hearted",
+        ui_icon         = "mods/copis_things/files/ui_gfx/status_indicators/cold_hearted.png",
+        effect_entity   = "mods/copis_things/files/entities/misc/status_entities/cold_hearted.xml",
+    },
+
     --[[ Shouldn't be handled as a status effect, what was I thinking lmao
     {
         id="COPITH_ENTITY_LARPA",

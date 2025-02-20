@@ -124,6 +124,10 @@ local content = {
 		end
 	end]]
 
+	patcher = function ()
+		dofile_once("mods/copis_things/init/enemypatcher/enemypatcher.lua")
+	end
+
 }
 
 local experimental = {
@@ -205,6 +209,10 @@ local compatiblity = {
 ██          ██  ██          ██  ██              ██              ██          ██  ██          ██  ██          ██  ██      ██    ██          ██  
   ██████████    ██          ██  ██████████████  ██████████████  ████████████    ██          ██    ██████████    ██        ██    ██████████    
 ]]
+
+function OnModPreInit()
+    content.patcher()
+end
 
 function OnModInit()
     local flag = "this_should_never_spawn"

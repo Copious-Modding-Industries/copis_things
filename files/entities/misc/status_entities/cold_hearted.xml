@@ -1,0 +1,27 @@
+<Entity name="cold_hearted" tags="modifier_effect">
+    <InheritTransformComponent/>
+
+	<VariableStorageComponent
+        name="stacks"
+        value_int="1"
+	/>
+
+    <GameEffectComponent 
+        effect="CUSTOM"
+        custom_effect_id="COPITH_COLD_HEARTED"
+        frames="600"
+	/> 
+
+    <ShotEffectComponent
+        extra_modifier="copith_cold_hearted"
+	/>
+	
+	<UIIconComponent
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/cold_hearted_1.png"
+		name="$effectname_copith_cold_hearted"
+		description="$effectdesc_copith_cold_hearted"
+		display_above_head="0"
+		display_in_hud="1"
+		is_perk="0"
+	/>
+</Entity>

@@ -3117,9 +3117,8 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
+			copi_state.bit = bit.bor(copi_state.bit, 64)
 			c.fire_rate_wait = c.fire_rate_wait + 12
-			c.extra_entities =
-				c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_wet_2x_damage_freeze.xml,"
 			draw_actions(1, true)
 		end
 	},
@@ -3137,9 +3136,8 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
+			copi_state.bit = bit.bor(copi_state.bit, 128)
 			c.fire_rate_wait = c.fire_rate_wait + 12
-			c.extra_entities =
-				c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_bloody_2x_damage_poisoned.xml,"
 			draw_actions(1, true)
 		end
 	},
@@ -3157,9 +3155,8 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
+			copi_state.bit = bit.bor(copi_state.bit, 256)
 			c.fire_rate_wait = c.fire_rate_wait + 12
-			c.extra_entities =
-				c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_oiled_2x_damage_burn.xml,"
 			draw_actions(1, true)
 		end
 	},
@@ -5326,13 +5323,15 @@ local actions_to_insert = {
 							local spun	  = ((index-2)%#actions)+1
 							action		  = actions[spun]
 						end
-						if action then
+						if HasFlagPersistent(action.spawn_requires_flag) or action.id == "COPITH_ACTION_INVERSION" then
 							deck[1]['id']					= action.id
 							deck[1]['uses_remaining']		= math.min(action.max_uses or -1, drew['uses_remaining'] or -1)
 							deck[1]['related_projectiles']	= action.related_projectiles
 							deck[1]['name']					= action.name
 							deck[1]['action']				= action.action
 							deck[1]['spun']					= true
+						else
+							GamePrint("This spell must be unlocked!")
 						end
 					end
 				end
@@ -5437,13 +5436,15 @@ local actions_to_insert = {
 							SetRandomSeed(id_sum, iter)
 							action = actions[Random(1,#actions)]
 						end
-						if action then
+						if HasFlagPersistent(action.spawn_requires_flag) or action.id == "COPITH_ACTION_INVERSION" then
 							deck[1]['id']					= action.id
 							deck[1]['uses_remaining']		= math.min(action.max_uses or -1, drew['uses_remaining'] or -1)
 							deck[1]['related_projectiles']	= action.related_projectiles
 							deck[1]['name']					= action.name
 							deck[1]['action']				= action.action
 							deck[1]['spun']					= true
+						else
+							GamePrint("This spell must be unlocked!")
 						end
 					end
 				end
@@ -6516,6 +6517,92 @@ local actions_to_insert = {
 			add_projectile_trigger_death("mods/copis_things/files/entities/projectiles/coward_bolt.xml", 1)
 			c.fire_rate_wait = c.fire_rate_wait + 6
 			c.spread_degrees = c.spread_degrees - 18
+		end,
+	},
+	--[[
+	{
+		id                  = "COPITH_DAMAGE_BANE_ROBOT",
+		name                = "$actionname_damage_bane_robot",
+		description         = "$actiondesc_damage_bane_robot",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/damage_bane_robot.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
+		type                = ACTION_TYPE_OTHER,
+		spawn_level         = "1,2,3,4,5", -- DAMAGE
+		spawn_probability   = "0.1,0.1,0.1,0.1,0.1", -- DAMAGE
+		price               = 140,
+		mana                = 5,
+		custom_xml_file		= "data/entities/misc/custom_cards/damage.xml",
+		action = function()
+			c.fire_rate_wait = c.fire_rate_wait + 12
+			--c.action_type = c.action_type + 1
+			--c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/damage_bane_.xml,"
+			add_projectile("mods/copis_things/files/entities/projectiles/dart.xml")
+			draw_actions(1, true)
+		end
+	},]]
+	{
+		id                  = "COPITH_NETTLES",
+		name                = "$actionname_nettles",
+		description         = "$actiondesc_nettles",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/nettles.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/nettles.xml" },
+		type                = ACTION_TYPE_PROJECTILE,
+		spawn_level         = "0,1,2",
+		spawn_probability   = "1.25,0.75,0.33",
+		inject_after        = {"BULLET", "BULLET_TRIGGER", "BULLET_TIMER"},
+		price               = 120,
+		mana                = 5,
+		action = function()
+			if reflecting then
+				c.fire_rate_wait = c.fire_rate_wait - 2
+				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/nettles.xml")
+				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/nettles.xml")
+				return
+			end
+			for i=1, math.random(2,3) do
+				add_projectile("mods/copis_things/files/entities/projectiles/nettles.xml")
+			end
+			c.fire_rate_wait = c.fire_rate_wait - 2
+		end
+	},--[[
+	{
+		id                  = "COPITH_AREA_OF_EFFECT",
+		name                = "$actionname_area_of_effect",
+		description         = "$actiondesc_area_of_effect",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/nettles.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/nettles.xml" },
+		type                = ACTION_TYPE_STATIC_PROJECTILE,
+		spawn_level         = "0,1,2",
+		spawn_probability   = "0.75,0.5,0.25",
+		price               = 120,
+		mana                = 5,
+		action = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/nettles.xml")
+			c.fire_rate_wait = c.fire_rate_wait - 2
+		end
+	},]]
+	{
+		id                     = "COPITH_COLD_HEARTED",
+		name                   = "$actionname_cold_hearted",
+		description            = "$actiondesc_cold_hearted",
+		author                 = "Copi",
+		mod                    = "Copi's Things",
+		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/cold_hearted.png",
+		sprite_unidentified    = "data/ui_gfx/gun_actions/freeze_unidentified.png",
+		type                   = ACTION_TYPE_MODIFIER,
+		spawn_level            = "1,2,3",                                                -- FREEZE
+		spawn_probability      = "1,1,0.9",                                            -- FREEZE
+		price                  = 140,
+		mana                   = 15,
+		action = function()
+			copi_state.bit = bit.bor(copi_state.bit, 512)
+			draw_actions( 1, true )
 		end,
 	},--[[
 	{
