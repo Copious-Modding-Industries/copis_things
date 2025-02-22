@@ -2956,6 +2956,65 @@ local to_insert = {
 			draw_actions(1, true)
 		end
 	},
+	{
+		id                  = "COPITH_SLOW_BULLET_TIMER_2",
+		name                = "$actionname_slow_bullet_timer_2",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		description         = "An energy orb that casts two spells - one after a short delay and another after a longer delay.",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/slow_bullet_timer_2.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
+		related_projectiles = { "data/entities/projectiles/deck/bullet_slow.xml" },
+		type                = ACTION_TYPE_PROJECTILE,
+		spawn_level         = "1,2,3,4,5,6",
+		spawn_probability   = "0.5,0.5,0.5,0.5,1,1",
+		inject_after        = {"SLOW_BULLET", "SLOW_BULLET_TRIGGER", "SLOW_BULLET_TIMER"},
+		price               = 200,
+		mana                = 50,
+		--max_uses          = 50,
+		custom_xml_file     = "data/entities/misc/custom_cards/bullet_slow.xml",
+		action = function()
+			c.fire_rate_wait = c.fire_rate_wait + 6
+			c.screenshake = c.screenshake + 2
+			c.spread_degrees = c.spread_degrees + 3.6
+
+			if reflecting then
+				Reflection_RegisterProjectile("data/entities/projectiles/deck/bullet_slow.xml")
+				return
+			end
+
+			BeginProjectile("data/entities/projectiles/deck/bullet_slow.xml")
+			BeginTriggerTimer(25)
+			draw_shot(create_shot(1), true)
+			EndTrigger()
+			BeginTriggerTimer(50)
+			draw_shot(create_shot(1), true)
+			EndTrigger()
+			EndProjectile()
+
+			shot_effects.recoil_knockback = shot_effects.recoil_knockback + 20.0
+		end
+	},
+	{
+		id                = "COPITH_SUMMON_FLASK_FULL",
+		name              = "$actionname_summon_flask_full",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		description       = "$actiondesc_summon_flask_full",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_flask_full.png",
+		type              = ACTION_TYPE_UTILITY,
+		spawn_level       = "2,		3,		4,		5,		6",
+		spawn_probability = "0.125,	0.17,	0.25,	0.17,	0.125",
+		price             = 300,
+		mana              = 120,
+		max_uses          = 1,
+		never_unlimited   = true,
+		action			= function()
+			c.fire_rate_wait	= c.fire_rate_wait + 20
+			current_reload_time = current_reload_time + 40
+			add_projectile("data/entities/items/pickup/potion_random_material.xml")
+		end,
+	},
 
 }
 
