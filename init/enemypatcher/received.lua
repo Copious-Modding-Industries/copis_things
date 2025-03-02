@@ -18,6 +18,7 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 			8	128:	Burn on Oiled (Flash Burn)
 			9	256:	Poison on Bloody (Viral Affliction)
 			10	512:	Cold Hearted
+			11	1024:	Blood Forge
 		]]
 		local config_data = {
 			function ()
@@ -116,6 +117,43 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 				local UIC = EntityGetFirstComponent(eid, "UIIconComponent") ---@cast UIC number
 				ComponentSetValue2(UIC, "name", GameTextGet("$effectname_copith_cold_hearted", "1"))
 				ComponentSetValue2(UIC, "description", GameTextGet("$effectdesc_copith_cold_hearted", "3"))
+			end,
+
+			--[[ ==================================================== Detect 'Blood Forge' passive ====================================================
+				On kill:
+					Chance to restore charges to spells on wand. True limited spells have a biome limit.
+			]]
+			function ()
+				if not is_fatal then return end
+				-- Find wands with spell
+				local items = GameGetAllInventoryItems( shooter ) or {}
+				local wands = {}
+				for i=1, #items do
+					if EntityHasTag(items[i], "wand") then
+						local spells = EntityGetAllChildren(items[i], "card_action") or {}
+						for j=1, #spells do
+							local iac = EntityGetFirstComponentIncludingDisabled(spells[j], "ItemActionComponent") --[[@cast iac number]]
+							if ComponentGetValue2(iac, "action_id") == "COPITH_BLOOD_FORGE" then
+								wands[#wands+1] = {}
+								for k=1, #spells do
+									local ic = EntityGetFirstComponentIncludingDisabled(spells[k], "ItemComponent") --[[@cast ic number]]
+									if ComponentGetValue2(ic, "uses_remaining") >= 0 then
+										wands[#wands][#wands[#wands]+1] = ic
+									end
+								end
+								break
+							end
+						end
+					end
+				end
+				math.randomseed(GameGetFrameNum(), projectile_thats_responsible)
+				if (math.random() > 0.02) then
+					for i=1, #wands do
+						local target = wands[i][math.random(1, #wands[i])]
+						ComponentSetValue2(target, "uses_remaining", ComponentGetValue2(target, "uses_remaining")+1)
+					end
+				end
+
 			end,
 		}
 		for i=0, #config_data-1 do

@@ -471,6 +471,8 @@ local to_insert =
         usable_by_enemies = false,
         one_off_effect = true,
         func = function(entity_perk_item, entity_who_picked, item_name)
+            dofile("data/scripts/gun/gun.lua")
+            local lookup = GunUtils.lookup_spells()
             local spells = {}
 
             -- Get spells inventory
@@ -489,15 +491,22 @@ local to_insert =
 
                 end
             end
+			
+
 
             -- Kill inventory spells and drop new ones
             if #spells > 0 then
                 local x, y = EntityGetTransform(entity_who_picked)
                 for index, spell in ipairs(spells) do
-                    local card = CreateItemActionEntity(GetRandomAction(x + math.random(-10000, 10000), y + math.random(-10001, 10000), 6, index), x, y)
-                    local velcomp = EntityGetFirstComponentIncludingDisabled(card, "VelocityComponent")
-                    ComponentSetValue2(velcomp, "mVelocity", math.random(-100, 100), math.random(-50, -100))
-                    EntityKill(spell)
+					local iac = EntityGetFirstComponentIncludingDisabled( spell, "ItemActionComponent" ) --[[@cast iac number]]
+					local action_id = ComponentGetValue2( iac, "action_id" )
+					local data = lookup[action_id]['index']
+					if HasFlagPersistent(data.spawn_requires_flag) then
+						local card = CreateItemActionEntity(GetRandomAction(x + math.random(-10000, 10000), y + math.random(-10001, 10000), 6, index), x, y)
+						local velcomp = EntityGetFirstComponentIncludingDisabled(card, "VelocityComponent")
+						ComponentSetValue2(velcomp, "mVelocity", math.random(-100, 100), math.random(-50, -100))
+						EntityKill(spell)
+					end
                 end
             end
         end,
@@ -542,29 +551,32 @@ local to_insert =
 
                 -- I apologize for my sins against math :pray: 
                 -- Bear with me as I explain this mess, or just ask me on discord if you want to get a more comprehensive step by step
-
-                --- @see _utils.lua Get current spell index via lookuptable 
-                local index = lookup[ComponentGetValue2( iac, "action_id" )]['index']
-                -- go down 2, modulo by actions count, add 1 (CASE: "BOMB"=1, go down to -1, wrap to #actions, add 1)
-                -- this was a fucking pain to figure out, sometimes I despise lua for being indexed from 1...
-                local spun  = ((index-2)%#actions)+1
-                -- get action at new id
-                local action= actions[spun]['id']
-                -- spawn said action
-                local card = CreateItemActionEntity(action, x, y)
-                local velcomp = EntityGetFirstComponentIncludingDisabled(card, "VelocityComponent") --[[@cast velcomp number]]
-                -- launch spells
-                ComponentSetValue2(velcomp, "mVelocity", 10*(i-(#spells/2)), -100)
-                -- make floaty until pickup
-                EntityAddComponent2(card, "LuaComponent", {
-                    script_item_picked_up="mods/copis_things/files/scripts/perk/misc/card_levitate_pickup.lua",
-                    script_source_file = "mods/copis_things/files/scripts/perk/misc/card_levitate.lua",
-                    execute_every_n_frame = 1,
-                    _tags="enabled_in_world",
-                })
-                -- kill old card
-                -- TODO: figure out how to forcefully place card in the same slot, but I'm a lazy fucker with no motivation
-                EntityKill(spells[i])
+				local action_id = ComponentGetValue2( iac, "action_id" )
+				local data = lookup[action_id]['index']
+				
+				if HasFlagPersistent(data.spawn_requires_flag) then
+					--- @see _utils.lua Get current spell index via lookuptable 
+					-- go down 2, modulo by actions count, add 1 (CASE: "BOMB"=1, go down to -1, wrap to #actions, add 1)
+					-- this was a fucking pain to figure out, sometimes I despise lua for being indexed from 1...
+					local spun  = ((data['index']-2)%#actions)+1
+					-- get action at new id
+					local action= actions[spun]['id']
+					-- spawn said action
+					local card = CreateItemActionEntity(action, x, y)
+					local velcomp = EntityGetFirstComponentIncludingDisabled(card, "VelocityComponent") --[[@cast velcomp number]]
+					-- launch spells
+					ComponentSetValue2(velcomp, "mVelocity", 10*(i-(#spells/2)), -100)
+					-- make floaty until pickup
+					EntityAddComponent2(card, "LuaComponent", {
+						script_item_picked_up="mods/copis_things/files/scripts/perk/misc/card_levitate_pickup.lua",
+						script_source_file = "mods/copis_things/files/scripts/perk/misc/card_levitate.lua",
+						execute_every_n_frame = 1,
+						_tags="enabled_in_world",
+					})
+					-- kill old card
+					-- TODO: figure out how to forcefully place card in the same slot, but I'm a lazy fucker with no motivation
+					EntityKill(spells[i])
+				end
             end
 
         end,
@@ -771,7 +783,23 @@ local to_insert =
                 ComponentSetValue2(damagemodel, "hp", hp)
             end
         end,
-    }
+    },
+    --  Focus
+    {
+        id = "COPITH_FOCUS",
+        author = "Copi",
+        ui_name = "$perkname_focus",
+        ui_description = "$perkdesc_focus",
+        ui_icon = "mods/copis_things/files/ui_gfx/perk_icons/focus.png",
+        perk_icon = "mods/copis_things/files/items_gfx/perks/focus.png",
+        stackable = false,
+        usable_by_enemies = true,
+        func = function(entity_perk_item, entity_who_picked, item_name)
+            local child_id = EntityLoad( "mods/copis_things/files/entities/misc/perk/focus.xml")
+            EntityAddTag( child_id, "perk_entity" )
+            EntityAddChild( entity_who_picked, child_id )
+        end,
+    },
 }
 
 local len = #perk_list

@@ -29,6 +29,26 @@ extra_modifiers["copith_cold_hearted"] = function()
 	end
 end
 
+extra_modifiers["copith_focus"] = function()
+	-- Prevent projectile n-dipping
+	if c.focus_perk then return end c.focus_perk = true
+	c.damage_critical_multiplier = c.damage_critical_multiplier + 2
+	local children = EntityGetAllChildren(GetUpdatedEntityID()) or {}
+	for i=1, #children do
+		if EntityGetName(children[i]) == "focus_perk" then
+			local GEC = EntityGetFirstComponentIncludingDisabled(children[i], "GameEffectComponent") ---@cast GEC number
+			local UIC = EntityGetFirstComponentIncludingDisabled(children[i], "UIIconComponent") ---@cast UIC number
+			c.damage_critical_chance = c.damage_critical_chance + (240 - ComponentGetValue2(GEC, "frames"))/2.40
+			if ComponentGetValue2(GEC, "frames") == 0 then
+				c.extra_entities = c.extra_entities .. "data/entities/particles/tinyspark_red.xml,"
+			end
+			ComponentSetValue2(GEC, "frames", 240)
+			ComponentSetValue2(UIC, "icon_sprite_file", "mods/copis_things/files/ui_gfx/status_indicators/focus_less.png")
+			return
+		end
+	end
+end
+
 extra_modifiers["copis_things_mana_efficiency"] = function()
     mana = math.ceil(mana + c.action_mana_drain * 0.667)
 end
@@ -38,6 +58,7 @@ extra_modifiers["copis_things_ammo_box"] = function()
         local shooter = GetUpdatedEntityID()
         local wand = GunUtils.current_wand(shooter)
         local spells = EntityGetAllChildren(wand) or {}
+		-- todo cache and then just check if it has the same ID
         local ammo_box_id = nil
         for i = 1, #spells do
             local spell = spells[i]

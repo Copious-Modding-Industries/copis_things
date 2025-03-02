@@ -3052,7 +3052,7 @@ local actions_to_insert = {
 				return
 			end
 			SetRandomSeed(GameGetFrameNum() + 978, GameGetFrameNum() + 663)
-			local new_mana = mana + Random( -20, 60)
+			local new_mana = mana + (Random( -20, 60) * copi_state.mana_multiplier)
 
 			if new_mana > mana then
 				--
@@ -4017,21 +4017,10 @@ local actions_to_insert = {
 		spawn_probability = "0.2,1",
 		price             = 250,
 		mana              = 0,
-		action            = events.april_fools and function ()
-			if reflecting then return end
-			local players   = EntityGetWithTag( "player_unit" ) or {}
-			for   i         = 1, #players do
-			local entity_id = players[i]
-			local x,         y,  r, sx, sy = EntityGetTransform(entity_id)
-				EntityLoad(table.concat{"data/entities/particles/image_emitters/player_disappear_effect_", (sx<0 and "left" or "right"), ".xml"}, x, y) -- gfx
-				EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999, "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTEGRATED", 0, 0, entity_id, x, y, 10)
-				GamePrintImportant("April Fooled")
-				EntityKill(entity_id)
-			end
-		end or function()
+		action = function()
 			if reflecting then return end
 			local entity_id = GetUpdatedEntityID()
-			local x,         y, r, sx, sy = EntityGetTransform(entity_id)
+			local x, y, r, sx, sy = EntityGetTransform(entity_id)
 			EntityLoad(table.concat{"data/entities/particles/image_emitters/player_disappear_effect_", (sx<0 and "left" or "right"), ".xml"}, x, y) -- gfx
 			EntityInflictDamage(entity_id, 99999999999999999999999999999999999999999999999999999999999999999, "DAMAGE_PHYSICS_BODY_DAMAGED", "death.", "DISINTEGRATED", 0, 0, entity_id, x, y, 10)
 			EntityKill(entity_id)
@@ -4865,9 +4854,9 @@ local actions_to_insert = {
 	{
 		id                    = "COPITH_SRS",
 		name                  = "Serious Cannonball",
+		description           = "A heavy cannonball which can be charged as you hold fire!",
 		author                = "Copi",
 		mod                   = "Copi's Things",
-		description           = "A heavy cannonball which can be charged as you hold fire!",
 		sprite                = "mods/copis_things/files/ui_gfx/gun_actions/SRS.png",
 		--related_projectiles = { "mods/copis_things/files/entities/projectiles/SRS.xml" },
 		type                  = ACTION_TYPE_PROJECTILE,
@@ -5843,7 +5832,7 @@ local actions_to_insert = {
 			current_reload_time = current_reload_time + 15
 			if not reflecting then
 				local delta = math.min(120, (GameGetFrameNum() - (LastShootingStart or 0)) * 2)
-				mana = mana + delta
+				mana = mana + (delta * copi_state.mana_multiplier)
 				draw_actions(1, true)
 				LastShootingStart = GameGetFrameNum()
 			end
