@@ -10,6 +10,6 @@
 		"ACTION_TYPE_MODIFIER",
 		"ACTION_TYPE_UTILITY",
 		"ACTION_TYPE_PASSIVE",
-		"bit"
+		"bit",
 	]
 }

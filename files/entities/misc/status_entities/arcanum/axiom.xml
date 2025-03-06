@@ -1,0 +1,35 @@
+<Entity name="arcanum_axiom">
+	
+	<InheritTransformComponent/>
+	<VariableStorageComponent
+		name="spell"
+		value_string=""
+		value_int="0"
+	/>
+
+    <GameEffectComponent 
+        effect="NONE"
+        frames="61"
+	/> 
+
+    <!-- 
+	<SpriteComponent image_file="mods/copis_things/files/particles/aegis.png"
+		offset_y="5" has_special_scale="1" special_scale_x="1" special_scale_y="1" alpha="0.35" sprite_centered="1"
+	/>
+	<SpriteComponent image_file="mods/copis_things/files/particles/aegis.png"
+		offset_y="5" has_special_scale="1" special_scale_x="1" special_scale_y="1" alpha="0.35" sprite_centered="1"
+	/>
+	<SpriteComponent image_file="mods/copis_things/files/particles/aegis.png"
+		offset_y="5" has_special_scale="1" special_scale_x="1" special_scale_y="1" alpha="0.35" sprite_centered="1"
+	/>-->
+	
+	<UIIconComponent
+		name="PLACEHOLDER"
+		description="PLACEHOLDER"
+		icon_sprite_file="mods/copis_things/files/ui_gfx/status_indicators/axiom.png"
+		is_perk="0"
+		display_above_head="0"
+		display_in_hud="1"
+	/>
+
+</Entity>

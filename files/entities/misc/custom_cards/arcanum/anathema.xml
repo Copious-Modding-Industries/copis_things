@@ -1,0 +1,21 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/arcanum_anathema.png" 
+		/>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPITH_ARCANUM_ANATHEMA"
+		/>
+	</Base>
+
+	<InheritTransformComponent _tags="enabled_in_world,enabled_in_hand" />
+
+    <ShotEffectComponent 
+        _tags="enabled_in_hand"
+        extra_modifier="copith_anathema"
+    />
+
+</Entity>

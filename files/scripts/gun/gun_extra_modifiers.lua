@@ -49,6 +49,17 @@ extra_modifiers["copith_focus"] = function()
 	end
 end
 
+extra_modifiers["copith_anathema"] = function()
+	c.damage_projectile_add = c.damage_projectile_add - 0.4
+	local x, y = EntityGetTransform(GetUpdatedEntityID())
+	local enemies = EntityGetInRadiusWithTag(x, y, 128, "mortal")
+	for i=1, #enemies do
+		if EntityGetComponent(enemies[i], "GenomeDataComponent") ~= nil and EntityGetHerdRelation(GetUpdatedEntityID(), enemies[i]) < 70 and enemies[i] ~= GetUpdatedEntityID() then
+			EntityInflictDamage(enemies[i], (c.action_mana_drain)/25, "DAMAGE_SLICE", "Anathema", "DISINTEGRATED", 0, 0, GetUpdatedEntityID())
+		end
+	end
+end
+
 extra_modifiers["copis_things_mana_efficiency"] = function()
     mana = math.ceil(mana + c.action_mana_drain * 0.667)
 end

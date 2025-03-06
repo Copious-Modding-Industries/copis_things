@@ -64,6 +64,7 @@ copi_state = {
 		_register_action                    = register_action,                          ---@type function
 		_create_shot                        = create_shot,                              ---@type function
 		_clone_action                       = clone_action,                             ---@type function
+		__play_permanent_card               = _play_permanent_card,                     ---@type function
 
 		_BeginProjectile					= BeginProjectile,							---@type function
 	}
@@ -91,18 +92,19 @@ gun.*:
 GunUtils			= dofile_once("mods/copis_things/files/scripts/gun/functions/_utils.lua")										---@type Utilities
 
 -- Monkey Patching
-order_deck			= dofile_once("mods/copis_things/files/scripts/gun/functions/order_deck.lua").order_deck						---@type function
-draw_shot			= dofile_once("mods/copis_things/files/scripts/gun/functions/draw_shot.lua").draw_shot							---@type function
-draw_action			= dofile_once("mods/copis_things/files/scripts/gun/functions/draw_action.lua").draw_action						---@type function
-register_action		= dofile_once("mods/copis_things/files/scripts/gun/functions/register_action.lua").register_action				---@type function
-add_projectile		= dofile_once("mods/copis_things/files/scripts/gun/functions/add_projectile.lua").add_projectile				---@type function
-create_shot			= dofile_once("mods/copis_things/files/scripts/gun/functions/create_shot.lua").create_shot						---@type function
-set_current_action	= dofile_once("mods/copis_things/files/scripts/gun/functions/set_current_action.lua").set_current_action		---@type function
-clone_action		= dofile_once("mods/copis_things/files/scripts/gun/functions/clone_action.lua").clone_action					---@type function
-draw_actions		= draw_actions --[[ TODO: Patch this, only here for annotation ]]												---@type function
+order_deck				= dofile_once("mods/copis_things/files/scripts/gun/functions/order_deck.lua").order_deck						---@type function
+draw_shot				= dofile_once("mods/copis_things/files/scripts/gun/functions/draw_shot.lua").draw_shot							---@type function
+draw_action				= dofile_once("mods/copis_things/files/scripts/gun/functions/draw_action.lua").draw_action						---@type function
+register_action			= dofile_once("mods/copis_things/files/scripts/gun/functions/register_action.lua").register_action				---@type function
+add_projectile			= dofile_once("mods/copis_things/files/scripts/gun/functions/add_projectile.lua").add_projectile				---@type function
+create_shot				= dofile_once("mods/copis_things/files/scripts/gun/functions/create_shot.lua").create_shot						---@type function
+set_current_action		= dofile_once("mods/copis_things/files/scripts/gun/functions/set_current_action.lua").set_current_action		---@type function
+clone_action			= dofile_once("mods/copis_things/files/scripts/gun/functions/clone_action.lua").clone_action					---@type function
+_play_permanent_card	= dofile_once("mods/copis_things/files/scripts/gun/functions/_play_permanent_card.lua")._play_permanent_card	---@type function
+draw_actions			= draw_actions --[[ TODO: Patch this, only here for annotation ]]												---@type function
 
-BeginProjectile		= dofile_once("mods/copis_things/files/scripts/gun/functions/BeginProjectile.lua").BeginProjectile				---@type function
+BeginProjectile			= dofile_once("mods/copis_things/files/scripts/gun/functions/BeginProjectile.lua").BeginProjectile				---@type function
 
 -- New Funcs
-peek_draw_actions	= dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_actions.lua").peek_draw_actions			---@type function
-peek_draw_action	= dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_action.lua").peek_draw_action			---@type function
+peek_draw_actions		= dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_actions.lua").peek_draw_actions			---@type function
+peek_draw_action		= dofile_once("mods/copis_things/files/scripts/gun/functions/peek_draw_action.lua").peek_draw_action			---@type function

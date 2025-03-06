@@ -4865,37 +4865,26 @@ local actions_to_insert = {
 		price                 = 90,
 		mana                  = 40,
 		action = function()
+			
 			if reflecting then
 				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
 			else
-				local found = false
-				local player_projs = EntityGetWithTag("player_projectiles") or {}
-				for i = 1, #player_projs do
-					if EntityGetName(player_projs[i]) == "SRS_handler" then
-						local pcomp = EntityGetFirstComponent(player_projs[i], "ProjectileComponent")
-						if pcomp then
-							local mWhoShot = ComponentGetValue2(pcomp, "mWhoShot")
-							if mWhoShot == GetUpdatedEntityID() then
-								found = true
-								break
-							end
-						end
-					end
-				end
-				if found then
-					BeginProjectile("mods/copis_things/files/entities/projectiles/SRS_booster.xml")
-					EndProjectile()
-				else
+				BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" ) BeginTriggerDeath()
+					-- This does the magic
 					BeginProjectile("mods/copis_things/files/entities/projectiles/SRS_handler.xml")
-						BeginTriggerDeath()
+						BeginTriggerHitWorld()
 							BeginProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
 							EndProjectile()
 							register_action(c)
 							SetProjectileConfigs()
 						EndTrigger()
 					EndProjectile()
-				end
+					register_action({action_type = GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID()))})
+					SetProjectileConfigs()
+				EndTrigger() EndProjectile()
 			end
+
+
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			current_reload_time = current_reload_time + 12
 		end
@@ -5808,7 +5797,7 @@ local actions_to_insert = {
 		spawn_probability   = "0.3,0.5,0.5,0.1",                                               -- SUMMON_ROCK
 		price               = 227,
 		mana                = 50,
-		max_uses            = 25,
+		--max_uses            = 25,
 		action              = function()
 			add_projectile("mods/copis_things/files/entities/projectiles/ice_cube.xml")
 			c.fire_rate_wait = c.fire_rate_wait + 45
@@ -6534,7 +6523,93 @@ local actions_to_insert = {
 			copi_state.bit = bit.bor(copi_state.bit, 512)
 			draw_actions( 1, true )
 		end,
+	},
+	{
+		id                = "COPITH_ARCANUM_AEGIS",
+		name              = "$actionname_arcanum_aegis",
+		description       = "$actiondesc_arcanum_aegis",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_aegis.png",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "1,2,3,4,5",
+		spawn_probability = "0.2,0.5,0.2,0.1,0.1",
+		price             = 280,
+		mana              = 12,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/arcanum/aegis.xml",
+		action = function()
+			draw_actions(1, true)
+		end
 	},--[[
+	{
+		id                = "COPITH_ARCANUM_ANATHEMA",
+		name              = "$actionname_arcanum_anathema",
+		description       = "$actiondesc_arcanum_anathema",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_anathema.png",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "1,2,3,4,5",
+		spawn_probability = "0.2,0.5,0.2,0.1,0.1",
+		price             = 280,
+		mana              = 12,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/arcanum/anathema.xml",
+		action = function()
+			if reflecting then c.damage_projectile_add = -0.4 end
+			draw_actions(1, true)
+		end
+	},]]--[[
+	{
+		id                = "COPITH_ARCANUM_ACCELERANT",
+		name              = "$actionname_arcanum_accelerant",
+		description       = "$actiondesc_arcanum_accelerant",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_accelerant.png",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "1,2,3,4,5",
+		spawn_probability = "0.2,0.5,0.2,0.1,0.1",
+		price             = 280,
+		mana              = 12,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/arcanum/accelerant.xml",
+		action = function()
+			draw_actions(1, true)
+		end
+	},]]
+	{
+		id                = "COPITH_ARCANUM_AXIOM",
+		name              = "$actionname_arcanum_axiom",
+		description       = "$actiondesc_arcanum_axiom",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_axiom.png",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "1,2,3,4,5",
+		spawn_probability = "0.2,0.5,0.2,0.1,0.1",
+		price             = 280,
+		mana              = 12,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/arcanum/axiom.xml",
+		action = function()
+			draw_actions(1, true)
+		end
+	},--[[
+	{
+		id                = "COPITH_ARCANUM_ARMAMENT",
+		name              = "$actionname_arcanum_armament",
+		description       = "$actiondesc_arcanum_armament",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_armament.png",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "1,2,3,4,5",
+		spawn_probability = "0.2,0.5,0.2,0.1,0.1",
+		price             = 280,
+		mana              = 12,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/arcanum/armament.xml",
+		action = function()
+			draw_actions(1, true)
+		end
+	},]]--[[
 	{
 		id                  = "COPITH_HOLIEST_BOMB",
 		name                = "$actionname_holiest_bomb",

@@ -55,7 +55,7 @@
     <UIInfoComponent
         _tags="enabled_in_world"
         name="Emerald Tablet"
-        ></UIInfoComponent>
+	/>
 
     <DamageModelComponent
         air_needed="0"

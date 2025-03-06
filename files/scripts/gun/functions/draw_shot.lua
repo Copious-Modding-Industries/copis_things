@@ -2,6 +2,20 @@ local function draw_shot( shot, instant_reload_if_empty )
     -- ??? wtf it works I guess
     local call_end_cast = false
     if copi_state.new_cast == nil then
+
+		if not reflecting then
+			local inv2c = EntityGetFirstComponent(GetUpdatedEntityID(), "Inventory2Component") --[[@cast inv2c number]]
+			local buffs = EntityGetAllChildren(GetUpdatedEntityID()) or {}
+			for i=1, #buffs do
+				if EntityGetName(buffs[i]) == "arcanum_axiom" then
+					local vsc = EntityGetFirstComponent(buffs[i], "VariableStorageComponent") --[[@cast vsc number]]
+					if not (EntityGetParent(ComponentGetValue2(vsc, "value_int")) == ComponentGetValue2(inv2c, "mActiveItem")) then
+						_play_permanent_card(ComponentGetValue2(vsc, "value_string"))
+					end
+				end
+			end
+		end
+
         call_end_cast = true
         copi_state.new_cast = false
         local state = tonumber(GlobalsGetValue("GLOBAL_CAST_STATE", "0"))
