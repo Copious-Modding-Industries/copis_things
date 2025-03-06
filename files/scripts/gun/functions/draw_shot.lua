@@ -8,6 +8,7 @@ local function draw_shot( shot, instant_reload_if_empty )
 			local buffs = EntityGetAllChildren(GetUpdatedEntityID()) or {}
 			for i=1, #buffs do
 				if EntityGetName(buffs[i]) == "arcanum_axiom" then
+					if EntityHasTag(GetUpdatedEntityID(), "player_unit") then AddFlagPersistent("action_copith_arcanum_axiom") end
 					local vsc = EntityGetFirstComponent(buffs[i], "VariableStorageComponent") --[[@cast vsc number]]
 					if not (EntityGetParent(ComponentGetValue2(vsc, "value_int")) == ComponentGetValue2(inv2c, "mActiveItem")) then
 						_play_permanent_card(ComponentGetValue2(vsc, "value_string"))

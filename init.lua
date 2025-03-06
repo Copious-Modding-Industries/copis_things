@@ -215,6 +215,7 @@ function OnModPreInit()
 end
 
 function OnModInit()
+	AddFlagPersistent("forced_flag")
     local flag = "this_should_never_spawn"
     if HasFlagPersistent(flag) then
         RemoveFlagPersistent(flag)

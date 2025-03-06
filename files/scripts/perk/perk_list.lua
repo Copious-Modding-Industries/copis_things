@@ -500,8 +500,8 @@ local to_insert =
                 for index, spell in ipairs(spells) do
 					local iac = EntityGetFirstComponentIncludingDisabled( spell, "ItemActionComponent" ) --[[@cast iac number]]
 					local action_id = ComponentGetValue2( iac, "action_id" )
-					local data = lookup[action_id]['index']
-					if HasFlagPersistent(data.spawn_requires_flag) then
+					local data = lookup[action_id]
+					if HasFlagPersistent(data.spawn_requires_flag or "forced_flag") then
 						local card = CreateItemActionEntity(GetRandomAction(x + math.random(-10000, 10000), y + math.random(-10001, 10000), 6, index), x, y)
 						local velcomp = EntityGetFirstComponentIncludingDisabled(card, "VelocityComponent")
 						ComponentSetValue2(velcomp, "mVelocity", math.random(-100, 100), math.random(-50, -100))
@@ -552,9 +552,9 @@ local to_insert =
                 -- I apologize for my sins against math :pray: 
                 -- Bear with me as I explain this mess, or just ask me on discord if you want to get a more comprehensive step by step
 				local action_id = ComponentGetValue2( iac, "action_id" )
-				local data = lookup[action_id]['index']
+				local data = lookup[action_id]
 				
-				if HasFlagPersistent(data.spawn_requires_flag) then
+				if HasFlagPersistent(data.spawn_requires_flag or "forced_flag") then
 					--- @see _utils.lua Get current spell index via lookuptable 
 					-- go down 2, modulo by actions count, add 1 (CASE: "BOMB"=1, go down to -1, wrap to #actions, add 1)
 					-- this was a fucking pain to figure out, sometimes I despise lua for being indexed from 1...
