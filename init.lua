@@ -7,9 +7,7 @@ Keep your eyes open, for there is much to come.
 COPIS_THINGS_VERSION = "0.52"
 
 -- NOTICE! This is CRAP! I will be REWRITING THIS LIBRARY!
-dofile_once("mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init(
-	"mods/copis_things/files/scripts/lib/polytools/"
-)
+dofile_once("mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init("mods/copis_things/files/scripts/lib/polytools/")
 
 -- gus you fuck this file literally doesnt exist you broke my mod
 ---@module "setupCompatibility"
