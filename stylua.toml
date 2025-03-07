@@ -1,0 +1,10 @@
+column_width = 999 # If you go over this i kill you.
+line_endings = "Unix"
+indent_type = "Tabs"
+indent_width = 4
+quote_style = "AutoPreferDouble"
+call_parentheses = "Always"
+collapse_simple_statement = "ConditionalOnly"
+
+[sort_requires]
+enabled = false

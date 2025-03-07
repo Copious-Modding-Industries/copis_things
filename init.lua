@@ -33,17 +33,11 @@ local content = {
 		dofile("mods/copis_things/init/handhelds.lua")
 
 		-- Gun Extra Modifiers (status)
-		ModLuaFileAppend(
-			"data/scripts/gun/gun_extra_modifiers.lua",
-			"mods/copis_things/files/scripts/gun/gun_extra_modifiers.lua"
-		)
+		ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/gun/gun_extra_modifiers.lua")
 		-- Edit gun.lua
 		ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/scripts/gun/gun_append.lua")
 		-- Rework spells
-		ModLuaFileAppend(
-			"data/scripts/gun/gun_actions.lua",
-			"mods/copis_things/files/scripts/gun/gun_actions_rework.lua"
-		)
+		ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/scripts/gun/gun_actions_rework.lua")
 		-- Add spells
 		ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/scripts/gun/gun_actions.lua")
 	end,
@@ -57,14 +51,11 @@ local content = {
 
 	translations = function()
 		local translations = ModTextFileGetContent("data/translations/common.csv")
-		if translations == nil then
-			return
-		end
+		if translations == nil then return end
 
 		local files = { "perks", "actions", "effects", "other" }
 		for i = 1, #files do
-			local new_translations =
-				ModTextFileGetContent(table.concat({ "mods/copis_things/files/translations/", files[i], ".csv" }))
+			local new_translations = ModTextFileGetContent(table.concat({ "mods/copis_things/files/translations/", files[i], ".csv" }))
 			translations = translations .. "\n" .. new_translations .. "\n"
 		end
 
@@ -93,10 +84,7 @@ local content = {
 
 	statuses = function()
 		-- Add statuses
-		ModLuaFileAppend(
-			"data/scripts/status_effects/status_list.lua",
-			"mods/copis_things/files/scripts/status/status_list.lua"
-		)
+		ModLuaFileAppend("data/scripts/status_effects/status_list.lua", "mods/copis_things/files/scripts/status/status_list.lua")
 	end,
 
 	materials = function()
@@ -198,15 +186,11 @@ local experimental = {
 
 local compatiblity = {
 	frostbite = function()
-		if ModIsEnabled("conga_temperature_mod") then
-			dofile_once("mods/copis_things/init/compat_frostbite.lua")
-		end
+		if ModIsEnabled("conga_temperature_mod") then dofile_once("mods/copis_things/init/compat_frostbite.lua") end
 	end,
 
 	grahamth = function()
-		if ModIsEnabled("grahamsperks") then
-			dofile_once("mods/copis_things/init/compat_grahamth.lua")
-		end
+		if ModIsEnabled("grahamsperks") then dofile_once("mods/copis_things/init/compat_grahamth.lua") end
 	end,
 }
 
@@ -230,9 +214,7 @@ end
 function OnModInit()
 	AddFlagPersistent("forced_flag")
 	local flag = "this_should_never_spawn"
-	if HasFlagPersistent(flag) then
-		RemoveFlagPersistent(flag)
-	end
+	if HasFlagPersistent(flag) then RemoveFlagPersistent(flag) end
 	if HasFlagPersistent("copis_things_meta_spell") then
 		AddFlagPersistent("copis_things_meta_spell_action")
 	else
