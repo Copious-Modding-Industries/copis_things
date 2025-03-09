@@ -4824,7 +4824,7 @@ local actions_to_insert = {
 		action = function()
 			draw_actions(1, true)
 		end
-	},
+	},--[[
 	{
 		id                    = "COPITH_SRS",
 		name             	  = "$actionname_SRS",
@@ -4861,7 +4861,7 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			current_reload_time = current_reload_time + 12
 		end
-	},--[[]]
+	},
 	{
 		id                    = "COPITH_FLURRY",
 		name             	  = "$actionname_flurry",
@@ -4898,7 +4898,7 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			current_reload_time = current_reload_time + 12
 		end
-	},
+	},]]
 	{
 		id                  = "COPITH_GRAPPLING_HOOK",
 		name                = "$actionname_grappling_hook",
