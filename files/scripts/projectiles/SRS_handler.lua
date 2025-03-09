@@ -1,7 +1,10 @@
+local extract = dofile_once("mods/copis_things/files/scripts/lib/proj_data.lua")
 local entity_id = GetUpdatedEntityID()
 local proj = EntityGetFirstComponentIncludingDisabled( entity_id, "ProjectileComponent" ) --[[@cast proj number]]
 local lua = EntityGetFirstComponentIncludingDisabled( entity_id, "LuaComponent" ) --[[@cast lua number]]
 if ComponentGetValue2(lua, "mTimesExecuted") == 0 then
+	-- CASE: PROJECTILE JUST CREATED
+	-- Store initial velocity for offset
 	local _, _, r = EntityGetTransform(entity_id)
 	SetValueNumber("SRS_r", r)
 else

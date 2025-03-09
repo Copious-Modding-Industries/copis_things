@@ -23,7 +23,7 @@ extra_modifiers["copith_cold_hearted"] = function()
 	for i=1, #children do
 		if EntityGetName(children[i]) == "cold_hearted" then
 			local VSC = EntityGetFirstComponent(children[i], "VariableStorageComponent") ---@cast VSC number
-			c.damage_ice_add = c.damage_ice_add + math.min(0.12 * ComponentGetValue2(VSC, "value_int"), 0.6)
+			c.damage_ice_add = c.damage_ice_add + 0.12 * ComponentGetValue2(VSC, "value_int")
 			return
 		end
 	end

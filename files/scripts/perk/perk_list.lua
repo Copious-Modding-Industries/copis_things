@@ -495,6 +495,8 @@ local to_insert =
 					if HasFlagPersistent(actions[i].spawn_requires_flag) then
 						valid[#valid+1] = actions[i]
 					end
+				else
+					valid[#valid+1] = actions[i]
 				end
 			end
 

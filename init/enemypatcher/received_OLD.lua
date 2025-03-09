@@ -1,41 +1,39 @@
 ---@diagnostic disable-next-line: lowercase-global
 function damage_received( damage, message, entity_thats_responsible, is_fatal, projectile_thats_responsible )
-	if GameGetFrameNum()<2 then return end
 	local util = dofile_once("mods/copis_things/files/scripts/lib/gooder_util.lua")
 	local victim = GetUpdatedEntityID()
 	local proj = EntityGetFirstComponent(projectile_thats_responsible, "ProjectileComponent")
+	--local damagefield = ComponentObjectGetValue2(message, "config", "action_type")
 	if proj then
 		local shooter = ComponentGetValue2(proj, "mWhoShot")
-		local extract = dofile_once("mods/copis_things/files/scripts/lib/proj_data.lua")
-		local key = {1,2,3,4,5,6,7,8,9,10,11,12}
-		local data = {extract(proj, {1,2,3,4,5,6,7,8,9,10,11,12})}
-		--[[ LINE NUMBER VALUES
-			1	2	Faction damage, slime
-			2	3	Faction damage, robot
-			3	4	Faction damage, orcs
-			4	5	Faction damage, mage
-			5	6	Faction damage, ghost
-			6	7	Shatter modifier
-			7	8	Frozen on Wet (Snap Freeze)
-			8	9	Burn on Oiled (Flash Burn)
-			9	10	Poison on Bloody (Viral Affliction)
-			10	11	Cold Hearted
-			11	12	Blood Forge
+		local bitfield = ComponentObjectGetValue2(proj, "config", "action_type")
+		--[[ Extract enum data packed into action type
+			1	1:		Faction damage, slime
+			2	2:		Faction damage, robot
+			3	4:		Faction damage, orcs
+			4	8:		Faction damage, mage
+			5	16:		Faction damage, ghost
+			6	32:		Shatter modifier
+			7	64:		Frozen on Wet (Snap Freeze)
+			8	128:	Burn on Oiled (Flash Burn)
+			9	256:	Poison on Bloody (Viral Affliction)
+			10	512:	Cold Hearted
+			11	1024:	Blood Forge
 		]]
 		local config_data = {
-			function (count)
+			function ()
 
 			end,
-			function (count)
+			function ()
 
 			end,
-			function (count)
+			function ()
 
 			end,
-			function (count)
+			function ()
 
 			end,
-			function (count)
+			function ()
 
 			end,
 
@@ -44,11 +42,10 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 					Increased damage
 					On Kill: Fire icicles out
 			]]
-			function (count)
-				count=tonumber(count)
+			function ()
 				if (message:find("damage_ice") or GameGetGameEffectCount(victim, "FROZEN")>=1) or message:find("Shattered!") then
 					if is_fatal then
-						for i=1, 3*count do
+						for i=1, 3 do
 							local created_proj_id = util.shoot_proj(nil, math.random(-math.pi, math.pi), "mods/copis_things/files/entities/projectiles/shatter_icicle.xml", shooter)
 						end
 					else
@@ -63,7 +60,6 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 					Deal 2x damage
 			]]
 			function (count)
-				count=tonumber(count)
 				if ComponentObjectGetValue2(proj, "config", "game_effect_entities"):find("effect_apply_wet") or GameGetGameEffectCount(victim, "WET")>=1 then
 					LoadGameEffectEntityTo(victim, "data/entities/misc/effect_frozen_short.xml")
 					EntityInflictDamage(victim, damage*count, "DAMAGE_ICE", "$damage_ice", "FROZEN", 0, 0, entity_thats_responsible)
@@ -76,7 +72,6 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 					Deal 2x damage
 			]]
 			function (count)
-				count=tonumber(count)
 				if ComponentObjectGetValue2(proj, "config", "game_effect_entities"):find("effect_apply_oiled") or GameGetGameEffectCount(victim, "OILED")>=1 then
 					LoadGameEffectEntityTo(victim, "data/entities/misc/effect_apply_on_fire.xml")
 					EntityInflictDamage(victim, damage*count, "DAMAGE_FIRE", "$damage_fire", "DISINTEGRATED", 0, 0, entity_thats_responsible)
@@ -89,7 +84,6 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 					Deal 2x damage
 			]]
 			function (count)
-				count=tonumber(count)
 				if ComponentObjectGetValue2(proj, "config", "game_effect_entities"):find("effect_apply_bloody") or GameGetGameEffectCount(victim, "BLOODY")>=1 then
 					LoadGameEffectEntityTo(victim, "data/entities/misc/effect_poison.xml")
 					EntityInflictDamage(victim, damage*count, "DAMAGE_POISON", "$damage_poison", "NORMAL", 0, 0, entity_thats_responsible)
@@ -102,7 +96,7 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 			]]
 			function (count)
 				if not is_fatal then return end
-				count=tonumber(count)
+				count = tonumber(count)
 				local children = EntityGetAllChildren(entity_thats_responsible) or {}
 				for i=1, #children do
 					if EntityGetName(children[i]) == "cold_hearted" then
@@ -123,17 +117,15 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 				end
 				local eid = LoadGameEffectEntityTo(entity_thats_responsible, "mods/copis_things/files/entities/misc/status_entities/cold_hearted.xml")
 				local UIC = EntityGetFirstComponent(eid, "UIIconComponent") ---@cast UIC number
-				ComponentSetValue2(UIC, "name", GameTextGet("$effectname_copith_cold_hearted", tostring(count)))
-				ComponentSetValue2(UIC, "description", GameTextGet("$effectdesc_copith_cold_hearted", tostring(count*3)))
-				local VSC = EntityGetFirstComponent(eid, "VariableStorageComponent") ---@cast VSC number
-				ComponentSetValue2(VSC, "value_int", count)
+				ComponentSetValue2(UIC, "name", GameTextGet("$effectname_copith_cold_hearted", "1"))
+				ComponentSetValue2(UIC, "description", GameTextGet("$effectdesc_copith_cold_hearted", "3"))
 			end,
 
 			--[[ ==================================================== Detect 'Blood Forge' passive ====================================================
 				On kill:
 					Chance to restore charges to spells on wand. True limited spells have a biome limit.
 			]]
-			function (count)
+			function ()
 				if not is_fatal then return end
 				-- Find wands with spell
 				local items = GameGetAllInventoryItems( shooter ) or {}
@@ -166,9 +158,10 @@ function damage_received( damage, message, entity_thats_responsible, is_fatal, p
 
 			end,
 		}
-		for i=1, #config_data do
-			data[i]=data[i]:gsub("\n","")
-			if data[i]~="" then config_data[i-1](data[i]) end
+		for i=0, #config_data-1 do
+			if bit.band(bitfield, 2^i) == 2^i then
+				config_data[i+1]()
+			end
 		end
 
 

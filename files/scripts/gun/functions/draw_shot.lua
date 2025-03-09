@@ -17,6 +17,8 @@ local function draw_shot( shot, instant_reload_if_empty )
 			end
 		end
 
+		ResetDatat()
+
         call_end_cast = true
         copi_state.new_cast = false
         local state = tonumber(GlobalsGetValue("GLOBAL_CAST_STATE", "0"))

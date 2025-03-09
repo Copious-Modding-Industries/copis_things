@@ -3078,7 +3078,7 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
-			copi_state.bit = bit.bor(copi_state.bit, 64)
+			Datat[8]=(Datat[8]or 0)+1
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			draw_actions(1, true)
 		end
@@ -3097,7 +3097,7 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
-			copi_state.bit = bit.bor(copi_state.bit, 128)
+			Datat[10]=(Datat[10]or 0)+1
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			draw_actions(1, true)
 		end
@@ -3116,7 +3116,7 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
-			copi_state.bit = bit.bor(copi_state.bit, 256)
+			Datat[9]=(Datat[9]or 0)+1
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			draw_actions(1, true)
 		end
@@ -4406,16 +4406,9 @@ local actions_to_insert = {
 			if not reflecting then
 				c.lifetime_add = math.max(c.lifetime_add, 2)
 
-				if c.caststate == nil then
+				if not DontTouch_Data[1] then
 					-- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
-					c.action_description = table.concat(
-						{
-							(c.action_description or ""),
-							"\nCASTSTATE|",
-							GlobalsGetValue("GLOBAL_CAST_STATE", "0"),
-						}
-					)
-					c.caststate = true
+					Datat[1] = GlobalsGetValue("GLOBAL_CAST_STATE", "0")
 				end
 				c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/sword_parser.xml,"
 
@@ -4444,16 +4437,9 @@ local actions_to_insert = {
 
 			if not reflecting then
 
-				if c.caststate == nil then
+				if not DontTouch_Data[1] then
 					-- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
-					c.action_description = table.concat(
-						{
-							(c.action_description or ""),
-							"\nCASTSTATE|",
-							GlobalsGetValue("GLOBAL_CAST_STATE", "0"),
-						}
-					)
-					c.caststate = true
+					Datat[1] = GlobalsGetValue("GLOBAL_CAST_STATE", "0")
 				end
 				c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/link_shot.xml,"
 
@@ -4477,18 +4463,9 @@ local actions_to_insert = {
 		mana              = 0,
 		action = function()
 
-			if not reflecting then
-				if c.caststate == nil then
-					-- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
-					c.action_description = table.concat(
-						{
-							(c.action_description or ""),
-							"\nCASTSTATE|",
-							GlobalsGetValue("GLOBAL_CAST_STATE", "0"),
-						}
-					)
-					c.caststate = true
-				end
+			if not DontTouch_Data[1] then
+				-- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
+				Datat[1] = GlobalsGetValue("GLOBAL_CAST_STATE", "0")
 			end
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/barrier_arc.xml,"
 
@@ -4833,9 +4810,9 @@ local actions_to_insert = {
 	{
 		id                = "COPITH_MUSIC_PLAYER",
 		name              = "$actionname_music_player",
+		description       = "$actiondesc_music_player",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_music_player",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/music_player.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4847,11 +4824,11 @@ local actions_to_insert = {
 		action = function()
 			draw_actions(1, true)
 		end
-	},--[[
+	},
 	{
 		id                    = "COPITH_SRS",
-		name                  = "Serious Cannonball",
-		description           = "A heavy cannonball which can be charged as you hold fire!",
+		name             	  = "$actionname_SRS",
+		description      	  = "$actiondesc_SRS",
 		author                = "Copi",
 		mod                   = "Copi's Things",
 		sprite                = "mods/copis_things/files/ui_gfx/gun_actions/SRS.png",
@@ -4862,7 +4839,6 @@ local actions_to_insert = {
 		price                 = 90,
 		mana                  = 40,
 		action = function()
-			
 			if reflecting then
 				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
 			else
@@ -4885,7 +4861,44 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			current_reload_time = current_reload_time + 12
 		end
-	},]]
+	},--[[]]
+	{
+		id                    = "COPITH_FLURRY",
+		name             	  = "$actionname_flurry",
+		description      	  = "$actiondesc_flurry",
+		author                = "Copi",
+		mod                   = "Copi's Things",
+		sprite                = "mods/copis_things/files/ui_gfx/gun_actions/flurry.png",
+		--related_projectiles = { "mods/copis_things/files/entities/projectiles/SRS.xml" },
+		type                  = ACTION_TYPE_PROJECTILE,
+		spawn_level           = "1,2,3,4,5,6",
+		spawn_probability     = "0.6,0.6,0.4,0.2,0.2,0.2",
+		price                 = 90,
+		mana                  = 25,
+		action = function()
+			if reflecting then
+				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
+			else
+				BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" ) BeginTriggerDeath()
+					-- This does the magic
+					BeginProjectile("mods/copis_things/files/entities/projectiles/SRS_handler.xml")
+						BeginTriggerHitWorld()
+							BeginProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
+							EndProjectile()
+							register_action(c)
+							SetProjectileConfigs()
+						EndTrigger()
+					EndProjectile()
+					register_action({action_type = GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID()))})
+					SetProjectileConfigs()
+				EndTrigger() EndProjectile()
+			end
+
+
+			c.fire_rate_wait = c.fire_rate_wait + 12
+			current_reload_time = current_reload_time + 12
+		end
+	},
 	{
 		id                  = "COPITH_GRAPPLING_HOOK",
 		name                = "$actionname_grappling_hook",
@@ -6514,7 +6527,7 @@ local actions_to_insert = {
 		price                  = 140,
 		mana                   = 15,
 		action = function()
-			copi_state.bit = bit.bor(copi_state.bit, 512)
+			Datat[11]=(DontTouch_Data[11]or 0)+1
 			draw_actions( 1, true )
 		end,
 	},
