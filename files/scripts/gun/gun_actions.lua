@@ -4620,10 +4620,7 @@ local actions_to_insert = {
 		mana                   = 30,
 		max_uses               = -1,
 		action = function()
-			if not reflecting then
-				add_projectile("mods/copis_things/files/entities/projectiles/circle_boost.xml")
-			end
-			draw_actions(1, true)
+			add_projectile("mods/copis_things/files/entities/projectiles/circle_boost.xml")
 		end
 	},
 	{
@@ -4969,10 +4966,7 @@ local actions_to_insert = {
 		mana                   = 30,
 		max_uses               = -1,
 		action = function()
-			if not reflecting then
-				add_projectile("mods/copis_things/files/entities/projectiles/circle_anchor.xml")
-			end
-			draw_actions(1, true)
+			add_projectile("mods/copis_things/files/entities/projectiles/circle_anchor.xml")
 		end
 	},--[[ TODO: Orbital Mechanics
 	{
