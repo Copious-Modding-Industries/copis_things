@@ -1,0 +1,96 @@
+<Entity name="flurry_handler">
+    <Base file="data/entities/base_projectile.xml" >
+        <VelocityComponent
+        gravity_y="0"
+        air_friction="0"
+        terminal_velocity="0.1"
+        mass="0"
+		/>
+    </Base>
+	<!-- <SpriteComponent image_file="data/debug/circle_16.png" /> -->
+	<!-- THIS is the file for the CHARGING projectile-->
+
+    <ProjectileComponent 
+        _enabled="1" 
+        lob_min="0.0"
+        lob_max="0.0"
+        speed_min="100000000000000"
+        speed_max="100000000000000"
+        direction_random_rad="0"
+        explosion_dont_damage_shooter="1" 
+        die_on_liquid_collision="0"
+        ragdoll_force_multiplier="0.0"
+        hit_particle_force_multiplier="0.0"
+        bounce_energy="0"
+        bounces_left="0"
+        muzzle_flash_file=""
+        shoot_light_flash_radius="1"
+        physics_impulse_coeff="0"
+        penetrate_entities="0"
+        collide_with_world="0"
+        friction="0"
+        damage_every_x_frames="1800"
+        on_death_explode="0"
+        on_death_gfx_leave_sprite="0"
+        on_lifetime_out_explode="0"
+        camera_shake_when_shot="0"
+        on_collision_die="1"
+        lifetime="-1"
+        penetrate_world="1"
+        penetrate_world_velocity_coeff="0"
+        damage="0"
+		mLastFrameDamaged="999999999999999999999999999999999999999999"
+        collide_with_tag="trigger"
+        knockback_force="0">
+            <config_explosion
+                damage="0.0"
+                explosion_radius="0"
+			/>
+    </ProjectileComponent>
+
+    <ParticleEmitterComponent
+        emitted_material_name="spark_purple_bright"
+        offset.x="0"
+        offset.y="3"
+        gravity.y="0.0"
+        lifetime_min="0.25"
+        lifetime_max="0.25"
+        count_min="1"
+        count_max="1"
+        render_on_grid="1"
+        fade_based_on_lifetime="1"
+        area_circle_radius.min="0"
+        area_circle_radius.max="0"
+        cosmetic_force_create="0"
+        airflow_force="0.051"
+        airflow_time="1.01"
+        airflow_scale="0.09"
+        emission_interval_min_frames="1"
+        emission_interval_max_frames="1"
+        direction_random_deg="90"
+        emit_cosmetic_particles="1"
+        image_animation_file="mods/copis_things/files/particles/image_emitters/flurry.png"
+        image_animation_speed="5"
+        image_animation_emission_probability="0.8"
+        image_animation_loop="1"
+        image_animation_use_entity_rotation="1"
+        is_emitting="1"
+        render_back="0"
+	/>
+	<LuaComponent
+		script_source_file="mods/copis_things/files/scripts/projectiles/flurry_handler.lua"
+		execute_every_n_frame="1"
+		execute_on_added="1"
+	/>
+	
+	<Entity name="trigger" tags="trigger">
+		<InheritTransformComponent />
+		<HitboxComponent
+			aabb_max_x="1"
+			aabb_max_y="1"
+			aabb_min_x="-1"
+			aabb_min_y="-1"
+		/>
+	</Entity>
+
+</Entity>

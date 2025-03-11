@@ -506,7 +506,7 @@ local to_insert =
 			if #spells > 0 then
 				local x, y = EntityGetTransform(entity_who_picked)
 				for index, spell in ipairs(spells) do
-					local card = CreateItemActionEntity(valid[Random(1, #valid)], x, y)
+					local card = CreateItemActionEntity(valid[Random(1, #valid)].id, x, y)
 					local velcomp = EntityGetFirstComponentIncludingDisabled(card, "VelocityComponent")
 					ComponentSetValue2(velcomp, "mVelocity", math.random(-100, 100), math.random(-50, -100))
 					EntityKill(spell)

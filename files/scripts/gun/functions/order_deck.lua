@@ -30,6 +30,7 @@ local function get_force_sorted(caster)
 	end
 	local inv2c = EntityGetFirstComponent(caster, "Inventory2Component") --[[@cast inv2c number]]
 	local active_item = ComponentGetValue2(inv2c, "mActiveItem")
+	if active_item == 0 then goto error end
 	for i=1, #wands do
 		if wands[i] == active_item then
 			wand_id = wands[i]
@@ -64,6 +65,7 @@ local function get_force_sorted(caster)
 			break
 		end
 	end
+	::error::
 	return force_sorted, slots, arcanum_armament, arcanum_axiom, wand_id, axioms--, flip_every_other
 end
 

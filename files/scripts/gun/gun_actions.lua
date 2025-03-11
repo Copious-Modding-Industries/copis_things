@@ -4406,7 +4406,7 @@ local actions_to_insert = {
 			if not reflecting then
 				c.lifetime_add = math.max(c.lifetime_add, 2)
 
-				if not DontTouch_Data[1] then
+				if not DontTouch_Data[1] and not reflecting then
 					-- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
 					Datat[1] = GlobalsGetValue("GLOBAL_CAST_STATE", "0")
 				end
@@ -4437,7 +4437,7 @@ local actions_to_insert = {
 
 			if not reflecting then
 
-				if not DontTouch_Data[1] then
+				if not DontTouch_Data[1] and not reflecting then
 					-- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
 					Datat[1] = GlobalsGetValue("GLOBAL_CAST_STATE", "0")
 				end
@@ -4463,7 +4463,7 @@ local actions_to_insert = {
 		mana              = 0,
 		action = function()
 
-			if not DontTouch_Data[1] then
+			if not DontTouch_Data[1] and not reflecting then
 				-- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
 				Datat[1] = GlobalsGetValue("GLOBAL_CAST_STATE", "0")
 			end
@@ -4861,7 +4861,7 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			current_reload_time = current_reload_time + 12
 		end
-	},
+	},]]
 	{
 		id                    = "COPITH_FLURRY",
 		name             	  = "$actionname_flurry",
@@ -4869,36 +4869,76 @@ local actions_to_insert = {
 		author                = "Copi",
 		mod                   = "Copi's Things",
 		sprite                = "mods/copis_things/files/ui_gfx/gun_actions/flurry.png",
-		--related_projectiles = { "mods/copis_things/files/entities/projectiles/SRS.xml" },
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/flurry.xml" },
 		type                  = ACTION_TYPE_PROJECTILE,
 		spawn_level           = "1,2,3,4,5,6",
 		spawn_probability     = "0.6,0.6,0.4,0.2,0.2,0.2",
 		price                 = 90,
-		mana                  = 25,
+		mana                  = 15,
 		action = function()
 			if reflecting then
-				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
+				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/flurry.xml")
 			else
-				BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" ) BeginTriggerDeath()
-					-- This does the magic
-					BeginProjectile("mods/copis_things/files/entities/projectiles/SRS_handler.xml")
-						BeginTriggerHitWorld()
-							BeginProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
-							EndProjectile()
-							register_action(c)
-							SetProjectileConfigs()
-						EndTrigger()
-					EndProjectile()
-					register_action({action_type = GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID()))})
-					SetProjectileConfigs()
-				EndTrigger() EndProjectile()
+				local caster = GetUpdatedEntityID()
+				local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent")
+				if controls_component ~= nil then
+					LastShootingStart = LastShootingStart or 0
+					local invid = current_action.inventoryitem_id
+					Flurry = Flurry or {}
+					Flurry[invid] = Flurry[invid] or 0
+					local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire")
+					local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire")
+	
+					if not shooting_now then
+						Flurry[invid] = 0
+						GamePrint("CASE1")
+					else
+						if LastShootingStart ~= shooting_start then
+							Flurry[invid] = 0
+						end
+						
+							-- Still charging! Kill the last one
+							Flurry[invid] = Flurry[invid] + 1
+							local triggers = EntityGetWithTag("trigger") or {}
+							for i=1, #triggers do
+								local root = EntityGetRootEntity(triggers[i])
+								local proj = EntityGetFirstComponent(root, "ProjectileComponent") --[[@cast proj number]]
+								if ComponentObjectGetValue2(proj, "config", "action_type") == GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID())) then
+									EntityKill(triggers[i])
+									EntityKill(root)
+									break
+								end
+							end
+							BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" ) BeginTriggerDeath()
+								-- This does the magic
+								BeginProjectile("mods/copis_things/files/entities/projectiles/flurry_handler.xml")
+									BeginTriggerHitWorld()
+										BeginProjectile("mods/copis_things/files/entities/projectiles/burst_projectile_flurry.xml")
+										for i=1, math.min(20, math.max(1, Flurry[invid])) do
+											BeginTriggerTimer(i*3)
+												add_projectile("mods/copis_things/files/entities/projectiles/flurry.xml")
+												register_action(c)
+												SetProjectileConfigs()
+											EndTrigger()
+										end
+										EndProjectile()
+										register_action({lifetime_add= math.min(20, math.max(1, Flurry[invid])) * 3+1})
+										SetProjectileConfigs()
+									EndTrigger()
+								EndProjectile()
+								register_action({action_type = GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID()))})
+								SetProjectileConfigs()
+							EndTrigger() EndProjectile()
+					end
+					LastShootingStart = shooting_start
+					draw_actions(1, true)
+				end
 			end
-
 
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			current_reload_time = current_reload_time + 12
 		end
-	},]]
+	},
 	{
 		id                  = "COPITH_GRAPPLING_HOOK",
 		name                = "$actionname_grappling_hook",

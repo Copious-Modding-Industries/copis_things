@@ -13,6 +13,7 @@
     <InheritTransformComponent/>
     <SpriteParticleEmitterComponent
 		sprite_file="mods/copis_things/files/particles/collapse.png"
+		z_index="1"
         render_back="0"
         sprite_centered="1"
 		emission_interval_min_frames="1"

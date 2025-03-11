@@ -2,23 +2,25 @@ local extract = dofile_once("mods/copis_things/files/scripts/lib/proj_data.lua")
 local entity_id = GetUpdatedEntityID()
 local proj = EntityGetFirstComponentIncludingDisabled( entity_id, "ProjectileComponent" ) --[[@cast proj number]]
 local lua = EntityGetFirstComponentIncludingDisabled( entity_id, "LuaComponent" ) --[[@cast lua number]]
+local x, y, r = EntityGetTransform(entity_id)
 if ComponentGetValue2(lua, "mTimesExecuted") == 0 then
 	-- CASE: PROJECTILE JUST CREATED
 	-- Store initial velocity for offset
-	local _, _, r = EntityGetTransform(entity_id)
 	SetValueNumber("SRS_r", r)
 else
 	local shooter = ComponentGetValue2( proj, "mWhoShot" )
 	local controls = EntityGetFirstComponent(shooter, "ControlsComponent")
 	if controls then
+		local pcl = EntityGetFirstComponentIncludingDisabled( entity_id, "ParticleEmitterComponent" ) --[[@cast pcl number]]
 		local vel = EntityGetFirstComponentIncludingDisabled( entity_id, "VelocityComponent" ) --[[@cast vel number]]
 		local aimx, aimy = ComponentGetValue2( controls, "mAimingVectorNormalized" )
-		local aim_angle = math.atan2( aimy, aimx )/2
-		GamePrint(tostring(math.deg(aim_angle)) .. " " .. tostring(math.deg(GetValueNumber("SRS_r", 0))))
+
+
+		local aim_angle = math.atan2( aimy, aimx )
 		if ComponentGetValue2(lua, "mTimesExecuted") == 1 then
-			SetValueNumber("SRS_o", aim_angle-GetValueNumber("SRS_r", 0))
+			--SetValueNumber("SRS_o", aim_angle-GetValueNumber("SRS_r", 0))
 		end
-		aim_angle = aim_angle+GetValueNumber("SRS_o", 0)
+		aim_angle = aim_angle--+GetValueNumber("SRS_o", 0)
 
 
 		local inventory = EntityGetFirstComponent(shooter, "Inventory2Component")
@@ -37,11 +39,23 @@ else
 				end
 			end
 
+
+			local mx, my = ComponentGetValue2(controls, "mMousePosition")
+			local vx, vy = mx-x, my-y
+
+
+			local mag = (vx*vx+vy*vy)^2
+			ComponentSetValue2( vel, "mVelocity", (vx)*12, (vy)*12 )
+			ComponentSetValue2( pcl, "image_animation_file", table.concat{"mods/copis_things/files/particles/image_emitters/flurry", vx>0 and "2" or "", ".png"})
+			print(table.concat{"mods/copis_things/files/particles/image_emitters/flurry", vx>0 and "2" or "", ".png"})
+
+
+
+
 			-- Transform
 			local wx, wy = EntityGetTransform( active_wand )
 			EntityApplyTransform( wx + offset_x * math.cos( aim_angle ), wy + offset_y * math.sin( aim_angle ) )
 			-- Velocity
-			ComponentSetValue2( vel, "mVelocity", math.sin( aim_angle ) * 20, math.cos( aim_angle ) * 20 )
 		end
 
 		-- Cause the trigger to hit, firing the payload.
