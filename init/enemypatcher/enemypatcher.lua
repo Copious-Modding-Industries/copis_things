@@ -17,7 +17,7 @@ local files_to_edit = {
 	"data/entities/animals/boss_dragon.xml",
 	"data/entities/animals/chest_leggy.xml",
 	"data/entities/animals/boss_book/book_physics.xml",
-	"data/entities/boss_centipede/boss_centipede.xml",
+	"data/entities/animals/boss_centipede/boss_centipede.xml",
 	"data/entities/animals/boss_fish/fish_giga.xml",
 	"data/entities/player.xml",
 }

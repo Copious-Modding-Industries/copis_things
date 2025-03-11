@@ -1419,7 +1419,7 @@ local actions_to_insert = {
 		price             = 300,
 		mana              = 13,
 		action = function()
-			c.trail_material = c.trail_material .. "blood_cold"
+			c.trail_material = c.trail_material .. "blood_cold,"
 			c.trail_material_amount = c.trail_material_amount + 5
 			draw_actions(1, true)
 		end
