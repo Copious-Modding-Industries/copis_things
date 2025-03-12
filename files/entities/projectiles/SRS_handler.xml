@@ -47,12 +47,12 @@
     </ProjectileComponent>
 
 	<LuaComponent
-		script_source_file="mods/copis_things/files/scripts/projectiles/SRS_slayer.lua"
+		script_source_file="mods/copis_things/files/scripts/projectiles/charge/SRS_slayer.lua"
 		remove_after_executed="1"
 		execute_every_n_frame="1"
 	/>
 	<LuaComponent
-		script_source_file="mods/copis_things/files/scripts/projectiles/SRS_handler.lua"
+		script_source_file="mods/copis_things/files/scripts/projectiles/charge/SRS_handler.lua"
 		execute_every_n_frame="1"
 		execute_on_added="1"
 	/>

@@ -100,6 +100,6 @@
         />
     </ProjectileComponent>
 
-	<LuaComponent script_source_file="mods/copis_things/files/scripts/projectiles/flurry_rotato.lua"/>
+	<LuaComponent script_source_file="mods/copis_things/files/scripts/projectiles/charge/flurry_rotato.lua"/>
 
 </Entity>

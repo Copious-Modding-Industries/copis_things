@@ -78,7 +78,7 @@
         render_back="0"
 	/>
 	<LuaComponent
-		script_source_file="mods/copis_things/files/scripts/projectiles/flurry_handler.lua"
+		script_source_file="mods/copis_things/files/scripts/projectiles/charge/flurry_handler.lua"
 		execute_every_n_frame="1"
 		execute_on_added="1"
 	/>

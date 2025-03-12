@@ -5,6 +5,7 @@
 ---@return number wand_id
 ---@return table axioms
 local function get_force_sorted(caster)
+	if reflecting then return false, {}, false, false, 0, {} end
 	local root = EntityGetRootEntity(caster)
 	local buffs = EntityGetAllChildren(root) or {}
 	local do_slot_check = false
@@ -106,6 +107,8 @@ local function order_deck()
 		end
 	end]]
 
+	local shooter_mult = 1
+
 	if force_sorted then
 		local before = gun.shuffle_deck_when_empty
 		gun.shuffle_deck_when_empty = false
@@ -115,15 +118,17 @@ local function order_deck()
 		copi_state.old._order_deck()
 	end
 
-	local vscs = EntityGetComponent(shooter, "VariableStorageComponent") or {}
-	local vid = 0
-	for i=1, #vscs do
-		if ComponentGetValue2( vscs[i], "name" ) == "mana_efficiency_mult" then
-			vid = vscs[i]
-			break
+	if not reflecting then
+		local vscs = EntityGetComponent(shooter, "VariableStorageComponent") or {}
+		local vid = 0
+		for i=1, #vscs do
+			if ComponentGetValue2( vscs[i], "name" ) == "mana_efficiency_mult" then
+				vid = vscs[i]
+				break
+			end
 		end
+		shooter_mult = (vid > 0 and ComponentGetValue2(vid, "value_float")) or 1.0
 	end
-	local shooter_mult = (vid > 0 and ComponentGetValue2(vid, "value_float")) or 1.0
 	--[[
 	if flip_every_other then
 		copi_state.flip_deck = not copi_state.flip_deck

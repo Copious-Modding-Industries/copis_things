@@ -24,6 +24,7 @@ function shot(projectile_entity)
         "cell_explosion_probability",
         "cell_explosion_power_ragdoll_coeff",
     }
+	-- TODO cap explosions
     if proj ~= nil then
         for i=1,#values do
             local old_proj = ComponentObjectGetValue2(proj, "config_explosion", values[i])

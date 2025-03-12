@@ -36,6 +36,8 @@ local content = {
 		ModLuaFileAppend("data/scripts/gun/gun_extra_modifiers.lua", "mods/copis_things/files/scripts/gun/gun_extra_modifiers.lua")
 		-- Edit gun.lua
 		ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/scripts/gun/gun_append.lua")
+		-- Force eso spell to end of list
+		ModLuaFileAppend("data/scripts/gun/gun.lua", "mods/copis_things/files/scripts/gun/gun_secret_append.lua")
 		-- Rework spells
 		ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/copis_things/files/scripts/gun/gun_actions_rework.lua")
 		-- Add spells
@@ -56,7 +58,7 @@ local content = {
 		local files = { "perks", "actions", "effects", "other" }
 		for i = 1, #files do
 			local new_translations = ModTextFileGetContent(table.concat({ "mods/copis_things/files/translations/", files[i], ".csv" }))
-			translations = translations .. "\n" .. new_translations .. "\n"
+			translations = table.concat{translations, "\n", new_translations, "\n"}
 		end
 
 		translations = translations:gsub("\r", ""):gsub("\n\n+", "\n")

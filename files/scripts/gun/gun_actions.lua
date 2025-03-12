@@ -3078,7 +3078,7 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
-			Datat[8]=(Datat[8]or 0)+1
+			Datat[8]=(DontTouch_Data[8]or 0)+1
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			draw_actions(1, true)
 		end
@@ -3097,7 +3097,7 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
-			Datat[10]=(Datat[10]or 0)+1
+			Datat[10]=(DontTouch_Data[10]or 0)+1
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			draw_actions(1, true)
 		end
@@ -3116,7 +3116,7 @@ local actions_to_insert = {
 		price               = 160,
 		mana                = 15,
 		action = function()
-			Datat[9]=(Datat[9]or 0)+1
+			Datat[9]=(DontTouch_Data[9]or 0)+1
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			draw_actions(1, true)
 		end
@@ -4462,7 +4462,6 @@ local actions_to_insert = {
 		price             = 10,
 		mana              = 0,
 		action = function()
-
 			if not DontTouch_Data[1] and not reflecting then
 				-- Relies on gun.lua haxx refer to "gun_append.lua" if you want to use data transfer haxx
 				Datat[1] = GlobalsGetValue("GLOBAL_CAST_STATE", "0")
@@ -4844,7 +4843,7 @@ local actions_to_insert = {
 			else
 				BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" ) BeginTriggerDeath()
 					-- This does the magic
-					BeginProjectile("mods/copis_things/files/entities/projectiles/SRS_handler.xml")
+					BeginProjectile("mods/copis_things/files/entities/projectiles/charge/SRS_handler.xml")
 						BeginTriggerHitWorld()
 							BeginProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
 							EndProjectile()
@@ -4891,7 +4890,6 @@ local actions_to_insert = {
 	
 					if not shooting_now then
 						Flurry[invid] = 0
-						GamePrint("CASE1")
 					else
 						if LastShootingStart ~= shooting_start then
 							Flurry[invid] = 0
@@ -4938,7 +4936,111 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			current_reload_time = current_reload_time + 12
 		end
+	},--[=[
+	{
+		id                    = "COPITH_FLURRY2",
+		name             	  = "$actionname_flurry2",
+		description      	  = "$actiondesc_flurry2",
+		author                = "Copi",
+		mod                   = "Copi's Things",
+		sprite                = "mods/copis_things/files/ui_gfx/gun_actions/flurry2.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/flurry.xml" },
+		type                  = ACTION_TYPE_PROJECTILE,
+		spawn_level           = "1,2,3,4,5,6",
+		spawn_probability     = "0.6,0.6,0.4,0.2,0.2,0.2",
+		price                 = 90,
+		mana                  = 15,
+		action = function()
+			if reflecting then
+				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/flurry.xml")
+			else
+				local caster = GetUpdatedEntityID()
+				local controls_component = EntityGetFirstComponentIncludingDisabled(caster, "ControlsComponent")
+				if controls_component ~= nil then
+					LastShootingStart = LastShootingStart or 0
+					local invid = current_action.inventoryitem_id
+					Flurry2 = Flurry2 or {}
+					Flurry2[invid] = Flurry2[invid] or 0
+					local shooting_start = ComponentGetValue2(controls_component, "mButtonFrameFire")
+					local shooting_now = ComponentGetValue2(controls_component, "mButtonDownFire")
+	
+					if not shooting_now then
+						Flurry2[invid] = 0
+						GamePrint("CASE1")
+					else
+						if LastShootingStart ~= shooting_start then
+							Flurry2[invid] = 0
+						end
+
+
+							Flurry2[invid] = Flurry2[invid] + 1
+							local distribution = {}
+							for i=1, 20 do
+								local eval = i%Flurry2[invid]+1
+								distribution[eval]=distribution[eval]+1
+							end
+						
+							-- Still charging! Kill the last one
+							Flurry[invid] = Flurry[invid] + 1
+							local triggers = EntityGetWithTag("trigger") or {}
+							for i=1, #triggers do
+								local root = EntityGetRootEntity(triggers[i])
+								local proj = EntityGetFirstComponent(root, "ProjectileComponent") --[[@cast proj number]]
+								if ComponentObjectGetValue2(proj, "config", "action_type") == GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID())) then
+									EntityKill(triggers[i])
+									EntityKill(root)
+									break
+								end
+							end
+							BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" ) BeginTriggerDeath()
+								-- This does the magic
+								BeginProjectile("mods/copis_things/files/entities/projectiles/flurry_handler.xml")
+									BeginTriggerHitWorld()
+										BeginProjectile("mods/copis_things/files/entities/projectiles/burst_projectile_flurry.xml")
+										for i=1, math.min(20, math.max(1, Flurry[invid])) do
+											BeginTriggerTimer(i*3)
+												add_projectile("mods/copis_things/files/entities/projectiles/flurry.xml")
+												register_action(c)
+												SetProjectileConfigs()
+											EndTrigger()
+										end
+										EndProjectile()
+										register_action({lifetime_add= math.min(20, math.max(1, Flurry[invid])) * 3+1})
+										SetProjectileConfigs()
+									EndTrigger()
+								EndProjectile()
+								register_action({action_type = GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID()))})
+								SetProjectileConfigs()
+							EndTrigger() EndProjectile()
+					end
+					LastShootingStart = shooting_start
+					draw_actions(1, true)
+				end
+			end
+
+			c.fire_rate_wait = c.fire_rate_wait + 12
+			current_reload_time = current_reload_time + 12
+		end
 	},
+	{
+		id                  = "COPITH_ABSORPTION_BLAST",
+		name                = "$actionname_absorption_blast",
+		description         = "$actiondesc_absorption_blast",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/grappling_hook.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/grappling_hook.xml" },
+		type                = ACTION_TYPE_PROJECTILE,
+		spawn_level         = "0,1,2",
+		spawn_probability   = "1,1,0.5",
+		inject_after        = {"BULLET", "BULLET_TRIGGER", "BULLET_TIMER"},
+		price               = 120,
+		mana                = 12,
+		action = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/grappling_hook.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 2
+		end
+	},]=]
 	{
 		id                  = "COPITH_GRAPPLING_HOOK",
 		name                = "$actionname_grappling_hook",
@@ -6679,30 +6781,7 @@ local actions_to_insert = {
 		end,
 	},]]
 
-	-- IDEALLY keep at end of list.
-	{ -- rare esoteric bullshit
-		id                  = "COPITH_RANDOM_PROJECTILE_REAL",
-		name                = "$actionname_random_projectile_real",
-		description         = "$actiondesc_random_projectile_real",
-		author              = "Copi",
-		mod                 = "Copi's Things",
-		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/random_projectile_real.png",
-		sprite_unidentified = "data/ui_gfx/gun_actions/rocket_unidentified.png",
-		related_projectiles = {"mods/copis_things/files/entities/projectiles/random_projectile_real.xml"},
-		type                = ACTION_TYPE_PROJECTILE,
-		spawn_level         = "1,2,3,4,5,6,7,10",
-		spawn_probability   = "0,0,0,0,0,0,0,0.01",
-		price               = 34,
-		mana                = 21,
-		pandorium_ignore    = true,
-		custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/random_projectile_real.xml",
-		action = function()
-			if reflecting then return end
-			for i=1, math.random(1,3) do
-				add_projectile("mods/copis_things/files/entities/projectiles/random_projectile_real.xml")
-			end
-		end,
-	},
+
 	--[[{
 		id = "COPITH_DELAYED_DAMAGE",
 		name = "$actionname_ror2collapse",
@@ -6818,11 +6897,9 @@ if DebugGetIsDevBuild() then
 		price = 0,
 		mana = 0,
 		action = function()
-			--c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/test.xml,"
-			c.physics_impulse_coeff = c.physics_impulse_coeff + 5
+			WriteCToDatat(c, 2)
 			draw_actions(1, true)
 		end
 	}
 end
-
 -- Holy fuck that's one hell of a file :/
