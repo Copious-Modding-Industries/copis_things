@@ -1,6 +1,4 @@
-<Entity
-    name="$projectile_default"
->
+<Entity name="copith_circle_anchor" tags="projectile_player" >
 
     <GameAreaEffectComponent
         radius="28"
