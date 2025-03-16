@@ -95,6 +95,7 @@ local actions_to_edit = {
         end,
     },
 
+	--[[
     ["RANDOM_SPELL"] = {
         description = "Draws any one random spell at half cost!",
         sprite = table.concat({SpriteOverridePath, "random_spell", ".png"}),
@@ -116,7 +117,7 @@ local actions_to_edit = {
                 copi_state.mana_multiplier = copi_state.mana_multiplier * 2.0
             end
         end,
-    },
+    },]]
 
     ["GRAHAM_SPARK_BOLT"] = {
         name 		= "tloB krapS",

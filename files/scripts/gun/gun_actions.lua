@@ -6638,6 +6638,25 @@ local actions_to_insert = {
 		end
 	},--[[
 	{
+		id                  = "COPITH_MALICIOUS_BOLT",
+		name                = "$actionname_malice_bolt",
+		description         = "$actiondesc_malice_bolt",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/malice_bolt.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/malice_bolt.xml" },
+		type                = ACTION_TYPE_PROJECTILE,
+		spawn_level         = "0,1,2",
+		spawn_probability   = "0.25,1.25,0.33",
+		inject_after        = {"ARROW",},
+		price               = 120,
+		mana                = 12,
+		action = function()
+			add_projectile("mods/copis_things/files/entities/projectiles/malicious_bolt.xml")
+			c.fire_rate_wait = c.fire_rate_wait + 12
+		end
+	},]]--[[
+	{
 		id                  = "COPITH_AREA_OF_EFFECT",
 		name                = "$actionname_area_of_effect",
 		description         = "$actiondesc_area_of_effect",
@@ -6897,7 +6916,7 @@ if DebugGetIsDevBuild() then
 		price = 0,
 		mana = 0,
 		action = function()
-			WriteCToDatat(c, 2)
+			c.mana_multiplier = 1
 			draw_actions(1, true)
 		end
 	}
