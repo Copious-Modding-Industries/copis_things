@@ -15,6 +15,9 @@
 		min_distance_from_wall="0.5">
 	</TeleportProjectileComponent>
 
+<!-- <LifetimeComponent lifetime="5"/> Too long lifetime makes it hard to manage. But at the same time I want to see someone do some batshit insane thing with this, maybe make a PW teleport or some shit. Will leave untouched for now. When has noita ever babyproofed? -->
+	
+
 	<LightningComponent
 		is_projectile="1"
 		explosion_type="1"
