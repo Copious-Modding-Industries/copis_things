@@ -3687,6 +3687,57 @@ local actions_to_insert = {
 		end
 	},
 	{
+		id                  = "COPITH_SCRAWL",
+		name                = "$actionname_scrawl",
+		description         = "$actiondesc_scrawl",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/draw_scrawl.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
+		type                = ACTION_TYPE_DRAW_MANY,
+		spawn_level         = "4,5,6,10",
+		spawn_probability   = "0.12,0.24,0.24,0.36",
+		inject_after        = {"BURST_X", "BURST_8", "BURST_4", "BURST_3", "BURST_2"},
+		price               = 500,
+		mana                = 25,
+		never_ac            = true,
+		action = function(recursion_level, iteration)
+			if reflecting then return end
+
+			local n = 0
+			while (#deck > 0) do
+				n = n + 1
+				mana = math.max(0, mana - n)
+				draw_actions(1, true)
+				current_reload_time = current_reload_time + n
+			end
+
+		end
+	},
+	--[[ bad
+	{
+		id                  = "COPITH_CUTOUT",
+		name                = "$actionname_cutout",
+		description         = "$actiondesc_cutout",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/draw_cutout.png",
+		sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
+		type                = ACTION_TYPE_DRAW_MANY,
+		spawn_level         = "4,5,6,10",
+		spawn_probability   = "0.12,0.24,0.24,0.36",
+		inject_after        = {"BURST_X", "BURST_8", "BURST_4", "BURST_3", "BURST_2"},
+		price               = 500,
+		mana                = 15,
+		never_ac            = true,
+		action = function(recursion_level, iteration)
+			if reflecting then return end
+			local wand = GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID()))
+			local spells = EntityGetAllChildren(wand, "card_action") or {}
+			draw_actions(1, gun.deck_capacity-#spells)
+		end
+	},]]
+	{
 		id                  = "COPITH_ULT_LIFETIME",
 		name                = "$actionname_ult_lifetime",
 		author              = "Copi",
@@ -4871,7 +4922,7 @@ local actions_to_insert = {
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/flurry.xml" },
 		type                  = ACTION_TYPE_PROJECTILE,
 		spawn_level           = "1,2,3,4,5,6",
-		spawn_probability     = "0.6,0.6,0.4,0.2,0.2,0.2",
+		spawn_probability     = "0.4,0.8,0.77,0.2,0.4,0.6",
 		price                 = 90,
 		mana                  = 15,
 		action = function()
@@ -5895,6 +5946,7 @@ local actions_to_insert = {
 			end
 		end
 	},--[[ cant figure out the silly spell 
+	-- it sucks ass, actually
 	{
 		id                = "COPITH_FLIP_EVERY_OTHER",
 		name              = "$actionname_flip_every_other",

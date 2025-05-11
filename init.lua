@@ -4,7 +4,7 @@ Hello seeker of knowledge.
 Keep your eyes open, for there is much to come.
 ]]
 
-COPIS_THINGS_VERSION = "0.53"
+COPIS_THINGS_VERSION = "0.5.4"
 
 -- NOTICE! This is CRAP! I will be REWRITING THIS LIBRARY!
 dofile_once("mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init("mods/copis_things/files/scripts/lib/polytools/")
@@ -258,3 +258,57 @@ end
 
 --#endregion
 -- what the FUCK is this file
+
+
+
+
+
+
+
+
+
+-- Stolen from my own code in apoth
+local pause_gui = GuiCreate()
+local offset = ModIsEnabled("Apotheosis") and 48 or 38
+--local months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}
+--, months[m-1], " ", d, ", ", h, ":", m2, ":", s
+local msg = "Make sure to take frequent breaks! Stretch, drink water, let your eyes and mind rest. An inattentive witch is a dead one!                   "
+local msg_limit = 20
+local msg_xlen = 0
+-- prebake maximum length
+for i=1, msg:len() do
+	msg_xlen=math.max(GuiGetTextDimensions(pause_gui, ":3 <"..msg:rep(2):sub(i+1, i+1+msg_limit)), msg_xlen)
+end
+
+local scroll = 1
+-- 
+-- MENU SHIT!!!!!
+-- THIS WILL SHOW IN THE PAUSE MENU!!
+-- TODO mod compatible method for fitting multiple items 
+function OnPausePreUpdate()
+	local text_step = math.floor(scroll/8)%msg:len()
+	-- y=\max\left(0,\ \operatorname{mod}\left(x,\ 10\right)-5\right)
+	-- math.max(1, math.floor(scroll/8)%msg:len()-5)
+	local y, m, d, h, m2, s = GameGetDateAndTimeLocal()
+	GuiIdPushString(pause_gui, "copith_pause")
+	GuiColorSetForNextWidget(pause_gui, 0.35, 0.35, 0.35, 0.5)
+	GuiText(pause_gui, 12.5, ({GuiGetScreenDimensions(pause_gui)})[2]/2-offset, table.concat{"Copi's Things - v", COPIS_THINGS_VERSION, " - ", h, ":", m2, ":", s}, 1, "data/fonts/font_pixel.xml")
+	GuiColorSetForNextWidget(pause_gui, 0.35, 0.35, 0.35, 0.5)
+	GuiText(pause_gui, 160, ({GuiGetScreenDimensions(pause_gui)})[2]/2-offset, ":3 <".. msg:rep(2):sub(text_step+1, text_step+1+msg_limit), 1, "data/fonts/font_pixel.xml")
+	GuiColorSetForNextWidget(pause_gui, 0.35, 0.35, 0.35, 0.5)
+	GuiText(pause_gui, 160+msg_xlen, ({GuiGetScreenDimensions(pause_gui)})[2]/2-offset, ")", 1, "data/fonts/font_pixel.xml")
+	GuiIdPop(pause_gui)
+	scroll = scroll + (InputIsKeyDown(225) and 3 or 1)
+end
+--
+
+--[[
+local msg = "Make sure to take frequent breaks! Stretch, drink water, let your eyes and mind rest. An inattentive witch is a dead one."..string.rep(" ", 25)
+
+local pause_fr = 1
+local msg_limit = 12
+
+for i=1, 300 do 
+	local text_step = i%msg:len()
+    print(msg:rep(2):sub(text_step, text_step+msg_limit))
+end]]
