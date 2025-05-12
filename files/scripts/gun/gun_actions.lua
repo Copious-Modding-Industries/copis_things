@@ -2756,9 +2756,6 @@ local actions_to_insert = {
 		action = function()
 			current_reload_time = current_reload_time - 12
 			c.fire_rate_wait = c.fire_rate_wait - 10
-			if reflecting then
-				return
-			end
 			add_projectile("mods/copis_things/files/entities/projectiles/vacuum_claw.xml")
 		end
 	},
@@ -2779,9 +2776,6 @@ local actions_to_insert = {
 		action = function()
 			current_reload_time = current_reload_time + 12
 			c.fire_rate_wait = c.fire_rate_wait + 10
-			if reflecting then
-				return
-			end
 			add_projectile("mods/copis_things/files/entities/projectiles/caustic_claw.xml")
 		end
 	},
@@ -2802,11 +2796,7 @@ local actions_to_insert = {
 		custom_xml_file     = "mods/copis_things/files/entities/misc/custom_cards/luminous_blade.xml",
 		action = function()
 			c.fire_rate_wait = c.fire_rate_wait - 20
-			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE -
-				5 -- this is a hack to get the digger reload time back to 0
-			if reflecting then
-				return
-			end
+			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 5 -- this is a hack to get the digger reload time back to 0
 			add_projectile("mods/copis_things/files/entities/projectiles/luminous_blade.xml")
 		end
 	},

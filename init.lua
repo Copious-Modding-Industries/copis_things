@@ -302,6 +302,8 @@ function OnPausePreUpdate()
 end
 --
 
+-- todo scrollbox-type clipping and speed curve?
+
 --[[
 local msg = "Make sure to take frequent breaks! Stretch, drink water, let your eyes and mind rest. An inattentive witch is a dead one."..string.rep(" ", 25)
 
