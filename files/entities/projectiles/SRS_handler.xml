@@ -7,7 +7,7 @@
         mass="0"
 		/>
     </Base>
-<SpriteComponent image_file="data/debug/circle_16.png" />
+	<SpriteComponent image_file="data/debug/circle_16.png" /> <!-- Debugging -->
     <ProjectileComponent 
         _enabled="1" 
         lob_min="0.0"

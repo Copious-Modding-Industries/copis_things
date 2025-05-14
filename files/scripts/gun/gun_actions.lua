@@ -3721,10 +3721,10 @@ local actions_to_insert = {
 		never_ac            = true,
 		action = function(recursion_level, iteration)
 			if reflecting then return end
-			local sum = 1
-			for i=1, #deck do if deck[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
-			for i=1, #discarded do if deck[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
-			for i=1, #hand do if deck[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
+			local sum = 0
+			for i=1, #(deck or {}) do if deck[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
+			for i=1, #(discarded or {}) do if discarded[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
+			for i=1, #(hand or {}) do if hand[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
 			draw_actions(sum, true)
 		end
 	},
@@ -4885,7 +4885,7 @@ local actions_to_insert = {
 			else
 				BeginProjectile( "mods/copis_things/files/entities/projectiles/trigger_projectile.xml" ) BeginTriggerDeath()
 					-- This does the magic
-					BeginProjectile("mods/copis_things/files/entities/projectiles/charge/SRS_handler.xml")
+					BeginProjectile("mods/copis_things/files/entities/projectiles/SRS_handler.xml")
 						BeginTriggerHitWorld()
 							BeginProjectile("mods/copis_things/files/entities/projectiles/SRS.xml")
 							EndProjectile()
