@@ -3704,7 +3704,6 @@ local actions_to_insert = {
 
 		end
 	},
-	--[[ bad
 	{
 		id                  = "COPITH_CUTOUT",
 		name                = "$actionname_cutout",
@@ -3722,11 +3721,13 @@ local actions_to_insert = {
 		never_ac            = true,
 		action = function(recursion_level, iteration)
 			if reflecting then return end
-			local wand = GunUtils.current_card(GunUtils.current_wand(GetUpdatedEntityID()))
-			local spells = EntityGetAllChildren(wand, "card_action") or {}
-			draw_actions(1, gun.deck_capacity-#spells)
+			local sum = 1
+			for i=1, #deck do if deck[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
+			for i=1, #discarded do if deck[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
+			for i=1, #hand do if deck[i].type==ACTION_TYPE_MODIFIER then sum=sum+1 end end
+			draw_actions(sum, true)
 		end
-	},]]
+	},
 	{
 		id                  = "COPITH_ULT_LIFETIME",
 		name                = "$actionname_ult_lifetime",

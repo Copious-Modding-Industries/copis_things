@@ -580,4 +580,4 @@ actiondesc_absorption_blast,"Charge to absorb projectiles, up to 10 seconds. Abs
 actionname_scrawl,"Scrawl",,,,,,,,,,,,
 actiondesc_scrawl,"Casts all remaining spells, growing in cost and recharge time per spell.",,,,,,,,,,,,
 actionname_cutout,"Cutout",,,,,,,,,,,,
-actiondesc_cutout,"Casts an amount of spells equal to the empty slots on your wand.",,,,,,,,,,,,
+actiondesc_cutout,"Cast an additional spell for each modifier spell on the wand.",,,,,,,,,,,,
