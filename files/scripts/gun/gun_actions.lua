@@ -3603,6 +3603,27 @@ local actions_to_insert = {
 		end
 	},
 	{
+		id                = "COPITH_VOLATIC_IMPETUS",
+		name              = "$actionname_volatic_impetus",
+		description       = "$actiondesc_volatic_impetus",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/volatic_impetus.png",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "2,3,4",
+		spawn_probability = "0.66,0.66,0.66",
+		price             = 100,
+		mana              = 17,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/zap.xml",
+		action = function()
+			if reflecting then
+				Reflection_RegisterProjectile("mods/copis_things/files/entities/projectiles/shock.xml")
+				return
+			end
+			draw_actions(1, true)
+		end
+	},
+	{
 		id                  = "COPITH_MANA_EFFICENCY",
 		name                = "$actionname_mana_efficency",
 		author              = "Copi",

@@ -35,6 +35,10 @@ extra_modifiers["copith_forward_thinking"] = function()
 	draw_actions(1, true)
 end
 
+extra_modifiers["copith_volatic_impetus"] = function()
+	add_projectile("mods/copis_things/files/entities/projectiles/shock.xml")
+end
+
 extra_modifiers["copith_focus"] = function()
 	-- Prevent projectile n-dipping
 	if c.focus_perk then return end c.focus_perk = true

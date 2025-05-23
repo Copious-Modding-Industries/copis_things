@@ -4,7 +4,7 @@ Hello seeker of knowledge.
 Keep your eyes open, for there is much to come.
 ]]
 
-COPIS_THINGS_VERSION = "0.5.4"
+COPIS_THINGS_VERSION = "0.5.5"
 
 -- NOTICE! This is CRAP! I will be REWRITING THIS LIBRARY!
 dofile_once("mods/copis_things/files/scripts/lib/polytools/polytools_init.lua").init("mods/copis_things/files/scripts/lib/polytools/")
