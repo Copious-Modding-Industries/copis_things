@@ -1,0 +1,17 @@
+<Entity>
+	<Base file="data/entities/base_custom_card.xml">
+		<SpriteComponent
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/forward_thinking.png">
+		</SpriteComponent>
+
+		<ItemActionComponent
+			_tags="enabled_in_world"
+			action_id="COPITH_FORWARD_THINKING">
+		</ItemActionComponent>
+	</Base>
+
+    <ShotEffectComponent 
+        _tags="enabled_in_hand"
+        extra_modifier="copith_forward_thinking"
+    />
+</Entity>

@@ -29,6 +29,12 @@ extra_modifiers["copith_cold_hearted"] = function()
 	end
 end
 
+extra_modifiers["copith_forward_thinking"] = function()
+	--mana = math.max(0, mana-3) What's 3 mana debt? No biggie, disabling that will allow it to fuck over giga chicanery
+	mana=mana-3
+	draw_actions(1, true)
+end
+
 extra_modifiers["copith_focus"] = function()
 	-- Prevent projectile n-dipping
 	if c.focus_perk then return end c.focus_perk = true
