@@ -1,0 +1,8 @@
+<Entity name="$projectile_default" tags="projectile_player" >
+	<Base file="mods/copis_things/files/entities/projectiles/divine_daggers.xml" >
+		<ProjectileComponent
+			speed_min="400"
+			speed_max="400"
+		/>
+	</Base>
+</Entity>

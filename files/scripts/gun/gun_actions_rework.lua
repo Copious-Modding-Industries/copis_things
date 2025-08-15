@@ -127,10 +127,10 @@ local actions_to_edit = {
 }
 
 for i=1,#actions do -- fast as fuck boi
-    if actions_to_edit[actions[i].id] then
-        for key, value in pairs(actions_to_edit[actions[i].id]) do
-            actions[i][key] = value
-        end
-        actions[i]['copis_things_reworked'] = true
-    end
+	if actions_to_edit[actions[i].id] then
+		for key, value in pairs(actions_to_edit[actions[i].id]) do
+			actions[i][key] = value
+		end
+		actions[i]['copis_things_reworked'] = true
+	end
 end

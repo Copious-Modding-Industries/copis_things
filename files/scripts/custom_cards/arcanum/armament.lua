@@ -27,7 +27,7 @@ if EntityHasTag(wand, "wand") then
 
 		local sprites = EntityGetComponentIncludingDisabled(wand, "SpriteComponent", "item") or {}
 		for i=1, #sprites do
-			EntityAddComponent2()
+			--EntityAddComponent2()
 		end
 	end
 end

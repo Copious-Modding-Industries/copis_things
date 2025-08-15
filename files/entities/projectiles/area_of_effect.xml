@@ -100,7 +100,7 @@
 	/>
 
     <ParticleEmitterComponent
-        emitted_material_name="spark_cyan"
+        emitted_material_name="spark_teal"
         gravity.y="0.0"
         lifetime_min="1"
         lifetime_max="2"

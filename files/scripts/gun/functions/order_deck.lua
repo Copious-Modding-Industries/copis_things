@@ -144,34 +144,7 @@ local function order_deck()
 	print(string.rep("\n", 3))
 	print(string.rep("=", 131))
 	]]
-	-- This allows me to hook into the mana access and call an arbitrary function. Very tricksy :^)
-	for _, action in pairs(deck) do
-		--[[
-		print(string.rep("\n", 3))
-		print(string.rep("-", 131))
-		for key, value in pairs(action) do
-			print(string.format("%-60s | %70s", tostring(key), GameTextGetTranslatedOrNot(tostring(value))))
-		end
-		]]
-		if action.copi_mana_calculated == nil then
-			local meta = {}
-			if action.skip_mana then
-				action.mana = 0
-			elseif action.type == ACTION_TYPE_PROJECTILE or action.type == ACTION_TYPE_STATIC_PROJECTILE or
-				action.type == ACTION_TYPE_MATERIAL or action.type == ACTION_TYPE_UTILITY then
-				local base_mana = action.mana or 0
-				action.mana = nil
-				meta['__index'] = function(table, key)
-					if key == "mana" then
-						-- todo optimize shooter mult in some way to not get vsc every time. do get number funcs work here?
-						return (base_mana * copi_state.mana_multiplier) * shooter_mult
-					end
-				end
-			end
-			setmetatable(action, meta)
-			action.copi_mana_calculated = true
-		end
-	end
+
 end
 
 return {order_deck = order_deck}

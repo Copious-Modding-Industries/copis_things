@@ -126,3 +126,30 @@ do
 		end
 	end
 end
+
+
+
+
+
+
+
+
+
+do
+
+	local actions_to_edit = {
+		DIVIDE_2 =true,
+		DIVIDE_3 =true,
+		DIVIDE_4 =true,
+		DIVIDE_10=true
+	}
+
+	for i=1,#actions do
+		if actions_to_edit[actions[i].id] then
+			local func_old = actions[i].action
+			actions[i].action = function (recursion_level, iteration) return func_old(recursion_level, 0) end
+		end
+	end
+
+end
+

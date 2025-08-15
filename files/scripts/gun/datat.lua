@@ -111,6 +111,31 @@ if ver > (Datat_ver or 0) then
 			if not reflecting then GlobalsSetValue("GLOBAL_CAST_STATE", tostring(tonumber(GlobalsGetValue("GLOBAL_CAST_STATE", "0"))+1)) end
 			ResetDatat()
 		end
+
+
+		-- Handle mana multiplication code.
+		--[[
+			c.mana_multiplier is the mana multiplier.
+			you can add skip_mana to display a mana cost but actually cost 0 (i.e. alt fire)
+		]]
+		local order_deck_old = order_deck
+		function order_deck(...)
+			for i=1, #deck do
+				local action = deck[i]
+				if action.mana_calculated==nil then
+					-- store base mana
+					local base_mana = action.mana or 0
+					action.mana = nil
+					-- Multiply the mana cost on indexing the mana cost, or skip it outright
+					setmetatable(action, { __index=function(table, key) if key == "mana" then return action.skip_mana and 0 or (base_mana * c.mana_multiplier) end end })
+					action.mana_calculated = true
+				end
+			end
+			order_deck_old(...)
+		end
+
 		DidWePatchThisShitCopi = true
 	end
+
+
 end

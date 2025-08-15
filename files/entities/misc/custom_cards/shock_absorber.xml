@@ -1,0 +1,68 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+		<SpriteComponent 
+			image_file="mods/copis_things/files/ui_gfx/gun_actions/sharpy_elec_mana.png" >
+		</SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="COPITH_SHOCK_ABSORBER" >
+		</ItemActionComponent>
+	</Base>
+
+	<LuaComponent 
+		_tags="enabled_in_hand"
+		script_source_file="mods/copis_things/files/scripts/custom_cards/shock_absorber.lua"
+		script_damage_received="mods/copis_things/files/scripts/custom_cards/shock_absorber.lua"
+		execute_every_n_frame="1"
+	/>
+
+	<GameEffectComponent 
+		_tags="enabled_in_hand"
+		effect="STUN_PROTECTION_ELECTRICITY"
+		frames="-1"
+	/>
+
+	<ParticleEmitterComponent
+		_tags="enabled_in_world"
+		airflow_force="0.1" airflow_scale="0.25" airflow_time="0.1"
+		attractor_force="-10"
+		count_min="0" count_max="1"
+		create_real_particles="0"
+		custom_alpha="0.05"
+		draw_as_long="1"
+		emission_chance="100"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		emit_cosmetic_particles="1"
+		emit_only_if_there_is_space="0"
+		emit_real_particles="0"
+		emitted_material_name="spark_teal"
+		emitter_lifetime_frames="-1"
+		fade_based_on_lifetime="0"
+		fire_cells_dont_ignite_damagemodel="0"
+		friction="0"
+		gravity.y="0"
+		ignore_transform_updated_msg="0"
+		image_animation_colors_file=""
+		image_animation_emission_probability="1"
+		image_animation_file="mods/copis_things/files/particles/image_emitters/card_emitter.png"
+		image_animation_loop="1"
+		image_animation_phase="0"
+		image_animation_raytrace_from_center="0"
+		image_animation_speed="1"
+		image_animation_use_entity_rotation="1"
+		is_emitting="1"
+		is_trail="0"
+		lifetime_min="1" lifetime_max="1"
+		offset.x="-1"
+		offset.y="0"
+		particle_single_width="1"
+		render_back="1"
+		use_material_inventory="0"
+		velocity_always_away_from_center="0"
+		x_pos_offset_min="2" x_pos_offset_max="2"
+		y_pos_offset_min="-8" y_pos_offset_max="-8"
+	/>
+</Entity>

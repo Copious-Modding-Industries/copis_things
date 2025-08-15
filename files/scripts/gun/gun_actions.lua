@@ -6717,7 +6717,7 @@ local actions_to_insert = {
 			end
 			c.fire_rate_wait = c.fire_rate_wait - 2
 		end
-	},--[[
+	},
 	{
 		id                  = "COPITH_MALICIOUS_BOLT",
 		name                = "$actionname_malice_bolt",
@@ -6736,7 +6736,7 @@ local actions_to_insert = {
 			add_projectile("mods/copis_things/files/entities/projectiles/malicious_bolt.xml")
 			c.fire_rate_wait = c.fire_rate_wait + 12
 		end
-	},]]--[[
+	},--[[]]--[[
 	{
 		id                  = "COPITH_AREA_OF_EFFECT",
 		name                = "$actionname_area_of_effect",
@@ -6901,6 +6901,48 @@ local actions_to_insert = {
 			c.fire_rate_wait = c.fire_rate_wait + 12
 			c.extra_entities = c.extra_entities .. "mods/copis_things/files/entities/misc/hitfx_delayed_damage.xml,"
 			draw_actions(1, true)
+		end
+	},
+	{
+		id                = "COPITH_SHOCK_ABSORBER",
+		name              = "$actionname_shock_absorber",
+		description       = "$actiondesc_shock_absorber",
+		author            = "Copi",
+		mod               = "Copi's Things",
+		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/shock_absorber.png",
+		type              = ACTION_TYPE_PASSIVE,
+		spawn_level       = "1,2,3,4,5",
+		spawn_probability = "1,1.3,1,0.7,0.7",
+		price             = 280,
+		mana              = 0,
+		custom_xml_file   = "mods/copis_things/files/entities/misc/custom_cards/shock_absorber.xml",
+		action = function()
+			-- does nothing to the projectiles
+			draw_actions(1, true)
+		end
+	},]]
+	--[[
+	{
+		id                  = "COPITH_DIVINE_DAGGERS",
+		name                = "$actionname_divine_daggers",
+		description         = "$actiondesc_divine_daggers",
+		author              = "Copi",
+		mod                 = "Copi's Things",
+		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/divine_daggers.png",
+		related_projectiles = { "mods/copis_things/files/entities/projectiles/divine_daggers.xml" },
+		type                = ACTION_TYPE_PROJECTILE,
+		spawn_level         = "0,1,2",
+		spawn_probability   = "0.25,1.25,0.33",
+		inject_after        = {"COPITH_MALICIOUS_BOLT", "ARROW", "COPITH_NETTLES"},
+		price               = 120,
+		mana                = 18,
+		action = function()
+			for i=1, 5 do
+				add_projectile(table.concat{"mods/copis_things/files/entities/projectiles/divine_daggers_",-math.abs(i-3)+3,".xml"})
+			end
+			c.fire_rate_wait = c.fire_rate_wait + 12
+			current_reload_time = current_reload_time + 17
+			c.pattern_degrees = 5
 		end
 	},]]
 }

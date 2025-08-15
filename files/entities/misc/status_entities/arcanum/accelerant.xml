@@ -4,6 +4,10 @@
 	<LuaComponent
 		script_source_file="mods/copis_things/files/scripts/status/effects/arcanum/accelerant.lua"
 	/>
+	<LuaComponent
+		execute_every_n_frame="-1"
+		script_damage_received="mods/copis_things/files/scripts/status/effects/arcanum/accelerant_received.lua"
+	/>
 
     <!-- 
 	<SpriteComponent image_file="mods/copis_things/files/particles/aegis.png"
@@ -47,10 +51,71 @@
 		color.r="1"
 		color.g="1"
 		color.b="1"
-		color.a="1"
+		color.a="9"
 		color_change.r="0"
 		color_change.g="0"
 		color_change.b="0"
 		color_change.a="-500"
+	/>
+	
+	<SpriteParticleEmitterComponent
+		sprite_file="mods/copis_things/files/particles/accelerant_2.png"
+		emissive="1"
+		render_back="0"
+		sprite_centered="1"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		count_min="1"
+		count_max="1"
+		angular_velocity="1"
+		gravity.y="0"
+		scale.x="1.0"
+		scale.y="1.0"
+		randomize_lifetime.min="0.1"
+		randomize_lifetime.max="0.1"
+		scale_velocity.x="0"
+		scale_velocity.y="0"
+		randomize_velocity.min_x="0"
+		randomize_velocity.max_x="0"
+		randomize_velocity.min_y="0"
+		randomize_velocity.max_y="0"
+		randomize_position.min_x="0"
+		randomize_position.max_x="0"
+		randomize_position.min_y="0"
+		randomize_position.max_y="0"
+		velocity_slowdown="0"
+		randomize_rotation.min="0"
+		randomize_rotation.max="0"
+		color.r="1"
+		color.g="1"
+		color.b="1"
+		color.a="9"
+		color_change.r="0"
+		color_change.g="0"
+		color_change.b="0"
+		color_change.a="-500"
+	/>
+
+    <ParticleEmitterComponent
+		emitted_material_name="spark_teal"
+		gravity.y="0.0"
+		lifetime_min="0.1"
+		lifetime_max="0.5"
+		count_min="200"
+		count_max="200"
+		fade_based_on_lifetime="0"
+		area_circle_radius.min="64"
+		area_circle_radius.max="64"
+		cosmetic_force_create="0"
+		airflow_force="0.5"
+		airflow_time="0.1"
+		airflow_scale="0.5"
+		emission_interval_min_frames="1"
+		emission_interval_max_frames="1"
+		emit_cosmetic_particles="1"
+		is_emitting="1" 
+		custom_alpha="0.35"
+		render_on_grid="0"
+		draw_as_long="1"
 	/>
 </Entity>
