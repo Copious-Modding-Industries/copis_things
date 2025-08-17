@@ -1,4 +1,4 @@
 BUFFERTEXT,,,,,,,,,,,,,DOESN'T NEED TO BE TRANSLATED
-secret_meta_spell_main,"The fabric of magic unravels itself!",,,,,,,,,,,,
-secret_meta_spell_sub,"Your eyes have been opened to the inner fibres of magic.",,,,,,,,,,,,
-death_collapse,"Collapsed.",,,,,,,,,,,,
+secret_meta_spell_main,"The fabric of magic unravels itself!",,,,,,,,"魔法的源质自行瓦解了！",,,,
+secret_meta_spell_sub,"Your eyes have been opened to the inner fibres of magic.",,,,,,,,"你看见了魔法的内部构造。",,,,
+death_collapse,"Collapsed.",,,,,,,,"坍塌。",,,,
