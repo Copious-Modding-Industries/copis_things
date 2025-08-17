@@ -2942,8 +2942,10 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_MATERIAL_LAVA",
+		name              = "$action_material_lava",
 		author            = "Copi",
 		mod               = "Copi's Things",
+		description       = "$actiondesc_material_lava",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/material_lava.png",
 		type              = ACTION_TYPE_MATERIAL,
 		spawn_level       = "1,2,3,4,5",                                                            -- MATERIAL_WATER
