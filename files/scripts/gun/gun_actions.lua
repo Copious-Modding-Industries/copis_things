@@ -1541,7 +1541,7 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DECOY",
-		name                = "$actionname_decoy",
+		name                = "$action_decoy",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		description         = "$actiondesc_decoy",
@@ -1561,7 +1561,7 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DECOY_TRIGGER",
-		name                = "$actionname_decoy_trigger",
+		name                = "$action_decoy_trigger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		description         = "$actiondesc_decoy_trigger",
