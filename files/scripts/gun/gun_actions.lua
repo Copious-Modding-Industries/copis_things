@@ -1543,8 +1543,10 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DECOY",
+		name                = "$actionname_decoy",
 		author              = "Copi",
 		mod                 = "Copi's Things",
+		description         = "$actiondesc_decoy",
 		sprite              = "data/ui_gfx/gun_actions/decoy.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/decoy_unidentified.png",
 		type                = ACTION_TYPE_PROJECTILE,
@@ -1561,8 +1563,10 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DECOY_TRIGGER",
+		name                = "$actionname_decoy_trigger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
+		description         = "$actiondesc_decoy_trigger",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/decoy_death_trigger.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/decoy_trigger_unidentified.png",
 		type                = ACTION_TYPE_PROJECTILE,
