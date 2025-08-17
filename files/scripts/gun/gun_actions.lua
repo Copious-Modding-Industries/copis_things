@@ -30,10 +30,8 @@ local events = {
 local actions_to_insert = {
 	{
 		id                = "COPITH_PSYCHIC_SHOT",
-		name              = "$actionname_psychic_shot",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_psychic_shot",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/psychic_shot.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "2,3,4,5,6",
@@ -51,10 +49,8 @@ local actions_to_insert = {
 	-- LUNGE
 	{
 		id                = "COPITH_LUNGE",
-		name              = "$actionname_lunge",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_lunge",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/lunge.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "2,4",
@@ -101,10 +97,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_PROJECTION_CAST",
-		name              = "$actionname_projection_cast",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_projection_cast",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/projection_cast.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "6,10",
@@ -123,10 +117,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SLOW",
-		name              = "$actionname_slow",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_slow",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/slow.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,		2,		3,		4",
@@ -144,10 +136,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_CLAIRVOYANCE",
-		name              = "$actionname_clairvoyance",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_clairvoyance",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/clairvoyance.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1,2,3,4,5,6",
@@ -162,10 +152,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ANCHORED_SHOT",
-		name              = "$actionname_anchored_shot",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_anchored_shot",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/anchored_shot.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3",
@@ -188,10 +176,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_LEVITY_SHOT",
-		name              = "$actionname_levity_shot",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_levity_shot",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/levity_shot.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3",
@@ -207,10 +193,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SPREAD",
-		name              = "$actionname_spread",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_spread",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/spread.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -225,10 +209,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DART",
-		name                = "$actionname_dart",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_dart",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/dart.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/dart.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -244,10 +226,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_TEMPORARY_CIRCLE",
-		name                = "$actionname_temporary_circle",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_temporary_circle",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/temporary_circle.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/temporary_circle.xml" },
 		type                = ACTION_TYPE_UTILITY,
@@ -264,10 +244,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_LARPA_FORWARDS",
-		name                   = "$actionname_larpa_forwards",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_larpa_forwards",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/forwards_larpa.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/forwards_larpa.xml" },
 		type                   = ACTION_TYPE_MODIFIER,
@@ -286,10 +264,8 @@ local actions_to_insert = {
 
 	{
 		id                     = "COPITH_GUNNER_SHOT",
-		name                   = "$actionname_gunner_shot",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_gunner_shot",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot.xml" },
 		type                   = ACTION_TYPE_MODIFIER,
@@ -306,10 +282,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_GUNNER_SHOT_STRONG",
-		name                   = "$actionname_gunner_shot_strong",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_gunner_shot_strong",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/gunner_shot_strong.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/gunner_shot_strong.xml" },
 		type                   = ACTION_TYPE_MODIFIER,
@@ -326,10 +300,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SOIL_TRAIL",
-		name              = "$actionname_soil_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_soil_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/soil_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "2,3,4",
@@ -345,10 +317,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CONCRETEBALL",
-		name                = "$actionname_concreteball",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_concreteball",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_concrete.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/chunk_of_concrete.xml" },
 		type                = ACTION_TYPE_MATERIAL,
@@ -363,10 +333,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_EVISCERATOR_DISC",
-		name              = "$actionname_eviscerator_disc",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_eviscerator_disc",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/eviscerator.png",
 		inject_after      = {"ALL_SPELLS"},
 		type              = ACTION_TYPE_OTHER,
@@ -387,10 +355,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SUMMON_HAMIS",
-		name              = "$actionname_summon_hamis",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_summon_hamis",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_hamis.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -404,10 +370,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SILVER_BULLET",
-		name                = "$actionname_silver_bullet",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_silver_bullet",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_bullet.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -422,10 +386,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SILVER_MAGNUM",
-		name                = "$actionname_silver_magnum",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_silver_magnum",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_magnum.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -440,10 +402,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SILVER_BULLET_DEATH_TRIGGER",
-		name                = "$actionname_silver_bullet_death_trigger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_silver_bullet_death_trigger",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_death_trigger.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_bullet.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -458,10 +418,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SILVER_MAGNUM_DEATH_TRIGGER",
-		name                = "$actionname_silver_magnum_death_trigger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_silver_magnum_death_trigger",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/silver_magnum_death_trigger.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/silver_magnum.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -503,7 +461,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Unshuffle (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_gun_shuffle",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -585,7 +542,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Shuffle (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_gun_shuffle_bad",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_shuffle_bad.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -670,7 +626,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Spells per Cast (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_actions_per_round",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_actions_per_round.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -717,7 +672,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Spell speed multiplier (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_speed_multiplier",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_speed_multiplier.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -763,7 +717,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Wand capacity (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_gun_capacity",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_capacity.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -847,7 +800,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Cast Delay (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_fire_rate_wait",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_fire_rate_wait.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -918,7 +870,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Reload Time (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_reload_time",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_reload_time.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -989,7 +940,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Accuracy (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_spread_degrees",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_spread_degrees.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -1060,7 +1010,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Maximum mana (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_mana_max",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_max.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -1124,7 +1073,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Mana charge speed (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_mana_charge_speed",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_mana_charge_speed.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -1188,7 +1136,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Always Cast (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_gun_actions_permanent",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_action_permanent_actions.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -1262,7 +1209,6 @@ local actions_to_insert = {
 		name              = "Upgrade - Remove Always Cast (One-off)",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_upgrade_gun_actions_permanent_remove",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/upgrade_gun_action_permanent_actions_remove.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1,2,3,10",
@@ -1333,10 +1279,8 @@ local actions_to_insert = {
 	},]=]
 	{
 		id                  = "COPITH_DAMAGE_LIFETIME",
-		name                = "$actionname_damage_lifetime",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_damage_lifetime",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/damage_lifetime.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -1352,10 +1296,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_HITFX_CRITICAL_ELECTROCUTED",
-		name              = "$actionname_hitfx_critical_electrocuted",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_hitfx_critical_electrocuted",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/crit_on_electrocuted.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,3,4,5",
@@ -1371,10 +1313,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_HITFX_CRITICAL_FROZEN",
-		name              = "$actionname_hitfx_critical_frozen",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_hitfx_critical_frozen",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/crit_on_frozen.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,3,4,5",
@@ -1390,10 +1330,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_PASSIVE_MANA",
-		name              = "$actionname_passive_mana",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_passive_mana",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/passive_mana.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1,2,3,4,5,6",
@@ -1407,10 +1345,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_FREEZING_VAPOUR_TRAIL",
-		name              = "$actionname_freezing_vapour_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_freezing_vapour_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/freezing_vapour_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -1426,10 +1362,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_VOID_TRAIL",
-		name              = "$actionname_void_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_void_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/void_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -1445,10 +1379,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DAMAGE_CRITICAL",
-		name              = "$actionname_damage_critical",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_damage_critical",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/damage_critical.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -1465,10 +1397,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DIMIGE",
-		name              = "$actionname_dimige",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_dimige",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/dimige.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3",
@@ -1504,10 +1434,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_POWER_SHOT",
-		name              = "$actionname_power_shot",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_power_shot",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/power_shot.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -1522,10 +1450,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_LOVELY_TRAIL",
-		name              = "$actionname_lovely_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_lovely_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/lovely_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -1539,10 +1465,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_STARRY_TRAIL",
-		name              = "$actionname_starry_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_starry_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/starry_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -1556,10 +1480,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SPARKLING_TRAIL",
-		name              = "$actionname_sparkling_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_sparkling_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/sparkling_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -1573,10 +1495,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_NULL_TRAIL",
-		name              = "$actionname_null_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_null_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/null_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -1590,10 +1510,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ROOT_GROWER",
-		name              = "$actionname_root_grower",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_root_grower",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/root_grower.png",
 		type              = ACTION_TYPE_STATIC_PROJECTILE,
 		spawn_level       = "0,1,2,3,4,5",
@@ -1608,10 +1526,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ALT_FIRE_FLAMETHROWER",
-		name              = "$actionname_alt_fire_flamethrower",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_alt_fire_flamethrower",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_flamethrower.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1,2,3,4,5",
@@ -1627,7 +1543,7 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DECOY",
-		name                = "$action_decoy",
+		name                = "$actionname_decoy",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		description         = "$actiondesc_decoy",
@@ -1647,7 +1563,7 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DECOY_TRIGGER",
-		name                = "$action_decoy_trigger",
+		name                = "$actionname_decoy_trigger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		description         = "$actiondesc_decoy_trigger",
@@ -1713,10 +1629,8 @@ local actions_to_insert = {
 	},]]
 	{
 		id                     = "COPITH_CIRCLE_EDIT_WANDS_EVERYWHERE",
-		name                   = "$actionname_circle_edit_wands_everywhere",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_circle_edit_wands_everywhere",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/circle_edit_wands_everywhere.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/projectiles/circle_edit_wands_everywhere.xml" },
@@ -1734,10 +1648,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_MINI_SHIELD",
-		name                   = "$actionname_mini_shield",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_mini_shield",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/mini_shield.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/mini_shield.xml" },
@@ -1755,10 +1667,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_NGON_SHAPE",
-		name                = "Formation - N-gon",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_ngon_shape",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ngon_shape.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		type                = ACTION_TYPE_DRAW_MANY,
@@ -1775,10 +1685,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_STORED_SHOT",
-		name                = "$actionname_stored_shot",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_stored_shot",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/stored_shot.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		type                = ACTION_TYPE_STATIC_PROJECTILE,
@@ -1796,10 +1704,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_BARRIER_TRAIL",
-		name                   = "$actionname_barrier_trail",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_barrier_trail",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/barrier_trail.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/barrier_trail.xml" },
@@ -1815,10 +1721,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DEATH_RAY",
-		name                = "$actionname_death_ray",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_death_ray",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/death_ray.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/death_ray.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -1832,10 +1736,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_LIGHT_BULLET_DEATH_TRIGGER",
-		name                = "$actionname_light_bullet_death_trigger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_light_bullet_death_trigger",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_death_trigger.png",
 		related_projectiles = { "data/entities/projectiles/deck/light_bullet.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -1854,10 +1756,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_IF_ALT_FIRE",
-		name                = "Requirement - Alt Fire",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_if_alt_fire",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/if_alt_fire.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
 		spawn_requires_flag = "card_unlocked_maths",
@@ -1945,10 +1845,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_ZIPPING_ARC",
-		name                   = "$actionname_zipping_arc",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_zipping_arc",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/zipping_arc.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/sinewave_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/zipping_arc.xml" },
@@ -1966,10 +1864,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SLOW_BULLET_TIMER_N",
-		name                = "$actionname_slow_bullet_timer_n",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_slow_bullet_timer_n",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/slow_bullet_timer_n.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
 		related_projectiles = { "data/entities/projectiles/deck/bullet_slow.xml" },
@@ -2011,10 +1907,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_FALSE_SPELL",
-		name                = "$actionname_false_spell",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_false_spell",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/false_spell.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/false_spell.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -2030,10 +1924,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_AUTO_FRAME",
-		name              = "$actionname_auto_frame",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_auto_frame",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/auto_frame.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "3,4,5,6",
@@ -2047,10 +1939,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ICICLE_LANCE",
-		name                = "$actionname_icicle_lance",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_icicle_lance",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/icicle_lance.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/icicle_lance.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -2065,10 +1955,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_STATIC_TO_EXPLOSION",
-		name                   = "$actionname_static_to_explosion",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_static_to_explosion",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/static_to_explosion.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
 		related_extra_entities = {
@@ -2092,10 +1980,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_LIQUID_TO_SOIL",
-		name                   = "$actionname_liquid_to_soil",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_liquid_to_soil",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/liquid_to_soil.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
 		related_extra_entities = {
@@ -2119,10 +2005,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_POWDER_TO_WATER",
-		name                   = "$actionname_powder_to_water",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_powder_to_water",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/powder_to_water.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
 		related_extra_entities = {
@@ -2146,10 +2030,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_POWDER_TO_STEEL",
-		name                   = "$actionname_powder_to_steel",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_powder_to_steel",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/powder_to_steel.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/explosive_projectile_unidentified.png",
 		related_extra_entities = {
@@ -2173,10 +2055,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ZAP",
-		name                = "$actionname_zap",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_zap",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/zap.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/zap.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -2243,10 +2123,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_MATRA_MAGIC",
-		name                = "$actionname_matra_magic",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_matra_magic",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/matra_magic.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/matra_magic.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -2262,10 +2140,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_VOMERE",
-		name                = "$actionname_vomere",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_vomere",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/vomeremancy.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/vomere.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -2334,10 +2210,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CIRCLE_RANDOM",
-		name                = "$actionname_circle_random",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_circle_random",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/circle_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/circle_random.xml" },
@@ -2355,10 +2229,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CLOUD_RANDOM",
-		name                = "$actionname_cloud_random",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_cloud_random",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/cloud_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/cloud_random.xml" },
@@ -2376,10 +2248,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_TOUCH_RANDOM",
-		name                = "$actionname_touch_random",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_touch_random",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/touch_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/touch_random.xml" },
@@ -2396,10 +2266,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CHUNK_OF_RANDOM",
-		name                = "$actionname_chunk_of_random",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_chunk_of_random",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/chunk_of_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/chunk_of_random.xml" },
@@ -2415,10 +2283,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_MATERIAL_RANDOM",
-		name                = "$actionname_material_random",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_material_random",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/material_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/material_random.xml" },
@@ -2438,10 +2304,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SEA_RANDOM",
-		name                = "$actionname_sea_random",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_sea_random",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/sea_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/sea_random.xml" },
@@ -2459,10 +2323,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SUMMON_ANVIL",
-		name                = "$actionname_summon_anvil",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_summon_anvil",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/summon_anvil.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/anvil.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -2479,8 +2341,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ARCANE_TURRET",
-		name                = "$actionname_arcane_turret",
-		description         = "$actiondesc_arcane_turret",
 		author              = "Disco Witch",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/spell_turret.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
@@ -2525,10 +2385,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_RECURSIVE_LARPA",
-		name                = "$actionname_recursive_larpa",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_recursive_larpa",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/recursive_larpa.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
 		related_projectiles = {},
@@ -2557,8 +2415,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_LARPA_FIELD",
-		name                = "$actionname_larpa_field",
-		description         = "$actiondesc_larpa_field",
 		author              = "Disco Witch",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/larpa_lens.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
@@ -2577,7 +2433,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SHIELD_SAPPER",
-		name                = "$actionname_shield_sapper",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		description         = "Slowly sap nearby energy shields (including your own)",
@@ -2597,10 +2452,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_PAPER_SHOT",
-		name                = "$actionname_paper_shot",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_paper_shot",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/paper_shot.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/misc/paper_shot.xml" },
@@ -2617,10 +2470,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_FEATHER_SHOT",
-		name                = "$actionname_feather_shot",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_feather_shot",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/feather_shot.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/light_bullet_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/misc/feather_shot.xml" },
@@ -2638,10 +2489,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SCATTER_6",
-		name                = "$actionname_scatter_6",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_scatter_6",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/scatter_6.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/scatter_2_unidentified.png",
 		type                = ACTION_TYPE_DRAW_MANY,
@@ -2658,10 +2507,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SCATTER_8",
-		name                = "$actionname_scatter_8",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_scatter_8",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/scatter_8.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/scatter_2_unidentified.png",
 		type                = ACTION_TYPE_DRAW_MANY,
@@ -2678,10 +2525,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CLOUD_MAGIC_LIQUID_HP_REGENERATION",
-		name                = "$actionname_cloud_magic_liquid_hp_regeneration",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_cloud_magic_liquid_hp_regeneration",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/cloud_magic_liquid_hp_regeneration.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/cloud_water_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/cloud_magic_liquid_hp_regeneration.xml" },
@@ -2700,10 +2545,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CHAOS_SPRITES",
-		name                = "$actionname_chaos_sprites",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_chaos_sprites",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/chaos_sprites.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/chaos_sprites.xml", 5 },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -2721,10 +2564,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SHIELD_GHOST",
-		name                = "$actionname_shield_ghost",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_shield_ghost",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/shield_ghost.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/torch_unidentified.png",
 		type                = ACTION_TYPE_PASSIVE,
@@ -2740,10 +2581,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_VACUUM_CLAW",
-		name                = "$actionname_vacuum_claw",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_vacuum_claw",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/vacuum_claw.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/vacuum_claw.xml" },
@@ -2761,10 +2600,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CAUSTIC_CLAW",
-		name                = "$actionname_caustic_claw",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_caustic_claw",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/caustic_claw.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/caustic_claw.xml" },
@@ -2781,10 +2618,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_LUMINOUS_BLADE",
-		name                = "$actionname_luminous_blade",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_luminous_blade",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/luminous_blade.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/luminous_blade.xml" },
@@ -2802,10 +2637,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_INVERT",
-		name              = "$actionname_invert",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_invert",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/invert.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "2,3,4,5",
@@ -2821,10 +2654,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_TELEPORT_PROJECTILE_SHORT_TRIGGER_DEATH",
-		name                = "$actionname_teleport_projectile_short_trigger_death",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_teleport_projectile_short_trigger_death",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/teleport_projectile_short_trigger_death.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/teleport_projectile_unidentified.png",
 		related_projectiles = { "data/entities/projectiles/deck/teleport_projectile_short.xml" },
@@ -2843,10 +2674,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_DEATH_CROSS_TRAIL",
-		name                   = "$actionname_death_cross_trail",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_death_cross_trail",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/death_cross_trail.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/death_cross_trail.xml" },
@@ -2863,10 +2692,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_GLITTERING_TRAIL",
-		name                   = "$actionname_glittering_trail",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_glittering_trail",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/glittering_trail.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/glittering_trail.xml" },
@@ -2882,10 +2709,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_SILVER_BULLET_RAY",
-		name                   = "$actionname_silver_bullet_ray",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_silver_bullet_ray",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
 		type                   = ACTION_TYPE_MODIFIER,
@@ -2903,10 +2728,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_SILVER_BULLET_RAY_6",
-		name                   = "$actionname_silver_bullet_ray_6",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_silver_bullet_ray_6",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_6.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_ray.xml" },
 		type                   = ACTION_TYPE_MODIFIER,
@@ -2924,10 +2747,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_SILVER_BULLET_ON_DEATH",
-		name                   = "$actionname_silver_bullet_on_death",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_silver_bullet_on_death",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_on_death.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/silver_bullet_on_death.xml" },
 		type                   = ACTION_TYPE_MODIFIER,
@@ -2945,10 +2766,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_SILVER_BULLET_RAY_ENEMY",
-		name                   = "$actionname_silver_bullet_ray_enemy",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_silver_bullet_ray_enemy",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/silver_bullet_ray_enemy.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_silver_bullet_ray_enemy.xml" },
 		type                   = ACTION_TYPE_MODIFIER,
@@ -2967,10 +2786,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ICE_ORB",
-		name                = "$actionname_ice_orb",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_ice_orb",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ice_orb.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/chainsaw_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/ice_orb.xml" },
@@ -3002,10 +2819,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CHARM_FIELD",
-		name                = "$actionname_charm_field",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_charm_field",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/charm_field.png",
 		related_projectiles = { "data/entities/projectiles/deck/charm_field.xml" },
 		type                = ACTION_TYPE_STATIC_PROJECTILE,
@@ -3022,10 +2837,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_MANA_RANDOM",
-		name                = "$actionname_mana_random",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_mana_random",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/mana_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3056,10 +2869,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_HITFX_WET_2X_DAMAGE_FREEZE",
-		name                = "$actionname_hitfx_wet_2x_damage_freeze",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_hitfx_wet_2x_damage_freeze",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_wet_2x_damage_freeze.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3075,10 +2886,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_HITFX_BLOODY_2X_DAMAGE_POISONED",
-		name                = "$actionname_hitfx_bloody_2x_damage_poisoned",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_hitfx_bloody_2x_damage_poisoned",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_bloody_2x_damage_poisoned.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3094,10 +2903,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_HITFX_OILED_2X_DAMAGE_BURN",
-		name                = "$actionname_hitfx_oiled_2x_damage_burn",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_hitfx_oiled_2x_damage_burn",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_oiled_2x_damage_burn.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/burn_trail_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3113,10 +2920,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_BLINDNESS",
-		name              = "$actionname_blindness",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_blindness",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/blindness.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "3,5,6",
@@ -3159,10 +2964,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_MATERIAL_MAGIC_LIQUID_POLYMORPH",
-		name              = "$actionname_material_magic_liquid_polymorph",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_material_magic_liquid_polymorph",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/material_magic_liquid_polymorph.png",
 		type              = ACTION_TYPE_MATERIAL,
 		spawn_level       = "1,2,3,4,5",                                                                      -- MATERIAL_WATER
@@ -3181,10 +2984,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_OPHIUCHUS",
-		name              = "$actionname_ophiuchus",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_ophiuchus",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/ophiuchus.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -3204,10 +3005,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_NUGGET_SHOT",
-		name                = "$actionname_nugget_shot",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_nugget_shot",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/nugget_shot.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/nugget_shot.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -3230,10 +3029,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ASTRAL_VORTEX",
-		name                = "$actionname_astral_vortex",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_astral_vortex",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/astral_vortex.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/astral_beam.xml", 6 },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -3289,10 +3086,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_LASER_EMITTER_SMALL",
-		name                = "$actionname_laser_emitter_small",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_laser_emitter_small",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/laser_small.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/laser_unidentified.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/orb_laseremitter_small.xml" },
@@ -3310,10 +3105,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ACID",
-		name              = "$actionname_acid",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_acid",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/acid.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "2,3,4",
@@ -3328,10 +3121,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CEMENT",
-		name                = "$actionname_cement",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_cement",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/cement.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/unstable_gunpowder_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3349,10 +3140,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_LIFETIME_RANDOM",
-		name                = "$actionname_lifetime_random",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_lifetime_random",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/lifetime_random.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3369,10 +3158,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DELAY_2",
-		name              = "$actionname_delay_2",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_delay_2",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/delay_2.png",
 		type              = ACTION_TYPE_DRAW_MANY,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -3428,10 +3215,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DELAY_3",
-		name              = "$actionname_delay_3",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_delay_3",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/delay_3.png",
 		type              = ACTION_TYPE_DRAW_MANY,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -3497,10 +3282,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DELAY_X",
-		name              = "$actionname_delay_x",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_delay_x",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/delay_x.png",
 		type              = ACTION_TYPE_DRAW_MANY,
 		spawn_level       = "5,6,10",
@@ -3549,10 +3332,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_CHAOS_RAY",
-		name                   = "$actionname_chaos_ray",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_chaos_ray",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/chaos_ray.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/chaos_ray.xml" },
@@ -3570,10 +3351,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ORDER_DECK",
-		name              = "$actionname_order_deck",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_order_deck",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/order_deck.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "0,1,2,3,4",
@@ -3587,8 +3366,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_FORWARD_THINKING",
-		name              = "$actionname_forward_thinking",
-		description       = "$actiondesc_forward_thinking",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/forward_thinking.png",
@@ -3604,8 +3381,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_VOLATIC_IMPETUS",
-		name              = "$actionname_volatic_impetus",
-		description       = "$actiondesc_volatic_impetus",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/volatic_impetus.png",
@@ -3625,10 +3400,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_MANA_EFFICENCY",
-		name                = "$actionname_mana_efficency",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_mana_efficency",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/mana_efficiency.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3644,10 +3417,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ULT_DAMAGE",
-		name                = "$actionname_ult_damage",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_ult_damage",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ult_damage.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3665,10 +3436,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ULT_DRAW_MANY",
-		name                = "$actionname_ult_draw_many",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_ult_draw_many",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ult_draw_many.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/slow_bullet_timer_unidentified.png",
 		type                = ACTION_TYPE_DRAW_MANY,
@@ -3716,8 +3485,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SCRAWL",
-		name                = "$actionname_scrawl",
-		description         = "$actiondesc_scrawl",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/draw_scrawl.png",
@@ -3744,8 +3511,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CUTOUT",
-		name                = "$actionname_cutout",
-		description         = "$actiondesc_cutout",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/draw_cutout.png",
@@ -3768,10 +3533,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ULT_LIFETIME",
-		name                = "$actionname_ult_lifetime",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_ult_lifetime",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ult_lifetime.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3789,10 +3552,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ULT_CONTROL",
-		name                = "$actionname_ult_control",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_ult_control",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ult_control.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3812,10 +3573,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ULT_RECHARGE",
-		name                = "$actionname_ult_recharge",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_ult_recharge",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ult_recharge.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3841,10 +3600,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ULT_PROTECTION",
-		name                = "$actionname_ult_protection",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_ult_protection",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ult_protection.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -3863,10 +3620,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_BALLOON",
-		name                = "$actionname_balloon",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_balloon",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/balloon.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/balloon.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -3882,10 +3637,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_HOMING_SEEKER",
-		name              = "$actionname_homing_seeker",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_homing_seeker",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/homing_seeker.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -3903,10 +3656,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_PERSISTENT_SHOT",
-		name              = "$actionname_persistent_shot",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_persistent_shot",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/persistent_shot.png",
 		type              = ACTION_TYPE_DRAW_MANY,
 		spawn_level       = "0,1,2,3,4",
@@ -3920,10 +3671,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_HYPER_BOUNCE",
-		name              = "$actionname_hyper_bounce",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_hyper_bounce",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/hyper_bounce.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "2,3,4",
@@ -3942,10 +3691,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ULTRAKILL",
-		name              = "$actionname_ultrakill",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_ultrakill",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/ultrakill.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1,2,3,4,5",
@@ -3961,10 +3708,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_WOOD_BRUSH",
-		name              = "$actionname_wood_brush",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_wood_brush",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/wood_brush.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4",
@@ -3979,10 +3724,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_HOMING_ANTI_SHOOTER",
-		name                   = "$actionname_homing_anti_shooter",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_homing_anti_shooter",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/homing_anti_shooter.png",
 		related_extra_entities = {
 			"mods/copis_things/files/entities/misc/homing_anti_shooter.xml,data/entities/particles/tinyspark_white_weak.xml"
@@ -4003,10 +3746,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ALCOHOL_SHOT",
-		name              = "$actionname_alcohol_shot",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_alcohol_shot",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/inebriation.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5",
@@ -4020,10 +3761,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SPREAD_DAMAGE",
-		name              = "$actionname_spread_damage",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_spread_damage",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/spread_damage.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "2,3,4,5,6",
@@ -4041,10 +3780,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SUMMON_JAR_URINE",
-		name              = "$actionname_summon_jar_urine",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "Jar-based Karate",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/summon_jar_urine.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "2,3,4,5,6,10",
@@ -4060,10 +3797,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DAMAGE_BOUNCE",
-		name              = "$actionname_damage_bounce",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_damage_bounce",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/damage_bounce.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "2,3,4,5,6",
@@ -4087,10 +3822,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DIE",
-		name              = "$actionname_die",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_die",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/die.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "6,10",
@@ -4108,10 +3841,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ENERGY_SHIELD_DIRECTIONAL",
-		name                = "$actionname_energy_shield_directional",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_energy_shield_directional",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/energy_shield_directional.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/energy_shield_sector_unidentified.png",
 		type                = ACTION_TYPE_PASSIVE,
@@ -4128,10 +3859,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CLEANING_TOOL",
-		name                = "$actionname_cleaning_tool",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_cleaning_tool",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/cleaning_tool.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/energy_shield_sector_unidentified.png",
 		type                = ACTION_TYPE_PASSIVE,
@@ -4147,10 +3876,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_COIN",
-		name              = "$actionname_coin",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "Toss a coin in the air. Requires 10 gold. Maybe you can shoot it?",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/ricoinshot.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1, 2, 3, 4, 5, 6",
@@ -4175,10 +3902,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ALT_FIRE_COIN",
-		name              = "$actionname_alt_fire_coin",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "Toss a coin in the air when you alt fire. Requires 10 gold. Maybe you can shoot it?",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_ricoinshot.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1, 2, 3, 4, 5, 6",
@@ -4192,10 +3917,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_VERTICAL_ARC",
-		name                   = "$actionname_vertical_arc",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_vertical_arc",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/vertical_arc.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/sinewave_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/vertical_arc.xml" },
@@ -4214,10 +3937,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_ARC_CONCRETE",
-		name                   = "$actionname_arc_concrete",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "Creates arcs of concrete between projectiles. Make sure not to get stuck! (requires 2 projectile spells)",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/arc_concrete.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/arc_fire_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/arc_concrete.xml" },
@@ -4235,10 +3956,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_MANA_ENGINE",
-		name              = "$actionname_mana_engine",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_mana_engine",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/mana_engine.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4280,10 +3999,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_RECHARGE_ENGINE",
-		name              = "$actionname_recharge_engine",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_recharge_engine",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/recharge_engine.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4324,10 +4041,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DAMAGE_ENGINE",
-		name              = "$actionname_damage_engine",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_damage_engine",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/damage_engine.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4368,10 +4083,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SHIELD_ENGINE",
-		name              = "$actionname_shield_engine",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_shield_engine",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/shield_engine.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4408,10 +4121,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_RAINBOW_TRAIL",
-		name              = "$actionname_rainbow_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_rainbow_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/rainbow_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -4454,10 +4165,8 @@ local actions_to_insert = {
 	},]]
 	{
 		id                = "COPITH_CONFETTI_TRAIL",
-		name              = "$actionname_confetti_trail",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_confetti_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/confetti_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -4471,10 +4180,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SWORD_FORMATION",
-		name              = "$actionname_sword_formation",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_sword_formation",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/sword_formation.png",
 		type              = ACTION_TYPE_DRAW_MANY,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -4503,10 +4210,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_LINK_SHOT",
-		name              = "$actionname_link_shot",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_link_shot",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/link_shot.png",
 		type              = ACTION_TYPE_DRAW_MANY,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -4531,10 +4236,8 @@ local actions_to_insert = {
 	{
 		-- Todo optimize
 		id                = "COPITH_BARRIER_ARC",
-		name              = "$actionname_barrier_arc",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "Creates arcs of barriers between projectiles (requires 2 projectile spells)",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/barrier_arc.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "2,3,4,5,6",
@@ -4553,10 +4256,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_LIQUID_EATER",
-		name                = "$actionname_liquid_eater",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_liquid_eater",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/liquid_eater.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		type                = ACTION_TYPE_MODIFIER,
@@ -4572,10 +4273,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_BURST_FIRE",
-		name              = "$actionname_burst_fire",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_burst_fire",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/burst_fire.png",
 		type              = ACTION_TYPE_OTHER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -4643,10 +4342,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_TRANSMISSION_CAST",
-		name              = "$actionname_transmission_cast",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_transmission_cast",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/transmission_cast.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,4,5,6",
@@ -4661,10 +4358,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_CIRCLE_BOOST",
-		name                   = "$actionname_circle_boost",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_circle_boost",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/circle_boost.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/projectiles/circle_boost.xml" },
@@ -4681,8 +4376,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_TELEPORT",
-		name              = "$actionname_teleport",
-		description       = "$actiondesc_teleport",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/teleport.png",
@@ -4715,8 +4408,6 @@ local actions_to_insert = {
 	},
 	{	
 		id                = "COPITH_TELEPORT_BAD",
-		name              = "$actionname_teleport_bad",
-		description       = "$actiondesc_teleport_bad",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/teleport_bad.png",
@@ -4748,10 +4439,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_HOMING_BOUNCE",
-		name              = "$actionname_homing_bounce",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_homing_bounce",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/homing_bounce.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4774,10 +4463,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_HOMING_BOUNCE_CURSOR",
-		name              = "$actionname_homing_bounce_cursor",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_homing_bounce_cursor",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/homing_bounce_cursor.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4801,10 +4488,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_HOMING_INTERVAL",
-		name              = "$actionname_homing_interval",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_homing_interval",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/homing_interval.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4820,10 +4505,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_HOMING_MACROSS",
-		name              = "$actionname_homing_macross",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_homing_macross",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/homing_macross.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -4844,10 +4527,8 @@ local actions_to_insert = {
 			Inspiration: Azoth
 		]]
 		id                = "COPITH_POLYMORPH",
-		name              = "$actionname_polymorph",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_polymorph",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/polymorph.png",
 		type              = ACTION_TYPE_UTILITY,
 		spawn_level       = "1, 2, 3, 4, 5, 6",
@@ -4873,8 +4554,6 @@ local actions_to_insert = {
 			Particle: Evaisa
 		]]
 		id                = "COPITH_SUS_TRAIL",
-		name              = "$actionname_sus_trail",
-		description       = "$actiondesc_sus_trail",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/sus_trail.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "0,1,2,3,4,5,6",
@@ -4888,8 +4567,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_MUSIC_PLAYER",
-		name              = "$actionname_music_player",
-		description       = "$actiondesc_music_player",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/music_player.png",
@@ -4906,8 +4583,6 @@ local actions_to_insert = {
 	},--[[
 	{
 		id                    = "COPITH_SRS",
-		name             	  = "$actionname_SRS",
-		description      	  = "$actiondesc_SRS",
 		author                = "Copi",
 		mod                   = "Copi's Things",
 		sprite                = "mods/copis_things/files/ui_gfx/gun_actions/SRS.png",
@@ -4943,8 +4618,6 @@ local actions_to_insert = {
 	},]]
 	{
 		id                    = "COPITH_FLURRY",
-		name             	  = "$actionname_flurry",
-		description      	  = "$actiondesc_flurry",
 		author                = "Copi",
 		mod                   = "Copi's Things",
 		sprite                = "mods/copis_things/files/ui_gfx/gun_actions/flurry.png",
@@ -5019,8 +4692,6 @@ local actions_to_insert = {
 	},--[=[
 	{
 		id                    = "COPITH_FLURRY2",
-		name             	  = "$actionname_flurry2",
-		description      	  = "$actiondesc_flurry2",
 		author                = "Copi",
 		mod                   = "Copi's Things",
 		sprite                = "mods/copis_things/files/ui_gfx/gun_actions/flurry2.png",
@@ -5104,8 +4775,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_ABSORPTION_BLAST",
-		name                = "$actionname_absorption_blast",
-		description         = "$actiondesc_absorption_blast",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/grappling_hook.png",
@@ -5123,10 +4792,8 @@ local actions_to_insert = {
 	},]=]
 	{
 		id                  = "COPITH_GRAPPLING_HOOK",
-		name                = "$actionname_grappling_hook",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_grappling_hook",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/grappling_hook.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/grappling_hook.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -5146,10 +4813,8 @@ local actions_to_insert = {
 			Inspiration: Shattered Pixel Dungeon
 		]]
 		id                  = "COPITH_SPECTRAL_HOOK",
-		name                = "$actionname_spectral_hook",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_spectral_hook",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/spectral_hook.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/spectral_hook.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -5165,10 +4830,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_GRAPPLING_HOOK_SHOT",
-		name              = "$actionname_grappling_hook_shot",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_grappling_hook_shot",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/grappling_hook_shot.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3",
@@ -5186,10 +4849,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_CIRCLE_ANCHOR",
-		name                   = "$actionname_circle_anchor",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_circle_anchor",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/circle_anchor.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/projectiles/circle_anchor.xml" },
@@ -5229,10 +4890,8 @@ local actions_to_insert = {
 	},]]
 	{
 		id                     = "COPITH_GRAPPLING_HOOK_RAY_ENEMY",
-		name                   = "$actionname_grappling_hook_ray_enemy",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_grappling_hook_ray_enemy",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/grappling_hook_ray_enemy.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_grappling_hook_ray_enemy.xml" },
 		type                   = ACTION_TYPE_MODIFIER,
@@ -5251,10 +4910,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ALT_FIRE_GRAPPLING_HOOK",
-		name              = "$actionname_alt_fire_grappling_hook",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_alt_fire_grappling_hook",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_grappling_hook.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1,2,3,4,5",
@@ -5277,10 +4934,8 @@ local actions_to_insert = {
 			Inspiration: Chemical Curiosities (Chaotic Pandorium)
 		]]
 		id                     = "COPITH_TRUE_CHAOS_RAY",
-		name                   = "$actionname_true_chaos_ray",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_true_chaos_ray",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/true_chaos_ray.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/chaos_ray.xml" },
@@ -5325,10 +4980,8 @@ local actions_to_insert = {
 	},]]
 	{
 		id                     = "COPITH_HITFX_LARPA",
-		name                   = "$actionname_hitfx_larpa",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_hitfx_larpa",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/hitfx_larpa.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_larpa.xml" },
@@ -5417,10 +5070,8 @@ local actions_to_insert = {
 	},]]--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
 		id                = "COPITH_DUPLICATE_ACTION",
-		name              = "$actionname_duplicate_action",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_duplicate_action",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action.png",
 		type              = ACTION_TYPE_OTHER,
 		spawn_level       = "0,1,2,3,4,5,6,10",
@@ -5445,10 +5096,8 @@ local actions_to_insert = {
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
 		id                = "COPITH_SPINDOWN_SPELL",
-		name              = "$actionname_spindown_spell",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_spindown_spell",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/spindown_spell.png",
 		type              = ACTION_TYPE_OTHER,
 		spawn_level       = "0,1,2,3,4,5,6,10",
@@ -5489,10 +5138,8 @@ local actions_to_insert = {
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
 		id                = "COPITH_DUPLICATE_ACTION_2",
-		name              = "$actionname_duplicate_action_2",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_duplicate_action_2",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action_2.png",
 		type              = ACTION_TYPE_OTHER,
 		spawn_level       = "0,1,2,3,4,5,6,10",
@@ -5520,10 +5167,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_DUPLICATE_ACTION_3",
-		name              = "$actionname_duplicate_action_3",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_duplicate_action_3",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/duplicate_action_3.png",
 		type              = ACTION_TYPE_OTHER,
 		spawn_level       = "0,1,2,3,4,5,6,10",
@@ -5551,10 +5196,8 @@ local actions_to_insert = {
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
 		id                = "COPITH_IMPRINT",
-		name              = "$actionname_imprint",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_imprint",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/imprint.png",
 		type              = ACTION_TYPE_OTHER,
 		spawn_level       = "0,1,2,3,4,5,6,10",
@@ -5602,10 +5245,8 @@ local actions_to_insert = {
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
 		id                  = "COPITH_ACTION_INVERSION",
-		name                = "$actionname_action_inversion",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_action_inversion",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/action_inversion.png",
 		type                = ACTION_TYPE_OTHER,
 		spawn_level         = "0,1,2,3,4,5,6,10",
@@ -5707,10 +5348,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_BALANCE",
-		name              = "$actionname_balance",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_balance",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/balance.png",
 		type              = ACTION_TYPE_MODIFIER,
 		spawn_level       = "1,2,3,4,5,6",
@@ -5727,10 +5366,8 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ZENITH_DISC",
-		name              = "$actionname_zenith_disc",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "Summons a no-nonsense sawblade.",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/zenith_disc.png",
 		type              = ACTION_TYPE_PROJECTILE,
 		spawn_level       = "6,10",
@@ -5745,10 +5382,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_GILDED_AXE",
-		name                = "$actionname_gilded_axe",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_gilded_axe",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/gilded_axe.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/gilded_axe.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -5765,8 +5400,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_STARLIGHT_AXE",
-		name                = "$actionname_starlight_axe",
-		description         = "$actiondesc_starlight_axe",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/starlight_axe.png",
 		author              = "Copi",
 		mod                 = "Copi's Things",
@@ -5788,10 +5421,8 @@ local actions_to_insert = {
 	]]
 	{
 		id                = "COPITH_TRIGGER_DAMAGE_RECEIVED",
-		name              = "$actionname_trigger_damage_received",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_trigger_damage_received",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/trigger_damage_received.png",
 		type              = ACTION_TYPE_OTHER,
 		spawn_level       = "0,1,2,3,4,5",                                                            -- THIS IS IN URGENT NEED OF BALANCING.
@@ -5834,10 +5465,8 @@ local actions_to_insert = {
 	},--[[
 	{
 		id                = "COPITH_REVENGE_RECHARGE",
-		name              = "$actionname_revenge_recharge",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_revenge_recharge",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/revenge_recharge.png",
 		type              = ACTION_TYPE_PASSIVE,
 		spawn_level       = "1,2,3,4,5,6",                                                             -- URGENTLY NEEDS REBALANCING
@@ -5852,8 +5481,6 @@ local actions_to_insert = {
 	-- I'd make this reel enemies through portals, but that's too much effort for now
 	{
 		id                  = "COPITH_RIPHOOK",
-		name                = "$actionname_riphook",
-		description         = "$actiondesc_riphook",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/riphook.png",
@@ -5871,8 +5498,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ALT_FIRE_RIPHOOK",
-		name              = "$actionname_alt_fire_riphook",
-		description       = "$actiondesc_alt_fire_riphook",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_riphook.png",
@@ -5893,10 +5518,8 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_FIRESPHERE",
-		name                   = "$actionname_firesphere",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_firesphere",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/firesphere.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/freeze_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/projectiles/firesphere.xml" },
@@ -5915,8 +5538,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ALT_FIRE_BOMB",
-		name              = "$actionname_alt_fire_bomb",
-		description       = "$actiondesc_alt_fire_bomb",
 		author            = "Copi",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/alt_fire_bomb.png",
 		type              = ACTION_TYPE_PASSIVE,
@@ -5934,8 +5555,6 @@ local actions_to_insert = {
 	},--[[ THIS SPELL IS A MASSIVE FUCKING BUGGY MESS.]]
 	{
 		id                = "COPITH_LOOP_CAST",
-		name              = "$actionname_loop_cast",
-		description       = "$actiondesc_loop_cast",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/loop_cast.png",
@@ -5978,8 +5597,6 @@ local actions_to_insert = {
 	-- it sucks ass, actually
 	{
 		id                = "COPITH_FLIP_EVERY_OTHER",
-		name              = "$actionname_flip_every_other",
-		description       = "$actiondesc_flip_every_other",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/flip_every_other.png",
@@ -5996,10 +5613,8 @@ local actions_to_insert = {
 	},]]--[[ cant make this look right
 	{
 		id                  = "COPITH_CRIMSON_DAGGER",
-		name                = "$actionname_crimson_dagger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_crimson_dagger",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/crimson_dagger.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/crimson_dagger.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -6016,8 +5631,6 @@ local actions_to_insert = {
 	},]]
 	{
 		id                  = "COPITH_ICE_CUBE",
-		name                = "$actionname_ice_cube",
-		description         = "$actiondesc_ice_cube",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/ice_cube.png",
@@ -6035,8 +5648,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_MANA_DELTA",
-		name              = "$actionname_mana_delta",
-		description       = "$actiondesc_mana_delta",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/mana_delta.png",
@@ -6059,8 +5670,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_PAIN_RAY",
-		name                = "$actionname_pain_ray",
-		description         = "$actiondesc_pain_ray",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/pain_ray.png",
@@ -6080,8 +5689,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_HOLY_RAY",
-		name                = "$actionname_holy_ray",
-		description         = "$actiondesc_holy_ray",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/holy_ray.png",
@@ -6099,8 +5706,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_INFERNAL_STREAK",
-		name                = "$actionname_infernal_streak",
-		description         = "$actiondesc_infernal_streak",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/infernal_streak.png",
@@ -6122,8 +5727,6 @@ local actions_to_insert = {
 			Concept: Conga Lyne
 		]]
 		id                = "COPITH_AVERAGE_MANA",
-		name              = "$actionname_average_mana",
-		description       = "$actiondesc_average_mana",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/average_mana.png",
@@ -6139,8 +5742,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_AMMO_BOX",
-		name              = "$actionname_ammo_box",
-		description       = "$actiondesc_ammo_box",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/ammo_box.png",
@@ -6158,8 +5759,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_AMMO_FROM_HP",
-		name              = "$actionname_ammo_from_hp",
-		description       = "$actiondesc_ammo_from_hp",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/ammo_from_hp.png",
@@ -6175,8 +5774,6 @@ local actions_to_insert = {
 	},
 	--[[{
 		id                     = "COPITH_LARPA_BUT_GOOD",
-		name                   = "$actionname_larpa_but_good",
-		description            = "$actiondesc_larpa_but_good",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/larpa_but_good.png",
@@ -6197,8 +5794,6 @@ local actions_to_insert = {
 	},]]
 	{
 		id                = "COPITH_GATE_MANA",
-		name              = "$actionname_gate_mana",
-		description       = "$actiondesc_gate_mana",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/gate_mana.png",
@@ -6230,8 +5825,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_GATE_HP",
-		name              = "$actionname_gate_hp",
-		description       = "$actiondesc_gate_hp",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/gate_hp.png",
@@ -6269,10 +5862,8 @@ local actions_to_insert = {
 			Inspiration: Dungeons and Dragons 5e
 		]]
 		id                = "COPITH_GLYPH_OF_BULLSHIT",
-		name              = "$actionname_glyph_of_bullshit",
 		author            = "Copi",
 		mod               = "Copi's Things",
-		description       = "$actiondesc_glyph_of_bullshit",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/glyph_of_bullshit_t.png",
 		type              = ACTION_TYPE_OTHER,
 		spawn_level       = "0,1,2,3,4,5",                                                         -- THIS IS IN URGENT NEED OF BALANCING.
@@ -6307,8 +5898,6 @@ local actions_to_insert = {
 	},--[[ woe be upon ye
 	{
 		id                = "COPITH_SILENCER",
-		name              = "$actionname_silencer",
-		description       = "$actiondesc_silencer",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/silencer.png",
@@ -6328,8 +5917,6 @@ local actions_to_insert = {
 	--[[
 	{
 		id                  = "COPITH_LIGHT_BULLET_WITH_AMNESIA",
-		name                = "$actionname_light_bullet_with_amnesia",
-		description         = "$actiondesc_light_bullet_with_amnesia",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/light_bullet_with_amnesia.png",
@@ -6351,10 +5938,8 @@ local actions_to_insert = {
 			Inspiration: Risk of Rain 2
 		]]
 		id                     = "COPITH_ROR2COLLAPSE",
-		name                   = "$actionname_ror2collapse",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
-		description            = "$actiondesc_ror2collapse",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/ror2collapse.png",
 		sprite_unidentified    = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_collapse.xml" },
@@ -6372,8 +5957,6 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_REDIRECT_THIS",
-		name                   = "$actionname_redirect_this",
-		description            = "$actiondesc_redirect_this",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/redirect_this.png",
@@ -6392,8 +5975,6 @@ local actions_to_insert = {
 	},
 	{
 		id                     = "COPITH_REDIRECT_THIS_RARE",
-		name                   = "$actionname_redirect_this_rare",
-		description            = "$actiondesc_redirect_this_rare",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/redirect_this_rare.png",
@@ -6412,10 +5993,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_HYDROJET",
-		name                = "$actionname_hydrojet",
 		author              = "Copi",
 		mod                 = "Copi's Things",
-		description         = "$actiondesc_hydrojet",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/hydrojet.png",
 		related_projectiles = { "mods/copis_things/files/entities/projectiles/hydrojet.xml" },
 		type                = ACTION_TYPE_PROJECTILE,
@@ -6432,8 +6011,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_VILE_EYE",
-		name                = "$actionname_vile_eye",
-		description         = "$actiondesc_vile_eye",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/vile_eye.png",
@@ -6459,8 +6036,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_BOMB_SMALL",
-		name                = "$actionname_bomb_small",
-		description         = "$actiondesc_bomb_small",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/bomb_small.png",
@@ -6480,8 +6055,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_STUN_BOMBS",
-		name                = "$actionname_stun_bombs",
-		description         = "$actiondesc_stun_bombs",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/stun_bombs.png",
@@ -6502,8 +6075,6 @@ local actions_to_insert = {
 	-- ALMOST works. Either using a temp deck and it skips all spells after it (???) or it does an AC wand refresh haxx
 	--[[{
 		id 						= "COPITH_INVENTORY_WAND",
-		name 					= "$actionname_inventory_wand",
-		description 			= "$actiondesc_inventory_wand",
 		author 					= "Copi",
 		mod 					= "Copi's Things",
 		sprite 					= "mods/copis_things/files/ui_gfx/gun_actions/inventory_wand.png",
@@ -6555,8 +6126,6 @@ local actions_to_insert = {
 
 	{
 		id                  = "COPITH_ELECTRIC_TELEPORT",
-		name                = "$actionname_electric_teleport",
-		description         = "$actiondesc_electric_teleport",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/electric_teleport.png",
@@ -6573,8 +6142,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_CLOUD_DISC_BULLET",
-		name                = "$actionname_cloud_disc_bullet",
-		description         = "$actiondesc_cloud_disc_bullet",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/cloud_disc_bullet.png",
@@ -6592,8 +6159,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_POLY_PROPANE_TANK",
-		name                = "$actionname_poly_propane_tank",
-		description         = "$actiondesc_poly_propane_tank",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/poly_propane_tank.png",
@@ -6613,8 +6178,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_SLOTS_TO_SPEED",
-		name                = "$actionname_slots_to_speed",
-		description         = "$actiondesc_slots_to_speed",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/slots_to_speed.png",
@@ -6631,8 +6194,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_AERODISC",
-		name                = "$actionname_aerodisc",
-		description         = "$actiondesc_aerodisc",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/aerodisc.png",
@@ -6650,8 +6211,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_COWARD_BOLT_DEATH_TRIGGER",
-		name                = "$actionname_coward_bolt_death_trigger",
-		description         = "$actiondesc_coward_bolt_death_trigger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/coward_bolt_death_trigger.png",
@@ -6671,8 +6230,6 @@ local actions_to_insert = {
 	--[[
 	{
 		id                  = "COPITH_DAMAGE_BANE_ROBOT",
-		name                = "$actionname_damage_bane_robot",
-		description         = "$actiondesc_damage_bane_robot",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/damage_bane_robot.png",
@@ -6693,8 +6250,6 @@ local actions_to_insert = {
 	},]]
 	{
 		id                  = "COPITH_NETTLES",
-		name                = "$actionname_nettles",
-		description         = "$actiondesc_nettles",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/nettles.png",
@@ -6720,8 +6275,6 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_MALICIOUS_BOLT",
-		name                = "$actionname_malice_bolt",
-		description         = "$actiondesc_malice_bolt",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/malice_bolt.png",
@@ -6739,8 +6292,6 @@ local actions_to_insert = {
 	},--[[]]--[[
 	{
 		id                  = "COPITH_AREA_OF_EFFECT",
-		name                = "$actionname_area_of_effect",
-		description         = "$actiondesc_area_of_effect",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/nettles.png",
@@ -6757,8 +6308,6 @@ local actions_to_insert = {
 	},]]
 	{
 		id                     = "COPITH_COLD_HEARTED",
-		name                   = "$actionname_cold_hearted",
-		description            = "$actiondesc_cold_hearted",
 		author                 = "Copi",
 		mod                    = "Copi's Things",
 		sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/cold_hearted.png",
@@ -6775,8 +6324,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_ARCANUM_AEGIS",
-		name              = "$actionname_arcanum_aegis",
-		description       = "$actiondesc_arcanum_aegis",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_aegis.png",
 		author            = "Copi",
 		mod               = "Copi's Things",
@@ -6792,8 +6339,6 @@ local actions_to_insert = {
 	},--[[
 	{
 		id                = "COPITH_ARCANUM_ANATHEMA",
-		name              = "$actionname_arcanum_anathema",
-		description       = "$actiondesc_arcanum_anathema",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_anathema.png",
 		author            = "Copi",
 		mod               = "Copi's Things",
@@ -6810,8 +6355,6 @@ local actions_to_insert = {
 	},]]--[[
 	{
 		id                = "COPITH_ARCANUM_ACCELERANT",
-		name              = "$actionname_arcanum_accelerant",
-		description       = "$actiondesc_arcanum_accelerant",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_accelerant.png",
 		author            = "Copi",
 		mod               = "Copi's Things",
@@ -6827,8 +6370,6 @@ local actions_to_insert = {
 	},]]
 	{
 		id                = "COPITH_ARCANUM_AXIOM",
-		name              = "$actionname_arcanum_axiom",
-		description       = "$actiondesc_arcanum_axiom",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_axiom.png",
 		author            = "Copi",
 		mod               = "Copi's Things",
@@ -6844,8 +6385,6 @@ local actions_to_insert = {
 	},--[[
 	{
 		id                = "COPITH_ARCANUM_ARMAMENT",
-		name              = "$actionname_arcanum_armament",
-		description       = "$actiondesc_arcanum_armament",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/arcanum_armament.png",
 		author            = "Copi",
 		mod               = "Copi's Things",
@@ -6861,8 +6400,6 @@ local actions_to_insert = {
 	},]]--[[
 	{
 		id                  = "COPITH_HOLIEST_BOMB",
-		name                = "$actionname_holiest_bomb",
-		description         = "$actiondesc_holiest_bomb",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/holiest_bomb.png",
@@ -6884,10 +6421,8 @@ local actions_to_insert = {
 
 	--[[{
 		id = "COPITH_DELAYED_DAMAGE",
-		name = "$actionname_ror2collapse",
 		author = "Copi",
 		mod = "Copi's Things",
-		description = "$actiondesc_ror2collapse",
 		sprite = "mods/copis_things/files/ui_gfx/gun_actions/delayed_damage.png",
 		sprite_unidentified = "data/ui_gfx/gun_actions/electric_charge_unidentified.png",
 		related_extra_entities = { "mods/copis_things/files/entities/misc/hitfx_collapse.xml" },
@@ -6905,8 +6440,6 @@ local actions_to_insert = {
 	},
 	{
 		id                = "COPITH_SHOCK_ABSORBER",
-		name              = "$actionname_shock_absorber",
-		description       = "$actiondesc_shock_absorber",
 		author            = "Copi",
 		mod               = "Copi's Things",
 		sprite            = "mods/copis_things/files/ui_gfx/gun_actions/shock_absorber.png",
@@ -6924,8 +6457,6 @@ local actions_to_insert = {
 	--[[
 	{
 		id                  = "COPITH_DIVINE_DAGGERS",
-		name                = "$actionname_divine_daggers",
-		description         = "$actiondesc_divine_daggers",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/divine_daggers.png",
@@ -6946,6 +6477,11 @@ local actions_to_insert = {
 		end
 	},]]
 }
+
+for _, v in ipairs(actions_to_insert) do
+	if v.name == nil then v.name = "$actionname_" .. v.id:lower() end
+	if v.description == nil then v.description = "$actiondesc_" .. v.id:lower() end
+end
 
 if ModSettingGet("CopisThings.inject_spells") then
 	-- Based on Conga Lyne's implementation
