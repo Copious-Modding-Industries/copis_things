@@ -1755,7 +1755,7 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_NGON_SHAPE",
-		name                = "Formation - N-gon",
+		name                = "$actiondesc_ngon_shape",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		description         = "$actiondesc_ngon_shape",
@@ -6720,8 +6720,8 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_MALICIOUS_BOLT",
-		name                = "$actionname_malice_bolt",
-		description         = "$actiondesc_malice_bolt",
+		name                = "$actionname_malicious_bolt",
+		description         = "$actiondesc_malicious_bolt",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		sprite              = "mods/copis_things/files/ui_gfx/gun_actions/malice_bolt.png",
