@@ -434,10 +434,8 @@ local actions_to_insert = {
 	},
 	{
 		   id                     = "COPITH_SLOTS_TO_POWER",
-		   name                   = "$actionname_slots_to_power",
 		   author                 = "Copi",
 		   mod                    = "Copi's Things",
-		   description            = "$actiondesc_slots_to_power",
 		   sprite                 = "mods/copis_things/files/ui_gfx/gun_actions/slots_to_power.png",
 		   sprite_unidentified    = "data/ui_gfx/gun_actions/homing_unidentified.png",
 		   related_extra_entities = { "mods/copis_things/files/entities/misc/slots_to_power.xml" },
@@ -1543,7 +1541,7 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DECOY",
-		name                = "$actionname_decoy",
+		name                = "$action_decoy",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		description         = "$actiondesc_decoy",
@@ -1563,7 +1561,7 @@ local actions_to_insert = {
 	},
 	{
 		id                  = "COPITH_DECOY_TRIGGER",
-		name                = "$actionname_decoy_trigger",
+		name                = "$action_decoy_trigger",
 		author              = "Copi",
 		mod                 = "Copi's Things",
 		description         = "$actiondesc_decoy_trigger",
