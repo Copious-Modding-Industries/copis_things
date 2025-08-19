@@ -1,7 +1,7 @@
 actions[#actions+1] = { -- rare esoteric bullshit
 	id                  = "COPITH_RANDOM_PROJECTILE_REAL",
-	name                = "$actionname_random_projectile_real",
-	description         = "$actiondesc_random_projectile_real",
+	name                = "$actionname_copith_random_projectile_real",
+	description         = "$actiondesc_copith_random_projectile_real",
 	author              = "Copi",
 	mod                 = "Copi's Things",
 	sprite              = "mods/copis_things/files/ui_gfx/gun_actions/random_projectile_real.png",
