@@ -6270,7 +6270,7 @@ local actions_to_insert = {
 			end
 			c.fire_rate_wait = c.fire_rate_wait - 2
 		end
-	},
+	},--[[
 	{
 		id                  = "COPITH_MALICIOUS_BOLT",
 		author              = "Copi",
@@ -6287,7 +6287,7 @@ local actions_to_insert = {
 			add_projectile("mods/copis_things/files/entities/projectiles/malicious_bolt.xml")
 			c.fire_rate_wait = c.fire_rate_wait + 12
 		end
-	},--[[]]--[[
+	},]]--[[
 	{
 		id                  = "COPITH_AREA_OF_EFFECT",
 		author              = "Copi",
