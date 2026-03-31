@@ -75,7 +75,7 @@ if month == 4 and day == 1 then
         ui_name = "Game Rebalancer",
         ui_description = "If enabled, rebalances vanilla.",
         value_default = true,
-        scope = MOD_SETTING_SCOPE_NEW_GAME,
+        scope = MOD_SETTING_SCOPE_RUNTIME_RESTART,
         ui_fn = function(mod_id, gui, in_main_menu, im_id, setting)
             GuiLayoutBeginHorizontal(gui, 0, 0, false, 0, 0)
             GuiColorSetForNextWidget(gui, 1.0, 1.0, 1.0, 0.5)
